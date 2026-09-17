@@ -1,0 +1,16 @@
+[
+  {
+    "description" : "struct",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)((const|immutable|shared|static) )?struct +([a-z][a-z0-9_]*)",
+    "template" : "$1$2struct $4"
+  },
+  {
+    "description" : "class",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)((scope|final) )?class +([a-z][a-z0-9_]*)",
+    "template" : "$1$2class $4"
+  }
+]

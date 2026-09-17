@@ -1,0 +1,235 @@
+{
+  "comment" : {
+    "blocks" : [
+
+    ],
+    "inlines" : [
+      {
+        "begin" : "#"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : ":"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "\"\"\"",
+      "end" : "\"\"\"",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "'''",
+      "end" : "'''",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "\"",
+      "description" : "Prefixed string literal",
+      "end" : "\"",
+      "escapeCharacter" : "\\",
+      "prefixes" : [
+        "f",
+        "F",
+        "b",
+        "B",
+        "u",
+        "U",
+        "fb",
+        "fB",
+        "Fb",
+        "FB",
+        "bf",
+        "bF",
+        "Bf",
+        "BF"
+      ]
+    },
+    {
+      "begin" : "\"\"\"",
+      "description" : "Prefixed string literal",
+      "end" : "\"\"\"",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true,
+      "prefixes" : [
+        "f",
+        "F",
+        "b",
+        "B",
+        "u",
+        "U",
+        "fb",
+        "fB",
+        "Fb",
+        "FB",
+        "bf",
+        "bF",
+        "Bf",
+        "BF"
+      ]
+    },
+    {
+      "begin" : "'",
+      "description" : "Prefixed string literal",
+      "end" : "'",
+      "escapeCharacter" : "\\",
+      "prefixes" : [
+        "f",
+        "F",
+        "b",
+        "B",
+        "u",
+        "U",
+        "fb",
+        "fB",
+        "Fb",
+        "FB",
+        "bf",
+        "bF",
+        "Bf",
+        "BF"
+      ]
+    },
+    {
+      "begin" : "'''",
+      "description" : "Prefixed string literal",
+      "end" : "'''",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true,
+      "prefixes" : [
+        "f",
+        "F",
+        "b",
+        "B",
+        "u",
+        "U",
+        "fb",
+        "fB",
+        "Fb",
+        "FB",
+        "bf",
+        "bF",
+        "Bf",
+        "BF"
+      ]
+    },
+    {
+      "begin" : "\"",
+      "description" : "Raw string literal",
+      "end" : "\"",
+      "prefixes" : [
+        "r",
+        "R",
+        "rb",
+        "rB",
+        "Rb",
+        "RB",
+        "br",
+        "bR",
+        "Br",
+        "BR",
+        "rf",
+        "rF",
+        "Rf",
+        "RF",
+        "fr",
+        "fR",
+        "Fr",
+        "FR"
+      ]
+    },
+    {
+      "begin" : "\"\"\"",
+      "description" : "Raw string literal",
+      "end" : "\"\"\"",
+      "isMultiline" : true,
+      "prefixes" : [
+        "r",
+        "R",
+        "rb",
+        "rB",
+        "Rb",
+        "RB",
+        "br",
+        "bR",
+        "Br",
+        "BR",
+        "rf",
+        "rF",
+        "Rf",
+        "RF",
+        "fr",
+        "fR",
+        "Fr",
+        "FR"
+      ]
+    },
+    {
+      "begin" : "'",
+      "description" : "Raw string literal",
+      "end" : "'",
+      "prefixes" : [
+        "r",
+        "R",
+        "rb",
+        "rB",
+        "Rb",
+        "RB",
+        "br",
+        "bR",
+        "Br",
+        "BR",
+        "rf",
+        "rF",
+        "Rf",
+        "RF",
+        "fr",
+        "fR",
+        "Fr",
+        "FR"
+      ]
+    },
+    {
+      "begin" : "'''",
+      "description" : "Raw string literal",
+      "end" : "'''",
+      "isMultiline" : true,
+      "prefixes" : [
+        "r",
+        "R",
+        "rb",
+        "rB",
+        "Rb",
+        "RB",
+        "br",
+        "bR",
+        "Br",
+        "BR",
+        "rf",
+        "rF",
+        "Rf",
+        "RF",
+        "fr",
+        "fR",
+        "Fr",
+        "FR"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "description" : "macro",
+    "kind" : "function",
+    "pattern" : "([\\t ]*)\\(defmacro\\S+(\\S+)",
+    "template" : "$1macro: $2"
+  },
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "([\\t ]*)\\(defun\\S+(\\S+)",
+    "template" : "$1$2"
+  }
+]

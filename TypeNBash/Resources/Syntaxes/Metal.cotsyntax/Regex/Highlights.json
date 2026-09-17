@@ -1,0 +1,387 @@
+{
+  "attributes" : [
+    {
+      "begin" : "#define"
+    },
+    {
+      "begin" : "#elif"
+    },
+    {
+      "begin" : "#else"
+    },
+    {
+      "begin" : "#endif"
+    },
+    {
+      "begin" : "#error"
+    },
+    {
+      "begin" : "#if"
+    },
+    {
+      "begin" : "#ifdef"
+    },
+    {
+      "begin" : "#ifndef"
+    },
+    {
+      "begin" : "#include"
+    },
+    {
+      "begin" : "#line"
+    },
+    {
+      "begin" : "#pragma"
+    },
+    {
+      "begin" : "#undef"
+    },
+    {
+      "begin" : "#warning"
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "cross"
+    },
+    {
+      "begin" : "dot"
+    },
+    {
+      "begin" : "get_thread_position_in_grid"
+    },
+    {
+      "begin" : "get_thread_position_in_threadgroup"
+    },
+    {
+      "begin" : "get_threadgroup_position_in_grid"
+    },
+    {
+      "begin" : "length"
+    },
+    {
+      "begin" : "normalize"
+    },
+    {
+      "begin" : "read"
+    },
+    {
+      "begin" : "reflect"
+    },
+    {
+      "begin" : "sample"
+    },
+    {
+      "begin" : "write"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "aligna"
+    },
+    {
+      "begin" : "alignof"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "and_eq"
+    },
+    {
+      "begin" : "asm"
+    },
+    {
+      "begin" : "auto"
+    },
+    {
+      "begin" : "bitand"
+    },
+    {
+      "begin" : "bitor"
+    },
+    {
+      "begin" : "bool"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "char"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "compl"
+    },
+    {
+      "begin" : "compute"
+    },
+    {
+      "begin" : "const"
+    },
+    {
+      "begin" : "constant"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "decltype"
+    },
+    {
+      "begin" : "default"
+    },
+    {
+      "begin" : "device"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "enum"
+    },
+    {
+      "begin" : "explicit"
+    },
+    {
+      "begin" : "export"
+    },
+    {
+      "begin" : "extern"
+    },
+    {
+      "begin" : "float"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "fragment"
+    },
+    {
+      "begin" : "friend"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "inline"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "kernel"
+    },
+    {
+      "begin" : "long"
+    },
+    {
+      "begin" : "mutable"
+    },
+    {
+      "begin" : "namespace"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "not_eq"
+    },
+    {
+      "begin" : "nullptr"
+    },
+    {
+      "begin" : "operator"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "or_eq"
+    },
+    {
+      "begin" : "private"
+    },
+    {
+      "begin" : "protected"
+    },
+    {
+      "begin" : "public"
+    },
+    {
+      "begin" : "register"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "short"
+    },
+    {
+      "begin" : "signed"
+    },
+    {
+      "begin" : "sizeof"
+    },
+    {
+      "begin" : "static"
+    },
+    {
+      "begin" : "static_assert"
+    },
+    {
+      "begin" : "static_cast"
+    },
+    {
+      "begin" : "struct"
+    },
+    {
+      "begin" : "switch"
+    },
+    {
+      "begin" : "template"
+    },
+    {
+      "begin" : "this"
+    },
+    {
+      "begin" : "thread"
+    },
+    {
+      "begin" : "thread_local"
+    },
+    {
+      "begin" : "threadgroup"
+    },
+    {
+      "begin" : "throw"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "typedef"
+    },
+    {
+      "begin" : "typeid"
+    },
+    {
+      "begin" : "typename"
+    },
+    {
+      "begin" : "union"
+    },
+    {
+      "begin" : "unsigned"
+    },
+    {
+      "begin" : "using"
+    },
+    {
+      "begin" : "vertex"
+    },
+    {
+      "begin" : "volatile"
+    },
+    {
+      "begin" : "while"
+    },
+    {
+      "begin" : "xor"
+    },
+    {
+      "begin" : "xor_eq"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "0",
+      "description" : "zero"
+    },
+    {
+      "begin" : "\\b-?[1-9][0-9]*[ul]{0,3}\\b",
+      "description" : "integer",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b-?\\d+(\\.\\d+)?(e[-+]?\\d+)?[fl]?\\b",
+      "description" : "float",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0[1-7][0-7]*[ul]{0,3}\\b",
+      "description" : "octal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "bool"
+    },
+    {
+      "begin" : "char"
+    },
+    {
+      "begin" : "char16_t"
+    },
+    {
+      "begin" : "char32_t"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "float"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "long"
+    },
+    {
+      "begin" : "short"
+    },
+    {
+      "begin" : "signed"
+    },
+    {
+      "begin" : "unsigned"
+    },
+    {
+      "begin" : "void"
+    },
+    {
+      "begin" : "wchar_t"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "NULL"
+    },
+    {
+      "begin" : "true"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "keywords" : [
+    {
+      "begin" : "^[ \\t]*\\w[^=:\\r\\n]*(?=[=:])",
+      "regularExpression" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<![-0-9a-z$])-?[0-9.][0-9.]*(e-?[0-9.]+)?\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "^[ \\t]*\\[",
+      "end" : "\\]",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "(?<=[:=])\\s*false\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=[:=])\\s*no\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=[:=])\\s*none\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=[:=])\\s*off\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=[:=])\\s*on\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=[:=])\\s*true\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=[:=])\\s*yes\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ]
+}

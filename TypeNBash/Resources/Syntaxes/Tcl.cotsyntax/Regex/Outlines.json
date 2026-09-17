@@ -1,0 +1,32 @@
+[
+  {
+    "description" : "constructor/deconstructor",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)(constructor|destructor)",
+    "template" : "$1$2"
+  },
+  {
+    "description" : "method",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)method\\s+(\\w+)",
+    "template" : "$1$2"
+  },
+  {
+    "description" : "procedure",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)proc\\s+(\\S+)",
+    "template" : "$1$2"
+  },
+  {
+    "description" : "class",
+    "kind" : "container",
+    "pattern" : "class\\s+create\\s+(\\w+)",
+    "template" : "$1"
+  },
+  {
+    "description" : "package",
+    "kind" : "container",
+    "pattern" : "package\\s+provide\\s+(\\w+)",
+    "template" : "$1"
+  }
+]

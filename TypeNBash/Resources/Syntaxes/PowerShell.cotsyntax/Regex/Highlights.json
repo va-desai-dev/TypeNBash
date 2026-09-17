@@ -1,0 +1,7912 @@
+{
+  "attributes" : [
+    {
+      "begin" : "@(?:\\w|\\.)+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "@abstractmethod"
+    },
+    {
+      "begin" : "@classmethod"
+    },
+    {
+      "begin" : "@property"
+    },
+    {
+      "begin" : "@staticmethod"
+    }
+  ],
+  "characters" : [
+    {
+      "begin" : "`(?:[0abefnrtv`\"'$]|\\r?\\n)",
+      "description" : "Escape sequence / line continuation",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "`u\\{[0-9a-fA-F]{1,5}\\}",
+      "description" : "Unicode code point",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "Exit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Return",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SupportShouldProcess",
+      "ignoreCase" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "ac",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppPackageVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppProvisionedPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppProvisionedSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppvClientConnectionGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppvPublishingServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppxProvisionedPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-AppxVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-BCDataCacheExtension",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-BitLockerKeyProtector",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-BitsFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-CertificateEnrollmentPolicyServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-Computer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-Content",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-DnsClientDohServerAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-DnsClientNrptRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-DtcClusterTMMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-EtwTraceProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-History",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-InitiatorIdToMaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-JobTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-KdsRootKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-LocalGroupMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-Member",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-MpPreference",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetEventNetworkAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetEventPacketCaptureProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetEventProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetEventVFPProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetEventVmNetworkAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetEventVmSwitch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetEventVmSwitchProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetEventWFPCaptureProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetIPHttpsCertBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetLbfoTeamMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetLbfoTeamNic",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetNatExternalAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetNatStaticMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-NetSwitchTeamMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-OdbcDsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-PartitionAccessPath",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-PhysicalDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-Printer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-PrinterDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-PrinterPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-ProvisionedAppPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-ProvisionedAppSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-ProvisionedAppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-ProvisioningPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-PSSnapin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-SignerRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-StorageFaultDomain",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-TargetPortToMaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-TrustedProvisioningCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-Type",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-VirtualDiskToMaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-VMDirectVirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-VpnConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-VpnConnectionRoute",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-VpnConnectionTriggerApplication",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-VpnConnectionTriggerDnsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-VpnConnectionTriggerTrustedNetwork",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-WindowsCapability",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-WindowsDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add-WindowsPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "AfterAll",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "AfterEach",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "algm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Apply-WindowsUnattend",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "asnp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Assert-MockCalled",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Assert-VerifiableMocks",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Backup-BitLockerKeyProtector",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BackupToAAD-BitLockerKeyProtector",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BeforeAll",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BeforeEach",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "begin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Block-FileShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Block-SmbShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "blsmba",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "break",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "catch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cd..",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cd\\",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "chdir",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Checkpoint-Computer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "class",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "clc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "clear",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-AssignedAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-BCCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-BitLockerAutoUnlock",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-Content",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-Disk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-DnsClientCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-EventLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-FileStorageTier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-History",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-Host",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-ItemProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-KdsCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-PcsvDeviceLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-RecycleBin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-StorageBusDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-StorageDiagnosticInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-Tpm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-UevAppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-UevConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-Variable",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Clear-WindowsCorruptMountPoint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "clhy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cli",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Close-SmbOpenFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Close-SmbSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "clp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cls",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "clv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cnsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "compare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Compare-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Complete-BitsTransfer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Complete-DtcDiagnosticTransaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Complete-Transaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Compress-Archive",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Configuration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Confirm-SecureBootUEFI",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Connect-IscsiTarget",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Connect-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Connect-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Connect-WSMan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Context",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "continue",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Convert-Path",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Convert-String",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertFrom-CIPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertFrom-Csv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertFrom-Json",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertFrom-SddlString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertFrom-SecureString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertFrom-String",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertFrom-StringData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertTo-Csv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertTo-Html",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertTo-Json",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertTo-ProcessMitigationPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertTo-SecureString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertTo-TpmOwnerAuth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ConvertTo-Xml",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "copy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-BcdEntry",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-ItemProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-NetIPsecMainModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-NetIPsecMainModeRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-NetIPsecPhase1AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-NetIPsecPhase2AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-NetIPsecQuickModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy-UserInternationalSettingsToSystem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cpi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cpp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cssmbo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cssmbse",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "curl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cvpa",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "data",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "dbp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Debug-FileShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Debug-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Debug-MMAppPrelaunch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Debug-Process",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Debug-Runspace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Debug-StorageSubSystem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Debug-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "del",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Delete-DeliveryOptimizationCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Describe",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "diff",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "dir",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-AppBackgroundTaskDiagnosticLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-Appv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-AppvClientConnectionGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BC",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BcdElementBootDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BcdElementBootEms",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BcdElementDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BcdElementEms",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BcdElementEventLogging",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BcdElementHypervisorDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BCDowngrading",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BCServeOnBattery",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BitLocker",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-BitLockerAutoUnlock",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-ComputerRestore",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-DAManualEntryPointSelection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-DeliveryOptimizationVerboseLogs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-DscDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-JobTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-LocalUser",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-MMAgent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterChecksumOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterEncapsulatedPacketTaskOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterIPsecOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterLso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterPacketDirect",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterPowerManagement",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterQos",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterRdma",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterRsc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterRss",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterSriov",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterUso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetAdapterVmq",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetDnsTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetIPHttpsProfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetIPsecMainModeRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetNatTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetworkSwitchEthernetPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetworkSwitchFeature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-NetworkSwitchVlan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-OdbcPerfCounter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-PhysicalDiskIdentification",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-PhysicalDiskIndication",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-PnpDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-PSBreakpoint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-PSRemoting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-PSSessionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-PSTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-PSWSManCombinedTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-RunspaceDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-ScheduledJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-SmbDelegation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-StorageBusCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-StorageBusDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-StorageDataCollection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-StorageDiagnosticLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-StorageEnclosureIdentification",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-StorageEnclosurePower",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-StorageHighAvailability",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-StorageMaintenanceMode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-TlsCipherSuite",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-TlsEccCurve",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-TlsSessionTicketKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-TpmAutoProvisioning",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-Uev",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-UevAppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-UevTemplate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-WdacBidTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-WindowsErrorReporting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-WindowsOptionalFeature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-WSManCredSSP",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disable-WSManTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disconnect-IscsiTarget",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disconnect-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disconnect-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Disconnect-WSMan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Dismount-AppPackageVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Dismount-AppxVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Dismount-DiskImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Dismount-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "dlu",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "dnsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "do",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "dsmbd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "dynamicparam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ebp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "echo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Edit-CIPolicyRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "else",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "elseif",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "elu",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-AppBackgroundTaskDiagnosticLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-Appv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-AppvClientConnectionGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BcdElementBootDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BcdElementBootEms",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BcdElementDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BcdElementEms",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BcdElementEventLogging",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BcdElementHypervisorDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BCDistributed",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BCDowngrading",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BCHostedClient",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BCHostedServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BCLocal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BCServeOnBattery",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BitLocker",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-BitLockerAutoUnlock",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-ComputerRestore",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-DAManualEntryPointSelection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-DeliveryOptimizationVerboseLogs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-DscDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-JobTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-LocalUser",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-MMAgent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterChecksumOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterEncapsulatedPacketTaskOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterIPsecOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterLso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterPacketDirect",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterPowerManagement",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterQos",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterRdma",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterRsc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterRss",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterSriov",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterUso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetAdapterVmq",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetDnsTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetIPHttpsProfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetIPsecMainModeRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetNatTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetworkSwitchEthernetPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetworkSwitchFeature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-NetworkSwitchVlan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-OdbcPerfCounter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-PhysicalDiskIdentification",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-PhysicalDiskIndication",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-PnpDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-PSBreakpoint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-PSRemoting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-PSSessionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-PSTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-PSWSManCombinedTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-RunspaceDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-ScheduledJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-SmbDelegation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-StorageBusCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-StorageBusDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-StorageDataCollection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-StorageDiagnosticLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-StorageEnclosureIdentification",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-StorageEnclosurePower",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-StorageHighAvailability",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-StorageMaintenanceMode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-TlsCipherSuite",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-TlsEccCurve",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-TlsSessionTicketKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-TpmAutoProvisioning",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-Uev",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-UevAppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-UevTemplate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-WdacBidTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-WindowsErrorReporting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-WindowsOptionalFeature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-WSManCredSSP",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enable-WSManTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "end",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enter-PSHostProcess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Enter-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "enum",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "epal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "epcsv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "epsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "erase",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "esmbd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "etsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "exit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Exit-PSHostProcess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Exit-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Expand-Archive",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Expand-WindowsCustomDataImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Expand-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-Alias",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-BCCachePackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-BcdStore",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-BCSecretKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-BinaryMiLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-Certificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-Clixml",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-Console",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-Counter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-Csv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-FormatData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-ModuleMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-ODataEndpointProxy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-PfxCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-ProvisioningPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-StartLayout",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-StartLayoutEdgeAssets",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-TlsSessionTicketKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-Trace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-UevConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-UevPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-WindowsCapabilitySource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-WindowsDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Export-WinhttpProxy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "exsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "fc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "fhx",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "filter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "fimo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "finally",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-Command",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-DscResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-NetRoute",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-Package",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-PackageProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-RoleCapability",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Find-Script",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "fl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Flush-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Flush-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "for",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "foreach",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ForEach-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Format-Custom",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Format-Hex",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Format-List",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Format-SecureBootUEFI",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Format-Table",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Format-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Format-Wide",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ft",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Function",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "fw",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gbp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcai",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcfg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcfgs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gci",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcim",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcls",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcms",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gcs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gdr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Acl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Alias",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppBackgroundTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppLockerFileInformation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppLockerPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppPackageAutoUpdateSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppPackageDefaultVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppPackageLastError",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppPackageLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppPackageManifest",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppPackageVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppProvisionedPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppProvisionedSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppvClientApplication",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppvClientConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppvClientConnectionGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppvClientMode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppvPublishingServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppvStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppvVirtualProcess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppxDefaultVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppxLastError",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppxLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppxPackageAutoUpdateSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppxPackageManifest",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppxProvisionedPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AppxVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AssignedAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AuthenticodeSignature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-AutologgerConfig",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BCClientConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BCContentServerConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BCDataCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BCDataCacheExtension",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BcdEntry",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BcdEntryDebugSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BcdEntryHypervisorSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BcdStore",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BCHashCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BCHostedCacheServerConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BCNetworkConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BCStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BitLockerVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-BitsTransfer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Certificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CertificateAutoEnrollmentPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CertificateEnrollmentPolicyServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CertificateNotificationTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ChildItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CimAssociatedInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CimClass",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CimInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CimSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CIPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CIPolicyIdInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CIPolicyInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Clipboard",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ClusteredScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-CmsMessage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Command",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ComputerInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ComputerRestorePoint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Content",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ControlPanelItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Counter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Credential",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Culture",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DAClientExperienceConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DAConnectionStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DAEntryPointTableItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DAPolicyChange",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Date",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DedupProperties",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DeliveryOptimizationLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DeliveryOptimizationLogAnalysis",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DeliveryOptimizationPerfSnap",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DeliveryOptimizationPerfSnapThisMonth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DeliveryOptimizationStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Disk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DiskImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DiskSNV",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DiskStorageNodeView",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DnsClient",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DnsClientCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DnsClientDohServerAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DnsClientGlobalSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DnsClientNrptGlobal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DnsClientNrptPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DnsClientNrptRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DnsClientServerAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DOConfig",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DODownloadMode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DOPercentageMaxBackgroundBandwidth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DOPercentageMaxForegroundBandwidth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DscConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DscConfigurationStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DscLocalConfigurationManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DscResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Dtc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcAdvancedHostSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcAdvancedSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcClusterDefault",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcClusterTMMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcDefault",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcNetworkSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcTransaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcTransactionsStatistics",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcTransactionsTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-DtcTransactionsTraceSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-EtwTraceProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Event",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-EventLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-EventSubscriber",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ExecutionPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-FileHash",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-FileIntegrity",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-FileShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-FileShareAccessControlEntry",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-FileStorageTier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-FormatData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Help",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-History",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Host",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-HotFix",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-InitiatorId",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-InitiatorPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-InstalledLanguage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-InstalledModule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-InstalledScript",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-IscsiConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-IscsiSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-IscsiTarget",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-IscsiTargetPortal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-IseSnippet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ItemProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ItemPropertyValue",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-JobTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-KdsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-KdsRootKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Language",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-LocalGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-LocalGroupMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-LocalUser",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Location",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-LogProperties",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Member",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MMAgent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MockDynamicParameters",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MpComputerStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MpPerformanceReport",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MpPreference",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MpThreat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MpThreatCatalog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-MpThreatDetection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NCSIPolicyConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Net6to4Configuration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterAdvancedProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterChecksumOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterDataPathConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterEncapsulatedPacketTaskOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterHardwareInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterIPsecOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterLso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterPacketDirect",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterPowerManagement",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterQos",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterRdma",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterRsc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterRss",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterSriov",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterSriovVf",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterStatistics",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterUso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterVmq",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterVMQQueue",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetAdapterVPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetCompartment",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetConnectionProfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetDnsTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetDnsTransitionMonitoring",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventNetworkAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventPacketCaptureProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventVFPProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventVmNetworkAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventVmSwitch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventVmSwitchProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetEventWFPCaptureProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallAddressFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallApplicationFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallDynamicKeywordAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallInterfaceFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallInterfaceTypeFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallPortFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallProfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallSecurityFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallServiceFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetFirewallSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPHttpsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPHttpsState",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPInterface",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecDospSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecMainModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecMainModeRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecMainModeSA",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecPhase1AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecPhase2AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecQuickModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecQuickModeSA",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPv4Protocol",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIPv6Protocol",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetIsatapConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetLbfoTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetLbfoTeamMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetLbfoTeamNic",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetNat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetNatExternalAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetNatGlobal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetNatSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetNatStaticMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetNatTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetNatTransitionMonitoring",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetNeighbor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetOffloadGlobalSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetPrefixPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetQosPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetRoute",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetSwitchTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetSwitchTeamMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetTCPConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetTCPSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetTeredoConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetTeredoState",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetTransportFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetUDPEndpoint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetUDPSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetView",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetworkSwitchEthernetPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetworkSwitchFeature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetworkSwitchGlobalData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NetworkSwitchVlan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-NonRemovableAppsPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-OdbcDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-OdbcDsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-OdbcPerfCounter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-OffloadDataTransferSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-OperationValidation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Package",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PackageProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PackageSource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Partition",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PartitionSupportedSize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PcsvDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PcsvDeviceLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PfxCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PfxData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PhysicalDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PhysicalDiskSNV",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PhysicalDiskStorageNodeView",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PhysicalExtent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PhysicalExtentAssociation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PmemDedicatedMemory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PmemDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PmemPhysicalDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PmemUnusedRegion",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PnpDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PnpDeviceProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PreferredLanguage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PrintConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Printer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PrinterDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PrinterPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PrinterProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PrintJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Process",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ProcessMitigation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ProvisionedAppPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ProvisionedAppSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ProvisionedAppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ProvisioningPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSBreakpoint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSCallStack",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSDrive",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSHostProcessInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSReadLineKeyHandler",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSReadLineOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSRepository",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSSessionCapability",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSSessionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-PSSnapin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Random",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ResiliencySetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Runspace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-RunspaceDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ScheduledJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ScheduledJobOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-ScheduledTaskInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SecureBootPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SecureBootUEFI",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Service",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbBandwidthLimit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbClientConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbClientNetworkInterface",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbDelegation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbGlobalMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbMultichannelConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbMultichannelConstraint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbOpenFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbServerCertificateMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbServerCertProps",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbServerConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbServerNetworkInterface",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SmbWitnessClient",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StartApps",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageAdvancedProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageBusBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageBusCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageBusClientDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageBusDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageBusTargetCacheStore",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageBusTargetCacheStoresInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageBusTargetDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageBusTargetDeviceInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageChassis",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageDataCollection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageDiagnosticInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageEnclosure",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageEnclosureSNV",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageEnclosureStorageNodeView",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageEnclosureVendorData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageExtendedStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageFaultDomain",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageFileServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageFirmwareInformation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageHealthAction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageHealthReport",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageHealthSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageHistory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageNode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StoragePool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageRack",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageReliabilityCounter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageScaleUnit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageSite",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageSubSystem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageTier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-StorageTierSupportedSize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SupportedClusterSizes",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SupportedFileSystems",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SystemDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SystemLanguage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-SystemPreferredUILanguage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TargetPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TargetPortal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TestDriveItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TimeZone",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TlsCipherSuite",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TlsEccCurve",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Tpm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TpmEndorsementKeyInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TpmSupportedFeature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TraceSource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Transaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TroubleshootingPack",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TrustedProvisioningCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-TypeData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-UevAppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-UevConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-UevStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-UevTemplate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-UevTemplateProgram",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-UICulture",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Unique",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Variable",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Verb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-VirtualDiskSupportedSize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-VMDirectVirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-VolumeCorruptionCount",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-VolumeScrubPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-VpnConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-VpnConnectionTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WdacBidTrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WheaMemoryPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WIMBootEntry",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinAcceptLanguageFromLanguageListOptOut",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinCultureFromLanguageListOptOut",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinDefaultInputMethodOverride",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsCapability",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsDeveloperLicense",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsEdition",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsErrorReporting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsImageContent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsOptionalFeature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsReservedStorageState",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsSearchSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WindowsUpdateLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinEvent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinHomeLocation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinhttpProxy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinLanguageBarOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinSystemLocale",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinUILanguageOverride",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WinUserLanguageList",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WmiObject",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WSManCredSSP",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get-WSManInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ghy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gip",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gjb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "glcm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "glg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "glgm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "glu",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gmo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gps",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gpv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Grant-FileShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Grant-SmbShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "group",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Group-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "grsmba",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmba",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbcc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbcn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbgm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbmc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbsc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbscm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbscp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbse",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbt",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsmbw",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsnp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gsv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gtz",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gu",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gwmi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "h",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "help",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "hidden",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Hide-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "history",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "icim",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "icm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "iex",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "if",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ihy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ii",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-Alias",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-BCCachePackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-BcdStore",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-BCSecretKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-BinaryMiLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-Certificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-Clixml",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-Counter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-Csv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-IseSnippet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-LocalizedData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-PackageProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-PfxCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-PowerShellDataFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-StartLayout",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-TpmOwnerAuth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-UevConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Import-WinhttpProxy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ImportSystemModules",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "in",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "In",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Initialize-Disk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Initialize-PmemPhysicalDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Initialize-Tpm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Initialize-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "inlinescript",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "inmo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InModuleScope",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Install-Dtc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Install-Language",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Install-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Install-Package",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Install-PackageProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Install-ProvisioningPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Install-Script",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Install-TrustedProvisioningCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-AsWorkflow",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-CimMethod",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-Command",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-CommandInDesktopPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-DscResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-Expression",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-History",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-Mock",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-OperationValidation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-Pester",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-RestMethod",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-TroubleshootingPack",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-WebRequest",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-WmiMethod",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Invoke-WSManAction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ipal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ipcsv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ipmo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ipsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "irm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ise",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "It",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "iwmi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "iwr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Join-DtcDiagnosticResourceManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Join-Path",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "kill",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Limit-EventLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Lock-BitLocker",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "lp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ls",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "man",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "md",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "measure",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Measure-Command",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Measure-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Merge-CIPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mkdir",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Mock",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "more",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mount",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Mount-AppPackageVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Mount-AppvClientConnectionGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Mount-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Mount-AppxVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Mount-DiskImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Mount-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "move",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Move-AppPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Move-AppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Move-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Move-ItemProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Move-SmbClient",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Move-SmbWitnessClient",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "msmbw",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ncim",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ncms",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ncso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ndr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Alias",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-AppLockerPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-AutologgerConfig",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-BcdEntry",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-BcdStore",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-CertificateNotificationTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-CimInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-CimSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-CimSessionOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-CIPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-CIPolicyRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-DAEntryPointTableItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-DscChecksum",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-DtcDiagnosticTransaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-EapConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Event",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-EventLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-FileCatalog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-FileShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Fixture",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Guid",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-IscsiTargetPortal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-IseSnippet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ItemProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-JobTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-LocalGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-LocalUser",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-MaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ModuleManifest",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-MpPerformanceRecording",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetAdapterAdvancedProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetEventSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetFirewallDynamicKeywordAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPHttpsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecAuthProposal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecDospSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecMainModeCryptoProposal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecMainModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecMainModeRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecPhase1AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecPhase2AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecQuickModeCryptoProposal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecQuickModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetLbfoTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetNat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetNatTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetNeighbor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetQosPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetRoute",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetSwitchTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetTransportFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-NetworkSwitchVlan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Partition",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PesterOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PmemDedicatedMemory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PmemDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ProvisioningRepro",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PSDrive",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PSRoleCapabilityFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PSSessionConfigurationFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PSSessionOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PSTransportOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PSWorkflowExecutionOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-PSWorkflowSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ScheduledJobOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ScheduledTaskAction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ScheduledTaskPrincipal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ScheduledTaskSettingsSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ScheduledTaskTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-ScriptFileInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-SelfSignedCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Service",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-SmbGlobalMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-SmbMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-SmbMultichannelConstraint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-SmbServerCertificateMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-SmbShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-StorageBusBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-StorageBusCacheStore",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-StorageFileServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-StoragePool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-StorageSubsystemVirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-StorageTier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-TemporaryFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-TimeSpan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-TlsSessionTicketKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Variable",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-VirtualDiskClone",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-VirtualDiskSnapshot",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-VpnServerAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-WebServiceProxy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-WindowsCustomImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-WinEvent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-WinUserLanguageList",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-WSManInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New-WSManSessionOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ni",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nlg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nlu",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nmo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "npssc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nsmbgm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nsmbm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nsmbs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nsmbscm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nsmbt",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nwsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ogv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "oh",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Open-NetGPO",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Optimize-AppProvisionedPackages",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Optimize-AppxProvisionedPackages",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Optimize-ProvisionedAppPackages",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Optimize-ProvisionedAppxPackages",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Optimize-StoragePool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Optimize-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Optimize-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "oss",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Out-Default",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Out-File",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Out-GridView",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Out-Host",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Out-Null",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Out-Printer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Out-String",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "parallel",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "param",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Pause",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "pbcfg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Pop-Location",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "popd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "process",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "prompt",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Protect-CmsMessage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ps",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "PSConsoleHostReadLine",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Publish-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Publish-BCFileContent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Publish-BCWebContent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Publish-DscConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Publish-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Publish-Script",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "pumo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Push-Location",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "pushd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "pwd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "r",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rbp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rcie",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rcim",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rcjb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rcms",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rcsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rdr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Read-Host",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Read-PrinterNfcTag",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Receive-DtcDiagnosticTransaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Receive-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Receive-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-ArgumentCompleter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-CimIndicationEvent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-ClusteredScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-DnsClient",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-EngineEvent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-IscsiSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-ObjectEvent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-PackageSource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-PSRepository",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-PSSessionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-ScheduledJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-StorageSubsystem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-UevTemplate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Register-WmiEvent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppPackageAutoUpdateSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppPackageVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppProvisionedPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppProvisionedSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppvClientConnectionGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppvPublishingServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppxPackageAutoUpdateSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppxProvisionedPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AppxVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-AutologgerConfig",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-BCDataCacheExtension",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-BcdElement",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-BcdEntry",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-BitLockerKeyProtector",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-BitsTransfer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-CertificateEnrollmentPolicyServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-CertificateNotificationTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-CimInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-CimSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-CIPolicyRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-Computer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-DAEntryPointTableItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-DnsClientDohServerAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-DnsClientNrptRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-DscConfigurationDocument",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-DtcClusterTMMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-EtwTraceProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-Event",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-EventLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-FileShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-InitiatorId",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-InitiatorIdFromMaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-IscsiTargetPortal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-ItemProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-JobTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-LocalGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-LocalGroupMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-LocalUser",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-MaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-MpPreference",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-MpThreat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetAdapterAdvancedProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventNetworkAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventPacketCaptureProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventVFPProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventVmNetworkAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventVmSwitch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventVmSwitchProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetEventWFPCaptureProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetFirewallDynamicKeywordAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPHttpsCertBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPHttpsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecDospSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecMainModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecMainModeRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecMainModeSA",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecPhase1AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecPhase2AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecQuickModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecQuickModeSA",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetLbfoTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetLbfoTeamMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetLbfoTeamNic",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetNat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetNatExternalAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetNatStaticMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetNatTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetNeighbor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetQosPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetRoute",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetSwitchTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetSwitchTeamMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetTransportFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetworkSwitchEthernetPortIPAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-NetworkSwitchVlan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-OdbcDsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-Partition",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PartitionAccessPath",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PhysicalDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PmemDedicatedMemory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PmemDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-Printer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PrinterDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PrinterPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PrintJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-ProvisionedAppPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-ProvisionedAppSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-ProvisionedAppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-ProvisioningPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PSBreakpoint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PSDrive",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PSReadLineKeyHandler",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PSSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-PSSnapin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-SmbBandwidthLimit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-SmbComponent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-SmbGlobalMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-SmbMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-SmbMultichannelConstraint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-SmbServerCertificateMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-SmbShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-StorageBusBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-StorageFaultDomain",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-StorageFileServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-StorageHealthIntent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-StorageHealthSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-StoragePool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-StorageTier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-TargetPortFromMaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-TrustedProvisioningCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-TypeData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-Variable",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-VirtualDiskFromMaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-VMDirectVirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-VpnConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-VpnConnectionRoute",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-VpnConnectionTriggerApplication",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-VpnConnectionTriggerDnsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-VpnConnectionTriggerTrustedNetwork",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-WindowsCapability",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-WindowsDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-WindowsPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-WmiObject",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Remove-WSManInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ren",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-Computer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-DAEntryPointTableItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-ItemProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-LocalGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-LocalUser",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-MaskingSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetIPHttpsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetIPsecMainModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetIPsecMainModeRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetIPsecPhase1AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetIPsecPhase2AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetIPsecQuickModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetLbfoTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-NetSwitchTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename-Printer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Repair-AppvClientConnectionGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Repair-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Repair-FileIntegrity",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Repair-UevTemplateIndex",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Repair-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Repair-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Repair-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-AppPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-AppSharedPackageContainer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-AppxPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-BC",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-ComputerMachinePassword",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-DAClientExperienceConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-DAEntryPointTableItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-DtcLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-NCSIPolicyConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-Net6to4Configuration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-NetAdapterAdvancedProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-NetDnsTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-NetIPHttpsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-NetIsatapConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-NetTeredoConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-PhysicalDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-SmbClientConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-SmbServerConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-StorageReliabilityCounter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset-WinhttpProxy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resize-Partition",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resize-StorageTier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resize-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resolve-DnsName",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resolve-Path",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restart-Computer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restart-NetAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restart-PcsvDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restart-PrintJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restart-Service",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restore-Computer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restore-DscConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restore-NetworkSwitchConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restore-UevBackup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Restore-UevUserSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resume-BitLocker",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resume-BitsTransfer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resume-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resume-PrintJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resume-ProvisioningSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resume-Service",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Resume-StorageBusDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "return",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Revoke-FileShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Revoke-SmbShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ri",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rjb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rksmba",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rlg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rlgm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rlu",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rmdir",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rmo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rni",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rnlg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rnlu",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rnp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbcc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbgm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbsc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbscm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsmbt",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rsnp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rtcfg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rujb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rvpa",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rwmi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sacfg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SafeGetCommand",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sajb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "saps",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sasv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-Help",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-NetGPO",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-NetworkSwitchConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-Package",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-Script",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-StorageDataCollection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Save-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sbp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "scb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "scim",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "select",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Select-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Select-String",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Select-Xml",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Send-AppvClientReport",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Send-DtcDiagnosticTransaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Send-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Send-MailMessage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sequence",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "set",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Acl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Alias",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppBackgroundTaskResourcePolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppLockerPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppPackageAutoUpdateSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppPackageDefaultVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppPackageProvisionedDataFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppvClientConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppvClientMode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppvPublishingServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppxDefaultVolume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppxPackageAutoUpdateSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AppXProvisionedDataFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AssignedAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AuthenticodeSignature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-AutologgerConfig",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BCAuthentication",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BCCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BCDataCacheEntryMaxAge",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BcdBootDefault",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BcdBootDisplayOrder",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BcdBootSequence",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BcdBootTimeout",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BcdBootToolsDisplayOrder",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BcdDebugSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BcdElement",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BcdHypervisorSettings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BCMinSMBLatency",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BCSecretKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-BitsTransfer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-CertificateAutoEnrollmentPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-CimInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-CIPolicyIdInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-CIPolicySetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-CIPolicyVersion",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Clipboard",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ClusteredScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Content",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Culture",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DAClientExperienceConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DAEntryPointTableItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Date",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DeliveryOptimizationStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Disk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DnsClient",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DnsClientDohServerAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DnsClientGlobalSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DnsClientNrptGlobal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DnsClientNrptRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DnsClientServerAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DODownloadMode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DOMaxBackgroundBandwidth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DOMaxForegroundBandwidth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DOPercentageMaxBackgroundBandwidth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DOPercentageMaxForegroundBandwidth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DscLocalConfigurationManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcAdvancedHostSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcAdvancedSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcClusterDefault",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcClusterTMMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcDefault",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcNetworkSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcTransaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcTransactionsTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DtcTransactionsTraceSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-DynamicParameterVariables",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-EtwTraceProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ExecutionPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-FileIntegrity",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-FileShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-FileStorageTier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-HVCIOptions",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-InitiatorPort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-IscsiChapSecret",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Item",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ItemProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-JobTrigger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-KdsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-LocalGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-LocalUser",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Location",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-LogProperties",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-MMAgent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-MpPreference",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NCSIPolicyConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Net6to4Configuration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterAdvancedProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterBinding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterChecksumOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterDataPathConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterEncapsulatedPacketTaskOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterIPsecOffload",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterLso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterPacketDirect",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterPowerManagement",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterQos",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterRdma",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterRsc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterRss",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterSriov",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterUso",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetAdapterVmq",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetConnectionProfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetDnsTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetEventPacketCaptureProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetEventProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetEventSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetEventVFPProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetEventVmSwitchProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetEventWFPCaptureProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallAddressFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallApplicationFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallInterfaceFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallInterfaceTypeFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallPortFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallProfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallSecurityFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallServiceFilter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetFirewallSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPHttpsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPInterface",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPsecDospSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPsecMainModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPsecMainModeRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPsecPhase1AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPsecPhase2AuthSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPsecQuickModeCryptoSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPv4Protocol",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIPv6Protocol",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetIsatapConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetLbfoTeam",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetLbfoTeamMember",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetLbfoTeamNic",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetNat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetNatGlobal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetNatTransitionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetNeighbor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetOffloadGlobalSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetQosPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetRoute",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetTCPSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetTeredoConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetUDPSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetworkSwitchEthernetPortIPAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetworkSwitchPortMode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetworkSwitchPortProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NetworkSwitchVlanProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-NonRemovableAppsPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-OdbcDriver",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-OdbcDsn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PackageSource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Partition",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PcsvDeviceBootConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PcsvDeviceNetworkConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PcsvDeviceUserPassword",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PhysicalDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PreferredLanguage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PrintConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Printer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PrinterProperty",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ProcessMitigation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ProvisionedAppPackageDataFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ProvisionedAppXDataFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PSBreakpoint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PSDebug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PSReadLineKeyHandler",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PSReadLineOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PSRepository",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-PSSessionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ResiliencySetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-RuleOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ScheduledJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ScheduledJobOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SecureBootUEFI",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Service",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SmbBandwidthLimit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SmbClientConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SmbPathAcl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SmbServerCertificateMapping",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SmbServerConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SmbShare",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StorageBusCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StorageBusProfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StorageFileServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StorageHealthSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StoragePool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StorageProvider",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StorageSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StorageSubSystem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StorageTier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-StrictMode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SystemLanguage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-SystemPreferredUILanguage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-TestInconclusive",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-TimeZone",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-TpmOwnerAuth",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-TraceSource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-UevConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-UevTemplateProfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Variable",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-Volume",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-VolumeScrubPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-VpnConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-VpnConnectionIPsecConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-VpnConnectionProxy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-VpnConnectionTriggerDnsConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-VpnConnectionTriggerTrustedNetwork",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WheaMemoryPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinAcceptLanguageFromLanguageListOptOut",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinCultureFromLanguageListOptOut",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinDefaultInputMethodOverride",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WindowsEdition",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WindowsProductKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WindowsReservedStorageState",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WindowsSearchSetting",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinHomeLocation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinhttpProxy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinLanguageBarOption",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinSystemLocale",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinUILanguageOverride",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WinUserLanguageList",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WmiInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WSManInstance",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Set-WSManQuickConfig",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Setup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "shcm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Should",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Show-Command",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Show-ControlPanelItem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Show-EventLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Show-NetFirewallRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Show-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Show-StorageHistory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Show-VirtualDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Show-WindowsDeveloperLicenseRegistration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "si",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "slcm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sleep",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "slg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sls",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "slu",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sort",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Sort-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "spjb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Split-Path",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Split-WindowsImage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "spps",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "spsv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ssmbb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ssmbcc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ssmbp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ssmbs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ssmbsc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ssmbscm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "start",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-AppBackgroundTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-AppvVirtualProcess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-AutologgerConfig",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-BitsTransfer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-DscConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-Dtc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-DtcDiagnosticResourceManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-DtcTransactionsTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-MpRollback",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-MpScan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-MpWDOScan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-NetEventSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-OSUninstall",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-PcsvDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-Process",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-Service",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-Sleep",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-StorageDiagnosticLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-Trace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-Transaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Start-Transcript",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "static",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-AppvClientConnectionGroup",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-Computer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-DscConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-Dtc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-DtcDiagnosticResourceManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-DtcTransactionsTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-NetEventSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-PcsvDevice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-Process",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-Service",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-StorageDiagnosticLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-StorageJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-Trace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Stop-Transcript",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "stz",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sujb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Suspend-BitLocker",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Suspend-BitsTransfer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Suspend-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Suspend-PrintJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Suspend-Service",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Suspend-StorageBusDisk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "switch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Switch-Certificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "swmi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Sync-AppvPublishingServer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Sync-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "TabExpansion2",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "tcfg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "tee",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Tee-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-AppLockerPolicy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-Certificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-ComputerSecureChannel",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-Connection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-DscConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-Dtc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-FileCatalog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-KdsRootKey",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-ModuleManifest",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-NetConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-Path",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-PSSessionConfigurationFile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-ScriptFileInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-UevTemplate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Test-WSMan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "throw",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Trace-Command",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "trap",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "trcm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "try",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "type",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "udsmbmc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ulsmba",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unblock-File",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unblock-FileShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unblock-SmbShareAccess",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unblock-Tpm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Undo-DtcDiagnosticTransaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Undo-Transaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Uninstall-Dtc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Uninstall-Language",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Uninstall-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Uninstall-Package",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Uninstall-ProvisioningPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Uninstall-Script",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Uninstall-TrustedProvisioningCertificate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unlock-BitLocker",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unprotect-CmsMessage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unpublish-AppvClientPackage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-AppBackgroundTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-ClusteredScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-Event",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-IscsiSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-PackageSource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-PSRepository",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-PSSessionConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-ScheduledJob",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-ScheduledTask",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-StorageSubsystem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-UevTemplate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unregister-WindowsDeveloperLicense",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "until",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "upcfg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-AutologgerConfig",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-Disk",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-DscConfiguration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-EtwTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-FormatData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-Help",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-HostStorageCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-IscsiTarget",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-IscsiTargetPortal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-List",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-Module",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-ModuleManifest",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-MpSignature",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-NetFirewallDynamicKeywordAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-NetIPsecRule",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-Script",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-ScriptFileInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-SmbMultichannelConnection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-StorageBusCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-StorageFirmware",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-StoragePool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-StorageProviderCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-TypeData",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-UevTemplate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Update-WIMBootEntry",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "upmo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Use-Transaction",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Use-WindowsUnattend",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "using",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Wait-Debugger",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Wait-Event",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Wait-Job",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Wait-Process",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "wget",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "where",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Where-Object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "while",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "wjb",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "workflow",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "write",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-Debug",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-DtcTransactionsTraceSession",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-Error",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-EventLog",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-FileSystemCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-Host",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-Information",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-Output",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-PrinterNfcTag",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-Progress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-Verbose",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-VolumeCache",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write-Warning",
+      "ignoreCase" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<!\\w)([-+]?0b[01_]+(?:u|l|ul|lu)?)((?:[kmgtp]b)?)\\b",
+      "description" : "binary",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\w)([-+]?0x[0-9a-fA-F_]+(?:u|l|ul|lu)?)((?:[kmgtp]b)?)\\b",
+      "description" : "hexadecimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\w)([-+]?[0-9_]+[\\.]?(?:u|l|ul|lu)?)((?:[kmgtp]b)?)\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\w)([-+]?[0-9_]+[\\.]?[fdm])((?:[kmgtp]b)?)\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\w)([-+]?[0-9_]+\\.[0-9_]+(?:e[0-9]+)?[fdm]?)((?:[kmgtp]b)?)\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\w)([-+]?[0-9_]+\\.e(?:[0-9_])?+[fdm]?)((?:[kmgtp]b)?)\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\w)([-+]?[0-9_]+e(?:[0-9_])?+[fdm]?)((?:[kmgtp]b)?)\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\w|\\.)([-+]?\\.[0-9_]+(?:e[0-9]+)?[fdm]?)((?:[kmgtp]b)?)\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "@\"$",
+      "end" : "^\"@$",
+      "isMultiline" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "@'$",
+      "end" : "^'@$",
+      "isMultiline" : true,
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "(?<=\\[)\\w+(?=\\])",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "$False",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "$Null",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "$True",
+      "ignoreCase" : true
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "$_"
+    },
+    {
+      "begin" : "&?\\$[a-z_][a-z0-9_]*",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ]
+}

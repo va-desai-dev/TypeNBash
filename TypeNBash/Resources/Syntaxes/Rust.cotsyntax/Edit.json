@@ -1,0 +1,77 @@
+{
+  "characterDelimiters" : [
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "\\"
+    }
+  ],
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "/*",
+        "end" : "*/",
+        "isNestable" : true
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "//"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "\"",
+      "description" : "Byte string literal",
+      "end" : "\"",
+      "escapeCharacter" : "\\",
+      "prefixes" : [
+        "b"
+      ]
+    },
+    {
+      "begin" : "\"",
+      "description" : "Raw string literal",
+      "end" : "\"",
+      "isMultiline" : true,
+      "prefixes" : [
+        "r",
+        "br"
+      ]
+    },
+    {
+      "begin" : "#\"",
+      "description" : "Raw string literal (1 hash)",
+      "end" : "\"#",
+      "isMultiline" : true,
+      "prefixes" : [
+        "r",
+        "br"
+      ]
+    },
+    {
+      "begin" : "##\"",
+      "description" : "Raw string literal (2 hashes)",
+      "end" : "\"##",
+      "isMultiline" : true,
+      "prefixes" : [
+        "r",
+        "br"
+      ]
+    }
+  ]
+}

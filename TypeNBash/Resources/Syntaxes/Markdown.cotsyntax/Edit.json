@@ -1,0 +1,31 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "<!--",
+        "end" : "-->"
+      }
+    ],
+    "inlines" : [
+
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "`",
+      "description" : "code",
+      "end" : "`"
+    },
+    {
+      "begin" : "``",
+      "description" : "code",
+      "end" : "``"
+    },
+    {
+      "begin" : "```",
+      "description" : "[github] codeblock",
+      "end" : "```",
+      "isMultiline" : true
+    }
+  ]
+}

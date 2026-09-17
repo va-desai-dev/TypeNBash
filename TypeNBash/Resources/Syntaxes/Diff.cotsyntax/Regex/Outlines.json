@@ -1,0 +1,17 @@
+[
+  {
+    "description" : "header",
+    "pattern" : "(.+)(?=\\R\\=+[\\t ]*$)",
+    "template" : ""
+  },
+  {
+    "description" : "[Unified] range",
+    "pattern" : "^@@(.+)@@",
+    "template" : "    $1"
+  },
+  {
+    "description" : "added/deleted/changed",
+    "pattern" : "^[0-9,adc]+$",
+    "template" : "    $0"
+  }
+]

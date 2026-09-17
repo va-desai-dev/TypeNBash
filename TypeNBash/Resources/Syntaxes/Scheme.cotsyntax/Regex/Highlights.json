@@ -1,0 +1,1270 @@
+{
+  "characters" : [
+    {
+      "begin" : "#\\"
+    },
+    {
+      "begin" : "#\\\\.(?=[[:space:]()\\[\\]\";#])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "#\\\\x[0-9a-fA-F]+\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "#\\alarm"
+    },
+    {
+      "begin" : "#\\backspace"
+    },
+    {
+      "begin" : "#\\delete"
+    },
+    {
+      "begin" : "#\\esc"
+    },
+    {
+      "begin" : "#\\linefeed"
+    },
+    {
+      "begin" : "#\\newline"
+    },
+    {
+      "begin" : "#\\nul"
+    },
+    {
+      "begin" : "#\\page"
+    },
+    {
+      "begin" : "#\\return"
+    },
+    {
+      "begin" : "#\\space"
+    },
+    {
+      "begin" : "#\\tab"
+    },
+    {
+      "begin" : "#\\vtab"
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "*"
+    },
+    {
+      "begin" : "+"
+    },
+    {
+      "begin" : "-"
+    },
+    {
+      "begin" : "/"
+    },
+    {
+      "begin" : "<"
+    },
+    {
+      "begin" : "<="
+    },
+    {
+      "begin" : "="
+    },
+    {
+      "begin" : ">"
+    },
+    {
+      "begin" : ">="
+    },
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "acos"
+    },
+    {
+      "begin" : "angle"
+    },
+    {
+      "begin" : "append"
+    },
+    {
+      "begin" : "apply"
+    },
+    {
+      "begin" : "asin"
+    },
+    {
+      "begin" : "assoc"
+    },
+    {
+      "begin" : "assor"
+    },
+    {
+      "begin" : "assp"
+    },
+    {
+      "begin" : "assq"
+    },
+    {
+      "begin" : "assv"
+    },
+    {
+      "begin" : "atan"
+    },
+    {
+      "begin" : "binary-port?"
+    },
+    {
+      "begin" : "boolean=?"
+    },
+    {
+      "begin" : "boolean?"
+    },
+    {
+      "begin" : "bytevector"
+    },
+    {
+      "begin" : "bytevector-append"
+    },
+    {
+      "begin" : "bytevector-copy"
+    },
+    {
+      "begin" : "bytevector-copy!"
+    },
+    {
+      "begin" : "bytevector-length"
+    },
+    {
+      "begin" : "bytevector-u8-ref"
+    },
+    {
+      "begin" : "bytevector-u8-set!"
+    },
+    {
+      "begin" : "bytevector?"
+    },
+    {
+      "begin" : "caaar"
+    },
+    {
+      "begin" : "caadr"
+    },
+    {
+      "begin" : "caar"
+    },
+    {
+      "begin" : "cadar"
+    },
+    {
+      "begin" : "caddr"
+    },
+    {
+      "begin" : "cadr"
+    },
+    {
+      "begin" : "call-with-current-continuation"
+    },
+    {
+      "begin" : "call-with-input-file"
+    },
+    {
+      "begin" : "call-with-output-file"
+    },
+    {
+      "begin" : "call-with-values"
+    },
+    {
+      "begin" : "call/cc"
+    },
+    {
+      "begin" : "car"
+    },
+    {
+      "begin" : "cdar"
+    },
+    {
+      "begin" : "cddaar"
+    },
+    {
+      "begin" : "cddadr"
+    },
+    {
+      "begin" : "cdddar"
+    },
+    {
+      "begin" : "cddddr"
+    },
+    {
+      "begin" : "cddr"
+    },
+    {
+      "begin" : "cdr"
+    },
+    {
+      "begin" : "ceiling"
+    },
+    {
+      "begin" : "char->integer"
+    },
+    {
+      "begin" : "char-alphabetic?"
+    },
+    {
+      "begin" : "char-ci<=?"
+    },
+    {
+      "begin" : "char-ci=?"
+    },
+    {
+      "begin" : "char-ci>=?"
+    },
+    {
+      "begin" : "char-ci>?"
+    },
+    {
+      "begin" : "char-downcase"
+    },
+    {
+      "begin" : "char-lower-case?"
+    },
+    {
+      "begin" : "char-numeric?"
+    },
+    {
+      "begin" : "char-ready?"
+    },
+    {
+      "begin" : "char-upcase"
+    },
+    {
+      "begin" : "char-upper-case?"
+    },
+    {
+      "begin" : "char-whitespace?"
+    },
+    {
+      "begin" : "char<=?"
+    },
+    {
+      "begin" : "char<?"
+    },
+    {
+      "begin" : "char=?"
+    },
+    {
+      "begin" : "char>=?"
+    },
+    {
+      "begin" : "char>?"
+    },
+    {
+      "begin" : "char?"
+    },
+    {
+      "begin" : "close-input-file"
+    },
+    {
+      "begin" : "close-output-file"
+    },
+    {
+      "begin" : "complex?"
+    },
+    {
+      "begin" : "cons"
+    },
+    {
+      "begin" : "cons*"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "current-input-port"
+    },
+    {
+      "begin" : "current-output-port"
+    },
+    {
+      "begin" : "denominator"
+    },
+    {
+      "begin" : "digit-value"
+    },
+    {
+      "begin" : "display"
+    },
+    {
+      "begin" : "dynamic-wind"
+    },
+    {
+      "begin" : "emergency-exit"
+    },
+    {
+      "begin" : "environment"
+    },
+    {
+      "begin" : "eof-object"
+    },
+    {
+      "begin" : "eof-object?"
+    },
+    {
+      "begin" : "eq?"
+    },
+    {
+      "begin" : "equal-hash"
+    },
+    {
+      "begin" : "equal?"
+    },
+    {
+      "begin" : "eqv?"
+    },
+    {
+      "begin" : "error"
+    },
+    {
+      "begin" : "error-object-irritants"
+    },
+    {
+      "begin" : "error-object-message"
+    },
+    {
+      "begin" : "error-object?"
+    },
+    {
+      "begin" : "eval"
+    },
+    {
+      "begin" : "even?"
+    },
+    {
+      "begin" : "exact"
+    },
+    {
+      "begin" : "exact->inexact"
+    },
+    {
+      "begin" : "exact-integer-sqrt"
+    },
+    {
+      "begin" : "exact-integer?"
+    },
+    {
+      "begin" : "exact?"
+    },
+    {
+      "begin" : "exists"
+    },
+    {
+      "begin" : "exit"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "expt"
+    },
+    {
+      "begin" : "features"
+    },
+    {
+      "begin" : "file-error?"
+    },
+    {
+      "begin" : "file-exists?"
+    },
+    {
+      "begin" : "filter"
+    },
+    {
+      "begin" : "find"
+    },
+    {
+      "begin" : "finite?"
+    },
+    {
+      "begin" : "floor"
+    },
+    {
+      "begin" : "floor-quotient"
+    },
+    {
+      "begin" : "floor-remainder"
+    },
+    {
+      "begin" : "floor/"
+    },
+    {
+      "begin" : "flush-output-port"
+    },
+    {
+      "begin" : "fold-left"
+    },
+    {
+      "begin" : "fold-right"
+    },
+    {
+      "begin" : "for-all"
+    },
+    {
+      "begin" : "for-each"
+    },
+    {
+      "begin" : "force"
+    },
+    {
+      "begin" : "gcd"
+    },
+    {
+      "begin" : "get-environment-variable"
+    },
+    {
+      "begin" : "get-environment-variables"
+    },
+    {
+      "begin" : "get-output-bytevector"
+    },
+    {
+      "begin" : "get-output-string"
+    },
+    {
+      "begin" : "hashtable-clear!"
+    },
+    {
+      "begin" : "hashtable-contains?"
+    },
+    {
+      "begin" : "hashtable-copy"
+    },
+    {
+      "begin" : "hashtable-delete!"
+    },
+    {
+      "begin" : "hashtable-entries"
+    },
+    {
+      "begin" : "hashtable-equivalence-function"
+    },
+    {
+      "begin" : "hashtable-hash-function"
+    },
+    {
+      "begin" : "hashtable-keys"
+    },
+    {
+      "begin" : "hashtable-mutable?"
+    },
+    {
+      "begin" : "hashtable-ref"
+    },
+    {
+      "begin" : "hashtable-set!"
+    },
+    {
+      "begin" : "hashtable-size"
+    },
+    {
+      "begin" : "hashtable-update!"
+    },
+    {
+      "begin" : "hashtable?"
+    },
+    {
+      "begin" : "identifier"
+    },
+    {
+      "begin" : "imag-part"
+    },
+    {
+      "begin" : "inexact->exact"
+    },
+    {
+      "begin" : "inexact?"
+    },
+    {
+      "begin" : "infinite?"
+    },
+    {
+      "begin" : "input-port-open?"
+    },
+    {
+      "begin" : "input-port?"
+    },
+    {
+      "begin" : "integer->char"
+    },
+    {
+      "begin" : "integer?"
+    },
+    {
+      "begin" : "interaction-environment"
+    },
+    {
+      "begin" : "jiffiers-per-second"
+    },
+    {
+      "begin" : "lcm"
+    },
+    {
+      "begin" : "length"
+    },
+    {
+      "begin" : "list"
+    },
+    {
+      "begin" : "list->string"
+    },
+    {
+      "begin" : "list->vector"
+    },
+    {
+      "begin" : "list-ref"
+    },
+    {
+      "begin" : "list-tail"
+    },
+    {
+      "begin" : "list?"
+    },
+    {
+      "begin" : "load"
+    },
+    {
+      "begin" : "log"
+    },
+    {
+      "begin" : "magnitude"
+    },
+    {
+      "begin" : "make-bytevector"
+    },
+    {
+      "begin" : "make-eq-hashtable"
+    },
+    {
+      "begin" : "make-eqv-hashtable"
+    },
+    {
+      "begin" : "make-hashtable"
+    },
+    {
+      "begin" : "make-list"
+    },
+    {
+      "begin" : "make-parameter"
+    },
+    {
+      "begin" : "make-polar"
+    },
+    {
+      "begin" : "make-promise"
+    },
+    {
+      "begin" : "make-rectangular"
+    },
+    {
+      "begin" : "make-string"
+    },
+    {
+      "begin" : "make-vector"
+    },
+    {
+      "begin" : "map"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "member"
+    },
+    {
+      "begin" : "memp"
+    },
+    {
+      "begin" : "memq"
+    },
+    {
+      "begin" : "memv"
+    },
+    {
+      "begin" : "min"
+    },
+    {
+      "begin" : "modulo"
+    },
+    {
+      "begin" : "nan?"
+    },
+    {
+      "begin" : "negative?"
+    },
+    {
+      "begin" : "newline"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "null-environment"
+    },
+    {
+      "begin" : "null?"
+    },
+    {
+      "begin" : "number->string"
+    },
+    {
+      "begin" : "number?"
+    },
+    {
+      "begin" : "numerator"
+    },
+    {
+      "begin" : "odd?"
+    },
+    {
+      "begin" : "only"
+    },
+    {
+      "begin" : "open-binary-input-file"
+    },
+    {
+      "begin" : "open-binary-output-file"
+    },
+    {
+      "begin" : "open-input-bytevector"
+    },
+    {
+      "begin" : "open-input-file"
+    },
+    {
+      "begin" : "open-input-string"
+    },
+    {
+      "begin" : "open-output-bytevector"
+    },
+    {
+      "begin" : "open-output-file"
+    },
+    {
+      "begin" : "open-output-string"
+    },
+    {
+      "begin" : "output-port-open?"
+    },
+    {
+      "begin" : "output-port?"
+    },
+    {
+      "begin" : "pair?"
+    },
+    {
+      "begin" : "pare?"
+    },
+    {
+      "begin" : "partition"
+    },
+    {
+      "begin" : "peek-char"
+    },
+    {
+      "begin" : "peek-u8"
+    },
+    {
+      "begin" : "port?"
+    },
+    {
+      "begin" : "positive?"
+    },
+    {
+      "begin" : "procedure?"
+    },
+    {
+      "begin" : "promise?"
+    },
+    {
+      "begin" : "quotient"
+    },
+    {
+      "begin" : "raise"
+    },
+    {
+      "begin" : "rational?"
+    },
+    {
+      "begin" : "rationalize"
+    },
+    {
+      "begin" : "read"
+    },
+    {
+      "begin" : "read-bytevector"
+    },
+    {
+      "begin" : "read-bytevector?"
+    },
+    {
+      "begin" : "read-char"
+    },
+    {
+      "begin" : "read-error?"
+    },
+    {
+      "begin" : "read-line"
+    },
+    {
+      "begin" : "read-string"
+    },
+    {
+      "begin" : "read-u8"
+    },
+    {
+      "begin" : "real-part"
+    },
+    {
+      "begin" : "real?"
+    },
+    {
+      "begin" : "remainder"
+    },
+    {
+      "begin" : "remove"
+    },
+    {
+      "begin" : "remp"
+    },
+    {
+      "begin" : "remq"
+    },
+    {
+      "begin" : "remv"
+    },
+    {
+      "begin" : "reverse"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "scheme-report-environment"
+    },
+    {
+      "begin" : "set-car!"
+    },
+    {
+      "begin" : "set-cdr!"
+    },
+    {
+      "begin" : "set-kar!"
+    },
+    {
+      "begin" : "setcar"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "string"
+    },
+    {
+      "begin" : "string->list"
+    },
+    {
+      "begin" : "string->number"
+    },
+    {
+      "begin" : "string->symbol"
+    },
+    {
+      "begin" : "string->utf8"
+    },
+    {
+      "begin" : "string->vector"
+    },
+    {
+      "begin" : "string-append"
+    },
+    {
+      "begin" : "string-ci-hash"
+    },
+    {
+      "begin" : "string-ci<=?"
+    },
+    {
+      "begin" : "string-ci<?"
+    },
+    {
+      "begin" : "string-ci=?"
+    },
+    {
+      "begin" : "string-ci>=?"
+    },
+    {
+      "begin" : "string-ci>?"
+    },
+    {
+      "begin" : "string-copy"
+    },
+    {
+      "begin" : "string-copy!"
+    },
+    {
+      "begin" : "string-downcase"
+    },
+    {
+      "begin" : "string-fill!"
+    },
+    {
+      "begin" : "string-foldcase"
+    },
+    {
+      "begin" : "string-for-each"
+    },
+    {
+      "begin" : "string-hash"
+    },
+    {
+      "begin" : "string-length"
+    },
+    {
+      "begin" : "string-map"
+    },
+    {
+      "begin" : "string-ref"
+    },
+    {
+      "begin" : "string-set!"
+    },
+    {
+      "begin" : "string<=?"
+    },
+    {
+      "begin" : "string<?"
+    },
+    {
+      "begin" : "string=?"
+    },
+    {
+      "begin" : "string>=?"
+    },
+    {
+      "begin" : "string>?"
+    },
+    {
+      "begin" : "string?"
+    },
+    {
+      "begin" : "substring"
+    },
+    {
+      "begin" : "symbol->string"
+    },
+    {
+      "begin" : "symbol-hash"
+    },
+    {
+      "begin" : "symbol=?"
+    },
+    {
+      "begin" : "symbol?"
+    },
+    {
+      "begin" : "tan"
+    },
+    {
+      "begin" : "textual-port?"
+    },
+    {
+      "begin" : "transcript-off"
+    },
+    {
+      "begin" : "transcript-on"
+    },
+    {
+      "begin" : "truncate"
+    },
+    {
+      "begin" : "truncate-quotient"
+    },
+    {
+      "begin" : "truncate-remainder"
+    },
+    {
+      "begin" : "truncate/"
+    },
+    {
+      "begin" : "u8-ready"
+    },
+    {
+      "begin" : "utf8->string"
+    },
+    {
+      "begin" : "values"
+    },
+    {
+      "begin" : "vector"
+    },
+    {
+      "begin" : "vector->list"
+    },
+    {
+      "begin" : "vector->string"
+    },
+    {
+      "begin" : "vector-append"
+    },
+    {
+      "begin" : "vector-copy"
+    },
+    {
+      "begin" : "vector-copy!"
+    },
+    {
+      "begin" : "vector-fill!"
+    },
+    {
+      "begin" : "vector-for-each"
+    },
+    {
+      "begin" : "vector-length"
+    },
+    {
+      "begin" : "vector-map"
+    },
+    {
+      "begin" : "vector-ref"
+    },
+    {
+      "begin" : "vector-set!"
+    },
+    {
+      "begin" : "vector?"
+    },
+    {
+      "begin" : "with-exception-handler"
+    },
+    {
+      "begin" : "with-input-from-file"
+    },
+    {
+      "begin" : "with-output-to-file"
+    },
+    {
+      "begin" : "write"
+    },
+    {
+      "begin" : "write-bytevector"
+    },
+    {
+      "begin" : "write-char"
+    },
+    {
+      "begin" : "write-shared"
+    },
+    {
+      "begin" : "write-simple"
+    },
+    {
+      "begin" : "write-string"
+    },
+    {
+      "begin" : "write-u8"
+    },
+    {
+      "begin" : "zero?"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "=>"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "begin"
+    },
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "case-lambda"
+    },
+    {
+      "begin" : "cond"
+    },
+    {
+      "begin" : "cond-expand"
+    },
+    {
+      "begin" : "define"
+    },
+    {
+      "begin" : "define-library"
+    },
+    {
+      "begin" : "define-record-type"
+    },
+    {
+      "begin" : "define-syntax"
+    },
+    {
+      "begin" : "delay"
+    },
+    {
+      "begin" : "delay-force"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "except"
+    },
+    {
+      "begin" : "export"
+    },
+    {
+      "begin" : "fields"
+    },
+    {
+      "begin" : "force"
+    },
+    {
+      "begin" : "guard"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "include"
+    },
+    {
+      "begin" : "include-ci"
+    },
+    {
+      "begin" : "include-library-declarations"
+    },
+    {
+      "begin" : "kar"
+    },
+    {
+      "begin" : "kdr"
+    },
+    {
+      "begin" : "kons"
+    },
+    {
+      "begin" : "lambda"
+    },
+    {
+      "begin" : "let"
+    },
+    {
+      "begin" : "let*"
+    },
+    {
+      "begin" : "let-syntax"
+    },
+    {
+      "begin" : "letrec"
+    },
+    {
+      "begin" : "letrec-syntax"
+    },
+    {
+      "begin" : "library"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "only"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "parameterize"
+    },
+    {
+      "begin" : "prefix"
+    },
+    {
+      "begin" : "protocol"
+    },
+    {
+      "begin" : "quasiquote"
+    },
+    {
+      "begin" : "quote"
+    },
+    {
+      "begin" : "rename"
+    },
+    {
+      "begin" : "set!"
+    },
+    {
+      "begin" : "syntax-error"
+    },
+    {
+      "begin" : "syntax-rules"
+    },
+    {
+      "begin" : "unless"
+    },
+    {
+      "begin" : "unquote"
+    },
+    {
+      "begin" : "unquote-splicing"
+    },
+    {
+      "begin" : "when"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "#[0-9a-f]+\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b(#x(#[ie])?|(#[ie])?#x)([-+]?[0-9a-f][-+0-9a-f/|@.iesfdl]*)\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b((#[bod])?(#[ie])?|(#[ie])?(#[bod])?)([-+]?[0-9][-+0-9/|@.iesfdl]*)\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b[+-]?(inf|nan)\\.0\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\.[0-9]+\\b",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "#!fold-case"
+    },
+    {
+      "begin" : "#!no-fold-case"
+    },
+    {
+      "begin" : "#\\!\\S+",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "#(",
+      "end" : ")",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "#f",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "#t",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "#u8(",
+      "end" : ")",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "bsd"
+    },
+    {
+      "begin" : "clr"
+    },
+    {
+      "begin" : "darwin"
+    },
+    {
+      "begin" : "exact-closed"
+    },
+    {
+      "begin" : "exact-complex"
+    },
+    {
+      "begin" : "freebsd"
+    },
+    {
+      "begin" : "full-unicode"
+    },
+    {
+      "begin" : "gnu-linux"
+    },
+    {
+      "begin" : "i386"
+    },
+    {
+      "begin" : "ieee-float"
+    },
+    {
+      "begin" : "ilp32"
+    },
+    {
+      "begin" : "ilp64"
+    },
+    {
+      "begin" : "jvm"
+    },
+    {
+      "begin" : "llvm"
+    },
+    {
+      "begin" : "lp64"
+    },
+    {
+      "begin" : "pcc"
+    },
+    {
+      "begin" : "r5rs"
+    },
+    {
+      "begin" : "r6rs"
+    },
+    {
+      "begin" : "r7rs"
+    },
+    {
+      "begin" : "ratios"
+    },
+    {
+      "begin" : "solaris"
+    },
+    {
+      "begin" : "sparc"
+    },
+    {
+      "begin" : "unix"
+    },
+    {
+      "begin" : "windows"
+    },
+    {
+      "begin" : "x86-64"
+    }
+  ]
+}

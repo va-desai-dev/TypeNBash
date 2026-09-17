@@ -1,0 +1,31 @@
+{
+  "comment" : {
+    "blocks" : [
+
+    ],
+    "inlines" : [
+      {
+        "begin" : "#"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : ":"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "\\"
+    }
+  ]
+}

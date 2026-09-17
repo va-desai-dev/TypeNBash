@@ -1,0 +1,36 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "/*",
+        "end" : "*/"
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "--"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "BEGIN",
+        "end" : "END",
+        "ignoreCase" : true
+      },
+      {
+        "begin" : "CASE",
+        "end" : "END",
+        "ignoreCase" : true
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "'"
+    }
+  ]
+}

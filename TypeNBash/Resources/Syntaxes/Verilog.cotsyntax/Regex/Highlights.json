@@ -1,0 +1,1230 @@
+{
+  "characters" : [
+    {
+      "begin" : "[0-9]*'s?[bdh](?=[0-9a-f])",
+      "description" : "number prefix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "$acos"
+    },
+    {
+      "begin" : "$acosh"
+    },
+    {
+      "begin" : "$asin"
+    },
+    {
+      "begin" : "$asinh"
+    },
+    {
+      "begin" : "$assertcontrol"
+    },
+    {
+      "begin" : "$assertfailoff"
+    },
+    {
+      "begin" : "$assertfailon"
+    },
+    {
+      "begin" : "$assertkill"
+    },
+    {
+      "begin" : "$assertnonvacuouson"
+    },
+    {
+      "begin" : "$assertoff"
+    },
+    {
+      "begin" : "$asserton"
+    },
+    {
+      "begin" : "$assertpassoff"
+    },
+    {
+      "begin" : "$assertpasson"
+    },
+    {
+      "begin" : "$assertvacuousoff"
+    },
+    {
+      "begin" : "$async$and$array"
+    },
+    {
+      "begin" : "$async$and$plane"
+    },
+    {
+      "begin" : "$async$nand$array"
+    },
+    {
+      "begin" : "$async$nand$plane"
+    },
+    {
+      "begin" : "$async$nor$array"
+    },
+    {
+      "begin" : "$async$nor$plane"
+    },
+    {
+      "begin" : "$async$or$array"
+    },
+    {
+      "begin" : "$async$or$plane"
+    },
+    {
+      "begin" : "$atan"
+    },
+    {
+      "begin" : "$atan2"
+    },
+    {
+      "begin" : "$atanh"
+    },
+    {
+      "begin" : "$bits"
+    },
+    {
+      "begin" : "$bitstoreal"
+    },
+    {
+      "begin" : "$bitstoshortreal"
+    },
+    {
+      "begin" : "$cast"
+    },
+    {
+      "begin" : "$ceil"
+    },
+    {
+      "begin" : "$changed"
+    },
+    {
+      "begin" : "$changed_gclk"
+    },
+    {
+      "begin" : "$changing_gclk"
+    },
+    {
+      "begin" : "$clog2"
+    },
+    {
+      "begin" : "$cos"
+    },
+    {
+      "begin" : "$cosh"
+    },
+    {
+      "begin" : "$countbits"
+    },
+    {
+      "begin" : "$countdrivers"
+    },
+    {
+      "begin" : "$countones"
+    },
+    {
+      "begin" : "$coverage_control"
+    },
+    {
+      "begin" : "$coverage_get"
+    },
+    {
+      "begin" : "$coverage_get_max"
+    },
+    {
+      "begin" : "$coverage_merge"
+    },
+    {
+      "begin" : "$coverage_save"
+    },
+    {
+      "begin" : "$dimensions"
+    },
+    {
+      "begin" : "$dist_chi_square"
+    },
+    {
+      "begin" : "$dist_erlang"
+    },
+    {
+      "begin" : "$dist_exponential"
+    },
+    {
+      "begin" : "$dist_normal"
+    },
+    {
+      "begin" : "$dist_poisson"
+    },
+    {
+      "begin" : "$dist_t"
+    },
+    {
+      "begin" : "$dist_uniform"
+    },
+    {
+      "begin" : "$error"
+    },
+    {
+      "begin" : "$exit"
+    },
+    {
+      "begin" : "$exp"
+    },
+    {
+      "begin" : "$falling_gclk"
+    },
+    {
+      "begin" : "$fatal"
+    },
+    {
+      "begin" : "$fell"
+    },
+    {
+      "begin" : "$fell_gclk"
+    },
+    {
+      "begin" : "$finish"
+    },
+    {
+      "begin" : "$floor"
+    },
+    {
+      "begin" : "$future_gclk"
+    },
+    {
+      "begin" : "$get_coverage"
+    },
+    {
+      "begin" : "$getpattern"
+    },
+    {
+      "begin" : "$high"
+    },
+    {
+      "begin" : "$hypot"
+    },
+    {
+      "begin" : "$increment"
+    },
+    {
+      "begin" : "$incsave"
+    },
+    {
+      "begin" : "$info"
+    },
+    {
+      "begin" : "$input"
+    },
+    {
+      "begin" : "$isunbounded"
+    },
+    {
+      "begin" : "$isunknown"
+    },
+    {
+      "begin" : "$itor"
+    },
+    {
+      "begin" : "$key"
+    },
+    {
+      "begin" : "$left"
+    },
+    {
+      "begin" : "$list"
+    },
+    {
+      "begin" : "$ln"
+    },
+    {
+      "begin" : "$load_coverage_db"
+    },
+    {
+      "begin" : "$log"
+    },
+    {
+      "begin" : "$log10"
+    },
+    {
+      "begin" : "$low"
+    },
+    {
+      "begin" : "$nokey"
+    },
+    {
+      "begin" : "$nolog"
+    },
+    {
+      "begin" : "$onehot"
+    },
+    {
+      "begin" : "$onehot0"
+    },
+    {
+      "begin" : "$past"
+    },
+    {
+      "begin" : "$past_gclk"
+    },
+    {
+      "begin" : "$pow"
+    },
+    {
+      "begin" : "$printtimescale"
+    },
+    {
+      "begin" : "$q_add"
+    },
+    {
+      "begin" : "$q_exam"
+    },
+    {
+      "begin" : "$q_full"
+    },
+    {
+      "begin" : "$q_initialize"
+    },
+    {
+      "begin" : "$q_remove"
+    },
+    {
+      "begin" : "$random"
+    },
+    {
+      "begin" : "$realtime"
+    },
+    {
+      "begin" : "$realtobits"
+    },
+    {
+      "begin" : "$reset"
+    },
+    {
+      "begin" : "$reset_count"
+    },
+    {
+      "begin" : "$reset_value"
+    },
+    {
+      "begin" : "$restart"
+    },
+    {
+      "begin" : "$right"
+    },
+    {
+      "begin" : "$rising_gclk"
+    },
+    {
+      "begin" : "$rose"
+    },
+    {
+      "begin" : "$rose_gclk"
+    },
+    {
+      "begin" : "$rtoi"
+    },
+    {
+      "begin" : "$sampled"
+    },
+    {
+      "begin" : "$save"
+    },
+    {
+      "begin" : "$scale"
+    },
+    {
+      "begin" : "$scope"
+    },
+    {
+      "begin" : "$set_coverage_db_name"
+    },
+    {
+      "begin" : "$shortrealtobits"
+    },
+    {
+      "begin" : "$showscopes"
+    },
+    {
+      "begin" : "$showvars"
+    },
+    {
+      "begin" : "$signed"
+    },
+    {
+      "begin" : "$sin"
+    },
+    {
+      "begin" : "$sinh"
+    },
+    {
+      "begin" : "$size"
+    },
+    {
+      "begin" : "$sqrt"
+    },
+    {
+      "begin" : "$sreadmemb"
+    },
+    {
+      "begin" : "$sreadmemh"
+    },
+    {
+      "begin" : "$stable"
+    },
+    {
+      "begin" : "$stable_gclk"
+    },
+    {
+      "begin" : "$steady_gclk"
+    },
+    {
+      "begin" : "$stime"
+    },
+    {
+      "begin" : "$stop"
+    },
+    {
+      "begin" : "$sync$and$array"
+    },
+    {
+      "begin" : "$sync$and$plane"
+    },
+    {
+      "begin" : "$sync$nand$array"
+    },
+    {
+      "begin" : "$sync$nand$plane"
+    },
+    {
+      "begin" : "$sync$nor$array"
+    },
+    {
+      "begin" : "$sync$nor$plane"
+    },
+    {
+      "begin" : "$sync$or$array"
+    },
+    {
+      "begin" : "$sync$or$plane"
+    },
+    {
+      "begin" : "$system"
+    },
+    {
+      "begin" : "$tan"
+    },
+    {
+      "begin" : "$tanh"
+    },
+    {
+      "begin" : "$time"
+    },
+    {
+      "begin" : "$timeformat"
+    },
+    {
+      "begin" : "$typename"
+    },
+    {
+      "begin" : "$unpacked_dimensions"
+    },
+    {
+      "begin" : "$unsigned"
+    },
+    {
+      "begin" : "$warning"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "accept_on"
+    },
+    {
+      "begin" : "alias"
+    },
+    {
+      "begin" : "always"
+    },
+    {
+      "begin" : "always_comb"
+    },
+    {
+      "begin" : "always_ff"
+    },
+    {
+      "begin" : "always_latch"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "assert"
+    },
+    {
+      "begin" : "assign"
+    },
+    {
+      "begin" : "assume"
+    },
+    {
+      "begin" : "attribute"
+    },
+    {
+      "begin" : "automatic"
+    },
+    {
+      "begin" : "before"
+    },
+    {
+      "begin" : "begin"
+    },
+    {
+      "begin" : "bind"
+    },
+    {
+      "begin" : "bins"
+    },
+    {
+      "begin" : "binsof"
+    },
+    {
+      "begin" : "bit"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "buf"
+    },
+    {
+      "begin" : "bufif0"
+    },
+    {
+      "begin" : "bufif1"
+    },
+    {
+      "begin" : "byte"
+    },
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "casex"
+    },
+    {
+      "begin" : "casez"
+    },
+    {
+      "begin" : "cell"
+    },
+    {
+      "begin" : "chandle"
+    },
+    {
+      "begin" : "checker"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "clocking"
+    },
+    {
+      "begin" : "cmos"
+    },
+    {
+      "begin" : "config"
+    },
+    {
+      "begin" : "const"
+    },
+    {
+      "begin" : "constraint"
+    },
+    {
+      "begin" : "context"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "cover"
+    },
+    {
+      "begin" : "covergroup"
+    },
+    {
+      "begin" : "coverpoint"
+    },
+    {
+      "begin" : "cross"
+    },
+    {
+      "begin" : "deassign"
+    },
+    {
+      "begin" : "default"
+    },
+    {
+      "begin" : "defparam"
+    },
+    {
+      "begin" : "design"
+    },
+    {
+      "begin" : "disable"
+    },
+    {
+      "begin" : "dist"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "edge"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "end"
+    },
+    {
+      "begin" : "endattribute"
+    },
+    {
+      "begin" : "endcase"
+    },
+    {
+      "begin" : "endchecker"
+    },
+    {
+      "begin" : "endclass"
+    },
+    {
+      "begin" : "endclocking"
+    },
+    {
+      "begin" : "endconfig"
+    },
+    {
+      "begin" : "endfunction"
+    },
+    {
+      "begin" : "endgenerate"
+    },
+    {
+      "begin" : "endgroup"
+    },
+    {
+      "begin" : "endinterface"
+    },
+    {
+      "begin" : "endmodule"
+    },
+    {
+      "begin" : "endpackage"
+    },
+    {
+      "begin" : "endprimitive"
+    },
+    {
+      "begin" : "endprogram"
+    },
+    {
+      "begin" : "endproperty"
+    },
+    {
+      "begin" : "endsequence"
+    },
+    {
+      "begin" : "endspecify"
+    },
+    {
+      "begin" : "endtable"
+    },
+    {
+      "begin" : "endtask"
+    },
+    {
+      "begin" : "enum"
+    },
+    {
+      "begin" : "event"
+    },
+    {
+      "begin" : "eventually"
+    },
+    {
+      "begin" : "expect"
+    },
+    {
+      "begin" : "export"
+    },
+    {
+      "begin" : "extends"
+    },
+    {
+      "begin" : "extern"
+    },
+    {
+      "begin" : "final"
+    },
+    {
+      "begin" : "first_match"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "force"
+    },
+    {
+      "begin" : "foreach"
+    },
+    {
+      "begin" : "forever"
+    },
+    {
+      "begin" : "fork"
+    },
+    {
+      "begin" : "forkjoin"
+    },
+    {
+      "begin" : "function"
+    },
+    {
+      "begin" : "generate"
+    },
+    {
+      "begin" : "genvar"
+    },
+    {
+      "begin" : "global"
+    },
+    {
+      "begin" : "highz0"
+    },
+    {
+      "begin" : "highz1"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "iff"
+    },
+    {
+      "begin" : "ifnone"
+    },
+    {
+      "begin" : "ignore_bins"
+    },
+    {
+      "begin" : "illegal_bins"
+    },
+    {
+      "begin" : "implements"
+    },
+    {
+      "begin" : "implies"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "incdir"
+    },
+    {
+      "begin" : "include"
+    },
+    {
+      "begin" : "initial"
+    },
+    {
+      "begin" : "inout"
+    },
+    {
+      "begin" : "input"
+    },
+    {
+      "begin" : "inside"
+    },
+    {
+      "begin" : "instance"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "integer"
+    },
+    {
+      "begin" : "interconnect"
+    },
+    {
+      "begin" : "interface"
+    },
+    {
+      "begin" : "intersect"
+    },
+    {
+      "begin" : "join"
+    },
+    {
+      "begin" : "join_any"
+    },
+    {
+      "begin" : "join_none"
+    },
+    {
+      "begin" : "large"
+    },
+    {
+      "begin" : "let"
+    },
+    {
+      "begin" : "liblist"
+    },
+    {
+      "begin" : "library"
+    },
+    {
+      "begin" : "local"
+    },
+    {
+      "begin" : "localparam"
+    },
+    {
+      "begin" : "logic"
+    },
+    {
+      "begin" : "longint"
+    },
+    {
+      "begin" : "macromodule"
+    },
+    {
+      "begin" : "matches"
+    },
+    {
+      "begin" : "medium"
+    },
+    {
+      "begin" : "modport"
+    },
+    {
+      "begin" : "module"
+    },
+    {
+      "begin" : "nand"
+    },
+    {
+      "begin" : "negedge"
+    },
+    {
+      "begin" : "nettype"
+    },
+    {
+      "begin" : "new"
+    },
+    {
+      "begin" : "nexttime"
+    },
+    {
+      "begin" : "nmos"
+    },
+    {
+      "begin" : "nor"
+    },
+    {
+      "begin" : "noshowcancelled"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "notif0"
+    },
+    {
+      "begin" : "notif1"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "output"
+    },
+    {
+      "begin" : "package"
+    },
+    {
+      "begin" : "packed"
+    },
+    {
+      "begin" : "parameter"
+    },
+    {
+      "begin" : "pmos"
+    },
+    {
+      "begin" : "posedge"
+    },
+    {
+      "begin" : "primitive"
+    },
+    {
+      "begin" : "priority"
+    },
+    {
+      "begin" : "program"
+    },
+    {
+      "begin" : "property"
+    },
+    {
+      "begin" : "protected"
+    },
+    {
+      "begin" : "pull0"
+    },
+    {
+      "begin" : "pull1"
+    },
+    {
+      "begin" : "pulldown"
+    },
+    {
+      "begin" : "pullup"
+    },
+    {
+      "begin" : "pulsestyle_ondetect"
+    },
+    {
+      "begin" : "pulsestyle_onevent"
+    },
+    {
+      "begin" : "pure"
+    },
+    {
+      "begin" : "rand"
+    },
+    {
+      "begin" : "randc"
+    },
+    {
+      "begin" : "randcase"
+    },
+    {
+      "begin" : "randsequence"
+    },
+    {
+      "begin" : "rcmos"
+    },
+    {
+      "begin" : "real"
+    },
+    {
+      "begin" : "realtime"
+    },
+    {
+      "begin" : "ref"
+    },
+    {
+      "begin" : "reg"
+    },
+    {
+      "begin" : "reject_on"
+    },
+    {
+      "begin" : "release"
+    },
+    {
+      "begin" : "repeat"
+    },
+    {
+      "begin" : "restrict"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "rnmos"
+    },
+    {
+      "begin" : "rpmos"
+    },
+    {
+      "begin" : "rtran"
+    },
+    {
+      "begin" : "rtranif0"
+    },
+    {
+      "begin" : "rtranif1"
+    },
+    {
+      "begin" : "s_always"
+    },
+    {
+      "begin" : "s_eventually"
+    },
+    {
+      "begin" : "s_nexttime"
+    },
+    {
+      "begin" : "s_until"
+    },
+    {
+      "begin" : "s_until_with"
+    },
+    {
+      "begin" : "scalared"
+    },
+    {
+      "begin" : "sequence"
+    },
+    {
+      "begin" : "shortint"
+    },
+    {
+      "begin" : "shortreal"
+    },
+    {
+      "begin" : "showcancelled"
+    },
+    {
+      "begin" : "signed"
+    },
+    {
+      "begin" : "small"
+    },
+    {
+      "begin" : "soft"
+    },
+    {
+      "begin" : "solve"
+    },
+    {
+      "begin" : "specify"
+    },
+    {
+      "begin" : "specparam"
+    },
+    {
+      "begin" : "static"
+    },
+    {
+      "begin" : "string"
+    },
+    {
+      "begin" : "strong"
+    },
+    {
+      "begin" : "strong0"
+    },
+    {
+      "begin" : "strong1"
+    },
+    {
+      "begin" : "struct"
+    },
+    {
+      "begin" : "super"
+    },
+    {
+      "begin" : "supply0"
+    },
+    {
+      "begin" : "supply1"
+    },
+    {
+      "begin" : "sync_accept_on"
+    },
+    {
+      "begin" : "sync_reject_on"
+    },
+    {
+      "begin" : "table"
+    },
+    {
+      "begin" : "tagged"
+    },
+    {
+      "begin" : "task"
+    },
+    {
+      "begin" : "this"
+    },
+    {
+      "begin" : "throughout"
+    },
+    {
+      "begin" : "time"
+    },
+    {
+      "begin" : "timeprecision"
+    },
+    {
+      "begin" : "timeunit"
+    },
+    {
+      "begin" : "tran"
+    },
+    {
+      "begin" : "tranif0"
+    },
+    {
+      "begin" : "tranif1"
+    },
+    {
+      "begin" : "tri"
+    },
+    {
+      "begin" : "tri0"
+    },
+    {
+      "begin" : "tri1"
+    },
+    {
+      "begin" : "triand"
+    },
+    {
+      "begin" : "tril"
+    },
+    {
+      "begin" : "trior"
+    },
+    {
+      "begin" : "trireg"
+    },
+    {
+      "begin" : "type"
+    },
+    {
+      "begin" : "typedef"
+    },
+    {
+      "begin" : "union"
+    },
+    {
+      "begin" : "unique"
+    },
+    {
+      "begin" : "unique0"
+    },
+    {
+      "begin" : "unsigned"
+    },
+    {
+      "begin" : "until"
+    },
+    {
+      "begin" : "until_with"
+    },
+    {
+      "begin" : "untyped"
+    },
+    {
+      "begin" : "use"
+    },
+    {
+      "begin" : "uwire"
+    },
+    {
+      "begin" : "var"
+    },
+    {
+      "begin" : "vectored"
+    },
+    {
+      "begin" : "virtual"
+    },
+    {
+      "begin" : "void"
+    },
+    {
+      "begin" : "wait"
+    },
+    {
+      "begin" : "wait_order"
+    },
+    {
+      "begin" : "wand"
+    },
+    {
+      "begin" : "weak"
+    },
+    {
+      "begin" : "weak0"
+    },
+    {
+      "begin" : "weak1"
+    },
+    {
+      "begin" : "while"
+    },
+    {
+      "begin" : "wildcard"
+    },
+    {
+      "begin" : "wire"
+    },
+    {
+      "begin" : "with"
+    },
+    {
+      "begin" : "within"
+    },
+    {
+      "begin" : "wor"
+    },
+    {
+      "begin" : "xnor"
+    },
+    {
+      "begin" : "xor"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<=)b[01xz?][01xz?_]*",
+      "description" : "binary",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=)d[0-9][0-9_]*\\b",
+      "description" : "decimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=)h[0-9a-f][0-9a-f_]*\\b",
+      "description" : "hex",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=)o[0-7][0-7_]*\\b",
+      "description" : "octal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b-?\\d+\\.\\d+(e[-+]?\\d+)?l?\\b",
+      "description" : "float (same as C)",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b[0-9][0-9_]*\\b",
+      "description" : "decimal",
+      "regularExpression" : true
+    }
+  ]
+}

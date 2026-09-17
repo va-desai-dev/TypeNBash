@@ -1,0 +1,26 @@
+[
+  {
+    "description" : "directory",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)<Directory(?:Match)?[\\t ]+\"?(.*?)\"?>",
+    "template" : "$1Directory:  $2"
+  },
+  {
+    "description" : "files",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)<Files(?:Match)?[\\t ]+\"?(.*?)\"?>",
+    "template" : "$1Files:  $2"
+  },
+  {
+    "description" : "location",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)<Location(?:Match)[\\t ]+\"?(.*?)\"?>",
+    "template" : "$1Location:  $2"
+  },
+  {
+    "description" : "virtualHost",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)<VirtualHost[\\t ]+\"?(.*?)\"?>",
+    "template" : "$1VirtualHost:  $2"
+  }
+]

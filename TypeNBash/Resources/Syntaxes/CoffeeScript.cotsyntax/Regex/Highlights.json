@@ -1,0 +1,171 @@
+{
+  "keywords" : [
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "by"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "extends"
+    },
+    {
+      "begin" : "finally"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "inst"
+    },
+    {
+      "begin" : "instanceof"
+    },
+    {
+      "begin" : "is"
+    },
+    {
+      "begin" : "loop"
+    },
+    {
+      "begin" : "new"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "of"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "super"
+    },
+    {
+      "begin" : "switch"
+    },
+    {
+      "begin" : "then"
+    },
+    {
+      "begin" : "this"
+    },
+    {
+      "begin" : "throw"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "typeof"
+    },
+    {
+      "begin" : "unless"
+    },
+    {
+      "begin" : "until"
+    },
+    {
+      "begin" : "when"
+    },
+    {
+      "begin" : "while"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b0[bB][01][01_]*n?\\b",
+      "description" : "binary",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0[oO][0-7][0-7_]*n?\\b",
+      "description" : "octal",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0[xX][0-9a-fA-F][0-9a-fA-F_]*n?\\b",
+      "description" : "hexadecimal",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b[0-9][0-9_]*(\\.[0-9]*)?([eE][-+]?[1-9][0-9_]*)?\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\.[0-9]*?([eE][-+]?[1-9][0-9_]*)?\\b",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "@[a-zA-Z0-9$_]*",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "Infinity"
+    },
+    {
+      "begin" : "NaN"
+    },
+    {
+      "begin" : "no"
+    },
+    {
+      "begin" : "null"
+    },
+    {
+      "begin" : "off"
+    },
+    {
+      "begin" : "on"
+    },
+    {
+      "begin" : "true"
+    },
+    {
+      "begin" : "undefined"
+    },
+    {
+      "begin" : "yes"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "this"
+    }
+  ]
+}

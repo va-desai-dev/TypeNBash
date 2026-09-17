@@ -1,0 +1,43 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "=pod",
+        "end" : "=cut"
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "#"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "qq/",
+      "description" : "Interpolated string with / delimiter (qq)",
+      "end" : "/",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    }
+  ]
+}

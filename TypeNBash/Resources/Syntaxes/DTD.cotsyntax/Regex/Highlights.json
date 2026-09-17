@@ -1,0 +1,133 @@
+{
+  "attributes" : [
+    {
+      "begin" : "(?<=\\s)[[:alnum:]_\\-.:]+(?=\\s*=)",
+      "regularExpression" : true
+    }
+  ],
+  "characters" : [
+    {
+      "begin" : "%[^&%\"]+;(?=[^<>]*[\\[>])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "&\\S+?;",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "<![CDATA[",
+      "end" : "]]>",
+      "isMultiline" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "(?<=<)\\?[[:alnum:]_\\-.:]+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\?(?=>)",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "(?<=</?)[[:alnum:]_\\-.:]+(?=[\\r\\n\\t />])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=[\\r\\n\\t (|,])[[:alnum:]_\\-.:%]+(?=[\\r\\n\\t )|,]?[^<>\\[]*[>\\[])",
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "(?<!\\w)'[^']*?'(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=NDATA)\\s+[[:alnum:]_\\-.]+(?=\\s*>)",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "(?<=<)![A-Z]*",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "(?<=[(|])#PCDATA(?=\\b)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\[)\\s*(?:IGNORE|INCLUDE)\\s*(?=\\[)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)#(?:FIXED|IMPLIED|REQUIRED)(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)(?:ANY|EMPTY)(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)(?:PUBLIC|SYSTEM)(?=\\s+[\"'])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)(?:SDATA|RCDATA|NAME|NUMBER|#CONREF|#SUBDOC)(?=[^<>]*>)",
+      "description" : "for SGML DTD",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)CDATA(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)ENTIT(?:Y|IES)(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)ID(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)IDREFS?(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)NDATA(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)NMTOKENS?(?=[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)NOTATION(?=[^<>]*>)",
+      "regularExpression" : true
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "(?<!ATTLIST)\\s+[O\\-]\\s+[O\\-](?=\\s[^<>]*>)",
+      "description" : "for SGML DTD",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)[[:alnum:]_\\-.]+:(?=\\w)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\b)[[:alnum:]_\\-.]+:(?=\\w[^<>]*>)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\s)[[:alnum:]_\\-.]+:(?=(\\w|[\\-.])+\\s*=)",
+      "regularExpression" : true
+    }
+  ]
+}

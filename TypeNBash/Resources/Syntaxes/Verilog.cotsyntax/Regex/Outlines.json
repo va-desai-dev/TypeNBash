@@ -1,0 +1,8 @@
+[
+  {
+    "description" : "module",
+    "kind" : "container",
+    "pattern" : "^([ \\t]*)module[ \\t]+([a-zA-Z0-9_]+)(?=\\s|\\()",
+    "template" : "$1$2"
+  }
+]

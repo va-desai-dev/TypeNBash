@@ -1,0 +1,48 @@
+{
+  "comment" : {
+    "blocks" : [
+
+    ],
+    "inlines" : [
+      {
+        "begin" : "#"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      },
+      {
+        "begin" : "then",
+        "end" : "fi"
+      },
+      {
+        "begin" : "do",
+        "end" : "done"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "'",
+      "end" : "'"
+    },
+    {
+      "begin" : "'",
+      "description" : "ANSI-C quoted string literal",
+      "end" : "'",
+      "escapeCharacter" : "\\",
+      "prefixes" : [
+        "$"
+      ]
+    }
+  ]
+}

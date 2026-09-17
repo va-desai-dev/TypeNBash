@@ -1,0 +1,190 @@
+{
+  "commands" : [
+    {
+      "begin" : "atan2"
+    },
+    {
+      "begin" : "close"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "getline"
+    },
+    {
+      "begin" : "gsub"
+    },
+    {
+      "begin" : "index"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "length"
+    },
+    {
+      "begin" : "log"
+    },
+    {
+      "begin" : "match"
+    },
+    {
+      "begin" : "print"
+    },
+    {
+      "begin" : "rand"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "split"
+    },
+    {
+      "begin" : "sprintf"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "srand"
+    },
+    {
+      "begin" : "sub"
+    },
+    {
+      "begin" : "substr"
+    },
+    {
+      "begin" : "system"
+    },
+    {
+      "begin" : "tolower"
+    },
+    {
+      "begin" : "toupper"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "BEGIN"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "delete"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "END"
+    },
+    {
+      "begin" : "exit"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "function"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "next"
+    },
+    {
+      "begin" : "nextfile"
+    },
+    {
+      "begin" : "print"
+    },
+    {
+      "begin" : "printf"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "while"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<!\\$|\\w)[+-]?\\d+(\\.\\d*)?(e[+-]?\\d+)?",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "\\$\\d\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "ARGC"
+    },
+    {
+      "begin" : "ARGV"
+    },
+    {
+      "begin" : "CONVFMT"
+    },
+    {
+      "begin" : "ENVIRON"
+    },
+    {
+      "begin" : "FILENAME"
+    },
+    {
+      "begin" : "FNR"
+    },
+    {
+      "begin" : "FS"
+    },
+    {
+      "begin" : "NF"
+    },
+    {
+      "begin" : "NR"
+    },
+    {
+      "begin" : "OFMT"
+    },
+    {
+      "begin" : "OFS"
+    },
+    {
+      "begin" : "ORS"
+    },
+    {
+      "begin" : "RLENGTH"
+    },
+    {
+      "begin" : "RS"
+    },
+    {
+      "begin" : "RSTART"
+    },
+    {
+      "begin" : "SUBSEP"
+    }
+  ]
+}

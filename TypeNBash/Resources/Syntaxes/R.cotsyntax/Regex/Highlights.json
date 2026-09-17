@@ -1,0 +1,3081 @@
+{
+  "commands" : [
+    {
+      "begin" : "abbreviate"
+    },
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "acos"
+    },
+    {
+      "begin" : "acosh"
+    },
+    {
+      "begin" : "addNA"
+    },
+    {
+      "begin" : "addTaskCallback"
+    },
+    {
+      "begin" : "agrep"
+    },
+    {
+      "begin" : "agrepl"
+    },
+    {
+      "begin" : "alist"
+    },
+    {
+      "begin" : "all"
+    },
+    {
+      "begin" : "all.equal"
+    },
+    {
+      "begin" : "all.equal.character"
+    },
+    {
+      "begin" : "all.equal.default"
+    },
+    {
+      "begin" : "all.equal.factor"
+    },
+    {
+      "begin" : "all.equal.formula"
+    },
+    {
+      "begin" : "all.equal.language"
+    },
+    {
+      "begin" : "all.equal.list"
+    },
+    {
+      "begin" : "all.equal.numeric"
+    },
+    {
+      "begin" : "all.equal.POSIXt"
+    },
+    {
+      "begin" : "all.equal.raw"
+    },
+    {
+      "begin" : "all.names"
+    },
+    {
+      "begin" : "all.vars"
+    },
+    {
+      "begin" : "any"
+    },
+    {
+      "begin" : "anyDuplicated"
+    },
+    {
+      "begin" : "anyDuplicated.array"
+    },
+    {
+      "begin" : "anyDuplicated.data.frame"
+    },
+    {
+      "begin" : "anyDuplicated.default"
+    },
+    {
+      "begin" : "anyDuplicated.matrix"
+    },
+    {
+      "begin" : "anyNA"
+    },
+    {
+      "begin" : "anyNA.numeric_version"
+    },
+    {
+      "begin" : "anyNA.POSIXlt"
+    },
+    {
+      "begin" : "aperm"
+    },
+    {
+      "begin" : "aperm.default"
+    },
+    {
+      "begin" : "aperm.table"
+    },
+    {
+      "begin" : "append"
+    },
+    {
+      "begin" : "apply"
+    },
+    {
+      "begin" : "array"
+    },
+    {
+      "begin" : "arrayInd"
+    },
+    {
+      "begin" : "as.array"
+    },
+    {
+      "begin" : "as.array.default"
+    },
+    {
+      "begin" : "as.call"
+    },
+    {
+      "begin" : "as.character"
+    },
+    {
+      "begin" : "as.character.condition"
+    },
+    {
+      "begin" : "as.character.Date"
+    },
+    {
+      "begin" : "as.character.default"
+    },
+    {
+      "begin" : "as.character.error"
+    },
+    {
+      "begin" : "as.character.factor"
+    },
+    {
+      "begin" : "as.character.hexmode"
+    },
+    {
+      "begin" : "as.character.numeric_version"
+    },
+    {
+      "begin" : "as.character.octmode"
+    },
+    {
+      "begin" : "as.character.POSIXt"
+    },
+    {
+      "begin" : "as.character.srcref"
+    },
+    {
+      "begin" : "as.complex"
+    },
+    {
+      "begin" : "as.data.frame"
+    },
+    {
+      "begin" : "as.data.frame.array"
+    },
+    {
+      "begin" : "as.data.frame.AsIs"
+    },
+    {
+      "begin" : "as.data.frame.character"
+    },
+    {
+      "begin" : "as.data.frame.complex"
+    },
+    {
+      "begin" : "as.data.frame.data.frame"
+    },
+    {
+      "begin" : "as.data.frame.Date"
+    },
+    {
+      "begin" : "as.data.frame.default"
+    },
+    {
+      "begin" : "as.data.frame.difftime"
+    },
+    {
+      "begin" : "as.data.frame.factor"
+    },
+    {
+      "begin" : "as.data.frame.integer"
+    },
+    {
+      "begin" : "as.data.frame.list"
+    },
+    {
+      "begin" : "as.data.frame.logical"
+    },
+    {
+      "begin" : "as.data.frame.matrix"
+    },
+    {
+      "begin" : "as.data.frame.model.matrix"
+    },
+    {
+      "begin" : "as.data.frame.numeric"
+    },
+    {
+      "begin" : "as.data.frame.numeric_version"
+    },
+    {
+      "begin" : "as.data.frame.ordered"
+    },
+    {
+      "begin" : "as.data.frame.POSIXct"
+    },
+    {
+      "begin" : "as.data.frame.POSIXlt"
+    },
+    {
+      "begin" : "as.data.frame.raw"
+    },
+    {
+      "begin" : "as.data.frame.table"
+    },
+    {
+      "begin" : "as.data.frame.ts"
+    },
+    {
+      "begin" : "as.data.frame.vector"
+    },
+    {
+      "begin" : "as.Date"
+    },
+    {
+      "begin" : "as.Date.character"
+    },
+    {
+      "begin" : "as.Date.date"
+    },
+    {
+      "begin" : "as.Date.dates"
+    },
+    {
+      "begin" : "as.Date.default"
+    },
+    {
+      "begin" : "as.Date.factor"
+    },
+    {
+      "begin" : "as.Date.numeric"
+    },
+    {
+      "begin" : "as.Date.POSIXct"
+    },
+    {
+      "begin" : "as.Date.POSIXlt"
+    },
+    {
+      "begin" : "as.difftime"
+    },
+    {
+      "begin" : "as.double"
+    },
+    {
+      "begin" : "as.double.difftime"
+    },
+    {
+      "begin" : "as.double.POSIXlt"
+    },
+    {
+      "begin" : "as.environment"
+    },
+    {
+      "begin" : "as.expression"
+    },
+    {
+      "begin" : "as.expression.default"
+    },
+    {
+      "begin" : "as.factor"
+    },
+    {
+      "begin" : "as.function"
+    },
+    {
+      "begin" : "as.function.default"
+    },
+    {
+      "begin" : "as.hexmode"
+    },
+    {
+      "begin" : "as.integer"
+    },
+    {
+      "begin" : "as.list"
+    },
+    {
+      "begin" : "as.list.data.frame"
+    },
+    {
+      "begin" : "as.list.Date"
+    },
+    {
+      "begin" : "as.list.default"
+    },
+    {
+      "begin" : "as.list.environment"
+    },
+    {
+      "begin" : "as.list.factor"
+    },
+    {
+      "begin" : "as.list.function"
+    },
+    {
+      "begin" : "as.list.numeric_version"
+    },
+    {
+      "begin" : "as.list.POSIXct"
+    },
+    {
+      "begin" : "as.logical"
+    },
+    {
+      "begin" : "as.logical.factor"
+    },
+    {
+      "begin" : "as.matrix"
+    },
+    {
+      "begin" : "as.matrix.data.frame"
+    },
+    {
+      "begin" : "as.matrix.default"
+    },
+    {
+      "begin" : "as.matrix.noquote"
+    },
+    {
+      "begin" : "as.matrix.POSIXlt"
+    },
+    {
+      "begin" : "as.name"
+    },
+    {
+      "begin" : "as.null"
+    },
+    {
+      "begin" : "as.null.default"
+    },
+    {
+      "begin" : "as.numeric"
+    },
+    {
+      "begin" : "as.numeric_version"
+    },
+    {
+      "begin" : "as.octmode"
+    },
+    {
+      "begin" : "as.ordered"
+    },
+    {
+      "begin" : "as.package_version"
+    },
+    {
+      "begin" : "as.pairlist"
+    },
+    {
+      "begin" : "as.POSIXct"
+    },
+    {
+      "begin" : "as.POSIXct.date"
+    },
+    {
+      "begin" : "as.POSIXct.Date"
+    },
+    {
+      "begin" : "as.POSIXct.dates"
+    },
+    {
+      "begin" : "as.POSIXct.default"
+    },
+    {
+      "begin" : "as.POSIXct.numeric"
+    },
+    {
+      "begin" : "as.POSIXct.POSIXlt"
+    },
+    {
+      "begin" : "as.POSIXlt"
+    },
+    {
+      "begin" : "as.POSIXlt.character"
+    },
+    {
+      "begin" : "as.POSIXlt.date"
+    },
+    {
+      "begin" : "as.POSIXlt.Date"
+    },
+    {
+      "begin" : "as.POSIXlt.dates"
+    },
+    {
+      "begin" : "as.POSIXlt.default"
+    },
+    {
+      "begin" : "as.POSIXlt.factor"
+    },
+    {
+      "begin" : "as.POSIXlt.numeric"
+    },
+    {
+      "begin" : "as.POSIXlt.POSIXct"
+    },
+    {
+      "begin" : "as.qr"
+    },
+    {
+      "begin" : "as.raw"
+    },
+    {
+      "begin" : "as.single"
+    },
+    {
+      "begin" : "as.single.default"
+    },
+    {
+      "begin" : "as.symbol"
+    },
+    {
+      "begin" : "as.table"
+    },
+    {
+      "begin" : "as.table.default"
+    },
+    {
+      "begin" : "as.vector"
+    },
+    {
+      "begin" : "as.vector.factor"
+    },
+    {
+      "begin" : "asin"
+    },
+    {
+      "begin" : "asinh"
+    },
+    {
+      "begin" : "asNamespace"
+    },
+    {
+      "begin" : "asS3"
+    },
+    {
+      "begin" : "asS4"
+    },
+    {
+      "begin" : "assign"
+    },
+    {
+      "begin" : "atan"
+    },
+    {
+      "begin" : "atan2"
+    },
+    {
+      "begin" : "atanh"
+    },
+    {
+      "begin" : "attach"
+    },
+    {
+      "begin" : "attachNamespace"
+    },
+    {
+      "begin" : "attr"
+    },
+    {
+      "begin" : "attr.all.equal"
+    },
+    {
+      "begin" : "attributes"
+    },
+    {
+      "begin" : "autoload"
+    },
+    {
+      "begin" : "autoloader"
+    },
+    {
+      "begin" : "backsolve"
+    },
+    {
+      "begin" : "baseenv"
+    },
+    {
+      "begin" : "basename"
+    },
+    {
+      "begin" : "besselI"
+    },
+    {
+      "begin" : "besselJ"
+    },
+    {
+      "begin" : "besselK"
+    },
+    {
+      "begin" : "besselY"
+    },
+    {
+      "begin" : "beta"
+    },
+    {
+      "begin" : "bindingIsActive"
+    },
+    {
+      "begin" : "bindingIsLocked"
+    },
+    {
+      "begin" : "bindtextdomain"
+    },
+    {
+      "begin" : "bitwAnd"
+    },
+    {
+      "begin" : "bitwNot"
+    },
+    {
+      "begin" : "bitwOr"
+    },
+    {
+      "begin" : "bitwShiftL"
+    },
+    {
+      "begin" : "bitwShiftR"
+    },
+    {
+      "begin" : "bitwXor"
+    },
+    {
+      "begin" : "body"
+    },
+    {
+      "begin" : "bquote"
+    },
+    {
+      "begin" : "browser"
+    },
+    {
+      "begin" : "browserCondition"
+    },
+    {
+      "begin" : "browserSetDebug"
+    },
+    {
+      "begin" : "browserText"
+    },
+    {
+      "begin" : "builtins"
+    },
+    {
+      "begin" : "by"
+    },
+    {
+      "begin" : "by.data.frame"
+    },
+    {
+      "begin" : "by.default"
+    },
+    {
+      "begin" : "bzfile"
+    },
+    {
+      "begin" : "c"
+    },
+    {
+      "begin" : "c.Date"
+    },
+    {
+      "begin" : "c.noquote"
+    },
+    {
+      "begin" : "c.numeric_version"
+    },
+    {
+      "begin" : "c.POSIXct"
+    },
+    {
+      "begin" : "c.POSIXlt"
+    },
+    {
+      "begin" : "call"
+    },
+    {
+      "begin" : "callCC"
+    },
+    {
+      "begin" : "capabilities"
+    },
+    {
+      "begin" : "casefold"
+    },
+    {
+      "begin" : "cat"
+    },
+    {
+      "begin" : "cbind"
+    },
+    {
+      "begin" : "cbind.data.frame"
+    },
+    {
+      "begin" : "ceiling"
+    },
+    {
+      "begin" : "char.expand"
+    },
+    {
+      "begin" : "character"
+    },
+    {
+      "begin" : "charmatch"
+    },
+    {
+      "begin" : "charToRaw"
+    },
+    {
+      "begin" : "chartr"
+    },
+    {
+      "begin" : "check_tzones"
+    },
+    {
+      "begin" : "chol"
+    },
+    {
+      "begin" : "chol.default"
+    },
+    {
+      "begin" : "chol2inv"
+    },
+    {
+      "begin" : "choose"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "clearPushBack"
+    },
+    {
+      "begin" : "close"
+    },
+    {
+      "begin" : "close.connection"
+    },
+    {
+      "begin" : "close.srcfile"
+    },
+    {
+      "begin" : "close.srcfilealias"
+    },
+    {
+      "begin" : "closeAllConnections"
+    },
+    {
+      "begin" : "col"
+    },
+    {
+      "begin" : "colMeans"
+    },
+    {
+      "begin" : "colnames"
+    },
+    {
+      "begin" : "colSums"
+    },
+    {
+      "begin" : "commandArgs"
+    },
+    {
+      "begin" : "comment"
+    },
+    {
+      "begin" : "complex"
+    },
+    {
+      "begin" : "computeRestarts"
+    },
+    {
+      "begin" : "conditionCall"
+    },
+    {
+      "begin" : "conditionCall.condition"
+    },
+    {
+      "begin" : "conditionMessage"
+    },
+    {
+      "begin" : "conditionMessage.condition"
+    },
+    {
+      "begin" : "conflicts"
+    },
+    {
+      "begin" : "contributors"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "cosh"
+    },
+    {
+      "begin" : "cospi"
+    },
+    {
+      "begin" : "crossprod"
+    },
+    {
+      "begin" : "cummax"
+    },
+    {
+      "begin" : "cummin"
+    },
+    {
+      "begin" : "cumprod"
+    },
+    {
+      "begin" : "cumsum"
+    },
+    {
+      "begin" : "cut"
+    },
+    {
+      "begin" : "cut.Date"
+    },
+    {
+      "begin" : "cut.default"
+    },
+    {
+      "begin" : "cut.POSIXt"
+    },
+    {
+      "begin" : "data.class"
+    },
+    {
+      "begin" : "data.frame"
+    },
+    {
+      "begin" : "data.matrix"
+    },
+    {
+      "begin" : "date"
+    },
+    {
+      "begin" : "debug"
+    },
+    {
+      "begin" : "debugonce"
+    },
+    {
+      "begin" : "default.stringsAsFactors"
+    },
+    {
+      "begin" : "delayedAssign"
+    },
+    {
+      "begin" : "deparse"
+    },
+    {
+      "begin" : "det"
+    },
+    {
+      "begin" : "detach"
+    },
+    {
+      "begin" : "determinant"
+    },
+    {
+      "begin" : "determinant.matrix"
+    },
+    {
+      "begin" : "dget"
+    },
+    {
+      "begin" : "diag"
+    },
+    {
+      "begin" : "diff"
+    },
+    {
+      "begin" : "diff.Date"
+    },
+    {
+      "begin" : "diff.default"
+    },
+    {
+      "begin" : "diff.POSIXt"
+    },
+    {
+      "begin" : "difftime"
+    },
+    {
+      "begin" : "digamma"
+    },
+    {
+      "begin" : "dim"
+    },
+    {
+      "begin" : "dim.data.frame"
+    },
+    {
+      "begin" : "dimnames"
+    },
+    {
+      "begin" : "dimnames.data.frame"
+    },
+    {
+      "begin" : "dir"
+    },
+    {
+      "begin" : "dir.create"
+    },
+    {
+      "begin" : "dirname"
+    },
+    {
+      "begin" : "do.call"
+    },
+    {
+      "begin" : "dontCheck"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "dput"
+    },
+    {
+      "begin" : "dQuote"
+    },
+    {
+      "begin" : "drop"
+    },
+    {
+      "begin" : "droplevels"
+    },
+    {
+      "begin" : "droplevels.data.frame"
+    },
+    {
+      "begin" : "droplevels.factor"
+    },
+    {
+      "begin" : "dump"
+    },
+    {
+      "begin" : "duplicated"
+    },
+    {
+      "begin" : "duplicated.array"
+    },
+    {
+      "begin" : "duplicated.data.frame"
+    },
+    {
+      "begin" : "duplicated.default"
+    },
+    {
+      "begin" : "duplicated.matrix"
+    },
+    {
+      "begin" : "duplicated.numeric_version"
+    },
+    {
+      "begin" : "duplicated.POSIXlt"
+    },
+    {
+      "begin" : "dyn.load"
+    },
+    {
+      "begin" : "dyn.unload"
+    },
+    {
+      "begin" : "eapply"
+    },
+    {
+      "begin" : "eigen"
+    },
+    {
+      "begin" : "emptyenv"
+    },
+    {
+      "begin" : "enc2native"
+    },
+    {
+      "begin" : "enc2utf8"
+    },
+    {
+      "begin" : "encodeString"
+    },
+    {
+      "begin" : "enquote"
+    },
+    {
+      "begin" : "env.profile"
+    },
+    {
+      "begin" : "environment"
+    },
+    {
+      "begin" : "environmentIsLocked"
+    },
+    {
+      "begin" : "environmentName"
+    },
+    {
+      "begin" : "eval"
+    },
+    {
+      "begin" : "eval.parent"
+    },
+    {
+      "begin" : "evalq"
+    },
+    {
+      "begin" : "exists"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "expand.grid"
+    },
+    {
+      "begin" : "expm1"
+    },
+    {
+      "begin" : "expression"
+    },
+    {
+      "begin" : "factor"
+    },
+    {
+      "begin" : "factorial"
+    },
+    {
+      "begin" : "fifo"
+    },
+    {
+      "begin" : "file"
+    },
+    {
+      "begin" : "file.access"
+    },
+    {
+      "begin" : "file.append"
+    },
+    {
+      "begin" : "file.choose"
+    },
+    {
+      "begin" : "file.copy"
+    },
+    {
+      "begin" : "file.create"
+    },
+    {
+      "begin" : "file.exists"
+    },
+    {
+      "begin" : "file.info"
+    },
+    {
+      "begin" : "file.link"
+    },
+    {
+      "begin" : "file.path"
+    },
+    {
+      "begin" : "file.remove"
+    },
+    {
+      "begin" : "file.rename"
+    },
+    {
+      "begin" : "file.show"
+    },
+    {
+      "begin" : "file.symlink"
+    },
+    {
+      "begin" : "find.package"
+    },
+    {
+      "begin" : "findInterval"
+    },
+    {
+      "begin" : "findPackageEnv"
+    },
+    {
+      "begin" : "findRestart"
+    },
+    {
+      "begin" : "floor"
+    },
+    {
+      "begin" : "flush"
+    },
+    {
+      "begin" : "flush.connection"
+    },
+    {
+      "begin" : "force"
+    },
+    {
+      "begin" : "formals"
+    },
+    {
+      "begin" : "format"
+    },
+    {
+      "begin" : "format.AsIs"
+    },
+    {
+      "begin" : "format.data.frame"
+    },
+    {
+      "begin" : "format.Date"
+    },
+    {
+      "begin" : "format.default"
+    },
+    {
+      "begin" : "format.difftime"
+    },
+    {
+      "begin" : "format.factor"
+    },
+    {
+      "begin" : "format.hexmode"
+    },
+    {
+      "begin" : "format.info"
+    },
+    {
+      "begin" : "format.libraryIQR"
+    },
+    {
+      "begin" : "format.numeric_version"
+    },
+    {
+      "begin" : "format.octmode"
+    },
+    {
+      "begin" : "format.packageInfo"
+    },
+    {
+      "begin" : "format.POSIXct"
+    },
+    {
+      "begin" : "format.POSIXlt"
+    },
+    {
+      "begin" : "format.pval"
+    },
+    {
+      "begin" : "format.summaryDefault"
+    },
+    {
+      "begin" : "formatC"
+    },
+    {
+      "begin" : "formatDL"
+    },
+    {
+      "begin" : "forwardsolve"
+    },
+    {
+      "begin" : "gamma"
+    },
+    {
+      "begin" : "gc"
+    },
+    {
+      "begin" : "gc.time"
+    },
+    {
+      "begin" : "gcinfo"
+    },
+    {
+      "begin" : "gctorture"
+    },
+    {
+      "begin" : "gctorture2"
+    },
+    {
+      "begin" : "get"
+    },
+    {
+      "begin" : "getAllConnections"
+    },
+    {
+      "begin" : "getCallingDLL"
+    },
+    {
+      "begin" : "getCallingDLLe"
+    },
+    {
+      "begin" : "getConnection"
+    },
+    {
+      "begin" : "getDLLRegisteredRoutines"
+    },
+    {
+      "begin" : "getDLLRegisteredRoutines.character\""
+    },
+    {
+      "begin" : "getDLLRegisteredRoutines.DLLInfo"
+    },
+    {
+      "begin" : "getElement"
+    },
+    {
+      "begin" : "geterrmessage"
+    },
+    {
+      "begin" : "getExportedValue"
+    },
+    {
+      "begin" : "getHook"
+    },
+    {
+      "begin" : "getLoadedDLLs"
+    },
+    {
+      "begin" : "getNamespace"
+    },
+    {
+      "begin" : "getNamespaceExports"
+    },
+    {
+      "begin" : "getNamespaceImports"
+    },
+    {
+      "begin" : "getNamespaceInfo"
+    },
+    {
+      "begin" : "getNamespaceName"
+    },
+    {
+      "begin" : "getNamespaceUsers"
+    },
+    {
+      "begin" : "getNamespaceVersion"
+    },
+    {
+      "begin" : "getNativeSymbolInfo"
+    },
+    {
+      "begin" : "getOption"
+    },
+    {
+      "begin" : "getRversion"
+    },
+    {
+      "begin" : "getSrcLines"
+    },
+    {
+      "begin" : "getTaskCallbackNames"
+    },
+    {
+      "begin" : "gettext"
+    },
+    {
+      "begin" : "gettextf"
+    },
+    {
+      "begin" : "getwd"
+    },
+    {
+      "begin" : "gl"
+    },
+    {
+      "begin" : "globalenv"
+    },
+    {
+      "begin" : "gregexpr"
+    },
+    {
+      "begin" : "grep"
+    },
+    {
+      "begin" : "grepl"
+    },
+    {
+      "begin" : "grepRaw"
+    },
+    {
+      "begin" : "gsub"
+    },
+    {
+      "begin" : "gzcon"
+    },
+    {
+      "begin" : "gzfile"
+    },
+    {
+      "begin" : "head"
+    },
+    {
+      "begin" : "iconv"
+    },
+    {
+      "begin" : "iconvlist"
+    },
+    {
+      "begin" : "icuSetCollate"
+    },
+    {
+      "begin" : "identical"
+    },
+    {
+      "begin" : "identity"
+    },
+    {
+      "begin" : "ifelse"
+    },
+    {
+      "begin" : "importIntoEnv"
+    },
+    {
+      "begin" : "inherits"
+    },
+    {
+      "begin" : "integer"
+    },
+    {
+      "begin" : "interaction"
+    },
+    {
+      "begin" : "interactive"
+    },
+    {
+      "begin" : "intersect"
+    },
+    {
+      "begin" : "intToBits"
+    },
+    {
+      "begin" : "intToUtf8"
+    },
+    {
+      "begin" : "inverse.rle"
+    },
+    {
+      "begin" : "invisible"
+    },
+    {
+      "begin" : "invokeRestart"
+    },
+    {
+      "begin" : "invokeRestartInteractively"
+    },
+    {
+      "begin" : "is.array"
+    },
+    {
+      "begin" : "is.atomic"
+    },
+    {
+      "begin" : "is.call"
+    },
+    {
+      "begin" : "is.character"
+    },
+    {
+      "begin" : "is.complex"
+    },
+    {
+      "begin" : "is.data.frame"
+    },
+    {
+      "begin" : "is.double"
+    },
+    {
+      "begin" : "is.element"
+    },
+    {
+      "begin" : "is.environment"
+    },
+    {
+      "begin" : "is.expression"
+    },
+    {
+      "begin" : "is.factor"
+    },
+    {
+      "begin" : "is.finite"
+    },
+    {
+      "begin" : "is.function"
+    },
+    {
+      "begin" : "is.infinite"
+    },
+    {
+      "begin" : "is.integer"
+    },
+    {
+      "begin" : "is.language"
+    },
+    {
+      "begin" : "is.list"
+    },
+    {
+      "begin" : "is.loaded"
+    },
+    {
+      "begin" : "is.logical"
+    },
+    {
+      "begin" : "is.matrix"
+    },
+    {
+      "begin" : "is.na"
+    },
+    {
+      "begin" : "is.na.data.frame"
+    },
+    {
+      "begin" : "is.na.numeric_version"
+    },
+    {
+      "begin" : "is.na.POSIXlt"
+    },
+    {
+      "begin" : "is.name"
+    },
+    {
+      "begin" : "is.nan"
+    },
+    {
+      "begin" : "is.null"
+    },
+    {
+      "begin" : "is.numeric"
+    },
+    {
+      "begin" : "is.numeric.Date"
+    },
+    {
+      "begin" : "is.numeric.difftime"
+    },
+    {
+      "begin" : "is.numeric.POSIXt"
+    },
+    {
+      "begin" : "is.numeric_version"
+    },
+    {
+      "begin" : "is.object"
+    },
+    {
+      "begin" : "is.ordered"
+    },
+    {
+      "begin" : "is.package_version"
+    },
+    {
+      "begin" : "is.pairlist"
+    },
+    {
+      "begin" : "is.primitive"
+    },
+    {
+      "begin" : "is.qr"
+    },
+    {
+      "begin" : "is.R"
+    },
+    {
+      "begin" : "is.raw"
+    },
+    {
+      "begin" : "is.recursive"
+    },
+    {
+      "begin" : "is.single"
+    },
+    {
+      "begin" : "is.symbol"
+    },
+    {
+      "begin" : "is.table"
+    },
+    {
+      "begin" : "is.unsorted"
+    },
+    {
+      "begin" : "is.vector"
+    },
+    {
+      "begin" : "isatty"
+    },
+    {
+      "begin" : "isBaseNamespace"
+    },
+    {
+      "begin" : "isdebugged"
+    },
+    {
+      "begin" : "isIncomplete"
+    },
+    {
+      "begin" : "isNamespace"
+    },
+    {
+      "begin" : "isOpen"
+    },
+    {
+      "begin" : "isRestart"
+    },
+    {
+      "begin" : "isS4"
+    },
+    {
+      "begin" : "isSeekable"
+    },
+    {
+      "begin" : "isSymmetric"
+    },
+    {
+      "begin" : "isSymmetric.matrix"
+    },
+    {
+      "begin" : "isTRUE"
+    },
+    {
+      "begin" : "jitter"
+    },
+    {
+      "begin" : "julian"
+    },
+    {
+      "begin" : "julian.Date"
+    },
+    {
+      "begin" : "julian.POSIXt"
+    },
+    {
+      "begin" : "kappa"
+    },
+    {
+      "begin" : "kappa.default"
+    },
+    {
+      "begin" : "kappa.lm"
+    },
+    {
+      "begin" : "kappa.qr"
+    },
+    {
+      "begin" : "kronecker"
+    },
+    {
+      "begin" : "l10n_info"
+    },
+    {
+      "begin" : "labels"
+    },
+    {
+      "begin" : "labels.default"
+    },
+    {
+      "begin" : "lapply"
+    },
+    {
+      "begin" : "last.warning"
+    },
+    {
+      "begin" : "lazyLoad"
+    },
+    {
+      "begin" : "lazyLoadDBexec"
+    },
+    {
+      "begin" : "lazyLoadDBfetch"
+    },
+    {
+      "begin" : "lbeta"
+    },
+    {
+      "begin" : "lchoose"
+    },
+    {
+      "begin" : "length"
+    },
+    {
+      "begin" : "length.POSIXlt"
+    },
+    {
+      "begin" : "letters"
+    },
+    {
+      "begin" : "levels"
+    },
+    {
+      "begin" : "levels.default"
+    },
+    {
+      "begin" : "lfactorial"
+    },
+    {
+      "begin" : "lgamma"
+    },
+    {
+      "begin" : "library"
+    },
+    {
+      "begin" : "library.dynam"
+    },
+    {
+      "begin" : "library.dynam.unload"
+    },
+    {
+      "begin" : "licence"
+    },
+    {
+      "begin" : "license"
+    },
+    {
+      "begin" : "list"
+    },
+    {
+      "begin" : "list.dirs"
+    },
+    {
+      "begin" : "list.files"
+    },
+    {
+      "begin" : "list2env"
+    },
+    {
+      "begin" : "load"
+    },
+    {
+      "begin" : "loadedNamespaces"
+    },
+    {
+      "begin" : "loadingNamespaceInfo"
+    },
+    {
+      "begin" : "loadNamespace"
+    },
+    {
+      "begin" : "local"
+    },
+    {
+      "begin" : "lockBinding"
+    },
+    {
+      "begin" : "lockEnvironment"
+    },
+    {
+      "begin" : "log"
+    },
+    {
+      "begin" : "log10"
+    },
+    {
+      "begin" : "log1p"
+    },
+    {
+      "begin" : "log2"
+    },
+    {
+      "begin" : "logb"
+    },
+    {
+      "begin" : "logical"
+    },
+    {
+      "begin" : "lower.tri"
+    },
+    {
+      "begin" : "ls"
+    },
+    {
+      "begin" : "make.names"
+    },
+    {
+      "begin" : "make.unique"
+    },
+    {
+      "begin" : "makeActiveBinding"
+    },
+    {
+      "begin" : "mapply"
+    },
+    {
+      "begin" : "margin.table"
+    },
+    {
+      "begin" : "mat.or.vec"
+    },
+    {
+      "begin" : "match"
+    },
+    {
+      "begin" : "match.arg"
+    },
+    {
+      "begin" : "match.call"
+    },
+    {
+      "begin" : "match.fun"
+    },
+    {
+      "begin" : "matrix"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "max.col"
+    },
+    {
+      "begin" : "mean"
+    },
+    {
+      "begin" : "mean.Date"
+    },
+    {
+      "begin" : "mean.default"
+    },
+    {
+      "begin" : "mean.difftime"
+    },
+    {
+      "begin" : "mean.POSIXct"
+    },
+    {
+      "begin" : "mean.POSIXlt"
+    },
+    {
+      "begin" : "mem.limits"
+    },
+    {
+      "begin" : "memCompress"
+    },
+    {
+      "begin" : "memDecompress"
+    },
+    {
+      "begin" : "memory.profile"
+    },
+    {
+      "begin" : "merge"
+    },
+    {
+      "begin" : "merge.data.frame"
+    },
+    {
+      "begin" : "merge.default"
+    },
+    {
+      "begin" : "message"
+    },
+    {
+      "begin" : "mget"
+    },
+    {
+      "begin" : "min"
+    },
+    {
+      "begin" : "missing"
+    },
+    {
+      "begin" : "mode"
+    },
+    {
+      "begin" : "month.abb"
+    },
+    {
+      "begin" : "month.name"
+    },
+    {
+      "begin" : "months"
+    },
+    {
+      "begin" : "months.Date"
+    },
+    {
+      "begin" : "months.POSIXt"
+    },
+    {
+      "begin" : "names"
+    },
+    {
+      "begin" : "names.POSIXlt"
+    },
+    {
+      "begin" : "namespaceExport"
+    },
+    {
+      "begin" : "namespaceImport"
+    },
+    {
+      "begin" : "namespaceImportClasses"
+    },
+    {
+      "begin" : "namespaceImportFrom"
+    },
+    {
+      "begin" : "namespaceImportMethods"
+    },
+    {
+      "begin" : "nargs"
+    },
+    {
+      "begin" : "nchar"
+    },
+    {
+      "begin" : "ncol"
+    },
+    {
+      "begin" : "new.env"
+    },
+    {
+      "begin" : "ngettext"
+    },
+    {
+      "begin" : "nlevels"
+    },
+    {
+      "begin" : "noquote"
+    },
+    {
+      "begin" : "norm"
+    },
+    {
+      "begin" : "normalizePath"
+    },
+    {
+      "begin" : "nrow"
+    },
+    {
+      "begin" : "numeric"
+    },
+    {
+      "begin" : "numeric_version"
+    },
+    {
+      "begin" : "nzchar"
+    },
+    {
+      "begin" : "objects"
+    },
+    {
+      "begin" : "oldClass"
+    },
+    {
+      "begin" : "on.exit"
+    },
+    {
+      "begin" : "open"
+    },
+    {
+      "begin" : "open.connection"
+    },
+    {
+      "begin" : "open.srcfile"
+    },
+    {
+      "begin" : "open.srcfilealias"
+    },
+    {
+      "begin" : "open.srcfilecopy"
+    },
+    {
+      "begin" : "options"
+    },
+    {
+      "begin" : "order"
+    },
+    {
+      "begin" : "outer"
+    },
+    {
+      "begin" : "package_version"
+    },
+    {
+      "begin" : "packageEvent"
+    },
+    {
+      "begin" : "packageHasNamespace"
+    },
+    {
+      "begin" : "packageStartupMessage"
+    },
+    {
+      "begin" : "packBits"
+    },
+    {
+      "begin" : "pairlist"
+    },
+    {
+      "begin" : "parent.env"
+    },
+    {
+      "begin" : "parent.frame"
+    },
+    {
+      "begin" : "parse"
+    },
+    {
+      "begin" : "parseNamespaceFile"
+    },
+    {
+      "begin" : "paste"
+    },
+    {
+      "begin" : "paste0"
+    },
+    {
+      "begin" : "path.expand"
+    },
+    {
+      "begin" : "path.package"
+    },
+    {
+      "begin" : "pi"
+    },
+    {
+      "begin" : "pipe"
+    },
+    {
+      "begin" : "pmatch"
+    },
+    {
+      "begin" : "pmax"
+    },
+    {
+      "begin" : "pmax.int"
+    },
+    {
+      "begin" : "pmin"
+    },
+    {
+      "begin" : "pmin.int"
+    },
+    {
+      "begin" : "polyroot"
+    },
+    {
+      "begin" : "pos.to.env"
+    },
+    {
+      "begin" : "pretty"
+    },
+    {
+      "begin" : "pretty.default"
+    },
+    {
+      "begin" : "prettyNum"
+    },
+    {
+      "begin" : "print"
+    },
+    {
+      "begin" : "print.AsIs"
+    },
+    {
+      "begin" : "print.by"
+    },
+    {
+      "begin" : "print.condition"
+    },
+    {
+      "begin" : "print.connection"
+    },
+    {
+      "begin" : "print.data.frame"
+    },
+    {
+      "begin" : "print.Date"
+    },
+    {
+      "begin" : "print.default"
+    },
+    {
+      "begin" : "print.difftime"
+    },
+    {
+      "begin" : "print.DLLInfo"
+    },
+    {
+      "begin" : "print.DLLInfoList"
+    },
+    {
+      "begin" : "print.DLLRegisteredRoutines"
+    },
+    {
+      "begin" : "print.factor"
+    },
+    {
+      "begin" : "print.function"
+    },
+    {
+      "begin" : "print.hexmode"
+    },
+    {
+      "begin" : "print.libraryIQR"
+    },
+    {
+      "begin" : "print.listof"
+    },
+    {
+      "begin" : "print.NativeRoutineList"
+    },
+    {
+      "begin" : "print.noquote"
+    },
+    {
+      "begin" : "print.numeric_version"
+    },
+    {
+      "begin" : "print.octmode"
+    },
+    {
+      "begin" : "print.packageInfo"
+    },
+    {
+      "begin" : "print.POSIXct"
+    },
+    {
+      "begin" : "print.POSIXlt"
+    },
+    {
+      "begin" : "print.proc_time"
+    },
+    {
+      "begin" : "print.restart"
+    },
+    {
+      "begin" : "print.rle"
+    },
+    {
+      "begin" : "print.simple.list"
+    },
+    {
+      "begin" : "print.srcfile"
+    },
+    {
+      "begin" : "print.srcref"
+    },
+    {
+      "begin" : "print.summary.table"
+    },
+    {
+      "begin" : "print.summaryDefault"
+    },
+    {
+      "begin" : "print.table"
+    },
+    {
+      "begin" : "print.warnings"
+    },
+    {
+      "begin" : "prmatrix"
+    },
+    {
+      "begin" : "proc.time"
+    },
+    {
+      "begin" : "prod"
+    },
+    {
+      "begin" : "prop.table"
+    },
+    {
+      "begin" : "provideDimnames"
+    },
+    {
+      "begin" : "psigamma"
+    },
+    {
+      "begin" : "pushBack"
+    },
+    {
+      "begin" : "pushBackLength"
+    },
+    {
+      "begin" : "q"
+    },
+    {
+      "begin" : "qr"
+    },
+    {
+      "begin" : "qr.coef"
+    },
+    {
+      "begin" : "qr.default"
+    },
+    {
+      "begin" : "qr.fitted"
+    },
+    {
+      "begin" : "qr.Q"
+    },
+    {
+      "begin" : "qr.qty"
+    },
+    {
+      "begin" : "qr.qy"
+    },
+    {
+      "begin" : "qr.R"
+    },
+    {
+      "begin" : "qr.resid"
+    },
+    {
+      "begin" : "qr.solve"
+    },
+    {
+      "begin" : "qr.X"
+    },
+    {
+      "begin" : "quarters"
+    },
+    {
+      "begin" : "quarters.Date"
+    },
+    {
+      "begin" : "quarters.POSIXt"
+    },
+    {
+      "begin" : "quit"
+    },
+    {
+      "begin" : "range"
+    },
+    {
+      "begin" : "range.default"
+    },
+    {
+      "begin" : "rank"
+    },
+    {
+      "begin" : "rapply"
+    },
+    {
+      "begin" : "raw"
+    },
+    {
+      "begin" : "rawConnection"
+    },
+    {
+      "begin" : "rawConnectionValue"
+    },
+    {
+      "begin" : "rawShift"
+    },
+    {
+      "begin" : "rawToBits"
+    },
+    {
+      "begin" : "rawToChar"
+    },
+    {
+      "begin" : "rbind"
+    },
+    {
+      "begin" : "rbind.data.frame"
+    },
+    {
+      "begin" : "rcond"
+    },
+    {
+      "begin" : "read.dcf"
+    },
+    {
+      "begin" : "readBin"
+    },
+    {
+      "begin" : "readChar"
+    },
+    {
+      "begin" : "readline"
+    },
+    {
+      "begin" : "readLines"
+    },
+    {
+      "begin" : "readRDS"
+    },
+    {
+      "begin" : "readRenviron"
+    },
+    {
+      "begin" : "reg.finalizer"
+    },
+    {
+      "begin" : "regexec"
+    },
+    {
+      "begin" : "regexpr"
+    },
+    {
+      "begin" : "registerS3method"
+    },
+    {
+      "begin" : "registerS3methods"
+    },
+    {
+      "begin" : "regmatches"
+    },
+    {
+      "begin" : "remove"
+    },
+    {
+      "begin" : "removeTaskCallback"
+    },
+    {
+      "begin" : "rep"
+    },
+    {
+      "begin" : "rep.Date"
+    },
+    {
+      "begin" : "rep.factor"
+    },
+    {
+      "begin" : "rep.int"
+    },
+    {
+      "begin" : "rep.numeric_version"
+    },
+    {
+      "begin" : "rep.POSIXct"
+    },
+    {
+      "begin" : "rep.POSIXlt"
+    },
+    {
+      "begin" : "rep_len"
+    },
+    {
+      "begin" : "replace"
+    },
+    {
+      "begin" : "replicate"
+    },
+    {
+      "begin" : "require"
+    },
+    {
+      "begin" : "requireNamespace"
+    },
+    {
+      "begin" : "restartDescription"
+    },
+    {
+      "begin" : "restartFormals"
+    },
+    {
+      "begin" : "retracemem"
+    },
+    {
+      "begin" : "rev"
+    },
+    {
+      "begin" : "rev.default"
+    },
+    {
+      "begin" : "rle"
+    },
+    {
+      "begin" : "rm"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "round.Date"
+    },
+    {
+      "begin" : "round.POSIXt"
+    },
+    {
+      "begin" : "row"
+    },
+    {
+      "begin" : "row.names"
+    },
+    {
+      "begin" : "row.names.data.frame"
+    },
+    {
+      "begin" : "row.names.default"
+    },
+    {
+      "begin" : "rowMeans"
+    },
+    {
+      "begin" : "rownames"
+    },
+    {
+      "begin" : "rowsum"
+    },
+    {
+      "begin" : "rowsum.data.frame"
+    },
+    {
+      "begin" : "rowsum.default"
+    },
+    {
+      "begin" : "rowSums"
+    },
+    {
+      "begin" : "sample"
+    },
+    {
+      "begin" : "sample.int"
+    },
+    {
+      "begin" : "sapply"
+    },
+    {
+      "begin" : "save"
+    },
+    {
+      "begin" : "save.image"
+    },
+    {
+      "begin" : "saveRDS"
+    },
+    {
+      "begin" : "scale"
+    },
+    {
+      "begin" : "scale.default"
+    },
+    {
+      "begin" : "scan"
+    },
+    {
+      "begin" : "search"
+    },
+    {
+      "begin" : "searchpaths"
+    },
+    {
+      "begin" : "seek"
+    },
+    {
+      "begin" : "seek.connection"
+    },
+    {
+      "begin" : "seq"
+    },
+    {
+      "begin" : "seq.Date"
+    },
+    {
+      "begin" : "seq.default"
+    },
+    {
+      "begin" : "seq.int"
+    },
+    {
+      "begin" : "seq.POSIXt"
+    },
+    {
+      "begin" : "seq_along"
+    },
+    {
+      "begin" : "seq_len"
+    },
+    {
+      "begin" : "sequence"
+    },
+    {
+      "begin" : "serialize"
+    },
+    {
+      "begin" : "set.seed"
+    },
+    {
+      "begin" : "setdiff"
+    },
+    {
+      "begin" : "setequal"
+    },
+    {
+      "begin" : "setHook"
+    },
+    {
+      "begin" : "setNamespaceInfo"
+    },
+    {
+      "begin" : "setSessionTimeLimit"
+    },
+    {
+      "begin" : "setTimeLimit"
+    },
+    {
+      "begin" : "setwd"
+    },
+    {
+      "begin" : "showConnections"
+    },
+    {
+      "begin" : "shQuote"
+    },
+    {
+      "begin" : "sign"
+    },
+    {
+      "begin" : "signalCondition"
+    },
+    {
+      "begin" : "signif"
+    },
+    {
+      "begin" : "simpleCondition"
+    },
+    {
+      "begin" : "simpleError"
+    },
+    {
+      "begin" : "simpleMessage"
+    },
+    {
+      "begin" : "simpleWarning"
+    },
+    {
+      "begin" : "simplify2array"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "single"
+    },
+    {
+      "begin" : "sinh"
+    },
+    {
+      "begin" : "sink"
+    },
+    {
+      "begin" : "sink.number"
+    },
+    {
+      "begin" : "sinpi"
+    },
+    {
+      "begin" : "slice.index"
+    },
+    {
+      "begin" : "socketConnection"
+    },
+    {
+      "begin" : "socketSelect"
+    },
+    {
+      "begin" : "solve"
+    },
+    {
+      "begin" : "solve.default"
+    },
+    {
+      "begin" : "solve.qr"
+    },
+    {
+      "begin" : "sort"
+    },
+    {
+      "begin" : "sort.default"
+    },
+    {
+      "begin" : "sort.int"
+    },
+    {
+      "begin" : "sort.list"
+    },
+    {
+      "begin" : "sort.POSIXlt"
+    },
+    {
+      "begin" : "source"
+    },
+    {
+      "begin" : "split"
+    },
+    {
+      "begin" : "split.data.frame"
+    },
+    {
+      "begin" : "split.Date"
+    },
+    {
+      "begin" : "split.default"
+    },
+    {
+      "begin" : "split.POSIXct"
+    },
+    {
+      "begin" : "sprintf"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "sQuote"
+    },
+    {
+      "begin" : "srcfile"
+    },
+    {
+      "begin" : "srcfilealias"
+    },
+    {
+      "begin" : "srcfilecopy"
+    },
+    {
+      "begin" : "srcref"
+    },
+    {
+      "begin" : "standardGeneric"
+    },
+    {
+      "begin" : "stderr"
+    },
+    {
+      "begin" : "stdin"
+    },
+    {
+      "begin" : "stdout"
+    },
+    {
+      "begin" : "stop"
+    },
+    {
+      "begin" : "stopifnot"
+    },
+    {
+      "begin" : "storage.mode"
+    },
+    {
+      "begin" : "strftime"
+    },
+    {
+      "begin" : "strptime"
+    },
+    {
+      "begin" : "strsplit"
+    },
+    {
+      "begin" : "strtoi"
+    },
+    {
+      "begin" : "strtrim"
+    },
+    {
+      "begin" : "structure"
+    },
+    {
+      "begin" : "strwrap"
+    },
+    {
+      "begin" : "sub"
+    },
+    {
+      "begin" : "subset"
+    },
+    {
+      "begin" : "subset.data.frame"
+    },
+    {
+      "begin" : "subset.default"
+    },
+    {
+      "begin" : "subset.matrix"
+    },
+    {
+      "begin" : "substitute"
+    },
+    {
+      "begin" : "substr"
+    },
+    {
+      "begin" : "substring"
+    },
+    {
+      "begin" : "sum"
+    },
+    {
+      "begin" : "summary"
+    },
+    {
+      "begin" : "summary.connection"
+    },
+    {
+      "begin" : "summary.data.frame"
+    },
+    {
+      "begin" : "summary.Date"
+    },
+    {
+      "begin" : "summary.default"
+    },
+    {
+      "begin" : "summary.factor"
+    },
+    {
+      "begin" : "summary.matrix"
+    },
+    {
+      "begin" : "summary.POSIXct"
+    },
+    {
+      "begin" : "summary.POSIXlt"
+    },
+    {
+      "begin" : "summary.proc_time"
+    },
+    {
+      "begin" : "summary.srcfile"
+    },
+    {
+      "begin" : "summary.srcref"
+    },
+    {
+      "begin" : "summary.table"
+    },
+    {
+      "begin" : "suppressMessages"
+    },
+    {
+      "begin" : "suppressPackageStartupMessages"
+    },
+    {
+      "begin" : "suppressWarnings"
+    },
+    {
+      "begin" : "svd"
+    },
+    {
+      "begin" : "sweep"
+    },
+    {
+      "begin" : "sys.call"
+    },
+    {
+      "begin" : "sys.calls"
+    },
+    {
+      "begin" : "sys.frame"
+    },
+    {
+      "begin" : "sys.frames"
+    },
+    {
+      "begin" : "sys.function"
+    },
+    {
+      "begin" : "sys.load.image"
+    },
+    {
+      "begin" : "sys.nframe"
+    },
+    {
+      "begin" : "sys.on.exit"
+    },
+    {
+      "begin" : "sys.parent"
+    },
+    {
+      "begin" : "sys.parents"
+    },
+    {
+      "begin" : "sys.save.image"
+    },
+    {
+      "begin" : "sys.source"
+    },
+    {
+      "begin" : "sys.status"
+    },
+    {
+      "begin" : "system"
+    },
+    {
+      "begin" : "system.file"
+    },
+    {
+      "begin" : "system.time"
+    },
+    {
+      "begin" : "system2"
+    },
+    {
+      "begin" : "t"
+    },
+    {
+      "begin" : "t.data.frame"
+    },
+    {
+      "begin" : "t.default"
+    },
+    {
+      "begin" : "table"
+    },
+    {
+      "begin" : "tabulate"
+    },
+    {
+      "begin" : "tan"
+    },
+    {
+      "begin" : "tanh"
+    },
+    {
+      "begin" : "tanpi"
+    },
+    {
+      "begin" : "tapply"
+    },
+    {
+      "begin" : "taskCallbackManager"
+    },
+    {
+      "begin" : "tcrossprod"
+    },
+    {
+      "begin" : "tempdir"
+    },
+    {
+      "begin" : "tempfile"
+    },
+    {
+      "begin" : "testPlatformEquivalence"
+    },
+    {
+      "begin" : "textConnection"
+    },
+    {
+      "begin" : "textConnectionValue"
+    },
+    {
+      "begin" : "tolower"
+    },
+    {
+      "begin" : "topenv"
+    },
+    {
+      "begin" : "toString"
+    },
+    {
+      "begin" : "toString.default"
+    },
+    {
+      "begin" : "toupper"
+    },
+    {
+      "begin" : "trace"
+    },
+    {
+      "begin" : "traceback"
+    },
+    {
+      "begin" : "tracemem"
+    },
+    {
+      "begin" : "tracingState"
+    },
+    {
+      "begin" : "transform"
+    },
+    {
+      "begin" : "transform.data.frame"
+    },
+    {
+      "begin" : "transform.default"
+    },
+    {
+      "begin" : "trigamma"
+    },
+    {
+      "begin" : "trunc"
+    },
+    {
+      "begin" : "trunc.Date"
+    },
+    {
+      "begin" : "trunc.POSIXt"
+    },
+    {
+      "begin" : "truncate"
+    },
+    {
+      "begin" : "truncate.connection"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "tryCatch"
+    },
+    {
+      "begin" : "typeof"
+    },
+    {
+      "begin" : "unclass"
+    },
+    {
+      "begin" : "undebug"
+    },
+    {
+      "begin" : "union"
+    },
+    {
+      "begin" : "unique"
+    },
+    {
+      "begin" : "unique.array"
+    },
+    {
+      "begin" : "unique.data.frame"
+    },
+    {
+      "begin" : "unique.default"
+    },
+    {
+      "begin" : "unique.matrix"
+    },
+    {
+      "begin" : "unique.numeric_version"
+    },
+    {
+      "begin" : "unique.POSIXlt"
+    },
+    {
+      "begin" : "units"
+    },
+    {
+      "begin" : "units.difftime"
+    },
+    {
+      "begin" : "unix.time"
+    },
+    {
+      "begin" : "unlink"
+    },
+    {
+      "begin" : "unlist"
+    },
+    {
+      "begin" : "unloadNamespace"
+    },
+    {
+      "begin" : "unlockBinding"
+    },
+    {
+      "begin" : "unname"
+    },
+    {
+      "begin" : "unserialize"
+    },
+    {
+      "begin" : "unsplit"
+    },
+    {
+      "begin" : "untrace"
+    },
+    {
+      "begin" : "untracemem"
+    },
+    {
+      "begin" : "unz"
+    },
+    {
+      "begin" : "upper.tri"
+    },
+    {
+      "begin" : "url"
+    },
+    {
+      "begin" : "utf8ToInt"
+    },
+    {
+      "begin" : "vapply"
+    },
+    {
+      "begin" : "vector"
+    },
+    {
+      "begin" : "version"
+    },
+    {
+      "begin" : "warning"
+    },
+    {
+      "begin" : "warnings"
+    },
+    {
+      "begin" : "weekdays"
+    },
+    {
+      "begin" : "weekdays.Date"
+    },
+    {
+      "begin" : "weekdays.POSIXt"
+    },
+    {
+      "begin" : "which"
+    },
+    {
+      "begin" : "which.max"
+    },
+    {
+      "begin" : "which.min"
+    },
+    {
+      "begin" : "with"
+    },
+    {
+      "begin" : "with.default"
+    },
+    {
+      "begin" : "withCallingHandlers"
+    },
+    {
+      "begin" : "within"
+    },
+    {
+      "begin" : "within.data.frame"
+    },
+    {
+      "begin" : "within.list"
+    },
+    {
+      "begin" : "withRestarts"
+    },
+    {
+      "begin" : "withVisible"
+    },
+    {
+      "begin" : "write"
+    },
+    {
+      "begin" : "write.dcf"
+    },
+    {
+      "begin" : "writeBin"
+    },
+    {
+      "begin" : "writeChar"
+    },
+    {
+      "begin" : "writeLines"
+    },
+    {
+      "begin" : "xor"
+    },
+    {
+      "begin" : "xor.hexmode"
+    },
+    {
+      "begin" : "xor.octmode"
+    },
+    {
+      "begin" : "xpdrows.data.frame"
+    },
+    {
+      "begin" : "xtfrm"
+    },
+    {
+      "begin" : "xtfrm.AsIs"
+    },
+    {
+      "begin" : "xtfrm.Date"
+    },
+    {
+      "begin" : "xtfrm.default"
+    },
+    {
+      "begin" : "xtfrm.difftime"
+    },
+    {
+      "begin" : "xtfrm.factor"
+    },
+    {
+      "begin" : "xtfrm.numeric_version"
+    },
+    {
+      "begin" : "xtfrm.POSIXct"
+    },
+    {
+      "begin" : "xtfrm.POSIXlt"
+    },
+    {
+      "begin" : "xtfrm.Surv"
+    },
+    {
+      "begin" : "xzfile"
+    },
+    {
+      "begin" : "zapsmall"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "expr"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "function"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "next"
+    },
+    {
+      "begin" : "quote"
+    },
+    {
+      "begin" : "repeat"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "switch"
+    },
+    {
+      "begin" : "while"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b((\\d\\.?\\d*)|(\\.\\d+))(e[-+]?\\d+)?(i|l|ul|u|f|ll|ull)?\\b",
+      "description" : "decimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b-?0x[0-9a-f]+\\b",
+      "description" : "hexadecimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0b[01]+\\b",
+      "description" : "binary",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "array"
+    },
+    {
+      "begin" : "category"
+    },
+    {
+      "begin" : "character"
+    },
+    {
+      "begin" : "complex"
+    },
+    {
+      "begin" : "data.frame"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "function"
+    },
+    {
+      "begin" : "integer"
+    },
+    {
+      "begin" : "list"
+    },
+    {
+      "begin" : "logical"
+    },
+    {
+      "begin" : "matrix"
+    },
+    {
+      "begin" : "numeric"
+    },
+    {
+      "begin" : "rType"
+    },
+    {
+      "begin" : "vector"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "F"
+    },
+    {
+      "begin" : "FALSE"
+    },
+    {
+      "begin" : "Inf"
+    },
+    {
+      "begin" : "LETTERS",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "month.abb"
+    },
+    {
+      "begin" : "month.name"
+    },
+    {
+      "begin" : "NA"
+    },
+    {
+      "begin" : "NA_character_"
+    },
+    {
+      "begin" : "NA_complex_"
+    },
+    {
+      "begin" : "NA_integer_"
+    },
+    {
+      "begin" : "NA_real_"
+    },
+    {
+      "begin" : "NaN"
+    },
+    {
+      "begin" : "NULL"
+    },
+    {
+      "begin" : "pi"
+    },
+    {
+      "begin" : "R.version.string"
+    },
+    {
+      "begin" : "T"
+    },
+    {
+      "begin" : "TRUE"
+    }
+  ]
+}

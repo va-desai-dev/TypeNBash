@@ -1,0 +1,16 @@
+[
+  {
+    "description" : "id",
+    "ignoreCase" : true,
+    "kind" : "value",
+    "pattern" : "(?<= )id=\"([^\"]+?)\"",
+    "template" : "#$1"
+  },
+  {
+    "description" : "title",
+    "ignoreCase" : true,
+    "kind" : "title",
+    "pattern" : "<title[^>]*>([^<]*)</title[^>]*>",
+    "template" : "$1"
+  }
+]

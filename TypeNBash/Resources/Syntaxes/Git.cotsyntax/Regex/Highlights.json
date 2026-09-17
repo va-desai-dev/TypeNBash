@@ -1,0 +1,16 @@
+{
+  "commands" : [
+    {
+      "begin" : "^(pick|reword|edit|squash|fixup|exec|drop)\\b",
+      "description" : "rebase commands",
+      "regularExpression" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b[0-9a-f]{6,10}\\b",
+      "description" : "hex",
+      "regularExpression" : true
+    }
+  ]
+}

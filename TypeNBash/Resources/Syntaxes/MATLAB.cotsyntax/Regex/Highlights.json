@@ -1,0 +1,2365 @@
+{
+  "characters" : [
+    {
+      "begin" : "(?<!\\w)'[^'\\n\\r]*'",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "accumarray"
+    },
+    {
+      "begin" : "acos"
+    },
+    {
+      "begin" : "acosd"
+    },
+    {
+      "begin" : "acosh"
+    },
+    {
+      "begin" : "acot"
+    },
+    {
+      "begin" : "acotd"
+    },
+    {
+      "begin" : "acoth"
+    },
+    {
+      "begin" : "acsc"
+    },
+    {
+      "begin" : "acscd"
+    },
+    {
+      "begin" : "acsch"
+    },
+    {
+      "begin" : "addcats"
+    },
+    {
+      "begin" : "addCause"
+    },
+    {
+      "begin" : "addevent"
+    },
+    {
+      "begin" : "addsample"
+    },
+    {
+      "begin" : "addsampletocollection"
+    },
+    {
+      "begin" : "addtodate"
+    },
+    {
+      "begin" : "addts"
+    },
+    {
+      "begin" : "airy"
+    },
+    {
+      "begin" : "alim"
+    },
+    {
+      "begin" : "all"
+    },
+    {
+      "begin" : "alpha"
+    },
+    {
+      "begin" : "alphamap"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "angle"
+    },
+    {
+      "begin" : "annotation"
+    },
+    {
+      "begin" : "ans"
+    },
+    {
+      "begin" : "any"
+    },
+    {
+      "begin" : "append"
+    },
+    {
+      "begin" : "area"
+    },
+    {
+      "begin" : "array2table"
+    },
+    {
+      "begin" : "arrayfun"
+    },
+    {
+      "begin" : "asec"
+    },
+    {
+      "begin" : "asecd"
+    },
+    {
+      "begin" : "asech"
+    },
+    {
+      "begin" : "asin"
+    },
+    {
+      "begin" : "asind"
+    },
+    {
+      "begin" : "asinh"
+    },
+    {
+      "begin" : "assert"
+    },
+    {
+      "begin" : "atan"
+    },
+    {
+      "begin" : "atan2"
+    },
+    {
+      "begin" : "atan2d"
+    },
+    {
+      "begin" : "atand"
+    },
+    {
+      "begin" : "atanh"
+    },
+    {
+      "begin" : "audiodevinfo"
+    },
+    {
+      "begin" : "audioinfo"
+    },
+    {
+      "begin" : "audioplayer"
+    },
+    {
+      "begin" : "audioread"
+    },
+    {
+      "begin" : "audiorecorder"
+    },
+    {
+      "begin" : "audiowrite"
+    },
+    {
+      "begin" : "axes"
+    },
+    {
+      "begin" : "axis"
+    },
+    {
+      "begin" : "bar"
+    },
+    {
+      "begin" : "bar3"
+    },
+    {
+      "begin" : "bar3h"
+    },
+    {
+      "begin" : "barh"
+    },
+    {
+      "begin" : "base2dec"
+    },
+    {
+      "begin" : "beep"
+    },
+    {
+      "begin" : "besselh"
+    },
+    {
+      "begin" : "besseli"
+    },
+    {
+      "begin" : "besselj"
+    },
+    {
+      "begin" : "besselk"
+    },
+    {
+      "begin" : "bessely"
+    },
+    {
+      "begin" : "beta"
+    },
+    {
+      "begin" : "betainc"
+    },
+    {
+      "begin" : "betaincinv"
+    },
+    {
+      "begin" : "betaln"
+    },
+    {
+      "begin" : "bin2dec"
+    },
+    {
+      "begin" : "bitand"
+    },
+    {
+      "begin" : "bitcmp"
+    },
+    {
+      "begin" : "bitget"
+    },
+    {
+      "begin" : "bitor"
+    },
+    {
+      "begin" : "bitset"
+    },
+    {
+      "begin" : "bitshift"
+    },
+    {
+      "begin" : "bitxor"
+    },
+    {
+      "begin" : "blanks"
+    },
+    {
+      "begin" : "blkdiag"
+    },
+    {
+      "begin" : "box"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "brighten"
+    },
+    {
+      "begin" : "brush"
+    },
+    {
+      "begin" : "calendar"
+    },
+    {
+      "begin" : "camdolly"
+    },
+    {
+      "begin" : "cameratoolbar"
+    },
+    {
+      "begin" : "camlight"
+    },
+    {
+      "begin" : "camlookat"
+    },
+    {
+      "begin" : "camorbit"
+    },
+    {
+      "begin" : "campan"
+    },
+    {
+      "begin" : "campos"
+    },
+    {
+      "begin" : "camproj"
+    },
+    {
+      "begin" : "camroll"
+    },
+    {
+      "begin" : "camtarget"
+    },
+    {
+      "begin" : "camup"
+    },
+    {
+      "begin" : "camva"
+    },
+    {
+      "begin" : "camzoom"
+    },
+    {
+      "begin" : "cart2pol"
+    },
+    {
+      "begin" : "cart2sph"
+    },
+    {
+      "begin" : "cast"
+    },
+    {
+      "begin" : "cat"
+    },
+    {
+      "begin" : "categorical"
+    },
+    {
+      "begin" : "categories"
+    },
+    {
+      "begin" : "caxis"
+    },
+    {
+      "begin" : "cd"
+    },
+    {
+      "begin" : "cdfepoch"
+    },
+    {
+      "begin" : "cdfinfo"
+    },
+    {
+      "begin" : "cdflib"
+    },
+    {
+      "begin" : "cdfread"
+    },
+    {
+      "begin" : "cdfwrite"
+    },
+    {
+      "begin" : "cell"
+    },
+    {
+      "begin" : "cell2mat"
+    },
+    {
+      "begin" : "cell2struct"
+    },
+    {
+      "begin" : "cell2table"
+    },
+    {
+      "begin" : "celldisp"
+    },
+    {
+      "begin" : "cellfun"
+    },
+    {
+      "begin" : "cellplot"
+    },
+    {
+      "begin" : "cellstr"
+    },
+    {
+      "begin" : "char"
+    },
+    {
+      "begin" : "ciel"
+    },
+    {
+      "begin" : "circshift"
+    },
+    {
+      "begin" : "cla"
+    },
+    {
+      "begin" : "clabel"
+    },
+    {
+      "begin" : "clc"
+    },
+    {
+      "begin" : "clear"
+    },
+    {
+      "begin" : "clearvars"
+    },
+    {
+      "begin" : "clipboard"
+    },
+    {
+      "begin" : "clock"
+    },
+    {
+      "begin" : "cmpermute"
+    },
+    {
+      "begin" : "cmunique"
+    },
+    {
+      "begin" : "colon"
+    },
+    {
+      "begin" : "colorbar"
+    },
+    {
+      "begin" : "colordef"
+    },
+    {
+      "begin" : "colormap"
+    },
+    {
+      "begin" : "colormapeditor"
+    },
+    {
+      "begin" : "comet"
+    },
+    {
+      "begin" : "comet3"
+    },
+    {
+      "begin" : "compan"
+    },
+    {
+      "begin" : "compass"
+    },
+    {
+      "begin" : "complex"
+    },
+    {
+      "begin" : "computer"
+    },
+    {
+      "begin" : "coneplot"
+    },
+    {
+      "begin" : "conj"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "contour"
+    },
+    {
+      "begin" : "contour3"
+    },
+    {
+      "begin" : "contourc"
+    },
+    {
+      "begin" : "contourf"
+    },
+    {
+      "begin" : "contourslice"
+    },
+    {
+      "begin" : "contrast"
+    },
+    {
+      "begin" : "copyfile"
+    },
+    {
+      "begin" : "corrcoef"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "cosd"
+    },
+    {
+      "begin" : "cosh"
+    },
+    {
+      "begin" : "cot"
+    },
+    {
+      "begin" : "cotd"
+    },
+    {
+      "begin" : "coth"
+    },
+    {
+      "begin" : "countcats"
+    },
+    {
+      "begin" : "cov"
+    },
+    {
+      "begin" : "cplxpair"
+    },
+    {
+      "begin" : "csc"
+    },
+    {
+      "begin" : "cscd"
+    },
+    {
+      "begin" : "csch"
+    },
+    {
+      "begin" : "csvread"
+    },
+    {
+      "begin" : "csvwrite"
+    },
+    {
+      "begin" : "ctranspose"
+    },
+    {
+      "begin" : "cumprod"
+    },
+    {
+      "begin" : "cumsum"
+    },
+    {
+      "begin" : "curl"
+    },
+    {
+      "begin" : "cylinder"
+    },
+    {
+      "begin" : "daspect"
+    },
+    {
+      "begin" : "datacursormode"
+    },
+    {
+      "begin" : "date"
+    },
+    {
+      "begin" : "datenum"
+    },
+    {
+      "begin" : "datestr"
+    },
+    {
+      "begin" : "datetick"
+    },
+    {
+      "begin" : "datevec"
+    },
+    {
+      "begin" : "deblank"
+    },
+    {
+      "begin" : "dec2bin"
+    },
+    {
+      "begin" : "dec2hex"
+    },
+    {
+      "begin" : "delete"
+    },
+    {
+      "begin" : "delevent"
+    },
+    {
+      "begin" : "delsample"
+    },
+    {
+      "begin" : "delsamplefromcollection"
+    },
+    {
+      "begin" : "detrand"
+    },
+    {
+      "begin" : "diag"
+    },
+    {
+      "begin" : "diary"
+    },
+    {
+      "begin" : "diff"
+    },
+    {
+      "begin" : "diffuse"
+    },
+    {
+      "begin" : "dir"
+    },
+    {
+      "begin" : "disp"
+    },
+    {
+      "begin" : "dither"
+    },
+    {
+      "begin" : "divergence"
+    },
+    {
+      "begin" : "dlmread"
+    },
+    {
+      "begin" : "dlmwrite"
+    },
+    {
+      "begin" : "dos"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "drawnow"
+    },
+    {
+      "begin" : "ellipj"
+    },
+    {
+      "begin" : "ellipke"
+    },
+    {
+      "begin" : "ellipsoid"
+    },
+    {
+      "begin" : "eomday"
+    },
+    {
+      "begin" : "eq"
+    },
+    {
+      "begin" : "erf"
+    },
+    {
+      "begin" : "erfc"
+    },
+    {
+      "begin" : "erfcinv"
+    },
+    {
+      "begin" : "erfcx"
+    },
+    {
+      "begin" : "erfinv"
+    },
+    {
+      "begin" : "error"
+    },
+    {
+      "begin" : "errorbar"
+    },
+    {
+      "begin" : "etime"
+    },
+    {
+      "begin" : "exist"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "expint"
+    },
+    {
+      "begin" : "expml"
+    },
+    {
+      "begin" : "eye"
+    },
+    {
+      "begin" : "ezcontour"
+    },
+    {
+      "begin" : "ezcontourf"
+    },
+    {
+      "begin" : "ezmesh"
+    },
+    {
+      "begin" : "ezmeshc"
+    },
+    {
+      "begin" : "ezplot"
+    },
+    {
+      "begin" : "ezplot3"
+    },
+    {
+      "begin" : "ezpolar"
+    },
+    {
+      "begin" : "ezsurf"
+    },
+    {
+      "begin" : "ezsurfc"
+    },
+    {
+      "begin" : "factor"
+    },
+    {
+      "begin" : "factorial"
+    },
+    {
+      "begin" : "fclose"
+    },
+    {
+      "begin" : "feather"
+    },
+    {
+      "begin" : "feof"
+    },
+    {
+      "begin" : "ferror"
+    },
+    {
+      "begin" : "feval"
+    },
+    {
+      "begin" : "fgetl"
+    },
+    {
+      "begin" : "fgets"
+    },
+    {
+      "begin" : "fieldnames"
+    },
+    {
+      "begin" : "figurepalette"
+    },
+    {
+      "begin" : "fileattrib"
+    },
+    {
+      "begin" : "filemarker"
+    },
+    {
+      "begin" : "fileparts"
+    },
+    {
+      "begin" : "fileread"
+    },
+    {
+      "begin" : "filesep"
+    },
+    {
+      "begin" : "fill"
+    },
+    {
+      "begin" : "fill3"
+    },
+    {
+      "begin" : "filter"
+    },
+    {
+      "begin" : "find"
+    },
+    {
+      "begin" : "fix"
+    },
+    {
+      "begin" : "flip"
+    },
+    {
+      "begin" : "fliplr"
+    },
+    {
+      "begin" : "flipud"
+    },
+    {
+      "begin" : "floor"
+    },
+    {
+      "begin" : "flow"
+    },
+    {
+      "begin" : "fopen"
+    },
+    {
+      "begin" : "format"
+    },
+    {
+      "begin" : "fplot"
+    },
+    {
+      "begin" : "fprintf"
+    },
+    {
+      "begin" : "frame2im"
+    },
+    {
+      "begin" : "fread"
+    },
+    {
+      "begin" : "freqspace"
+    },
+    {
+      "begin" : "frewind"
+    },
+    {
+      "begin" : "fscanf"
+    },
+    {
+      "begin" : "fseek"
+    },
+    {
+      "begin" : "ftell"
+    },
+    {
+      "begin" : "fullfile"
+    },
+    {
+      "begin" : "func2str"
+    },
+    {
+      "begin" : "function"
+    },
+    {
+      "begin" : "function_handle"
+    },
+    {
+      "begin" : "fwrite"
+    },
+    {
+      "begin" : "gallery"
+    },
+    {
+      "begin" : "gamma"
+    },
+    {
+      "begin" : "gammainc"
+    },
+    {
+      "begin" : "gammaincinv"
+    },
+    {
+      "begin" : "gammaln"
+    },
+    {
+      "begin" : "gca"
+    },
+    {
+      "begin" : "gcd"
+    },
+    {
+      "begin" : "ge"
+    },
+    {
+      "begin" : "get"
+    },
+    {
+      "begin" : "getabstime"
+    },
+    {
+      "begin" : "getdatasamplesize"
+    },
+    {
+      "begin" : "getenv"
+    },
+    {
+      "begin" : "getfield"
+    },
+    {
+      "begin" : "getframe"
+    },
+    {
+      "begin" : "getinterpmethod"
+    },
+    {
+      "begin" : "getqualitydesc"
+    },
+    {
+      "begin" : "getReport"
+    },
+    {
+      "begin" : "getsamples"
+    },
+    {
+      "begin" : "getsampleusingtime"
+    },
+    {
+      "begin" : "gettsafteratevent"
+    },
+    {
+      "begin" : "gettsafterevent"
+    },
+    {
+      "begin" : "gettsatevent"
+    },
+    {
+      "begin" : "gettsbeforeatevent"
+    },
+    {
+      "begin" : "gettsbeforeevent"
+    },
+    {
+      "begin" : "gettsbetweenevents"
+    },
+    {
+      "begin" : "ginput"
+    },
+    {
+      "begin" : "gnuzip"
+    },
+    {
+      "begin" : "graymon"
+    },
+    {
+      "begin" : "grid"
+    },
+    {
+      "begin" : "gt"
+    },
+    {
+      "begin" : "gtext"
+    },
+    {
+      "begin" : "gzip"
+    },
+    {
+      "begin" : "hadamard"
+    },
+    {
+      "begin" : "hankel"
+    },
+    {
+      "begin" : "height"
+    },
+    {
+      "begin" : "hex2dec"
+    },
+    {
+      "begin" : "hex2num"
+    },
+    {
+      "begin" : "hgexport"
+    },
+    {
+      "begin" : "hgload"
+    },
+    {
+      "begin" : "hgsave"
+    },
+    {
+      "begin" : "hidden"
+    },
+    {
+      "begin" : "hilb"
+    },
+    {
+      "begin" : "hist"
+    },
+    {
+      "begin" : "histc"
+    },
+    {
+      "begin" : "hold"
+    },
+    {
+      "begin" : "home"
+    },
+    {
+      "begin" : "horzcat"
+    },
+    {
+      "begin" : "hsv2rgb"
+    },
+    {
+      "begin" : "hypot"
+    },
+    {
+      "begin" : "idealfilter"
+    },
+    {
+      "begin" : "idivide"
+    },
+    {
+      "begin" : "ifinf"
+    },
+    {
+      "begin" : "im2frame"
+    },
+    {
+      "begin" : "im2java"
+    },
+    {
+      "begin" : "image"
+    },
+    {
+      "begin" : "imagesc"
+    },
+    {
+      "begin" : "imapprox"
+    },
+    {
+      "begin" : "imaq"
+    },
+    {
+      "begin" : "imfinfo"
+    },
+    {
+      "begin" : "imformats"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "importdata"
+    },
+    {
+      "begin" : "imread"
+    },
+    {
+      "begin" : "imwrite"
+    },
+    {
+      "begin" : "ind2rgb"
+    },
+    {
+      "begin" : "ind2sub"
+    },
+    {
+      "begin" : "innerjoin"
+    },
+    {
+      "begin" : "int16"
+    },
+    {
+      "begin" : "int2str"
+    },
+    {
+      "begin" : "int32"
+    },
+    {
+      "begin" : "int64"
+    },
+    {
+      "begin" : "int8"
+    },
+    {
+      "begin" : "intersect"
+    },
+    {
+      "begin" : "intmax"
+    },
+    {
+      "begin" : "intmin"
+    },
+    {
+      "begin" : "invhilb"
+    },
+    {
+      "begin" : "ipermute"
+    },
+    {
+      "begin" : "iqr"
+    },
+    {
+      "begin" : "is*"
+    },
+    {
+      "begin" : "isa"
+    },
+    {
+      "begin" : "iscategorical"
+    },
+    {
+      "begin" : "iscategory"
+    },
+    {
+      "begin" : "iscell"
+    },
+    {
+      "begin" : "iscellstr"
+    },
+    {
+      "begin" : "ischar"
+    },
+    {
+      "begin" : "iscolumn"
+    },
+    {
+      "begin" : "isdir"
+    },
+    {
+      "begin" : "isempty"
+    },
+    {
+      "begin" : "isequal"
+    },
+    {
+      "begin" : "isequaln"
+    },
+    {
+      "begin" : "isfield"
+    },
+    {
+      "begin" : "isfinite"
+    },
+    {
+      "begin" : "isfloat"
+    },
+    {
+      "begin" : "ishghandle"
+    },
+    {
+      "begin" : "isinf"
+    },
+    {
+      "begin" : "isinteger"
+    },
+    {
+      "begin" : "isjava"
+    },
+    {
+      "begin" : "isKey"
+    },
+    {
+      "begin" : "iskeyboard"
+    },
+    {
+      "begin" : "isletter"
+    },
+    {
+      "begin" : "islogical"
+    },
+    {
+      "begin" : "ismatrix"
+    },
+    {
+      "begin" : "ismember"
+    },
+    {
+      "begin" : "ismissing"
+    },
+    {
+      "begin" : "isnan"
+    },
+    {
+      "begin" : "isnumeric"
+    },
+    {
+      "begin" : "isobject"
+    },
+    {
+      "begin" : "isocaps"
+    },
+    {
+      "begin" : "isocolors"
+    },
+    {
+      "begin" : "isonormals"
+    },
+    {
+      "begin" : "isordinal"
+    },
+    {
+      "begin" : "isosurface"
+    },
+    {
+      "begin" : "isprime"
+    },
+    {
+      "begin" : "isprotected"
+    },
+    {
+      "begin" : "isreal"
+    },
+    {
+      "begin" : "isrow"
+    },
+    {
+      "begin" : "isscalar"
+    },
+    {
+      "begin" : "issorted"
+    },
+    {
+      "begin" : "isspace"
+    },
+    {
+      "begin" : "isstrprop"
+    },
+    {
+      "begin" : "isstruct"
+    },
+    {
+      "begin" : "istable"
+    },
+    {
+      "begin" : "isundefined"
+    },
+    {
+      "begin" : "isvector"
+    },
+    {
+      "begin" : "join"
+    },
+    {
+      "begin" : "keys"
+    },
+    {
+      "begin" : "last"
+    },
+    {
+      "begin" : "lastwarn"
+    },
+    {
+      "begin" : "lcm"
+    },
+    {
+      "begin" : "ldivide"
+    },
+    {
+      "begin" : "le"
+    },
+    {
+      "begin" : "legend"
+    },
+    {
+      "begin" : "legendre"
+    },
+    {
+      "begin" : "length"
+    },
+    {
+      "begin" : "light"
+    },
+    {
+      "begin" : "lightangle"
+    },
+    {
+      "begin" : "lighting"
+    },
+    {
+      "begin" : "lin2mu"
+    },
+    {
+      "begin" : "linkdata"
+    },
+    {
+      "begin" : "linspace"
+    },
+    {
+      "begin" : "load"
+    },
+    {
+      "begin" : "localfunctions"
+    },
+    {
+      "begin" : "log10"
+    },
+    {
+      "begin" : "log1p"
+    },
+    {
+      "begin" : "log2"
+    },
+    {
+      "begin" : "logical"
+    },
+    {
+      "begin" : "loglog"
+    },
+    {
+      "begin" : "logspace"
+    },
+    {
+      "begin" : "lower"
+    },
+    {
+      "begin" : "ls"
+    },
+    {
+      "begin" : "lt"
+    },
+    {
+      "begin" : "magic"
+    },
+    {
+      "begin" : "makehgtform"
+    },
+    {
+      "begin" : "mat2cell"
+    },
+    {
+      "begin" : "mat2str"
+    },
+    {
+      "begin" : "material"
+    },
+    {
+      "begin" : "matfile"
+    },
+    {
+      "begin" : "matlabroot"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "mean"
+    },
+    {
+      "begin" : "median"
+    },
+    {
+      "begin" : "memmapfile"
+    },
+    {
+      "begin" : "mergecats"
+    },
+    {
+      "begin" : "mesh"
+    },
+    {
+      "begin" : "meshc"
+    },
+    {
+      "begin" : "meshgrid"
+    },
+    {
+      "begin" : "meshz"
+    },
+    {
+      "begin" : "metaclass"
+    },
+    {
+      "begin" : "min"
+    },
+    {
+      "begin" : "minus"
+    },
+    {
+      "begin" : "mkdir"
+    },
+    {
+      "begin" : "mldivide"
+    },
+    {
+      "begin" : "mmfileinfo"
+    },
+    {
+      "begin" : "mod"
+    },
+    {
+      "begin" : "mode"
+    },
+    {
+      "begin" : "more"
+    },
+    {
+      "begin" : "movefile"
+    },
+    {
+      "begin" : "movie"
+    },
+    {
+      "begin" : "movie2avi"
+    },
+    {
+      "begin" : "mpower"
+    },
+    {
+      "begin" : "mrdivide"
+    },
+    {
+      "begin" : "mtimes"
+    },
+    {
+      "begin" : "mu2lin"
+    },
+    {
+      "begin" : "multibandread"
+    },
+    {
+      "begin" : "multibandwrite"
+    },
+    {
+      "begin" : "native2unicode"
+    },
+    {
+      "begin" : "ncdisp"
+    },
+    {
+      "begin" : "nchoosek"
+    },
+    {
+      "begin" : "ncinfo"
+    },
+    {
+      "begin" : "ncread"
+    },
+    {
+      "begin" : "ncreadatt"
+    },
+    {
+      "begin" : "ncwrite"
+    },
+    {
+      "begin" : "ncwritechema"
+    },
+    {
+      "begin" : "ncwriteeet"
+    },
+    {
+      "begin" : "ndims"
+    },
+    {
+      "begin" : "ne"
+    },
+    {
+      "begin" : "netcdf"
+    },
+    {
+      "begin" : "nextpow2"
+    },
+    {
+      "begin" : "noanimate"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "now"
+    },
+    {
+      "begin" : "nthroot"
+    },
+    {
+      "begin" : "num2cell"
+    },
+    {
+      "begin" : "num2hex"
+    },
+    {
+      "begin" : "num2str"
+    },
+    {
+      "begin" : "numel"
+    },
+    {
+      "begin" : "onCleanup"
+    },
+    {
+      "begin" : "ones"
+    },
+    {
+      "begin" : "open"
+    },
+    {
+      "begin" : "openfig"
+    },
+    {
+      "begin" : "openvar"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "orderfields"
+    },
+    {
+      "begin" : "orient"
+    },
+    {
+      "begin" : "outerjoin"
+    },
+    {
+      "begin" : "pan"
+    },
+    {
+      "begin" : "pareto"
+    },
+    {
+      "begin" : "parfor"
+    },
+    {
+      "begin" : "pascal"
+    },
+    {
+      "begin" : "patch"
+    },
+    {
+      "begin" : "pause"
+    },
+    {
+      "begin" : "pbaspect"
+    },
+    {
+      "begin" : "pcolor"
+    },
+    {
+      "begin" : "peaks"
+    },
+    {
+      "begin" : "perl"
+    },
+    {
+      "begin" : "perms"
+    },
+    {
+      "begin" : "permute"
+    },
+    {
+      "begin" : "pie"
+    },
+    {
+      "begin" : "pie3"
+    },
+    {
+      "begin" : "plot"
+    },
+    {
+      "begin" : "plot3"
+    },
+    {
+      "begin" : "plotbrowser"
+    },
+    {
+      "begin" : "plotedit"
+    },
+    {
+      "begin" : "plotmatrix"
+    },
+    {
+      "begin" : "plottools"
+    },
+    {
+      "begin" : "plotyy"
+    },
+    {
+      "begin" : "plus"
+    },
+    {
+      "begin" : "pol2cart"
+    },
+    {
+      "begin" : "polar"
+    },
+    {
+      "begin" : "poly"
+    },
+    {
+      "begin" : "polyder"
+    },
+    {
+      "begin" : "polyeig"
+    },
+    {
+      "begin" : "polyfit"
+    },
+    {
+      "begin" : "polyint"
+    },
+    {
+      "begin" : "polyval"
+    },
+    {
+      "begin" : "polyvalm"
+    },
+    {
+      "begin" : "pow2"
+    },
+    {
+      "begin" : "power"
+    },
+    {
+      "begin" : "primes"
+    },
+    {
+      "begin" : "print"
+    },
+    {
+      "begin" : "printdlg"
+    },
+    {
+      "begin" : "printopt"
+    },
+    {
+      "begin" : "printreview"
+    },
+    {
+      "begin" : "prod"
+    },
+    {
+      "begin" : "propertyeditor"
+    },
+    {
+      "begin" : "psi"
+    },
+    {
+      "begin" : "pwd"
+    },
+    {
+      "begin" : "quiver"
+    },
+    {
+      "begin" : "quiver3"
+    },
+    {
+      "begin" : "rand"
+    },
+    {
+      "begin" : "randi"
+    },
+    {
+      "begin" : "randn"
+    },
+    {
+      "begin" : "randperm"
+    },
+    {
+      "begin" : "rat"
+    },
+    {
+      "begin" : "rats"
+    },
+    {
+      "begin" : "rdivide"
+    },
+    {
+      "begin" : "readtable"
+    },
+    {
+      "begin" : "real"
+    },
+    {
+      "begin" : "reallog"
+    },
+    {
+      "begin" : "realmax"
+    },
+    {
+      "begin" : "realmin"
+    },
+    {
+      "begin" : "realpow"
+    },
+    {
+      "begin" : "realsqrt"
+    },
+    {
+      "begin" : "recycle"
+    },
+    {
+      "begin" : "reducepatch"
+    },
+    {
+      "begin" : "reducevolume"
+    },
+    {
+      "begin" : "refreshdata"
+    },
+    {
+      "begin" : "regexp"
+    },
+    {
+      "begin" : "regexpi"
+    },
+    {
+      "begin" : "regexptranslate"
+    },
+    {
+      "begin" : "regexrep"
+    },
+    {
+      "begin" : "rem"
+    },
+    {
+      "begin" : "remove"
+    },
+    {
+      "begin" : "removecats"
+    },
+    {
+      "begin" : "removets"
+    },
+    {
+      "begin" : "renamecats"
+    },
+    {
+      "begin" : "reordercats"
+    },
+    {
+      "begin" : "repmat"
+    },
+    {
+      "begin" : "resample"
+    },
+    {
+      "begin" : "reset"
+    },
+    {
+      "begin" : "reshape"
+    },
+    {
+      "begin" : "residue"
+    },
+    {
+      "begin" : "rethrow"
+    },
+    {
+      "begin" : "rgb2hsv"
+    },
+    {
+      "begin" : "rgb2ind"
+    },
+    {
+      "begin" : "rgbplot"
+    },
+    {
+      "begin" : "ribbon"
+    },
+    {
+      "begin" : "rmdir"
+    },
+    {
+      "begin" : "rmfield"
+    },
+    {
+      "begin" : "rng"
+    },
+    {
+      "begin" : "roots"
+    },
+    {
+      "begin" : "rose"
+    },
+    {
+      "begin" : "rosser"
+    },
+    {
+      "begin" : "rot90"
+    },
+    {
+      "begin" : "rotate"
+    },
+    {
+      "begin" : "rotate3d"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "rowfun"
+    },
+    {
+      "begin" : "save"
+    },
+    {
+      "begin" : "saveas"
+    },
+    {
+      "begin" : "savefig"
+    },
+    {
+      "begin" : "scatter"
+    },
+    {
+      "begin" : "scatter3"
+    },
+    {
+      "begin" : "sec"
+    },
+    {
+      "begin" : "secd"
+    },
+    {
+      "begin" : "sech"
+    },
+    {
+      "begin" : "selectmoveresize"
+    },
+    {
+      "begin" : "semilogx"
+    },
+    {
+      "begin" : "semilogy"
+    },
+    {
+      "begin" : "set"
+    },
+    {
+      "begin" : "setabstime"
+    },
+    {
+      "begin" : "setdiff"
+    },
+    {
+      "begin" : "setenv"
+    },
+    {
+      "begin" : "setfield"
+    },
+    {
+      "begin" : "setinterpmethod"
+    },
+    {
+      "begin" : "settimeseriesnames"
+    },
+    {
+      "begin" : "setxor"
+    },
+    {
+      "begin" : "shading"
+    },
+    {
+      "begin" : "shiftdim"
+    },
+    {
+      "begin" : "showplottool"
+    },
+    {
+      "begin" : "shrinkfaces"
+    },
+    {
+      "begin" : "sign"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "sind"
+    },
+    {
+      "begin" : "single"
+    },
+    {
+      "begin" : "sinh"
+    },
+    {
+      "begin" : "size"
+    },
+    {
+      "begin" : "slice"
+    },
+    {
+      "begin" : "smooth3"
+    },
+    {
+      "begin" : "sort"
+    },
+    {
+      "begin" : "sortrows"
+    },
+    {
+      "begin" : "sound"
+    },
+    {
+      "begin" : "soundsc"
+    },
+    {
+      "begin" : "specular"
+    },
+    {
+      "begin" : "sph2cart"
+    },
+    {
+      "begin" : "sphere"
+    },
+    {
+      "begin" : "spinmap"
+    },
+    {
+      "begin" : "sprintf"
+    },
+    {
+      "begin" : "spy"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "squeeze"
+    },
+    {
+      "begin" : "sscanf"
+    },
+    {
+      "begin" : "stack"
+    },
+    {
+      "begin" : "stairs"
+    },
+    {
+      "begin" : "standardizeMissing"
+    },
+    {
+      "begin" : "std"
+    },
+    {
+      "begin" : "stem"
+    },
+    {
+      "begin" : "stem3"
+    },
+    {
+      "begin" : "str2double"
+    },
+    {
+      "begin" : "str2func"
+    },
+    {
+      "begin" : "str2num"
+    },
+    {
+      "begin" : "stract"
+    },
+    {
+      "begin" : "strcmp"
+    },
+    {
+      "begin" : "strcmpi"
+    },
+    {
+      "begin" : "stream2"
+    },
+    {
+      "begin" : "stream3"
+    },
+    {
+      "begin" : "streamline"
+    },
+    {
+      "begin" : "streamparticles"
+    },
+    {
+      "begin" : "streamribbon"
+    },
+    {
+      "begin" : "streamslice"
+    },
+    {
+      "begin" : "streamtube"
+    },
+    {
+      "begin" : "strfind"
+    },
+    {
+      "begin" : "strjoin"
+    },
+    {
+      "begin" : "strjust"
+    },
+    {
+      "begin" : "strncmp"
+    },
+    {
+      "begin" : "strncmpi"
+    },
+    {
+      "begin" : "strrep"
+    },
+    {
+      "begin" : "strsplit"
+    },
+    {
+      "begin" : "strtok"
+    },
+    {
+      "begin" : "strtrim"
+    },
+    {
+      "begin" : "struct"
+    },
+    {
+      "begin" : "struct2cell"
+    },
+    {
+      "begin" : "struct2table"
+    },
+    {
+      "begin" : "structfun"
+    },
+    {
+      "begin" : "sub2ind"
+    },
+    {
+      "begin" : "subplot"
+    },
+    {
+      "begin" : "subvolume"
+    },
+    {
+      "begin" : "sum"
+    },
+    {
+      "begin" : "summary"
+    },
+    {
+      "begin" : "surf"
+    },
+    {
+      "begin" : "surf2patch"
+    },
+    {
+      "begin" : "surface"
+    },
+    {
+      "begin" : "surfc"
+    },
+    {
+      "begin" : "surfl"
+    },
+    {
+      "begin" : "surfnorm"
+    },
+    {
+      "begin" : "swapbytes"
+    },
+    {
+      "begin" : "symvar"
+    },
+    {
+      "begin" : "synchronize"
+    },
+    {
+      "begin" : "system"
+    },
+    {
+      "begin" : "table"
+    },
+    {
+      "begin" : "table2array"
+    },
+    {
+      "begin" : "table2cell"
+    },
+    {
+      "begin" : "table2struct"
+    },
+    {
+      "begin" : "tan"
+    },
+    {
+      "begin" : "tand"
+    },
+    {
+      "begin" : "tanh"
+    },
+    {
+      "begin" : "tar"
+    },
+    {
+      "begin" : "tccreate"
+    },
+    {
+      "begin" : "tempdir"
+    },
+    {
+      "begin" : "tempname"
+    },
+    {
+      "begin" : "texlabel"
+    },
+    {
+      "begin" : "text"
+    },
+    {
+      "begin" : "textscan"
+    },
+    {
+      "begin" : "throw"
+    },
+    {
+      "begin" : "throwAsCaller"
+    },
+    {
+      "begin" : "times"
+    },
+    {
+      "begin" : "title"
+    },
+    {
+      "begin" : "todatenum"
+    },
+    {
+      "begin" : "toeplitz"
+    },
+    {
+      "begin" : "toolboxdir"
+    },
+    {
+      "begin" : "transpose"
+    },
+    {
+      "begin" : "tscollection"
+    },
+    {
+      "begin" : "type"
+    },
+    {
+      "begin" : "typecast"
+    },
+    {
+      "begin" : "uiimport"
+    },
+    {
+      "begin" : "uint16"
+    },
+    {
+      "begin" : "uint32"
+    },
+    {
+      "begin" : "uint64"
+    },
+    {
+      "begin" : "uint8"
+    },
+    {
+      "begin" : "uminus"
+    },
+    {
+      "begin" : "unicode2native"
+    },
+    {
+      "begin" : "union"
+    },
+    {
+      "begin" : "unique"
+    },
+    {
+      "begin" : "unix"
+    },
+    {
+      "begin" : "unstack"
+    },
+    {
+      "begin" : "untar"
+    },
+    {
+      "begin" : "unwrap"
+    },
+    {
+      "begin" : "unzip"
+    },
+    {
+      "begin" : "uplus"
+    },
+    {
+      "begin" : "upper"
+    },
+    {
+      "begin" : "validateattributes"
+    },
+    {
+      "begin" : "validatestring"
+    },
+    {
+      "begin" : "values"
+    },
+    {
+      "begin" : "vander"
+    },
+    {
+      "begin" : "var"
+    },
+    {
+      "begin" : "varfun"
+    },
+    {
+      "begin" : "vartcat"
+    },
+    {
+      "begin" : "vectorize"
+    },
+    {
+      "begin" : "vertcat"
+    },
+    {
+      "begin" : "VideoReader"
+    },
+    {
+      "begin" : "VideoWriter"
+    },
+    {
+      "begin" : "view"
+    },
+    {
+      "begin" : "viewmtx"
+    },
+    {
+      "begin" : "visdiff"
+    },
+    {
+      "begin" : "volumebounds"
+    },
+    {
+      "begin" : "warning"
+    },
+    {
+      "begin" : "waterfall"
+    },
+    {
+      "begin" : "weekday"
+    },
+    {
+      "begin" : "what"
+    },
+    {
+      "begin" : "which"
+    },
+    {
+      "begin" : "whitebg"
+    },
+    {
+      "begin" : "who"
+    },
+    {
+      "begin" : "whos"
+    },
+    {
+      "begin" : "width"
+    },
+    {
+      "begin" : "wilkinson"
+    },
+    {
+      "begin" : "winopen"
+    },
+    {
+      "begin" : "winqueryreg"
+    },
+    {
+      "begin" : "writetable"
+    },
+    {
+      "begin" : "xlabel"
+    },
+    {
+      "begin" : "xlim"
+    },
+    {
+      "begin" : "xlsfinfo"
+    },
+    {
+      "begin" : "xlsread"
+    },
+    {
+      "begin" : "xlswrite"
+    },
+    {
+      "begin" : "xmlread"
+    },
+    {
+      "begin" : "xmlwrite"
+    },
+    {
+      "begin" : "xor"
+    },
+    {
+      "begin" : "xslt"
+    },
+    {
+      "begin" : "ylabel"
+    },
+    {
+      "begin" : "ylim"
+    },
+    {
+      "begin" : "zeros"
+    },
+    {
+      "begin" : "zip"
+    },
+    {
+      "begin" : "zlabel"
+    },
+    {
+      "begin" : "zlim"
+    },
+    {
+      "begin" : "zoom"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "classdef"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "elseif"
+    },
+    {
+      "begin" : "end"
+    },
+    {
+      "begin" : "enumeration"
+    },
+    {
+      "begin" : "events"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "global"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "methods"
+    },
+    {
+      "begin" : "otherwise"
+    },
+    {
+      "begin" : "persistent"
+    },
+    {
+      "begin" : "properties"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "switch"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "while"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b\\.\\d+([edED][-+]?\\d+)?[ij]?\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\d+(\\.\\d+)?([edED][-+]?\\d+)?[ij]?\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\d+[ij]?\\b",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "eps"
+    },
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "flintmax"
+    },
+    {
+      "begin" : "i"
+    },
+    {
+      "begin" : "Inf"
+    },
+    {
+      "begin" : "j"
+    },
+    {
+      "begin" : "NaN"
+    },
+    {
+      "begin" : "pi"
+    },
+    {
+      "begin" : "true"
+    }
+  ]
+}

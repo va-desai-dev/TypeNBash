@@ -1,0 +1,88 @@
+{
+  "attributes" : [
+    {
+      "begin" : "PBXAggregateTarget"
+    },
+    {
+      "begin" : "PBXBuildFile"
+    },
+    {
+      "begin" : "PBXContainerItemProxy"
+    },
+    {
+      "begin" : "PBXCopyFilesBuildPhase"
+    },
+    {
+      "begin" : "PBXFileReference"
+    },
+    {
+      "begin" : "PBXFrameworksBuildPhase"
+    },
+    {
+      "begin" : "PBXGroup"
+    },
+    {
+      "begin" : "PBXHeadersBuildPhase"
+    },
+    {
+      "begin" : "PBXNativeTarget"
+    },
+    {
+      "begin" : "PBXProject"
+    },
+    {
+      "begin" : "PBXReferenceProxy"
+    },
+    {
+      "begin" : "PBXResourcesBuildPhase"
+    },
+    {
+      "begin" : "PBXRezBuildPhase"
+    },
+    {
+      "begin" : "PBXShellScriptBuildPhase"
+    },
+    {
+      "begin" : "PBXSourcesBuildPhase"
+    },
+    {
+      "begin" : "PBXTargetDependency"
+    },
+    {
+      "begin" : "PBXVariantGroup"
+    },
+    {
+      "begin" : "XCBuildConfiguration"
+    },
+    {
+      "begin" : "XCConfigurationList"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "\\b[a-z0-9_.]+(?= \\= )",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\s[0-9A-F][0-9A-F.]*(?=\\s|;)",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "NO"
+    },
+    {
+      "begin" : "YES"
+    },
+    {
+      "begin" : "YES_AGGRESSIVE"
+    },
+    {
+      "begin" : "YES_ERROR"
+    }
+  ]
+}

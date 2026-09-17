@@ -1,0 +1,37 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "(*",
+        "end" : "*)"
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "--"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "then",
+        "end" : "end",
+        "ignoreCase" : true
+      },
+      {
+        "begin" : "try",
+        "end" : "end",
+        "ignoreCase" : true
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    }
+  ]
+}

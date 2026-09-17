@@ -1,0 +1,885 @@
+//
+//  TextFinder.swift
+//
+//  CotEditor
+//  https://coteditor.com
+//
+//  Created by 1024jp on 2015-01-03.
+//
+//  ---------------------------------------------------------------------------
+//
+//  © 2015-2026 1024jp
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  https://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+import AppKit
+import SwiftUI
+import LineEnding
+import StringUtils
+import TextFind
+import ValueRange
+
+@MainActor @objc protocol TextFinderClient: AnyObject {
+    
+    func performEditorTextFinderAction(_ sender: Any?)
+    func matchNext(_ sender: Any?)
+    func matchPrevious(_ sender: Any?)
+    func incrementalSearch(_ sender: Any?)
+}
+
+
+struct FindResult {
+    
+    var action: TextFind.Action
+    var count: Int
+    var currentMatchIndex: Int?
+    var matchedRange: NSRange?
+}
+
+
+struct FindAllMatch: Identifiable {
+    
+    let id = UUID()
+    
+    var range: NSRange
+    var lineNumber: Int
+    var inlineLocation: Int
+    var attributedLineString: NSAttributedString
+}
+
+
+struct FindMatchesCache {
+    
+    struct FindOptions: Equatable {
+        
+        var textVersion: Int
+        var findString: String
+        var mode: TextFind.Mode
+        var inSelection: Bool
+        var selectedRanges: [NSRange]
+    }
+    
+    
+    var options: FindOptions
+    var matches: [NSRange]
+}
+
+
+// MARK: -
+
+@MainActor final class TextFinder {
+    
+    // MARK: Notification Messages
+    
+    struct DidFindMessage: NotificationCenter.MainActorMessage {
+        
+        typealias Subject = TextFinder
+        
+        var result: FindResult
+        var clientIdentifier: ObjectIdentifier
+    }
+    
+    
+    struct DidFindAllMessage: NotificationCenter.MainActorMessage {
+
+        typealias Subject = TextFinder
+
+        var findString: String = ""
+        var matches: [FindAllMatch] = []
+        weak var client: NSTextView?
+    }
+
+
+    /// Posted when the client asks for the find interface.
+    ///
+    /// TypeNBash has no shared find panel to raise: each editor carries its own
+    /// inline `EditorFindBar`, which shows itself when it recognizes `client`
+    /// as its own text view.
+    struct ShowFindInterfaceMessage: NotificationCenter.MainActorMessage {
+
+        typealias Subject = TextFinder
+
+        weak var client: NSTextView?
+    }
+
+    
+    // MARK: Enums
+    
+    enum Action: Int {
+        
+        // NSTextFinder.Action
+        case showFindInterface = 1
+        case nextMatch = 2
+        case previousMatch = 3
+        case replaceAll = 4
+        case replace = 5
+        case replaceAndFind = 6
+        case setSearchString = 7
+        case replaceAllInSelection = 8  // not supported
+        case selectAll = 9
+        case selectAllInSelection = 10  // not supported
+        case hideFindInterface = 11     // not supported
+        case showReplaceInterface = 12  // not supported
+        case hideReplaceInterface = 13  // not supported
+        
+        // TextFinder.Action
+        case findAll = 101
+        case setReplaceString = 102
+        case highlight = 103
+        case unhighlight = 104
+        case showMultipleReplaceInterface = 105
+        case multipleReplace = 106
+    }
+    
+    
+    // MARK: Public Properties
+    
+    let settings: TextFinderSettings = .shared
+    
+    weak var client: NSTextView!  { didSet { self.observeClientTextChanges() } }
+    
+    
+    // MARK: Private Properties
+    
+    private(set) var findMatchesCache: FindMatchesCache?
+    private var cachedPattern: TextFind.Pattern?
+    private var textVersion = 0
+    
+    private var findTask: Task<Void, any Error>?
+    private var highlightObservationTask: Task<Void, Never>?
+    private var textChangeObserver: (any NSObjectProtocol)?
+    
+    
+    // MARK: Lifecycle
+
+    // Explicit initializer added for TypeNBash: all stored properties have defaults,
+    // but the implicit initializer was not synthesized as accessible here.
+    init() { }
+
+    isolated deinit {
+        self.findTask?.cancel()
+        self.highlightObservationTask?.cancel()
+        self.removeTextChangeObserver()
+    }
+    
+    
+    // MARK: Public Methods
+    
+    /// Schedules an incremental search.
+    func incrementalSearch() {
+        
+        self.findTask?.cancel()
+        self.findTask = Task(priority: .userInitiated) {
+            try await Task.sleep(for: .seconds(0.2), tolerance: .seconds(0.05))  // debounce
+            try await self.find(forward: true, isIncremental: true)
+        }
+    }
+    
+    
+    /// Allows validation of the find action before performing.
+    ///
+    /// - Parameter action: The sender’s tag.
+    /// - Returns: `true` if the operation is valid; otherwise `false`.
+    func validateAction(_ action: Action) -> Bool {
+        
+        switch action {
+            case .showFindInterface,
+                 .showMultipleReplaceInterface:
+                true
+                
+            case .nextMatch,
+                 .previousMatch,
+                 .setSearchString,
+                 .selectAll,
+                 .findAll,
+                 .setReplaceString:
+                self.client.isSelectable
+                
+            case .replaceAll,
+                 .replace,
+                 .replaceAndFind,
+                 .multipleReplace:
+                self.client.isEditable
+                
+            case .highlight,
+                 .unhighlight:
+                true
+                
+            case .selectAllInSelection,
+                 .replaceAllInSelection,
+                 .hideFindInterface,
+                 .showReplaceInterface,
+                 .hideReplaceInterface:
+                // not supported in TextFinder
+                false
+        }
+    }
+    
+    
+    /// Performs the specified text finding action.
+    ///
+    /// - Parameter action: The text finding action.
+    func performAction(_ action: Action, representedItem: Any? = nil) {
+        
+        guard self.validateAction(action) else { return }
+        
+        switch action {
+            case .showFindInterface:
+                NotificationCenter.default.post(ShowFindInterfaceMessage(client: self.client), subject: self)
+                
+            case .nextMatch:
+                self.nextMatch()
+                
+            case .previousMatch:
+                self.previousMatch()
+                
+            case .replaceAll:
+                self.replaceAll()
+                
+            case .replace:
+                self.replace()
+                
+            case .replaceAndFind:
+                self.replaceAndFind()
+                
+            case .setSearchString:
+                self.setSearchString()
+                
+            case .selectAll:
+                self.selectAll()
+                
+            case .replaceAllInSelection,
+                 .selectAllInSelection,
+                 .hideFindInterface,
+                 .showReplaceInterface,
+                 .hideReplaceInterface:
+                // not supported by TextFinder
+                assertionFailure()
+                
+            case .findAll:
+                self.findAll()
+                
+            case .setReplaceString:
+                self.setReplaceString()
+                
+            case .highlight:
+                self.highlight()
+                
+            case .unhighlight:
+                self.unhighlight()
+                
+            case .showMultipleReplaceInterface, .multipleReplace:
+                // Multiple Replace feature omitted in TypeNBash.
+                NSSound.beep()
+        }
+    }
+    
+    
+    // MARK: Private Actions
+    
+    /// Finds the next matched string.
+    private func nextMatch() {
+        
+        self.findTask?.cancel()
+        self.findTask = Task(priority: .userInitiated) {
+            try await self.find(forward: true)
+        }
+    }
+    
+    
+    /// Finds the previous matched string.
+    private func previousMatch() {
+        
+        self.findTask?.cancel()
+        self.findTask = Task(priority: .userInitiated) {
+            try await self.find(forward: false)
+        }
+    }
+    
+    
+    /// Selects all matched strings.
+    private func selectAll() {
+        
+        self.findTask?.cancel()
+        self.findTask = Task(priority: .userInitiated) {
+            try await self.selectAllMatches()
+        }
+    }
+    
+    
+    /// Finds all matched strings and shows results in a table.
+    private func findAll() {
+        
+        Task {
+            await self.findAll(showsList: true, actionName: .init("Find All", table: "TextFind"))
+        }
+    }
+    
+    
+    /// Highlights all matched strings.
+    private func highlight() {
+        
+        Task {
+            await self.findAll(showsList: false, actionName: .init("Highlight All", table: "TextFind"))
+        }
+    }
+    
+    
+    /// Removes all of current highlights in the frontmost textView.
+    private func unhighlight() {
+        
+        self.highlightObservationTask?.cancel()
+        self.highlightObservationTask = nil
+        
+        self.client.unhighlight(nil)
+    }
+    
+    
+    /// Replaces matched string in selection with replacementString.
+    private func replace() {
+        
+        if self.replaceSelected() {
+            self.client.centerSelectionInVisibleArea(self)
+        } else {
+            NSSound.beep()
+        }
+        
+        self.settings.noteReplaceHistory()
+    }
+    
+    
+    /// Replaces matched string with replacementString and selects the next match.
+    private func replaceAndFind() {
+        
+        self.replaceSelected()
+        
+        self.findTask?.cancel()
+        self.findTask = Task(priority: .userInitiated) {
+            try await self.find(forward: true)
+        }
+        
+        self.settings.noteReplaceHistory()
+    }
+    
+    
+    /// Replaces all matched strings with given string.
+    private func replaceAll() {
+        
+        Task {
+            await self.replaceAll()
+        }
+    }
+    
+    
+    /// Sets the selected string to find field.
+    private func setSearchString() {
+        
+        self.settings.findString = self.client.selectedString
+        self.settings.usesRegularExpression = false  // auto-disable regex
+    }
+    
+    
+    /// Sets the selected string to replace field.
+    private func setReplaceString() {
+        
+        self.settings.replacementString = self.client.selectedString
+    }
+    
+    
+    // MARK: Private Methods
+    
+    /// Observes text changes in the current client and invalidates cache.
+    private func observeClientTextChanges() {
+        
+        self.removeTextChangeObserver()
+        
+        guard let textStorage = self.client?.textStorage else { return }
+        
+        self.textChangeObserver = NotificationCenter.default.addObserver(forName: NSTextStorage.didProcessEditingNotification, object: textStorage, queue: .main) { [weak self] notification in
+            let textStorage = notification.object as! NSTextStorage
+            
+            guard textStorage.editedMask.contains(.editedCharacters) else { return }
+            
+            MainActor.assumeIsolated {
+                self?.findTask?.cancel()
+                self?.invalidateFindMatchesCache()
+            }
+        }
+    }
+    
+    
+    /// Removes text change observer if set.
+    private func removeTextChangeObserver() {
+        
+        self.textChangeObserver.map(NotificationCenter.default.removeObserver)
+        self.textChangeObserver = nil
+    }
+    
+    
+    /// Invalidates cached find matches.
+    private func invalidateFindMatchesCache() {
+        
+        self.findMatchesCache = nil
+        self.textVersion &+= 1
+    }
+    
+    
+    /// Returns cached matches or creates a new cache from the current find state.
+    ///
+    /// - Parameters:
+    ///   - textFind: The current find state.
+    ///   - client: The text view used to create the find state.
+    /// - Returns: Matched ranges.
+    /// - Throws: `CancellationError`.
+    private func findMatches(for textFind: TextFind, in client: NSTextView) async throws(CancellationError) -> [NSRange] {
+        
+        let options = self.findOptions(for: textFind)
+        
+        if let cache = self.findMatchesCache, cache.options == options {
+            return cache.matches
+        }
+        
+        let matches = try await Self.matches(in: textFind)
+        
+        guard !Task.isCancelled else { throw CancellationError() }
+        
+        guard
+            let currentClient = self.client,
+            currentClient === client,
+            self.currentFindOptions(for: client) == options
+        else { throw CancellationError() }
+        
+        self.findMatchesCache = FindMatchesCache(options: options, matches: matches)
+        
+        return matches
+    }
+    
+    
+    /// Returns a compiled pattern for the given search options, reusing the current one if possible.
+    ///
+    /// - Parameters:
+    ///   - findString: The string for which to search.
+    ///   - mode: The settable options for the text search.
+    /// - Returns: The compiled text find pattern.
+    /// - Throws: `TextFind.Error` if the find string is empty or an invalid regular expression.
+    private func pattern(findString: String, mode: TextFind.Mode) throws(TextFind.Error) -> TextFind.Pattern {
+        
+        if let pattern = self.cachedPattern,
+           pattern.findString.compare(findString, options: .literal) == .orderedSame,
+           pattern.mode == mode
+        {
+            return pattern
+        }
+        
+        let pattern = try TextFind.Pattern(findString: findString, mode: mode)
+        self.cachedPattern = pattern
+        
+        return pattern
+    }
+    
+    
+    /// Checks the Find action can be performed and alerts if needed.
+    ///
+    /// - Parameter presentsError: Whether shows error dialog on the find panel.
+    /// - Returns: A TextFind object with the current state and the client used for the preparation, or `nil` if not ready.
+    private func prepareTextFind(presentsError: Bool = true) -> (textFind: TextFind, client: NSTextView)? {
+        
+        guard let client = self.client else { return nil }
+
+        let findString = self.findString(for: client)
+        let mode = self.settings.mode
+        let inSelection = self.settings.inSelection
+        let string = client.string
+        let selectedRanges = client.selectedRanges.map(\.rangeValue)
+        
+        let textFind: TextFind
+        do {
+            let pattern = try self.pattern(findString: findString, mode: mode)
+            textFind = try TextFind(for: string.immutable, pattern: pattern, inSelection: inSelection, selectedRanges: selectedRanges)
+        } catch {
+            guard presentsError else { return nil }
+            
+            switch error {
+                case .regularExpression, .emptyInSelectionSearch:
+                    // The error belongs to the editor being searched, so it is a
+                    // sheet on that window. Skipped when a sheet is already up —
+                    // the find bar can produce the same error on every keystroke,
+                    // and stacked sheets would bury the one the user is reading.
+                    if let window = client.window, window.attachedSheet == nil {
+                        NSApp.presentError(error, modalFor: window, delegate: nil, didPresent: nil, contextInfo: nil)
+                    }
+                case .emptyFindString:
+                    break
+            }
+            NSSound.beep()
+            
+            return nil
+        }
+        
+        return (textFind, client)
+    }
+    
+    
+    /// Returns the current find options for the given text view.
+    ///
+    /// - Parameter client: The text view to evaluate.
+    /// - Returns: The find options representing the current settings and text state.
+    private func currentFindOptions(for client: NSTextView) -> FindMatchesCache.FindOptions {
+        
+        let inSelection = self.settings.inSelection
+        
+        return FindMatchesCache.FindOptions(textVersion: self.textVersion,
+                                            findString: self.findString(for: client),
+                                            mode: self.settings.mode,
+                                            inSelection: inSelection,
+                                            selectedRanges: inSelection ? client.selectedRanges.map(\.rangeValue) : [])
+    }
+    
+    
+    /// Returns the cache options for the given text find state.
+    ///
+    /// - Parameter textFind: The find state used to create matches.
+    /// - Returns: The find options representing the given find state.
+    private func findOptions(for textFind: TextFind) -> FindMatchesCache.FindOptions {
+        
+        FindMatchesCache.FindOptions(textVersion: self.textVersion,
+                                     findString: textFind.findString,
+                                     mode: textFind.mode,
+                                     inSelection: textFind.inSelection,
+                                     selectedRanges: textFind.inSelection ? textFind.selectedRanges : [])
+    }
+    
+    
+    /// Returns the find string normalized to the given text view's line endings.
+    ///
+    /// - Parameter client: The text view whose line endings are used for normalization.
+    /// - Returns: The normalized find string.
+    private func findString(for client: NSTextView) -> String {
+        
+        let lineEnding = (client as? EditorTextView)?.lineEnding ?? .lf
+        
+        return self.settings.findString.replacingLineEndings(with: lineEnding)
+    }
+    
+    
+    /// Performs a single find.
+    ///
+    /// - Parameters:
+    ///   - forward: The flag whether finds forward or backward.
+    ///   - isIncremental: Whether is the incremental search.
+    /// - Throws: `CancellationError`.
+    private func find(forward: Bool, isIncremental: Bool = false) async throws(CancellationError) {
+        
+        assert(forward || !isIncremental)
+        
+        guard let (textFind, client) = self.prepareTextFind(presentsError: !isIncremental) else { return }
+        
+        let wraps = self.settings.isWrap
+        
+        let matches = try await self.findMatches(for: textFind, in: client)
+        let result = textFind.find(in: matches, forward: forward, includingSelection: isIncremental, wraps: wraps)
+        let matchedRange = isIncremental ? nil : result?.range
+        
+        let currentMatchIndex: Int?
+        if let matchedRange {
+            let index = matches.partitioningIndex { $0.lowerBound >= matchedRange.lowerBound }
+            currentMatchIndex = (index < matches.endIndex && matches[index] == matchedRange) ? index + 1 : nil
+        } else {
+            currentMatchIndex = nil
+        }
+        
+        // mark all matches
+        if isIncremental {
+            client.updateBackgroundColor(.unemphasizedSelectedTextBackgroundColor, ranges: matches)
+            
+            // unmark either when the client view resigned the key window or when the Find panel closed
+            self.highlightObservationTask?.cancel()
+            self.highlightObservationTask = Task { [weak client] in
+                for await _ in NotificationCenter.default.notifications(named: NSWindow.didResignKeyNotification).map(\.name) {
+                    client?.unhighlight(nil)
+                    break
+                }
+            }
+        }
+        
+        // found feedback
+        if let result {
+            client.select(range: result.range)
+            client.showFindIndicator(for: result.range)
+            
+            if result.wrapped {
+                client.enclosingScrollView?.superview?.showHUD(symbol: .wrap(flipped: !forward))
+                AccessibilityNotification.Announcement(String(localized: "Search wrapped.", table: "TextFind", comment: "Announced when the search restarted from the beginning.")).post()
+            }
+        } else if !isIncremental {
+            client.enclosingScrollView?.superview?.showHUD(symbol: forward ? .reachBottom : .reachTop)
+            NSSound.beep()
+        }
+        
+        let findResult = FindResult(action: .find, count: matches.count, currentMatchIndex: currentMatchIndex, matchedRange: matchedRange)
+        self.notify(findResult, for: client)
+        if !isIncremental {
+            self.settings.noteFindHistory()
+        }
+    }
+    
+    
+    /// Selects all matched strings asynchronously.
+    private func selectAllMatches() async throws(CancellationError) {
+        
+        guard let (textFind, client) = self.prepareTextFind() else { return }
+        
+        let matchedRanges = try await self.findMatches(for: textFind, in: client)
+        client.selectedRanges = matchedRanges as [NSValue]
+        
+        self.notify(FindResult(action: .find, count: matchedRanges.count), for: client)
+        self.settings.noteFindHistory()
+    }
+    
+    
+    /// Replaces a matched string in selection with replacementString.
+    ///
+    /// - Returns: `true` if replacement succeeded; otherwise, `false`.
+    @discardableResult private func replaceSelected() -> Bool {
+        
+        guard let (textFind, client) = self.prepareTextFind() else { return false }
+        
+        let replacementString = self.settings.replacementString
+        
+        guard let result = textFind.replace(with: replacementString) else { return false }
+        
+        // apply replacement to text view
+        let didReplace = client.replace(with: result.value, range: result.range,
+                                        selectedRange: NSRange(location: result.range.location,
+                                                               length: result.value.length),
+                                        actionName: String(localized: "Replace", table: "TextFind"))
+        
+        if didReplace {
+            self.invalidateFindMatchesCache()
+        }
+        
+        return didReplace
+    }
+    
+    
+    /// Finds all matched strings and applies the result to views.
+    ///
+    /// - Parameters:
+    ///   - showsList: Whether shows the result view when finished.
+    ///   - actionName: The name of the action to display in the progress sheet.
+    private func findAll(showsList: Bool, actionName: LocalizedStringResource) async {
+        
+        guard let (textFind, client) = self.prepareTextFind() else { return }
+        
+        let wasEditable = client.isEditable
+        client.isEditable = false
+        defer { client.isEditable = wasEditable }
+        
+        let progress = FindProgress(scope: textFind.scopeRange)
+        async let findResult = Self.findAll(for: textFind, showsList: showsList, progress: progress)
+        
+        // present progress view
+        client.window?.beginSheet {
+            FindProgressView(actionName, progress: progress, action: .find)
+                .scenePadding()
+        }
+        
+        // perform
+        let highlights: [ValueRange<NSColor>]
+        let matches: [FindAllMatch]
+        do {
+            (highlights, matches) = try await findResult
+        } catch {
+            // -> Mark the progress as cancelled to dismiss the progress sheet.
+            progress.cancel()
+            return
+        }
+        
+        guard progress.state != .cancelled else { return }
+        
+        self.highlightObservationTask?.cancel()
+        self.highlightObservationTask = nil
+        
+        client.updateBackgroundColors(highlights)
+        
+        if highlights.isEmpty {
+            NSSound.beep()
+        }
+        
+        progress.finish()
+        
+        self.notify(FindResult(action: .find, count: matches.count), for: client)
+        
+        if showsList {
+            let message = DidFindAllMessage(findString: textFind.findString, matches: matches, client: client)
+            NotificationCenter.default.post(message, subject: self)
+        }
+        
+        self.settings.noteFindHistory()
+    }
+    
+    
+    /// Replaces all matched strings and applies the result to views.
+    private func replaceAll() async {
+        
+        guard let (textFind, client) = self.prepareTextFind() else { return }
+        
+        client.isEditable = false
+        defer { client.isEditable = true }
+        
+        let replacementString = self.settings.replacementString
+        let progress = FindProgress(scope: textFind.scopeRange)
+        async let replacementResult = Self.replaceAll(for: textFind, with: replacementString, progress: progress)
+        
+        // present progress view
+        client.window?.beginSheet {
+            FindProgressView(.init("Replace All", table: "TextFind"), progress: progress, action: .replace)
+                .scenePadding()
+        }
+        
+        // perform
+        let replacementItems: [TextFind.ReplacementItem]
+        let selectedRanges: [NSRange]?
+        do {
+            (replacementItems, selectedRanges) = try await replacementResult
+        } catch {
+            // -> Mark the progress as cancelled to dismiss the progress sheet.
+            progress.cancel()
+            return
+        }
+        
+        client.isEditable = true
+        
+        guard progress.state != .cancelled else { return }
+        
+        if !replacementItems.isEmpty {
+            // apply found strings to the text view
+            client.replace(with: replacementItems.map(\.value), ranges: replacementItems.map(\.range), selectedRanges: selectedRanges,
+                           actionName: String(localized: "Replace All", table: "TextFind"))
+            self.invalidateFindMatchesCache()
+        } else {
+            NSSound.beep()
+        }
+        
+        progress.finish()
+        
+        self.notify(FindResult(action: .replace, count: progress.count), for: client)
+        self.settings.noteReplaceHistory()
+    }
+    
+    
+    /// Notifies the find/replacement result to the user.
+    ///
+    /// - Parameters:
+    ///   - result: The find/replacement result.
+    ///   - client: The text view where performed the find/replacement.
+    private func notify(_ result: FindResult, for client: NSTextView) {
+        
+        let identifier = ObjectIdentifier(client)
+        let message = DidFindMessage(result: result, clientIdentifier: identifier)
+        
+        NotificationCenter.default.post(message, subject: self)
+        AccessibilityNotification.Announcement(result.accessibilityPositionMessage ?? result.message).post()
+    }
+    
+    
+    /// Finds all matches in the given find state.
+    ///
+    /// - Parameter textFind: The find state to use.
+    /// - Returns: Matched ranges.
+    /// - Throws: `CancellationError`.
+    @concurrent private static func matches(in textFind: TextFind) async throws(CancellationError) -> [NSRange] {
+        
+        try textFind.matches
+    }
+    
+    
+    /// Finds all matches in the find state and builds the results in the background.
+    ///
+    /// - Parameters:
+    ///   - textFind: The find state to use.
+    ///   - showsList: Whether builds the matched line entries for the result table.
+    ///   - progress: The progress object to report the state.
+    /// - Returns: The ranges to highlight and the matched line entries for the result table.
+    /// - Throws: `CancellationError` if the task is cancelled.
+    @concurrent private static func findAll(for textFind: TextFind, showsList: Bool, progress: FindProgress) async throws(CancellationError) -> (highlights: [ValueRange<NSColor>], matches: [FindAllMatch]) {
+        
+        let highlightColors = await NSColor.textHighlighterColor.decompose(
+            into: textFind.numberOfCaptureGroups + 1
+        )
+        let lineCounter = LineCounter(string: textFind.string)
+        
+        var highlights: [ValueRange<NSColor>] = []
+        var resultMatches: [FindAllMatch] = []  // not used if showsList is false
+        
+        try textFind.findAll { matches, stop in
+            guard progress.state != .cancelled else {
+                stop = true
+                return
+            }
+            
+            // highlight
+            highlights += matches.enumerated()
+                .filter { !$0.element.isEmpty }
+                .map { ValueRange(value: highlightColors[$0.offset], range: $0.element) }
+            
+            // build find result for table
+            if showsList {
+                let matchedRange = matches[0]
+                
+                // build a highlighted line string for result table
+                let lineFragmentRange = lineCounter.lineContentsRange(for: matchedRange)
+                    .clamped(around: matchedRange, maxLength: 1024)  // -> limit to avoid out of memory with very long lines
+                let lineString = (textFind.string as NSString).substring(with: lineFragmentRange)
+                let attrLineString = NSMutableAttributedString(string: lineString)
+                for (color, range) in zip(highlightColors, matches) where !range.isEmpty {
+                    guard let inlineRange = range.shifted(by: -lineFragmentRange.location).intersection(attrLineString.range) else { continue }
+                    attrLineString.addAttribute(.backgroundColor, value: color, range: inlineRange)
+                }
+                
+                let lineNumber = lineCounter.lineNumber(at: matchedRange.location)
+                let inlineLocation = matchedRange.location - lineFragmentRange.location
+                
+                resultMatches.append(.init(range: matchedRange, lineNumber: lineNumber, inlineLocation: inlineLocation, attributedLineString: attrLineString))
+            }
+            
+            progress.updateCompletedUnit(to: matches[0].upperBound)
+            progress.incrementCount()
+        }
+        
+        return (highlights, resultMatches)
+    }
+    
+    
+    /// Replaces all matches in the find state with the replacement string in the background.
+    ///
+    /// - Parameters:
+    ///   - textFind: The find state to use.
+    ///   - replacementString: The string to replace matches with.
+    ///   - progress: The progress object to report the state.
+    /// - Returns: The replacement items and the selected ranges after the replacement.
+    /// - Throws: `CancellationError` if the task is cancelled.
+    @concurrent private static func replaceAll(for textFind: TextFind, with replacementString: String, progress: FindProgress) async throws(CancellationError) -> (replacementItems: [TextFind.ReplacementItem], selectedRanges: [NSRange]?) {
+        
+        try textFind.replaceAll(with: replacementString) { range, count, stop in
+            guard progress.state != .cancelled else {
+                stop = true
+                return
+            }
+            
+            progress.updateCompletedUnit(to: range.upperBound)
+            progress.incrementCount(by: count)
+        }
+    }
+}

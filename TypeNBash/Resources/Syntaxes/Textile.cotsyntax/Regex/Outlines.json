@@ -1,0 +1,32 @@
+[
+  {
+    "kind" : "heading.1",
+    "pattern" : "^h1([\\[{()=>]\\S*)?\\.[\\t ]*(.*)$",
+    "template" : "$2"
+  },
+  {
+    "kind" : "heading.2",
+    "pattern" : "^h2([\\[{()=>]\\S*)?\\.[\\t ]*(.*)$",
+    "template" : "$2"
+  },
+  {
+    "kind" : "heading.3",
+    "pattern" : "^h3([\\[{()=>]\\S*)?\\.[\\t ]*(.*)$",
+    "template" : "$2"
+  },
+  {
+    "kind" : "heading.4",
+    "pattern" : "^h4([\\[{()=>]\\S*)?\\.[\\t ]*(.*)$",
+    "template" : "$2"
+  },
+  {
+    "kind" : "heading.5",
+    "pattern" : "^h5([\\[{()=>]\\S*)?\\.[\\t ]*(.*)$",
+    "template" : "$2"
+  },
+  {
+    "kind" : "heading.6",
+    "pattern" : "^h6([\\[{()=>]\\S*)?\\.[\\t ]*(.*)$",
+    "template" : "$2"
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "characterDelimiters" : [
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "\\"
+    }
+  ],
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "/*",
+        "end" : "*/"
+      },
+      {
+        "begin" : "/+",
+        "end" : "+/",
+        "isNestable" : true
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "//"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "`",
+      "description" : "WYSIWYG string literal",
+      "end" : "`",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "q{",
+      "description" : "Token string literal with { } delimiter",
+      "end" : "}",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "\"",
+      "description" : "WYSIWYG/hex string literal",
+      "end" : "\"",
+      "isMultiline" : true,
+      "prefixes" : [
+        "r",
+        "x"
+      ]
+    }
+  ]
+}

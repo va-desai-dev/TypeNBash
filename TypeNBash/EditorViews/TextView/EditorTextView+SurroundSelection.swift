@@ -1,0 +1,96 @@
+//
+//  EditorTextView+SurroundSelection.swift
+//
+//  CotEditor
+//  https://coteditor.com
+//
+//  Created by 1024jp on 2017-03-19.
+//
+//  ---------------------------------------------------------------------------
+//
+//  © 2017-2026 1024jp
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  https://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+import AppKit
+import SwiftUI
+import StringUtils
+import TextEditing
+
+extension EditorTextView {
+    
+    // MARK: Action Messages
+    
+    /// Inserts single quotation marks ' around the selections.
+    @IBAction func surroundSelectionWithSingleQuotes(_ sender: Any?) {
+        
+        self.surroundSelections(begin: "'", end: "'")
+    }
+    
+    
+    /// Inserts double quotation marks " around the selections.
+    @IBAction func surroundSelectionWithDoubleQuotes(_ sender: Any?) {
+        
+        self.surroundSelections(begin: "\"", end: "\"")
+    }
+    
+    
+    /// Inserts pairs of parentheses () around the selections.
+    @IBAction func surroundSelectionWithParentheses(_ sender: Any?) {
+        
+        self.surroundSelections(begin: "(", end: ")")
+    }
+    
+    
+    /// Inserts pairs of braces {} around the selections.
+    @IBAction func surroundSelectionWithBraces(_ sender: Any?) {
+        
+        self.surroundSelections(begin: "{", end: "}")
+    }
+    
+    
+    /// Inserts square brackets [] around the selections.
+    @IBAction func surroundSelectionWithSquareBrackets(_ sender: Any?) {
+        
+        self.surroundSelections(begin: "[", end: "]")
+    }
+    
+    
+    /// Shows the custom surround sheet.
+    @IBAction func surroundSelection(_ sender: Any?) {
+
+        // Custom-surround sheet omitted in TypeNBash (CustomSurroundView not ported).
+        NSSound.beep()
+    }
+}
+
+
+extension NSTextView {
+    
+    /// Inserts strings around selections.
+    ///
+    /// - Parameters:
+    ///   - begin: The string to insert before each selection.
+    ///   - end: The string to insert after each selection.
+    /// - Returns: `true` if the selections were surrounded; otherwise, `false`.
+    @discardableResult final func surroundSelections(begin: String, end: String) -> Bool {
+        
+        guard
+            let selectedRanges = self.rangesForUserTextChange?.map(\.rangeValue),
+            let context = self.string.surround(in: selectedRanges, begin: begin, end: end)
+        else { return false }
+        
+        return self.edit(with: context)
+    }
+}

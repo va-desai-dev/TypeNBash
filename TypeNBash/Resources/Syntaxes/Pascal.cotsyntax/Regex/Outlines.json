@@ -1,0 +1,58 @@
+[
+  {
+    "description" : "Types (start with T)",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "(^\\s*)(?:\\T)(?:.*)(?<!\\:)\\=(?:.*)",
+    "template" : "type $0"
+  },
+  {
+    "description" : "Region",
+    "ignoreCase" : true,
+    "kind" : "mark",
+    "pattern" : "\\{(?:.*)\\$(?:.*)(?:region)(?:.*)\\'(.*)\\'\\}",
+    "template" : "($1)"
+  },
+  {
+    "description" : "Function",
+    "ignoreCase" : true,
+    "kind" : "function",
+    "pattern" : "^([ \\t]*)(?:[a-z]* )*function(.*)(?:\\;|\\()",
+    "template" : "$2"
+  },
+  {
+    "description" : "Procedure",
+    "ignoreCase" : true,
+    "kind" : "function",
+    "pattern" : "^([ \\t]*)(?:[a-z]* )*procedure(.*)(?:\\;|\\()",
+    "template" : "$2"
+  },
+  {
+    "description" : "Implementation",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^\\s*(implementation)",
+    "template" : "---- $1"
+  },
+  {
+    "description" : "Interface",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^\\s*(interface)",
+    "template" : "---- $1"
+  },
+  {
+    "description" : "Type",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^\\s*(type)",
+    "template" : "---- $1"
+  },
+  {
+    "description" : "Unit",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "unit\\W(.*)(?:\\;)$",
+    "template" : "$1"
+  }
+]

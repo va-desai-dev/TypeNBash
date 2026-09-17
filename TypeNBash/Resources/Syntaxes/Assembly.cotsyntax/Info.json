@@ -1,0 +1,17 @@
+{
+  "fileMap" : {
+    "extensions" : [
+      "s",
+      "asm"
+    ]
+  },
+  "kind" : "code",
+  "metadata" : {
+    "author" : "1024jp",
+    "description" : "based on Netwide assembler (intel x86) syntax.\n\nref. https://www.nasm.us/doc/nasmdoc3.html",
+    "distributionURL" : "https://coteditor.com",
+    "lastModified" : "2026-03-21",
+    "license" : "Same as CotEditor",
+    "version" : "2.0.0"
+  }
+}

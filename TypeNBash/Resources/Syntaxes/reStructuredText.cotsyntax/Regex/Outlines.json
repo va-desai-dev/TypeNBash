@@ -1,0 +1,14 @@
+[
+  {
+    "description" : "section",
+    "kind" : "heading",
+    "pattern" : "(?<![-=`:.'\"~^_*+#]{2}\\R)^(.+)(?=\\R([-=`:.'\"~^_*+#])\\2{2,}$)",
+    "template" : "$1"
+  },
+  {
+    "description" : "section",
+    "kind" : "heading",
+    "pattern" : "(?<=[-=`:.'\"~^_*+#]{3}\\R)(.+)(?=\\R([-=`:.'\"~^_*+#])\\2{2,}+$)",
+    "template" : "$1"
+  }
+]

@@ -1,0 +1,190 @@
+{
+  "characters" : [
+    {
+      "begin" : "(?<!\\\\)``(?![ \\t`])(?:(?!\\R{2})(?:.|\\R))+?(?<![\\\\\\t ])``",
+      "description" : "code",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!^[\\t ]{0,4}\\.\\. [a-z]{1,10} ?)::\\R[\\t ]*(?:\\R(?:[\\t ]*\\R)?([\\t ]+).*)(?:\\R(?:[\\t ]*\\R)?\\1.*)*",
+      "description" : "codeblock",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^(--?|/)[a-z]((?!  )[a-z0-9_= \\-])* {2,}",
+      "description" : "option lists",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "comments" : [
+    {
+      "begin" : "^(?:\\t| {1,4})?\\.\\.\\s(?![_\\[|]|[a-z]+?::)(?:(?!\\R{2})(.|\\R))*",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "(?<![\\\\*)\\]'\"’‘”“`}>›»]|\\w)\\*[^* \\t\\r\\n)\\]'\"’‘”“`}>›»](?:(?!\\R{2})(?:[^*]|\\R))*?(?<![\\\\ \\t\\r\\n])\\*(?!\\w|['\"’‘”“`<‹«(\\[{])",
+      "description" : "em",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<![\\\\*)\\]'\"’‘”“`}>›»]|\\w)\\*\\*[^* \\t\\r\\n)\\]'\"’‘”“`}>›»](?![ \\t])(?:(?!\\R{2}|\\*)(?:.|\\R))*?(?<![\\\\\\t ])\\*\\*(?!\\w|['\"’‘”“`<‹«(\\[{])",
+      "description" : "strong",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<![\\\\`)\\]'\"’‘”“`}>›»]|\\w)`[^ \\r\\n\\t`](?:(?!\\R{2})(?:[^`]|\\R))*?[^\\\\ \\r\\n\\t]`(?!\\w|['\"’‘”“`<‹«(\\[{_])",
+      "description" : "interpreted text",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[\\w[^\\]]*?\\]_",
+      "description" : "cite",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\R{2}([\\t ]*)(?!(?:[#a-z]|[ivxlxcdm]+|\\d+)\\.)\\w.*\\R\\1[\\t ]+(?=\\w)",
+      "description" : "dt",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\R{2}[-=`:.'\"~^_*+#]{4,}\\R{2}",
+      "description" : "hr",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[ \\t]*[-*+•‣⁃][ \\t]",
+      "description" : "ul li",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[ \\t]*\\(?(?:[#a-z]|[ivxlxcdm]+|\\d+)[.)][ \\t]",
+      "description" : "ol li",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[\\t ]*:[^\\r\\n:]+?: ",
+      "description" : "field list",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[\\t ]*\\.\\. [a-z]+ ?::",
+      "description" : "directive",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[\\t ]*\\.\\. \\[[^\\]\\r\\n]+\\] ",
+      "description" : "footnotes",
+      "regularExpression" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<=\\w`):[a-z]+?:",
+      "description" : "role",
+      "regularExpression" : true
+    },
+    {
+      "begin" : ":[a-z]+?:(?=`\\w)",
+      "description" : "role",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s\\|\\S(?:(?!\\R{2})[^\\|])*?\\|_{0,2}[\\W]",
+      "description" : "sub",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[\\t ]*\\.\\. (?:\\|[^|\\r\\n]+?\\| )?image ?::\\s.*$",
+      "description" : "image",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\R(={4,} [= ]{4,}\\R)(?:.|\\R)+\\1(?=$\\R)",
+      "description" : "table",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\R\\+[-+]{3,}\\+\\R(?:(?!\\R{2})(?:.|\\R))+\\+[-+]{3,}\\+(?=$\\R)",
+      "description" : "table",
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : " <\\S+>(?=`_)",
+      "description" : "url",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[\\t ]*\\.\\. _\\S.*(?:\\R[\\t ]+\\S*)?$",
+      "description" : "url",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[\\t ]*__ .\\S+$",
+      "description" : "url",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "^([-=`:.'\"~^_*+#]{3,})\\R.+\\R\\1$",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^.+\\R([-=`:.'\"~^_*+#])\\1{2,}$",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "(?:https?|ftp):\\/\\/[-_.!~*\\'a-zA-Z0-9;\\/?:\\@&=+\\$,%#]+",
+      "description" : "url link",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?:https?|ftp):\\/\\/[-_.!~*\\'a-zA-Z0-9;\\/?:\\@&=+\\$,%#]+\\([-_.!~*\\'a-zA-Z0-9;\\/?:\\@&=+\\$,%#]+\\)",
+      "description" : "url link with bracket",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(mailto:)?[a-zA-Z0-9]+[a-zA-Z0-9\\._-]*@[a-zA-Z0-9_-]+([a-zA-Z0-9\\._-]+)+",
+      "description" : "mail link",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b[^-=_ \\t\\r\\n](?:\\w|\\d|[-=])*_(?!_)\\b",
+      "description" : "single word link",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s\\[#[^\\]]*?\\]_\\b",
+      "description" : "foot link",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s\\[\\*\\]_\\b",
+      "description" : "foot link",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s\\[\\d+?\\]_\\b",
+      "description" : "foot link",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s`[^`]+?`__?\\b",
+      "description" : "multi-words link",
+      "regularExpression" : true
+    }
+  ]
+}

@@ -1,0 +1,548 @@
+{
+  "AWK" : {
+    "extensions" : [
+      "awk"
+    ],
+    "interpreters" : [
+      "awk"
+    ]
+  },
+  "Ada" : {
+    "extensions" : [
+      "ada",
+      "adb",
+      "ads"
+    ]
+  },
+  "Apache" : {
+    "extensions" : [
+      "conf"
+    ],
+    "filenames" : [
+      ".htaccess"
+    ]
+  },
+  "AppleScript" : {
+    "extensions" : [
+      "applescript"
+    ]
+  },
+  "Assembly" : {
+    "extensions" : [
+      "s",
+      "asm"
+    ]
+  },
+  "BBCode" : {
+
+  },
+  "BibTeX" : {
+    "extensions" : [
+      "bib",
+      "bibtex"
+    ]
+  },
+  "C" : {
+    "extensions" : [
+      "c",
+      "h"
+    ]
+  },
+  "C#" : {
+    "extensions" : [
+      "cs"
+    ],
+    "interpreters" : [
+      "csharp"
+    ]
+  },
+  "C++" : {
+    "extensions" : [
+      "c++",
+      "cpp",
+      "cxx",
+      "cc",
+      "cp",
+      "hh",
+      "hp",
+      "hpp",
+      "hxx",
+      "h++",
+      "ipp",
+      "cu",
+      "cuh"
+    ]
+  },
+  "CSS" : {
+    "extensions" : [
+      "css"
+    ]
+  },
+  "CoffeeScript" : {
+    "extensions" : [
+      "coffee"
+    ],
+    "interpreters" : [
+      "coffee"
+    ]
+  },
+  "D" : {
+    "extensions" : [
+      "d"
+    ],
+    "interpreters" : [
+      "rdmd"
+    ]
+  },
+  "DOT" : {
+    "extensions" : [
+      "dot",
+      "gv"
+    ]
+  },
+  "DTD" : {
+    "extensions" : [
+      "dtd"
+    ]
+  },
+  "Dart" : {
+    "extensions" : [
+      "dart"
+    ],
+    "interpreters" : [
+      "dart"
+    ]
+  },
+  "Diff" : {
+    "extensions" : [
+      "diff",
+      "patch",
+      "dif"
+    ]
+  },
+  "Dockerfile" : {
+    "filenames" : [
+      "Dockerfile"
+    ]
+  },
+  "Erlang" : {
+    "extensions" : [
+      "erl"
+    ]
+  },
+  "Fortran" : {
+    "extensions" : [
+      "f",
+      "f08",
+      "f03",
+      "f95",
+      "f90",
+      "for",
+      "cuf"
+    ]
+  },
+  "Git" : {
+    "filenames" : [
+      "git-rebase-todo",
+      "COMMIT_EDITMSG"
+    ]
+  },
+  "Git Config" : {
+    "filenames" : [
+      ".gitconfig",
+      ".gitmodules",
+      "gitconfig"
+    ]
+  },
+  "Git Ignore" : {
+    "filenames" : [
+      ".gitignore"
+    ]
+  },
+  "Go" : {
+    "extensions" : [
+      "go"
+    ]
+  },
+  "HTML" : {
+    "extensions" : [
+      "html",
+      "htm",
+      "shtml"
+    ]
+  },
+  "Haskell" : {
+    "extensions" : [
+      "hs",
+      "lhs"
+    ],
+    "interpreters" : [
+      "runhaskell"
+    ]
+  },
+  "INI" : {
+    "extensions" : [
+      "ini",
+      "url"
+    ],
+    "filenames" : [
+      ".editorconfig"
+    ]
+  },
+  "JSON" : {
+    "extensions" : [
+      "json",
+      "jsonl"
+    ],
+    "filenames" : [
+      "Package.resolved"
+    ]
+  },
+  "Java" : {
+    "extensions" : [
+      "java",
+      "jav"
+    ]
+  },
+  "JavaScript" : {
+    "extensions" : [
+      "js",
+      "mjs",
+      "pac"
+    ]
+  },
+  "Julia" : {
+    "extensions" : [
+      "jl"
+    ],
+    "interpreters" : [
+      "julia"
+    ]
+  },
+  "Kotlin" : {
+    "extensions" : [
+      "kt",
+      "kts"
+    ],
+    "interpreters" : [
+      "kotlin",
+      "kotlinc"
+    ]
+  },
+  "LaTeX" : {
+    "extensions" : [
+      "tex",
+      "sty",
+      "cls"
+    ]
+  },
+  "Lisp" : {
+    "extensions" : [
+      "lisp",
+      "lsp",
+      "el",
+      "clj",
+      "edn"
+    ],
+    "interpreters" : [
+      "sbcl"
+    ]
+  },
+  "Lua" : {
+    "extensions" : [
+      "lua"
+    ],
+    "interpreters" : [
+      "lua",
+      "luajit"
+    ]
+  },
+  "MATLAB" : {
+    "extensions" : [
+      "m"
+    ]
+  },
+  "METAFONT" : {
+    "extensions" : [
+      "mf"
+    ]
+  },
+  "Makefile" : {
+    "filenames" : [
+      "Makefile",
+      "makefile",
+      "GNUmakefile"
+    ],
+    "interpreters" : [
+      "make"
+    ]
+  },
+  "Markdown" : {
+    "extensions" : [
+      "md",
+      "markdown",
+      "mkd",
+      "mdown",
+      "mkdn"
+    ]
+  },
+  "Metal" : {
+    "extensions" : [
+      "metal",
+      "msl"
+    ]
+  },
+  "Mojo" : {
+    "extensions" : [
+      "mojo",
+      "🔥"
+    ],
+    "interpreters" : [
+      "mojo"
+    ]
+  },
+  "PHP" : {
+    "extensions" : [
+      "php",
+      "php3",
+      "php4",
+      "php5",
+      "phps",
+      "phtml"
+    ],
+    "interpreters" : [
+      "php"
+    ]
+  },
+  "Pascal" : {
+    "extensions" : [
+      "pas",
+      "pp"
+    ]
+  },
+  "Perl" : {
+    "extensions" : [
+      "pl",
+      "cgi",
+      "pm"
+    ],
+    "interpreters" : [
+      "perl"
+    ]
+  },
+  "Plain Text" : {
+    "extensions" : [
+      "txt"
+    ]
+  },
+  "PowerShell" : {
+    "extensions" : [
+      "ps1",
+      "psm1"
+    ],
+    "interpreters" : [
+      "pwsh"
+    ]
+  },
+  "Properties" : {
+    "extensions" : [
+      "properties"
+    ]
+  },
+  "Protocol Buffers" : {
+    "extensions" : [
+      "proto"
+    ],
+    "interpreters" : [
+      "protoc"
+    ]
+  },
+  "Python" : {
+    "extensions" : [
+      "py",
+      "pyw",
+      "pyi"
+    ],
+    "interpreters" : [
+      "python",
+      "python2",
+      "python3"
+    ]
+  },
+  "R" : {
+    "extensions" : [
+      "R"
+    ],
+    "filenames" : [
+      ".Rprofile"
+    ],
+    "interpreters" : [
+      "Rscript"
+    ]
+  },
+  "Ruby" : {
+    "extensions" : [
+      "rb",
+      "erb"
+    ],
+    "filenames" : [
+      "Gemfile"
+    ],
+    "interpreters" : [
+      "ruby"
+    ]
+  },
+  "Rust" : {
+    "extensions" : [
+      "rs",
+      "rc"
+    ],
+    "interpreters" : [
+      "rustx"
+    ]
+  },
+  "SQL" : {
+    "extensions" : [
+      "sql",
+      "mysql",
+      "pgsql"
+    ]
+  },
+  "SVG" : {
+    "extensions" : [
+      "svg"
+    ]
+  },
+  "Scala" : {
+    "extensions" : [
+      "scala"
+    ],
+    "interpreters" : [
+      "scala"
+    ]
+  },
+  "Scheme" : {
+    "extensions" : [
+      "scm",
+      "ss"
+    ],
+    "interpreters" : [
+      "chicken-scheme",
+      "csi",
+      "gosh",
+      "guile",
+      "gsi"
+    ]
+  },
+  "Shell Script" : {
+    "extensions" : [
+      "sh",
+      "command"
+    ],
+    "filenames" : [
+      ".profile",
+      ".bash_login",
+      ".bash_logout",
+      ".bash_profile",
+      ".bashrc",
+      ".zlogin",
+      ".zprofile",
+      ".zshrc",
+      ".zshenv"
+    ],
+    "interpreters" : [
+      "sh",
+      "bash",
+      "csh",
+      "ksh",
+      "tcsh",
+      "zsh"
+    ]
+  },
+  "Swift" : {
+    "extensions" : [
+      "swift",
+      "swiftinterface"
+    ],
+    "interpreters" : [
+      "swift"
+    ]
+  },
+  "TOML" : {
+    "extensions" : [
+      "toml"
+    ]
+  },
+  "Tcl" : {
+    "extensions" : [
+      "tcl"
+    ],
+    "interpreters" : [
+      "jimsh",
+      "tclsh",
+      "wish"
+    ]
+  },
+  "Textile" : {
+    "extensions" : [
+      "textile"
+    ]
+  },
+  "TypeScript" : {
+    "extensions" : [
+      "ts",
+      "tsx",
+      "mts",
+      "cts"
+    ]
+  },
+  "VHDL" : {
+    "extensions" : [
+      "vhd"
+    ]
+  },
+  "Verilog" : {
+    "extensions" : [
+      "v",
+      "sv"
+    ]
+  },
+  "XML" : {
+    "extensions" : [
+      "xml",
+      "xsl",
+      "xslt",
+      "xsd",
+      "rlx",
+      "rdf"
+    ]
+  },
+  "Xcode Project" : {
+    "extensions" : [
+      "pbxproj"
+    ]
+  },
+  "YAML" : {
+    "extensions" : [
+      "yml",
+      "yaml"
+    ]
+  },
+  "iCalendar" : {
+    "extensions" : [
+      "ics",
+      "ifb"
+    ]
+  },
+  "jq" : {
+    "extensions" : [
+      "jq"
+    ]
+  },
+  "reStructuredText" : {
+    "extensions" : [
+      "rest",
+      "rst"
+    ]
+  }
+}

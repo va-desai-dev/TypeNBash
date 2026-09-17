@@ -1,0 +1,34 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "/*",
+        "end" : "*/"
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "//"
+      },
+      {
+        "begin" : "#",
+        "leadingOnly" : true
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    }
+  ]
+}

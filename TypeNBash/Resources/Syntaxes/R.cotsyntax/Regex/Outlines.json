@@ -1,0 +1,14 @@
+[
+  {
+    "description" : "section",
+    "kind" : "mark",
+    "pattern" : "^#+[\\t ]*(.*?)[\\t ]*(-|=|#){4,}",
+    "template" : "$1"
+  },
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "^[\\t ]*(\\S+)[\\t ]*<-[\\t ]*function",
+    "template" : "function: $1"
+  }
+]

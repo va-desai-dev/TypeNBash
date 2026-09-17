@@ -1,0 +1,23 @@
+[
+  {
+    "description" : "architecture",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "\\b(\\s*)architecture\\s+(\\S+)",
+    "template" : "$1$2"
+  },
+  {
+    "description" : "component",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "\\b(\\s*)component\\s+(\\S+)",
+    "template" : "$1$2"
+  },
+  {
+    "description" : "entity",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "\\b(\\s*)entity\\s+(\\S+)",
+    "template" : "$1$2"
+  }
+]

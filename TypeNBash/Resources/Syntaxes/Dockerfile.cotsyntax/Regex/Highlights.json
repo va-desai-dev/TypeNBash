@@ -1,0 +1,63 @@
+{
+  "characters" : [
+    {
+      "begin" : "\\"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "ADD"
+    },
+    {
+      "begin" : "ARG"
+    },
+    {
+      "begin" : "CMD"
+    },
+    {
+      "begin" : "COPY"
+    },
+    {
+      "begin" : "ENTRYPOINT"
+    },
+    {
+      "begin" : "ENV"
+    },
+    {
+      "begin" : "EXPOSE"
+    },
+    {
+      "begin" : "FROM"
+    },
+    {
+      "begin" : "HEALTHCHECK"
+    },
+    {
+      "begin" : "LABEL"
+    },
+    {
+      "begin" : "MAINTAINER"
+    },
+    {
+      "begin" : "ONBUILD"
+    },
+    {
+      "begin" : "RUN"
+    },
+    {
+      "begin" : "SHELL"
+    },
+    {
+      "begin" : "STOPSIGNAL"
+    },
+    {
+      "begin" : "USER"
+    },
+    {
+      "begin" : "VOLUME"
+    },
+    {
+      "begin" : "WORKDIR"
+    }
+  ]
+}

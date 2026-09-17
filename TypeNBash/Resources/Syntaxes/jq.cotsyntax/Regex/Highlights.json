@@ -1,0 +1,691 @@
+{
+  "attributes" : [
+    {
+      "begin" : "@base64"
+    },
+    {
+      "begin" : "@base64d"
+    },
+    {
+      "begin" : "@csv"
+    },
+    {
+      "begin" : "@html"
+    },
+    {
+      "begin" : "@json"
+    },
+    {
+      "begin" : "@sh"
+    },
+    {
+      "begin" : "@text"
+    },
+    {
+      "begin" : "@tsv"
+    },
+    {
+      "begin" : "@uri"
+    }
+  ],
+  "characters" : [
+    {
+      "begin" : "&amp;"
+    },
+    {
+      "begin" : "&apos;"
+    },
+    {
+      "begin" : "&gt;"
+    },
+    {
+      "begin" : "&lt;"
+    },
+    {
+      "begin" : "&quot;"
+    },
+    {
+      "begin" : "\\\\"
+    },
+    {
+      "begin" : "\\n"
+    },
+    {
+      "begin" : "\\r"
+    },
+    {
+      "begin" : "\\t"
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "\\bin(?=\\()",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "acos"
+    },
+    {
+      "begin" : "acosh"
+    },
+    {
+      "begin" : "add"
+    },
+    {
+      "begin" : "all"
+    },
+    {
+      "begin" : "any"
+    },
+    {
+      "begin" : "arrays"
+    },
+    {
+      "begin" : "ascii_downcase"
+    },
+    {
+      "begin" : "ascii_upcase"
+    },
+    {
+      "begin" : "asin"
+    },
+    {
+      "begin" : "asinh"
+    },
+    {
+      "begin" : "atan"
+    },
+    {
+      "begin" : "atan2"
+    },
+    {
+      "begin" : "atanh"
+    },
+    {
+      "begin" : "booleans"
+    },
+    {
+      "begin" : "bsearch"
+    },
+    {
+      "begin" : "capture"
+    },
+    {
+      "begin" : "cbrt"
+    },
+    {
+      "begin" : "ceil"
+    },
+    {
+      "begin" : "combinations"
+    },
+    {
+      "begin" : "contains"
+    },
+    {
+      "begin" : "copysign"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "cosh"
+    },
+    {
+      "begin" : "del"
+    },
+    {
+      "begin" : "delpaths"
+    },
+    {
+      "begin" : "drem"
+    },
+    {
+      "begin" : "endswith"
+    },
+    {
+      "begin" : "erf"
+    },
+    {
+      "begin" : "erfc"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "exp10"
+    },
+    {
+      "begin" : "exp2"
+    },
+    {
+      "begin" : "explode"
+    },
+    {
+      "begin" : "expm1"
+    },
+    {
+      "begin" : "fabs"
+    },
+    {
+      "begin" : "fdim"
+    },
+    {
+      "begin" : "finites"
+    },
+    {
+      "begin" : "first"
+    },
+    {
+      "begin" : "flatten"
+    },
+    {
+      "begin" : "floor"
+    },
+    {
+      "begin" : "fma"
+    },
+    {
+      "begin" : "fmax"
+    },
+    {
+      "begin" : "fmin"
+    },
+    {
+      "begin" : "fmod"
+    },
+    {
+      "begin" : "frexp"
+    },
+    {
+      "begin" : "from_entries"
+    },
+    {
+      "begin" : "fromdate"
+    },
+    {
+      "begin" : "fromdateiso8601"
+    },
+    {
+      "begin" : "fromjson"
+    },
+    {
+      "begin" : "fromstream"
+    },
+    {
+      "begin" : "gamma"
+    },
+    {
+      "begin" : "gethpath"
+    },
+    {
+      "begin" : "group_by"
+    },
+    {
+      "begin" : "gsub"
+    },
+    {
+      "begin" : "halt"
+    },
+    {
+      "begin" : "halt_error"
+    },
+    {
+      "begin" : "have_decnum"
+    },
+    {
+      "begin" : "have_literal_numbers"
+    },
+    {
+      "begin" : "hypot"
+    },
+    {
+      "begin" : "implode"
+    },
+    {
+      "begin" : "IN"
+    },
+    {
+      "begin" : "index"
+    },
+    {
+      "begin" : "INDEX"
+    },
+    {
+      "begin" : "indices"
+    },
+    {
+      "begin" : "input"
+    },
+    {
+      "begin" : "input_filename"
+    },
+    {
+      "begin" : "input_line_number"
+    },
+    {
+      "begin" : "inputs"
+    },
+    {
+      "begin" : "inside"
+    },
+    {
+      "begin" : "isempty"
+    },
+    {
+      "begin" : "isfinite"
+    },
+    {
+      "begin" : "isinfinite"
+    },
+    {
+      "begin" : "isnan"
+    },
+    {
+      "begin" : "isnormal"
+    },
+    {
+      "begin" : "iterables"
+    },
+    {
+      "begin" : "j0"
+    },
+    {
+      "begin" : "j1"
+    },
+    {
+      "begin" : "jn"
+    },
+    {
+      "begin" : "join"
+    },
+    {
+      "begin" : "JOIN"
+    },
+    {
+      "begin" : "keys"
+    },
+    {
+      "begin" : "keys_unsorted"
+    },
+    {
+      "begin" : "last"
+    },
+    {
+      "begin" : "ldexp"
+    },
+    {
+      "begin" : "length"
+    },
+    {
+      "begin" : "lgamma"
+    },
+    {
+      "begin" : "limit"
+    },
+    {
+      "begin" : "log"
+    },
+    {
+      "begin" : "log10"
+    },
+    {
+      "begin" : "log1p"
+    },
+    {
+      "begin" : "log2"
+    },
+    {
+      "begin" : "logb"
+    },
+    {
+      "begin" : "ltrim"
+    },
+    {
+      "begin" : "ltrimstr"
+    },
+    {
+      "begin" : "map"
+    },
+    {
+      "begin" : "map_values"
+    },
+    {
+      "begin" : "match"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "max_by"
+    },
+    {
+      "begin" : "min"
+    },
+    {
+      "begin" : "min_by"
+    },
+    {
+      "begin" : "modf"
+    },
+    {
+      "begin" : "nearbyint"
+    },
+    {
+      "begin" : "nextafter"
+    },
+    {
+      "begin" : "nexttoward"
+    },
+    {
+      "begin" : "normals"
+    },
+    {
+      "begin" : "now"
+    },
+    {
+      "begin" : "nulls"
+    },
+    {
+      "begin" : "numbers"
+    },
+    {
+      "begin" : "objects"
+    },
+    {
+      "begin" : "path"
+    },
+    {
+      "begin" : "paths"
+    },
+    {
+      "begin" : "pick"
+    },
+    {
+      "begin" : "pow"
+    },
+    {
+      "begin" : "range"
+    },
+    {
+      "begin" : "recurse"
+    },
+    {
+      "begin" : "remainder"
+    },
+    {
+      "begin" : "repeat"
+    },
+    {
+      "begin" : "reverse"
+    },
+    {
+      "begin" : "rindex"
+    },
+    {
+      "begin" : "rint"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "rtrim"
+    },
+    {
+      "begin" : "rtrimstr"
+    },
+    {
+      "begin" : "scalars"
+    },
+    {
+      "begin" : "scalb"
+    },
+    {
+      "begin" : "scalbln"
+    },
+    {
+      "begin" : "scan"
+    },
+    {
+      "begin" : "select"
+    },
+    {
+      "begin" : "setpath"
+    },
+    {
+      "begin" : "significand"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "sinh"
+    },
+    {
+      "begin" : "sort"
+    },
+    {
+      "begin" : "sort_by"
+    },
+    {
+      "begin" : "split"
+    },
+    {
+      "begin" : "splits"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "startswith"
+    },
+    {
+      "begin" : "strings"
+    },
+    {
+      "begin" : "sub"
+    },
+    {
+      "begin" : "tan"
+    },
+    {
+      "begin" : "tanh"
+    },
+    {
+      "begin" : "test"
+    },
+    {
+      "begin" : "tgamma"
+    },
+    {
+      "begin" : "to_entries"
+    },
+    {
+      "begin" : "todate"
+    },
+    {
+      "begin" : "todateiso8601"
+    },
+    {
+      "begin" : "tojson"
+    },
+    {
+      "begin" : "tonumber"
+    },
+    {
+      "begin" : "tostream"
+    },
+    {
+      "begin" : "tostring"
+    },
+    {
+      "begin" : "transpose"
+    },
+    {
+      "begin" : "trim"
+    },
+    {
+      "begin" : "trunc"
+    },
+    {
+      "begin" : "truncate_stream"
+    },
+    {
+      "begin" : "type"
+    },
+    {
+      "begin" : "unique"
+    },
+    {
+      "begin" : "unique_by"
+    },
+    {
+      "begin" : "until"
+    },
+    {
+      "begin" : "utf8bytelength"
+    },
+    {
+      "begin" : "values"
+    },
+    {
+      "begin" : "walk"
+    },
+    {
+      "begin" : "y0"
+    },
+    {
+      "begin" : "y1"
+    },
+    {
+      "begin" : "yn"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "as"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "debug"
+    },
+    {
+      "begin" : "def"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "empty"
+    },
+    {
+      "begin" : "end"
+    },
+    {
+      "begin" : "env"
+    },
+    {
+      "begin" : "error"
+    },
+    {
+      "begin" : "foreach"
+    },
+    {
+      "begin" : "has"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "include"
+    },
+    {
+      "begin" : "label"
+    },
+    {
+      "begin" : "module"
+    },
+    {
+      "begin" : "modulemeta"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "nth"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "reduce"
+    },
+    {
+      "begin" : "stderr"
+    },
+    {
+      "begin" : "then"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "while"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b[0-9]+[dDfFlL]?\\b",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "infinite"
+    },
+    {
+      "begin" : "nan"
+    },
+    {
+      "begin" : "null"
+    },
+    {
+      "begin" : "true"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "$__loc__"
+    },
+    {
+      "begin" : "$ENV"
+    },
+    {
+      "begin" : "$JQ_BUILD_CONFIGURATION"
+    },
+    {
+      "begin" : "\\$[_A-Za-z0-9]+\\b",
+      "regularExpression" : true
+    }
+  ]
+}

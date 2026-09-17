@@ -1,0 +1,26 @@
+[
+  {
+    "ignoreCase" : true,
+    "kind" : "function",
+    "pattern" : "^[\\t ]*(elemental )?(pure )?([a-z]+ )?function[\\t ]+[a-z][a-z0-9_]*\\([^)]*\\)",
+    "template" : ""
+  },
+  {
+    "ignoreCase" : true,
+    "kind" : "function",
+    "pattern" : "^[\\t ]*(elemental )?(pure )?subroutine[\\t ]+[a-z].*",
+    "template" : ""
+  },
+  {
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^[\\t ]*module[\\t ]+[a-z].*",
+    "template" : ""
+  },
+  {
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^[\\t ]*program[\\t ]+[a-z].*",
+    "template" : ""
+  }
+]

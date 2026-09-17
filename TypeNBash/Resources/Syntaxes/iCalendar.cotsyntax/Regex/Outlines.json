@@ -1,0 +1,8 @@
+[
+  {
+    "description" : "summary",
+    "kind" : "title",
+    "pattern" : "^SUMMARY:(.*)$",
+    "template" : ""
+  }
+]

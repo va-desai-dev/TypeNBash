@@ -1,0 +1,193 @@
+{
+  "attributes" : [
+    {
+      "begin" : "@\\w+",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "abstract"
+    },
+    {
+      "begin" : "as"
+    },
+    {
+      "begin" : "assert"
+    },
+    {
+      "begin" : "bool"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "const"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "default"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "dynamic"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "enum"
+    },
+    {
+      "begin" : "export"
+    },
+    {
+      "begin" : "extends"
+    },
+    {
+      "begin" : "external"
+    },
+    {
+      "begin" : "factory"
+    },
+    {
+      "begin" : "final"
+    },
+    {
+      "begin" : "finally"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "get"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "implements"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "is"
+    },
+    {
+      "begin" : "library"
+    },
+    {
+      "begin" : "List"
+    },
+    {
+      "begin" : "Map"
+    },
+    {
+      "begin" : "new"
+    },
+    {
+      "begin" : "num"
+    },
+    {
+      "begin" : "operator"
+    },
+    {
+      "begin" : "part"
+    },
+    {
+      "begin" : "rethrow"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "set"
+    },
+    {
+      "begin" : "static"
+    },
+    {
+      "begin" : "String"
+    },
+    {
+      "begin" : "switch"
+    },
+    {
+      "begin" : "throw"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "typedef"
+    },
+    {
+      "begin" : "var"
+    },
+    {
+      "begin" : "void"
+    },
+    {
+      "begin" : "while"
+    },
+    {
+      "begin" : "with"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "((?<!\\w)|[-+])(?:\\.\\d+|\\d+\\.|\\d+\\.\\d+|\\d+)(e[+-]?\\d+)?[jl]?",
+      "description" : "decimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b-?(0x)[0-9a-f]+\\b",
+      "description" : "hexadecimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "null"
+    },
+    {
+      "begin" : "true"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "super"
+    },
+    {
+      "begin" : "this"
+    }
+  ]
+}

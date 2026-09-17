@@ -1,0 +1,26 @@
+[
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*\\w+): (.*)->",
+    "template" : "$1"
+  },
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*\\w+)[\\t ]= (.*)->",
+    "template" : "$1"
+  },
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "^(\\w*::\\w*) (.*)->",
+    "template" : "$1"
+  },
+  {
+    "description" : "class",
+    "kind" : "container",
+    "pattern" : "^class (.*)",
+    "template" : "$1"
+  }
+]

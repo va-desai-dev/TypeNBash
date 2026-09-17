@@ -1,0 +1,32 @@
+[
+  {
+    "description" : "library",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)\\(define-library[[:space:]\\(\\[]+(\\S+)",
+    "template" : "$1library: $2"
+  },
+  {
+    "description" : "record type",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)\\(define-record-type[[:space:]\\(\\[]+(\\S+)",
+    "template" : "$1record type: $2"
+  },
+  {
+    "description" : "syntax",
+    "kind" : "value",
+    "pattern" : "^([\\t ]*)\\(define-syntax[[:space:]\\(\\[]+(\\S+)",
+    "template" : "$1syntax: $2"
+  },
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)\\(define[[:space:]]*[\\(\\[][[:space:]]*([^\\s\\)\\]]+)",
+    "template" : "$1$2"
+  },
+  {
+    "description" : "value",
+    "kind" : "value",
+    "pattern" : "^([\\t ]*)\\(define[[:space:]]+(?![\\t ]*[\\(\\[])([^\\s\\(\\)\\[\\]]+)",
+    "template" : "$1$2"
+  }
+]

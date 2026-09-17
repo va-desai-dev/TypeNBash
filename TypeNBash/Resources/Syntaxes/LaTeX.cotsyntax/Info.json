@@ -1,0 +1,17 @@
+{
+  "fileMap" : {
+    "extensions" : [
+      "tex",
+      "sty",
+      "cls"
+    ]
+  },
+  "kind" : "general",
+  "metadata" : {
+    "author" : "1024jp",
+    "distributionURL" : "https://coteditor.com",
+    "lastModified" : "2026-05-23",
+    "license" : "Same as CotEditor",
+    "version" : "4.0.1"
+  }
+}

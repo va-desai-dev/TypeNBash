@@ -1,0 +1,401 @@
+{
+  "attributes" : [
+    {
+      "begin" : "(?<=\\[)[^\\]]+(?=\\])",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "aaa",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "aad",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "add",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "and",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "daa",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "div",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "enter",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "idiv",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "lad",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ld",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "loop",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mov",
+      "description" : "mnemonic",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mul",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "neg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "or",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "pop",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "push",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rcl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rcr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rol",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ror",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "shl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "shr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "st",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sub",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "svc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "xor",
+      "ignoreCase" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "\\.\\w+\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[a-z0-9._]+(?=:)",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(\\b|[-+])(0[dt])?[0-9][0-9_]*[dt]?\\b",
+      "description" : "decimal with pre/suf-fix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])0[by][01][01_]*\\b",
+      "description" : "binary with prefix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])0[hx][0-9a-f][0-9a-f_]*\\b",
+      "description" : "hex with prefix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])0[qo][0-7][0-7_]*\\b",
+      "description" : "octal with prefix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])0p[0-9][0-9_]\\b",
+      "description" : "x87-style packed BCD constants with prefix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])0x[0-9a-z][0-9a-z_]*(\\.[0-9a-z][0-9a-z_]*)?(p[-+]?[0-9][0-9_]*)\\b",
+      "description" : "C99-style hex floating-point",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])[0-7][0-7_]*[qo]\\b",
+      "description" : "octal with suffix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])[0-9][0-9_]*\\.([0-9][0-9_]*)?(e[-+]?[0-9][0-9_]*)?\\b",
+      "description" : "floating-point",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])[0-9][0-9_]*p\\b",
+      "description" : "x87-style packed BCD constants with suffix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])[0-9a-f][0-9a-f_]*[hx]\\b",
+      "description" : "hex with suffix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\b|[-+])[01][01_]*[by]\\b",
+      "description" : "binary with suffix",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$[0-9][0-9a-f_]*\\b",
+      "description" : "hex with $",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "%!variable"
+    },
+    {
+      "begin" : "%0"
+    },
+    {
+      "begin" : "%00"
+    },
+    {
+      "begin" : "%abs"
+    },
+    {
+      "begin" : "%arg"
+    },
+    {
+      "begin" : "%assign"
+    },
+    {
+      "begin" : "%clear"
+    },
+    {
+      "begin" : "%cond"
+    },
+    {
+      "begin" : "%count"
+    },
+    {
+      "begin" : "%defalias"
+    },
+    {
+      "begin" : "%define",
+      "description" : "macro"
+    },
+    {
+      "begin" : "%defstr"
+    },
+    {
+      "begin" : "%deftok"
+    },
+    {
+      "begin" : "%depend"
+    },
+    {
+      "begin" : "%elif"
+    },
+    {
+      "begin" : "%else"
+    },
+    {
+      "begin" : "%endif"
+    },
+    {
+      "begin" : "%error"
+    },
+    {
+      "begin" : "%eval"
+    },
+    {
+      "begin" : "%fatal"
+    },
+    {
+      "begin" : "%hex"
+    },
+    {
+      "begin" : "%if"
+    },
+    {
+      "begin" : "%ifctx"
+    },
+    {
+      "begin" : "%ifempty"
+    },
+    {
+      "begin" : "%ifenv"
+    },
+    {
+      "begin" : "%ifid"
+    },
+    {
+      "begin" : "%ifidn"
+    },
+    {
+      "begin" : "%ifidni"
+    },
+    {
+      "begin" : "%ifmacro"
+    },
+    {
+      "begin" : "%ifnum"
+    },
+    {
+      "begin" : "%ifstr"
+    },
+    {
+      "begin" : "%iftoken"
+    },
+    {
+      "begin" : "%include"
+    },
+    {
+      "begin" : "%is"
+    },
+    {
+      "begin" : "%line"
+    },
+    {
+      "begin" : "%local"
+    },
+    {
+      "begin" : "%macro"
+    },
+    {
+      "begin" : "%map"
+    },
+    {
+      "begin" : "%num"
+    },
+    {
+      "begin" : "%pathsearch"
+    },
+    {
+      "begin" : "%pop"
+    },
+    {
+      "begin" : "%pragma"
+    },
+    {
+      "begin" : "%push"
+    },
+    {
+      "begin" : "%rep"
+    },
+    {
+      "begin" : "%repl"
+    },
+    {
+      "begin" : "%rotate"
+    },
+    {
+      "begin" : "%sel"
+    },
+    {
+      "begin" : "%stacksize"
+    },
+    {
+      "begin" : "%str"
+    },
+    {
+      "begin" : "%strcat"
+    },
+    {
+      "begin" : "%strlen"
+    },
+    {
+      "begin" : "%substr"
+    },
+    {
+      "begin" : "%tok"
+    },
+    {
+      "begin" : "%undef"
+    },
+    {
+      "begin" : "%use"
+    },
+    {
+      "begin" : "%warning"
+    },
+    {
+      "begin" : "%xdefine",
+      "description" : "macro"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "__?Infinity?__"
+    },
+    {
+      "begin" : "__?NaN?__"
+    },
+    {
+      "begin" : "__?QNaN?__"
+    },
+    {
+      "begin" : "__?SNaN?__"
+    }
+  ]
+}

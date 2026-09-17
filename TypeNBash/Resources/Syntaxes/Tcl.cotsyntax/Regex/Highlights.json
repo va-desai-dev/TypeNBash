@@ -1,0 +1,3040 @@
+{
+  "attributes" : [
+    {
+      "begin" : " -[-_[:alnum:]]+ ",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "--"
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "(?<=slave) +alias\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +aliases\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +bgerror\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +eval\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +expose\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +hidden\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +hide\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +invokehidden\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +issafe\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +limit\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +marktrusted\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=slave) +recursionlimit\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "::http::cleanup"
+    },
+    {
+      "begin" : "::http::code"
+    },
+    {
+      "begin" : "::http::config"
+    },
+    {
+      "begin" : "::http::data"
+    },
+    {
+      "begin" : "::http::error"
+    },
+    {
+      "begin" : "::http::formatQuery"
+    },
+    {
+      "begin" : "::http::geturl"
+    },
+    {
+      "begin" : "::http::meta"
+    },
+    {
+      "begin" : "::http::ncode"
+    },
+    {
+      "begin" : "::http::register"
+    },
+    {
+      "begin" : "::http::reset"
+    },
+    {
+      "begin" : "::http::size"
+    },
+    {
+      "begin" : "::http::status"
+    },
+    {
+      "begin" : "::http::unregister"
+    },
+    {
+      "begin" : "::http::wait"
+    },
+    {
+      "begin" : "::msgcat::mc"
+    },
+    {
+      "begin" : "::msgcat::mcflmset"
+    },
+    {
+      "begin" : "::msgcat::mcflset"
+    },
+    {
+      "begin" : "::msgcat::mcload"
+    },
+    {
+      "begin" : "::msgcat::mclocale"
+    },
+    {
+      "begin" : "::msgcat::mcmax"
+    },
+    {
+      "begin" : "::msgcat::mcmcunknown"
+    },
+    {
+      "begin" : "::msgcat::mcmset"
+    },
+    {
+      "begin" : "::msgcat::mcpreferences"
+    },
+    {
+      "begin" : "::msgcat::mcset"
+    },
+    {
+      "begin" : "::tk::mac::antialiasedtext"
+    },
+    {
+      "begin" : "::tk::mac::CGAntialiasLimit"
+    },
+    {
+      "begin" : "::tk::mac::iconBitmap"
+    },
+    {
+      "begin" : "::tk::mac::OnHide"
+    },
+    {
+      "begin" : "::tk::mac::OnShow"
+    },
+    {
+      "begin" : "::tk::mac::OpenApplication"
+    },
+    {
+      "begin" : "::tk::mac::OpenDocument"
+    },
+    {
+      "begin" : "::tk::mac::PrintDocument"
+    },
+    {
+      "begin" : "::tk::mac::Quit"
+    },
+    {
+      "begin" : "::tk::mac::ReopenApplication"
+    },
+    {
+      "begin" : "::tk::mac::ShowHelp"
+    },
+    {
+      "begin" : "::tk::mac::ShowPreferences"
+    },
+    {
+      "begin" : "::tk::mac::standardAboutPanel"
+    },
+    {
+      "begin" : "::tk::mac::useCompatibilityMetrics"
+    },
+    {
+      "begin" : "::tk::mac::useThemedToplevel"
+    },
+    {
+      "begin" : "<cloned>"
+    },
+    {
+      "begin" : "\\bafter cancel\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bafter idle\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bafter info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray anymore\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray donesearch\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray exists\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray get\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray names\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray nextelement\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray set\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray size\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray startsearch\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray statistics\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\barray unset\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bbinary decode\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bbinary encode\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bbinary format\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bbinary scan\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan blocked\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan close\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan copy\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan create\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan eof\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan event\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan flush\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan gets\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan names\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan pending\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan pipe\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan pop\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan postevent\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan push\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan puts\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan read\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan seek\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan tell\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchan truncate\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclock add\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclock clicks\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclock format\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclock microseconds\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclock milliseconds\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclock scan\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclock seconds\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bconsole eval\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bconsole hide\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bconsole show\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bconsole title\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bconsoleinterp eval\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bconsoleinterp record\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdde eval\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdde execute\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdde poke\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdde request\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdde servername\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdde services\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict append\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict create\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict exists\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict filter\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict for\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict get\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict incr\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict keys\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict lappend\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict map\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict merge\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict remove\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict replace\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict set\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict size\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict unset\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict update\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict values\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdict with\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bedit modified\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bedit redo\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bedit reset\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bedit separator\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bedit undo\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bencoding convertfrom\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bencoding convertto\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bencoding dirs\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bencoding names\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bencoding system\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bevent add\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bevent delete\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bevent generate\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bevent info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile atime\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile attributes\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile channels\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile copy\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile delete\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile dirname\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile executable\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile exists\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile extension\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile isdirectory\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile isfile\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile join\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile link\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile lstat\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile mkdir\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile mtime\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile nativename\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile normalize\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile owned\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile pathtype\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile readable\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile readlink\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile rename\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile rootname\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile separator\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile size\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile split\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile stat\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile system\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile tail\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile tempfile\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile type\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile volumes\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfile writable\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfont actual\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfont configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfont create\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfont delete\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfont families\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfont measure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfont metrics\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bfont names\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrab current\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrab release\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrab set\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrab status\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid anchor\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid bbox\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid columnconfigure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid forget\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid location\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid propagate\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid remove\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid rowconfigure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid size\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bgrid slaves\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhistory add\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhistory change\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhistory clear\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhistory event\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhistory info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhistory keep\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhistory nextid\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhistory redo\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bidentify (column|region|element|row)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bimage crate\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bimage delete\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bimage height\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bimage inuse\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bimage names\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bimage type\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bimage types\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bimage width\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo args\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo body\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class call\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class constructor\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class definition\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class destructor\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class filters\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class forward\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class instances\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class methods\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class methodtype\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class mixins\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class subclasses\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class supperclasses\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class variables\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo class\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo cmdcount\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo commands\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo complete\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo coroutine\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo default\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo errorstack\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo exists\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo frame\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo functions\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo globals\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo hostname\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo level\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo library\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo loaded\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo locals\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo nameofexecutable\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object call\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object class\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object definition\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object filters\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object forward\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object isa class\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object isa metaclass\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object isa mixin\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object isa object\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object isa typeof\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object isa\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object methods\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object methodtype\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object mixins\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object namespace\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object variables\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object vars\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo object\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo patchlevel\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo procs\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo script\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo sharedlibexention\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo tclversion\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo vars\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp alias\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp aliases\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp bgerror\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp cancel\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp create\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp debug\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp delete\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp eval\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp exists\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp expose\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp hidden\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp hide\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp invokehidden\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp issafe\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp limit\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp marktrusted\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp recursionlimit\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp share\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp slaves\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp target\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binterp transfer\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmark gravity\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmark names\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmark next\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmark previous\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmark set\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmark unset\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory active\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory break_on_malloc\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory init (on|of)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory objs\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory onexit\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory tag\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory trace (on|off)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory trace_on_at_malloc\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmemory validate (on|off)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace children\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace code\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace current\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace delete\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace ensemble configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace ensemble create\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace ensemble exists\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace ensemble\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace eval\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace exists\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace export\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace forget\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace import\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace inscope\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace origin\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace parent\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace path\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace qualifiers\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace tail\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace unknown\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace upvar\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnamespace which\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\boption value option value\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpack configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpack forget\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpack info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpack propagate\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpack slaves\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpeer create\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpeer names\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bplace configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bplace forget\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bplace info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bplace slaves\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bscan dragto\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bscan mark\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection adjust\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection clear\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection from\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection get\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection handle\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection own\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection present\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection range\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bselection to\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag add\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag bind\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag cget\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag delete\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag lower\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag names\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag nextrange\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag prevrange\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag raise\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag ranges\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag remove\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk appname\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk busy cget\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk busy configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk busy current\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk busy forget\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk busy hold\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk busy status\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk busy\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk caret\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk fontchooser configure\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk fontchooser hide\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk fontchooser show\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk fontchooser\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk inactive\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk scaling\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk useinputmethods\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btk windowingsystem\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btkwait (variable|visibility|window)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btransparency get\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btransparency set\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bttk::style (configure|map|lookup|layout)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bttk::style element (create|names|options)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bttk::style theme (crate|settings|names|use)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo atom\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo atomname\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo cells\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo children\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo class\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo colormapfull\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo containing\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo depth\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo exists\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo fpixels\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo geometry\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo height\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo id\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo interps\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo ismapped\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo manager\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo name\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo parent\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo pathname\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo pixels\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo pointerx\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo pointerxy\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo pointery\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo reqheight\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo reqwidth\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo rgb\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo rootx\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo rooty\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo screen\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo screencells\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo screendepth\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo screenheight\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo screenmmheight\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo screenmmwidth\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo screenvisual\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo screenwidth\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo server\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo toplevel\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo viewable\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo visual\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo visualid\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo visualsavailable\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo vrootheight\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo vrootwidth\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo vrootx\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo vrooty\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo width\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo x\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwinfo y\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm aspect\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm attributes\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm client\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm colormapwindows\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm command\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm deiconify\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm focusmodel\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm forget\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm geometory\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm grid\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm group\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm iconbitmap\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm iconify\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm iconmask\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm iconname\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm iconphoto\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm iconposition\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm iconwindow\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm manage\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm maxsize\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm minsize\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm overrideredirect\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm positionfrom\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm protpcol\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm resizable\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm sizefrom\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm stackorder\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm state\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm title\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm transient\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bwm withdraw\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bxview moveto\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bxview scroll\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\byview moveto\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\byview scroll\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "acos"
+    },
+    {
+      "begin" : "activate"
+    },
+    {
+      "begin" : "active"
+    },
+    {
+      "begin" : "after"
+    },
+    {
+      "begin" : "append"
+    },
+    {
+      "begin" : "apply"
+    },
+    {
+      "begin" : "argc"
+    },
+    {
+      "begin" : "argv"
+    },
+    {
+      "begin" : "argv0"
+    },
+    {
+      "begin" : "array"
+    },
+    {
+      "begin" : "asin"
+    },
+    {
+      "begin" : "atan"
+    },
+    {
+      "begin" : "atan2"
+    },
+    {
+      "begin" : "auto"
+    },
+    {
+      "begin" : "auto_execok"
+    },
+    {
+      "begin" : "auto_import"
+    },
+    {
+      "begin" : "auto_load"
+    },
+    {
+      "begin" : "auto_mkindex"
+    },
+    {
+      "begin" : "auto_path"
+    },
+    {
+      "begin" : "auto_qualify"
+    },
+    {
+      "begin" : "auto_reset"
+    },
+    {
+      "begin" : "base64"
+    },
+    {
+      "begin" : "bbox"
+    },
+    {
+      "begin" : "bell"
+    },
+    {
+      "begin" : "bgerror"
+    },
+    {
+      "begin" : "binary"
+    },
+    {
+      "begin" : "bind"
+    },
+    {
+      "begin" : "bindtags"
+    },
+    {
+      "begin" : "bitmap"
+    },
+    {
+      "begin" : "blank"
+    },
+    {
+      "begin" : "body"
+    },
+    {
+      "begin" : "bool"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "busy"
+    },
+    {
+      "begin" : "button"
+    },
+    {
+      "begin" : "canvas"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "cd"
+    },
+    {
+      "begin" : "ceil"
+    },
+    {
+      "begin" : "chan"
+    },
+    {
+      "begin" : "charset"
+    },
+    {
+      "begin" : "checkbutton"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "clipboard"
+    },
+    {
+      "begin" : "clock"
+    },
+    {
+      "begin" : "close"
+    },
+    {
+      "begin" : "cmd"
+    },
+    {
+      "begin" : "coding"
+    },
+    {
+      "begin" : "colors"
+    },
+    {
+      "begin" : "concat"
+    },
+    {
+      "begin" : "console"
+    },
+    {
+      "begin" : "Content-Length"
+    },
+    {
+      "begin" : "Content-Type"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "coords"
+    },
+    {
+      "begin" : "coroutine"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "cosh"
+    },
+    {
+      "begin" : "cr"
+    },
+    {
+      "begin" : "create"
+    },
+    {
+      "begin" : "createWithNamespace"
+    },
+    {
+      "begin" : "crlf"
+    },
+    {
+      "begin" : "current"
+    },
+    {
+      "begin" : "currentsize"
+    },
+    {
+      "begin" : "curselection"
+    },
+    {
+      "begin" : "cursors"
+    },
+    {
+      "begin" : "dde"
+    },
+    {
+      "begin" : "deletemethod"
+    },
+    {
+      "begin" : "delineinfo"
+    },
+    {
+      "begin" : "delta"
+    },
+    {
+      "begin" : "destroy"
+    },
+    {
+      "begin" : "dict"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "dump"
+    },
+    {
+      "begin" : "edit"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "elseif"
+    },
+    {
+      "begin" : "encoding"
+    },
+    {
+      "begin" : "end"
+    },
+    {
+      "begin" : "entier"
+    },
+    {
+      "begin" : "entry"
+    },
+    {
+      "begin" : "entrycget"
+    },
+    {
+      "begin" : "entryconfigure"
+    },
+    {
+      "begin" : "env"
+    },
+    {
+      "begin" : "eof"
+    },
+    {
+      "begin" : "error"
+    },
+    {
+      "begin" : "errorCode"
+    },
+    {
+      "begin" : "errorInfo"
+    },
+    {
+      "begin" : "eval"
+    },
+    {
+      "begin" : "event"
+    },
+    {
+      "begin" : "exec"
+    },
+    {
+      "begin" : "exit"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "export"
+    },
+    {
+      "begin" : "expr"
+    },
+    {
+      "begin" : "fblocked"
+    },
+    {
+      "begin" : "fconfigure"
+    },
+    {
+      "begin" : "fcopy"
+    },
+    {
+      "begin" : "file"
+    },
+    {
+      "begin" : "fileevent"
+    },
+    {
+      "begin" : "filename"
+    },
+    {
+      "begin" : "filter"
+    },
+    {
+      "begin" : "floor"
+    },
+    {
+      "begin" : "flush"
+    },
+    {
+      "begin" : "fmod"
+    },
+    {
+      "begin" : "focus"
+    },
+    {
+      "begin" : "font"
+    },
+    {
+      "begin" : "fontchooser"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "foreach"
+    },
+    {
+      "begin" : "format"
+    },
+    {
+      "begin" : "forward"
+    },
+    {
+      "begin" : "frame"
+    },
+    {
+      "begin" : "geometry"
+    },
+    {
+      "begin" : "gets"
+    },
+    {
+      "begin" : "glob"
+    },
+    {
+      "begin" : "global"
+    },
+    {
+      "begin" : "grab"
+    },
+    {
+      "begin" : "grid"
+    },
+    {
+      "begin" : "hex"
+    },
+    {
+      "begin" : "history"
+    },
+    {
+      "begin" : "http"
+    },
+    {
+      "begin" : "hypot"
+    },
+    {
+      "begin" : "identify"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "image"
+    },
+    {
+      "begin" : "incr"
+    },
+    {
+      "begin" : "info"
+    },
+    {
+      "begin" : "insert"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "interp"
+    },
+    {
+      "begin" : "isabove"
+    },
+    {
+      "begin" : "isbelow"
+    },
+    {
+      "begin" : "isqrt"
+    },
+    {
+      "begin" : "itemcget"
+    },
+    {
+      "begin" : "itemconfigure"
+    },
+    {
+      "begin" : "join"
+    },
+    {
+      "begin" : "key"
+    },
+    {
+      "begin" : "keysyms"
+    },
+    {
+      "begin" : "label"
+    },
+    {
+      "begin" : "labelframe"
+    },
+    {
+      "begin" : "lambda"
+    },
+    {
+      "begin" : "lappend"
+    },
+    {
+      "begin" : "lassign"
+    },
+    {
+      "begin" : "level"
+    },
+    {
+      "begin" : "lf"
+    },
+    {
+      "begin" : "lindex"
+    },
+    {
+      "begin" : "line"
+    },
+    {
+      "begin" : "linsert"
+    },
+    {
+      "begin" : "list"
+    },
+    {
+      "begin" : "listbox"
+    },
+    {
+      "begin" : "llength"
+    },
+    {
+      "begin" : "lmap"
+    },
+    {
+      "begin" : "load"
+    },
+    {
+      "begin" : "Location"
+    },
+    {
+      "begin" : "log"
+    },
+    {
+      "begin" : "log10"
+    },
+    {
+      "begin" : "lower"
+    },
+    {
+      "begin" : "lrange"
+    },
+    {
+      "begin" : "lrepeat"
+    },
+    {
+      "begin" : "lreplace"
+    },
+    {
+      "begin" : "lreverse"
+    },
+    {
+      "begin" : "lsearch"
+    },
+    {
+      "begin" : "lset"
+    },
+    {
+      "begin" : "lsort"
+    },
+    {
+      "begin" : "mathfunc"
+    },
+    {
+      "begin" : "mathop"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "memory"
+    },
+    {
+      "begin" : "menu"
+    },
+    {
+      "begin" : "menubutton"
+    },
+    {
+      "begin" : "message"
+    },
+    {
+      "begin" : "meta"
+    },
+    {
+      "begin" : "method"
+    },
+    {
+      "begin" : "min"
+    },
+    {
+      "begin" : "mixin"
+    },
+    {
+      "begin" : "moveto"
+    },
+    {
+      "begin" : "msgcat"
+    },
+    {
+      "begin" : "my"
+    },
+    {
+      "begin" : "namespace"
+    },
+    {
+      "begin" : "nearest"
+    },
+    {
+      "begin" : "new"
+    },
+    {
+      "begin" : "next"
+    },
+    {
+      "begin" : "nextto"
+    },
+    {
+      "begin" : "ok"
+    },
+    {
+      "begin" : "oo::class"
+    },
+    {
+      "begin" : "oo::copy"
+    },
+    {
+      "begin" : "oo::define"
+    },
+    {
+      "begin" : "oo::objdefine"
+    },
+    {
+      "begin" : "oo::object"
+    },
+    {
+      "begin" : "open"
+    },
+    {
+      "begin" : "option"
+    },
+    {
+      "begin" : "options"
+    },
+    {
+      "begin" : "pack"
+    },
+    {
+      "begin" : "package"
+    },
+    {
+      "begin" : "panecget"
+    },
+    {
+      "begin" : "paneconfigure"
+    },
+    {
+      "begin" : "panedwindow"
+    },
+    {
+      "begin" : "panes"
+    },
+    {
+      "begin" : "parray"
+    },
+    {
+      "begin" : "passive"
+    },
+    {
+      "begin" : "peer"
+    },
+    {
+      "begin" : "photo"
+    },
+    {
+      "begin" : "pid"
+    },
+    {
+      "begin" : "pkg::create"
+    },
+    {
+      "begin" : "pkg_mkIndex"
+    },
+    {
+      "begin" : "place"
+    },
+    {
+      "begin" : "platform"
+    },
+    {
+      "begin" : "platform::shell"
+    },
+    {
+      "begin" : "postcascade"
+    },
+    {
+      "begin" : "posterror"
+    },
+    {
+      "begin" : "pow"
+    },
+    {
+      "begin" : "precompiled"
+    },
+    {
+      "begin" : "proc"
+    },
+    {
+      "begin" : "proxy"
+    },
+    {
+      "begin" : "puts"
+    },
+    {
+      "begin" : "pwd"
+    },
+    {
+      "begin" : "radiobutton"
+    },
+    {
+      "begin" : "raise"
+    },
+    {
+      "begin" : "rand"
+    },
+    {
+      "begin" : "re_syntax"
+    },
+    {
+      "begin" : "read"
+    },
+    {
+      "begin" : "readable"
+    },
+    {
+      "begin" : "redither"
+    },
+    {
+      "begin" : "refchan"
+    },
+    {
+      "begin" : "regexp"
+    },
+    {
+      "begin" : "registry"
+    },
+    {
+      "begin" : "regsub"
+    },
+    {
+      "begin" : "rename"
+    },
+    {
+      "begin" : "renamemethod"
+    },
+    {
+      "begin" : "replace"
+    },
+    {
+      "begin" : "reset"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "safe"
+    },
+    {
+      "begin" : "safe::loadTk"
+    },
+    {
+      "begin" : "sash"
+    },
+    {
+      "begin" : "scale"
+    },
+    {
+      "begin" : "scan"
+    },
+    {
+      "begin" : "script"
+    },
+    {
+      "begin" : "scrollbar"
+    },
+    {
+      "begin" : "search"
+    },
+    {
+      "begin" : "seek"
+    },
+    {
+      "begin" : "selection"
+    },
+    {
+      "begin" : "self"
+    },
+    {
+      "begin" : "send"
+    },
+    {
+      "begin" : "set"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "sinh"
+    },
+    {
+      "begin" : "size"
+    },
+    {
+      "begin" : "socket"
+    },
+    {
+      "begin" : "source"
+    },
+    {
+      "begin" : "spinbox"
+    },
+    {
+      "begin" : "split"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "srand"
+    },
+    {
+      "begin" : "start"
+    },
+    {
+      "begin" : "status"
+    },
+    {
+      "begin" : "string"
+    },
+    {
+      "begin" : "subst"
+    },
+    {
+      "begin" : "switch"
+    },
+    {
+      "begin" : "tailcall"
+    },
+    {
+      "begin" : "tan"
+    },
+    {
+      "begin" : "tanh"
+    },
+    {
+      "begin" : "Tcl"
+    },
+    {
+      "begin" : "tcl::prefix"
+    },
+    {
+      "begin" : "tcl_endOfWord"
+    },
+    {
+      "begin" : "tcl_findLibrary"
+    },
+    {
+      "begin" : "tcl_interactive"
+    },
+    {
+      "begin" : "tcl_library"
+    },
+    {
+      "begin" : "tcl_nonwordchars"
+    },
+    {
+      "begin" : "tcl_patchLevel"
+    },
+    {
+      "begin" : "tcl_pkgPath"
+    },
+    {
+      "begin" : "tcl_platform"
+    },
+    {
+      "begin" : "tcl_precision"
+    },
+    {
+      "begin" : "tcl_rcFileName"
+    },
+    {
+      "begin" : "tcl_startOfNextWord"
+    },
+    {
+      "begin" : "tcl_startOfPreviousWord"
+    },
+    {
+      "begin" : "tcl_traceCompile"
+    },
+    {
+      "begin" : "tcl_traceExec"
+    },
+    {
+      "begin" : "tcl_version"
+    },
+    {
+      "begin" : "tcl_wordBreakAfter"
+    },
+    {
+      "begin" : "tcl_wordBreakBefore"
+    },
+    {
+      "begin" : "tcl_wordchars"
+    },
+    {
+      "begin" : "tcltest"
+    },
+    {
+      "begin" : "tell"
+    },
+    {
+      "begin" : "text"
+    },
+    {
+      "begin" : "then"
+    },
+    {
+      "begin" : "throw"
+    },
+    {
+      "begin" : "time"
+    },
+    {
+      "begin" : "tk"
+    },
+    {
+      "begin" : "tk::mac"
+    },
+    {
+      "begin" : "tk_bisque"
+    },
+    {
+      "begin" : "tk_chooseColor"
+    },
+    {
+      "begin" : "tk_chooseDirectory"
+    },
+    {
+      "begin" : "tk_dialog"
+    },
+    {
+      "begin" : "tk_focusFollowsMouse"
+    },
+    {
+      "begin" : "tk_focusNext"
+    },
+    {
+      "begin" : "tk_focusPrev"
+    },
+    {
+      "begin" : "tk_getOpenFile"
+    },
+    {
+      "begin" : "tk_getSaveFile"
+    },
+    {
+      "begin" : "tk_library"
+    },
+    {
+      "begin" : "tk_menuSetFocus"
+    },
+    {
+      "begin" : "tk_messageBox"
+    },
+    {
+      "begin" : "tk_optionMenu"
+    },
+    {
+      "begin" : "tk_patchLevel"
+    },
+    {
+      "begin" : "tk_popup"
+    },
+    {
+      "begin" : "tk_setPalette"
+    },
+    {
+      "begin" : "tk_strictMotif"
+    },
+    {
+      "begin" : "tk_textCopy"
+    },
+    {
+      "begin" : "tk_textCut"
+    },
+    {
+      "begin" : "tk_textPaste"
+    },
+    {
+      "begin" : "tk_version"
+    },
+    {
+      "begin" : "tkerror"
+    },
+    {
+      "begin" : "tkwait"
+    },
+    {
+      "begin" : "tm"
+    },
+    {
+      "begin" : "toplevel"
+    },
+    {
+      "begin" : "totalsize"
+    },
+    {
+      "begin" : "trace"
+    },
+    {
+      "begin" : "transchan"
+    },
+    {
+      "begin" : "transparency"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "ttk::button"
+    },
+    {
+      "begin" : "ttk::checkbutton"
+    },
+    {
+      "begin" : "ttk::combobox"
+    },
+    {
+      "begin" : "ttk::entry"
+    },
+    {
+      "begin" : "ttk::frame"
+    },
+    {
+      "begin" : "ttk::intro"
+    },
+    {
+      "begin" : "ttk::label"
+    },
+    {
+      "begin" : "ttk::labelframe"
+    },
+    {
+      "begin" : "ttk::menubutton"
+    },
+    {
+      "begin" : "ttk::notebook"
+    },
+    {
+      "begin" : "ttk::panedwindow"
+    },
+    {
+      "begin" : "ttk::progressbar"
+    },
+    {
+      "begin" : "ttk::radiobutton"
+    },
+    {
+      "begin" : "ttk::scale"
+    },
+    {
+      "begin" : "ttk::scrollbar"
+    },
+    {
+      "begin" : "ttk::separator"
+    },
+    {
+      "begin" : "ttk::sizegrip"
+    },
+    {
+      "begin" : "ttk::spinbox"
+    },
+    {
+      "begin" : "ttk::style"
+    },
+    {
+      "begin" : "ttk::treeview"
+    },
+    {
+      "begin" : "ttk::widget"
+    },
+    {
+      "begin" : "ttk_image"
+    },
+    {
+      "begin" : "ttk_vsapi"
+    },
+    {
+      "begin" : "type"
+    },
+    {
+      "begin" : "unencode"
+    },
+    {
+      "begin" : "unexport"
+    },
+    {
+      "begin" : "unknown"
+    },
+    {
+      "begin" : "unload"
+    },
+    {
+      "begin" : "unpost"
+    },
+    {
+      "begin" : "unset"
+    },
+    {
+      "begin" : "update"
+    },
+    {
+      "begin" : "uplevel"
+    },
+    {
+      "begin" : "upvar"
+    },
+    {
+      "begin" : "url"
+    },
+    {
+      "begin" : "validate"
+    },
+    {
+      "begin" : "value"
+    },
+    {
+      "begin" : "variable"
+    },
+    {
+      "begin" : "varname"
+    },
+    {
+      "begin" : "vwait"
+    },
+    {
+      "begin" : "while"
+    },
+    {
+      "begin" : "wide"
+    },
+    {
+      "begin" : "winfo"
+    },
+    {
+      "begin" : "wm"
+    },
+    {
+      "begin" : "writable"
+    },
+    {
+      "begin" : "xposition"
+    },
+    {
+      "begin" : "xview"
+    },
+    {
+      "begin" : "yield"
+    },
+    {
+      "begin" : "yieldto"
+    },
+    {
+      "begin" : "yposition"
+    },
+    {
+      "begin" : "yview"
+    },
+    {
+      "begin" : "zlib"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<![-_.[:alnum:]])\\-?\\d+(\\.\\d+)?\\b",
+      "description" : "decimal",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0[0-7]+\\b",
+      "description" : "octal",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0x[0-9a-f]+\\b",
+      "description" : "hexadecimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "(?<=class create )\\w+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=object create )\\w+",
+      "regularExpression" : true
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "${",
+      "end" : "}"
+    },
+    {
+      "begin" : "(?<=set|unset)[\\t ]+\\w+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$[-_:[:alnum:]]+\\b",
+      "regularExpression" : true
+    }
+  ]
+}

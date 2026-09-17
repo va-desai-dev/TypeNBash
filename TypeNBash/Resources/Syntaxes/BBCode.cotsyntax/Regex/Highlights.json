@@ -1,0 +1,229 @@
+{
+  "attributes" : [
+    {
+      "begin" : "\\s+alt(?==[^\\[\\]]*\\])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s+color(?==[^\\[\\]]*\\])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s+height(?==[^\\[\\]]*\\])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s+size(?==[^\\[\\]]*\\])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s+title(?==[^\\[\\]]*\\])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s+width(?==[^\\[\\]]*\\])",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "[*]"
+    },
+    {
+      "begin" : "[/b]"
+    },
+    {
+      "begin" : "[/center]"
+    },
+    {
+      "begin" : "[/code]"
+    },
+    {
+      "begin" : "[/color]"
+    },
+    {
+      "begin" : "[/email]"
+    },
+    {
+      "begin" : "[/i]"
+    },
+    {
+      "begin" : "[/img]"
+    },
+    {
+      "begin" : "[/left]"
+    },
+    {
+      "begin" : "[/li]"
+    },
+    {
+      "begin" : "[/list]"
+    },
+    {
+      "begin" : "[/ol]"
+    },
+    {
+      "begin" : "[/pre]"
+    },
+    {
+      "begin" : "[/quote]"
+    },
+    {
+      "begin" : "[/right]"
+    },
+    {
+      "begin" : "[/s]"
+    },
+    {
+      "begin" : "[/size]"
+    },
+    {
+      "begin" : "[/spoiler]"
+    },
+    {
+      "begin" : "[/style]"
+    },
+    {
+      "begin" : "[/table]"
+    },
+    {
+      "begin" : "[/td]"
+    },
+    {
+      "begin" : "[/th]"
+    },
+    {
+      "begin" : "[/tr]"
+    },
+    {
+      "begin" : "[/u]"
+    },
+    {
+      "begin" : "[/ul]"
+    },
+    {
+      "begin" : "[/url]"
+    },
+    {
+      "begin" : "[/youtube]"
+    },
+    {
+      "begin" : "[b]"
+    },
+    {
+      "begin" : "[center]"
+    },
+    {
+      "begin" : "[code]"
+    },
+    {
+      "begin" : "[email]"
+    },
+    {
+      "begin" : "[i]"
+    },
+    {
+      "begin" : "[img]"
+    },
+    {
+      "begin" : "[left]"
+    },
+    {
+      "begin" : "[li]"
+    },
+    {
+      "begin" : "[line]"
+    },
+    {
+      "begin" : "[list]"
+    },
+    {
+      "begin" : "[ol]"
+    },
+    {
+      "begin" : "[pre]"
+    },
+    {
+      "begin" : "[quote]"
+    },
+    {
+      "begin" : "[right]"
+    },
+    {
+      "begin" : "[s]"
+    },
+    {
+      "begin" : "[spoiler]"
+    },
+    {
+      "begin" : "[table]"
+    },
+    {
+      "begin" : "[td]"
+    },
+    {
+      "begin" : "[th]"
+    },
+    {
+      "begin" : "[tr]"
+    },
+    {
+      "begin" : "[u]"
+    },
+    {
+      "begin" : "[ul]"
+    },
+    {
+      "begin" : "[url]"
+    },
+    {
+      "begin" : "[youtube]"
+    },
+    {
+      "begin" : "\\[code=.+?\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[color=.+?\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[img[=[:space:]].+?\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[list(=.+?)?\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[quote=\".+?\"\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[size=[0-9]+\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[spoiler=.+?\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[style\\s+color=.+?\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[style\\s+size=.+?\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\[url=.+?\\]",
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "(?<=[a-z]=)[^[:space:]\\]]+(?=[^\\[\\]]*\\])",
+      "regularExpression" : true
+    }
+  ]
+}

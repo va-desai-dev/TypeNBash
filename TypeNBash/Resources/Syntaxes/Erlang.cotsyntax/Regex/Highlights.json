@@ -1,0 +1,166 @@
+{
+  "attributes" : [
+    {
+      "begin" : "\\-[a-z][a-zA-Z0-9_@]*(?=\\()",
+      "regularExpression" : true
+    }
+  ],
+  "characters" : [
+    {
+      "begin" : "\\$\\S{1,10}",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "\\w+(?=\\()",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "after"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "andalso"
+    },
+    {
+      "begin" : "band"
+    },
+    {
+      "begin" : "begin"
+    },
+    {
+      "begin" : "big"
+    },
+    {
+      "begin" : "binary"
+    },
+    {
+      "begin" : "bnot"
+    },
+    {
+      "begin" : "bor"
+    },
+    {
+      "begin" : "bsl"
+    },
+    {
+      "begin" : "bxor"
+    },
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "cond"
+    },
+    {
+      "begin" : "div"
+    },
+    {
+      "begin" : "end"
+    },
+    {
+      "begin" : "float"
+    },
+    {
+      "begin" : "fun"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "integer"
+    },
+    {
+      "begin" : "let"
+    },
+    {
+      "begin" : "little"
+    },
+    {
+      "begin" : "native"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "of"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "orelse"
+    },
+    {
+      "begin" : "receive"
+    },
+    {
+      "begin" : "rem"
+    },
+    {
+      "begin" : "signed"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "unit"
+    },
+    {
+      "begin" : "unsigned"
+    },
+    {
+      "begin" : "when"
+    },
+    {
+      "begin" : "xor"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b(\\d{1,2}#)?\\d+\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b1\\d#[0-9a-f]+\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\d+\\.\\d+([eE][-+]?\\d+)?",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "(?<=-module\\().*(?=\\))",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\w+(?=:)",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "true"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "\\b[A-Z_]\\w*\\b",
+      "regularExpression" : true
+    }
+  ]
+}

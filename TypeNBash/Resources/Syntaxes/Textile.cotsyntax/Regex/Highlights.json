@@ -1,0 +1,91 @@
+{
+  "characters" : [
+    {
+      "begin" : "<pre(\\s[^<>]*)?>",
+      "end" : "</pre>",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "@.*@",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "(?<![\\\\*])\\*[^ \\t*]((?!\\R{2})(?:.|\\R))*?(?<![\\\\ ])\\*",
+      "description" : "bold",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<![\\_])_[^ \\t*]((?!\\R{2})(?:.|\\R)).*?(?<![\\\\ ])_",
+      "description" : "italic",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^#+[\\t ]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\*+[\\t ]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^bq([\\[{()=>]\\S*)?\\.[\\t ]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^fn\\d+\\.[\\t ]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^p([\\[{()=>]\\S*)?\\.[\\t ]",
+      "regularExpression" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "![<>]?\\S*!",
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "(?<=!):\\S*",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\"):\\S*",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "</[a-zA-Z]+>",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "<[a-zA-Z]+([^<>]*)?>",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\[\\S+\\]\\S",
+      "end" : "$",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "^h[1-6]([\\[{()=>]\\S*)?\\.[\\t ]",
+      "end" : "$",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "\\[\\d+\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\s\".*?\"(?>:)",
+      "regularExpression" : true
+    }
+  ]
+}

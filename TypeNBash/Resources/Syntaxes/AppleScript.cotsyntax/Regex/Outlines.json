@@ -1,0 +1,14 @@
+[
+  {
+    "description" : "handler",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)on[\\t ]+(\\S+\\(.*\\))",
+    "template" : "$1on $2"
+  },
+  {
+    "description" : "script",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)script[\\t ]+(\\S+)",
+    "template" : "$1script $2"
+  }
+]

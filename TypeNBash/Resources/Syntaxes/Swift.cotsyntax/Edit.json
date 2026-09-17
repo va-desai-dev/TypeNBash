@@ -1,0 +1,62 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "/*",
+        "end" : "*/",
+        "isNestable" : true
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "//"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      },
+      {
+        "begin" : ":"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "\"\"\"",
+      "end" : "\"\"\"",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "#\"",
+      "description" : "Raw string literal (1 #)",
+      "end" : "\"#"
+    },
+    {
+      "begin" : "##\"",
+      "description" : "Raw string literal (2 #)",
+      "end" : "\"##"
+    },
+    {
+      "begin" : "#\"\"\"",
+      "description" : "Raw multiline string literal (1 #)",
+      "end" : "\"\"\"#",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "##\"\"\"",
+      "description" : "Raw multiline string literal (2 #)",
+      "end" : "\"\"\"##",
+      "isMultiline" : true
+    }
+  ]
+}

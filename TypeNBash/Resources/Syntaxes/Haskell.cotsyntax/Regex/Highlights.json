@@ -1,0 +1,872 @@
+{
+  "characters" : [
+    {
+      "begin" : "'.'",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'\\\\o[0-7]+'",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'\\\\x[0-9a-fA-F]+'",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'\\^[A-Z@\\[\\]\\^_]'",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'\\ACK'"
+    },
+    {
+      "begin" : "'\\BEL'"
+    },
+    {
+      "begin" : "'\\BS'"
+    },
+    {
+      "begin" : "'\\CAN'"
+    },
+    {
+      "begin" : "'\\CR'"
+    },
+    {
+      "begin" : "'\\DC1'"
+    },
+    {
+      "begin" : "'\\DC2'"
+    },
+    {
+      "begin" : "'\\DC3'"
+    },
+    {
+      "begin" : "'\\DC4'"
+    },
+    {
+      "begin" : "'\\DEL'"
+    },
+    {
+      "begin" : "'\\DLE'"
+    },
+    {
+      "begin" : "'\\EM'"
+    },
+    {
+      "begin" : "'\\ENQ'"
+    },
+    {
+      "begin" : "'\\ESC'"
+    },
+    {
+      "begin" : "'\\ETB'"
+    },
+    {
+      "begin" : "'\\ETX'"
+    },
+    {
+      "begin" : "'\\FF'"
+    },
+    {
+      "begin" : "'\\FS'"
+    },
+    {
+      "begin" : "'\\GS'"
+    },
+    {
+      "begin" : "'\\HT'"
+    },
+    {
+      "begin" : "'\\LF'"
+    },
+    {
+      "begin" : "'\\NAK'"
+    },
+    {
+      "begin" : "'\\NUL'"
+    },
+    {
+      "begin" : "'\\RS'"
+    },
+    {
+      "begin" : "'\\SHO'"
+    },
+    {
+      "begin" : "'\\SI'"
+    },
+    {
+      "begin" : "'\\SO'"
+    },
+    {
+      "begin" : "'\\SP'"
+    },
+    {
+      "begin" : "'\\STX'"
+    },
+    {
+      "begin" : "'\\SUB'"
+    },
+    {
+      "begin" : "'\\SYN'"
+    },
+    {
+      "begin" : "'\\US'"
+    },
+    {
+      "begin" : "'\\VT'"
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "acos"
+    },
+    {
+      "begin" : "acosh"
+    },
+    {
+      "begin" : "all"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "any"
+    },
+    {
+      "begin" : "appendFile"
+    },
+    {
+      "begin" : "asin"
+    },
+    {
+      "begin" : "asinh"
+    },
+    {
+      "begin" : "asTypeOf"
+    },
+    {
+      "begin" : "atan"
+    },
+    {
+      "begin" : "atan2"
+    },
+    {
+      "begin" : "atanh"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "ceiling"
+    },
+    {
+      "begin" : "compare"
+    },
+    {
+      "begin" : "concat"
+    },
+    {
+      "begin" : "concatMap"
+    },
+    {
+      "begin" : "const"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "cosh"
+    },
+    {
+      "begin" : "curry"
+    },
+    {
+      "begin" : "cycle"
+    },
+    {
+      "begin" : "decodeFloat"
+    },
+    {
+      "begin" : "div"
+    },
+    {
+      "begin" : "divMod"
+    },
+    {
+      "begin" : "drop"
+    },
+    {
+      "begin" : "dropWhile"
+    },
+    {
+      "begin" : "either"
+    },
+    {
+      "begin" : "elem"
+    },
+    {
+      "begin" : "encodeFloat"
+    },
+    {
+      "begin" : "enumFrom"
+    },
+    {
+      "begin" : "enumFromThen"
+    },
+    {
+      "begin" : "enumFromThenTo"
+    },
+    {
+      "begin" : "enumFromTo"
+    },
+    {
+      "begin" : "error"
+    },
+    {
+      "begin" : "even"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "exponent"
+    },
+    {
+      "begin" : "fail"
+    },
+    {
+      "begin" : "filter"
+    },
+    {
+      "begin" : "flip"
+    },
+    {
+      "begin" : "floatDigits"
+    },
+    {
+      "begin" : "floatRadix"
+    },
+    {
+      "begin" : "floatRange"
+    },
+    {
+      "begin" : "floor"
+    },
+    {
+      "begin" : "fmap"
+    },
+    {
+      "begin" : "foldl"
+    },
+    {
+      "begin" : "foldl1"
+    },
+    {
+      "begin" : "foldr"
+    },
+    {
+      "begin" : "foldr1"
+    },
+    {
+      "begin" : "fromEnum"
+    },
+    {
+      "begin" : "fromInteger"
+    },
+    {
+      "begin" : "fromIntegral"
+    },
+    {
+      "begin" : "fst"
+    },
+    {
+      "begin" : "gcd"
+    },
+    {
+      "begin" : "getChar"
+    },
+    {
+      "begin" : "getContents"
+    },
+    {
+      "begin" : "getLine"
+    },
+    {
+      "begin" : "id"
+    },
+    {
+      "begin" : "init"
+    },
+    {
+      "begin" : "interact"
+    },
+    {
+      "begin" : "ioError"
+    },
+    {
+      "begin" : "isDenormalized"
+    },
+    {
+      "begin" : "isIEEE"
+    },
+    {
+      "begin" : "isInfinite"
+    },
+    {
+      "begin" : "isNaN"
+    },
+    {
+      "begin" : "isNegativeZero"
+    },
+    {
+      "begin" : "iterate"
+    },
+    {
+      "begin" : "last"
+    },
+    {
+      "begin" : "lcm"
+    },
+    {
+      "begin" : "length"
+    },
+    {
+      "begin" : "lex"
+    },
+    {
+      "begin" : "lines"
+    },
+    {
+      "begin" : "log"
+    },
+    {
+      "begin" : "logBase"
+    },
+    {
+      "begin" : "lookup"
+    },
+    {
+      "begin" : "map"
+    },
+    {
+      "begin" : "mapM"
+    },
+    {
+      "begin" : "mapM_"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "maxBound"
+    },
+    {
+      "begin" : "maximum"
+    },
+    {
+      "begin" : "maybe"
+    },
+    {
+      "begin" : "min"
+    },
+    {
+      "begin" : "minBound"
+    },
+    {
+      "begin" : "minimum"
+    },
+    {
+      "begin" : "mod"
+    },
+    {
+      "begin" : "negate"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "notElem"
+    },
+    {
+      "begin" : "null"
+    },
+    {
+      "begin" : "odd"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "otherwise"
+    },
+    {
+      "begin" : "pi"
+    },
+    {
+      "begin" : "pred"
+    },
+    {
+      "begin" : "print"
+    },
+    {
+      "begin" : "product"
+    },
+    {
+      "begin" : "properFraction"
+    },
+    {
+      "begin" : "putChar"
+    },
+    {
+      "begin" : "putStr"
+    },
+    {
+      "begin" : "putStrLn"
+    },
+    {
+      "begin" : "quot"
+    },
+    {
+      "begin" : "quotRem"
+    },
+    {
+      "begin" : "read"
+    },
+    {
+      "begin" : "readFile"
+    },
+    {
+      "begin" : "readIO"
+    },
+    {
+      "begin" : "readList"
+    },
+    {
+      "begin" : "readLn"
+    },
+    {
+      "begin" : "readParen"
+    },
+    {
+      "begin" : "reads"
+    },
+    {
+      "begin" : "readsPrec"
+    },
+    {
+      "begin" : "realToFrac"
+    },
+    {
+      "begin" : "rem"
+    },
+    {
+      "begin" : "repeat"
+    },
+    {
+      "begin" : "replicate"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "reverse"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "scaleFloat"
+    },
+    {
+      "begin" : "scanl"
+    },
+    {
+      "begin" : "scanl1"
+    },
+    {
+      "begin" : "scanr"
+    },
+    {
+      "begin" : "scanr1"
+    },
+    {
+      "begin" : "seq"
+    },
+    {
+      "begin" : "sequence"
+    },
+    {
+      "begin" : "sequence_"
+    },
+    {
+      "begin" : "show"
+    },
+    {
+      "begin" : "showChar"
+    },
+    {
+      "begin" : "showList"
+    },
+    {
+      "begin" : "showParen"
+    },
+    {
+      "begin" : "showPrec"
+    },
+    {
+      "begin" : "shows"
+    },
+    {
+      "begin" : "showString"
+    },
+    {
+      "begin" : "significand"
+    },
+    {
+      "begin" : "signum"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "sinh"
+    },
+    {
+      "begin" : "snd"
+    },
+    {
+      "begin" : "span"
+    },
+    {
+      "begin" : "splitAt"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "subtract"
+    },
+    {
+      "begin" : "succ"
+    },
+    {
+      "begin" : "sum"
+    },
+    {
+      "begin" : "tail"
+    },
+    {
+      "begin" : "take"
+    },
+    {
+      "begin" : "takeWhile"
+    },
+    {
+      "begin" : "tan"
+    },
+    {
+      "begin" : "tanh"
+    },
+    {
+      "begin" : "toEnum"
+    },
+    {
+      "begin" : "toInteger"
+    },
+    {
+      "begin" : "toRational"
+    },
+    {
+      "begin" : "truncate"
+    },
+    {
+      "begin" : "uncurry"
+    },
+    {
+      "begin" : "undefined"
+    },
+    {
+      "begin" : "unlines"
+    },
+    {
+      "begin" : "until"
+    },
+    {
+      "begin" : "unwords"
+    },
+    {
+      "begin" : "unzip"
+    },
+    {
+      "begin" : "unzip3"
+    },
+    {
+      "begin" : "userError"
+    },
+    {
+      "begin" : "words"
+    },
+    {
+      "begin" : "writeFile"
+    },
+    {
+      "begin" : "zip"
+    },
+    {
+      "begin" : "zip3"
+    },
+    {
+      "begin" : "zipWith"
+    },
+    {
+      "begin" : "zipWith3"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "_"
+    },
+    {
+      "begin" : "as"
+    },
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "data"
+    },
+    {
+      "begin" : "default"
+    },
+    {
+      "begin" : "deriving"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "forall"
+    },
+    {
+      "begin" : "foreign"
+    },
+    {
+      "begin" : "hiding"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "infix"
+    },
+    {
+      "begin" : "infixl"
+    },
+    {
+      "begin" : "infixr"
+    },
+    {
+      "begin" : "instance"
+    },
+    {
+      "begin" : "let"
+    },
+    {
+      "begin" : "mdo"
+    },
+    {
+      "begin" : "module"
+    },
+    {
+      "begin" : "newtype"
+    },
+    {
+      "begin" : "of"
+    },
+    {
+      "begin" : "proc"
+    },
+    {
+      "begin" : "qualified"
+    },
+    {
+      "begin" : "rec"
+    },
+    {
+      "begin" : "safe"
+    },
+    {
+      "begin" : "then"
+    },
+    {
+      "begin" : "type"
+    },
+    {
+      "begin" : "unsafe"
+    },
+    {
+      "begin" : "where"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b0o[0-7]+\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0x[0-9a-f]+\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\d+\\.\\d+(e[-+]\\d+)?\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\d+\\b",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "\\b[A-Z][\\w_\\']*",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "Bool"
+    },
+    {
+      "begin" : "Bounded"
+    },
+    {
+      "begin" : "Char"
+    },
+    {
+      "begin" : "Double"
+    },
+    {
+      "begin" : "Either"
+    },
+    {
+      "begin" : "Enum"
+    },
+    {
+      "begin" : "Eq"
+    },
+    {
+      "begin" : "Float"
+    },
+    {
+      "begin" : "Floating"
+    },
+    {
+      "begin" : "Fractional"
+    },
+    {
+      "begin" : "Functor"
+    },
+    {
+      "begin" : "Int"
+    },
+    {
+      "begin" : "Integer"
+    },
+    {
+      "begin" : "Integral"
+    },
+    {
+      "begin" : "IO"
+    },
+    {
+      "begin" : "IOError"
+    },
+    {
+      "begin" : "Maybe"
+    },
+    {
+      "begin" : "Monad"
+    },
+    {
+      "begin" : "MonadPlus"
+    },
+    {
+      "begin" : "Num"
+    },
+    {
+      "begin" : "Ord"
+    },
+    {
+      "begin" : "Ordering"
+    },
+    {
+      "begin" : "Rational"
+    },
+    {
+      "begin" : "Read"
+    },
+    {
+      "begin" : "Real"
+    },
+    {
+      "begin" : "RealFloat"
+    },
+    {
+      "begin" : "RealFrac"
+    },
+    {
+      "begin" : "Show"
+    },
+    {
+      "begin" : "String"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "EQ"
+    },
+    {
+      "begin" : "False"
+    },
+    {
+      "begin" : "GT"
+    },
+    {
+      "begin" : "Just"
+    },
+    {
+      "begin" : "Left"
+    },
+    {
+      "begin" : "LT"
+    },
+    {
+      "begin" : "Nothing"
+    },
+    {
+      "begin" : "Right"
+    },
+    {
+      "begin" : "True"
+    }
+  ]
+}

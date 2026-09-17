@@ -1,0 +1,26 @@
+[
+  {
+    "description" : "equation / binding",
+    "kind" : "value",
+    "pattern" : "^[\\t ]*([a-z][\\w_']*\\s*.+?)(?=\\s*=)",
+    "template" : ""
+  },
+  {
+    "description" : "type signature",
+    "kind" : "value",
+    "pattern" : "^[\\t ]*([a-z][\\w_']*\\s*::.+?$)",
+    "template" : "$1"
+  },
+  {
+    "description" : "class",
+    "kind" : "container",
+    "pattern" : "^[\\t ]*class\\s*([A-Z].*\\s+[a-z].*|\\([\\t ]*[A-Z].*[\\t ]+[a-z].*([\\t ]*,[\\t ]*[A-Z][\\w']*[\\t ]+[A-Z][\\w']*)*[\\t ]*\\))?[\\t ]*=>[\\t ]*[A-Z].*(where|$)",
+    "template" : ""
+  },
+  {
+    "description" : "data",
+    "kind" : "container",
+    "pattern" : "^[\\t ]*data[\\t ]+([A-Z][\\w']*)(?=[\\t ]*\\=)",
+    "template" : "data $1"
+  }
+]

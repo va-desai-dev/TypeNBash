@@ -1,0 +1,8 @@
+[
+  {
+    "description" : "entry",
+    "kind" : "container",
+    "pattern" : "@(\\w+)\\s*\\{\\s*([^,=]+)",
+    "template" : "@$1 $2"
+  }
+]

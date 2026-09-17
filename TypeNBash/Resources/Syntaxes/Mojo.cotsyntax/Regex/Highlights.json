@@ -1,0 +1,1327 @@
+{
+  "attributes" : [
+    {
+      "begin" : "@(?:\\w|\\.)+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "@abstractmethod"
+    },
+    {
+      "begin" : "@always_inline",
+      "description" : "Mojo decorator"
+    },
+    {
+      "begin" : "@classmethod"
+    },
+    {
+      "begin" : "@parameter",
+      "description" : "Mojo decorator"
+    },
+    {
+      "begin" : "@property"
+    },
+    {
+      "begin" : "@register_passable",
+      "description" : "Mojo decorator"
+    },
+    {
+      "begin" : "@staticmethod"
+    },
+    {
+      "begin" : "@value",
+      "description" : "Mojo decorator"
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "\\bprint(?![\\t ]*(\\w|['\"]))",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "__abs__"
+    },
+    {
+      "begin" : "__add__"
+    },
+    {
+      "begin" : "__aenter__"
+    },
+    {
+      "begin" : "__aexit__"
+    },
+    {
+      "begin" : "__aiter__"
+    },
+    {
+      "begin" : "__and__"
+    },
+    {
+      "begin" : "__anext__"
+    },
+    {
+      "begin" : "__await__"
+    },
+    {
+      "begin" : "__bool__"
+    },
+    {
+      "begin" : "__bytes__"
+    },
+    {
+      "begin" : "__call__"
+    },
+    {
+      "begin" : "__cmp__"
+    },
+    {
+      "begin" : "__coerce__"
+    },
+    {
+      "begin" : "__complex__"
+    },
+    {
+      "begin" : "__concat__"
+    },
+    {
+      "begin" : "__contains__"
+    },
+    {
+      "begin" : "__copy__"
+    },
+    {
+      "begin" : "__copyinit__",
+      "description" : "Mojo method"
+    },
+    {
+      "begin" : "__deepcopy__"
+    },
+    {
+      "begin" : "__del__"
+    },
+    {
+      "begin" : "__delattr__"
+    },
+    {
+      "begin" : "__delete__"
+    },
+    {
+      "begin" : "__delitem__"
+    },
+    {
+      "begin" : "__delslice__"
+    },
+    {
+      "begin" : "__dir__"
+    },
+    {
+      "begin" : "__div__"
+    },
+    {
+      "begin" : "__divmod__"
+    },
+    {
+      "begin" : "__enter__"
+    },
+    {
+      "begin" : "__eq__"
+    },
+    {
+      "begin" : "__exit__"
+    },
+    {
+      "begin" : "__float__"
+    },
+    {
+      "begin" : "__floordiv__"
+    },
+    {
+      "begin" : "__ge__"
+    },
+    {
+      "begin" : "__get__"
+    },
+    {
+      "begin" : "__getattr__"
+    },
+    {
+      "begin" : "__getattribute__"
+    },
+    {
+      "begin" : "__getitem__"
+    },
+    {
+      "begin" : "__getnewargs__"
+    },
+    {
+      "begin" : "__getnewargs_ex__"
+    },
+    {
+      "begin" : "__getslice__"
+    },
+    {
+      "begin" : "__getstate__"
+    },
+    {
+      "begin" : "__gt__"
+    },
+    {
+      "begin" : "__hash__"
+    },
+    {
+      "begin" : "__hex__"
+    },
+    {
+      "begin" : "__iadd__"
+    },
+    {
+      "begin" : "__iand__"
+    },
+    {
+      "begin" : "__iconcat__"
+    },
+    {
+      "begin" : "__idiv__"
+    },
+    {
+      "begin" : "__ifloordiv__"
+    },
+    {
+      "begin" : "__ilshift__"
+    },
+    {
+      "begin" : "__imatmul__"
+    },
+    {
+      "begin" : "__imod__"
+    },
+    {
+      "begin" : "__import__"
+    },
+    {
+      "begin" : "__imul__"
+    },
+    {
+      "begin" : "__index__"
+    },
+    {
+      "begin" : "__init__"
+    },
+    {
+      "begin" : "__init_subclass__"
+    },
+    {
+      "begin" : "__instancecheck__"
+    },
+    {
+      "begin" : "__int__"
+    },
+    {
+      "begin" : "__inv__"
+    },
+    {
+      "begin" : "__invert__"
+    },
+    {
+      "begin" : "__ior__"
+    },
+    {
+      "begin" : "__ipow__"
+    },
+    {
+      "begin" : "__irshift__"
+    },
+    {
+      "begin" : "__isub__"
+    },
+    {
+      "begin" : "__iter__"
+    },
+    {
+      "begin" : "__itruediv__"
+    },
+    {
+      "begin" : "__ixor__"
+    },
+    {
+      "begin" : "__le__"
+    },
+    {
+      "begin" : "__len__"
+    },
+    {
+      "begin" : "__length_hint__"
+    },
+    {
+      "begin" : "__long__"
+    },
+    {
+      "begin" : "__lshift__"
+    },
+    {
+      "begin" : "__lt__"
+    },
+    {
+      "begin" : "__matmul__"
+    },
+    {
+      "begin" : "__missing__"
+    },
+    {
+      "begin" : "__mod__"
+    },
+    {
+      "begin" : "__moveinit__",
+      "description" : "Mojo method"
+    },
+    {
+      "begin" : "__mul__"
+    },
+    {
+      "begin" : "__ne__"
+    },
+    {
+      "begin" : "__neg__"
+    },
+    {
+      "begin" : "__new__"
+    },
+    {
+      "begin" : "__next__"
+    },
+    {
+      "begin" : "__nonzero__"
+    },
+    {
+      "begin" : "__not__"
+    },
+    {
+      "begin" : "__oct__"
+    },
+    {
+      "begin" : "__or__"
+    },
+    {
+      "begin" : "__pos__"
+    },
+    {
+      "begin" : "__pow__"
+    },
+    {
+      "begin" : "__radd__"
+    },
+    {
+      "begin" : "__rand__"
+    },
+    {
+      "begin" : "__rcmp__"
+    },
+    {
+      "begin" : "__rdiv__"
+    },
+    {
+      "begin" : "__rdivmod__"
+    },
+    {
+      "begin" : "__reduce__"
+    },
+    {
+      "begin" : "__reduce_ex__"
+    },
+    {
+      "begin" : "__repr__"
+    },
+    {
+      "begin" : "__reversed__"
+    },
+    {
+      "begin" : "__rfloordiv__"
+    },
+    {
+      "begin" : "__rlshift__"
+    },
+    {
+      "begin" : "__rmatmul__"
+    },
+    {
+      "begin" : "__rmod__"
+    },
+    {
+      "begin" : "__rmul__"
+    },
+    {
+      "begin" : "__ror__"
+    },
+    {
+      "begin" : "__round__"
+    },
+    {
+      "begin" : "__rpow__"
+    },
+    {
+      "begin" : "__rrshift__"
+    },
+    {
+      "begin" : "__rshift__"
+    },
+    {
+      "begin" : "__rsub__"
+    },
+    {
+      "begin" : "__rtruediv__"
+    },
+    {
+      "begin" : "__rxor__"
+    },
+    {
+      "begin" : "__set__"
+    },
+    {
+      "begin" : "__set_name__"
+    },
+    {
+      "begin" : "__setattr__"
+    },
+    {
+      "begin" : "__setitem__"
+    },
+    {
+      "begin" : "__setslice__"
+    },
+    {
+      "begin" : "__setstate__"
+    },
+    {
+      "begin" : "__str__"
+    },
+    {
+      "begin" : "__sub__"
+    },
+    {
+      "begin" : "__subclasscheck__"
+    },
+    {
+      "begin" : "__subclasses__"
+    },
+    {
+      "begin" : "__truediv__"
+    },
+    {
+      "begin" : "__unicode__"
+    },
+    {
+      "begin" : "__xor__"
+    },
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "add"
+    },
+    {
+      "begin" : "all"
+    },
+    {
+      "begin" : "any"
+    },
+    {
+      "begin" : "append"
+    },
+    {
+      "begin" : "as_integer_ratio"
+    },
+    {
+      "begin" : "ascii"
+    },
+    {
+      "begin" : "bin"
+    },
+    {
+      "begin" : "bit_length"
+    },
+    {
+      "begin" : "bool"
+    },
+    {
+      "begin" : "breakpoint"
+    },
+    {
+      "begin" : "bytearray"
+    },
+    {
+      "begin" : "bytes"
+    },
+    {
+      "begin" : "callable"
+    },
+    {
+      "begin" : "capitalize"
+    },
+    {
+      "begin" : "casefold"
+    },
+    {
+      "begin" : "cast"
+    },
+    {
+      "begin" : "center"
+    },
+    {
+      "begin" : "chr"
+    },
+    {
+      "begin" : "classmethod"
+    },
+    {
+      "begin" : "clear"
+    },
+    {
+      "begin" : "close"
+    },
+    {
+      "begin" : "cmp"
+    },
+    {
+      "begin" : "compile"
+    },
+    {
+      "begin" : "complex"
+    },
+    {
+      "begin" : "conjugate"
+    },
+    {
+      "begin" : "copy"
+    },
+    {
+      "begin" : "count"
+    },
+    {
+      "begin" : "decode"
+    },
+    {
+      "begin" : "delattr"
+    },
+    {
+      "begin" : "dict"
+    },
+    {
+      "begin" : "difference"
+    },
+    {
+      "begin" : "difference_update"
+    },
+    {
+      "begin" : "dir"
+    },
+    {
+      "begin" : "discard"
+    },
+    {
+      "begin" : "divmod"
+    },
+    {
+      "begin" : "encode"
+    },
+    {
+      "begin" : "endswith"
+    },
+    {
+      "begin" : "enumerate"
+    },
+    {
+      "begin" : "eval"
+    },
+    {
+      "begin" : "exec"
+    },
+    {
+      "begin" : "execfile"
+    },
+    {
+      "begin" : "expandtabs"
+    },
+    {
+      "begin" : "extend"
+    },
+    {
+      "begin" : "file"
+    },
+    {
+      "begin" : "fileno"
+    },
+    {
+      "begin" : "filter"
+    },
+    {
+      "begin" : "find"
+    },
+    {
+      "begin" : "float"
+    },
+    {
+      "begin" : "flush"
+    },
+    {
+      "begin" : "format"
+    },
+    {
+      "begin" : "format_map"
+    },
+    {
+      "begin" : "from_bytes"
+    },
+    {
+      "begin" : "fromhex"
+    },
+    {
+      "begin" : "fromkeys"
+    },
+    {
+      "begin" : "frozenset"
+    },
+    {
+      "begin" : "get"
+    },
+    {
+      "begin" : "getattr"
+    },
+    {
+      "begin" : "getboolean"
+    },
+    {
+      "begin" : "getfloat"
+    },
+    {
+      "begin" : "getint"
+    },
+    {
+      "begin" : "globals"
+    },
+    {
+      "begin" : "has_key"
+    },
+    {
+      "begin" : "hasattr"
+    },
+    {
+      "begin" : "hash"
+    },
+    {
+      "begin" : "help"
+    },
+    {
+      "begin" : "hex"
+    },
+    {
+      "begin" : "id"
+    },
+    {
+      "begin" : "index"
+    },
+    {
+      "begin" : "indices"
+    },
+    {
+      "begin" : "input"
+    },
+    {
+      "begin" : "insert"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "intersection"
+    },
+    {
+      "begin" : "intersection_update"
+    },
+    {
+      "begin" : "is_integer"
+    },
+    {
+      "begin" : "isalnum"
+    },
+    {
+      "begin" : "isalpha"
+    },
+    {
+      "begin" : "isatty"
+    },
+    {
+      "begin" : "isdecimal"
+    },
+    {
+      "begin" : "isdigit"
+    },
+    {
+      "begin" : "isdisjoint"
+    },
+    {
+      "begin" : "isinstance"
+    },
+    {
+      "begin" : "islower"
+    },
+    {
+      "begin" : "isnumeric"
+    },
+    {
+      "begin" : "isspace"
+    },
+    {
+      "begin" : "issubclass"
+    },
+    {
+      "begin" : "issubset"
+    },
+    {
+      "begin" : "issuperset"
+    },
+    {
+      "begin" : "istitle"
+    },
+    {
+      "begin" : "isupper"
+    },
+    {
+      "begin" : "items"
+    },
+    {
+      "begin" : "iter"
+    },
+    {
+      "begin" : "iteritems"
+    },
+    {
+      "begin" : "iterkeys"
+    },
+    {
+      "begin" : "itervalues"
+    },
+    {
+      "begin" : "join"
+    },
+    {
+      "begin" : "keys"
+    },
+    {
+      "begin" : "len"
+    },
+    {
+      "begin" : "list"
+    },
+    {
+      "begin" : "ljust"
+    },
+    {
+      "begin" : "locals"
+    },
+    {
+      "begin" : "long"
+    },
+    {
+      "begin" : "lower"
+    },
+    {
+      "begin" : "lstrip"
+    },
+    {
+      "begin" : "maketrans"
+    },
+    {
+      "begin" : "map"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "memoryview"
+    },
+    {
+      "begin" : "min"
+    },
+    {
+      "begin" : "mro"
+    },
+    {
+      "begin" : "next"
+    },
+    {
+      "begin" : "object"
+    },
+    {
+      "begin" : "oct"
+    },
+    {
+      "begin" : "open"
+    },
+    {
+      "begin" : "ord"
+    },
+    {
+      "begin" : "partition"
+    },
+    {
+      "begin" : "pop"
+    },
+    {
+      "begin" : "popitem"
+    },
+    {
+      "begin" : "pow"
+    },
+    {
+      "begin" : "property"
+    },
+    {
+      "begin" : "range"
+    },
+    {
+      "begin" : "raw_input"
+    },
+    {
+      "begin" : "read"
+    },
+    {
+      "begin" : "readline"
+    },
+    {
+      "begin" : "readlines"
+    },
+    {
+      "begin" : "reduce"
+    },
+    {
+      "begin" : "release"
+    },
+    {
+      "begin" : "reload"
+    },
+    {
+      "begin" : "remove"
+    },
+    {
+      "begin" : "removeprefix"
+    },
+    {
+      "begin" : "removesuffix"
+    },
+    {
+      "begin" : "replace"
+    },
+    {
+      "begin" : "repr"
+    },
+    {
+      "begin" : "reverse"
+    },
+    {
+      "begin" : "reversed"
+    },
+    {
+      "begin" : "rfind"
+    },
+    {
+      "begin" : "rindex"
+    },
+    {
+      "begin" : "rjust"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "rpartition"
+    },
+    {
+      "begin" : "rsplit"
+    },
+    {
+      "begin" : "rstrip"
+    },
+    {
+      "begin" : "seek"
+    },
+    {
+      "begin" : "set"
+    },
+    {
+      "begin" : "setattr"
+    },
+    {
+      "begin" : "setdefault"
+    },
+    {
+      "begin" : "slice"
+    },
+    {
+      "begin" : "sort"
+    },
+    {
+      "begin" : "sorted"
+    },
+    {
+      "begin" : "split"
+    },
+    {
+      "begin" : "splitlines"
+    },
+    {
+      "begin" : "startswith"
+    },
+    {
+      "begin" : "staticmethod"
+    },
+    {
+      "begin" : "str"
+    },
+    {
+      "begin" : "strip"
+    },
+    {
+      "begin" : "sum"
+    },
+    {
+      "begin" : "super"
+    },
+    {
+      "begin" : "swapcase"
+    },
+    {
+      "begin" : "symmetric_difference"
+    },
+    {
+      "begin" : "symmetric_difference_update"
+    },
+    {
+      "begin" : "tell"
+    },
+    {
+      "begin" : "title"
+    },
+    {
+      "begin" : "to_bytes"
+    },
+    {
+      "begin" : "tolist"
+    },
+    {
+      "begin" : "translate"
+    },
+    {
+      "begin" : "truncate"
+    },
+    {
+      "begin" : "tuple"
+    },
+    {
+      "begin" : "type"
+    },
+    {
+      "begin" : "unichr"
+    },
+    {
+      "begin" : "unicode"
+    },
+    {
+      "begin" : "union"
+    },
+    {
+      "begin" : "update"
+    },
+    {
+      "begin" : "upper"
+    },
+    {
+      "begin" : "values"
+    },
+    {
+      "begin" : "vars"
+    },
+    {
+      "begin" : "viewitems"
+    },
+    {
+      "begin" : "viewkeys"
+    },
+    {
+      "begin" : "viewvalues"
+    },
+    {
+      "begin" : "write"
+    },
+    {
+      "begin" : "writelines"
+    },
+    {
+      "begin" : "xrange"
+    },
+    {
+      "begin" : "xreadlines"
+    },
+    {
+      "begin" : "zfill"
+    },
+    {
+      "begin" : "zip"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "alias",
+      "description" : "Mojo keyword"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "as"
+    },
+    {
+      "begin" : "assert"
+    },
+    {
+      "begin" : "async"
+    },
+    {
+      "begin" : "await"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "def"
+    },
+    {
+      "begin" : "del"
+    },
+    {
+      "begin" : "elif"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "except"
+    },
+    {
+      "begin" : "finally"
+    },
+    {
+      "begin" : "fn",
+      "description" : "Mojo keyword"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "from"
+    },
+    {
+      "begin" : "global"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "is"
+    },
+    {
+      "begin" : "lambda"
+    },
+    {
+      "begin" : "let",
+      "description" : "Mojo keyword"
+    },
+    {
+      "begin" : "match"
+    },
+    {
+      "begin" : "nonlocal"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "pass"
+    },
+    {
+      "begin" : "print"
+    },
+    {
+      "begin" : "raise"
+    },
+    {
+      "begin" : "raises",
+      "description" : "Mojo keyword"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "struct",
+      "description" : "Mojo keyword"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "var",
+      "description" : "Mojo keyword"
+    },
+    {
+      "begin" : "while"
+    },
+    {
+      "begin" : "with"
+    },
+    {
+      "begin" : "yield"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "((?<!\\w)|[-+])(?:\\.[0-9][0-9_]*|[0-9][0-9_]*\\.|[0-9]+\\.[0-9][0-9_]*|[0-9][0-9_]*)(e[+-]?[0-9][0-9_]*)?[jl]?",
+      "description" : "decimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0b[01][01_]*l?",
+      "description" : "binary",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0o[0-7][0-7_]*l?",
+      "description" : "octal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0x[0-9a-f][0-9a-f_]*l?",
+      "description" : "hexadecimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "__all__"
+    },
+    {
+      "begin" : "__annotations__"
+    },
+    {
+      "begin" : "__bases__"
+    },
+    {
+      "begin" : "__builtins__"
+    },
+    {
+      "begin" : "__cached__"
+    },
+    {
+      "begin" : "__callback__"
+    },
+    {
+      "begin" : "__cause__"
+    },
+    {
+      "begin" : "__class__"
+    },
+    {
+      "begin" : "__closure__"
+    },
+    {
+      "begin" : "__code__"
+    },
+    {
+      "begin" : "__context__"
+    },
+    {
+      "begin" : "__debug__"
+    },
+    {
+      "begin" : "__defaults__"
+    },
+    {
+      "begin" : "__dict__"
+    },
+    {
+      "begin" : "__displayhook__"
+    },
+    {
+      "begin" : "__doc__"
+    },
+    {
+      "begin" : "__excepthook__"
+    },
+    {
+      "begin" : "__file__"
+    },
+    {
+      "begin" : "__func__"
+    },
+    {
+      "begin" : "__future__"
+    },
+    {
+      "begin" : "__globals__"
+    },
+    {
+      "begin" : "__interactivehook__"
+    },
+    {
+      "begin" : "__kwdefaults__"
+    },
+    {
+      "begin" : "__loader__"
+    },
+    {
+      "begin" : "__main__"
+    },
+    {
+      "begin" : "__metaclass__"
+    },
+    {
+      "begin" : "__module__"
+    },
+    {
+      "begin" : "__mro__"
+    },
+    {
+      "begin" : "__name__"
+    },
+    {
+      "begin" : "__package__"
+    },
+    {
+      "begin" : "__path__"
+    },
+    {
+      "begin" : "__qualname__"
+    },
+    {
+      "begin" : "__self__"
+    },
+    {
+      "begin" : "__slots__"
+    },
+    {
+      "begin" : "__spec__"
+    },
+    {
+      "begin" : "__stderr__"
+    },
+    {
+      "begin" : "__stdin__"
+    },
+    {
+      "begin" : "__stdout__"
+    },
+    {
+      "begin" : "__suppress_context__"
+    },
+    {
+      "begin" : "__traceback__"
+    },
+    {
+      "begin" : "__wrapped__"
+    },
+    {
+      "begin" : "basestring"
+    },
+    {
+      "begin" : "closed"
+    },
+    {
+      "begin" : "Ellipsis"
+    },
+    {
+      "begin" : "encoding"
+    },
+    {
+      "begin" : "False"
+    },
+    {
+      "begin" : "func_closure"
+    },
+    {
+      "begin" : "func_code"
+    },
+    {
+      "begin" : "func_defaults"
+    },
+    {
+      "begin" : "func_dict"
+    },
+    {
+      "begin" : "func_doc"
+    },
+    {
+      "begin" : "func_globals"
+    },
+    {
+      "begin" : "func_name"
+    },
+    {
+      "begin" : "im_class"
+    },
+    {
+      "begin" : "im_func"
+    },
+    {
+      "begin" : "im_self"
+    },
+    {
+      "begin" : "imag"
+    },
+    {
+      "begin" : "mode"
+    },
+    {
+      "begin" : "newlines"
+    },
+    {
+      "begin" : "None"
+    },
+    {
+      "begin" : "NotImplemented"
+    },
+    {
+      "begin" : "softspace"
+    },
+    {
+      "begin" : "True"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "cls"
+    },
+    {
+      "begin" : "self"
+    }
+  ]
+}

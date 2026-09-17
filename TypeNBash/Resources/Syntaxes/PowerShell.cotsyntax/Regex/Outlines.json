@@ -1,0 +1,16 @@
+[
+  {
+    "description" : "function",
+    "ignoreCase" : true,
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)(function|filter|configuration|workflow)[\\t ]+((?:global|local|script|private):)?((?:\\p{L}|\\d|_|-|\\.)+)",
+    "template" : "$1$3$4"
+  },
+  {
+    "description" : "class",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)class[\\t ]+((?:\\p{L}|\\d|_|-|\\.)+)\\b",
+    "template" : "$1$2"
+  }
+]

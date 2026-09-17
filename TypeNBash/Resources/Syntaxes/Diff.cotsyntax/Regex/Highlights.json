@@ -1,0 +1,57 @@
+{
+  "characters" : [
+    {
+      "begin" : "^! .*",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^!$",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "^diff -.+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^index .+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^Index: .+(\\R ?=+)?",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "^-.*",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^> .*",
+      "regularExpression" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "^@@ ",
+      "end" : " @@",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^[0-9,adc]+$",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "^< .*",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\+.*",
+      "regularExpression" : true
+    }
+  ]
+}

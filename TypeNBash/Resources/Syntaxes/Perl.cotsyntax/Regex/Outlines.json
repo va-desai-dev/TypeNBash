@@ -1,0 +1,23 @@
+[
+  {
+    "description" : "sub-routine",
+    "ignoreCase" : true,
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)(sub)[ ]*([a-z][a-z0-9_]*)[^{].*\\{",
+    "template" : "$1$2 $3 {}"
+  },
+  {
+    "description" : "@ISA",
+    "ignoreCase" : true,
+    "kind" : "value",
+    "pattern" : "^[ ]*(\\@ISA)([^;]*);",
+    "template" : "$1 $2"
+  },
+  {
+    "description" : "package",
+    "ignoreCase" : true,
+    "kind" : "container",
+    "pattern" : "^[ ]*(package)[ ]*([a-z][a-z0-9_]*).*$",
+    "template" : "$1 $2"
+  }
+]

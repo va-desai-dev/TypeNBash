@@ -1,0 +1,1913 @@
+{
+  "attributes" : [
+    {
+      "begin" : "anyfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "archive",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "directory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "hidden",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "readonly",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sysfile",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "volumeid",
+      "ignoreCase" : true
+    }
+  ],
+  "characters" : [
+    {
+      "begin" : "\\#",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "Abs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "AbstractError",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "AcquireExceptionObject",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Add",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "AddExitProc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Addr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Align",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "AllocMem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "AnsiToUtf8",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Append",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ArcTan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ArrayStringToPPchar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Assert",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Assign",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Assigned",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BeginThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BEtoN",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BinStr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BlockRead",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BlockWrite",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Break",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BsfByte",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BsfDWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BsfQWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BsfWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BsrByte",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BsrDWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BsrQWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "BsrWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CaptureBacktrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ChDir",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Chr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Close",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CloseThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CompareByte",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CompareChar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CompareChar0",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CompareDWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CompareWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Concat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Continue",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Copy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CopyArray",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Cos",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Create",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "CSeg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Dec",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Default",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DefaultAnsi2UnicodeMove",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DefaultAnsi2WideMove",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DefaultUnicode2AnsiMove",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Delete",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Dispose",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "divide",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DoneCriticalSection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DoneThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DSeg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Dump_Stack",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DumpExceptionBacktrace",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DynArrayBounds",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DynArrayClear",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DynArrayDim",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DynArrayIndex",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DynArraySetLength",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "DynArraySize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "EmptyMethod",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "EndThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "EnterCriticalSection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "EnumResourceLanguages",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "EnumResourceNames",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "EnumResourceTypes",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "EOF",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "EOLn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "equal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Erase",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Error",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Exclude",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Exit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Exp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Fail",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FilePos",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FileSize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FillByte",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FillChar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FillDWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FillWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Finalize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FinalizeArray",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FindResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FindResourceEx",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "float_raise",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Flush",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FlushThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FMADouble",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FMASingle",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Frac",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FreeLibrary",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Freemem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Freememory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FreeResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "get_caller_addr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "get_caller_frame",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "get_caller_stackinfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "get_cmdline",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "get_frame",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Get_pc_addr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetCPUCount",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetCurrentThreadId",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetDir",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetDynLibsManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetFPCHeapStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetHeapStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetLoadErrorStr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetMem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetMemory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetMemoryManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetProcAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetProcedureAddress",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetProcessID",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetResourceManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetTextCodePage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetThreadID",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetThreadManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetTypeKind",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetUnicodeStringManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetVariantManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "GetWideStringManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "greaterthan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "greaterthanorequal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Halt",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "HexStr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Hi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "High",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "HINSTANCE",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Inc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Include",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IndexByte",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IndexChar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IndexChar0",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IndexDWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IndexQWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Indexword",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InitCriticalSection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Initialize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InitializeArray",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InitThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InitThreadVars",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Insert",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Int",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "intdivide",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InterlockedCompareExchange",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InterlockedCompareExchangePointer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InterlockedDecrement",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InterlockedExchange",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InterlockedExchangeAdd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "InterlockedIncrement",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IOResult",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Is_IntResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IsDynArrayRectangular",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IsMemoryManagerSet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "KillThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "LeaveCriticalSection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "leftshift",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Length",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "lessthan",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "lessthanorequal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "LEtoN",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Ln",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Lo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "LoadLibrary",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "LoadResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "LockResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "logicaland",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "logicalnot",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "logicalor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "logicalxor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "longjmp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Low",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "LowerCase",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "MakeLangID",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "MemSize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "MkDir",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "modulus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Move",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "MoveChar0",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "multiply",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "negative",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "New",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "NtoBE",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "NtoLE",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Null",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "OctStr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Odd",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Ofs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Ord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Pack",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ParamCount",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ParamStr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Pi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "PopCnt",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Pos",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "power",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Pred",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Prefetch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Ptr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RaiseList",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Random",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Randomize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Read",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ReadBarrier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ReadDependencyBarrier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ReadLn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ReadStr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ReadWriteBarrier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Real2Double",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ReAllocMem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ReAllocMemory",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ReleaseExceptionObject",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rename",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Reset",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ResumeThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Rewrite",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rightshift",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RmDir",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RolByte",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RolDWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RolQWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RolWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RorByte",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RorDWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RorQWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RorWord",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Round",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RTLEventCreate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RTLEventDestroy",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RTLEventResetEvent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RTLEventSetEvent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RTLEventWaitFor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "RunError",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SafeLoadLibrary",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SarInt64",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SarLongint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SarShortint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SarSmallint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Seek",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SeekEOF",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SeekEOLn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Seg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetCodePage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetDynLibsManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Setjmp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetLength",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetMemoryManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetMultiByteConversionCodePage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetMultiByteFileSystemCodePage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetMultiByteRTLFileSystemCodePage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetResourceManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetTextBuf",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetTextCodePage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetTextLineEnding",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetThreadManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetUnicodeStringManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetVariantManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SetWideStringManager",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ShortCompareText",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Sin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SizeOf",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SizeofResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Slice",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Space",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SPtr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Sqr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Sqrt",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SSeg",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StackTop",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Str",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StringCodePage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StringElementSize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StringOfChar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StringRefCount",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StringToPPChar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StringToUnicodeChar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StringToWideChar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StrLen",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "StrPas",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "subtract",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Succ",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SuspendThread",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Swap",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SwapEndian",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysAllocMem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysAssert",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysBacktraceStr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysFlushStdIO",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysFreemem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysFreememSize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysGetFPCHeapStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysGetHeapStatus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysGetmem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysInitExceptions",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysInitFPU",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysInitStdIO",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysMemSize",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysReAllocMem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysResetFPU",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysSetCtrlBreakHandler",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SysTryResizeMem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ThreadGetPriority",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ThreadSetPriority",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ThreadSwitch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ToSingleByteFileSystemEncodedFileName",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Trunc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Truncate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "TryEnterCriticalSection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "TypeInfo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "TypeOf",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UCS4StringToUnicodeString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UCS4StringToWideString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Unassigned",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnicodeCharLenToString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnicodeCharLenToStrVar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnicodeCharToString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnicodeCharToStrVar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnicodeStringToUCS4String",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnicodeToUtf8",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UniqueString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnloadLibrary",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnlockResource",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UnPack",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UpCase",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Utf8CodePointLen",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UTF8Decode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UTF8Encode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Utf8ToAnsi",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "UTF8ToString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Utf8ToUnicode",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Val",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "VarArrayGet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "VarArrayPut",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "VarArrayRedim",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "VarCast",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WaitForThreadTerminate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WideCharLenToString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WideCharLenToStrVar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WideCharToString",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WideCharToStrVar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WideStringToUCS4String",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Write",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WriteBarrier",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WriteLn",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "WriteStr",
+      "ignoreCase" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "abstract",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "and",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "array",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "as",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "asm",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "begin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "break",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "case",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "class",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "const",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "constref",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "constructor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "continue",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "destructor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "dispose",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "div",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "do",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "downto",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "else",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "end",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "except",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "exit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "exports",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "false",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "file",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "finalization",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "finally",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "for",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "function",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "goto",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "if",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "implementation",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "in",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "inherited",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "initialization",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "inline",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "interface",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "is",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "label",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "library",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mod",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "new",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nil",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "not",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "object",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "of",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "on",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "operator",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "or",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "out",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "override",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "packed",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "private",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "procedure",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "program",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "property",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "protected",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "public",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "published",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "raise",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "read",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "record",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "repeat",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "resourcestring",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "self",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "set",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "shl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "shr",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "string",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "then",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "threadvar",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "to",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "true",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "try",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "type",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "unit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "until",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "uses",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "var",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "virtual",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "while",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "with",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "write",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "xor",
+      "ignoreCase" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b(\\d+\\.?\\d*|\\.\\d+)(e[-+]\\d+)?[dfm]?\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0x[0-9a-f]+\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b\\d+[lu]{0,2}\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "boolean",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "byte",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "bytebool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "cardinal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "char",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "comp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "currency",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "double",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "extended",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "int64",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "integer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "longbool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "longint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "longword",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "qword",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "qwordbool",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "real",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "shortint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "single",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "smallint",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "word",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "wordbool",
+      "ignoreCase" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nil",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "true",
+      "ignoreCase" : true
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "self",
+      "ignoreCase" : true
+    }
+  ]
+}

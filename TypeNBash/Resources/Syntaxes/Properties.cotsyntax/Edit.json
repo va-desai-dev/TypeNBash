@@ -1,0 +1,17 @@
+{
+  "comment" : {
+    "blocks" : [
+
+    ],
+    "inlines" : [
+      {
+        "begin" : "#",
+        "leadingOnly" : true
+      },
+      {
+        "begin" : "!",
+        "leadingOnly" : true
+      }
+    ]
+  }
+}

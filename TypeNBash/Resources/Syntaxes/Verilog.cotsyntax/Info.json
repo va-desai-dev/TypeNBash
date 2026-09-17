@@ -1,0 +1,17 @@
+{
+  "fileMap" : {
+    "extensions" : [
+      "v",
+      "sv"
+    ]
+  },
+  "kind" : "code",
+  "metadata" : {
+    "author" : "1024jp",
+    "description" : "Supporting Verilog and SystemVerilog.",
+    "distributionURL" : "https://coteditor.com",
+    "lastModified" : "2026-03-21",
+    "license" : "Same as CotEditor",
+    "version" : "3.0.0"
+  }
+}

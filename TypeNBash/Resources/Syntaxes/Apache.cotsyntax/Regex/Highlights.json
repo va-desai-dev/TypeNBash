@@ -1,0 +1,3425 @@
+{
+  "commands" : [
+    {
+      "begin" : "^\\s*AcceptFilter\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AcceptMutex\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AcceptPathInfo\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AccessConfig\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AccessFileName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Action\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddAlt\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddAltByEncoding\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddAltByType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddCharset\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddClientEncoding\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddDefaultCharset\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddDescription\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddEncoding\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddHandler\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddIcon\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddIconByEncoding\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddIconByType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddInputFilter\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddLanguage\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddModule\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddModuleInfo\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddOutputFilter\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddOutputFilterByType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AddType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AgentLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Alias\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AliasMatch\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Allow\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AllowCONNECT\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AllowEncodedSlashes\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AllowMethods\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AllowOverride\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AllowOverrideList\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Anonymous\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Anonymous_Authoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Anonymous_LogEmail\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Anonymous_MustGiveEmail\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Anonymous_NoUserID\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Anonymous_VerifyEmail\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AssignUserID\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AsyncRequestWorkerFactor\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthBasicAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthBasicProvider\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDBDUserPWQuery\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDBDUserRealmQuery\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDBMAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDBMGroupFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDBMType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDBMUserFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestAlgorithm\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestDomain\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestGroupFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestNcCheck\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestNonceFormat\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestNonceLifetime\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestProvider\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestQop\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthDigestShmemSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormDisableNoStore\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormFakeBasicAuth\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormLocation\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormLoginRequiredLocation\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormLoginSuccessLocation\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormLogoutLocation\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormMethod\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormMimetype\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormPassword\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormProvider\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormSitePassphrase\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthFormUsername\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthGroupFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPAuthorizePrefix\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPBindDN\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPBindPassword\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPCharsetConfig\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPCompareAsUser\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPCompareDNOnServer\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPDereferenceAliases\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPEnabled\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPFrontPageHack\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPGroupAttribute\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPGroupAttributeIsDN\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPInitialBindAsUser\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPInitialBindPattern\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPMaxSubGroupDepth\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPRemoteUserAttribute\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPRemoteUserIsDN\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPSearchAsUser\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPSubGroupAttribute\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPSubGroupClass\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthLDAPUrl\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthMerging\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthnCacheContext\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthnCacheEnable\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthnCacheProvideFor\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthnCacheSOCache\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthnCacheTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthUserFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzDBDLoginToReferer\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzDBDQuery\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzDBDRedirectQuery\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzDBMAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzDBMType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzDefaultAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzGroupFileAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzLDAPAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzOwnerAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzSendForbiddenOnFailure\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*AuthzUserAuthoritative\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*BalancerGrowth\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*BalancerMember\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*BindAddress\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*BrowserMatch\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*BrowserMatchNoCase\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*BS2000Account\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*BufferedLogs\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*BufferSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheDefaultExpire\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheDirLength\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheDirLevels\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheDisable\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheEnable\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheExpiryCheck\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheForceCompletion\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheGcClean\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheGcDaily\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheGcInterval\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheGcMemUsage\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheGcUnused\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheHeader\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheIgnoreCacheControl\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheIgnoreHeaders\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheIgnoreNoLastMod\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheIgnoreQueryString\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheIgnoreURLSessionIdentifiers\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheKeyBaseURL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheLastModifiedFactor\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheLock\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheLockMaxAge\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheLockPath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheMaxExpire\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheMaxFileSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheMinExpire\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheMinFileSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheNegotiatedDocs\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheQuickHandler\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheReadSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheReadTime\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheRoot\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheStaleOnError\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheStoreExpired\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheStoreNoStore\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheStorePrivate\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CacheTimeMargin\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CGICommandArgs\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CGIMapExtension\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CharsetDefault\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CharsetOptions\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CharsetSourceEnc\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CheckCaseOnly\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CheckSpelling\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ChildPerUserID\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ChrootDir\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ClearModuleList\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ContentDigest\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CookieDomain\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CookieExpires\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CookieFormat\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CookieLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CookieName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CookiePrefix\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CookieStyle\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CookieTracking\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CoreDumpDirectory\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*CustomLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Dav\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DavDepthInfinity\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DavGenericLockDB\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DavLockDB\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DavMinTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDExptime\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDInitSQL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDKeep\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDMax\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDMin\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDParams\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDPersist\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDPrepareSQL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DBDriver\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DefaultClientEncoding\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DefaultIcon\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DefaultLanguage\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DefaultRuntimeDir\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DefaultType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Define\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DeflateBufferSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DeflateCompressionLevel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DeflateFilterNote\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DeflateMemLevel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DeflateWindowSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Deny\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DirectoryIndex\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DirectoryIndexRedirect\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DirectorySlash\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DocumentRoot\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DTracePrivileges\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DumpIOInput\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DumpIOLogLevel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*DumpIOOutput\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*EBCDICConvert\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*EBCDICConvertByType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*EBCDICKludge\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*EnableExceptionHook\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*EnableMMAP\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*EnableSendfile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*EncodingEngine\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Error\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ErrorDocument\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ErrorHeader\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ErrorLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ErrorLogFormat\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Example\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ExpiresActive\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ExpiresByType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ExpiresDefault\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ExtendedStatus\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ExtFilterDefine\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ExtFilterOptions\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*FallbackResource\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*FancyIndexing\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*FileETag\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*FilterChain\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*FilterDeclare\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*FilterProtocol\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*FilterProvider\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*FilterTrace\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ForceLanguagePriority\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ForceType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ForensicLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*GprofDir\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*GracefulShutdownTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Group\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Header\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*HeaderName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*HeartbeatAddress\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*HeartbeatListen\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*HeartbeatMaxServers\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*HeartbeatStorage\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*HostnameLookups\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IdentityCheck\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IdentityCheckTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ImapBase\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ImapDefault\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ImapMenu\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Include\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IncludeOptional\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IndexHeadInsert\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IndexIgnore\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IndexIgnoreReset\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IndexOptions\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IndexOrderDefault\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*IndexStyleSheet\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*InputSed\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ISAPIAppendLogToErrors\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ISAPIAppendLogToQuery\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ISAPICacheFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ISAPIFakeAsync\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ISAPILogNotSupported\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ISAPIReadAheadBuffer\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkAsfTomcat\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkAuthTypeIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkAutoAlias\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkCERTCHAINPrefix\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkCERTSIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkCIPHERIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkEnvVar\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkExtractSSL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkHTTPSIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkKEYSIZEIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkLocalNameIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkLocalPortIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkLogFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkLogLevel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkLogStampFormat\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkMount\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkMountCopy\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkMountFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkMountFileReload\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkOptions\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkRemoteAddrIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkRemoteHostIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkRemotePortIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkRemoteUserIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkRequestLogFormat\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkSESSIONIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkShmFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkShmSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkStripSession\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkUnMount\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkWatchdogInterval\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkWorkerIndicator\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkWorkerProperty\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*JkWorkersFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*KeepAlive\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*KeepAliveTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*KeptBodySize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LanguagePriority\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPCacheEntries\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPCacheTTL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPConnectionPoolTTL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPConnectionTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPOpCacheEntries\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPOpCacheTTL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPReferralHopLimit\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPReferrals\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPRetries\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPRetryDelay\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPSharedCacheFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPSharedCacheSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPTrustedCA\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPTrustedCAType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPTrustedClientCert\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPTrustedGlobalCert\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPTrustedMode\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LDAPVerifyServerCert\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LimitInternalRecursion\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LimitRequestBody\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LimitRequestFields\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LimitRequestFieldSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LimitRequestLine\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LimitXMLRequestBody\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Listen\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ListenBackLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LoadFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LoadModule\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LockFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LogFormat\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LogLevel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LogMessage\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaAuthzProvider\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaHookAccessChecker\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaHookAuthChecker\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaHookCheckUserID\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaHookFixups\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaHookInsertFilter\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaHookMapToStorage\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaHookTranslateName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaHookTypeChecker\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaInherit\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaPackageCPath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaPackagePath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaQuickHandler\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaRoot\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*LuaScope\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxClients\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxConnectionsPerChild\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxKeepAliveRequests\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxMemFree\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxRangeOverlaps\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxRangeReversals\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxRanges\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxRequestsPerChild\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxRequestsPerThread\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxRequestWorkers\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxSpareServers\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxSpareThreads\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxThreads\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MaxThreadsPerChild\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MCacheMaxObjectCount\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MCacheMaxObjectSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MCacheMaxStreamingBuffer\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MCacheMinObjectSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MCacheRemovalAlgorithm\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MCacheSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MetaDir\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MetaFiles\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MetaSuffix\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MimeMagicFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MinSpareServers\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MinSpareThreads\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MMapFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ModemStandard\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ModMimeUsePathInfo\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*MultiviewsMatch\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Mutex\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*NameVirtualHost\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*NoCache\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*NoProxy\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*NormalizeUsername\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*NumServers\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*NWSSLTrustedCerts\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*NWSSLUpgradeable\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Options\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Order\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*OutputSed\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*PassEnv\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*PidFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Port\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*PrivilegesMode\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Protocol\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProtocolEcho\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProtocolReqCheck\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyBadHeader\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyBlock\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyDomain\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyErrorOverride\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyExpressDBMFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyExpressDBMType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyExpressEnable\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyFtpDirCharset\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyFtpEscapeWildcards\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyFtpListOnWildcard\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLBufSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLCharsetOut\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLDocType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLEnable\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLEvents\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLExtended\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLFixups\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLInterp\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLLinks\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLMeta\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLStripComments\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyHTMLURLMap\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyIOBufferSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyMaxForwards\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyPass\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyPassInterpolateEnv\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyPassMatch\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyPassReverse\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyPassReverseCookieDomain\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyPassReverseCookiePath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyPreserveHost\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyReceiveBufferSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyRemote\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyRemoteMatch\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyRequests\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxySCGIInternalRedirect\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxySCGISendfile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxySet\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxySourceAddress\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyStatus\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ProxyVia\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ReadmeName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ReceiveBufferSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Redirect\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RedirectMatch\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RedirectPermanent\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RedirectTemp\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RefererIgnore\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RefererLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ReflectorHeader\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoteIPHeader\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoteIPInternalProxy\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoteIPInternalProxyList\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoteIPProxiesHeader\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoteIPTrustedProxy\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoteIPTrustedProxyList\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoveCharset\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoveEncoding\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoveHandler\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoveInputFilter\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoveLanguage\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoveOutputFilter\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RemoveType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RequestHeader\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RequestReadTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Require\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ResourceConfig\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteBase\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteCond\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteEngine\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteLock\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteLogLevel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteMap\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteOptions\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RewriteRule\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RLimitCPU\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RLimitMEM\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*RLimitNPROC\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Satisfy\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ScoreBoardFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Script\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ScriptAlias\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ScriptAliasMatch\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ScriptInterpreterSource\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ScriptLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ScriptLogBuffer\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ScriptLogLength\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ScriptSock\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SecureListen\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SeeRequestTail\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SendBufferSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerAdmin\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerAlias\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerLimit\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerPath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerRoot\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerSignature\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerTokens\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ServerType\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Session\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionCookieName2\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionCookieName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionCookieRemove\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionCryptoCipher\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionCryptoDriver\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionCryptoPassphrase\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionCryptoPassphraseFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionDBDCookieName2\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionDBDCookieName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionDBDCookieRemove\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionDBDDeleteLabel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionDBDInsertLabel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionDBDPerUser\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionDBDSelectLabel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionDBDUpdateLabel\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionEnv\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionExclude\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionHeader\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionInclude\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SessionMaxAge\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SetEnv\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SetEnvIf\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SetEnvIfExpr\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SetEnvIfNoCase\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SetHandler\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SetInputFilter\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SetOutputFilter\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ShmemUIDisUser\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSIEnableAccess\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSIEndTag\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSIErrorMsg\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSIETag\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSILastModified\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSILegacyExprParser\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSIStartTag\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSITimeFormat\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSIUndefinedEcho\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCACertificateFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCACertificatePath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCADNRequestFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCADNRequestPath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCARevocationCheck\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCARevocationFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCARevocationPath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCertificateChainFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCertificateFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCertificateKeyFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCipherSuite\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCompression\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLCryptoDevice\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLEngine\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLFIPS\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLHonorCipherOrder\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLInsecureRenegotiation\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLMutex\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLOCSPDefaultResponder\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLOCSPEnable\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLOCSPOverrideResponder\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLOCSPResponderTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLOCSPResponseMaxAge\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLOCSPResponseTimeSkew\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLOptions\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLPassPhraseDialog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProtocol\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyCACertificateFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyCACertificatePath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyCARevocationCheck\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyCARevocationFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyCARevocationPath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyCheckPeerCN\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyCheckPeerExpire\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyCipherSuite\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyEngine\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyMachineCertificateChainFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyMachineCertificateFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyMachineCertificatePath\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyProtocol\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyVerify\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLProxyVerifyDepth\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLRandomSeed\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLRenegBufferSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLRequire\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLRequireSSL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLSessionCache\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLSessionCacheTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLSessionTicketKeyFile\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingCache\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingErrorCacheTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingFakeTryLater\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingForceURL\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingResponderTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingResponseMaxAge\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingResponseTimeSkew\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingReturnResponderErrors\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStaplingStandardCacheTimeout\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLStrictSNIVHostCheck\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLUserName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLUseStapling\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLVerifyClient\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SSLVerifyDepth\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*StartServers\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*StartThreads\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Substitute\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Suexec\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*SuexecUserGroup\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ThreadLimit\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ThreadsPerChild\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*ThreadStackSize\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*TimeOut\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*TraceEnable\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*TransferLog\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*TypesConfig\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*UnsetEnv\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*UseCanonicalName\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*UseCanonicalPhysicalPort\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*User\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*UserDir\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VHostCGIMode\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VHostCGIPrivs\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VHostGroup\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VHostPrivs\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VHostSecure\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VHostUser\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VirtualDocumentRoot\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VirtualDocumentRootIP\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VirtualScriptAlias\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*VirtualScriptAliasIP\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*WatchdogInterval\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*Win32DisableAcceptEx\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*XBitHack\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*xml2EncAlias\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*xml2EncDefault\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\s*xml2StartParse\\s",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "(?<=</?)AuthnProviderAlias\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)AuthzProviderAlias\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)Directory\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)DirectoryMatch\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)Else\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)ElseIf\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)Files\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)FilesMatch\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)If\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)IfDefine\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)IfModule\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)IfVersion\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)Location\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)LocationMatch\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)Proxy\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)ProxyMatch\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)RequireAll\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)RequireAny\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)RequireNone\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)VirtualHost\\b",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "add",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "all",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "allow,deny",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "append",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "deny,allow",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "echo",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ExecCGI",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "FollowSymLinks",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "from",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "gone",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Includes",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "IncludesNOEXEC",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "Indexes",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "MultiViews",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "none",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "off",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "on",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "permanent",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "seeothor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "set",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "SymLinksIfOwnerMatch",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "temp",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "unset",
+      "ignoreCase" : true
+    }
+  ]
+}

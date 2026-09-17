@@ -1,0 +1,166 @@
+{
+  "keywords" : [
+    {
+      "begin" : "default"
+    },
+    {
+      "begin" : "enum"
+    },
+    {
+      "begin" : "extend"
+    },
+    {
+      "begin" : "extensions"
+    },
+    {
+      "begin" : "group"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "map"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "message"
+    },
+    {
+      "begin" : "oneof"
+    },
+    {
+      "begin" : "option"
+    },
+    {
+      "begin" : "optional"
+    },
+    {
+      "begin" : "package"
+    },
+    {
+      "begin" : "public"
+    },
+    {
+      "begin" : "repeated"
+    },
+    {
+      "begin" : "required"
+    },
+    {
+      "begin" : "reserved"
+    },
+    {
+      "begin" : "returns"
+    },
+    {
+      "begin" : "rpc"
+    },
+    {
+      "begin" : "service"
+    },
+    {
+      "begin" : "stream"
+    },
+    {
+      "begin" : "syntax"
+    },
+    {
+      "begin" : "to"
+    },
+    {
+      "begin" : "weak"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "((?<!\\w)|[-+])[0-9]+(\\.[0-9]+)?(e[+-]?[0-9]+)?",
+      "description" : "float",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0[0-7]*\\b",
+      "description" : "octal",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0x[0-9a-f]+\\b",
+      "description" : "hex",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "bool"
+    },
+    {
+      "begin" : "bytes"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "enumType"
+    },
+    {
+      "begin" : "fixed32"
+    },
+    {
+      "begin" : "fixed64"
+    },
+    {
+      "begin" : "float"
+    },
+    {
+      "begin" : "int32"
+    },
+    {
+      "begin" : "int64"
+    },
+    {
+      "begin" : "messageType"
+    },
+    {
+      "begin" : "sfixed32"
+    },
+    {
+      "begin" : "sfixed64"
+    },
+    {
+      "begin" : "sint32"
+    },
+    {
+      "begin" : "sint64"
+    },
+    {
+      "begin" : "string"
+    },
+    {
+      "begin" : "uint32"
+    },
+    {
+      "begin" : "uint64"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "true"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "(?<=message|enum|service)[ \\t]+\\w+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b[A-Z]\\w+\\b",
+      "regularExpression" : true
+    }
+  ]
+}

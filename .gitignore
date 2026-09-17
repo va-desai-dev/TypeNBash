@@ -1,0 +1,112 @@
+# ---------------------------------------------------------------------------
+# Xcode / Swift .gitignore
+#
+# Patterns must start at column 0 — git treats leading whitespace as part of
+# the pattern, so an indented rule silently matches nothing.
+# ---------------------------------------------------------------------------
+
+# --- User-specific Xcode state (never commit: contains local paths, window
+# --- layouts, breakpoints, and the developer's account name) ----------------
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+IDEWorkspaceChecks.plist
+*.xcscmblueprint
+*.xccheckout
+
+# --- Build products & derived data ------------------------------------------
+DerivedData/
+build/
+Build/
+.build/
+*.o
+*.a
+*.hmap
+*.ipa
+*.app
+*.xcarchive
+*.dSYM
+*.dSYM.zip
+*.xcresult/
+*.moved-aside
+*.swiftsourceinfo
+*.swiftdoc.tmp
+timeline.xctimeline
+playground.xcworkspace
+
+# --- Swift Package Manager ---------------------------------------------------
+# .swiftpm holds per-user SPM state; Package.resolved is checked in on purpose
+# so dependency versions stay pinned for everyone.
+.swiftpm/
+Packages/
+.netrc
+!**/xcshareddata/swiftpm/Package.resolved
+
+# --- macOS / Finder junk -----------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.apdisk
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# --- Secrets, credentials, signing ------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.p8
+*.p12
+*.key
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+secrets.plist
+Secrets.swift
+*.xcconfig.local
+
+# --- Editor / tooling local state -------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.claude/
+.cursor/
+.aider*
+
+# --- Logs, crash reports, local scratch space --------------------------------
+*.log
+*.crash
+*.hprof
+crash-*.txt
+tmp/
+.tmp/
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# --- Dependency managers (uncomment if you adopt them) -----------------------
+# Pods/
+# Carthage/Checkouts
+Carthage/Build/
+
+# --- fastlane ----------------------------------------------------------------
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output

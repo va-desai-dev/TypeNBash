@@ -1,0 +1,99 @@
+//
+//  NSFont+SystemFont.swift
+//
+//  CotEditor
+//  https://coteditor.com
+//
+//  Created by 1024jp on 2018-11-05.
+//
+//  ---------------------------------------------------------------------------
+//
+//  © 2018-2026 1024jp
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  https://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+import AppKit.NSFont
+
+extension NSFont {
+    
+    enum Name: String {
+        
+        case avenirNextCondensed = "AvenirNextCondensed"
+    }
+    
+    
+    convenience init?(named name: Name, weight: Weight = .regular, size: CGFloat) {
+        
+        guard let postScriptName = name.postScriptName(weight: weight) else { return nil }
+        
+        self.init(name: postScriptName, size: size)
+    }
+    
+    
+    /// Returns the font used for line number views, in the specified size.
+    ///
+    /// - Parameters:
+    ///   - size: The font size.
+    ///   - weight: The font weight.
+    /// - Returns: The line number font.
+    static func lineNumberFont(ofSize size: CGFloat = 0, weight: NSFont.Weight = .regular) -> NSFont {
+        
+        NSFont(named: .avenirNextCondensed, weight: weight, size: size)
+            ?? .monospacedDigitSystemFont(ofSize: size, weight: weight)
+    }
+    
+    
+    /// The Core Graphics font object corresponding to the font.
+    final var cgFont: CGFont {
+        
+        CTFontCopyGraphicsFont(self, nil)
+    }
+}
+
+
+private extension NSFont.Name {
+    
+    /// The PostScript name for the given font weight.
+    ///
+    /// - Parameter weight: The font weight.
+    /// - Returns: A PostScript name.
+    func postScriptName(weight: NSFont.Weight) -> String? {
+        
+        guard let weightName = self.weightName(of: weight) else { return nil }
+        guard !weightName.isEmpty else { return self.rawValue }
+        
+        return self.rawValue + "-" + weightName
+    }
+    
+    
+    /// The font weight string for PostScript name.
+    ///
+    /// - Parameter weight: The font weight.
+    /// - Returns: A font weight name.
+    private func weightName(of weight: NSFont.Weight) -> String? {
+        
+        switch self {
+            case .avenirNextCondensed:
+                switch weight {
+                    case .ultraLight: "UltraLight"
+                    case .regular: "Regular"
+                    case .medium: "Medium"
+                    case .semibold: "DemiBold"
+                    case .bold: "Bold"
+                    case .heavy: "Heavy"
+                    default: nil
+                }
+        }
+    }
+}

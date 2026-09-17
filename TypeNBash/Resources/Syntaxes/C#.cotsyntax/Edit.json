@@ -1,0 +1,63 @@
+{
+  "characterDelimiters" : [
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "\\"
+    }
+  ],
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "/*",
+        "end" : "*/"
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "//"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "\"\"\"",
+      "end" : "\"\"\"",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "\"",
+      "description" : "Interpolated string literal",
+      "end" : "\"",
+      "escapeCharacter" : "\\",
+      "prefixes" : [
+        "$"
+      ]
+    },
+    {
+      "begin" : "\"",
+      "description" : "Verbatim string literal",
+      "end" : "\"",
+      "escapeCharacter" : "\"",
+      "isMultiline" : true,
+      "prefixes" : [
+        "@",
+        "$@",
+        "@$"
+      ]
+    }
+  ]
+}

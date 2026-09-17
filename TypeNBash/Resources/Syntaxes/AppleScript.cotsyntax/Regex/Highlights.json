@@ -1,0 +1,854 @@
+{
+  "commands" : [
+    {
+      "begin" : "\\b(abort|begin|end) transaction\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b(closing|moving) folder window for\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\badding folder items to\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bASCII (character|number)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchange (case|kana|roman width)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchoose (application|color|file|file name|folder|from list|remote application|URL)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchoose file\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclean up\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclipboard info\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bclose access\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bcurrent date\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdata size\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdisplay (alert|dialog|notification|warning)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdisplay notification\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdo shell script\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bget eof\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bget volume settings\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhandle CGI request\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binfo for\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bkey code\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\blist (disks|folder)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bload script\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\blocalized string\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\blog out\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmount volume\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnormalize unicode\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bopen for access\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bopen location\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bopening folder\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpath to( resource)?\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\brandom number\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bremoving folder items from\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\brun script\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bscripting components\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bscroll to caret\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bset eof\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bset the clipboard to\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bset volume\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bshift (left|right)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bshut down\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bstore script\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bsystem (attribute|info)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bthe clipboard\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btime to GMT\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "activate"
+    },
+    {
+      "begin" : "beep"
+    },
+    {
+      "begin" : "click"
+    },
+    {
+      "begin" : "close"
+    },
+    {
+      "begin" : "connect"
+    },
+    {
+      "begin" : "convert"
+    },
+    {
+      "begin" : "copy"
+    },
+    {
+      "begin" : "count"
+    },
+    {
+      "begin" : "crop"
+    },
+    {
+      "begin" : "delay"
+    },
+    {
+      "begin" : "delete"
+    },
+    {
+      "begin" : "disconnect"
+    },
+    {
+      "begin" : "duplicate"
+    },
+    {
+      "begin" : "eject"
+    },
+    {
+      "begin" : "embed"
+    },
+    {
+      "begin" : "empty"
+    },
+    {
+      "begin" : "erase"
+    },
+    {
+      "begin" : "exists"
+    },
+    {
+      "begin" : "file"
+    },
+    {
+      "begin" : "find"
+    },
+    {
+      "begin" : "flip"
+    },
+    {
+      "begin" : "get"
+    },
+    {
+      "begin" : "keystroke"
+    },
+    {
+      "begin" : "make"
+    },
+    {
+      "begin" : "match"
+    },
+    {
+      "begin" : "move"
+    },
+    {
+      "begin" : "offset"
+    },
+    {
+      "begin" : "open"
+    },
+    {
+      "begin" : "pad"
+    },
+    {
+      "begin" : "perform"
+    },
+    {
+      "begin" : "print"
+    },
+    {
+      "begin" : "quit"
+    },
+    {
+      "begin" : "read"
+    },
+    {
+      "begin" : "reinterpret"
+    },
+    {
+      "begin" : "replace"
+    },
+    {
+      "begin" : "restart"
+    },
+    {
+      "begin" : "reveal"
+    },
+    {
+      "begin" : "rotate"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "run"
+    },
+    {
+      "begin" : "save"
+    },
+    {
+      "begin" : "say"
+    },
+    {
+      "begin" : "scale"
+    },
+    {
+      "begin" : "select"
+    },
+    {
+      "begin" : "sleep"
+    },
+    {
+      "begin" : "sort"
+    },
+    {
+      "begin" : "start"
+    },
+    {
+      "begin" : "stop"
+    },
+    {
+      "begin" : "string"
+    },
+    {
+      "begin" : "summarize"
+    },
+    {
+      "begin" : "unembed"
+    },
+    {
+      "begin" : "update"
+    },
+    {
+      "begin" : "write"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "&"
+    },
+    {
+      "begin" : "(?<=')s\\s",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "*"
+    },
+    {
+      "begin" : "+"
+    },
+    {
+      "begin" : "-"
+    },
+    {
+      "begin" : "/"
+    },
+    {
+      "begin" : "<"
+    },
+    {
+      "begin" : "="
+    },
+    {
+      "begin" : "≠"
+    },
+    {
+      "begin" : ">"
+    },
+    {
+      "begin" : "\\bcomes (before|after)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "a"
+    },
+    {
+      "begin" : "about"
+    },
+    {
+      "begin" : "above"
+    },
+    {
+      "begin" : "against"
+    },
+    {
+      "begin" : "an"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "apart"
+    },
+    {
+      "begin" : "around"
+    },
+    {
+      "begin" : "as"
+    },
+    {
+      "begin" : "aside"
+    },
+    {
+      "begin" : "back"
+    },
+    {
+      "begin" : "begin"
+    },
+    {
+      "begin" : "beginning"
+    },
+    {
+      "begin" : "begins"
+    },
+    {
+      "begin" : "behind"
+    },
+    {
+      "begin" : "below"
+    },
+    {
+      "begin" : "beneath"
+    },
+    {
+      "begin" : "beside"
+    },
+    {
+      "begin" : "between"
+    },
+    {
+      "begin" : "but"
+    },
+    {
+      "begin" : "by"
+    },
+    {
+      "begin" : "considering"
+    },
+    {
+      "begin" : "contain"
+    },
+    {
+      "begin" : "contained"
+    },
+    {
+      "begin" : "contains"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "div"
+    },
+    {
+      "begin" : "does"
+    },
+    {
+      "begin" : "doesn't"
+    },
+    {
+      "begin" : "eighth"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "end"
+    },
+    {
+      "begin" : "ends"
+    },
+    {
+      "begin" : "equal"
+    },
+    {
+      "begin" : "equals"
+    },
+    {
+      "begin" : "error"
+    },
+    {
+      "begin" : "every"
+    },
+    {
+      "begin" : "exit"
+    },
+    {
+      "begin" : "fifth"
+    },
+    {
+      "begin" : "first"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "fourth"
+    },
+    {
+      "begin" : "front"
+    },
+    {
+      "begin" : "given"
+    },
+    {
+      "begin" : "global"
+    },
+    {
+      "begin" : "greater"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "ignoring"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "instead"
+    },
+    {
+      "begin" : "into"
+    },
+    {
+      "begin" : "is"
+    },
+    {
+      "begin" : "isn't"
+    },
+    {
+      "begin" : "it"
+    },
+    {
+      "begin" : "its"
+    },
+    {
+      "begin" : "last"
+    },
+    {
+      "begin" : "less"
+    },
+    {
+      "begin" : "local"
+    },
+    {
+      "begin" : "middle"
+    },
+    {
+      "begin" : "mod"
+    },
+    {
+      "begin" : "my"
+    },
+    {
+      "begin" : "ninth"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "of"
+    },
+    {
+      "begin" : "on"
+    },
+    {
+      "begin" : "onto"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "out"
+    },
+    {
+      "begin" : "over"
+    },
+    {
+      "begin" : "prop"
+    },
+    {
+      "begin" : "property"
+    },
+    {
+      "begin" : "put"
+    },
+    {
+      "begin" : "ref"
+    },
+    {
+      "begin" : "reference"
+    },
+    {
+      "begin" : "repeat"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "returning"
+    },
+    {
+      "begin" : "script"
+    },
+    {
+      "begin" : "second"
+    },
+    {
+      "begin" : "set"
+    },
+    {
+      "begin" : "seventh"
+    },
+    {
+      "begin" : "since"
+    },
+    {
+      "begin" : "sixth"
+    },
+    {
+      "begin" : "some"
+    },
+    {
+      "begin" : "start"
+    },
+    {
+      "begin" : "starts"
+    },
+    {
+      "begin" : "tell"
+    },
+    {
+      "begin" : "tenth"
+    },
+    {
+      "begin" : "than"
+    },
+    {
+      "begin" : "that"
+    },
+    {
+      "begin" : "the"
+    },
+    {
+      "begin" : "then"
+    },
+    {
+      "begin" : "third"
+    },
+    {
+      "begin" : "through"
+    },
+    {
+      "begin" : "thru"
+    },
+    {
+      "begin" : "timeout"
+    },
+    {
+      "begin" : "times"
+    },
+    {
+      "begin" : "to"
+    },
+    {
+      "begin" : "transaction"
+    },
+    {
+      "begin" : "try"
+    },
+    {
+      "begin" : "until"
+    },
+    {
+      "begin" : "use"
+    },
+    {
+      "begin" : "where"
+    },
+    {
+      "begin" : "while"
+    },
+    {
+      "begin" : "whose"
+    },
+    {
+      "begin" : "with"
+    },
+    {
+      "begin" : "without"
+    },
+    {
+      "begin" : "÷"
+    },
+    {
+      "begin" : "≤"
+    },
+    {
+      "begin" : "≥"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b\\d+(\\.\\d*)?\\b",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "alias"
+    },
+    {
+      "begin" : "application"
+    },
+    {
+      "begin" : "applications"
+    },
+    {
+      "begin" : "character"
+    },
+    {
+      "begin" : "characters"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "color"
+    },
+    {
+      "begin" : "document"
+    },
+    {
+      "begin" : "documents"
+    },
+    {
+      "begin" : "file"
+    },
+    {
+      "begin" : "integer"
+    },
+    {
+      "begin" : "item"
+    },
+    {
+      "begin" : "items"
+    },
+    {
+      "begin" : "list"
+    },
+    {
+      "begin" : "paragraph"
+    },
+    {
+      "begin" : "paragraphs"
+    },
+    {
+      "begin" : "real"
+    },
+    {
+      "begin" : "record"
+    },
+    {
+      "begin" : "text"
+    },
+    {
+      "begin" : "window"
+    },
+    {
+      "begin" : "windows"
+    },
+    {
+      "begin" : "word"
+    },
+    {
+      "begin" : "words"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "(?<=\\&)\\s+return",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bcurrent application\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmissing value\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bPOSIX (path|file)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bquoted form\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bversion of AppleScript\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "bounds"
+    },
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "linefeed"
+    },
+    {
+      "begin" : "pi"
+    },
+    {
+      "begin" : "quote"
+    },
+    {
+      "begin" : "result"
+    },
+    {
+      "begin" : "return\\s+(?=\\&)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "space"
+    },
+    {
+      "begin" : "tab"
+    },
+    {
+      "begin" : "true"
+    },
+    {
+      "begin" : "version"
+    },
+    {
+      "begin" : "warning"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "it"
+    },
+    {
+      "begin" : "me"
+    }
+  ]
+}

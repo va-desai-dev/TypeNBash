@@ -1,0 +1,1118 @@
+{
+  "characters" : [
+    {
+      "begin" : "(?s)<<\\s*'([0-9a-zA-Z_]+)'\\s*;.+?\\R\\1\\R",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bq/",
+      "end" : "/",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "accept"
+    },
+    {
+      "begin" : "alarm"
+    },
+    {
+      "begin" : "atan2"
+    },
+    {
+      "begin" : "AUTOLOAD"
+    },
+    {
+      "begin" : "BEGIN"
+    },
+    {
+      "begin" : "bind"
+    },
+    {
+      "begin" : "binmode"
+    },
+    {
+      "begin" : "bless"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "caller"
+    },
+    {
+      "begin" : "chdir"
+    },
+    {
+      "begin" : "CHECK"
+    },
+    {
+      "begin" : "chmod"
+    },
+    {
+      "begin" : "chomp"
+    },
+    {
+      "begin" : "chop"
+    },
+    {
+      "begin" : "chown"
+    },
+    {
+      "begin" : "chr"
+    },
+    {
+      "begin" : "chroot"
+    },
+    {
+      "begin" : "close"
+    },
+    {
+      "begin" : "closedir"
+    },
+    {
+      "begin" : "connect"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "crypt"
+    },
+    {
+      "begin" : "dbmclose"
+    },
+    {
+      "begin" : "dbmopen"
+    },
+    {
+      "begin" : "defined"
+    },
+    {
+      "begin" : "delete"
+    },
+    {
+      "begin" : "DESTROY"
+    },
+    {
+      "begin" : "die"
+    },
+    {
+      "begin" : "dump"
+    },
+    {
+      "begin" : "each"
+    },
+    {
+      "begin" : "END"
+    },
+    {
+      "begin" : "endgrent"
+    },
+    {
+      "begin" : "endhostent"
+    },
+    {
+      "begin" : "endnetent"
+    },
+    {
+      "begin" : "endprotoent"
+    },
+    {
+      "begin" : "endpwent"
+    },
+    {
+      "begin" : "endservent"
+    },
+    {
+      "begin" : "eof"
+    },
+    {
+      "begin" : "eval"
+    },
+    {
+      "begin" : "exec"
+    },
+    {
+      "begin" : "exists"
+    },
+    {
+      "begin" : "exit"
+    },
+    {
+      "begin" : "fcntl"
+    },
+    {
+      "begin" : "fileno"
+    },
+    {
+      "begin" : "flock"
+    },
+    {
+      "begin" : "fork"
+    },
+    {
+      "begin" : "format"
+    },
+    {
+      "begin" : "formline"
+    },
+    {
+      "begin" : "getc"
+    },
+    {
+      "begin" : "getgrent"
+    },
+    {
+      "begin" : "getgrgid"
+    },
+    {
+      "begin" : "getgrnam"
+    },
+    {
+      "begin" : "gethostbyaddr"
+    },
+    {
+      "begin" : "gethostbyname"
+    },
+    {
+      "begin" : "gethostent"
+    },
+    {
+      "begin" : "getlogin"
+    },
+    {
+      "begin" : "getnetbyaddr"
+    },
+    {
+      "begin" : "getnetbyname"
+    },
+    {
+      "begin" : "getnetent"
+    },
+    {
+      "begin" : "getpeername"
+    },
+    {
+      "begin" : "getpgrp"
+    },
+    {
+      "begin" : "getppid"
+    },
+    {
+      "begin" : "getpriority"
+    },
+    {
+      "begin" : "getprotobyname"
+    },
+    {
+      "begin" : "getprotobynumber"
+    },
+    {
+      "begin" : "getprotoent"
+    },
+    {
+      "begin" : "getpwent"
+    },
+    {
+      "begin" : "getpwnam"
+    },
+    {
+      "begin" : "getpwuid"
+    },
+    {
+      "begin" : "getservbyname"
+    },
+    {
+      "begin" : "getservbyport"
+    },
+    {
+      "begin" : "getservent"
+    },
+    {
+      "begin" : "getsockname"
+    },
+    {
+      "begin" : "getsockopt"
+    },
+    {
+      "begin" : "glob"
+    },
+    {
+      "begin" : "gmtime"
+    },
+    {
+      "begin" : "goto"
+    },
+    {
+      "begin" : "grep"
+    },
+    {
+      "begin" : "hex"
+    },
+    {
+      "begin" : "index"
+    },
+    {
+      "begin" : "INIT"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "ioctl"
+    },
+    {
+      "begin" : "join"
+    },
+    {
+      "begin" : "keys"
+    },
+    {
+      "begin" : "kill"
+    },
+    {
+      "begin" : "last"
+    },
+    {
+      "begin" : "lc"
+    },
+    {
+      "begin" : "lcfirst"
+    },
+    {
+      "begin" : "length"
+    },
+    {
+      "begin" : "link"
+    },
+    {
+      "begin" : "listen"
+    },
+    {
+      "begin" : "local"
+    },
+    {
+      "begin" : "localtime"
+    },
+    {
+      "begin" : "log"
+    },
+    {
+      "begin" : "lstat"
+    },
+    {
+      "begin" : "map"
+    },
+    {
+      "begin" : "mkdir"
+    },
+    {
+      "begin" : "msgctl"
+    },
+    {
+      "begin" : "msgget"
+    },
+    {
+      "begin" : "msgrcv"
+    },
+    {
+      "begin" : "msgsnd"
+    },
+    {
+      "begin" : "my"
+    },
+    {
+      "begin" : "next"
+    },
+    {
+      "begin" : "not"
+    },
+    {
+      "begin" : "oct"
+    },
+    {
+      "begin" : "open"
+    },
+    {
+      "begin" : "opendir"
+    },
+    {
+      "begin" : "ord"
+    },
+    {
+      "begin" : "our"
+    },
+    {
+      "begin" : "pack"
+    },
+    {
+      "begin" : "pipe"
+    },
+    {
+      "begin" : "pop"
+    },
+    {
+      "begin" : "pos"
+    },
+    {
+      "begin" : "print"
+    },
+    {
+      "begin" : "printf"
+    },
+    {
+      "begin" : "prototype"
+    },
+    {
+      "begin" : "push"
+    },
+    {
+      "begin" : "quotemeta"
+    },
+    {
+      "begin" : "rand"
+    },
+    {
+      "begin" : "read"
+    },
+    {
+      "begin" : "readdir"
+    },
+    {
+      "begin" : "readline"
+    },
+    {
+      "begin" : "readlink"
+    },
+    {
+      "begin" : "readpipe"
+    },
+    {
+      "begin" : "recv"
+    },
+    {
+      "begin" : "redo"
+    },
+    {
+      "begin" : "ref"
+    },
+    {
+      "begin" : "rename"
+    },
+    {
+      "begin" : "require"
+    },
+    {
+      "begin" : "reset"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "reverse"
+    },
+    {
+      "begin" : "rewinddir"
+    },
+    {
+      "begin" : "rindex"
+    },
+    {
+      "begin" : "rmdir"
+    },
+    {
+      "begin" : "say"
+    },
+    {
+      "begin" : "scalar"
+    },
+    {
+      "begin" : "seek"
+    },
+    {
+      "begin" : "seekdir"
+    },
+    {
+      "begin" : "select"
+    },
+    {
+      "begin" : "semctl"
+    },
+    {
+      "begin" : "semget"
+    },
+    {
+      "begin" : "semop"
+    },
+    {
+      "begin" : "send"
+    },
+    {
+      "begin" : "setgrent"
+    },
+    {
+      "begin" : "sethostent"
+    },
+    {
+      "begin" : "setnetent"
+    },
+    {
+      "begin" : "setpgrp"
+    },
+    {
+      "begin" : "setpriority"
+    },
+    {
+      "begin" : "setprotoent"
+    },
+    {
+      "begin" : "setpwent"
+    },
+    {
+      "begin" : "setservent"
+    },
+    {
+      "begin" : "setsockopt"
+    },
+    {
+      "begin" : "shift"
+    },
+    {
+      "begin" : "shmctl"
+    },
+    {
+      "begin" : "shmget"
+    },
+    {
+      "begin" : "shmread"
+    },
+    {
+      "begin" : "shmwrite"
+    },
+    {
+      "begin" : "shutdown"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "sleep"
+    },
+    {
+      "begin" : "socket"
+    },
+    {
+      "begin" : "socketpair"
+    },
+    {
+      "begin" : "sort"
+    },
+    {
+      "begin" : "splice"
+    },
+    {
+      "begin" : "split"
+    },
+    {
+      "begin" : "sprintf"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "srand"
+    },
+    {
+      "begin" : "stat"
+    },
+    {
+      "begin" : "state"
+    },
+    {
+      "begin" : "study"
+    },
+    {
+      "begin" : "substr"
+    },
+    {
+      "begin" : "symlink"
+    },
+    {
+      "begin" : "syscall"
+    },
+    {
+      "begin" : "sysopen"
+    },
+    {
+      "begin" : "sysread"
+    },
+    {
+      "begin" : "sysseek"
+    },
+    {
+      "begin" : "system"
+    },
+    {
+      "begin" : "syswrite"
+    },
+    {
+      "begin" : "tell"
+    },
+    {
+      "begin" : "telldir"
+    },
+    {
+      "begin" : "tie"
+    },
+    {
+      "begin" : "tied"
+    },
+    {
+      "begin" : "time"
+    },
+    {
+      "begin" : "times"
+    },
+    {
+      "begin" : "truncate"
+    },
+    {
+      "begin" : "uc"
+    },
+    {
+      "begin" : "ucfirst"
+    },
+    {
+      "begin" : "umask"
+    },
+    {
+      "begin" : "undef"
+    },
+    {
+      "begin" : "UNITCHECK"
+    },
+    {
+      "begin" : "unlink"
+    },
+    {
+      "begin" : "unpack"
+    },
+    {
+      "begin" : "unshift"
+    },
+    {
+      "begin" : "untie"
+    },
+    {
+      "begin" : "use"
+    },
+    {
+      "begin" : "utime"
+    },
+    {
+      "begin" : "values"
+    },
+    {
+      "begin" : "vec"
+    },
+    {
+      "begin" : "wait"
+    },
+    {
+      "begin" : "waitpid"
+    },
+    {
+      "begin" : "wantarray"
+    },
+    {
+      "begin" : "warn"
+    },
+    {
+      "begin" : "write"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "__DATA__"
+    },
+    {
+      "begin" : "__END__"
+    },
+    {
+      "begin" : "__FILE__"
+    },
+    {
+      "begin" : "__LINE__"
+    },
+    {
+      "begin" : "__PACKAGE__"
+    },
+    {
+      "begin" : "and"
+    },
+    {
+      "begin" : "cmp"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "CORE"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "elsif"
+    },
+    {
+      "begin" : "eq"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "foreach"
+    },
+    {
+      "begin" : "ge"
+    },
+    {
+      "begin" : "gt"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "le"
+    },
+    {
+      "begin" : "lock"
+    },
+    {
+      "begin" : "lt"
+    },
+    {
+      "begin" : "m"
+    },
+    {
+      "begin" : "ne"
+    },
+    {
+      "begin" : "no"
+    },
+    {
+      "begin" : "or"
+    },
+    {
+      "begin" : "package"
+    },
+    {
+      "begin" : "q"
+    },
+    {
+      "begin" : "qq"
+    },
+    {
+      "begin" : "qr"
+    },
+    {
+      "begin" : "qw"
+    },
+    {
+      "begin" : "qx"
+    },
+    {
+      "begin" : "s"
+    },
+    {
+      "begin" : "sub"
+    },
+    {
+      "begin" : "tr"
+    },
+    {
+      "begin" : "unless"
+    },
+    {
+      "begin" : "until"
+    },
+    {
+      "begin" : "while"
+    },
+    {
+      "begin" : "xor"
+    },
+    {
+      "begin" : "y"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<![0-9a-z_$])[0-9.][0-9._]*(e[-+][0-9._]+)?\\b",
+      "description" : "decimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0b[01_]+\\b",
+      "description" : "binary",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b0x[0-9a-fA-F_]+\\b",
+      "description" : "hexadecimal",
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "(?s)<<[ \\t]*\"?([0-9a-zA-Z_]+)\"?[ \\t]*;.+?\\R\\1\\R",
+      "description" : "here-doc",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "/[^\\r\\n/]*/[^\\r\\n/]*/[a-z]*\\b",
+      "description" : "regex",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "$ACCUMULATOR"
+    },
+    {
+      "begin" : "$ARGV"
+    },
+    {
+      "begin" : "$BASETIME"
+    },
+    {
+      "begin" : "$CHILD_ERROR"
+    },
+    {
+      "begin" : "$DEBUGGING"
+    },
+    {
+      "begin" : "$EFFECTIVE_GROUP_ID"
+    },
+    {
+      "begin" : "$EFFECTIVE_USER_ID"
+    },
+    {
+      "begin" : "$EGID"
+    },
+    {
+      "begin" : "$ENV"
+    },
+    {
+      "begin" : "$ERRNO"
+    },
+    {
+      "begin" : "$EUID"
+    },
+    {
+      "begin" : "$EVAL_ERROR"
+    },
+    {
+      "begin" : "$EXECUTABLE_NAME"
+    },
+    {
+      "begin" : "$FORMAT_FORMFEED"
+    },
+    {
+      "begin" : "$FORMAT_LINE_BREAK_CHARACTERS"
+    },
+    {
+      "begin" : "$FORMAT_LINES_LEFT"
+    },
+    {
+      "begin" : "$FORMAT_LINES_PER_PAGE"
+    },
+    {
+      "begin" : "$FORMAT_NAME"
+    },
+    {
+      "begin" : "$FORMAT_PAGE_NUMBER"
+    },
+    {
+      "begin" : "$FORMAT_TOP_NAME"
+    },
+    {
+      "begin" : "$GID"
+    },
+    {
+      "begin" : "$INPLACE_EDIT"
+    },
+    {
+      "begin" : "$INPUT_LINE_NUMBER"
+    },
+    {
+      "begin" : "$INPUT_RECORD_SEPARATOR"
+    },
+    {
+      "begin" : "$LAST_PAREN_MATCH"
+    },
+    {
+      "begin" : "$LIST_SEPARATOR"
+    },
+    {
+      "begin" : "$MATCH"
+    },
+    {
+      "begin" : "$NR"
+    },
+    {
+      "begin" : "$OFMT"
+    },
+    {
+      "begin" : "$OFS"
+    },
+    {
+      "begin" : "$ORS"
+    },
+    {
+      "begin" : "$OS_ERROR"
+    },
+    {
+      "begin" : "$OUTPUT_FIELD_SEPARATOR"
+    },
+    {
+      "begin" : "$OUTPUT_RECORD_SEPARATOR"
+    },
+    {
+      "begin" : "$PERL_VERSION"
+    },
+    {
+      "begin" : "$PERLDB"
+    },
+    {
+      "begin" : "$PID"
+    },
+    {
+      "begin" : "$POSTMATCH"
+    },
+    {
+      "begin" : "$PREMATCH"
+    },
+    {
+      "begin" : "$PROCESS_ID"
+    },
+    {
+      "begin" : "$PROGRAM_NAME"
+    },
+    {
+      "begin" : "$REAL_GROUP_ID"
+    },
+    {
+      "begin" : "$REAL_USER_ID"
+    },
+    {
+      "begin" : "$RS"
+    },
+    {
+      "begin" : "$SIG"
+    },
+    {
+      "begin" : "$SUBSCRIPT_SEPARATOR"
+    },
+    {
+      "begin" : "$SUBSEP"
+    },
+    {
+      "begin" : "$SYSTEM_FD_MAX"
+    },
+    {
+      "begin" : "$UID"
+    },
+    {
+      "begin" : "$WARNING"
+    },
+    {
+      "begin" : "%INC"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "(?<!\\$)\\$,",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\$)\\$;",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\$)\\$\\$",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\$)\\$\\)(?!\\s*\\{)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\$)\\$\\+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\$)\\$\\-",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\$)\\$\\.",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(\\$|\\$#|@|%)[_a-zA-Z][_a-zA-Z0-9]*",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "@ARGV"
+    },
+    {
+      "begin" : "@INC"
+    },
+    {
+      "begin" : "\\$!",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\"",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$#",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$%",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$&",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$'",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$/",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$:",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$<",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$=",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$>",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$@",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$[0-9]+\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\(",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\*",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\?",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\[",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\\\",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\]",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^A\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^D\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^F\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^I\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^L\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^P\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^T\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^W\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\^X\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$\\|",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$_",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$`",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\$~",
+      "regularExpression" : true
+    }
+  ]
+}

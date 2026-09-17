@@ -1,0 +1,8 @@
+[
+  {
+    "description" : "section",
+    "kind" : "container",
+    "pattern" : "^\\[(.+)\\]",
+    "template" : "$1"
+  }
+]

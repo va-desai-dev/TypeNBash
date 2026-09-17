@@ -1,0 +1,2435 @@
+{
+  "attributes" : [
+    {
+      "begin" : "@(<=\\()",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "@[a-z_]+",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "@disable"
+    },
+    {
+      "begin" : "@nogc"
+    },
+    {
+      "begin" : "@property"
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "_d_array_bounds"
+    },
+    {
+      "begin" : "_d_arraybounds"
+    },
+    {
+      "begin" : "_d_assert"
+    },
+    {
+      "begin" : "_d_assert_msg"
+    },
+    {
+      "begin" : "_d_assertm"
+    },
+    {
+      "begin" : "_d_switch_error"
+    },
+    {
+      "begin" : "_d_unittest"
+    },
+    {
+      "begin" : "_d_unittest_msg"
+    },
+    {
+      "begin" : "_d_unittestm"
+    },
+    {
+      "begin" : "_Exit"
+    },
+    {
+      "begin" : "_popcnt"
+    },
+    {
+      "begin" : "abort"
+    },
+    {
+      "begin" : "abs"
+    },
+    {
+      "begin" : "acos"
+    },
+    {
+      "begin" : "acosf"
+    },
+    {
+      "begin" : "acosh"
+    },
+    {
+      "begin" : "acoshf"
+    },
+    {
+      "begin" : "acoshl"
+    },
+    {
+      "begin" : "acosl"
+    },
+    {
+      "begin" : "adds"
+    },
+    {
+      "begin" : "addu"
+    },
+    {
+      "begin" : "aes"
+    },
+    {
+      "begin" : "alloca"
+    },
+    {
+      "begin" : "amd3dnow"
+    },
+    {
+      "begin" : "amd3dnowExt"
+    },
+    {
+      "begin" : "amdMmx"
+    },
+    {
+      "begin" : "asctime"
+    },
+    {
+      "begin" : "asin"
+    },
+    {
+      "begin" : "asinf"
+    },
+    {
+      "begin" : "asinh"
+    },
+    {
+      "begin" : "asinhf"
+    },
+    {
+      "begin" : "asinhl"
+    },
+    {
+      "begin" : "asinl"
+    },
+    {
+      "begin" : "assertHandler"
+    },
+    {
+      "begin" : "atan"
+    },
+    {
+      "begin" : "atan2"
+    },
+    {
+      "begin" : "atan2f"
+    },
+    {
+      "begin" : "atan2l"
+    },
+    {
+      "begin" : "atanf"
+    },
+    {
+      "begin" : "atanh"
+    },
+    {
+      "begin" : "atanhf"
+    },
+    {
+      "begin" : "atanhl"
+    },
+    {
+      "begin" : "atanl"
+    },
+    {
+      "begin" : "atexit"
+    },
+    {
+      "begin" : "atof"
+    },
+    {
+      "begin" : "atoi"
+    },
+    {
+      "begin" : "atol"
+    },
+    {
+      "begin" : "atoll"
+    },
+    {
+      "begin" : "atomicFence"
+    },
+    {
+      "begin" : "atomicLoad"
+    },
+    {
+      "begin" : "atomicOp"
+    },
+    {
+      "begin" : "atomicStore"
+    },
+    {
+      "begin" : "avx"
+    },
+    {
+      "begin" : "avx2"
+    },
+    {
+      "begin" : "bitswap"
+    },
+    {
+      "begin" : "bsearch"
+    },
+    {
+      "begin" : "bsf"
+    },
+    {
+      "begin" : "bsr"
+    },
+    {
+      "begin" : "bswap"
+    },
+    {
+      "begin" : "bt"
+    },
+    {
+      "begin" : "btc"
+    },
+    {
+      "begin" : "btowc"
+    },
+    {
+      "begin" : "btr"
+    },
+    {
+      "begin" : "bts"
+    },
+    {
+      "begin" : "cabs"
+    },
+    {
+      "begin" : "cabsf"
+    },
+    {
+      "begin" : "cabsl"
+    },
+    {
+      "begin" : "cacheLevels"
+    },
+    {
+      "begin" : "cacos"
+    },
+    {
+      "begin" : "cacosf"
+    },
+    {
+      "begin" : "cacosh"
+    },
+    {
+      "begin" : "cacoshf"
+    },
+    {
+      "begin" : "cacoshl"
+    },
+    {
+      "begin" : "cacosl"
+    },
+    {
+      "begin" : "calloc"
+    },
+    {
+      "begin" : "carg"
+    },
+    {
+      "begin" : "cargf"
+    },
+    {
+      "begin" : "cargl"
+    },
+    {
+      "begin" : "cas"
+    },
+    {
+      "begin" : "casin"
+    },
+    {
+      "begin" : "casinf"
+    },
+    {
+      "begin" : "casinh"
+    },
+    {
+      "begin" : "casinhf"
+    },
+    {
+      "begin" : "casinhl"
+    },
+    {
+      "begin" : "casinl"
+    },
+    {
+      "begin" : "catan"
+    },
+    {
+      "begin" : "catanf"
+    },
+    {
+      "begin" : "catanh"
+    },
+    {
+      "begin" : "catanhf"
+    },
+    {
+      "begin" : "catanhl"
+    },
+    {
+      "begin" : "catanl"
+    },
+    {
+      "begin" : "cbrt"
+    },
+    {
+      "begin" : "cbrtf"
+    },
+    {
+      "begin" : "cbrtl"
+    },
+    {
+      "begin" : "ccos"
+    },
+    {
+      "begin" : "ccosf"
+    },
+    {
+      "begin" : "ccosh"
+    },
+    {
+      "begin" : "ccoshf"
+    },
+    {
+      "begin" : "ccoshl"
+    },
+    {
+      "begin" : "ccosl"
+    },
+    {
+      "begin" : "ceil"
+    },
+    {
+      "begin" : "ceilf"
+    },
+    {
+      "begin" : "ceill"
+    },
+    {
+      "begin" : "cexp"
+    },
+    {
+      "begin" : "cexpf"
+    },
+    {
+      "begin" : "cexpl"
+    },
+    {
+      "begin" : "chunks"
+    },
+    {
+      "begin" : "cimag"
+    },
+    {
+      "begin" : "cimagf"
+    },
+    {
+      "begin" : "cimagl"
+    },
+    {
+      "begin" : "clearerr"
+    },
+    {
+      "begin" : "clock"
+    },
+    {
+      "begin" : "clog"
+    },
+    {
+      "begin" : "clogf"
+    },
+    {
+      "begin" : "clogl"
+    },
+    {
+      "begin" : "conj"
+    },
+    {
+      "begin" : "conjf"
+    },
+    {
+      "begin" : "conjl"
+    },
+    {
+      "begin" : "convClockFreq"
+    },
+    {
+      "begin" : "convert"
+    },
+    {
+      "begin" : "copysign"
+    },
+    {
+      "begin" : "copysignf"
+    },
+    {
+      "begin" : "copysignl"
+    },
+    {
+      "begin" : "coresPerCPU"
+    },
+    {
+      "begin" : "cos"
+    },
+    {
+      "begin" : "cosf"
+    },
+    {
+      "begin" : "cosh"
+    },
+    {
+      "begin" : "coshf"
+    },
+    {
+      "begin" : "coshl"
+    },
+    {
+      "begin" : "cosl"
+    },
+    {
+      "begin" : "cpow"
+    },
+    {
+      "begin" : "cpowf"
+    },
+    {
+      "begin" : "cpowl"
+    },
+    {
+      "begin" : "cproj"
+    },
+    {
+      "begin" : "cprojf"
+    },
+    {
+      "begin" : "cprojl"
+    },
+    {
+      "begin" : "crealf"
+    },
+    {
+      "begin" : "creall"
+    },
+    {
+      "begin" : "csin"
+    },
+    {
+      "begin" : "csinf"
+    },
+    {
+      "begin" : "csinh"
+    },
+    {
+      "begin" : "csinhf"
+    },
+    {
+      "begin" : "csinhl"
+    },
+    {
+      "begin" : "csinl"
+    },
+    {
+      "begin" : "csqrt"
+    },
+    {
+      "begin" : "csqrtf"
+    },
+    {
+      "begin" : "csqrtl"
+    },
+    {
+      "begin" : "ctan"
+    },
+    {
+      "begin" : "ctanf"
+    },
+    {
+      "begin" : "ctanh"
+    },
+    {
+      "begin" : "ctanhf"
+    },
+    {
+      "begin" : "ctanhl"
+    },
+    {
+      "begin" : "ctanl"
+    },
+    {
+      "begin" : "ctime"
+    },
+    {
+      "begin" : "dataCaches"
+    },
+    {
+      "begin" : "defaultTraceHandler"
+    },
+    {
+      "begin" : "demangle"
+    },
+    {
+      "begin" : "demangleType"
+    },
+    {
+      "begin" : "difftime"
+    },
+    {
+      "begin" : "div"
+    },
+    {
+      "begin" : "dmd_coverDestPath"
+    },
+    {
+      "begin" : "dmd_coverSetMerge"
+    },
+    {
+      "begin" : "dmd_coverSourcePath"
+    },
+    {
+      "begin" : "dur"
+    },
+    {
+      "begin" : "erf"
+    },
+    {
+      "begin" : "erfc"
+    },
+    {
+      "begin" : "erfcf"
+    },
+    {
+      "begin" : "erfcl"
+    },
+    {
+      "begin" : "erff"
+    },
+    {
+      "begin" : "erfl"
+    },
+    {
+      "begin" : "errno"
+    },
+    {
+      "begin" : "exit"
+    },
+    {
+      "begin" : "exp"
+    },
+    {
+      "begin" : "exp2"
+    },
+    {
+      "begin" : "exp2f"
+    },
+    {
+      "begin" : "exp2l"
+    },
+    {
+      "begin" : "expf"
+    },
+    {
+      "begin" : "expl"
+    },
+    {
+      "begin" : "expm1"
+    },
+    {
+      "begin" : "expm1f"
+    },
+    {
+      "begin" : "expm1l"
+    },
+    {
+      "begin" : "fabs"
+    },
+    {
+      "begin" : "fabsf"
+    },
+    {
+      "begin" : "fabsl"
+    },
+    {
+      "begin" : "fclose"
+    },
+    {
+      "begin" : "fdim"
+    },
+    {
+      "begin" : "fdimf"
+    },
+    {
+      "begin" : "fdiml"
+    },
+    {
+      "begin" : "feclearexcept"
+    },
+    {
+      "begin" : "fegetenv"
+    },
+    {
+      "begin" : "fegetexceptflag"
+    },
+    {
+      "begin" : "fegetround"
+    },
+    {
+      "begin" : "feholdexcept"
+    },
+    {
+      "begin" : "feof"
+    },
+    {
+      "begin" : "feraiseexcept"
+    },
+    {
+      "begin" : "ferror"
+    },
+    {
+      "begin" : "fesetenv"
+    },
+    {
+      "begin" : "fesetexceptflag"
+    },
+    {
+      "begin" : "fesetround"
+    },
+    {
+      "begin" : "fetestexcept"
+    },
+    {
+      "begin" : "feupdateenv"
+    },
+    {
+      "begin" : "fflush"
+    },
+    {
+      "begin" : "fgetc"
+    },
+    {
+      "begin" : "fgetpos"
+    },
+    {
+      "begin" : "fgets"
+    },
+    {
+      "begin" : "fgetwc"
+    },
+    {
+      "begin" : "fgetws"
+    },
+    {
+      "begin" : "fileno"
+    },
+    {
+      "begin" : "floor"
+    },
+    {
+      "begin" : "floorf"
+    },
+    {
+      "begin" : "floorl"
+    },
+    {
+      "begin" : "fma"
+    },
+    {
+      "begin" : "fmaf"
+    },
+    {
+      "begin" : "fmal"
+    },
+    {
+      "begin" : "fmax"
+    },
+    {
+      "begin" : "fmaxf"
+    },
+    {
+      "begin" : "fmaxl"
+    },
+    {
+      "begin" : "fmin"
+    },
+    {
+      "begin" : "fminf"
+    },
+    {
+      "begin" : "fminl"
+    },
+    {
+      "begin" : "fmod"
+    },
+    {
+      "begin" : "fmodf"
+    },
+    {
+      "begin" : "fmodl"
+    },
+    {
+      "begin" : "fopen"
+    },
+    {
+      "begin" : "fp16c"
+    },
+    {
+      "begin" : "fpclassify"
+    },
+    {
+      "begin" : "fprintf"
+    },
+    {
+      "begin" : "fputc"
+    },
+    {
+      "begin" : "fputs"
+    },
+    {
+      "begin" : "fputwc"
+    },
+    {
+      "begin" : "fputws"
+    },
+    {
+      "begin" : "fread"
+    },
+    {
+      "begin" : "free"
+    },
+    {
+      "begin" : "freopen"
+    },
+    {
+      "begin" : "frexp"
+    },
+    {
+      "begin" : "frexpf"
+    },
+    {
+      "begin" : "frexpl"
+    },
+    {
+      "begin" : "fscanf"
+    },
+    {
+      "begin" : "fseek"
+    },
+    {
+      "begin" : "fsetpos"
+    },
+    {
+      "begin" : "ftell"
+    },
+    {
+      "begin" : "fwide"
+    },
+    {
+      "begin" : "fwprintf"
+    },
+    {
+      "begin" : "fwrite"
+    },
+    {
+      "begin" : "fwscanf"
+    },
+    {
+      "begin" : "getc"
+    },
+    {
+      "begin" : "getchar"
+    },
+    {
+      "begin" : "getenv"
+    },
+    {
+      "begin" : "gets"
+    },
+    {
+      "begin" : "getwc"
+    },
+    {
+      "begin" : "getwchar"
+    },
+    {
+      "begin" : "gmtime"
+    },
+    {
+      "begin" : "has3dnowPrefetch"
+    },
+    {
+      "begin" : "hasCmov"
+    },
+    {
+      "begin" : "hasCmpxchg16b"
+    },
+    {
+      "begin" : "hasCmpxchg8b"
+    },
+    {
+      "begin" : "hasFxsr"
+    },
+    {
+      "begin" : "hasLahfSahf"
+    },
+    {
+      "begin" : "hasLzcnt"
+    },
+    {
+      "begin" : "hasPclmulqdq"
+    },
+    {
+      "begin" : "hasPopcnt"
+    },
+    {
+      "begin" : "hasRdrand"
+    },
+    {
+      "begin" : "hasRdseed"
+    },
+    {
+      "begin" : "hasRdtsc"
+    },
+    {
+      "begin" : "hasSha"
+    },
+    {
+      "begin" : "hasSysEnterSysExit"
+    },
+    {
+      "begin" : "hasVpclmulqdq"
+    },
+    {
+      "begin" : "hle"
+    },
+    {
+      "begin" : "hyperThreading"
+    },
+    {
+      "begin" : "hypot"
+    },
+    {
+      "begin" : "hypotf"
+    },
+    {
+      "begin" : "hypotl"
+    },
+    {
+      "begin" : "ilogb"
+    },
+    {
+      "begin" : "ilogbf"
+    },
+    {
+      "begin" : "ilogbl"
+    },
+    {
+      "begin" : "imaxabs"
+    },
+    {
+      "begin" : "imaxdiv"
+    },
+    {
+      "begin" : "inp"
+    },
+    {
+      "begin" : "inpl"
+    },
+    {
+      "begin" : "inpw"
+    },
+    {
+      "begin" : "isalnum"
+    },
+    {
+      "begin" : "isalpha"
+    },
+    {
+      "begin" : "isblank"
+    },
+    {
+      "begin" : "iscntrl"
+    },
+    {
+      "begin" : "isdigit"
+    },
+    {
+      "begin" : "isfinite"
+    },
+    {
+      "begin" : "isgraph"
+    },
+    {
+      "begin" : "isgreater"
+    },
+    {
+      "begin" : "isgreaterequal"
+    },
+    {
+      "begin" : "isinf"
+    },
+    {
+      "begin" : "isItanium"
+    },
+    {
+      "begin" : "isless"
+    },
+    {
+      "begin" : "islessequal"
+    },
+    {
+      "begin" : "islessgreater"
+    },
+    {
+      "begin" : "islower"
+    },
+    {
+      "begin" : "isnan"
+    },
+    {
+      "begin" : "isnormal"
+    },
+    {
+      "begin" : "isprint"
+    },
+    {
+      "begin" : "ispunct"
+    },
+    {
+      "begin" : "isspace"
+    },
+    {
+      "begin" : "isunordered"
+    },
+    {
+      "begin" : "isupper"
+    },
+    {
+      "begin" : "iswalnum"
+    },
+    {
+      "begin" : "iswalpha"
+    },
+    {
+      "begin" : "iswblank"
+    },
+    {
+      "begin" : "iswcntrl"
+    },
+    {
+      "begin" : "iswctype"
+    },
+    {
+      "begin" : "iswdigit"
+    },
+    {
+      "begin" : "iswgraph"
+    },
+    {
+      "begin" : "iswlower"
+    },
+    {
+      "begin" : "iswprint"
+    },
+    {
+      "begin" : "iswpunct"
+    },
+    {
+      "begin" : "iswspace"
+    },
+    {
+      "begin" : "iswupper"
+    },
+    {
+      "begin" : "iswxdigit"
+    },
+    {
+      "begin" : "isX86_64"
+    },
+    {
+      "begin" : "isxdigit"
+    },
+    {
+      "begin" : "labs"
+    },
+    {
+      "begin" : "ldexp"
+    },
+    {
+      "begin" : "ldexpf"
+    },
+    {
+      "begin" : "ldexpl"
+    },
+    {
+      "begin" : "ldiv"
+    },
+    {
+      "begin" : "lgamma"
+    },
+    {
+      "begin" : "lgammaf"
+    },
+    {
+      "begin" : "lgammal"
+    },
+    {
+      "begin" : "llabs"
+    },
+    {
+      "begin" : "lldiv"
+    },
+    {
+      "begin" : "llrint"
+    },
+    {
+      "begin" : "llrintf"
+    },
+    {
+      "begin" : "llrintl"
+    },
+    {
+      "begin" : "llround"
+    },
+    {
+      "begin" : "llroundf"
+    },
+    {
+      "begin" : "llroundl"
+    },
+    {
+      "begin" : "localeconv"
+    },
+    {
+      "begin" : "localtime"
+    },
+    {
+      "begin" : "log"
+    },
+    {
+      "begin" : "log10"
+    },
+    {
+      "begin" : "log10f"
+    },
+    {
+      "begin" : "log10l"
+    },
+    {
+      "begin" : "log1p"
+    },
+    {
+      "begin" : "log1pf"
+    },
+    {
+      "begin" : "log1pl"
+    },
+    {
+      "begin" : "log2"
+    },
+    {
+      "begin" : "log2f"
+    },
+    {
+      "begin" : "log2l"
+    },
+    {
+      "begin" : "logb"
+    },
+    {
+      "begin" : "logbf"
+    },
+    {
+      "begin" : "logbl"
+    },
+    {
+      "begin" : "logf"
+    },
+    {
+      "begin" : "logl"
+    },
+    {
+      "begin" : "lrint"
+    },
+    {
+      "begin" : "lrintf"
+    },
+    {
+      "begin" : "lrintl"
+    },
+    {
+      "begin" : "lround"
+    },
+    {
+      "begin" : "lroundf"
+    },
+    {
+      "begin" : "lroundl"
+    },
+    {
+      "begin" : "malloc"
+    },
+    {
+      "begin" : "mangle"
+    },
+    {
+      "begin" : "mangleC"
+    },
+    {
+      "begin" : "mangleFunc"
+    },
+    {
+      "begin" : "mblen"
+    },
+    {
+      "begin" : "mbrlen"
+    },
+    {
+      "begin" : "mbrtowc"
+    },
+    {
+      "begin" : "mbsinit"
+    },
+    {
+      "begin" : "mbsrtowcs"
+    },
+    {
+      "begin" : "mbstowcs"
+    },
+    {
+      "begin" : "mbtowc"
+    },
+    {
+      "begin" : "memchr"
+    },
+    {
+      "begin" : "memcmp"
+    },
+    {
+      "begin" : "memcpy"
+    },
+    {
+      "begin" : "memmove"
+    },
+    {
+      "begin" : "memset"
+    },
+    {
+      "begin" : "mktime"
+    },
+    {
+      "begin" : "mmx"
+    },
+    {
+      "begin" : "modf"
+    },
+    {
+      "begin" : "modff"
+    },
+    {
+      "begin" : "modfl"
+    },
+    {
+      "begin" : "muls"
+    },
+    {
+      "begin" : "mulu"
+    },
+    {
+      "begin" : "Name"
+    },
+    {
+      "begin" : "nan"
+    },
+    {
+      "begin" : "nanf"
+    },
+    {
+      "begin" : "nanl"
+    },
+    {
+      "begin" : "nearbyint"
+    },
+    {
+      "begin" : "nearbyintf"
+    },
+    {
+      "begin" : "nearbyintl"
+    },
+    {
+      "begin" : "negs"
+    },
+    {
+      "begin" : "nextafter"
+    },
+    {
+      "begin" : "nextafterf"
+    },
+    {
+      "begin" : "nextafterl"
+    },
+    {
+      "begin" : "nexttoward"
+    },
+    {
+      "begin" : "nexttowardf"
+    },
+    {
+      "begin" : "nexttowardl"
+    },
+    {
+      "begin" : "nsecsToTicks"
+    },
+    {
+      "begin" : "onAssertError"
+    },
+    {
+      "begin" : "onAssertErrorMsg"
+    },
+    {
+      "begin" : "onFinalizeError"
+    },
+    {
+      "begin" : "onInvalidMemoryOperationError"
+    },
+    {
+      "begin" : "onOutOfMemoryError"
+    },
+    {
+      "begin" : "onRangeError"
+    },
+    {
+      "begin" : "onSwitchError"
+    },
+    {
+      "begin" : "onUnicodeError"
+    },
+    {
+      "begin" : "onUnittestErrorMsg"
+    },
+    {
+      "begin" : "outp"
+    },
+    {
+      "begin" : "outpl"
+    },
+    {
+      "begin" : "outpw"
+    },
+    {
+      "begin" : "perror"
+    },
+    {
+      "begin" : "popcnt"
+    },
+    {
+      "begin" : "popen"
+    },
+    {
+      "begin" : "pow"
+    },
+    {
+      "begin" : "powf"
+    },
+    {
+      "begin" : "powl"
+    },
+    {
+      "begin" : "preferAthlon"
+    },
+    {
+      "begin" : "preferPentium1"
+    },
+    {
+      "begin" : "preferPentium4"
+    },
+    {
+      "begin" : "printf"
+    },
+    {
+      "begin" : "processor"
+    },
+    {
+      "begin" : "profilegc_setlogfilename"
+    },
+    {
+      "begin" : "putc"
+    },
+    {
+      "begin" : "putchar"
+    },
+    {
+      "begin" : "puts"
+    },
+    {
+      "begin" : "putwc"
+    },
+    {
+      "begin" : "putwchar"
+    },
+    {
+      "begin" : "qsort"
+    },
+    {
+      "begin" : "raise"
+    },
+    {
+      "begin" : "rand"
+    },
+    {
+      "begin" : "readf"
+    },
+    {
+      "begin" : "readln"
+    },
+    {
+      "begin" : "realloc"
+    },
+    {
+      "begin" : "remainder"
+    },
+    {
+      "begin" : "remainderf"
+    },
+    {
+      "begin" : "remainderl"
+    },
+    {
+      "begin" : "remove"
+    },
+    {
+      "begin" : "remquo"
+    },
+    {
+      "begin" : "remquof"
+    },
+    {
+      "begin" : "remquol"
+    },
+    {
+      "begin" : "rename"
+    },
+    {
+      "begin" : "rewind"
+    },
+    {
+      "begin" : "rint"
+    },
+    {
+      "begin" : "rintf"
+    },
+    {
+      "begin" : "rintl"
+    },
+    {
+      "begin" : "rndtol"
+    },
+    {
+      "begin" : "rndtonl"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "roundf"
+    },
+    {
+      "begin" : "roundl"
+    },
+    {
+      "begin" : "rt_init"
+    },
+    {
+      "begin" : "rt_loadLibrary"
+    },
+    {
+      "begin" : "rt_term"
+    },
+    {
+      "begin" : "rt_unloadLibrary"
+    },
+    {
+      "begin" : "rtm"
+    },
+    {
+      "begin" : "runModuleUnitTests"
+    },
+    {
+      "begin" : "scalbln"
+    },
+    {
+      "begin" : "scalblnf"
+    },
+    {
+      "begin" : "scalblnl"
+    },
+    {
+      "begin" : "scalbn"
+    },
+    {
+      "begin" : "scalbnf"
+    },
+    {
+      "begin" : "scalbnl"
+    },
+    {
+      "begin" : "scanf"
+    },
+    {
+      "begin" : "setbuf"
+    },
+    {
+      "begin" : "setlocale"
+    },
+    {
+      "begin" : "setvbuf"
+    },
+    {
+      "begin" : "signal"
+    },
+    {
+      "begin" : "signbit"
+    },
+    {
+      "begin" : "sin"
+    },
+    {
+      "begin" : "sinf"
+    },
+    {
+      "begin" : "sinh"
+    },
+    {
+      "begin" : "sinhf"
+    },
+    {
+      "begin" : "sinhl"
+    },
+    {
+      "begin" : "sinl"
+    },
+    {
+      "begin" : "snprintf"
+    },
+    {
+      "begin" : "sprintf"
+    },
+    {
+      "begin" : "sqrt"
+    },
+    {
+      "begin" : "sqrtf"
+    },
+    {
+      "begin" : "sqrtl"
+    },
+    {
+      "begin" : "srand"
+    },
+    {
+      "begin" : "sscanf"
+    },
+    {
+      "begin" : "sse"
+    },
+    {
+      "begin" : "sse2"
+    },
+    {
+      "begin" : "sse3"
+    },
+    {
+      "begin" : "sse41"
+    },
+    {
+      "begin" : "sse42"
+    },
+    {
+      "begin" : "sse4a"
+    },
+    {
+      "begin" : "ssse3"
+    },
+    {
+      "begin" : "strcat"
+    },
+    {
+      "begin" : "strchr"
+    },
+    {
+      "begin" : "strcmp"
+    },
+    {
+      "begin" : "strcoll"
+    },
+    {
+      "begin" : "strcpy"
+    },
+    {
+      "begin" : "strcspn"
+    },
+    {
+      "begin" : "strdup"
+    },
+    {
+      "begin" : "strerror"
+    },
+    {
+      "begin" : "strerror_r"
+    },
+    {
+      "begin" : "strftime"
+    },
+    {
+      "begin" : "strlen"
+    },
+    {
+      "begin" : "strncat"
+    },
+    {
+      "begin" : "strncmp"
+    },
+    {
+      "begin" : "strncpy"
+    },
+    {
+      "begin" : "strpbrk"
+    },
+    {
+      "begin" : "strrchr"
+    },
+    {
+      "begin" : "strspn"
+    },
+    {
+      "begin" : "strstr"
+    },
+    {
+      "begin" : "strtod"
+    },
+    {
+      "begin" : "strtof"
+    },
+    {
+      "begin" : "strtoimax"
+    },
+    {
+      "begin" : "strtok"
+    },
+    {
+      "begin" : "strtol"
+    },
+    {
+      "begin" : "strtold"
+    },
+    {
+      "begin" : "strtoll"
+    },
+    {
+      "begin" : "strtoul"
+    },
+    {
+      "begin" : "strtoull"
+    },
+    {
+      "begin" : "strtoumax"
+    },
+    {
+      "begin" : "strxfrm"
+    },
+    {
+      "begin" : "subs"
+    },
+    {
+      "begin" : "subu"
+    },
+    {
+      "begin" : "swprintf"
+    },
+    {
+      "begin" : "swscanf"
+    },
+    {
+      "begin" : "system"
+    },
+    {
+      "begin" : "tan"
+    },
+    {
+      "begin" : "tanf"
+    },
+    {
+      "begin" : "tanh"
+    },
+    {
+      "begin" : "tanhf"
+    },
+    {
+      "begin" : "tanhl"
+    },
+    {
+      "begin" : "tanl"
+    },
+    {
+      "begin" : "tgamma"
+    },
+    {
+      "begin" : "tgammaf"
+    },
+    {
+      "begin" : "tgammal"
+    },
+    {
+      "begin" : "thread_attachThis"
+    },
+    {
+      "begin" : "thread_detachByAddr"
+    },
+    {
+      "begin" : "thread_detachInstance"
+    },
+    {
+      "begin" : "thread_detachThis"
+    },
+    {
+      "begin" : "thread_enterCriticalRegion"
+    },
+    {
+      "begin" : "thread_exitCriticalRegion"
+    },
+    {
+      "begin" : "thread_findByAddr"
+    },
+    {
+      "begin" : "thread_inCriticalRegion"
+    },
+    {
+      "begin" : "thread_init"
+    },
+    {
+      "begin" : "thread_isMainThread"
+    },
+    {
+      "begin" : "thread_joinAll"
+    },
+    {
+      "begin" : "thread_processGCMarks"
+    },
+    {
+      "begin" : "thread_resumeAll"
+    },
+    {
+      "begin" : "thread_scanAll"
+    },
+    {
+      "begin" : "thread_scanAllType"
+    },
+    {
+      "begin" : "thread_setGCSignals"
+    },
+    {
+      "begin" : "thread_setThis"
+    },
+    {
+      "begin" : "thread_stackBottom"
+    },
+    {
+      "begin" : "thread_stackTop"
+    },
+    {
+      "begin" : "thread_suspendAll"
+    },
+    {
+      "begin" : "thread_term"
+    },
+    {
+      "begin" : "threadsPerCPU"
+    },
+    {
+      "begin" : "ticksToNSecs"
+    },
+    {
+      "begin" : "time"
+    },
+    {
+      "begin" : "tmpfile"
+    },
+    {
+      "begin" : "tmpnam"
+    },
+    {
+      "begin" : "to"
+    },
+    {
+      "begin" : "tolower"
+    },
+    {
+      "begin" : "toupper"
+    },
+    {
+      "begin" : "towctrans"
+    },
+    {
+      "begin" : "towlower"
+    },
+    {
+      "begin" : "towupper"
+    },
+    {
+      "begin" : "trace_setdeffilename"
+    },
+    {
+      "begin" : "trace_setlogfilename"
+    },
+    {
+      "begin" : "trunc"
+    },
+    {
+      "begin" : "truncf"
+    },
+    {
+      "begin" : "truncl"
+    },
+    {
+      "begin" : "tzset"
+    },
+    {
+      "begin" : "ungetc"
+    },
+    {
+      "begin" : "ungetwc"
+    },
+    {
+      "begin" : "va_arg"
+    },
+    {
+      "begin" : "va_copy"
+    },
+    {
+      "begin" : "va_end"
+    },
+    {
+      "begin" : "va_start"
+    },
+    {
+      "begin" : "vaes"
+    },
+    {
+      "begin" : "vendor"
+    },
+    {
+      "begin" : "vfprintf"
+    },
+    {
+      "begin" : "vfscanf"
+    },
+    {
+      "begin" : "vfwprintf"
+    },
+    {
+      "begin" : "vfwscanf"
+    },
+    {
+      "begin" : "volatileLoad"
+    },
+    {
+      "begin" : "volatileStore"
+    },
+    {
+      "begin" : "vprintf"
+    },
+    {
+      "begin" : "vscanf"
+    },
+    {
+      "begin" : "vsnprintf"
+    },
+    {
+      "begin" : "vsprintf"
+    },
+    {
+      "begin" : "vsscanf"
+    },
+    {
+      "begin" : "vswprintf"
+    },
+    {
+      "begin" : "vswscanf"
+    },
+    {
+      "begin" : "vwprintf"
+    },
+    {
+      "begin" : "vwscanf"
+    },
+    {
+      "begin" : "wcrtomb"
+    },
+    {
+      "begin" : "wcscat"
+    },
+    {
+      "begin" : "wcschr"
+    },
+    {
+      "begin" : "wcscmp"
+    },
+    {
+      "begin" : "wcscoll"
+    },
+    {
+      "begin" : "wcscpy"
+    },
+    {
+      "begin" : "wcscspn"
+    },
+    {
+      "begin" : "wcsftime"
+    },
+    {
+      "begin" : "wcslen"
+    },
+    {
+      "begin" : "wcsncat"
+    },
+    {
+      "begin" : "wcsncmp"
+    },
+    {
+      "begin" : "wcsncpy"
+    },
+    {
+      "begin" : "wcspbrk"
+    },
+    {
+      "begin" : "wcsrchr"
+    },
+    {
+      "begin" : "wcsrtombs"
+    },
+    {
+      "begin" : "wcsspn"
+    },
+    {
+      "begin" : "wcsstr"
+    },
+    {
+      "begin" : "wcstod"
+    },
+    {
+      "begin" : "wcstof"
+    },
+    {
+      "begin" : "wcstoimax"
+    },
+    {
+      "begin" : "wcstok"
+    },
+    {
+      "begin" : "wcstol"
+    },
+    {
+      "begin" : "wcstold"
+    },
+    {
+      "begin" : "wcstoll"
+    },
+    {
+      "begin" : "wcstombs"
+    },
+    {
+      "begin" : "wcstoul"
+    },
+    {
+      "begin" : "wcstoull"
+    },
+    {
+      "begin" : "wcstoumax"
+    },
+    {
+      "begin" : "wcsxfrm"
+    },
+    {
+      "begin" : "wctob"
+    },
+    {
+      "begin" : "wctomb"
+    },
+    {
+      "begin" : "wctrans"
+    },
+    {
+      "begin" : "wctype"
+    },
+    {
+      "begin" : "wmemchr"
+    },
+    {
+      "begin" : "wmemcmp"
+    },
+    {
+      "begin" : "wmemcpy"
+    },
+    {
+      "begin" : "wmemmove"
+    },
+    {
+      "begin" : "wmemset"
+    },
+    {
+      "begin" : "wprintf"
+    },
+    {
+      "begin" : "write"
+    },
+    {
+      "begin" : "write-fln"
+    },
+    {
+      "begin" : "writef"
+    },
+    {
+      "begin" : "writeln"
+    },
+    {
+      "begin" : "wscanf"
+    },
+    {
+      "begin" : "x87onChip"
+    },
+    {
+      "begin" : "yl2x"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "!in"
+    },
+    {
+      "begin" : "!is"
+    },
+    {
+      "begin" : "__gshared"
+    },
+    {
+      "begin" : "__parameters"
+    },
+    {
+      "begin" : "__traits"
+    },
+    {
+      "begin" : "__vector"
+    },
+    {
+      "begin" : "abstract"
+    },
+    {
+      "begin" : "align"
+    },
+    {
+      "begin" : "asm"
+    },
+    {
+      "begin" : "assert"
+    },
+    {
+      "begin" : "body"
+    },
+    {
+      "begin" : "break"
+    },
+    {
+      "begin" : "case"
+    },
+    {
+      "begin" : "cast"
+    },
+    {
+      "begin" : "catch"
+    },
+    {
+      "begin" : "const"
+    },
+    {
+      "begin" : "continue"
+    },
+    {
+      "begin" : "debug"
+    },
+    {
+      "begin" : "default"
+    },
+    {
+      "begin" : "delegate"
+    },
+    {
+      "begin" : "delete"
+    },
+    {
+      "begin" : "deprecated"
+    },
+    {
+      "begin" : "do"
+    },
+    {
+      "begin" : "else"
+    },
+    {
+      "begin" : "export"
+    },
+    {
+      "begin" : "extern"
+    },
+    {
+      "begin" : "final"
+    },
+    {
+      "begin" : "finally"
+    },
+    {
+      "begin" : "for"
+    },
+    {
+      "begin" : "foreach"
+    },
+    {
+      "begin" : "foreach_reverse"
+    },
+    {
+      "begin" : "function"
+    },
+    {
+      "begin" : "goto"
+    },
+    {
+      "begin" : "if"
+    },
+    {
+      "begin" : "immutable"
+    },
+    {
+      "begin" : "import"
+    },
+    {
+      "begin" : "in"
+    },
+    {
+      "begin" : "inout"
+    },
+    {
+      "begin" : "interface"
+    },
+    {
+      "begin" : "invariant"
+    },
+    {
+      "begin" : "is"
+    },
+    {
+      "begin" : "lazy"
+    },
+    {
+      "begin" : "macro"
+    },
+    {
+      "begin" : "mixin"
+    },
+    {
+      "begin" : "module"
+    },
+    {
+      "begin" : "new"
+    },
+    {
+      "begin" : "nothrow"
+    },
+    {
+      "begin" : "out"
+    },
+    {
+      "begin" : "override"
+    },
+    {
+      "begin" : "package"
+    },
+    {
+      "begin" : "pragma"
+    },
+    {
+      "begin" : "private"
+    },
+    {
+      "begin" : "protected"
+    },
+    {
+      "begin" : "public"
+    },
+    {
+      "begin" : "pure"
+    },
+    {
+      "begin" : "ref"
+    },
+    {
+      "begin" : "return"
+    },
+    {
+      "begin" : "rty"
+    },
+    {
+      "begin" : "scope"
+    },
+    {
+      "begin" : "shared"
+    },
+    {
+      "begin" : "short"
+    },
+    {
+      "begin" : "static"
+    },
+    {
+      "begin" : "switch"
+    },
+    {
+      "begin" : "synchronized"
+    },
+    {
+      "begin" : "template"
+    },
+    {
+      "begin" : "throw"
+    },
+    {
+      "begin" : "typedef"
+    },
+    {
+      "begin" : "typeid"
+    },
+    {
+      "begin" : "typeof"
+    },
+    {
+      "begin" : "unittest"
+    },
+    {
+      "begin" : "version"
+    },
+    {
+      "begin" : "volatile"
+    },
+    {
+      "begin" : "while"
+    },
+    {
+      "begin" : "with"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "\\b0x[0-9a-f][0-9a-f_]*(\\.[0-9a-f][0-9a-f_]*)?(p[-+]?[0-9]+)?[flu]{0,2}\\b",
+      "description" : "hexadecimal",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b[0-9][0-9_]*(\\.[0-9][0-9_]*)?(e[-+]?[0-9][0-9_]*)?[fliu]{0,2}\\b",
+      "description" : "float",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\b[0-9][0-9_]*[lu]{0,2}\\b",
+      "description" : "integer",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "\"c"
+    },
+    {
+      "begin" : "\"d"
+    },
+    {
+      "begin" : "\"w"
+    },
+    {
+      "begin" : "q\""
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "alias"
+    },
+    {
+      "begin" : "auto"
+    },
+    {
+      "begin" : "bool"
+    },
+    {
+      "begin" : "byte"
+    },
+    {
+      "begin" : "cent"
+    },
+    {
+      "begin" : "cfloat"
+    },
+    {
+      "begin" : "char"
+    },
+    {
+      "begin" : "class"
+    },
+    {
+      "begin" : "creal"
+    },
+    {
+      "begin" : "dchar"
+    },
+    {
+      "begin" : "double"
+    },
+    {
+      "begin" : "dstring"
+    },
+    {
+      "begin" : "enum"
+    },
+    {
+      "begin" : "float"
+    },
+    {
+      "begin" : "idouble"
+    },
+    {
+      "begin" : "ifloat"
+    },
+    {
+      "begin" : "int"
+    },
+    {
+      "begin" : "ireal"
+    },
+    {
+      "begin" : "long"
+    },
+    {
+      "begin" : "ptrdiff_t"
+    },
+    {
+      "begin" : "real"
+    },
+    {
+      "begin" : "size_t"
+    },
+    {
+      "begin" : "string"
+    },
+    {
+      "begin" : "struct"
+    },
+    {
+      "begin" : "ubyte"
+    },
+    {
+      "begin" : "ucent"
+    },
+    {
+      "begin" : "uint"
+    },
+    {
+      "begin" : "ulong"
+    },
+    {
+      "begin" : "union"
+    },
+    {
+      "begin" : "ushort"
+    },
+    {
+      "begin" : "void"
+    },
+    {
+      "begin" : "wchar"
+    },
+    {
+      "begin" : "wstring"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "#line"
+    },
+    {
+      "begin" : "(?<=\\.)alignof\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)classinfo\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)dig\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)epsilon\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)im\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)infinity\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)init\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)mangleof\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)mant_dig\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)max\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)max_10_exp\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)max_exp\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)min\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)min_10_exp\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)min_exp\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)min_normal\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)nan\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)re\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)sizeof\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=\\.)stringof\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "__DATE__"
+    },
+    {
+      "begin" : "__EOF__"
+    },
+    {
+      "begin" : "__FILE__"
+    },
+    {
+      "begin" : "__FUNCTION__"
+    },
+    {
+      "begin" : "__LINE__"
+    },
+    {
+      "begin" : "__MODULE__"
+    },
+    {
+      "begin" : "__PRETTY_FUNCTION__"
+    },
+    {
+      "begin" : "__TIME__"
+    },
+    {
+      "begin" : "__TIMESTAMP__"
+    },
+    {
+      "begin" : "__VENDOR__"
+    },
+    {
+      "begin" : "__VERSION__"
+    },
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "null"
+    },
+    {
+      "begin" : "true"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "$"
+    },
+    {
+      "begin" : "stderr"
+    },
+    {
+      "begin" : "stdin"
+    },
+    {
+      "begin" : "stdout"
+    },
+    {
+      "begin" : "super"
+    },
+    {
+      "begin" : "this"
+    },
+    {
+      "begin" : "tzname"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "\\bfunction\\s+\\w+\\(.*\\)",
+    "template" : ""
+  },
+  {
+    "description" : "macro",
+    "kind" : "function",
+    "pattern" : "\\bmacro\\s+\\w+\\(.+\\)",
+    "template" : ""
+  }
+]

@@ -1,0 +1,800 @@
+{
+  "attributes" : [
+    {
+      "begin" : "atleast"
+    },
+    {
+      "begin" : "controls"
+    },
+    {
+      "begin" : "curl"
+    },
+    {
+      "begin" : "cycle"
+    },
+    {
+      "begin" : "makepath"
+    },
+    {
+      "begin" : "makepen"
+    },
+    {
+      "begin" : "nullpen"
+    },
+    {
+      "begin" : "nullpicture"
+    },
+    {
+      "begin" : "of"
+    },
+    {
+      "begin" : "pencircle"
+    },
+    {
+      "begin" : "penoffset"
+    },
+    {
+      "begin" : "point"
+    },
+    {
+      "begin" : "postcontrol"
+    },
+    {
+      "begin" : "precontrol"
+    },
+    {
+      "begin" : "reverse"
+    },
+    {
+      "begin" : "rotated"
+    },
+    {
+      "begin" : "scaled"
+    },
+    {
+      "begin" : "shifted"
+    },
+    {
+      "begin" : "slanted"
+    },
+    {
+      "begin" : "subpath"
+    },
+    {
+      "begin" : "tension"
+    },
+    {
+      "begin" : "transformed"
+    },
+    {
+      "begin" : "xscaled"
+    },
+    {
+      "begin" : "yscaled"
+    },
+    {
+      "begin" : "zscaled"
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "addto"
+    },
+    {
+      "begin" : "also"
+    },
+    {
+      "begin" : "at"
+    },
+    {
+      "begin" : "batchmode"
+    },
+    {
+      "begin" : "boolean"
+    },
+    {
+      "begin" : "contour"
+    },
+    {
+      "begin" : "cull"
+    },
+    {
+      "begin" : "delimiters"
+    },
+    {
+      "begin" : "display"
+    },
+    {
+      "begin" : "doublepath"
+    },
+    {
+      "begin" : "dropping"
+    },
+    {
+      "begin" : "dump"
+    },
+    {
+      "begin" : "end"
+    },
+    {
+      "begin" : "errhelp"
+    },
+    {
+      "begin" : "errmessage"
+    },
+    {
+      "begin" : "errorstopmode"
+    },
+    {
+      "begin" : "everyjob"
+    },
+    {
+      "begin" : "from"
+    },
+    {
+      "begin" : "interim"
+    },
+    {
+      "begin" : "inwindow"
+    },
+    {
+      "begin" : "keeping"
+    },
+    {
+      "begin" : "let"
+    },
+    {
+      "begin" : "message"
+    },
+    {
+      "begin" : "newinternal"
+    },
+    {
+      "begin" : "nonstopmode"
+    },
+    {
+      "begin" : "numeric"
+    },
+    {
+      "begin" : "numspecial"
+    },
+    {
+      "begin" : "openwindow"
+    },
+    {
+      "begin" : "outer"
+    },
+    {
+      "begin" : "pair"
+    },
+    {
+      "begin" : "path"
+    },
+    {
+      "begin" : "pen"
+    },
+    {
+      "begin" : "picture"
+    },
+    {
+      "begin" : "randomseed"
+    },
+    {
+      "begin" : "save"
+    },
+    {
+      "begin" : "scrollmode"
+    },
+    {
+      "begin" : "shipout"
+    },
+    {
+      "begin" : "show"
+    },
+    {
+      "begin" : "showdependencies"
+    },
+    {
+      "begin" : "showstats"
+    },
+    {
+      "begin" : "showtoken"
+    },
+    {
+      "begin" : "showvariable"
+    },
+    {
+      "begin" : "special"
+    },
+    {
+      "begin" : "string"
+    },
+    {
+      "begin" : "to"
+    },
+    {
+      "begin" : "transform"
+    },
+    {
+      "begin" : "withpen"
+    },
+    {
+      "begin" : "withweight"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "addto_currentpicture"
+    },
+    {
+      "begin" : "aspect_ratio"
+    },
+    {
+      "begin" : "base_name"
+    },
+    {
+      "begin" : "base_version"
+    },
+    {
+      "begin" : "blacker"
+    },
+    {
+      "begin" : "blankpicture"
+    },
+    {
+      "begin" : "bot"
+    },
+    {
+      "begin" : "bye"
+    },
+    {
+      "begin" : "byte"
+    },
+    {
+      "begin" : "capsule_def"
+    },
+    {
+      "begin" : "change_width"
+    },
+    {
+      "begin" : "clear_pen_memory"
+    },
+    {
+      "begin" : "clearit"
+    },
+    {
+      "begin" : "clearpen"
+    },
+    {
+      "begin" : "clearxy"
+    },
+    {
+      "begin" : "counterclockwise"
+    },
+    {
+      "begin" : "culldraw"
+    },
+    {
+      "begin" : "cullit"
+    },
+    {
+      "begin" : "currentpen"
+    },
+    {
+      "begin" : "currentpen_path"
+    },
+    {
+      "begin" : "currentpicture"
+    },
+    {
+      "begin" : "currenttransform"
+    },
+    {
+      "begin" : "currentwindow"
+    },
+    {
+      "begin" : "cutdraw"
+    },
+    {
+      "begin" : "cutoff"
+    },
+    {
+      "begin" : "d"
+    },
+    {
+      "begin" : "decr"
+    },
+    {
+      "begin" : "define_blacker_pixels"
+    },
+    {
+      "begin" : "define_corrected_pixels"
+    },
+    {
+      "begin" : "define_good_x_pixels"
+    },
+    {
+      "begin" : "define_good_y_pixels"
+    },
+    {
+      "begin" : "define_horizontal_corrected_pixels"
+    },
+    {
+      "begin" : "define_pixels"
+    },
+    {
+      "begin" : "define_whole_blacker_pixels"
+    },
+    {
+      "begin" : "define_whole_pixels"
+    },
+    {
+      "begin" : "define_whole_vertical_blacker_pixels"
+    },
+    {
+      "begin" : "define_whole_vertical_pixels"
+    },
+    {
+      "begin" : "dir"
+    },
+    {
+      "begin" : "direction"
+    },
+    {
+      "begin" : "directionpoint"
+    },
+    {
+      "begin" : "displaying"
+    },
+    {
+      "begin" : "ditto"
+    },
+    {
+      "begin" : "down"
+    },
+    {
+      "begin" : "downto"
+    },
+    {
+      "begin" : "draw"
+    },
+    {
+      "begin" : "drawdot"
+    },
+    {
+      "begin" : "eps"
+    },
+    {
+      "begin" : "epsilon"
+    },
+    {
+      "begin" : "erase"
+    },
+    {
+      "begin" : "exitunless"
+    },
+    {
+      "begin" : "extra_setup"
+    },
+    {
+      "begin" : "fill"
+    },
+    {
+      "begin" : "filldraw"
+    },
+    {
+      "begin" : "fix_units"
+    },
+    {
+      "begin" : "flex"
+    },
+    {
+      "begin" : "font_coding_scheme"
+    },
+    {
+      "begin" : "font_extra_space"
+    },
+    {
+      "begin" : "font_identifier"
+    },
+    {
+      "begin" : "font_normal_shrink"
+    },
+    {
+      "begin" : "font_normal_space"
+    },
+    {
+      "begin" : "font_normal_stretch"
+    },
+    {
+      "begin" : "font_quad"
+    },
+    {
+      "begin" : "font_setup"
+    },
+    {
+      "begin" : "font_size"
+    },
+    {
+      "begin" : "font_slant"
+    },
+    {
+      "begin" : "font_x_height"
+    },
+    {
+      "begin" : "fullcircle"
+    },
+    {
+      "begin" : "generate"
+    },
+    {
+      "begin" : "gfcorners"
+    },
+    {
+      "begin" : "gobble"
+    },
+    {
+      "begin" : "gobbled"
+    },
+    {
+      "begin" : "grayfont"
+    },
+    {
+      "begin" : "h"
+    },
+    {
+      "begin" : "halfcircle"
+    },
+    {
+      "begin" : "hide"
+    },
+    {
+      "begin" : "hround"
+    },
+    {
+      "begin" : "identity"
+    },
+    {
+      "begin" : "image_rules"
+    },
+    {
+      "begin" : "incr"
+    },
+    {
+      "begin" : "infinity"
+    },
+    {
+      "begin" : "interact"
+    },
+    {
+      "begin" : "interpath"
+    },
+    {
+      "begin" : "intersectionpoint"
+    },
+    {
+      "begin" : "inverse"
+    },
+    {
+      "begin" : "italcorr"
+    },
+    {
+      "begin" : "join_radius"
+    },
+    {
+      "begin" : "killtext"
+    },
+    {
+      "begin" : "labelfont"
+    },
+    {
+      "begin" : "labels"
+    },
+    {
+      "begin" : "left"
+    },
+    {
+      "begin" : "lft"
+    },
+    {
+      "begin" : "localfont"
+    },
+    {
+      "begin" : "loggingall"
+    },
+    {
+      "begin" : "lowres"
+    },
+    {
+      "begin" : "lowres_fix"
+    },
+    {
+      "begin" : "mag"
+    },
+    {
+      "begin" : "magstep"
+    },
+    {
+      "begin" : "makebox"
+    },
+    {
+      "begin" : "makegrid"
+    },
+    {
+      "begin" : "makelabel"
+    },
+    {
+      "begin" : "maketicks"
+    },
+    {
+      "begin" : "mode"
+    },
+    {
+      "begin" : "mode_def"
+    },
+    {
+      "begin" : "mode_name"
+    },
+    {
+      "begin" : "mode_setup"
+    },
+    {
+      "begin" : "nodisplays"
+    },
+    {
+      "begin" : "notransforms"
+    },
+    {
+      "begin" : "number_of_modes"
+    },
+    {
+      "begin" : "numtok"
+    },
+    {
+      "begin" : "o_correction"
+    },
+    {
+      "begin" : "openit"
+    },
+    {
+      "begin" : "origin"
+    },
+    {
+      "begin" : "pen_bot"
+    },
+    {
+      "begin" : "pen_lft"
+    },
+    {
+      "begin" : "pen_rt"
+    },
+    {
+      "begin" : "pen_top"
+    },
+    {
+      "begin" : "penlabels"
+    },
+    {
+      "begin" : "penpos"
+    },
+    {
+      "begin" : "penrazor"
+    },
+    {
+      "begin" : "penspeck"
+    },
+    {
+      "begin" : "pensquare"
+    },
+    {
+      "begin" : "penstroke"
+    },
+    {
+      "begin" : "pickup"
+    },
+    {
+      "begin" : "pixels_per_inch"
+    },
+    {
+      "begin" : "proof"
+    },
+    {
+      "begin" : "proofoffset"
+    },
+    {
+      "begin" : "proofrule"
+    },
+    {
+      "begin" : "proofrulethickness"
+    },
+    {
+      "begin" : "quartercircle"
+    },
+    {
+      "begin" : "range"
+    },
+    {
+      "begin" : "reflectedabout"
+    },
+    {
+      "begin" : "relax"
+    },
+    {
+      "begin" : "right"
+    },
+    {
+      "begin" : "rotatedabout"
+    },
+    {
+      "begin" : "rotatedaround"
+    },
+    {
+      "begin" : "round"
+    },
+    {
+      "begin" : "rt"
+    },
+    {
+      "begin" : "rulepen"
+    },
+    {
+      "begin" : "savepen"
+    },
+    {
+      "begin" : "screen_cols"
+    },
+    {
+      "begin" : "screen_rows"
+    },
+    {
+      "begin" : "screenchars"
+    },
+    {
+      "begin" : "screenrule"
+    },
+    {
+      "begin" : "screenstrokes"
+    },
+    {
+      "begin" : "shipit"
+    },
+    {
+      "begin" : "showit"
+    },
+    {
+      "begin" : "slantfont"
+    },
+    {
+      "begin" : "smode"
+    },
+    {
+      "begin" : "smoke"
+    },
+    {
+      "begin" : "softjoin"
+    },
+    {
+      "begin" : "solve"
+    },
+    {
+      "begin" : "stop"
+    },
+    {
+      "begin" : "superellipse"
+    },
+    {
+      "begin" : "takepower"
+    },
+    {
+      "begin" : "tensepath"
+    },
+    {
+      "begin" : "titlefont"
+    },
+    {
+      "begin" : "tolerance"
+    },
+    {
+      "begin" : "top"
+    },
+    {
+      "begin" : "tracingall"
+    },
+    {
+      "begin" : "tracingnone"
+    },
+    {
+      "begin" : "undraw"
+    },
+    {
+      "begin" : "undrawdot"
+    },
+    {
+      "begin" : "unfill"
+    },
+    {
+      "begin" : "unfilldraw"
+    },
+    {
+      "begin" : "unitpixel"
+    },
+    {
+      "begin" : "unitsquare"
+    },
+    {
+      "begin" : "unitvector"
+    },
+    {
+      "begin" : "up"
+    },
+    {
+      "begin" : "upto"
+    },
+    {
+      "begin" : "vround"
+    },
+    {
+      "begin" : "w"
+    },
+    {
+      "begin" : "whatever"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "-?.\\d+(bp|cc|cm|dd|in|mm|pc|pt)#?",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "-?\\d+(bp|cc|cm|dd|in|mm|pc|pt)#?",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "-?\\d\\.\\d+(bp|cc|cm|dd|in|mm|pc|pt)#?",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "beginchar"
+    },
+    {
+      "begin" : "beginfig"
+    },
+    {
+      "begin" : "beginlogochar"
+    },
+    {
+      "begin" : "endchar"
+    },
+    {
+      "begin" : "endfig"
+    },
+    {
+      "begin" : "extra_beginchar"
+    },
+    {
+      "begin" : "extra_beginfig"
+    },
+    {
+      "begin" : "extra_endchar"
+    },
+    {
+      "begin" : "extra_endfig"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "true"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "\\b[xyz]\\d(\\w|\\')*",
+      "regularExpression" : true
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "#|",
+        "end" : "|#",
+        "isNestable" : true
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : ";"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "(",
+        "end" : ")"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    }
+  ]
+}

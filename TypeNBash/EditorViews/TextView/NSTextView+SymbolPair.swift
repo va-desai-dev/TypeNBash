@@ -1,0 +1,64 @@
+//
+//  NSTextView+SymbolPair.swift
+//
+//  CotEditor
+//  https://coteditor.com
+//
+//  Created by 1024jp on 2018-03-29.
+//
+//  ---------------------------------------------------------------------------
+//
+//  © 2018-2026 1024jp
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  https://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+import AppKit
+import StringUtils
+
+extension NSTextView {
+    
+    /// Finds the matching symbols for the character before the cursors in the visible area and highlights them.
+    ///
+    /// - Parameters:
+    ///   - candidates: Symbol pairs to find.
+    ///   - pairToIgnore: The symbol pair in which symbol characters should be ignored.
+    ///   - escapeCharacter: The escape character, or `nil` for no escape.
+    final func highlightMatchingSymbol(candidates: [SymbolPair], ignoring pairToIgnore: SymbolPair? = nil, escapeCharacter: Character? = nil) {
+        
+        guard
+            !self.string.isEmpty,
+            let selectedRanges = self.rangesForUserTextChange
+        else { return }
+        
+        // avoid `String.index(before:)` on a UTF-16-offset index, which can trap when invisible scalars sit at the head of the cluster
+        let nsString = self.string as NSString
+        let lastIndexes = selectedRanges
+            .map(\.rangeValue)
+            .filter(\.isEmpty)
+            .map(\.lowerBound)
+            .filter { $0 > 0 }
+            .map(nsString.index(before:))
+            .map { String.Index(utf16Offset: $0, in: self.string) }
+        
+        guard !lastIndexes.isEmpty, let visibleRange else { return }
+        
+        let range = Range(visibleRange, in: self.string)
+        
+        lastIndexes
+            .compactMap { self.string.indexOfSymbolPair(at: $0, candidates: candidates, in: range, ignoring: pairToIgnore, escapeCharacter: escapeCharacter) }
+            .compactMap(\.index)
+            .map { NSRange($0...$0, in: self.string) }
+            .forEach { self.showFindIndicator(for: $0) }
+    }
+}

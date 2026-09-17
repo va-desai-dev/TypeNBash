@@ -1,0 +1,610 @@
+{
+  "attributes" : [
+    {
+      "begin" : "'ACTIVE\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'ASCENDING\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'BASE\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'DELAYED\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'DRIVING\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'DRIVING_VALUE\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'EVENT\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'HIGH\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'IMAGE(?=\\()",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'INSTANCE_NAME\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'LAST_ACTIVE\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'LAST_EVENT\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'LAST_VALUE\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'LEFT\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'LEFTOF(?=\\()",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'LENGTH\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'LOW\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'PATH_NAME\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'POS(?=\\()",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'PRED(?=\\()",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'QUIT\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'RANGE\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'REVERSE_RANGE\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'RIGHT\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'RIGHTOF(?=\\()",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'SAMPLE_NAME\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'STABLE\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'SUCC(?=\\()",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'TRANSACTION\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'VAL(?=\\()",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "'VALUE(?=\\()",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "characters" : [
+    {
+      "begin" : "'.'",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "abs",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "access",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "after",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "alias",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "all",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "and",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "architecture",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "array",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "assert",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "attribute",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "begin",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "block",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "body",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "buffer",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "bus",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "case",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "component",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "configuration",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "constant",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "disconnect",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "downto",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "else",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "elsif",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "end",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "entity",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "exit",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "file",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "for",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "function",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "generate",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "generic",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "group",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "guarded",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "if",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "impure",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "in",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "inertial",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "inout",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "is",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "label",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "library",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "linkage",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "literal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "loop",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "map",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "mod",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nand",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "new",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "next",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "nor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "not",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "null",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "of",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "on",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "open",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "or",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "others",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "out",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "package",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "port",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "postponed",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "procedural",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "procedure",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "process",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "protected",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "pure",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "range",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "record",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "reference",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "register",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "reject",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rem",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "report",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "return",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "rol",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "ror",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "select",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "severity",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "shared",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "signal",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sla",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sll",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "sra",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "srl",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "subtype",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "then",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "to",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "transport",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "type",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "unaffected",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "units",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "until",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "use",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "variable",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "wait",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "when",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "while",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "with",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "xnor",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "xor",
+      "ignoreCase" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<=\\W|^)-?[0-9][0-9_]*(\\.[0-9][0-9_]*)?(E[-+]?[0-9][0-9_]*)?",
+      "description" : "decimal",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "[0-9][0-9_]*#[0-9A-Z][0-9A-Z_]*(\\.[0-9A-Z][0-9A-Z_]*)?#(E[-+]?[0-9][0-9_]*)?",
+      "description" : "based",
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "\\bB\"[01][01_]*\"",
+      "description" : "bit string base_specifier",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bO\"[0-7][0-7_]*\"",
+      "description" : "bit string base_specifier",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bX\"[0-9A-F][0-9A-F_]*\"",
+      "description" : "bit string base_specifier",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "false"
+    },
+    {
+      "begin" : "null"
+    },
+    {
+      "begin" : "true"
+    }
+  ]
+}

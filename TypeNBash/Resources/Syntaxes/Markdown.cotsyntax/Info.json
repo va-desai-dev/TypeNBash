@@ -1,0 +1,19 @@
+{
+  "fileMap" : {
+    "extensions" : [
+      "md",
+      "markdown",
+      "mkd",
+      "mdown",
+      "mkdn"
+    ]
+  },
+  "kind" : "general",
+  "metadata" : {
+    "author" : "1024jp",
+    "distributionURL" : "https://coteditor.com",
+    "lastModified" : "2026-09-02",
+    "license" : "Same as CotEditor",
+    "version" : "2.0.3"
+  }
+}

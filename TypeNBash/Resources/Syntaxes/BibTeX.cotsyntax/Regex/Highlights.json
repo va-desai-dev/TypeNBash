@@ -1,0 +1,200 @@
+{
+  "attributes" : [
+    {
+      "begin" : "\\baddress[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bauthor[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bbooktitle[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bchapter[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bedition[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\beditor[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bhowpublished[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\binstitution[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bisbn[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bjournal[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bmonth[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnote[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bnumber[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\borganization[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpages[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bprice[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bpublisher[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bschool[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bseries[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btitle[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btype[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\burl[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bvolume[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\byear[\\t ]*=",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "\\emph"
+    },
+    {
+      "begin" : "\\LaTeX"
+    },
+    {
+      "begin" : "\\texttt"
+    },
+    {
+      "begin" : "\\verb"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "@\\w+\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "@article",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@book",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@booklet",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@conference",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@inbook",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@incollection",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@inproceedings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@manual",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@masterthesis",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@misc",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@phdthesis",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@proceedings",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@techreport",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "@unpublished",
+      "ignoreCase" : true
+    }
+  ]
+}

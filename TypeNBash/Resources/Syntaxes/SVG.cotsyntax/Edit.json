@@ -1,0 +1,19 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "<!--",
+        "end" : "-->"
+      }
+    ],
+    "inlines" : [
+
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\""
+    }
+  ]
+}

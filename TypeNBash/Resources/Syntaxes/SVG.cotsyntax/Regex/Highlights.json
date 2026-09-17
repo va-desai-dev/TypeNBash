@@ -1,0 +1,1604 @@
+{
+  "attributes" : [
+    {
+      "begin" : "(?<=xlink:)actuate\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)arcrole\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)base\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)href\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)lang\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)role\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)show\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)space\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)title\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xlink:)type\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xml:)lang\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xml:)space\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xmlns:)a\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xmlns:)cc\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xmlns:)dc\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xmlns:)rdf\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xmlns:)svg\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=xmlns:)xlink\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\saccent-height\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\saccumulate\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sadditive\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\salignment-baseline\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\salphabetic\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\samplitude\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sarabic-form\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sascent\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sattributeName\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sattributeType\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sazimuth\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sbaseFrequency\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sbaseline-shift\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sbaseProfile\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sbbox\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sbegin\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sbias\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sby\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scalcMode\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scap-height\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sclass\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sclip-path\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sclip-rule\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sclip\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sclipPathUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scolor-interpolation-filters\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scolor-interpolation\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scolor-profile\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scolor-rendering\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scolor\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scontentScriptType\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scontentStyleType\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scursor\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scx\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\scy\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sd\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdescent\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdiffuseConstant\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdirection\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdisplay\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdivisor\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdominant-baseline\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdur\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdx\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sdy\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sedgeMode\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\selevation\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\senable-background\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sencoding\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\send\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sexponent\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sexternalResourcesRequired\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfill-opacity\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfill-rule\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfill\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfilter\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfilterRes\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfilterUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sflood-color\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sflood-opacity\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfont-family\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfont-size-adjust\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfont-size\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfont-stretch\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfont-style\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfont-variant\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfont-weight\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sformat\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfrom\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfx\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sfy\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sg1\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sg2\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sglyph-name\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sglyph-orientation-horizontal\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sglyph-orientation-vertical\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sglyphRef\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sgradientTransform\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sgradientUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\shanging\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sheight\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\shoriz-adv-x\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\shoriz-origin-x\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\shoriz-origin-y\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\shref\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sid\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sideographic\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\simage-rendering\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sin2\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sin\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sintercept\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sk1\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sk2\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sk3\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sk4\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sk\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\skernelMatrix\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\skernelUnitLength\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\skerning\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\skeyPoints\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\skeySplines\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\skeyTimes\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\slang\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\slengthAdjust\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sletter-spacing\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\slighting-color\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\slimitingConeAngle\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\slocal\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smarker-end\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smarker-mid\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smarker-start\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smarkerHeight\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smarkerUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smarkerWidth\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smask\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smaskContentUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smaskUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smathematical\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smax\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smedia\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smethod\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smin\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\smode\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sname\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\snumOctaves\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\soffset\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\soffsetx\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonabort\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonactivate\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonbegin\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonclick\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonend\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonerror\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonfocusin\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonfocusout\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonload\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonmousedown\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonmousemove\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonmouseout\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonmouseover\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonmouseup\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonrepeat\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonresize\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonscroll\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonunload\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sonzoom\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sopacity\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\soperator\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sorder\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sorient\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sorientation\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\soverflow\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\soverline-position\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\soverline-thickness\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spanose-1\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spath\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spathLength\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spatternContentUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spatternTransform\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spatternUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spointer-events\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spoints\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spointsAtX\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spointsAtY\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spointsAtZ\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spreserveAlpha\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\spreserveAspectRatio\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sprimitiveUnits\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sr\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sradius\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srefX\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srefY\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srendering-intent\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srepeatCount\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srepeatDur\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srequiredExtensions\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srequiredFeatures\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srestart\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sresult\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srotate\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\srx\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sry\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sscale\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sseed\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sshape-rendering\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sslope\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sspacing\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sspecularConstant\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sspecularExponent\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sspreadMethod\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstandalone\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstartOffset\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstdDeviation\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstemh\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstemv\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstitchTiles\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstop-color\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstop-opacity\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstrikethrough-position\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstrikethrough-thickness\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstring\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstroke-dasharray\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstroke-dashoffset\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstroke-linecap\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstroke-linejoin\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstroke-miterlimit\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstroke-opacity\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstroke-width\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstroke\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sstyle\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\ssurfaceScale\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\ssystemLanguage\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stableValues\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\starget\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stargetX\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stargetY\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stext-anchor\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stext-decoration\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stext-rendering\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stextLength\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stitle\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sto\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stransform\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\stype\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\su1\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\su2\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sunderline-position\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sunderline-thickness\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sunicode-bidi\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sunicode-range\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sunicode\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sunits-per-em\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sv-alphabetic\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sv-hanging\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sv-ideographic\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sv-mathematical\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\svalues\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sversion\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\svert-adv-y\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\svert-origin-x\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\svert-origin-y\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sviewBox\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sviewTarget\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\svisibility\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\swidth\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\swidths\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sword-spacing\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\swriting-mode\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sx-height\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sx1\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sx2\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sx\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sxChannelSelector\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sxmlns\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sy1\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sy2\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sy\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\syChannelSelector\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\sz\\s*+(?==)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\szoomAndPan\\s*+(?==)",
+      "regularExpression" : true
+    }
+  ],
+  "characters" : [
+    {
+      "begin" : "&#[0-9]+;",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "&amp;"
+    },
+    {
+      "begin" : "&copy;"
+    },
+    {
+      "begin" : "&gt;"
+    },
+    {
+      "begin" : "&hearts;"
+    },
+    {
+      "begin" : "&infin;"
+    },
+    {
+      "begin" : "&laquo;"
+    },
+    {
+      "begin" : "&lt;"
+    },
+    {
+      "begin" : "&nbsp;"
+    },
+    {
+      "begin" : "&quot;"
+    },
+    {
+      "begin" : "&raquo;"
+    },
+    {
+      "begin" : "&reg;"
+    },
+    {
+      "begin" : "&yen;"
+    },
+    {
+      "begin" : "<![CDATA[",
+      "end" : "]]>",
+      "isMultiline" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "(?<=<)\\?xml-stylesheet\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=<)\\?xml\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\?(?=>)",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "(?<=</?)(svg:)?a\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?altGlyph\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?altGlyphDef\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?altGlyphItem\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?animate\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?animateColor\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?animateMotion\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?animateTransform\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?circle\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?clipPath\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?color-profile\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?cursor\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?defs\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?desc\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?ellipse\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feBlend\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feColorMatrix\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feComponentTransfer\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feComposite\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feConvolveMatrix\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feDiffuseLighting\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feDisplacementMap\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feDistantLight\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feFlood\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feFuncA\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feFuncB\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feFuncG\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feFuncR\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feGaussianBlur\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feImage\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feMerge\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feMergeNode\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feMorphology\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feOffset\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?fePointLight\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feSpecularLighting\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feSpotLight\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feTile\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?feTurbulence\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?filter\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?font-face-format\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?font-face-name\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?font-face-src\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?font-face-uri\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?font-face\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?font\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?foreignObject\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?g\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?glyph\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?glyphRef\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?hkern\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?image\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?line\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?linearGradient\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?marker\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?mask\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?metadata\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?missing-glyph\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?mpath\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?path\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?pattern\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?polygon\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?polyline\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?radialGradient\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?rect\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?script\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?set\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?stop\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?style\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?svg\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?switch\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?symbol\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?text\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?textPath\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?title\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?tref\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?tspan\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?use\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?view\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?)(svg:)?vkern\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)contributor\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)creator\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)date\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)description\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)format\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)identifier\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)language\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)publisher\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)relation\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)rights\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)source\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)subject\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)title\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=</?dc:)type\\b",
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "(?<==)\\s*'",
+      "end" : "'",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "(?<=<)!DOCTYPE",
+      "end" : "\"",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=<)!ENTITY",
+      "end" : "\"",
+      "regularExpression" : true
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "\\bcc:(?=[a-zA-Z])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bdc:(?=[a-zA-Z])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\brdf:(?=[a-zA-Z])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bsvg:(?=[a-zA-Z])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bxlink:(?=[a-z])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bxml:(?=[a-z])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\bxmlns:(?=[a-z])",
+      "regularExpression" : true
+    }
+  ]
+}

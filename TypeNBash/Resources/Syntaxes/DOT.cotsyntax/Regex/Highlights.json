@@ -1,0 +1,369 @@
+{
+  "attributes" : [
+    {
+      "begin" : "arrowhead"
+    },
+    {
+      "begin" : "arrowsize"
+    },
+    {
+      "begin" : "arrowtail"
+    },
+    {
+      "begin" : "bgcolor"
+    },
+    {
+      "begin" : "bottomlabel"
+    },
+    {
+      "begin" : "center"
+    },
+    {
+      "begin" : "clusterrank"
+    },
+    {
+      "begin" : "color"
+    },
+    {
+      "begin" : "comment"
+    },
+    {
+      "begin" : "compound"
+    },
+    {
+      "begin" : "concentrate"
+    },
+    {
+      "begin" : "constraint"
+    },
+    {
+      "begin" : "decorate"
+    },
+    {
+      "begin" : "dir"
+    },
+    {
+      "begin" : "distortion"
+    },
+    {
+      "begin" : "fillcolor"
+    },
+    {
+      "begin" : "fixedsize"
+    },
+    {
+      "begin" : "fontcolor"
+    },
+    {
+      "begin" : "fontname"
+    },
+    {
+      "begin" : "fontpath"
+    },
+    {
+      "begin" : "fontsize"
+    },
+    {
+      "begin" : "group"
+    },
+    {
+      "begin" : "headlabel"
+    },
+    {
+      "begin" : "headport"
+    },
+    {
+      "begin" : "headURL"
+    },
+    {
+      "begin" : "height"
+    },
+    {
+      "begin" : "label"
+    },
+    {
+      "begin" : "labelangle"
+    },
+    {
+      "begin" : "labelcolor"
+    },
+    {
+      "begin" : "labeldistance"
+    },
+    {
+      "begin" : "labelfloat"
+    },
+    {
+      "begin" : "labelfontname"
+    },
+    {
+      "begin" : "labelfontsize"
+    },
+    {
+      "begin" : "labeljust"
+    },
+    {
+      "begin" : "labelloc"
+    },
+    {
+      "begin" : "layer"
+    },
+    {
+      "begin" : "layers"
+    },
+    {
+      "begin" : "lhead"
+    },
+    {
+      "begin" : "ltail"
+    },
+    {
+      "begin" : "margin"
+    },
+    {
+      "begin" : "mclimit"
+    },
+    {
+      "begin" : "minlen"
+    },
+    {
+      "begin" : "nodesep"
+    },
+    {
+      "begin" : "nslimit"
+    },
+    {
+      "begin" : "nslimit1"
+    },
+    {
+      "begin" : "ordering"
+    },
+    {
+      "begin" : "orientation"
+    },
+    {
+      "begin" : "page"
+    },
+    {
+      "begin" : "pagedir"
+    },
+    {
+      "begin" : "peripheries"
+    },
+    {
+      "begin" : "quantum"
+    },
+    {
+      "begin" : "rank"
+    },
+    {
+      "begin" : "rankdir"
+    },
+    {
+      "begin" : "ranksep"
+    },
+    {
+      "begin" : "ratio"
+    },
+    {
+      "begin" : "regular"
+    },
+    {
+      "begin" : "remincross"
+    },
+    {
+      "begin" : "rotate"
+    },
+    {
+      "begin" : "samehead"
+    },
+    {
+      "begin" : "sametail"
+    },
+    {
+      "begin" : "samplepoints"
+    },
+    {
+      "begin" : "searchsize"
+    },
+    {
+      "begin" : "shape"
+    },
+    {
+      "begin" : "shapefile"
+    },
+    {
+      "begin" : "sides"
+    },
+    {
+      "begin" : "size"
+    },
+    {
+      "begin" : "skew"
+    },
+    {
+      "begin" : "splines"
+    },
+    {
+      "begin" : "style"
+    },
+    {
+      "begin" : "taillabel"
+    },
+    {
+      "begin" : "tailport"
+    },
+    {
+      "begin" : "tailURL"
+    },
+    {
+      "begin" : "toplabel"
+    },
+    {
+      "begin" : "URL"
+    },
+    {
+      "begin" : "weight"
+    },
+    {
+      "begin" : "width"
+    },
+    {
+      "begin" : "z"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "(<-|->|--)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "digraph"
+    },
+    {
+      "begin" : "edge"
+    },
+    {
+      "begin" : "graph"
+    },
+    {
+      "begin" : "node"
+    },
+    {
+      "begin" : "strict"
+    },
+    {
+      "begin" : "subgraph"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "box"
+    },
+    {
+      "begin" : "box3d"
+    },
+    {
+      "begin" : "circle"
+    },
+    {
+      "begin" : "component"
+    },
+    {
+      "begin" : "diamond"
+    },
+    {
+      "begin" : "doublecircle"
+    },
+    {
+      "begin" : "doubleoctagon"
+    },
+    {
+      "begin" : "egg"
+    },
+    {
+      "begin" : "ellipse"
+    },
+    {
+      "begin" : "folder"
+    },
+    {
+      "begin" : "hexagon"
+    },
+    {
+      "begin" : "house"
+    },
+    {
+      "begin" : "invhouse"
+    },
+    {
+      "begin" : "invtrapezium"
+    },
+    {
+      "begin" : "invtriangle"
+    },
+    {
+      "begin" : "max"
+    },
+    {
+      "begin" : "Mcircle"
+    },
+    {
+      "begin" : "Mdiamond"
+    },
+    {
+      "begin" : "min"
+    },
+    {
+      "begin" : "Msquare"
+    },
+    {
+      "begin" : "none"
+    },
+    {
+      "begin" : "note"
+    },
+    {
+      "begin" : "octagon"
+    },
+    {
+      "begin" : "parallelogram"
+    },
+    {
+      "begin" : "pentagon"
+    },
+    {
+      "begin" : "plaintext"
+    },
+    {
+      "begin" : "point"
+    },
+    {
+      "begin" : "polygon"
+    },
+    {
+      "begin" : "rect"
+    },
+    {
+      "begin" : "rectangle"
+    },
+    {
+      "begin" : "same"
+    },
+    {
+      "begin" : "septagon"
+    },
+    {
+      "begin" : "tab"
+    },
+    {
+      "begin" : "trapezium"
+    },
+    {
+      "begin" : "triangle"
+    },
+    {
+      "begin" : "tripleoctagon"
+    }
+  ]
+}

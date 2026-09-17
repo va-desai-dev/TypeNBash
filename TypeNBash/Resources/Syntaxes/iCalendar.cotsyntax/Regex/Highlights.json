@@ -1,0 +1,358 @@
+{
+  "attributes" : [
+    {
+      "begin" : "ACTION"
+    },
+    {
+      "begin" : "ATTACH"
+    },
+    {
+      "begin" : "ATTENDEE"
+    },
+    {
+      "begin" : "CALSCALE"
+    },
+    {
+      "begin" : "CATEGORIES"
+    },
+    {
+      "begin" : "CLASS"
+    },
+    {
+      "begin" : "COMMENT"
+    },
+    {
+      "begin" : "COMPLETED"
+    },
+    {
+      "begin" : "CONTACT"
+    },
+    {
+      "begin" : "CREATED"
+    },
+    {
+      "begin" : "DESCRIPTION"
+    },
+    {
+      "begin" : "DTEND"
+    },
+    {
+      "begin" : "DTSTAMP"
+    },
+    {
+      "begin" : "DTSTART"
+    },
+    {
+      "begin" : "DUE"
+    },
+    {
+      "begin" : "DURATION"
+    },
+    {
+      "begin" : "EXDATE"
+    },
+    {
+      "begin" : "EXRULE"
+    },
+    {
+      "begin" : "FREEBUSY"
+    },
+    {
+      "begin" : "LAST-MODIFIED"
+    },
+    {
+      "begin" : "LOCATION"
+    },
+    {
+      "begin" : "METHOD"
+    },
+    {
+      "begin" : "ORGANIZER"
+    },
+    {
+      "begin" : "PERCENT-COMPLETE"
+    },
+    {
+      "begin" : "PRIORITY"
+    },
+    {
+      "begin" : "PRODID"
+    },
+    {
+      "begin" : "RDATE"
+    },
+    {
+      "begin" : "RECURRENCE-ID"
+    },
+    {
+      "begin" : "RELATED-TO"
+    },
+    {
+      "begin" : "REPEAT"
+    },
+    {
+      "begin" : "REQUEST-STATUS"
+    },
+    {
+      "begin" : "RESOURCES"
+    },
+    {
+      "begin" : "RRULE"
+    },
+    {
+      "begin" : "SEQUENCE"
+    },
+    {
+      "begin" : "STATUS"
+    },
+    {
+      "begin" : "SUMMARY"
+    },
+    {
+      "begin" : "TRANSP"
+    },
+    {
+      "begin" : "TRIGGER"
+    },
+    {
+      "begin" : "TZID"
+    },
+    {
+      "begin" : "TZNAME"
+    },
+    {
+      "begin" : "TZOFFSETFROM"
+    },
+    {
+      "begin" : "TZOFFSETTO"
+    },
+    {
+      "begin" : "TZURL"
+    },
+    {
+      "begin" : "UID"
+    },
+    {
+      "begin" : "URL"
+    },
+    {
+      "begin" : "VERSION"
+    },
+    {
+      "begin" : "X-(WR|M2C|APPLE)-[A-Z0-9-]*(?=:)",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "BINARY"
+    },
+    {
+      "begin" : "BOOLEAN"
+    },
+    {
+      "begin" : "CAL-ADDRESS"
+    },
+    {
+      "begin" : "DATE"
+    },
+    {
+      "begin" : "DATE-TIME"
+    },
+    {
+      "begin" : "DURATION"
+    },
+    {
+      "begin" : "FLOAT"
+    },
+    {
+      "begin" : "INTEGER"
+    },
+    {
+      "begin" : "PERIOD"
+    },
+    {
+      "begin" : "RECUR"
+    },
+    {
+      "begin" : "TEXT"
+    },
+    {
+      "begin" : "TIME"
+    },
+    {
+      "begin" : "URI"
+    },
+    {
+      "begin" : "UTC-OFFSET"
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "BEGIN"
+    },
+    {
+      "begin" : "END"
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<=:)[0-9]+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "[0-9]{8}T[0-9]{6}Z?",
+      "regularExpression" : true
+    }
+  ],
+  "strings" : [
+    {
+      "begin" : "(?<=UID:)[0-9A-Z][0-9A-Z-]+",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "VALARM"
+    },
+    {
+      "begin" : "VCALENDAR"
+    },
+    {
+      "begin" : "VEVENT"
+    },
+    {
+      "begin" : "VFREEBUSY"
+    },
+    {
+      "begin" : "VJOURNAL"
+    },
+    {
+      "begin" : "VTIMEZONE"
+    },
+    {
+      "begin" : "VTODO"
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "ACCEPTED"
+    },
+    {
+      "begin" : "AUDIO"
+    },
+    {
+      "begin" : "AUTOMATIC"
+    },
+    {
+      "begin" : "CANCELLED"
+    },
+    {
+      "begin" : "CONFIRMED"
+    },
+    {
+      "begin" : "DECLINED"
+    },
+    {
+      "begin" : "DELEGATED"
+    },
+    {
+      "begin" : "DISPLAY"
+    },
+    {
+      "begin" : "FALSE"
+    },
+    {
+      "begin" : "GREGORIAN"
+    },
+    {
+      "begin" : "IN-PROGRESS"
+    },
+    {
+      "begin" : "NEEDS-ACTION"
+    },
+    {
+      "begin" : "NONE"
+    },
+    {
+      "begin" : "OPAQUE"
+    },
+    {
+      "begin" : "PRIVATE"
+    },
+    {
+      "begin" : "PUBLIC"
+    },
+    {
+      "begin" : "PUBLISH"
+    },
+    {
+      "begin" : "TENTATIVE"
+    },
+    {
+      "begin" : "TRUE"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "ALTREP"
+    },
+    {
+      "begin" : "CN"
+    },
+    {
+      "begin" : "CUTYPE"
+    },
+    {
+      "begin" : "DELEGATED-FROM"
+    },
+    {
+      "begin" : "DELEGATED-TO"
+    },
+    {
+      "begin" : "DIR"
+    },
+    {
+      "begin" : "ENCODING"
+    },
+    {
+      "begin" : "FBTYPE"
+    },
+    {
+      "begin" : "FMTTYPE"
+    },
+    {
+      "begin" : "LANGUAGE"
+    },
+    {
+      "begin" : "MEMBER"
+    },
+    {
+      "begin" : "PARTSTAT"
+    },
+    {
+      "begin" : "RANGE"
+    },
+    {
+      "begin" : "RELATED"
+    },
+    {
+      "begin" : "RELTYPE"
+    },
+    {
+      "begin" : "ROLE"
+    },
+    {
+      "begin" : "RSVP"
+    },
+    {
+      "begin" : "SENT-BY"
+    },
+    {
+      "begin" : "TZID"
+    },
+    {
+      "begin" : "VALUE"
+    }
+  ]
+}

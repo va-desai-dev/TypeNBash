@@ -1,0 +1,20 @@
+[
+  {
+    "description" : "class",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)class[\\t ]+(.+?):?[\\t]*$",
+    "template" : "$1$2"
+  },
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)def[\\t ]+(.+?):?[\\t]*$",
+    "template" : "$1$2"
+  },
+  {
+    "description" : "Mojo struct",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)struct[\\t ]+(.+?):?[\\t]*$",
+    "template" : "$1$2"
+  }
+]

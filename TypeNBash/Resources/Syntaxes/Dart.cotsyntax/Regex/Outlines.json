@@ -1,0 +1,14 @@
+[
+  {
+    "description" : "function",
+    "kind" : "function",
+    "pattern" : "^([\\t ]*)([a-zA-Z]+) (\\w+[\\t ]*\\(.*\\))\\s\\{",
+    "template" : "$1$2 $3"
+  },
+  {
+    "description" : "class",
+    "kind" : "container",
+    "pattern" : "^([\\t ]*)class (.+)\\s\\{",
+    "template" : "$1class $2"
+  }
+]

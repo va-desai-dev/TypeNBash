@@ -1,0 +1,83 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "--[[",
+        "end" : "]]"
+      },
+      {
+        "begin" : "--[===[",
+        "end" : "]===]"
+      },
+      {
+        "begin" : "--[==[",
+        "end" : "]==]"
+      },
+      {
+        "begin" : "--[=[",
+        "end" : "]=]"
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "--"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      },
+      {
+        "begin" : "then",
+        "end" : "end"
+      },
+      {
+        "begin" : "do",
+        "end" : "end"
+      },
+      {
+        "begin" : "repeat",
+        "end" : "until"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "[[",
+      "description" : "Long bracket string (level 0)",
+      "end" : "]]",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "[=[",
+      "description" : "Long bracket string (level 1)",
+      "end" : "]=]",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "[==[",
+      "description" : "Long bracket string (level 2)",
+      "end" : "]==]",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "[===[",
+      "description" : "Long bracket string (level 3)",
+      "end" : "]===]",
+      "isMultiline" : true
+    }
+  ]
+}

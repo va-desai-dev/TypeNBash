@@ -1,0 +1,162 @@
+{
+  "characters" : [
+    {
+      "begin" : "\\b[0-9]{4}-[0-9]{2}-[0-9]{2}|[0-9]{4}-[0-9]{2}?-[0-9]{2}?([Tt]|[ \\t]+)[0-9]{2}?:[0-9]{2}:[0-9]{2}(\\.[0-9]*)?(([ \\t]*)Z|[-+][0-9]{2}?(:[0-9]{2})?)?\\b",
+      "description" : "time",
+      "regularExpression" : true
+    }
+  ],
+  "commands" : [
+    {
+      "begin" : "%TAG"
+    },
+    {
+      "begin" : "%YAML [0-9.]+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^---( |$)",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "^\\.\\.\\.$",
+      "regularExpression" : true
+    }
+  ],
+  "keywords" : [
+    {
+      "begin" : "(?<=[-\\[{,]|^)[ \\t]*[^-:\\[\\]\\r\\n ][^:\\[\\]\\r\\n ]*[\\t ]*(?=:\\s)",
+      "regularExpression" : true
+    }
+  ],
+  "numbers" : [
+    {
+      "begin" : "(?<=([-:]|!!float|!!int)) +[0-9,.]+(?=[ \\r\\n\\}\\]])",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "0x[0-9a-fA-F]+",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "[-+]?\\.(inf|Inf|INF)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\.(nan|NaN|NAN)\\b",
+      "regularExpression" : true
+    }
+  ],
+  "types" : [
+    {
+      "begin" : "!"
+    },
+    {
+      "begin" : "!!"
+    },
+    {
+      "begin" : "!!binary"
+    },
+    {
+      "begin" : "!!bool"
+    },
+    {
+      "begin" : "!!float"
+    },
+    {
+      "begin" : "!!int"
+    },
+    {
+      "begin" : "!!map"
+    },
+    {
+      "begin" : "!!merge"
+    },
+    {
+      "begin" : "!!null"
+    },
+    {
+      "begin" : "!!omap"
+    },
+    {
+      "begin" : "!!pairs"
+    },
+    {
+      "begin" : "!!seq"
+    },
+    {
+      "begin" : "!!set"
+    },
+    {
+      "begin" : "!!str"
+    },
+    {
+      "begin" : "!!timestamp"
+    },
+    {
+      "begin" : "!!value"
+    },
+    {
+      "begin" : "!!yaml"
+    },
+    {
+      "begin" : "!<",
+      "description" : "tag",
+      "end" : ">"
+    },
+    {
+      "begin" : "(?<!!)!\\w+(!(\\w+)?)?",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "\\btag:\\S+",
+      "regularExpression" : true
+    }
+  ],
+  "values" : [
+    {
+      "begin" : "(?<!!)(?:null|Null|NULL)\\b",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<=:)\\s*on\\b",
+      "ignoreCase" : true,
+      "regularExpression" : true
+    },
+    {
+      "begin" : "false",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "no",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "off",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "true",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "yes",
+      "ignoreCase" : true
+    },
+    {
+      "begin" : "~"
+    }
+  ],
+  "variables" : [
+    {
+      "begin" : "(?<!\\w)&[^ \\t\\r\\n]+\\b",
+      "description" : "anchor",
+      "regularExpression" : true
+    },
+    {
+      "begin" : "(?<!\\w)\\*[^ \\t\\r\\n]+\\b",
+      "description" : "reference",
+      "regularExpression" : true
+    }
+  ]
+}

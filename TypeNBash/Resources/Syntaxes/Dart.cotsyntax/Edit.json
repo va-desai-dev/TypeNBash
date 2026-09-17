@@ -1,0 +1,81 @@
+{
+  "comment" : {
+    "blocks" : [
+      {
+        "begin" : "/*",
+        "end" : "*/"
+      }
+    ],
+    "inlines" : [
+      {
+        "begin" : "//"
+      }
+    ]
+  },
+  "indentation" : {
+    "blockDelimiters" : [
+      {
+        "begin" : "{",
+        "end" : "}"
+      }
+    ]
+  },
+  "stringDelimiters" : [
+    {
+      "begin" : "\"",
+      "end" : "\"",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "\"\"\"",
+      "end" : "\"\"\"",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "'",
+      "end" : "'",
+      "escapeCharacter" : "\\"
+    },
+    {
+      "begin" : "'''",
+      "end" : "'''",
+      "escapeCharacter" : "\\",
+      "isMultiline" : true
+    },
+    {
+      "begin" : "\"",
+      "description" : "Raw string literal",
+      "end" : "\"",
+      "prefixes" : [
+        "r"
+      ]
+    },
+    {
+      "begin" : "\"\"\"",
+      "description" : "Raw string literal",
+      "end" : "\"\"\"",
+      "isMultiline" : true,
+      "prefixes" : [
+        "r"
+      ]
+    },
+    {
+      "begin" : "'",
+      "description" : "Raw string literal",
+      "end" : "'",
+      "prefixes" : [
+        "r"
+      ]
+    },
+    {
+      "begin" : "'''",
+      "description" : "Raw string literal",
+      "end" : "'''",
+      "isMultiline" : true,
+      "prefixes" : [
+        "r"
+      ]
+    }
+  ]
+}
