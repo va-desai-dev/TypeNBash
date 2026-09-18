@@ -1,5 +1,7 @@
 import Foundation
 import Observation
+import SwiftGitX
+import libgit2
 
 /// Owns project selection and temporary SSH browsing without changing the window.
 @MainActor

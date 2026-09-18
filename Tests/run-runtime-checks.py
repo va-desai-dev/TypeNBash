@@ -33,14 +33,16 @@ with tempfile.TemporaryDirectory(prefix="centcom-runtime-checks-", dir="/tmp") a
     maps += [packages / "checkouts/Yams/Sources/CYaml/include/module.modulemap"]
     command = ["xcrun", "swiftc", "-parse-as-library", "-swift-version", "5", "-target",
                f"{platform.machine()}-apple-macos{deployment_target}", "-module-cache-path", str(temporary / "ModuleCache"),
-               "-I", str(products)]
+               "-I", str(products), "-Xcc", "-I" + str(packages / "checkouts/libgit2/include")]
     for module_map in maps:
         command += ["-Xcc", "-fmodule-map-file=" + str(module_map)]
     dylibs = products / "TypeNBash.app/Contents/MacOS"
-    command += [str(root / "RuntimeIntegrationChecks.swift"), str(dylibs / "TypeNBash.debug.dylib"),
+    command += [str(root / (sys.argv[3] if len(sys.argv) > 3 else "RuntimeIntegrationChecks.swift")), str(dylibs / "TypeNBash.debug.dylib"),
                 "-Xlinker", "-rpath", "-Xlinker", str(dylibs), "-o", str(executable)]
     subprocess.run(command, check=True)
     subprocess.run([str(executable)], check=True)
+    if len(sys.argv) > 3:
+        sys.exit(0)
     home = temporary / "home"
     home.mkdir()
     target = home / "folder #?% ' café"

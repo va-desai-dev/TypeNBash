@@ -46,8 +46,8 @@ struct CanvasView: View {
     // left the header's commands and the footer's readout wired to nothing.
     @State private var editorSession = EditorSession()
 
-
     @Binding var selectedViewMode: ViewMode
+    @State private var project = Project.self
 
     var body: some View {
         HSplitView {
@@ -90,10 +90,6 @@ struct CanvasView: View {
                     .frame(minWidth: 220, idealWidth: 240, maxWidth: 300)
             }
         }
-        // Window chrome. `.toolbarBackground` alone is a no-op: it tints a toolbar
-        // that exists, and without `.toolbar { }` supplying content there is no
-        // toolbar for the window to draw. `.toolbar(removing: .title)` then drops
-        // the stock title text so the principal item isn't shown twice.
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button {
@@ -104,7 +100,7 @@ struct CanvasView: View {
                 .help(showsInspector ? "Hide sidebar" : "Show sidebar")
             }
             ToolbarSpacer(.fixed, placement: .navigation)
-            .sharedBackgroundVisibility(.hidden)
+                .sharedBackgroundVisibility(.hidden)
             ToolbarItem {
                 Button {
                     presentedSheet = .sshConnection
@@ -156,6 +152,21 @@ struct CanvasView: View {
             ToolbarSpacer()
             ToolbarItem {
                 Button {
+                    presentedSheet = .sourceControl
+                } label: {
+                    Label("Source Control", image: "vault.symbols.2")
+                }
+                .disabled(windowSession.location != .local)
+                .help("Source control for the local workspace")
+            }
+            ToolbarItem {
+                Button { } label: {
+                    Label("Changes", systemImage: "arrow.left.arrow.right").font(.system(size: 12))
+                }
+            }
+            ToolbarSpacer(.fixed)
+            ToolbarItem {
+                Button {
                     showsInspector.toggle()
                 } label: {
                     Image(systemName: "sidebar.trailing")
@@ -172,6 +183,9 @@ struct CanvasView: View {
                     SSHConnectionSheet(windowSession: windowSession, profileStore: profileStore)
                 case .projectCreator:
                     ProjectCreationSheet(windowSession: windowSession, profileStore: profileStore)
+                case .sourceControl:
+                    SourceControlView(directory: windowSession.activeProject?.localDirectoryURL
+                                      ?? windowSession.fileBrowser.directory)
             }
         }
         .task(id: telemetryTaskID) {
@@ -262,6 +276,7 @@ struct CanvasView: View {
 private enum CanvasSheet: String, Identifiable {
     case sshConnection
     case projectCreator
+    case sourceControl
 
     var id: Self { self }
 }

@@ -58,3 +58,58 @@ that saved project after disconnecting. Repeat with a saved key connection and a
 password supplied in Projects. Cancel browsing and try an inaccessible folder;
 the previous workspace should remain active. These checks need a reachable SSH
 host and are not covered by the local harness.
+
+# SwiftGitX source control checks
+
+After building TypeNBash, pass the source-control suite to the runtime runner:
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-sgx-build \
+  /path/to/SourcePackages SourceControlIntegrationChecks.swift
+```
+
+The suite exercises the production service in temporary repositories: discovery
+from a subfolder, no implicit repository creation, an initial commit, special
+characters in paths, partially staged files, unstaging without changing file
+contents, staged deletions, fetching a local bare remote, and linked worktrees.
+It does not access GitHub, use credentials, or modify the workspace repository.
+
+Manual UI check: open a local project and click Source Control in the toolbar.
+Refresh, stage a saved file, enter a message, and commit staged changes. Verify
+that opening a non-repository displays an explanation and that the toolbar
+button is disabled for SSH workspaces. Unstage is available after the
+repository's first commit. Push/pull are not part of this integration.
+
+# GitHub authentication checks
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-sgx-build \
+  /path/to/SourcePackages GitHubAuthenticationChecks.swift
+```
+
+This suite requires access to the macOS Keychain. It uses a unique test service
+and fake credentials, removes that item afterward, and intercepts all API
+requests with URLProtocol. It checks successful validation, rejected and malformed
+responses, preservation of an existing credential after failed replacement,
+Keychain restoration/replacement/deletion, exact HTTPS host restrictions, and
+credential retry limits. Device-flow checks validate the client ID and request
+parameters, pending/slow-down polling, denial, expiration, disabled registration,
+cancellation, token rotation, and concurrent refresh coalescing. No GitHub
+account or real network access is used.
+
+Live acceptance: enable Device Flow on the registered OAuth app, open Source
+Control, and choose Sign in with GitHub. Copy the displayed code into the browser
+page and approve `repo read:user` access. Verify Cancel stops polling, declining
+produces a useful error, the login appears after approval, reopening restores it,
+and Fetch works for a private `https://github.com/OWNER/REPO.git` remote. Existing
+saved tokens remain usable; disconnect first to test browser sign-in.
+
+Access and refresh tokens, plus their expiration dates, are stored in Keychain.
+Fetch refreshes expiring authorization before use. Disconnect removes credentials
+from this Mac; revoke app authorization on GitHub to invalidate the tokens.
+The OAuth client ID is public app configuration; no client secret is embedded.
+Token transport does not support GitHub Enterprise or SSH URLs, and API validation
+does not guarantee access to every repository or organization. The transport
+retains certificate verification, rejects redirects, and provides credentials
+only for HTTPS on github.com. Tokens are never saved to Git config, UserDefaults,
+logs, or command-line arguments.

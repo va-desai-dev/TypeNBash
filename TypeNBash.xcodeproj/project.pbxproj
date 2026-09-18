@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C8A8B55305C903500FD348E /* .gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A8B54305C903400FD348E /* .gitignore */; };
+		7C8A8B58305CA8EC00FD348E /* SwiftGitX in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8A8B57305CA8EC00FD348E /* SwiftGitX */; };
 		7CA595BC305718F400C0FF4E /* ColorCode in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595BB305718F400C0FF4E /* ColorCode */; };
 		7CA595BF3057192500C0FF4E /* ComplexModule in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595BE3057192500C0FF4E /* ComplexModule */; };
 		7CA595C13057192500C0FF4E /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595C03057192500C0FF4E /* Numerics */; };
@@ -57,6 +58,7 @@
 				7CA595C13057192500C0FF4E /* Numerics in Frameworks */,
 				7CA595BF3057192500C0FF4E /* ComplexModule in Frameworks */,
 				7CB100033058000300C0FF4E /* SwiftTerm in Frameworks */,
+				7C8A8B58305CA8EC00FD348E /* SwiftGitX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +110,7 @@
 				7CA595C8305719AD00C0FF4E /* MacUI */,
 				7CA595CB305719BD00C0FF4E /* EditorCore */,
 				7CB100023058000200C0FF4E /* SwiftTerm */,
+				7C8A8B57305CA8EC00FD348E /* SwiftGitX */,
 			);
 			productName = CENTCOM;
 			productReference = 7C3CC8CE3055BB7300D76564 /* TypeNBash.app */;
@@ -144,6 +147,7 @@
 				7CA595C43057198D00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/Syntax" */,
 				7CA595C7305719AD00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/MacUI" */,
 				7CA595CA305719BD00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/EditorCore" */,
+				7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7C3CC8CF3055BB7300D76564 /* Products */;
@@ -456,6 +460,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ibrahimcetin/SwiftGitX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 		7CA595BA305718F400C0FF4E /* XCRemoteSwiftPackageReference "WFColorCode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/1024jp/WFColorCode.git";
@@ -483,6 +495,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7C8A8B57305CA8EC00FD348E /* SwiftGitX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */;
+			productName = SwiftGitX;
+		};
 		7CA595BB305718F400C0FF4E /* ColorCode */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7CA595BA305718F400C0FF4E /* XCRemoteSwiftPackageReference "WFColorCode" */;

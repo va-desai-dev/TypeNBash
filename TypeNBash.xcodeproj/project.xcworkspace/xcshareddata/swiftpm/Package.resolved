@@ -1,6 +1,15 @@
 {
-  "originHash" : "389231c2a232abdf7e434906dea43f3198064b9c4fe27bbffcc7b977e2fcd23c",
+  "originHash" : "d5ba26b1358acc32a75e84bd9ddcb9aa98be482a2d7777c0e5e7eafb9badc197",
   "pins" : [
+    {
+      "identity" : "libgit2",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ibrahimcetin/libgit2.git",
+      "state" : {
+        "revision" : "52287b0914f300f916b58fec80e13d8dd8f6824f",
+        "version" : "1.9.2"
+      }
+    },
     {
       "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
@@ -26,6 +35,15 @@
       "state" : {
         "revision" : "f97df585296977d8fcaf644cbde567151d1367b8",
         "version" : "0.10.0"
+      }
+    },
+    {
+      "identity" : "swiftgitx",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ibrahimcetin/SwiftGitX.git",
+      "state" : {
+        "revision" : "fcfb71e3dcbbaa70d120b98b7477ce173074aec3",
+        "version" : "0.4.0"
       }
     },
     {
