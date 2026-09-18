@@ -13,6 +13,7 @@ struct SourceControlChange: Identifiable, Sendable {
 struct SourceControlSnapshot: Sendable {
     let root: URL
     let branch: String
+    let detached: Bool
     let unborn: Bool
     let changes: [SourceControlChange]
     let remotes: [String]
@@ -24,6 +25,7 @@ enum SourceControlAction: Sendable {
     case unstage(String)
     case commit(String)
     case fetch(String)
+    case push(String)
 }
 
 /// Keeps libgit2 and filesystem work off the UI actor. Each operation opens its
@@ -48,6 +50,11 @@ actor SourceControlService {
                 throw SourceControlError.emptyMessage
             }
             try repository.commit(message: message)
+        case .push(let name):
+            let remote = try repository.remote.get(named: name)
+            let credential = remote.url.host?.lowercased() == "github.com"
+                ? try await GitHubAuthenticationService.shared.validCredential() : nil
+            try GitHubTransport.push(root: root, remote: name, credential: credential)
         case .fetch(let name):
             let remote = try repository.remote.get(named: name)
             if remote.url.host?.lowercased() == "github.com" {
@@ -76,6 +83,7 @@ actor SourceControlService {
         return SourceControlSnapshot(
             root: try repository.workingDirectory,
             branch: repository.isHEADUnborn ? "No commits yet" : try repository.HEAD.name,
+            detached: repository.isHEADDetached,
             unborn: repository.isHEADUnborn,
             changes: changes,
             remotes: try repository.remote.list().map(\.name).sorted()
@@ -128,7 +136,8 @@ final class SourceControlModel {
             switch action {
             case .commit:
                 commitMessage = ""
-                resultMessage = "Commit created."
+                resultMessage = "Commit saved locally. Use Push to publish it to the selected remote."
+            case .push(let remote): resultMessage = "Pushed to \(remote)."
             case .fetch: resultMessage = "Fetch completed."
             default: break
             }

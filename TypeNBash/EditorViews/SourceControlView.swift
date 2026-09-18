@@ -64,10 +64,15 @@ struct SourceControlView: View {
                         }
                         .fixedSize()
                         Button("Fetch") { Task { await model.run(.fetch(model.selectedRemote)) } }
+                        Button("Push", systemImage: "arrow.up") {
+                            Task { await model.run(.push(model.selectedRemote)) }
+                        }
+                        .disabled(snapshot.unborn || snapshot.detached)
+                        .help("Push \(snapshot.branch) to \(model.selectedRemote)/\(snapshot.branch)")
                     }
                 }
                 .disabled(model.isBusy || model.account.isBusy)
-                Text("Save editor changes before staging. GitHub authentication applies to HTTPS remotes on github.com.")
+                Text("Commit saves locally. Push publishes the current branch under the same name on the selected remote.")
                     .font(.caption).foregroundStyle(.secondary)
             } else {
                 Spacer()

@@ -72,13 +72,18 @@ The suite exercises the production service in temporary repositories: discovery
 from a subfolder, no implicit repository creation, an initial commit, special
 characters in paths, partially staged files, unstaging without changing file
 contents, staged deletions, fetching a local bare remote, and linked worktrees.
+Push checks verify initial publication, explicit branch selection even with a
+broad forced refspec in Git config, detached HEAD refusal, and rejection of a
+diverged remote without overwriting its history.
 It does not access GitHub, use credentials, or modify the workspace repository.
 
 Manual UI check: open a local project and click Source Control in the toolbar.
 Refresh, stage a saved file, enter a message, and commit staged changes. Verify
 that opening a non-repository displays an explanation and that the toolbar
 button is disabled for SSH workspaces. Unstage is available after the
-repository's first commit. Push/pull are not part of this integration.
+repository's first commit. Push sends only the current branch to the selected
+remote under the same branch name, without force, and reports remote rejection.
+It does not change upstream configuration. Pull/merge are not part of this integration.
 
 # GitHub authentication checks
 
@@ -101,7 +106,10 @@ Live acceptance: enable Device Flow on the registered OAuth app, open Source
 Control, and choose Sign in with GitHub. Copy the displayed code into the browser
 page and approve `repo read:user` access. Verify Cancel stops polling, declining
 produces a useful error, the login appears after approval, reopening restores it,
-and Fetch works for a private `https://github.com/OWNER/REPO.git` remote. Existing
+and Fetch works for a private `https://github.com/OWNER/REPO.git` remote.
+Commit locally, then Push to verify authenticated publication. Repository write
+permission is required; protected branches may require a pull request instead.
+Committing alone never publishes changes. Existing
 saved tokens remain usable; disconnect first to test browser sign-in.
 
 Access and refresh tokens, plus their expiration dates, are stored in Keychain.
