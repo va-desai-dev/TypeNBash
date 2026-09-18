@@ -121,3 +121,24 @@ does not guarantee access to every repository or organization. The transport
 retains certificate verification, rejects redirects, and provides credentials
 only for HTTPS on github.com. Tokens are never saved to Git config, UserDefaults,
 logs, or command-line arguments.
+
+# Unified diff viewer
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-sgx-build \
+  /path/to/SourcePackages GitDiffIntegrationChecks.swift
+```
+
+Checks cover unborn repositories and untracked files, stacked removals before additions and
+old/new line numbers, staged versus unstaged content, deletions, binary and large-file
+fallbacks, renames, and clean repositories. All changes occur in temporary fixtures.
+Set `CENTCOM_DIFF_PREVIEW=1` to also render a temporary native window and write
+`/tmp/centcom-diff-preview.png` for visual inspection.
+
+Click the toolbar's two-arrow Changes button in a local workspace. Select a file,
+switch All Changes / Unstaged / Staged, and scroll the single comparison pane.
+Removed lines precede additions within each changed block. Deleted files have
+a struck-through filename and display their previous contents as removed lines. The viewer shows read-only saved-file patches with three
+context lines. Unsaved editor buffers are not included. Files larger than 2 MB
+receive a fallback message; text previews are capped at 20,000 rows and long lines
+at 10,000 bytes. Refresh reloads external filesystem or Git changes.

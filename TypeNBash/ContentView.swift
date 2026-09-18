@@ -48,6 +48,7 @@ struct CanvasView: View {
 
     @Binding var selectedViewMode: ViewMode
     @State private var project = Project.self
+    @State private var showsDiffs = false
 
     var body: some View {
         HSplitView {
@@ -72,16 +73,22 @@ struct CanvasView: View {
                 .allowsHitTesting(selectedViewMode == .terminal)
 
                 if selectedViewMode != .terminal {
-                    FileViewer(model: windowSession.fileBrowser, session: editorSession)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                        .id(ObjectIdentifier(windowSession.fileBrowser))
-                        .safeAreaBar(edge: .top) {
-                            FileBrowserPaneHeader(model: windowSession.fileBrowser, session: editorSession)
-                        }
-                        .safeAreaBar(edge: .bottom) {
-                            FileViewerFooter(session: editorSession)
-                                .background(Color.card)
-                        }
+                    if !showsDiffs {
+                        FileViewer(model: windowSession.fileBrowser, session: editorSession)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                            .id(ObjectIdentifier(windowSession.fileBrowser))
+                            .safeAreaBar(edge: .top) {
+                                FileBrowserPaneHeader(model: windowSession.fileBrowser, session: editorSession)
+                            }
+                            .safeAreaBar(edge: .bottom) {
+                                FileViewerFooter(session: editorSession)
+                                    .background(Color.card)
+                            }
+                    }  else {
+                        GitDiffView(directory: windowSession.activeProject?.localDirectoryURL
+                                    ?? windowSession.fileBrowser.directory,
+                                    selectedFile: windowSession.fileBrowser.selectedFile)
+                    }
                 }
             }
             .backgroundStyle(Color.card)
@@ -160,9 +167,14 @@ struct CanvasView: View {
                 .help("Source control for the local workspace")
             }
             ToolbarItem {
-                Button { } label: {
+                Button {
+                    showsDiffs.toggle()
+                    if showsDiffs { selectedViewMode = .previewMode }
+                } label: {
                     Label("Changes", systemImage: "arrow.left.arrow.right").font(.system(size: 12))
                 }
+                .disabled(windowSession.location != .local)
+                .help("Compare saved Git changes")
             }
             ToolbarSpacer(.fixed)
             ToolbarItem {
@@ -271,6 +283,13 @@ struct CanvasView: View {
         .padding(16)
         .background(Color.card)
     }
+}
+
+private enum EditorPanels: String, Identifiable {
+    case editor
+    case diff
+
+    var id: Self { self }
 }
 
 private enum CanvasSheet: String, Identifiable {

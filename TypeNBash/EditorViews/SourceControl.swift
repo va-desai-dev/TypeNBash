@@ -31,7 +31,7 @@ enum SourceControlAction: Sendable {
 /// Keeps libgit2 and filesystem work off the UI actor. Each operation opens its
 /// own repository handle; no libgit2-backed objects escape into the views.
 actor SourceControlService {
-    func perform(_ action: SourceControlAction, in directory: URL) async throws -> SourceControlSnapshot {
+    nonisolated static func repositoryRoot(in directory: URL) throws -> URL {
         var root = directory.standardizedFileURL
         while !FileManager.default.fileExists(atPath: root.appendingPathComponent(".git").path) {
             let parent = root.deletingLastPathComponent().standardizedFileURL
@@ -40,6 +40,11 @@ actor SourceControlService {
             }
             root = parent
         }
+        return root
+    }
+
+    func perform(_ action: SourceControlAction, in directory: URL) async throws -> SourceControlSnapshot {
+        let root = try Self.repositoryRoot(in: directory)
         let repository = try Repository(at: root, createIfNotExists: false)
         switch action {
         case .refresh: break
