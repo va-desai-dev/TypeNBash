@@ -48,143 +48,23 @@ struct CanvasView: View {
 
     @Binding var selectedViewMode: ViewMode
     @State private var project = Project.self
-    @State private var showsDiffs = false
+    // The comparison session, owned here for the same reason as `editorSession`:
+    // `GitDiffFileList` in the sidebar and `GitDiffView` in the canvas are
+    // siblings, and selecting a row in one has to reload the other. Non-nil is
+    // also what "the comparison is open" means, so there is no separate flag to
+    // fall out of step with it.
+    @State private var diffModel: GitDiffModel?
 
     var body: some View {
-        HSplitView {
-            if showsSidebar {
-                sidebar
-                    .frame(minWidth: 220, maxWidth: 300)
-                    .frame(maxHeight: .infinity, alignment: .topLeading)
-            }
-            ZStack {
-                TerminalHostView(
-                    configuration: windowSession.terminalConfiguration,
-                    controller: terminalController,
-                    onDirectoryChange: { [generation = windowSession.terminalGeneration] host, directory in
-                        windowSession.terminalReported(host: host, directory: directory, generation: generation)
-                    },
-                    onExit: { [generation = windowSession.terminalGeneration] _ in
-                        windowSession.handleTerminalExit(generation: generation)
-                    }
-                )
-                .id(windowSession.terminalGeneration)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                .allowsHitTesting(selectedViewMode == .terminal)
-
-                if selectedViewMode != .terminal {
-                    if !showsDiffs {
-                        FileViewer(model: windowSession.fileBrowser, session: editorSession)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                            .id(ObjectIdentifier(windowSession.fileBrowser))
-                            .safeAreaBar(edge: .top) {
-                                FileBrowserPaneHeader(model: windowSession.fileBrowser, session: editorSession)
-                            }
-                            .safeAreaBar(edge: .bottom) {
-                                FileViewerFooter(session: editorSession)
-                                    .background(Color.card)
-                            }
-                    }  else {
-                        GitDiffView(directory: windowSession.activeProject?.localDirectoryURL
-                                    ?? windowSession.fileBrowser.directory,
-                                    selectedFile: windowSession.fileBrowser.selectedFile)
-                    }
-                }
-            }
-            .backgroundStyle(Color.card)
-            if showsInspector {
-                inspector
-                    .frame(minWidth: 220, idealWidth: 240, maxWidth: 300)
+        Group {
+            if let diffModel {
+                GitDiffView(model: diffModel)
+            } else {
+                mainCanvas
             }
         }
         .toolbar {
-            ToolbarItem(placement: .navigation) {
-                Button {
-                    showsSidebar.toggle()
-                } label: {
-                    Image(systemName: "sidebar.leading")
-                }
-                .help(showsInspector ? "Hide sidebar" : "Show sidebar")
-            }
-            ToolbarSpacer(.fixed, placement: .navigation)
-                .sharedBackgroundVisibility(.hidden)
-            ToolbarItem {
-                Button {
-                    presentedSheet = .sshConnection
-                } label: {
-                    Label("SSH", systemImage: "network")
-                        .foregroundStyle(windowSession.location != .local ? .green : .primary)
-                }
-                .symbolEffect(.pulse, options: .repeat(.max), value: windowSession.location != .local)
-                .help("Connect this window over SSH")
-            }
-            ToolbarItem {
-                Button {
-                    presentedSheet = .projectCreator
-                } label: {
-                    Label("Project", systemImage: "folder")
-                }
-                .help("Open a project workspace")
-            }
-            ToolbarSpacer()
-            if #available(macOS 27, *) {
-                ToolbarItem() {
-                    Picker("Workspace mode", selection: $selectedViewMode) {
-                        Label("Terminal", systemImage: "terminal")
-                            .tag(ViewMode.terminal)
-                        Label("Editor", systemImage: "square.and.pencil")
-                            .tag(ViewMode.previewMode)
-                    }
-                    .pickerStyle(.tabs)
-                    .labelStyle(.titleAndIcon)
-                    .labelsHidden()
-                    .fixedSize()
-                    .help("Switch between the terminal and file editor")
-                }
-            } else {
-                ToolbarItem() {
-                    Picker("Workspace mode", selection: $selectedViewMode) {
-                        Label("Terminal", systemImage: "terminal")
-                            .tag(ViewMode.terminal)
-                        Label("Editor", systemImage: "square.and.pencil")
-                            .tag(ViewMode.previewMode)
-                    }
-                    .pickerStyle(.segmented)
-                    .labelStyle(.titleAndIcon)
-                    .labelsHidden()
-                    .fixedSize()
-                    .help("Switch between the terminal and file editor")
-                }
-            }
-            ToolbarSpacer()
-            ToolbarItem {
-                Button {
-                    presentedSheet = .sourceControl
-                } label: {
-                    Label("Source Control", image: "vault.symbols.2")
-                }
-                .disabled(windowSession.location != .local)
-                .help("Source control for the local workspace")
-            }
-            ToolbarItem {
-                Button {
-                    showsDiffs.toggle()
-                    if showsDiffs { selectedViewMode = .previewMode }
-                } label: {
-                    Label("Changes", systemImage: "arrow.left.arrow.right").font(.system(size: 12))
-                }
-                .disabled(windowSession.location != .local)
-                .help("Compare saved Git changes")
-            }
-            ToolbarSpacer(.fixed)
-            ToolbarItem {
-                Button {
-                    showsInspector.toggle()
-                } label: {
-                    Image(systemName: "sidebar.trailing")
-                }
-                .help(showsInspector ? "Hide inspector" : "Show inspector")
-            }
+            appToolbar()
         }
         .toolbar(removing: .title)
         .containerBackground(Color.card, for: .window)
@@ -203,41 +83,228 @@ struct CanvasView: View {
         .task(id: telemetryTaskID) {
             await windowSession.streamTelemetry(to: monitor)
         }
+        // The first load is driven here, not inside `GitDiffView`, so the
+        // sidebar list still fills when a comparison is opened while the
+        // terminal is the front pane. Later reloads come from the model itself.
+        .task(id: diffModel.map { ObjectIdentifier($0) }) {
+            await diffModel?.refresh()
+        }
         .onDisappear { windowSession.close() }
     }
 
+    private var mainCanvas: some View {
+        HSplitView {
+            if showsSidebar {
+                sidebar
+                    .frame(minWidth: 250, maxWidth: 300)
+                    .frame(maxHeight: .infinity, alignment: .topLeading)
+                    .backgroundStyle(Color.card)
+            }
+            ZStack {
+                TerminalHostView(
+                    configuration: windowSession.terminalConfiguration,
+                    controller: terminalController,
+                    onDirectoryChange: { [generation = windowSession.terminalGeneration] host, directory in
+                        windowSession.terminalReported(host: host, directory: directory, generation: generation)
+                    },
+                    onExit: { [generation = windowSession.terminalGeneration] _ in
+                        windowSession.handleTerminalExit(generation: generation)
+                    }
+                )
+                .id(windowSession.terminalGeneration)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .allowsHitTesting(selectedViewMode == .terminal)
+
+                if selectedViewMode != .terminal {
+                    FileViewer(model: windowSession.fileBrowser, session: editorSession)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .id(ObjectIdentifier(windowSession.fileBrowser))
+                        .safeAreaBar(edge: .top) {
+                            FileBrowserPaneHeader(model: windowSession.fileBrowser, session: editorSession)
+                        }
+                        .safeAreaBar(edge: .bottom) {
+                            FileViewerFooter(session: editorSession)
+                                .background(Color.card)
+                        }
+                }
+            }
+            .backgroundStyle(Color.card)
+            if showsInspector {
+                inspector
+                    .frame(minWidth: 220, idealWidth: 240, maxWidth: 300)
+            }
+        }
+    }
 
     private var telemetryTaskID: String {
         String(windowSession.terminalGeneration)
     }
 
 
-    private var sidebar: some View {
-        VStack {
-            FileBrowserView(
-                model: windowSession.fileBrowser,
-                isLocal: windowSession.location == .local,
-                onOpenInTerminal: openInTerminal
-            )
-        }
-        .safeAreaBar(edge: .top) {
-            FileBrowserToolbar(
-                model: windowSession.fileBrowser,
-                isNamingFolder: $isNamingFolder,
-                newFolderName: $newFolderName
-            )
-        }
-        .safeAreaBar(edge: .bottom, alignment: .leading) {
-            HStack {
-                Image(systemName: "folder.fill")
-                    .foregroundStyle(Color(NSColor.controlAccentColor))
-                Text(windowSession.fileBrowser.directory.path(percentEncoded: false))
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
-                    .truncationMode(.middle)
+    // Split across three builders because `ToolbarContentBuilder` only composes
+    // ten children per block, and the toolbar has grown past that.
+    @ToolbarContentBuilder private func appToolbar() -> some ToolbarContent {
+        navigationToolbarContent
+        workspaceToolbarContent
+        inspectorToolbarContent
+    }
+
+
+    @ToolbarContentBuilder private var navigationToolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .navigation) {
+            Button {
+                showsSidebar.toggle()
+            } label: {
+                Image(systemName: "sidebar.leading")
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
+            .help(showsInspector ? "Hide sidebar" : "Show sidebar")
+        }
+        ToolbarSpacer(.fixed, placement: .navigation)
+            .sharedBackgroundVisibility(.hidden)
+        ToolbarItem {
+            Button {
+                presentedSheet = .sshConnection
+            } label: {
+                Label("SSH", systemImage: "network")
+                    .foregroundStyle(windowSession.location != .local ? .green : .primary)
+            }
+            .symbolEffect(.pulse, options: .repeat(.max), value: windowSession.location != .local)
+            .help("Connect this window over SSH")
+        }
+        ToolbarItem {
+            Button {
+                presentedSheet = .projectCreator
+            } label: {
+                Label("Project", systemImage: "folder")
+            }
+            .help("Open a project workspace")
+        }
+    }
+
+
+    @ToolbarContentBuilder private var workspaceToolbarContent: some ToolbarContent {
+        ToolbarSpacer()
+        if #available(macOS 27, *) {
+            ToolbarItem() {
+                Picker("Workspace mode", selection: $selectedViewMode) {
+                    Label("Terminal", systemImage: "terminal")
+                        .tag(ViewMode.terminal)
+                    Label("Editor", systemImage: "square.and.pencil")
+                        .tag(ViewMode.previewMode)
+                }
+                .pickerStyle(.tabs)
+                .labelStyle(.titleAndIcon)
+                .labelsHidden()
+                .fixedSize()
+                .help("Switch between the terminal and file editor")
+            }
+        } else {
+            ToolbarItem() {
+                Picker("Workspace mode", selection: $selectedViewMode) {
+                    Label("Terminal", systemImage: "terminal")
+                        .tag(ViewMode.terminal)
+                    Label("Editor", systemImage: "square.and.pencil")
+                        .tag(ViewMode.previewMode)
+                }
+                .pickerStyle(.segmented)
+                .labelStyle(.titleAndIcon)
+                .labelsHidden()
+                .fixedSize()
+                .help("Switch between the terminal and file editor")
+            }
+        }
+        ToolbarSpacer()
+        ToolbarItem {
+            Button {
+                presentedSheet = .sourceControl
+            } label: {
+                Label("Source Control", image: "vault.symbols.2")
+            }
+            .disabled(windowSession.location != .local)
+            .help("Source control for the local workspace")
+        }
+        ToolbarItem {
+            Button(action: toggleDiffs) {
+                Label("Changes", systemImage: "arrow.left.arrow.right").font(.system(size: 12))
+            }
+            .disabled(windowSession.location != .local)
+            .help("Compare saved Git changes")
+        }
+    }
+
+
+    @ToolbarContentBuilder private var inspectorToolbarContent: some ToolbarContent {
+        ToolbarSpacer(.fixed)
+        ToolbarItem {
+            Button {
+                showsInspector.toggle()
+            } label: {
+                Image(systemName: "sidebar.trailing")
+            }
+            .help(showsInspector ? "Hide inspector" : "Show inspector")
+        }
+    }
+
+
+    /// The sidebar becomes the changed-file list while a comparison is open.
+    /// Both panes read the one session, so clicking a row here is the same
+    /// `select(_:)` that reloads the diff on the right.
+    @ViewBuilder private var leadingPane: some View {
+        if let diffModel {
+            GitDiffFileList(model: diffModel)
+        } else {
+
+        }
+    }
+
+    /// Opening mints the session; closing drops it, so the next open picks up
+    /// whatever project and file are current instead of the pair that happened
+    /// to be selected the first time.
+    private func toggleDiffs() {
+        guard diffModel == nil else {
+            diffModel = nil
+            return
+        }
+        diffModel = GitDiffModel(
+            directory: windowSession.activeProject?.localDirectoryURL
+            ?? windowSession.fileBrowser.directory,
+            selectedFile: windowSession.fileBrowser.selectedFile
+        )
+        selectedViewMode = .previewMode
+    }
+
+    private var sidebar: some View {
+        FileBrowserView(
+            model: windowSession.fileBrowser,
+            isLocal: windowSession.location == .local,
+            onOpenInTerminal: openInTerminal
+        )
+        .safeAreaInset(edge: .top) {
+            VStack(spacing: 0) {
+                FileBrowserToolbar(
+                    model: windowSession.fileBrowser,
+                    isNamingFolder: $isNamingFolder,
+                    newFolderName: $newFolderName
+                )
+                Divider()
+            }
+            .background(Color.card)
+        }
+        .safeAreaInset(edge: .bottom, alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
+                Divider()
+                HStack(alignment: .center) {
+                    Image(systemName: "folder.fill")
+                        .foregroundStyle(Color(NSColor.controlAccentColor))
+                    Text(windowSession.fileBrowser.directory.path(percentEncoded: false))
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+            }
+            .background(Color.card)
         }
         .alert("New Folder", isPresented: $isNamingFolder) {
             TextField("Folder name", text: $newFolderName)

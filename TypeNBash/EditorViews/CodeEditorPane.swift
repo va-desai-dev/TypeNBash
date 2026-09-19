@@ -2,6 +2,7 @@ import AppKit
 import SwiftUI
 import SyntaxFormat
 import SyntaxParsers
+internal import URLUtils
 
 struct FileBrowserPaneHeader: View {
     @Bindable var model: FileBrowserModel
@@ -30,15 +31,7 @@ struct FileBrowserPaneHeader: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack(alignment: .center, spacing: 6) {
-                Image(systemName: "doc.text.magnifyingglass")
-                if model.hasUnsavedChanges {
-                    Circle().fill(Color.orange).frame(width: 6, height: 6)
-                        .help("Unsaved changes")
-                }
-                Text(title)
-                    .font(.subheadline.weight(.semibold))
-                    .lineLimit(1)
+            HStack(alignment: .center) {
                 if model.isSaving {
                     ProgressView().controlSize(.small)
                 }
@@ -53,29 +46,34 @@ struct FileBrowserPaneHeader: View {
                 } label: {
                     Label("Save", systemImage: "square.and.arrow.down")
                 }
-                .buttonStyle(.borderless)
+                .buttonStyle(.bordered)
+                .labelStyle(.titleOnly)
                 .keyboardShortcut("s", modifiers: .command)
                 .disabled(!model.hasUnsavedChanges || model.isPreviewTruncated)
                 .help(model.isPreviewTruncated ? "File truncated — cannot save" : "Save (⌘S)")
-                .alert("Save New File", isPresented: $isSavingNewFile) {
-                    TextField("File name", text: $newFileName)
-                    TextField("Extension", text: $newFileExtension)
-                    Button("Save") {
-                        let name = newFileName
-                        let ext = newFileExtension
-                        Task { _ = await model.saveNewFile(named: name, extension: ext) }
-                    }
-                    Button("Cancel", role: .cancel) { }
-                } message: {
-                    Text("Choose a name and extension. Leaving the extension blank saves as “.txt”.")
+                Spacer()
+                if model.hasUnsavedChanges {
+                    Circle().fill(Color.orange)
+                        .frame(width: 6, height: 6)
+                        .help("Unsaved changes")
                 }
+                Text(title.deletingPathExtension)
+                    .lineLimit(1)
+                    .alert("Save New File", isPresented: $isSavingNewFile) {
+                        TextField("File name", text: $newFileName)
+                        TextField("Extension", text: $newFileExtension)
+                        Button("Save") {
+                            let name = newFileName
+                            let ext = newFileExtension
+                            Task { _ = await model.saveNewFile(named: name, extension: ext) }
+                        }
+                        Button("Cancel", role: .cancel) { }
+                    } message: {
+                        Text("Choose a name and extension. Leaving the extension blank saves as “.txt”.")
+                    }
                 if let saveError = model.saveError {
                     Text(saveError)
-                        .font(.caption)
                         .foregroundStyle(Color.red)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 10)
-                        .padding(.bottom, 6)
                 }
                 Spacer()
                 Text(session.syntaxController?.syntaxName ?? "Plain Text")
@@ -96,11 +94,11 @@ struct FileBrowserPaneHeader: View {
                 editMenu
                 optionsMenu
             }
-            Divider()
-                .padding(.top, 6)
-            // Hangs off the bottom of the header so the find bar sits between
-            // the toolbar rows and the text. Always mounted — it is also what
-            // listens for ⌘F coming from inside the text view.
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            if !session.isFindBarPresented {
+                Divider()
+            }
             EditorFindBar(session: session)
         }
         .background(Color.card)
@@ -122,7 +120,8 @@ struct FileBrowserPaneHeader: View {
         } label: {
             Image(systemName: "slider.horizontal.3")
         }
-        .menuStyle(.borderlessButton)
+        .menuStyle(.borderedButton)
+        .menuIndicator(.hidden)
         .fixedSize()
         .help("Editor Options")
         .accessibilityLabel("Editor Options")
@@ -150,7 +149,8 @@ struct FileBrowserPaneHeader: View {
         } label: {
             Image(systemName: "curlybraces")
         }
-        .menuStyle(.borderlessButton)
+        .menuStyle(.borderedButton)
+        .menuIndicator(.hidden)
         .fixedSize()
         .help("Editor Actions")
         .accessibilityLabel("Editor Actions")
@@ -172,7 +172,8 @@ struct FileBrowserPaneHeader: View {
         } label: {
             Image(systemName: "list.bullet.indent")
         }
-        .menuStyle(.borderlessButton)
+        .menuStyle(.borderedButton)
+        .menuIndicator(.hidden)
         .fixedSize()
         .help("Jump to Symbol")
         .accessibilityLabel("Jump to Symbol")
@@ -188,13 +189,15 @@ struct FileViewerFooter: View {
     @AppStorage("editor.tabWidth") private var tabWidth = 4
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Divider()
-            HStack {
+            HStack(alignment: .center)  {
                 Text(session.position)
                 Spacer()
                 Text(usesSpaces ? "Spaces: \(tabWidth)" : "Tabs: \(tabWidth)")
             }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
         }
     }
 }

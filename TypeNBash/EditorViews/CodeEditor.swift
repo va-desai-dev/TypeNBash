@@ -127,7 +127,10 @@ struct CodeEditorTextView: NSViewRepresentable {
     }
 
     /// SF Mono when available, falling back to the standard monospaced system face.
-    private static let editorFont: NSFont = NSFont(name: "SFMono-Regular", size: 12)
+    ///
+    /// Shared with the diff surface, which is this same text view read-only and
+    /// has no business picking a face of its own.
+    static let editorFont: NSFont = NSFont(name: "SFMono-Regular", size: 12)
         ?? .monospacedSystemFont(ofSize: 12, weight: .regular)
 
 

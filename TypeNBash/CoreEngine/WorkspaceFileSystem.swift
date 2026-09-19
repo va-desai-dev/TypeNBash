@@ -1,6 +1,9 @@
 import Foundation
 
-struct WorkspaceFileEntry: Identifiable, Hashable, Sendable {
+/// `nonisolated` because the target's default isolation is `MainActor`, and
+/// this is a pure `Sendable` value the file systems produce off the main actor
+/// and `GitDiffFile` reads from its own `nonisolated` context.
+nonisolated struct WorkspaceFileEntry: Identifiable, Hashable, Sendable {
     let url: URL
     let isDirectory: Bool
     let byteCount: Int?
@@ -8,12 +11,20 @@ struct WorkspaceFileEntry: Identifiable, Hashable, Sendable {
     var id: URL { url }
 
     var icon: String {
-        icon(for: self)
+        Self.icon(for: url, isDirectory: isDirectory)
+    }
+    var label: String {
+        url.lastPathComponent
     }
 
-    private func icon(for entry: WorkspaceFileEntry) -> String {
-        if entry.isDirectory { return "folder.fill" }
-        switch entry.url.pathExtension.lowercased() {
+    /// The symbol for a path, with no entry needed to hang it on.
+    ///
+    /// Shared with `GitDiffFile`: its paths are repository-relative and never
+    /// come from a directory listing, and a deleted one has no file on disk to
+    /// build an entry from either.
+    static func icon(for url: URL, isDirectory: Bool = false) -> String {
+        if isDirectory { return "folder.fill" }
+        switch url.pathExtension.lowercased() {
             case "swift": return "swift"
             case "json", "yaml", "yml", "toml": return "curlybraces"
             case "md", "txt", "log": return "doc.plaintext"

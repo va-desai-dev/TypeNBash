@@ -26,7 +26,11 @@ final class WindowSession {
     /// The project this window was opened for, if any. Retained because
     /// `rootDirectory` alone can't survive a shell exit: the window would
     /// otherwise re-root at whatever directory the terminal was last in.
-    private(set) var activeProject: Project?
+    private(set) var activeProject: Project? {
+        didSet {
+            fileBrowser.navigationRoot = activeProject == nil ? nil : rootDirectory
+        }
+    }
 
     private var localDirectory: URL
 
@@ -260,6 +264,7 @@ final class WindowSession {
             initialDirectory: newBackend.rootDirectory
         )
 
+        fileBrowser.navigationRoot = activeProject == nil ? nil : rootDirectory
         terminalGeneration &+= 1
         terminalHost = nil
     }

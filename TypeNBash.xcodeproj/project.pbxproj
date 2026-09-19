@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C8A8B55305C903500FD348E /* .gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A8B54305C903400FD348E /* .gitignore */; };
 		7C8A8B58305CA8EC00FD348E /* SwiftGitX in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8A8B57305CA8EC00FD348E /* SwiftGitX */; };
 		7CA595BC305718F400C0FF4E /* ColorCode in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595BB305718F400C0FF4E /* ColorCode */; };
 		7CA595BF3057192500C0FF4E /* ComplexModule in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595BE3057192500C0FF4E /* ComplexModule */; };
@@ -174,7 +173,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C8A8B55305C903500FD348E /* .gitignore in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

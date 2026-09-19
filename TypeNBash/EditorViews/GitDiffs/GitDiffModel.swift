@@ -5,7 +5,7 @@ import Observation
 @Observable
 final class GitDiffModel {
     let directory: URL
-    var scope = GitDiffScope.all
+    private(set) var scope = GitDiffScope.all
     private(set) var selectedPath: String?
     private(set) var result: GitDiffResult?
     private(set) var errorMessage: String?
@@ -18,9 +18,18 @@ final class GitDiffModel {
         selectedPath = selectedFile?.path
     }
 
+    /// Both writable pieces of state reload the comparison themselves, so a
+    /// view can bind straight to them without also having to remember an
+    /// `onChange` that calls `refresh()`.
     func select(_ path: String?) {
         guard let path, selectedPath != path else { return }
         selectedPath = path
+        Task { await refresh() }
+    }
+
+    func setScope(_ scope: GitDiffScope) {
+        guard self.scope != scope else { return }
+        self.scope = scope
         Task { await refresh() }
     }
 

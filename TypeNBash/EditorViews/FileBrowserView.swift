@@ -9,21 +9,19 @@ struct FileBrowserView: View {
     @Bindable var model: FileBrowserModel
     /// Whether the workspace is local (enables app-open / reveal actions).
     var isLocal = true
+
     /// Requests that the console cd to this entry's directory.
     var onOpenInTerminal: (WorkspaceFileEntry) -> Void = { _ in }
 
 
     var body: some View {
-        FileTableView(
+        FileBrowserList(
             entries: model.entries,
             selection: model.selectedFile,
             isLocal: isLocal,
-            onSelect: { model.select($0) },
-            onOpenInTerminal: { onOpenInTerminal($0) }
+            onSelect: model.select,
+            onOpenInTerminal: onOpenInTerminal
         )
-        .scrollIndicators(.never)
-        .scrollContentBackground(.hidden)
-        .background(Color.card)
         .overlay { listOverlay }
     }
 
@@ -34,8 +32,10 @@ struct FileBrowserView: View {
                 systemImage: "folder.badge.questionmark",
                 description: Text(error)
             )
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         } else if model.entries.isEmpty && !model.isLoading {
             ContentUnavailableView("Empty Folder", systemImage: "folder")
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
     }
 }
@@ -47,83 +47,62 @@ struct FileBrowserToolbar: View {
     @Binding var newFolderName: String
 
     var body: some View {
-        HStack(spacing: 8) {
+        HStack {
             ControlGroup {
                 Button { model.goBack() } label: {
                     Image(systemName: "chevron.left")
-                        .font(.system(size: 15, weight: .medium))
                 }
                 .disabled(!model.canGoBack)
                 .help("Back")
                 Button { model.goUp() } label: {
                     Image(systemName: "smallcircle.filled.circle")
-                        .font(.system(size: 10, weight: .medium))
                 }
-                .disabled(model.directory.path == "/")
+                .disabled(!model.canGoUp)
                 .help("Enclosing folder")
                 Button { model.goForward() } label: {
                     Image(systemName: "chevron.right")
-                        .font(.system(size: 15, weight: .medium))
                 }
                 .disabled(!model.canGoForward)
                 .help("Forward")
             }
-            .controlSize(.large)
-            .controlGroupStyle(.navigation)
+            .controlSize(.regular)
 
             Spacer()
 
-            Toggle(isOn: $model.showsHiddenFiles) {
-                Image(systemName: model.showsHiddenFiles ? "eye" : "eye.slash")
-                    .font(.system(size: 15, weight: .medium))
-            }
-            .toggleStyle(.button)
-            .buttonStyle(.borderless)
-            .frame(width: 28, height: 28)
-            .glassEffect(.regular.interactive(), in: .circle)
-            .help("Show hidden files")
-
-            Button { model.refresh() } label: {
-                Image(systemName: "arrow.clockwise")
-                    .font(.system(size: 15, weight: .medium))
-            }
-            .buttonStyle(.borderless)
-            .frame(width: 28, height: 28)
-            .glassEffect(.regular.interactive(), in: .circle)
-            .help("Refresh")
-
-            // Menu content is built into NSMenuItems, so each item needs a real
-            // title: an image-only label (or a `labelsHidden()`/`labelStyle`
-            // that leaks in from the Menu) produces blank-but-live rows. The
-            // icon-only *label* has to be a bare `Image` for the same reason —
-            // `.labelStyle(.iconOnly)` would propagate into the items too.
-            Menu {
-                Button("New File", systemImage: "doc.badge.plus") {
-                    model.newFile()
+            ControlGroup {
+                Toggle(isOn: $model.showsHiddenFiles) {
+                    if model.showsHiddenFiles {
+                        Label {
+                            Text("Showing Hidden Files")
+                        } icon: {
+                            Image(systemName: "eye.slash")
+                        }
+                    } else {
+                        Label {
+                            Text("Show Hidden Files")
+                        } icon: {
+                            Image(systemName: "eye")
+                        }
+                    }
                 }
-                .buttonBorderShape(.circle)
+                .help("Show hidden files")
+                Button("Refresh", systemImage: "arrow.clockwise") {
+                    model.refresh()
+                }
+                .help("Refresh")
+
                 Button("New Folder", systemImage: "folder.badge.plus") {
                     newFolderName = "untitled folder"
                     isNamingFolder = true
                 }
-                .buttonBorderShape(.circle)
-            } label: {
-                Image(systemName: "plus")
-                    .font(.system(size: 15, weight: .medium))
+                .help("New Folder")
+                Button("New File", systemImage: "doc.badge.plus") {
+                    model.newFile()
+                }
+                .help("New File")
             }
-            // `.buttonStyle(.glass)` + `.buttonBorderShape(.circle)` renders as a
-            // flat gray disc here: the glass button style draws an AppKit bezel
-            // and won't lift the content behind it. Dropping to a borderless menu
-            // and applying the Liquid Glass material directly is what produces
-            // the lens — rim highlight, refraction, and press response.
-            .menuStyle(.borderlessButton)
-            .menuIndicator(.hidden)
-            .frame(width: 28, height: 28)
-            .glassEffect(.regular.interactive(), in: .circle)
-            .help("New file or folder")
+            .controlSize(.regular)
         }
-        .fixedSize(horizontal: false, vertical: true)
-        .buttonStyle(.glass)
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
     }
@@ -168,6 +147,12 @@ struct FileViewer: View {
                     fileURL: model.selectedFile, options: options, session: session)
                 // Each file gets a fresh editor, grammar, and undo stack.
                 .id(model.selectedFile)
+
+            case .table(let table):
+                CSVPreviewView(table: table, onEdit: model.updatePreviewTable)
+                    // Each file gets a fresh grid, the way each file gets a
+                    // fresh editor above.
+                    .id(model.selectedFile)
 
             case .unsupported(let message):
                 ContentUnavailableView {

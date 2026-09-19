@@ -13,6 +13,9 @@ nonisolated struct GitDiffFile: Identifiable, Sendable {
     let oldPath: String
     let status: String
     var id: String { path }
+
+    /// The same symbol the file browser shows for this file.
+    var icon: String { WorkspaceFileEntry.icon(for: URL(filePath: path)) }
 }
 
 nonisolated struct GitDiffLine: Sendable {

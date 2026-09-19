@@ -30,6 +30,8 @@ final class FileBrowserModel {
         didSet { refresh() }
     }
 
+
+
     func updatePreviewText(_ newText: String) {
         if case .text = preview {
             preview = .text(newText)
@@ -37,10 +39,29 @@ final class FileBrowserModel {
         }
     }
 
+    /// Takes a snapshot back from the spreadsheet grid, which edits its own
+    /// `CSVStorage` in place. Without this the cells would change on screen and
+    /// ⌘S would have nothing to write.
+    func updatePreviewTable(_ newTable: CSVTable) {
+        if case .table = preview {
+            preview = .table(newTable)
+            hasUnsavedChanges = true
+        }
+    }
+
+    /// What ⌘S writes: the editor's text, or the grid re-serialized to CSV.
+    private var editedContents: String? {
+        switch preview {
+            case .text(let contents): contents
+            case .table(let table): CSVEngine.generate(from: table)
+            default: nil
+        }
+    }
+
     /// Writes the edited preview back through the workspace filesystem (local or
     /// SSH). Refuses to save a truncated preview, which would discard the rest.
     func save() {
-        guard let url = selectedFile, case .text(let contents) = preview else { return }
+        guard let url = selectedFile, let contents = editedContents else { return }
         guard !isPreviewTruncated else {
             saveError = "This file was truncated for preview; saving would discard the rest."
             return
@@ -67,6 +88,9 @@ final class FileBrowserModel {
     private var refreshGeneration = 0
     private var previewGeneration = 0
 
+    /// Shared local/SSH project boundary; nil permits unrestricted browsing.
+    var navigationRoot: URL?
+
     /// Visited directories, oldest first, with `historyIndex` marking the one
     /// on screen. Kept private so the trail can only be walked through
     /// `navigate`, `goBack`, and `goForward`.
@@ -78,6 +102,7 @@ final class FileBrowserModel {
     enum FilePreview: Sendable {
         case none
         case text(String)
+        case table(CSVTable)
         case image(Data)
         case document(Data)
         case unsupported(String)
@@ -117,6 +142,7 @@ final class FileBrowserModel {
     /// destination forks the trail the way a browser's address bar does.
     func navigate(to url: URL) {
         let target = url.standardizedFileURL
+        guard allowsNavigation(to: target) else { return }
         guard history.isEmpty || history[historyIndex] != target else {
             show(target)
             return
@@ -150,9 +176,23 @@ final class FileBrowserModel {
         show(history[historyIndex])
     }
 
-    var canGoBack: Bool { historyIndex > 0 }
+    var canGoBack: Bool {
+        historyIndex > 0 && allowsNavigation(to: history[historyIndex - 1])
+    }
 
-    var canGoForward: Bool { historyIndex < history.count - 1 }
+    var canGoForward: Bool {
+        historyIndex < history.count - 1 && allowsNavigation(to: history[historyIndex + 1])
+    }
+
+    var canGoUp: Bool {
+        let parent = directory.deletingLastPathComponent()
+        return parent.path != directory.path && allowsNavigation(to: parent)
+    }
+
+    private func allowsNavigation(to url: URL) -> Bool {
+        guard let navigationRoot else { return true }
+        return url.standardizedFileURL.pathComponents.starts(with: navigationRoot.standardizedFileURL.pathComponents)
+    }
 
     /// Points the pane at `directory` without touching the trail, so the four
     /// navigation entry points can't disagree about how to load a folder.
@@ -282,6 +322,7 @@ final class FileBrowserModel {
     }
 
     func goUp() {
+        guard canGoUp else { return }
         let parent = directory.deletingLastPathComponent()
         if parent.path != directory.path { navigate(to: parent) }
     }
@@ -376,6 +417,12 @@ final class FileBrowserModel {
         "bmp", "tiff", "tif", "webp", "ico", "icns"
     ]
 
+    /// File extensions rendered by the spreadsheet grid instead of the editor.
+    ///
+    /// Only comma-separated data: `CSVEngine` splits on commas, so a `.tsv`
+    /// would arrive as one column per row.
+    nonisolated static let tableExtensions: Set<String> = ["csv"]
+
     /// File extensions rendered by the PDF viewer.
     nonisolated static let documentExtensions: Set<String> = ["pdf"]
 
@@ -401,6 +448,15 @@ final class FileBrowserModel {
 
         guard var text = String(data: data, encoding: .utf8) else {
             return .unsupported("This text encoding is not supported yet.")
+        }
+
+        // Tabular data goes to the grid rather than the editor. A file with no
+        // header row to read falls through to the text editor instead of
+        // presenting an empty spreadsheet. Note this returns before the
+        // truncation notice below, which as a CSV line would read as a row.
+        if tableExtensions.contains(fileExtension) {
+            let table = CSVEngine.parse(text)
+            if !table.isEmpty { return .table(table) }
         }
 
         if let totalByteCount, totalByteCount > limit {
