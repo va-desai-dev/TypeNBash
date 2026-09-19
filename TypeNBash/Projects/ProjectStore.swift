@@ -25,6 +25,8 @@ struct Project: Identifiable, Codable, Hashable, Sendable {
     /// `nil` marks a project on this Mac.
     var sshProfileID: UUID?
     var lastOpened: Date
+    /// Reloaded from disk on open; nil denotes an ordinary folder workspace.
+    var manifest: ProjectManifest?
 
     init(
         id: UUID = UUID(),

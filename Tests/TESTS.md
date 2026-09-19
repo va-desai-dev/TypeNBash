@@ -10,14 +10,14 @@ Build the Debug app, then run the harness with the same DerivedData and
 SourcePackages directories:
 
 ```sh
-xcodebuild -project CENTCOM.xcodeproj -scheme CENTCOM -configuration Debug \
+xcodebuild -project TypeNBash.xcodeproj -scheme TypeNBash -configuration Debug \
   -derivedDataPath /tmp/centcom-editor-build CODE_SIGNING_ALLOWED=NO build
 python3 Tests/run-editor-checks.py /tmp/centcom-editor-build \
   /tmp/centcom-editor-build/SourcePackages
 ```
 
 Requires Xcode and a logged-in macOS GUI session. The runner links the built
-`CENTCOM.debug.dylib`; it does not launch CENTCOM's workspace or terminal UI.
+`TypeNBash.debug.dylib`; it does not launch CENTCOM's workspace or terminal UI.
 The temporary test app has its own preferences domain. The shared Find pasteboard
 is restored when the checks finish successfully. Test-app files and rendered
 previews are written under `/tmp`.
@@ -142,3 +142,96 @@ a struck-through filename and display their previous contents as removed lines. 
 context lines. Unsaved editor buffers are not included. Files larger than 2 MB
 receive a fallback message; text previews are capped at 20,000 rows and long lines
 at 10,000 bytes. Refresh reloads external filesystem or Git changes.
+
+# CSV editing checks
+
+After building TypeNBash, run the native grid and preview-header checks:
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-browser-build \
+  /path/to/SourcePackages CSVIntegrationChecks.swift
+```
+
+This opens a temporary preview window and CSV fixture. It verifies double-click
+editing, pending-edit Save availability, Command-S through the actual header,
+Escape cancellation, Tab commit/navigation, and serialization of quotes,
+delimiters, line breaks, and empty cells. Requires a logged-in macOS GUI session.
+
+# Startup routing checks
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-browser-build \
+  /path/to/SourcePackages AppRouterIntegrationChecks.swift
+```
+
+Exercises local launch, inline-setup cancellation and completion, saved-project
+session handoff, failed-open retention, cancellation before activation, and
+independent workspace-window ownership. Uses
+temporary folders and an isolated preferences domain, with no live SSH host.
+Manual acceptance: launch to Welcome, select a recent project or choose Home;
+verify SSH and New Project stay on Welcome when cancelled and open the configured
+workspace after success. Live SSH authentication still requires a reachable host.
+
+Welcome-window acceptance: verify Welcome is fixed-size with system chrome, then
+open Home and verify a separate resizable workspace appears. Press Command-N to
+reopen Welcome; opening another workspace must keep the first session alive.
+Closing either workspace must leave the other usable.
+
+SSH welcome acceptance: select SSH and verify only saved SSH profiles appear.
+New Connection replaces the dashboard with a blank form in the same window.
+Cancel returns to the SSH list. Select a saved profile and choose Connect over
+SSH to verify prefilled fields. Successful authentication opens the workspace;
+failed authentication keeps the form and its error visible.
+
+Project welcome acceptance: New Project in the footer replaces the dashboard
+with the project form at the same window size, without a project sheet or duplicate
+saved-project list. Cancel restores the dashboard. Opening a valid folder opens
+the workspace; an invalid folder leaves its error in the form. Saved-project
+selection on the dashboard continues to open directly.
+
+# Project workspace isolation and console layout
+
+After building, run the native window harness:
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-browser-build \
+  /path/to/SourcePackages ProjectWorkspaceIntegrationChecks.swift
+```
+
+This mounts the production workspace in a temporary window and checks that a
+project owns exactly one console, the footer occupies the actual divider gap,
+status labels and blank areas hit the native divider, dragging the footer resizes
+it, the native console button receives separate clicks, repeated hide/show keeps
+the shell alive and restores its height, editor changes retain the shell PID and divider position, window resizing keeps valid terminal geometry without restarting the
+shell, and leaving project mode tears down the project console and vertical
+split. It uses an isolated preferences domain and temporary project folder.
+The runtime suite also checks that project console directory reports and local
+shell restarts preserve unsaved drafts.
+
+Manual acceptance: open a project, drag the console divider, select several files,
+open and close Changes, and toggle the inspector. The console should stay mounted
+at the chosen height and retain its running command. Home and unscoped SSH keep
+the terminal/editor picker. For performance comparisons, capture the same resize
+sequence in Instruments before and after; these checks validate lifecycle and
+geometry, not frame timing or peak memory.
+
+# Portable project definitions
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-browser-build \
+  /path/to/SourcePackages ProjectManifestIntegrationChecks.swift
+```
+
+Checks new directory creation, initializing existing folders, ordinary folders
+remaining unmodified, refusing collisions and definition overwrites, copying and
+reopening definitions at a new location, version/JSON/path validation, output
+folder preparation, symlink boundary checks, and recent-list persistence. Fixtures
+and preferences are isolated. Live SSH creation still requires a reachable host;
+the SSH exclusive-create script can be exercised locally without credentials.
+
+The format and output contract are documented in `PROJECTS.md`.
+
+CSV integration checks also exercise analysis snapshots: committing pending cell
+edits, all versus filtered/sorted rows, stable source-row indices, numeric missing
+and invalid values, duplicate headers, short records, type hints, snapshot
+independence after edits, CSV serialization and closed-grid lifetime.

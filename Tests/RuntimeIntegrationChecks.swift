@@ -88,6 +88,18 @@ struct RuntimeIntegrationChecks {
               "A shared path prefix does not admit sibling directories")
         projectSession.terminalReported(host: nil, directory: root, generation: projectSession.terminalGeneration)
         check(projectSession.fileBrowser.directory.path == child.path, "A terminal cannot drag a project outside its root")
+        projectSession.fileBrowser.newFile()
+        projectSession.fileBrowser.updatePreviewText("project draft stays put")
+        projectSession.terminalReported(host: nil, directory: nested, generation: projectSession.terminalGeneration)
+        check(projectSession.fileBrowser.directory.standardizedFileURL == child.standardizedFileURL,
+              "Project console directory changes do not navigate the editor")
+        check(projectSession.fileBrowser.isUntitled && projectSession.fileBrowser.hasUnsavedChanges,
+              "Project console directory changes preserve unsaved drafts")
+        if case .text(let draft) = projectSession.fileBrowser.preview {
+            check(draft == "project draft stays put", "Project draft contents survive console navigation")
+        } else {
+            fatalError("Project console replaced the editor preview")
+        }
         await projectSession.connect(to: SSHConnectionProfile(name: "invalid", host: ""))
         check(projectSession.activeProject?.id == localProject.id && projectSession.rootDirectory.path == child.path,
               "Failed SSH connection preserves the active project and its root")
@@ -95,6 +107,8 @@ struct RuntimeIntegrationChecks {
         check(projectSession.activeProject?.id == localProject.id && projectSession.rootDirectory.path == child.path,
               "A shell restart retains the local project's root")
         check(!projectSession.fileBrowser.canGoUp, "Shell restart retains browser navigation guards")
+        check(projectSession.fileBrowser.isUntitled && projectSession.fileBrowser.hasUnsavedChanges,
+              "Restarting a project console preserves the editor draft")
         projectSession.closeProject()
         check(projectSession.fileBrowser.canGoUp, "Closing a project releases the browser boundary")
         projectSession.fileBrowser.goUp()

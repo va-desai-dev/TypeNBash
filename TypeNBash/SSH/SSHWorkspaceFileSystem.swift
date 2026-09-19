@@ -91,6 +91,15 @@ final class SSHWorkspaceFileSystem: WorkspaceFileSystem {
         )
     }
 
+    func createFile(_ data: Data, at url: URL) async throws {
+        let script = #"""
+        import sys
+        with open(sys.argv[1], "xb") as file:
+            file.write(sys.stdin.buffer.read())
+        """#
+        _ = try await connection.execute(program: "python3", arguments: ["-c", script, url.path], standardInput: data)
+    }
+
     func createDirectory(at url: URL) async throws {
         // One level only, like local. A traceback on stderr from an existing name
         // becomes a nonzero exit, which `execute` turns into a thrown error.

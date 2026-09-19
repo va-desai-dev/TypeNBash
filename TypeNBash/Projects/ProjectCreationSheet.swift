@@ -6,8 +6,19 @@ struct ProjectCreationSheet: View {
     @State private var browsePath = ""
     @State private var projectToDelete: Project?
 
-    init(windowSession: WindowSession, profileStore: SSHProfileStore) {
-        _model = State(initialValue: ProjectPickerModel(session: windowSession, profiles: profileStore))
+    private let onOpen: () -> Void
+    private let isEmbedded: Bool
+    private let onCancel: (() -> Void)?
+
+    init(windowSession: WindowSession, profileStore: SSHProfileStore,
+         store: ProjectStore? = nil, onOpen: @escaping () -> Void = {},
+         isEmbedded: Bool = false, onCancel: (() -> Void)? = nil) {
+        let model = ProjectPickerModel(session: windowSession, profiles: profileStore, store: store)
+        model.setupMode = isEmbedded ? .newFolder : .openFolder
+        _model = State(initialValue: model)
+        self.onOpen = onOpen
+        self.isEmbedded = isEmbedded
+        self.onCancel = onCancel
     }
 
     var body: some View {
@@ -17,7 +28,7 @@ struct ProjectCreationSheet: View {
                     .font(.title2)
                     .foregroundStyle(Color.accentColor)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Open a Project").font(.headline)
+                    Text(model.setupMode == .openFolder ? "Open a Project" : "New Project").font(.headline)
                     Text("Choose a workspace on this Mac or an SSH host.")
                         .font(.caption).foregroundStyle(.secondary)
                 }
@@ -26,12 +37,12 @@ struct ProjectCreationSheet: View {
             .padding(16)
             Divider()
             Form {
-                if !model.store.projects.isEmpty {
+                if !isEmbedded && !model.store.projects.isEmpty {
                     Section("Saved projects") {
                         ForEach(model.store.projects) { project in
                             HStack {
                                 Button {
-                                    model.openSaved(project) { dismiss() }
+                                    model.openSaved(project) { onOpen(); if !isEmbedded { dismiss() } }
                                 } label: {
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(project.name).fontWeight(.medium)
@@ -52,6 +63,12 @@ struct ProjectCreationSheet: View {
                     }
                 }
                 Section("Project") {
+                    Picker("Action", selection: $model.setupMode) {
+                        ForEach(ProjectPickerModel.SetupMode.allCases) { mode in
+                            Text(mode.rawValue).tag(mode)
+                        }
+                    }
+                    .disabled(model.isBusy)
                     Picker("Location", selection: Binding(
                         get: { model.selectedProfileID },
                         set: { model.selectedProfileID = $0; model.locationChanged() }
@@ -62,13 +79,21 @@ struct ProjectCreationSheet: View {
                         }
                     }
                     .disabled(model.isBusy)
-                    TextField("Name (defaults to folder name)", text: $model.name)
+                    TextField(model.setupMode == .newFolder ? "Project folder name" : "Name (defaults to folder name)", text: $model.name)
                         .disabled(model.isBusy)
                     HStack {
-                        TextField("Project directory", text: $model.directoryPath)
+                        TextField(model.setupMode == .newFolder ? "Parent directory" : "Project directory or definition", text: $model.directoryPath)
                         Button("Choose Folder", systemImage: "folder") { model.chooseFolder() }
                     }
                     .disabled(model.isBusy)
+                    if model.setupMode != .openFolder {
+                        TextField("Output folder", text: $model.outputDirectory)
+                            .disabled(model.isBusy)
+                        Text(model.setupMode == .newFolder
+                             ? "Creates a folder with your project name and a portable project definition. The output folder is created when needed."
+                             : "Adds a portable project definition to this folder. Existing files remain in place.")
+                            .font(.caption).foregroundStyle(.secondary)
+                    }
                     if model.selectedProfileID != nil {
                         SecureField("Password or key passphrase (if needed)", text: $model.password)
                             .disabled(model.isBusy)
@@ -90,21 +115,21 @@ struct ProjectCreationSheet: View {
             .scrollContentBackground(.hidden)
             Divider()
             HStack {
-                Button("Cancel", role: .cancel) { model.cancel(); dismiss() }
+                Button("Cancel", role: .cancel) { model.cancel(); if let onCancel { onCancel() } else { dismiss() } }
                 Spacer()
                 if model.isBusy { ProgressView().controlSize(.small) }
-                Button("Open Project") { model.saveAndOpen { dismiss() } }
+                Button(model.setupMode == .openFolder ? "Open Project" : "Create Project") { model.saveAndOpen { onOpen(); if !isEmbedded { dismiss() } } }
                     .buttonStyle(.borderedProminent)
                     .keyboardShortcut(.defaultAction)
                     .disabled(!model.canOpen)
             }
             .padding(16)
         }
-        .frame(width: 560, height: 580)
-        .background(Color.card)
-        .foregroundStyle(Color.foreground)
+        .frame(width: isEmbedded ? 420 : 560, height: isEmbedded ? 780 : 580)
+        .background(isEmbedded ? Color(nsColor: .windowBackgroundColor) : Color.card)
+        .foregroundStyle(isEmbedded ? Color.primary : Color.foreground)
         .tint(Color.accentColor)
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(isEmbedded ? nil : .dark)
         .onDisappear { model.cancel() }
         .sheet(isPresented: $model.isBrowsing) { directoryPicker }
         .confirmationDialog("Remove saved project?", isPresented: Binding(
@@ -177,7 +202,7 @@ struct ProjectCreationSheet: View {
         }
         .padding(16)
         .frame(width: 560, height: 440)
-        .background(Color.card)
+        .background(isEmbedded ? Color(nsColor: .windowBackgroundColor) : Color.card)
         .interactiveDismissDisabled(model.isBusy)
         .onAppear { browsePath = model.browsedDirectory?.path(percentEncoded: false) ?? model.directoryPath }
         .onChange(of: model.browsedDirectory) {

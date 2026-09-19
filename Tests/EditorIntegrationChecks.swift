@@ -4,7 +4,7 @@ import Invisible
 import LineEnding
 import SyntaxFormat
 import SyntaxParsers
-@testable import CENTCOM
+@testable import TypeNBash
 
 /// Exercises the actual SwiftUI/AppKit bridge against the bundled grammars.
 @main
@@ -144,8 +144,8 @@ struct EditorIntegrationChecks {
         // request for the find interface. It is not mounted here — this harness
         // hosts the bare text view, without the header that carries the bar.
 
-        // Render the complete editor pane using a self-contained source fixture.
-        let preview = CodeEditor(text: .constant("struct Example {\n    let title = \"CENTCOM\"\n\n    func greet() {\n        print(title)\n    }\n}\n"), fileURL: URL(filePath: "/tmp/Example.swift"))
+        // Render the production editor bridge using a self-contained source fixture.
+        let preview = CodeEditorTextView(text: .constant("struct Example {\n    let title = \"CENTCOM\"\n\n    func greet() {\n        print(title)\n    }\n}\n"), fileURL: URL(filePath: "/tmp/Example.swift"), options: EditorOptions(), session: EditorSession())
             .preferredColorScheme(.dark)
         let previewHost = NSHostingView(rootView: preview)
         window.contentView = previewHost

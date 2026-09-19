@@ -1,7 +1,5 @@
 import Foundation
 import Observation
-import SwiftGitX
-import libgit2
 
 /// Owns project selection and temporary SSH browsing without changing the window.
 @MainActor
@@ -10,6 +8,15 @@ final class ProjectPickerModel {
     let store: ProjectStore
     let session: WindowSession
     let profiles: SSHProfileStore
+    enum SetupMode: String, CaseIterable, Identifiable {
+        case newFolder = "Create new folder"
+        case initializeFolder = "Initialize existing folder"
+        case openFolder = "Open existing folder"
+        var id: Self { self }
+    }
+
+    var setupMode = SetupMode.openFolder
+    var outputDirectory = "output"
     var name = ""
     var directoryPath = ""
     var selectedProfileID: UUID?
@@ -45,6 +52,7 @@ final class ProjectPickerModel {
 
     var canOpen: Bool {
         !directoryPath.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !isBusy
+            && (setupMode != .newFolder || !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
     }
 
     func locationChanged() {
@@ -106,7 +114,7 @@ final class ProjectPickerModel {
         }
         name = project.name
         directoryPath = project.directoryPath
-        open(project, completion: completion)
+        open(project, mode: .openFolder, completion: completion)
     }
 
     func saveAndOpen(completion: @escaping () -> Void) {
@@ -115,35 +123,69 @@ final class ProjectPickerModel {
             ?? store.makeProject(directoryPath: directoryPath, name: name, sshProfileID: selectedProfileID)
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         if !trimmedName.isEmpty { project.name = trimmedName }
-        open(project, completion: completion)
+        open(project, mode: setupMode, completion: completion)
     }
 
-    private func open(_ project: Project, completion: @escaping () -> Void) {
+    private func open(_ project: Project, mode: SetupMode, completion: @escaping () -> Void) {
         run { [self] in
             var opened = project
-            if let id = project.sshProfileID {
-                let backend = try await remoteBackend()
-                let root = try await backend.resolveRemotePath(project.directoryPath)
-                _ = try await backend.fileSystem.contentsOfDirectory(at: root, includingHiddenFiles: false)
+            let backend = project.sshProfileID == nil ? nil : try await remoteBackend()
+            let fileSystem: any WorkspaceFileSystem = backend?.fileSystem ?? LocalWorkspaceFileSystem()
+            // A definition can also be opened by entering its path in the picker.
+            let opensDefinition = project.directoryPath.hasSuffix("/" + ProjectManifest.filename)
+            let input = opensDefinition
+                ? URL(fileURLWithPath: project.directoryPath).deletingLastPathComponent().path
+                : project.directoryPath
+            var root = if let backend {
+                try await backend.resolveRemotePath(input)
+            } else {
+                URL(fileURLWithPath: (input as NSString).expandingTildeInPath).standardizedFileURL.resolvingSymlinksInPath()
+            }
+            try Task.checkCancellation()
+            if mode == .newFolder {
+                let entries = try await fileSystem.contentsOfDirectory(at: root, includingHiddenFiles: true)
                 try Task.checkCancellation()
-                opened.directoryPath = root.path(percentEncoded: false)
-                if !store.projects.contains(where: { $0.id == opened.id }),
-                   var existing = store.project(atDirectory: opened.directoryPath, sshProfileID: opened.sshProfileID) {
-                    existing.name = opened.name
-                    opened = existing
+                let folderName = project.name.trimmingCharacters(in: .whitespacesAndNewlines)
+                try ProjectManifest.validateFolderName(folderName)
+                guard !entries.contains(where: { $0.url.lastPathComponent == folderName }) else {
+                    throw ProjectSetupError.invalid("A file or folder named ‘\(folderName)’ already exists. Choose another name or open that folder.")
                 }
+                // Validate all settings before creating any files.
+                try ProjectManifest(name: folderName, outputDirectory: outputDirectory).validate()
+                root.appendPathComponent(folderName, isDirectory: true)
+                try await fileSystem.createDirectory(at: root)
+            }
+            var manifest = try await ProjectManifest.load(in: root, fileSystem: fileSystem)
+            if opensDefinition, manifest == nil {
+                throw ProjectSetupError.invalid("No project definition exists at this path.")
+            }
+            if mode != .openFolder {
+                guard manifest == nil else {
+                    throw ProjectSetupError.invalid("This folder already has a project definition. Use Open existing folder.")
+                }
+                let definition = ProjectManifest(name: project.name, outputDirectory: outputDirectory)
+                try await definition.create(in: root, fileSystem: fileSystem)
+                manifest = definition
+            }
+            try Task.checkCancellation()
+            opened.directoryPath = root.path(percentEncoded: false)
+            if let existing = store.project(atDirectory: opened.directoryPath, sshProfileID: opened.sshProfileID) {
+                opened = existing
+            } else if mode == .newFolder {
+                opened = store.makeProject(directoryPath: opened.directoryPath, name: project.name, sshProfileID: project.sshProfileID)
+            }
+            opened.manifest = manifest
+            opened.name = manifest?.name ?? project.name
+            if let backend, let id = project.sshProfileID {
                 try session.openRemoteProject(opened, backend: backend, root: root)
-                ownsBackend = false // Ownership transfers to the window only after validation.
+                ownsBackend = false
                 browsingBackend = nil
                 if !profiles.profiles.contains(where: { $0.id == id }),
                    case .ssh(let profile) = session.location {
                     profiles.save(profile, password: nil)
                 }
             } else {
-                let root = project.localDirectoryURL
-                _ = try await LocalWorkspaceFileSystem().contentsOfDirectory(at: root, includingHiddenFiles: false)
-                try Task.checkCancellation()
-                await session.open(project, at: .local(root))
+                await session.open(opened, at: .local(root))
             }
             if let saved = store.save(opened) { store.markOpened(saved) }
             password = ""

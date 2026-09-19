@@ -7,6 +7,10 @@ struct SSHConnectionSheet: View {
 
     let windowSession: WindowSession
     let profileStore: SSHProfileStore
+    var onConnect: () -> Void = {}
+    var isEmbedded = false
+    var initialProfile: SSHConnectionProfile?
+    var onCancel: (() -> Void)?
 
     @State private var host = ""
     @State private var user = ""
@@ -80,12 +84,15 @@ struct SSHConnectionSheet: View {
             Divider()
             actions
         }
-        .frame(width: 500, height: 540)
-        .background(Color.card)
-        .foregroundStyle(Color.foreground)
+        .frame(width: isEmbedded ? 420 : 500, height: isEmbedded ? 780 : 540)
+        .background(isEmbedded ? Color(nsColor: .windowBackgroundColor) : Color.card)
+        .foregroundStyle(isEmbedded ? Color.primary : Color.foreground)
         .tint(Color.accentColor)
-        .preferredColorScheme(.dark)
-        .onAppear { focusedField = .host }
+        .preferredColorScheme(isEmbedded ? nil : .dark)
+        .onAppear {
+            if let initialProfile { apply(initialProfile) }
+            focusedField = .host
+        }
         .onDisappear { connectionTask?.cancel() }
     }
 
@@ -112,7 +119,7 @@ struct SSHConnectionSheet: View {
 
     private var connectionForm: some View {
         Form {
-            if !profileStore.profiles.isEmpty {
+            if !isEmbedded && !profileStore.profiles.isEmpty {
                 Section("Saved connections") {
                     ForEach(profileStore.profiles) { profile in
                         HStack(spacing: 8) {
@@ -225,7 +232,7 @@ struct SSHConnectionSheet: View {
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
-        .background(.black)
+        .background(isEmbedded ? Color.clear : Color.black)
     }
 
     private var actions: some View {
@@ -263,7 +270,7 @@ struct SSHConnectionSheet: View {
             .keyboardShortcut(.defaultAction)
         }
         .padding(16)
-        .background(Color.card)
+        .background(isEmbedded ? Color(nsColor: .windowBackgroundColor) : Color.card)
     }
 
     private var isValid: Bool {
@@ -364,7 +371,8 @@ struct SSHConnectionSheet: View {
             isConnecting = false
             switch windowSession.state {
             case .remote(let connectedProfile) where connectedProfile.id == profile.id:
-                dismiss()
+                onConnect()
+                if !isEmbedded { dismiss() }
             case .failed(let failedProfile, let message) where failedProfile.id == profile.id:
                 connectionError = message
             default:
@@ -375,7 +383,7 @@ struct SSHConnectionSheet: View {
 
     private func cancel() {
         connectionTask?.cancel()
-        dismiss()
+        if let onCancel { onCancel() } else { dismiss() }
     }
 }
 

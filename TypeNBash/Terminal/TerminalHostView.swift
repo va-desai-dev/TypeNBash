@@ -36,8 +36,6 @@ final class TerminalHostNSView: NSView {
         layer?.cornerCurve = .continuous
         layer?.masksToBounds = true
 
-        terminal.autoresizingMask = [.width, .height]
-
         terminal.nativeForegroundColor = .white
         terminal.selectedTextBackgroundColor = NSColor(Color.accentColor)
 
@@ -49,11 +47,13 @@ final class TerminalHostNSView: NSView {
 
     override func layout() {
         super.layout()
-        terminal.frame = bounds
+        if terminal.frame != bounds { terminal.frame = bounds }
 
         guard !hasStarted, bounds.width > 1, bounds.height > 1 else { return }
         hasStarted = true
-        onReady?(terminal)
+        let start = onReady
+        onReady = nil
+        start?(terminal)
     }
 }
 
@@ -88,7 +88,7 @@ final class TerminalController {
     /// shell and an SSH session, because the terminal *is* whichever shell is
     /// connected — the path is simply interpreted on that machine.
     func changeDirectory(to path: String) {
-        send("cd \(Self.shellQuote(path))\n")
+        send("cd \(TerminalShellIntegration.posixQuote(path))\n")
     }
 
     fileprivate func attach(_ terminal: LocalProcessTerminalView) {
@@ -118,10 +118,6 @@ final class TerminalController {
         guard self.terminal === terminal else { return }
         self.terminal = nil
         isReady = false
-    }
-
-    private static func shellQuote(_ value: String) -> String {
-        "'" + value.replacingOccurrences(of: "'", with: "'\\''") + "'"
     }
 }
 

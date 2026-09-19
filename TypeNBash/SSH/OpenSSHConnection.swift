@@ -120,7 +120,7 @@ final class OpenSSHConnection {
 
         try Task.checkCancellation()
         let remoteCommand = ([program] + arguments)
-            .map(Self.shellQuote)
+            .map(TerminalShellIntegration.posixQuote)
             .joined(separator: " ")
         let result = try await OpenSSHProcess.run(
             arguments: commandArguments(controlPath: socket, remoteCommand: remoteCommand),
@@ -284,10 +284,6 @@ final class OpenSSHConnection {
         }
         askPassSecretURL = nil
         askPassHelperURL = nil
-    }
-
-    private static func shellQuote(_ value: String) -> String {
-        "'" + value.replacingOccurrences(of: "'", with: "'\\''") + "'"
     }
 }
 

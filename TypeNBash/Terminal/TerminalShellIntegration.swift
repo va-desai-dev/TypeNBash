@@ -145,7 +145,7 @@ enum TerminalShellIntegration {
         """#
     }
 
-    private static func posixQuote(_ value: String) -> String {
+    static func posixQuote(_ value: String) -> String {
         "'" + value.replacingOccurrences(of: "'", with: "'\\''") + "'"
     }
 }
