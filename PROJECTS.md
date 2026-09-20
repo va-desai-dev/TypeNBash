@@ -17,6 +17,9 @@ or a path containing traversal components. The definition contains no host paths
 SSH profile IDs, credentials, or executable commands. It can travel with a copied
 folder or be committed alongside the project's files.
 
+A project may also hold `.typenbash-notebook.json` beside this file, with the
+same project-relative, portable rules. See `NOTEBOOK.md`.
+
 ## Creation and opening
 
 The project setup form has three actions:
@@ -43,13 +46,14 @@ The output folder is not eagerly created.
 
 ## Output contract
 
-Future export actions should call `WindowSession.prepareProjectOutputDirectory()`
-and write through the active workspace filesystem. This creates and returns the
-configured output directory on the project's host. Ordinary folder projects use
-`output` by default. The resolver rejects file collisions, paths resolving outside
-the project, and a workspace change while the request is running.
+Export actions call `WindowSession.prepareProjectOutputDirectory()` and write
+through the active workspace filesystem. It creates and returns the configured
+output directory on the project's host. Ordinary folder projects use `output` by
+default. The resolver rejects file collisions, paths resolving outside the
+project, and a workspace change while the request is running. The analysis
+notebook's export is the first action to use it.
 
-This provides the shared destination contract; it does not add an exporter or
-redirect arbitrary shell commands. Shell commands still use their own working
-directory. Local definitions can be opened through the project picker; Finder
-file association is not part of this format implementation.
+This is the shared destination contract; it does not redirect arbitrary shell
+commands, which still use their own working directory. Local definitions can be
+opened through the project picker; Finder file association is not part of this
+format implementation.

@@ -125,6 +125,19 @@ struct ProjectWorkspaceIntegrationChecks {
             check(terminal.terminal.process.shellPid == pid, "Window resizing does not restart the shell")
         }
 
+        // The console's directory is recorded for actions that need it, and still
+        // never steers the project browser.
+        let browsedBefore = session.fileBrowser.directory
+        let selectedBefore = session.fileBrowser.selectedFile
+        let elsewhere = URL(fileURLWithPath: "/tmp")
+        session.terminalReported(host: nil, directory: elsewhere, generation: session.terminalGeneration)
+        await settle()
+        check(session.consoleDirectory?.standardizedFileURL == elsewhere.standardizedFileURL,
+              "A console directory report is recorded in project mode")
+        check(session.fileBrowser.directory == browsedBefore
+              && session.fileBrowser.selectedFile == selectedBefore,
+              "Recording it does not move the project browser or drop its selection")
+
         session.closeProject()
         await settle()
         check(descendants(of: host, as: NSSplitView.self).allSatisfy(\.isVertical),
@@ -136,7 +149,58 @@ struct ProjectWorkspaceIntegrationChecks {
         await settle()
         session.close()
         window.close()
+        await checkFooterControls()
         print("Project workspace integration checks passed")
+    }
+
+    /// A footer that holds a control, not just labels.
+    ///
+    /// The footer sits in the divider gap as a non-arranged subview, so
+    /// `NSSplitView` hit-tests straight past it and claims the point for the
+    /// divider. That is right for a status label and wrong for a text field,
+    /// which is otherwise unclickable.
+    @MainActor static func checkFooterControls() async {
+        let footer = AnyView(
+            HStack(spacing: 8) {
+                Text("Missing Data Codes")
+                TextField("NA, N/A, .", text: .constant("")).frame(maxWidth: 260)
+                Spacer()
+            }.padding(.horizontal, 10).padding(.vertical, 6)
+        )
+        let controller = ProjectSplitView<AnyView, AnyView, AnyView>.Controller(
+            editor: AnyView(Color.blue), footer: footer, console: AnyView(Color.green))
+        let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 1100, height: 800),
+                              styleMask: [.titled, .resizable], backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.contentViewController = controller
+        window.makeKeyAndOrderFront(nil)
+        window.setContentSize(NSSize(width: 1100, height: 900))
+        await settle()
+
+        let split = controller.footerSplit
+        let y = split.arrangedSubviews[0].frame.maxY + split.dividerThickness / 2
+        func target(_ x: CGFloat) -> NSView? {
+            split.hitTest(split.superview!.convert(NSPoint(x: x, y: y), from: split))
+        }
+        guard let field = descendants(of: split, as: NSTextField.self)
+            .max(by: { $0.frame.width < $1.frame.width })
+        else { fatalError("The footer's text field never mounted") }
+        let fieldRect = field.convert(field.bounds, to: split)
+
+        let hit = target(fieldRect.midX)
+        check(hit === field || hit.map { $0.isDescendant(of: field) } == true,
+              "A control in the footer receives its own pointer events")
+        check(target(12) === split, "Footer labels still route pointer events to the native divider")
+        check(target(fieldRect.maxX + 80) === split,
+              "Empty footer space still routes pointer events to the native divider")
+        check(target(split.bounds.maxX - 18) is NSButton, "The console button keeps its hit target")
+
+        let before = controller.splitViewItems[0].viewController.view.frame.height
+        split.setPosition(before - 60, ofDividerAt: 0)
+        await settle()
+        check(controller.splitViewItems[0].viewController.view.frame.height != before,
+              "The divider still moves with a control in the footer")
+        window.close()
     }
 
     @MainActor static func descendants<T: NSView>(of view: NSView, as type: T.Type) -> [T] {

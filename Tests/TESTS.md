@@ -235,3 +235,29 @@ CSV integration checks also exercise analysis snapshots: committing pending cell
 edits, all versus filtered/sorted rows, stable source-row indices, numeric missing
 and invalid values, duplicate headers, short records, type hints, snapshot
 independence after edits, CSV serialization and closed-grid lifetime.
+
+# Analysis notebook checks
+
+The runtime runner takes a check file as an optional third argument. After the
+same Debug build:
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-projects-build \
+  /tmp/centcom-projects-build/SourcePackages AnalysisIntegrationChecks.swift
+```
+
+These pin the statistics to the values R gives for the same data — sample SD,
+type-7 quartiles, Pearson and tie-averaged Spearman, the t/F/chi-square/normal
+distribution functions to twelve significant digits, `cor.test`, `chisq.test`,
+`p.adjust`, `qt`, `t.test` in its one-sample, Welch, pooled and paired forms,
+`summary(aov(y ~ f))`, and `summary(lm(y ~ x1 + x2))` with `confint` and
+`anova` — and cover the missing
+versus unusable distinction, the three missing policies, cross-tab totals and
+exclusions, header drift and absent columns, snapshot fingerprints, sidecar
+round-tripping and validation, decoding a notebook written before significance
+testing existed, the Markdown export, and cell resolution for the console
+hand-off. The emitted R script is checked by executing it under `Rscript`, which
+is skipped when R is not installed. Each expected constant carries the R
+expression that produced it, so any of them can be regenerated with `Rscript`. The last block mounts
+`NotebookView` in a temporary window over a temporary project and runs a step
+against a file on disk. No project of yours is read or written.

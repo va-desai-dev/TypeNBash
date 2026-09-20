@@ -12,6 +12,10 @@ struct FileBrowserPaneHeader: View {
     /// header with its own session would render but do nothing.
     let session: EditorSession
 
+    /// Sends a snippet to the workspace console. Absent outside project mode,
+    /// where there is no console mounted to send it to.
+    var onRunInConsole: ((String) -> Void)?
+
     @State private var analysisError: String?
     @State private var isSavingNewFile = false
     @State private var newFileName = ""
@@ -28,6 +32,12 @@ struct FileBrowserPaneHeader: View {
 
     private var title: String {
         model.selectedFile?.lastPathComponent ?? (model.isUntitled ? "Untitled" : "Preview")
+    }
+
+    /// Languages whose consoles take pasted source. The run action is pointless
+    /// for anything else.
+    private var isScript: Bool {
+        ["r", "py"].contains(model.selectedFile?.pathExtension.lowercased() ?? "")
     }
 
     var body: some View {
@@ -92,6 +102,19 @@ struct FileBrowserPaneHeader: View {
                     )) {
                         Button("OK", role: .cancel) { }
                     } message: { Text(analysisError ?? "") }
+                }
+                if let onRunInConsole, isScript {
+                    Button {
+                        guard let snippet = session.consoleSnippet() else { return }
+                        // A trailing newline is what makes the console execute
+                        // it rather than leave it sitting at the prompt.
+                        onRunInConsole(snippet.hasSuffix("\n") ? snippet : snippet + "\n")
+                    } label: {
+                        Image(systemName: "play")
+                    }
+                    .help("Run the selection, or the cell the caret is in, in the console (⌃⏎)")
+                    .accessibilityLabel("Run in Console")
+                    .keyboardShortcut(.return, modifiers: .control)
                 }
                 outlineMenu
                 Button {

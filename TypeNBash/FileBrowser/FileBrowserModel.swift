@@ -99,6 +99,7 @@ final class FileBrowserModel {
 
     private static let historyLimit = 128
 
+
     enum FilePreview: Sendable {
         case none
         case text(String)
@@ -107,6 +108,7 @@ final class FileBrowserModel {
         case document(Data)
         case unsupported(String)
         case failed(String)
+        case markdown(String)
     }
 
     init() {
@@ -418,6 +420,8 @@ final class FileBrowserModel {
         "bmp", "tiff", "tif", "webp", "ico", "icns"
     ]
 
+    nonisolated static let markdownExtension: Set<String> = ["md"]
+
     /// File extensions rendered by the spreadsheet grid instead of the editor.
     ///
     /// Only comma-separated data: `CSVEngine` splits on commas, so a `.tsv`
@@ -442,6 +446,7 @@ final class FileBrowserModel {
         if imageExtensions.contains(fileExtension) { return .image(data) }
         if documentExtensions.contains(fileExtension) { return .document(data) }
 
+
         // A null byte in the first 8 KB marks the payload as binary.
         guard !data.prefix(8_192).contains(0) else {
             return .unsupported("Binary file — preview is not available.")
@@ -459,6 +464,7 @@ final class FileBrowserModel {
             let table = CSVEngine.parse(text)
             if !table.isEmpty { return .table(table) }
         }
+        if markdownExtension.contains(fileExtension) { return .markdown(text) }
 
         if let totalByteCount, totalByteCount > limit {
             let totalMB = Double(totalByteCount) / (1024.0 * 1024.0)

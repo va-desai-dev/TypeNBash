@@ -65,11 +65,13 @@ struct WorkspaceEditorPane: View {
     let model: FileBrowserModel
     @State var session = EditorSession()
     var showsFooter = true
+    /// Present only where a console is mounted, which is project mode.
+    var onRunInConsole: ((String) -> Void)?
 
     var body: some View {
         FileViewer(model: model, session: session)
             .safeAreaBar(edge: .top) {
-                FileBrowserPaneHeader(model: model, session: session)
+                FileBrowserPaneHeader(model: model, session: session, onRunInConsole: onRunInConsole)
             }
             .safeAreaBar(edge: .bottom) {
                 if showsFooter {

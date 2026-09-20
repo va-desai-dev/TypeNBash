@@ -24,6 +24,51 @@ import TextEditing
         return try csvGrid.analysisSnapshot(scope: scope)
     }
 
+    /// The text to hand the console: the selection, or the `# %%` cell the caret
+    /// sits in when nothing is selected.
+    ///
+    /// This is the RStudio and Positron gesture. The console is the result
+    /// surface — output lands there and stays there — so all this has to do is
+    /// decide which lines to send.
+    func consoleSnippet() -> String? {
+        guard let textView else { return nil }
+        let selection = textView.selectedString
+        if !selection.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return selection }
+
+        let text = textView.string as NSString
+        guard text.length > 0 else { return nil }
+        var lines: [NSRange] = []
+        var position = 0
+        while position < text.length {
+            let line = text.lineRange(for: NSRange(location: position, length: 0))
+            lines.append(line)
+            position = NSMaxRange(line)
+        }
+        guard !lines.isEmpty else { return nil }
+
+        func isMarker(_ index: Int) -> Bool {
+            text.substring(with: lines[index])
+                .trimmingCharacters(in: .whitespaces)
+                .hasPrefix(NotebookScript.cellMarker)
+        }
+
+        let caret = min(textView.selectedRange().location, text.length)
+        var current = lines.lastIndex { $0.location <= caret } ?? 0
+        // A caret resting on the delimiter means the cell it introduces.
+        if isMarker(current) { current = min(current + 1, lines.count - 1) }
+
+        var start = current
+        while start > 0, !isMarker(start) { start -= 1 }
+        if isMarker(start) { start += 1 }
+        var end = current
+        while end + 1 < lines.count, !isMarker(end + 1) { end += 1 }
+        guard start <= end, end < lines.count else { return nil }
+
+        let snippet = text.substring(with: NSRange(location: lines[start].location,
+                                                   length: NSMaxRange(lines[end]) - lines[start].location))
+        return snippet.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? nil : snippet
+    }
+
     func perform(_ action: Selector) {
         guard let textView, let window = textView.window else { return }
         window.makeFirstResponder(textView)

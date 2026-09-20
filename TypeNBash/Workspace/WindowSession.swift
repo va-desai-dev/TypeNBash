@@ -39,6 +39,12 @@ final class WindowSession {
     private(set) var terminalGeneration = 0
     private(set) var terminalHost: String?
 
+    /// Where the console last reported itself to be. Nil until a shell reports,
+    /// and stale while something else is in the foreground — an R session has
+    /// its own prompt and emits nothing — which is the point: it holds the
+    /// shell's directory rather than guessing at the foreground program's.
+    private(set) var consoleDirectory: URL?
+
     /// The project this window was opened for, if any. Retained because
     /// `rootDirectory` alone can't survive a shell exit: the window would
     /// otherwise re-root at whatever directory the terminal was last in.
@@ -54,6 +60,10 @@ final class WindowSession {
         if activeProject != nil { return .project }
         return location == .local ? .home : .remote
     }
+
+    /// The active workspace's filesystem, so analysis and export read and write
+    /// through the same backend the browser and project files use.
+    var fileSystem: any WorkspaceFileSystem { self.backend.fileSystem }
 
     private var localDirectory: URL
 
@@ -272,6 +282,12 @@ final class WindowSession {
             if let known = terminalHost, known != normalized { return }
             terminalHost = normalized
         }
+        // Recorded so an action that depends on where the console is — running a
+        // script whose data paths are project-relative — can tell whether it
+        // needs to move it. Recording is not following: the navigator below
+        // still ignores this in project mode.
+        consoleDirectory = directory
+
         // The project navigator and editor are independent of the console's PWD.
         // Following shell reports here would discard the selected file and draft.
         guard activeProject == nil else { return }

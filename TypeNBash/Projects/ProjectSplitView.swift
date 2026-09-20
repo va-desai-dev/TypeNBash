@@ -144,9 +144,14 @@ final class FooterSplitView<Footer: View>: NSSplitView {
         onToggleConsole?()
     }
 
+    /// The footer and the button sit in the divider gap as non-arranged subviews,
+    /// and `NSSplitView` hit-tests only its arranged panes — a point in the gap
+    /// is the divider as far as it is concerned. So both are offered the point
+    /// first; the footer declines anything that is not one of its own controls.
     override func hitTest(_ point: NSPoint) -> NSView? {
         let localPoint = convert(point, from: superview)
         if consoleButton.frame.contains(localPoint) { return consoleButton }
+        if footer.frame.contains(localPoint), let control = footer.hitTest(localPoint) { return control }
         return super.hitTest(point)
     }
 
@@ -160,6 +165,16 @@ final class FooterSplitView<Footer: View>: NSSplitView {
 }
 
 /// Footer status labels remain accessible, while pointer events reach the native divider.
+///
+/// Passive content is why: SwiftUI draws a label without any AppKit view of its
+/// own, so a hit that lands on this hosting view *is* the footer's background
+/// and belongs to the divider. A control is the other case — a text field or a
+/// stepper backs onto a real view in this subtree — and handing that hit to the
+/// divider is what made the control unclickable. So the pass-through is now
+/// "nothing of mine was hit" rather than "never".
 private final class DividerContentView<Content: View>: NSHostingView<Content> {
-    override func hitTest(_ point: NSPoint) -> NSView? { nil }
+    override func hitTest(_ point: NSPoint) -> NSView? {
+        let target = super.hitTest(point)
+        return target === self ? nil : target
+    }
 }

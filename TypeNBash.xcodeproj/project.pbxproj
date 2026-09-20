@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C56083E3060543F00046F2A /* MarkdownEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56083D3060543F00046F2A /* MarkdownEngine */; };
+		7C5608403060543F00046F2A /* MarkdownEngineCodeBlocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */; };
+		7C5608423060543F00046F2A /* MarkdownEngineLatex in Frameworks */ = {isa = PBXBuildFile; productRef = 7C5608413060543F00046F2A /* MarkdownEngineLatex */; };
 		7C8A8B58305CA8EC00FD348E /* SwiftGitX in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8A8B57305CA8EC00FD348E /* SwiftGitX */; };
 		7CA595BC305718F400C0FF4E /* ColorCode in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595BB305718F400C0FF4E /* ColorCode */; };
 		7CA595BF3057192500C0FF4E /* ComplexModule in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595BE3057192500C0FF4E /* ComplexModule */; };
@@ -49,14 +52,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C56083E3060543F00046F2A /* MarkdownEngine in Frameworks */,
 				7CA595C9305719AD00C0FF4E /* MacUI in Frameworks */,
 				7CA595CC305719BD00C0FF4E /* EditorCore in Frameworks */,
 				7CA595C63057198D00C0FF4E /* Syntax in Frameworks */,
 				7CA595C33057192500C0FF4E /* RealModule in Frameworks */,
+				7C5608423060543F00046F2A /* MarkdownEngineLatex in Frameworks */,
 				7CA595BC305718F400C0FF4E /* ColorCode in Frameworks */,
 				7CA595C13057192500C0FF4E /* Numerics in Frameworks */,
 				7CA595BF3057192500C0FF4E /* ComplexModule in Frameworks */,
 				7CB100033058000300C0FF4E /* SwiftTerm in Frameworks */,
+				7C5608403060543F00046F2A /* MarkdownEngineCodeBlocks in Frameworks */,
 				7C8A8B58305CA8EC00FD348E /* SwiftGitX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +116,9 @@
 				7CA595CB305719BD00C0FF4E /* EditorCore */,
 				7CB100023058000200C0FF4E /* SwiftTerm */,
 				7C8A8B57305CA8EC00FD348E /* SwiftGitX */,
+				7C56083D3060543F00046F2A /* MarkdownEngine */,
+				7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */,
+				7C5608413060543F00046F2A /* MarkdownEngineLatex */,
 			);
 			productName = CENTCOM;
 			productReference = 7C3CC8CE3055BB7300D76564 /* TypeNBash.app */;
@@ -147,6 +156,7 @@
 				7CA595C7305719AD00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/MacUI" */,
 				7CA595CA305719BD00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/EditorCore" */,
 				7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */,
+				7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7C3CC8CF3055BB7300D76564 /* Products */;
@@ -341,8 +351,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 26.6;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -399,8 +410,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 26.6;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -458,6 +470,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nodes-app/swift-markdown-engine.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.13.0;
+			};
+		};
 		7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ibrahimcetin/SwiftGitX.git";
@@ -493,6 +513,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7C56083D3060543F00046F2A /* MarkdownEngine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */;
+			productName = MarkdownEngine;
+		};
+		7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */;
+			productName = MarkdownEngineCodeBlocks;
+		};
+		7C5608413060543F00046F2A /* MarkdownEngineLatex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */;
+			productName = MarkdownEngineLatex;
+		};
 		7C8A8B57305CA8EC00FD348E /* SwiftGitX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */;

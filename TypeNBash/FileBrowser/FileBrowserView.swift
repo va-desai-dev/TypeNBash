@@ -1,6 +1,7 @@
 import AppKit
 import SwiftUI
 import PDFKit
+import MarkdownEngine
 
 
 /// Finder-style pane beside the console. Works for both the local and SSH
@@ -73,13 +74,13 @@ struct FileBrowserToolbar: View {
                 Toggle(isOn: $model.showsHiddenFiles) {
                     if model.showsHiddenFiles {
                         Label {
-                            Text("Showing Hidden Files")
+                            SwiftUI.Text("Showing Hidden Files")
                         } icon: {
                             Image(systemName: "eye.slash")
                         }
                     } else {
                         Label {
-                            Text("Show Hidden Files")
+                            SwiftUI.Text("Show Hidden Files")
                         } icon: {
                             Image(systemName: "eye")
                         }
@@ -135,23 +136,43 @@ struct FileViewer: View {
                       tabWidth: [2, 4, 8].contains(tabWidth) ? tabWidth : 4)
     }
 
+    let typeNBashScrollPolicy = OverscrollPolicy(
+        percent: 0.5,
+        maxPoints: 40,
+        minPoints: 20,
+        activationStartFraction: 0.15,
+        activationRangeFraction: 0.85
+        )
+
+    let typeNBashMDTheme = MarkdownEditorTheme(
+        bodyText: NSColor(Color.foreground),
+        mutedText: NSColor(Color.secondary),
+        link: NSColor(Color.accentColor),
+        incompleteLink: NSColor(Color.red.opacity(0.5)),
+        findMatchHighlight: NSColor(Color.accentColor.opacity(0.32)),
+        findCurrentMatchHighlight: NSColor(Color.accentColor),
+        highlightColor: NSColor.systemYellow.withAlphaComponent(0.32)
+        )
+
+    let typeNBashInsetMDInsets = TextInsets(horizontal: 18, vertical: 12)
+
 
     @ViewBuilder private var previewContent: some View {
         switch model.preview {
             case .text(let contents):
                 CodeEditorTextView(
                     text: Binding(
-                    get: { contents },
-                    set: { model.updatePreviewText($0) }
-                ),
+                        get: { contents },
+                        set: { model.updatePreviewText($0) }
+                    ),
                     fileURL: model.selectedFile, options: options, session: session)
                 // Each file gets a fresh editor, grammar, and undo stack.
                 .id(model.selectedFile)
 
             case .table(let table):
                 CSVPreviewView(table: table, session: session, onEdit: model.updatePreviewTable)
-                    // Each file gets a fresh grid, the way each file gets a
-                    // fresh editor above.
+                // Each file gets a fresh grid, the way each file gets a
+                // fresh editor above.
                     .id(model.selectedFile)
 
             case .unsupported(let message):
@@ -169,7 +190,7 @@ struct FileViewer: View {
 
             case .none:
                 ContentUnavailableView {
-                    Text("Select a file to preview")
+                    SwiftUI.Text("Select a file to preview")
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .init(horizontal: .center, vertical: .center))
                 .background(Color.card)
@@ -179,6 +200,19 @@ struct FileViewer: View {
             case .image(let data):
                 ImagePreviewView(data: data)
                     .id(model.selectedFile)
+            case .markdown(let text):
+                NativeTextViewWrapper(
+                    text: Binding(
+                        get: { text },
+                        set: { model.updatePreviewText($0) }
+                    ),
+                    configuration: .init(
+                        theme: typeNBashMDTheme,
+                        overscroll: typeNBashScrollPolicy,
+                        textInsets: typeNBashInsetMDInsets,
+                        heightBehavior: .scrolls
+                    )
+                )
         }
     }
 }

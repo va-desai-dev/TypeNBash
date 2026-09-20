@@ -12,6 +12,7 @@ so moving Swift files inside it does not require individual project references.
 | `SSH` | Connection profiles, authentication, transport and remote filesystem |
 | `Terminal` | Native terminal bridge, controller and shell integration |
 | `FileBrowser` | Directory browsing and file preview; `CSV` owns the grid |
+| `Analysis` | Notebook steps, the statistics kernel and distributions, and the notebook pane |
 | `Editor` | Text editor bridge, session, syntax, text system and find UI |
 | `SourceControl` | Git service, observable model and UI; `Diff` and `GitHub` own their features |
 | `Telemetry` | System monitoring, remote telemetry and inspector rows |
@@ -52,7 +53,8 @@ only window chrome, sidebar and telemetry; editor UI state lives in
 `WorkspaceEditorPane`. Leaving a project releases its UI state.
 
 The project's `WindowSession` owns its backend, root and file browser. Console PWD
-reports never navigate the project browser, and a local console restart replaces
+reports are recorded as `consoleDirectory` but never navigate the project browser,
+and a local console restart replaces
 only the terminal generation, preserving the editor's draft. Home/SSH browsing
 continues to follow shell directories. This is workspace state isolation, not an
 OS security sandbox for executed commands.
@@ -62,6 +64,19 @@ remain in `ProjectPickerModel` and the existing SSH flow.
 
 See `Tests/TESTS.md` for the build and integration harnesses.
 
+## Analysis notebook
+
+`AnalysisStep` describes a calculation as a `Codable` value; `AnalysisKernel` is
+the only thing that runs one, pure and off the main actor. `NotebookModel` owns
+a project's steps, the tables they read and the results so far, and `NotebookView`
+builds and renders those values without computing anything. Steps persist in a
+project sidecar; results do not. The toolbar action captures the editor's table
+before swapping the pane in, because showing the notebook unmounts the grid.
+`NotebookScript` emits the same steps as an R script, and `EditorSession`
+resolves the `# %%` cell around the caret so the editor can send it to the
+project console. That hand-off is one way: nothing reads R's output back.
+See `NOTEBOOK.md`.
+
 ## Project footer divider
 
 `ProjectSplitView` accepts editor, footer and console content. Its native split
@@ -69,8 +84,12 @@ subclass reserves the footer's height as divider thickness, draws the separator
 edges, and positions a non-arranged hosting view inside that gap. The split
 controller makes the status area the effective drag area. Passive status
 content passes pointer events to AppKit while retaining accessibility labels.
-A native footer button has its own hit target and toggles the console split
-item's `isCollapsed` state. The console remains mounted, its shell keeps running,
+The footer and the console button sit in that gap as non-arranged subviews, and
+`NSSplitView` hit-tests only its arranged panes, so both are offered a point
+before the divider claims it. The hosting view declines anything that is not one
+of its own AppKit-backed controls, which keeps a status label passive while
+letting a footer text field or button work. The native footer button toggles the
+console split item's `isCollapsed` state. The console remains mounted, its shell keeps running,
 and AppKit restores its previous height when shown. The divider remains visible
 while collapsed, so the Show Console action stays reachable. SwiftUI's binding
 can request visibility changes, including revealing the console for Open in Terminal.
