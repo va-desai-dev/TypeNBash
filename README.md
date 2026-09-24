@@ -128,7 +128,7 @@ Found a problem? Include your **TypeNBash version**, **macOS version**, whether 
 ---
 
 ## License
-The source code for TypeNBash is licensed under the terms of the Apache License, Version 2.0. The notarized TypeNBash.app and its image bundle resources are licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. See [LICENSE](https://github.com/va-desai-dev/TypeNBash?tab=License-1-ov-file) for details.
+The source code for TypeNBash is licensed under the terms of the Affero General Public License v3.0 (GNU, 2007). The notarized TypeNBash.app and its image bundle resources are licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. See [LICENSE](https://github.com/va-desai-dev/TypeNBash?tab=License-1-ov-file) for details.
 ### Acknowledgements
 TypeNBash includes third party source code from [CotEditor](https://github.com/coteditor/CotEditor) and [CodeEditSourceEditor](https://github.com/CodeEditApp/CodeEditSourceEditor) projects licensed under Apache Public v2.0 and MIT Licenses for the syntax editor. Additional libraries also include [SwiftTerm](https://github.com/migueldeicaza/SwiftTerm) and [SwiftGitX](https://github.com/ibrahimcetin/SwiftGitX) also under the MIT Open Source Licenses. Third-party license notices and documentations are included within TypeNBash's binary.
 <div align="center">
