@@ -132,5 +132,5 @@ The source code for TypeNBash is licensed under the terms of the Apache License,
 ### Acknowledgements
 TypeNBash includes third party source code from [CotEditor](https://github.com/coteditor/CotEditor) and [CodeEditSourceEditor](https://github.com/CodeEditApp/CodeEditSourceEditor) projects licensed under Apache Public v2.0 and MIT Licenses for the syntax editor. Additional libraries also include [SwiftTerm](https://github.com/migueldeicaza/SwiftTerm) and [SwiftGitX](https://github.com/ibrahimcetin/SwiftGitX) also under the MIT Open Source Licenses. Third-party license notices and documentations are included within TypeNBash's binary.
 <div align="center">
-  <sub>TypeNBash (c) 2026 by Vedant A. Desai · Built for macOS</sub>
+  <sub>TypeNBash © 2026 by Vedant A. Desai · Built for macOS</sub>
 </div>
