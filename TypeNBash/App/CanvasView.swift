@@ -1,32 +1,30 @@
 import SwiftUI
 
 /// Shared window chrome. Feature state belongs to the selected workspace view.
-struct CanvasView<Content: View>: View {
+struct CanvasView<Content: View, Sidebar: View>: View {
     let windowSession: WindowSession
     let terminalController: TerminalController
     let onOpenInTerminal: () -> Void
     @ViewBuilder let content: Content
+    @ViewBuilder let sidebar: Sidebar
     @State private var showsSidebar = true
     @State private var showsInspector = false
+
 
     var body: some View {
         HSplitView {
             if showsSidebar {
-                WorkspaceSidebar(
-                    model: windowSession.fileBrowser,
-                    isLocal: windowSession.location == .local,
-                    onOpenInTerminal: openInTerminal
-                )
-                .frame(minWidth: 250, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
-                .background(Color.card)
+                sidebar
+                    .frame(minWidth: 250, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
+                    .background(Color.card)
             }
             content
                 .background(Color.card)
             if showsInspector {
                 WorkspaceInspector(session: windowSession)
-                .frame(minWidth: 220, idealWidth: 240, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
-                .padding(16)
-                .background(Color.card)
+                    .frame(minWidth: 220, idealWidth: 240, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
+                    .padding(16)
+                    .background(Color.card)
             }
         }
         .toolbar {
@@ -38,7 +36,7 @@ struct CanvasView<Content: View>: View {
                 }
                 .help(showsSidebar ? "Hide sidebar" : "Show sidebar")
             }
-            ToolbarSpacer(.fixed, placement: .navigation)
+            ToolbarSpacer()
                 .sharedBackgroundVisibility(.hidden)
             ToolbarItem {
                 Button {
@@ -101,7 +99,8 @@ struct WorkspaceTerminalPane: View {
     }
 }
 
-private struct WorkspaceSidebar: View {
+
+struct WorkspaceSidebar: View {
     let model: FileBrowserModel
     let isLocal: Bool
     let onOpenInTerminal: (WorkspaceFileEntry) -> Void
@@ -169,7 +168,6 @@ private struct WorkspaceSidebar: View {
             }
         }
     }
-
 }
 
 /// Sampling is active only while the inspector is mounted.

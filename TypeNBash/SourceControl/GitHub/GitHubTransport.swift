@@ -102,6 +102,8 @@ nonisolated enum GitHubTransport {
             }
             if context.takeUnretainedValue().rejected { throw GitPushError.rejected }
             if status == GIT_ENONFASTFORWARD.rawValue { throw GitPushError.diverged }
+            // The token was offered once and refused: the sign-in, not the push, failed.
+            if status == GIT_EAUTH.rawValue, credential != nil { throw GitHubDeviceFlowError.signInAgain }
             guard status == 0 else { throw GitPushError.failed }
         } else {
             var options = git_fetch_options()
@@ -110,9 +112,9 @@ nonisolated enum GitHubTransport {
             }
             options.callbacks = callbacks
             options.follow_redirects = GIT_REMOTE_REDIRECT_NONE
-            guard git_remote_fetch(remote, nil, &options, nil) == 0 else {
-                throw GitHubAuthenticationError.transport
-            }
+            let status = git_remote_fetch(remote, nil, &options, nil)
+            if status == GIT_EAUTH.rawValue, credential != nil { throw GitHubDeviceFlowError.signInAgain }
+            guard status == 0 else { throw GitHubAuthenticationError.transport }
         }
     }
 }

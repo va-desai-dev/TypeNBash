@@ -16,6 +16,21 @@ struct GitHubAccountView: View {
                 }
                 Text("Enter this code in your browser and approve access. Waiting for GitHub…")
                     .font(.caption).foregroundStyle(.secondary)
+            } else if let login = model.login, GitHubSignInStatus.shared.needsSignIn {
+                // A refused login is always "sign in again" — never a reason to
+                // touch the repository.
+                HStack {
+                    Label("GitHub · \(login) · sign-in expired", systemImage: "exclamationmark.triangle.fill")
+                        .foregroundStyle(.orange)
+                    Spacer()
+                    Button("Sign in again", action: model.connect).disabled(model.isBusy)
+                    if model.isBusy {
+                        ProgressView().controlSize(.small)
+                        Button("Cancel", action: model.cancel)
+                    }
+                }
+                Text("GitHub no longer accepts this sign-in. Approve access in your browser to reconnect; your code and history are unaffected.")
+                    .font(.caption).foregroundStyle(.secondary)
             } else if let login = model.login {
                 HStack {
                     Label("GitHub · \(login)", systemImage: "person.crop.circle.badge.checkmark")

@@ -65,6 +65,12 @@ final class WindowSession {
     /// through the same backend the browser and project files use.
     var fileSystem: any WorkspaceFileSystem { self.backend.fileSystem }
 
+    /// The host's own Git, when the workspace is remote. Nil means source
+    /// control runs locally through libgit2.
+    var remoteGit: RemoteGit? {
+        (backend as? SSHWorkspaceBackend).map { RemoteGit(backend: $0) }
+    }
+
     private var localDirectory: URL
 
     private var backend: any WorkspaceBackend

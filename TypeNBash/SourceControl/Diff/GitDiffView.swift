@@ -24,13 +24,18 @@ struct GitDiffView: View {
     var showsFooter = true
 
     var body: some View {
-        VStack(spacing: 0) {
-            header
-            comparison
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            if showsFooter { GitDiffFooter(model: model) }
-        }
-        .background(Color.card)
+        comparison
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .safeAreaBar(edge: .top) {
+                header
+                    .background(Color.card)
+            }
+            .safeAreaBar(edge: .bottom) {
+                if showsFooter {
+                    GitDiffFooter(model: model)
+                        .background(Color.card)
+                }
+            }
     }
 
     /// The file the comparison is currently showing, for the deleted badge.
@@ -47,24 +52,17 @@ struct GitDiffView: View {
             ContentUnavailableView("Comparison unavailable", systemImage: "exclamationmark.triangle",
                                    description: Text(error))
         } else if let result = model.result, !result.rows.isEmpty {
-            HSplitView {
-                GitDiffFileList(model: model)
-                    .frame(minWidth: 250, maxWidth: 300)
-                    .frame(maxHeight: .infinity, alignment: .topLeading)
-                    .backgroundStyle(Color.card)
-                let contentKey = "\(model.scope.rawValue)|\(result.selectedPath ?? "")|\(result.rows.count)"
-                GitDiffTextPane(
-                    rows: result.rows,
-                    fileURL: result.selectedPath.map { model.directory.appending(path: $0) },
-                    contentKey: contentKey
-                )
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .backgroundStyle(Color.card)
-                // A new comparison gets a new text view, the way each file gets a
-                // new editor. Refilling one in place is what loses the theme's text
-                // color — see `GitDiffTextPane.makeNSView(context:)`.
-                .id(contentKey)
-            }
+            let contentKey = "\(model.scope.rawValue)|\(result.selectedPath ?? "")|\(result.rows.count)"
+            GitDiffTextPane(
+                rows: result.rows,
+                fileURL: result.selectedPath.map { model.directory.appending(path: $0) },
+                contentKey: contentKey
+            )
+            .backgroundStyle(Color.card)
+            // A new comparison gets a new text view, the way each file gets a
+            // new editor. Refilling one in place is what loses the theme's text
+            // color — see `GitDiffTextPane.makeNSView(context:)`.
+            .id(contentKey)
         } else {
             ContentUnavailableView("Changes", systemImage: "arrow.left.arrow.right",
                                    description: Text(model.result?.message ?? "Select a changed file."))
@@ -75,11 +73,6 @@ struct GitDiffView: View {
     private var header: some View {
         VStack(spacing: 0) {
             HStack(alignment: .center) {
-                Picker("Compare", selection: Binding(get: { model.scope }, set: model.setScope)) {
-                    ForEach(GitDiffScope.allCases) { Text($0.rawValue).tag($0) }
-                }
-                .pickerStyle(.segmented)
-                .labelsHidden()
                 Spacer()
                 Button("Refresh", systemImage: "arrow.clockwise") {
                     Task { await model.refresh() }
@@ -103,22 +96,18 @@ struct GitDiffFooter: View {
     var body: some View {
         VStack(spacing: 0) {
             if showsSeparator { Divider() }
-            HStack {
+            HStack(alignment: .center) {
                 Text(model.selectedPath ?? "Saved files only — save editor changes before comparing.")
                     .lineLimit(1).truncationMode(.middle)
-                // Only alongside a comparison: with no rows to show, the same
-                // message is already the placeholder's description.
                 if let message = model.result?.message, model.result?.rows.isEmpty == false {
-                    Text("· \(message)").lineLimit(1)
+                    Text("\(message)").lineLimit(1)
                 }
                 Spacer()
                 Text("Read-only · − Removed / + Added")
             }
-            .foregroundStyle(Color.foreground)
             .padding(.vertical, 6)
             .padding(.horizontal, 10)
         }
-        .background(Color.card)
     }
 }
 
@@ -126,32 +115,103 @@ struct GitDiffFileList: View {
     /// The list shares the comparison's model rather than owning one, so
     /// selecting a row is the same `select(_:)` that reloads the diff.
     let model: GitDiffModel
+    @State private var highlightedFile: String?
 
     var body: some View {
-        List(selection: Binding(get: { model.selectedPath }, set: model.select)) {
+        mainList
+            .safeAreaInset(edge: .top) {
+                VStack(spacing: 0) {
+                    header
+                    Divider()
+                }
+                .background(Color.card)
+            }
+            .safeAreaInset(edge: .bottom, alignment: .leading) {
+                VStack(alignment: .leading, spacing: 0) {
+                    Divider()
+                    HStack(alignment: .center) {
+                        Image(systemName: "arrow.up.arrow.down")
+                            .foregroundStyle(Color(NSColor.controlAccentColor))
+                        Spacer()
+                        let stats = model.result?.stats ?? GitDiffStats()
+                        Text("+ \(stats.insertions, format: .number)")
+                            .foregroundStyle(Color.green)
+                            .lineLimit(1)
+                        Text("- \(stats.deletions, format: .number)")
+                            .foregroundStyle(Color.red)
+                            .lineLimit(1)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 6)
+                }
+                .background(Color.card)
+            }
+    }
+
+    var header: some View {
+        HStack(alignment: .center) {
+            Text("CHANGES:")
+            Spacer()
+            Picker("Compare", selection: Binding(get: { model.scope }, set: model.setScope)) {
+                ForEach(GitDiffScope.allCases) {
+                    Text($0.rawValue)
+                        .font(.body)
+                        .tag($0)
+                }
+            }
+            .pickerStyle(.menu)
+            .labelsHidden()
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+    }
+
+    @ViewBuilder func badgeView(for value: String, accent: Color) -> some View {
+        ZStack {
+            Text(value)
+                .font(.caption.monospaced().weight(.heavy))
+        }
+        .frame(width: 16, height: 16)
+        .contentShape(Rectangle())
+        .background(accent.opacity(0.7),
+                    in: .rect(cornerRadius: 3, style: .continuous))
+    }
+
+    var mainList: some View {
+        List(selection: $highlightedFile) {
             ForEach(model.result?.files ?? []) { file in
                 HStack(spacing: 8) {
                     Image(systemName: file.icon)
+                        .foregroundStyle(Color.accentColor)
                         .frame(width: 16)
-                    Text(file.path)
+                    Text(file.label)
                         .lineLimit(1)
                         .truncationMode(.tail)
-                        .strikethrough(file.status == "Deleted")
+                        .strikethrough(file.status == .deleted)
                     Spacer()
-                    Text(file.status.prefix(1))
-                        .font(.caption)
-                        .backgroundStyle(Color.accentColor)
-                        .clipShape(.rect.inset(by: 6))
+                    badgeView(for: file.status.letter, accent: file.status.color)
                     if file.oldPath != file.path {
                         Text("From \(file.oldPath)").font(.caption).foregroundStyle(.secondary)
                     }
                 }
                 .frame(height: 24)
                 .contentShape(Rectangle())
-                .tag(file.path)
+                .tag(file.id)
+                .onTapGesture(count: 1) {
+                    // Highlight locally at once, like `FileBrowserList`, then
+                    // load the diff; `onChange(of: model.selectedPath)` below
+                    // keeps the highlight in sync if the model picks another file.
+                    highlightedFile = file.id
+                    model.select(file.path)
+                }
             }
         }
         .scrollContentBackground(.hidden)
         .listStyle(.sidebar)
+        .onChange(of: model.selectedPath, initial: true) { _, value in
+            highlightedFile = value
+        }
     }
 }
+
+

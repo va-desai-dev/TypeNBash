@@ -187,7 +187,10 @@ final class GitHubAccountModel {
                 openBrowser()
                 let account = try await service.finishDeviceLogin(code)
                 try Task.checkCancellation()
-                if generation == request { login = account }
+                if generation == request {
+                    login = account
+                    GitHubSignInStatus.shared.clear()
+                }
             } catch is CancellationError {
                 // A cancelled or replaced flow cannot publish an account or error.
             } catch {
@@ -224,6 +227,7 @@ final class GitHubAccountModel {
         do {
             try await service.disconnect()
             login = nil
+            GitHubSignInStatus.shared.clear()
         } catch { errorMessage = error.localizedDescription }
     }
 }

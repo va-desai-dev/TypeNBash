@@ -26,7 +26,7 @@ nonisolated enum GitHubDeviceFlowError: LocalizedError {
         case .disabled: "Enable Device Flow in this OAuth app’s GitHub settings, then try again."
         case .client: "GitHub did not recognize the OAuth client configuration."
         case .response: "GitHub could not complete sign-in. Try again."
-        case .signInAgain: "Your GitHub authorization expired or was revoked. Disconnect and sign in again."
+        case .signInAgain: "GitHub no longer accepts your sign-in. Choose Sign in again above — nothing in your repository changes."
         }
     }
 }

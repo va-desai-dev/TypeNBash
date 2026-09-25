@@ -67,6 +67,7 @@ final class SSHWorkspaceBackend: WorkspaceBackend {
 
     func connect() async throws {
         try await connection.connect()
+        await connection.forwardGitBroker()
         let discoveredHome = try await discoverHomeDirectory()
         let requestedRoot = profile.remoteRoot?.trimmingCharacters(in: .whitespacesAndNewlines)
         if let requestedRoot, !requestedRoot.isEmpty {
@@ -95,6 +96,11 @@ final class SSHWorkspaceBackend: WorkspaceBackend {
 
     func makeTerminalConfiguration() throws -> TerminalLaunchConfiguration {
         try connection.makeTerminalConfiguration(workingDirectory: rootDirectory)
+    }
+
+    /// Runs a program on the host over this workspace's control connection.
+    func execute(program: String, arguments: [String], standardInput: Data? = nil) async throws -> SSHCommandResult {
+        try await connection.execute(program: program, arguments: arguments, standardInput: standardInput)
     }
 
     func applyTelemetry(to monitor: SystemMonitor) async throws {

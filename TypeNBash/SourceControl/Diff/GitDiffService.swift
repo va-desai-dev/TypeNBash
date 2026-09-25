@@ -1,18 +1,52 @@
 import Foundation
 import libgit2
+import SwiftUI
 
 nonisolated enum GitDiffScope: String, CaseIterable, Identifiable, Sendable {
-    case all = "All Changes", unstaged = "Unstaged", staged = "Staged"
+    case all = "ALL", unstaged = "UNSTAGED", staged = "STAGED"
     var id: Self { self }
     var leftTitle: String { self == .unstaged ? "Index" : "HEAD" }
     var rightTitle: String { self == .staged ? "Index" : "Working Tree (saved files)" }
 }
 
+/// How a file changed. Both loaders — libgit2 locally, `git diff
+/// --name-status` over SSH — map into this, so the badge letter and color are
+/// decided once rather than by a `switch` in each.
+nonisolated enum GitDiffStatus: String, Sendable {
+    case added = "Added", modified = "Modified", deleted = "Deleted",
+         renamed = "Renamed", conflicted = "Conflict"
+
+    /// The letter Xcode's navigator badges the file with.
+    var letter: String {
+        switch self {
+        case .added: "A"
+        case .modified: "M"
+        case .deleted: "D"
+        case .renamed: "R"
+        case .conflicted: "U"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .added: .green
+        case .modified, .renamed: .blue
+        case .deleted: .red
+        case .conflicted: .yellow
+        }
+    }
+}
+
 nonisolated struct GitDiffFile: Identifiable, Sendable {
     let path: String
     let oldPath: String
-    let status: String
+    let status: GitDiffStatus
     var id: String { path }
+
+    var label: String {
+        let fileURL = URL(filePath: path)
+        return fileURL.lastPathComponent
+    }
 
     /// The same symbol the file browser shows for this file.
     var icon: String { WorkspaceFileEntry.icon(for: URL(filePath: path)) }
@@ -31,11 +65,19 @@ nonisolated struct GitDiffRow: Identifiable, Sendable {
     var isHeader = false
 }
 
+/// Lines added and removed across every file in the comparison, not just the
+/// one being shown. Binary files count as neither, as in `git diff --stat`.
+nonisolated struct GitDiffStats: Sendable {
+    var insertions = 0
+    var deletions = 0
+}
+
 nonisolated struct GitDiffResult: Sendable {
     let files: [GitDiffFile]
     let selectedPath: String?
     let rows: [GitDiffRow]
     let message: String?
+    var stats = GitDiffStats()
 }
 
 actor GitDiffService {
@@ -73,6 +115,15 @@ actor GitDiffService {
             find.flags = GIT_DIFF_FIND_RENAMES.rawValue
             _ = git_diff_find_similar(diff, &find)
         }
+        // Totals for the whole diff, which libgit2 counts by generating every
+        // file's patch; untracked files count because of SHOW_UNTRACKED_CONTENT.
+        var stats = GitDiffStats()
+        var diffStats: OpaquePointer?
+        if git_diff_get_stats(&diffStats, diff) == 0, let diffStats {
+            stats = GitDiffStats(insertions: git_diff_stats_insertions(diffStats),
+                                 deletions: git_diff_stats_deletions(diffStats))
+            git_diff_stats_free(diffStats)
+        }
         var files: [GitDiffFile] = []
         var indices: [String: Int] = [:]
         for index in 0..<git_diff_num_deltas(diff) {
@@ -80,15 +131,14 @@ actor GitDiffService {
                   let rawPath = delta.new_file.path ?? delta.old_file.path else { continue }
             let path = String(cString: rawPath)
             let oldPath = delta.old_file.path.map { String(cString: $0) } ?? path
-            let label: String
-            switch delta.status {
-            case GIT_DELTA_ADDED, GIT_DELTA_UNTRACKED: label = "Added"
-            case GIT_DELTA_DELETED: label = "Deleted"
-            case GIT_DELTA_RENAMED: label = "Renamed"
-            case GIT_DELTA_CONFLICTED: label = "Conflict"
-            default: label = "Modified"
+            let status: GitDiffStatus = switch delta.status {
+            case GIT_DELTA_ADDED, GIT_DELTA_UNTRACKED: .added
+            case GIT_DELTA_DELETED: .deleted
+            case GIT_DELTA_RENAMED: .renamed
+            case GIT_DELTA_CONFLICTED: .conflicted
+            default: .modified
             }
-            files.append(GitDiffFile(path: path, oldPath: oldPath, status: label))
+            files.append(GitDiffFile(path: path, oldPath: oldPath, status: status))
             indices[path] = index
         }
         files.sort { $0.path.localizedStandardCompare($1.path) == .orderedAscending }
@@ -98,18 +148,21 @@ actor GitDiffService {
         }
         let selection = relativeSelection.flatMap { indices[$0] == nil ? nil : $0 } ?? files.first?.path
         guard let selection, let index = indices[selection] else {
-            return GitDiffResult(files: files, selectedPath: nil, rows: [], message: "No changes in this comparison.")
+            return GitDiffResult(files: files, selectedPath: nil, rows: [], message: "No changes in this comparison.",
+                                 stats: stats)
         }
         var patch: OpaquePointer?
         guard git_patch_from_diff(&patch, diff, index) == 0 else { throw GitDiffError.failed }
         defer { git_patch_free(patch) }
         guard let patch else {
-            return GitDiffResult(files: files, selectedPath: selection, rows: [], message: "No text preview for this change.")
+            return GitDiffResult(files: files, selectedPath: selection, rows: [], message: "No text preview for this change.",
+                                 stats: stats)
         }
         let delta = git_patch_get_delta(patch)!.pointee
         if delta.flags & GIT_DIFF_FLAG_BINARY.rawValue != 0 {
             return GitDiffResult(files: files, selectedPath: selection, rows: [],
-                                 message: "Binary or large file. Text comparison is limited to 2 MB per file.")
+                                 message: "Binary or large file. Text comparison is limited to 2 MB per file.",
+                                 stats: stats)
         }
         var rows: [GitDiffRow] = []
         var removed: [GitDiffLine] = []
@@ -160,7 +213,8 @@ actor GitDiffService {
         }
         flush()
         return GitDiffResult(files: files, selectedPath: selection, rows: rows,
-                             message: truncated ? "Preview limited to 20,000 lines." : rows.isEmpty ? "No textual changes (file metadata or conflict)." : nil)
+                             message: truncated ? "Preview limited to 20,000 lines." : rows.isEmpty ? "No textual changes (file metadata or conflict)." : nil,
+                             stats: stats)
     }
 }
 

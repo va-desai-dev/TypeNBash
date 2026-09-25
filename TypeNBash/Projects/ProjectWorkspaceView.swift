@@ -49,6 +49,16 @@ struct ProjectWorkspaceView: View {
                 WorkspaceTerminalPane(session: session, controller: terminalController)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+        } sidebar: {
+            if let diffModel {
+                GitDiffFileList(model: diffModel)
+            } else {
+            WorkspaceSidebar(
+                model: session.fileBrowser,
+                isLocal: session.location == .local,
+                onOpenInTerminal: { _ in hideConsole = false }
+            )
+            }
         }
         .toolbar {
             ToolbarItem {
@@ -63,19 +73,17 @@ struct ProjectWorkspaceView: View {
                 } label: {
                     Label("Source Control", image: "vault.symbols.2")
                 }
-                .disabled(session.location != .local)
                 .help("Source control for this project")
             }
             ToolbarItem {
                 Button(action: toggleDiffs) {
                     Label("Changes", systemImage: "arrow.left.arrow.right")
                 }
-                .disabled(session.location != .local)
                 .help(diffModel == nil ? "Compare saved Git changes" : "Return to the editor")
             }
         }
         .sheet(isPresented: $showsSourceControl) {
-            SourceControlView(directory: session.rootDirectory)
+            SourceControlView(directory: session.rootDirectory, remote: session.remoteGit)
         }
         .task(id: diffModel.map { ObjectIdentifier($0) }) {
             await diffModel?.refresh()
@@ -128,7 +136,8 @@ struct ProjectWorkspaceView: View {
         if diffModel != nil {
             diffModel = nil
         } else {
-            diffModel = GitDiffModel(directory: session.rootDirectory, selectedFile: session.fileBrowser.selectedFile)
+            diffModel = GitDiffModel(directory: session.rootDirectory, selectedFile: session.fileBrowser.selectedFile,
+                                     remote: session.remoteGit)
         }
     }
 }

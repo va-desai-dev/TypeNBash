@@ -14,7 +14,8 @@ struct TerminalLaunchConfiguration: Sendable {
         TerminalLaunchConfiguration(
             executablePath: "/bin/zsh",
             arguments: ["-zsh", "-i"],
-            environmentOverrides: [:],
+            // `git push` typed here signs in as TypeNBash's GitHub account.
+            environmentOverrides: GitCredentialBroker.shared.localEnvironment(),
             workingDirectory: workingDirectory,
             installsLocalShellIntegration: true
         )

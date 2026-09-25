@@ -11,10 +11,13 @@ final class GitDiffModel {
     private(set) var errorMessage: String?
     private(set) var isLoading = false
     private let service = GitDiffService()
+    /// Set for an SSH workspace, whose repository lives on the host.
+    private let remote: RemoteGit?
     private var generation = 0
 
-    init(directory: URL, selectedFile: URL?) {
+    init(directory: URL, selectedFile: URL?, remote: RemoteGit? = nil) {
         self.directory = directory
+        self.remote = remote
         selectedPath = selectedFile?.path
     }
 
@@ -41,7 +44,11 @@ final class GitDiffModel {
         isLoading = true
         errorMessage = nil
         do {
-            let loaded = try await service.load(directory: directory, scope: requestedScope, selectedPath: requestedPath)
+            let loaded = if let remote {
+                try await remote.diff(directory: directory, scope: requestedScope, selectedPath: requestedPath)
+            } else {
+                try await service.load(directory: directory, scope: requestedScope, selectedPath: requestedPath)
+            }
             guard request == generation else { return }
             result = loaded
             selectedPath = loaded.selectedPath

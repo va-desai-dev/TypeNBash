@@ -36,6 +36,12 @@ private struct FreeWorkspaceView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 }
             }
+        } sidebar: {
+            WorkspaceSidebar(
+                model: session.fileBrowser,
+                isLocal: session.location == .local,
+                onOpenInTerminal: { _ in selectedViewMode = .terminal }
+            )
         }
         .toolbar {
             ToolbarItem {

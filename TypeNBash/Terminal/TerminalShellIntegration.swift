@@ -21,9 +21,15 @@ enum TerminalShellIntegration {
     /// sh so setup also works when the account's default shell is fish or csh.
     /// Never fall back to a shell without integration: that silently desyncs the
     /// sidebar. Prefer the account's bash/zsh, otherwise use an available bash.
-    static func remoteLaunchCommand(workingDirectory: String) -> String {
+    /// `environment` is exported before the shell starts, so the user's own rc
+    /// files still run after it.
+    static func remoteLaunchCommand(workingDirectory: String, environment: [String: String] = [:]) -> String {
+        let exports = environment.sorted { $0.key < $1.key }
+            .map { "export \($0.key)=\(posixQuote($0.value))" }
+            .joined(separator: "\n")
         let script = """
         cd \(posixQuote(workingDirectory)) || exit 1
+        \(exports)
         case "${SHELL:-}" in
           */zsh|*/bash) __TypeNBash_shell="$SHELL" ;;
           *) __TypeNBash_shell=$(command -v bash) || {

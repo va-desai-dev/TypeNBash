@@ -27,6 +27,9 @@ final class OpenSSHConnection {
     private var controlPath: URL?
     private var askPassSecretURL: URL?
     private var askPassHelperURL: URL?
+    /// The host's end of the forwarded Git credential broker socket, when the
+    /// host allowed the forward.
+    private var remoteGitBrokerPath: String?
 
     init(
         profile: SSHConnectionProfile,
@@ -105,6 +108,7 @@ final class OpenSSHConnection {
         if let masterProcess, masterProcess.isRunning { masterProcess.terminate() }
         masterProcess = nil
         masterErrorPipe = nil
+        remoteGitBrokerPath = nil
         cleanupControlDirectory()
         if state != .idle { state = .idle }
     }
@@ -146,8 +150,15 @@ final class OpenSSHConnection {
         // Installs the OSC 7 / OSC 133 hooks on the remote host so `cd` there
         // reports back the same way a local shell does. Setup must succeed
         // before an interactive managed shell is started.
+        // Consoles on a host opted in to the GitHub sign-in ask TypeNBash for it.
+        // Decided at launch: turning it on applies to the next terminal.
+        let gitEnvironment = remoteGitBrokerPath.flatMap { path in
+            GitHubLending.isEnabled(for: profile.id)
+                ? GitCredentialBroker.shared.remoteEnvironment(profileID: profile.id, remoteSocket: path) : nil
+        } ?? [:]
         let remoteShell = TerminalShellIntegration.remoteLaunchCommand(
-            workingDirectory: workingDirectory.path
+            workingDirectory: workingDirectory.path,
+            environment: gitEnvironment
         )
         return TerminalLaunchConfiguration(
             executablePath: "/usr/bin/ssh",
@@ -164,6 +175,21 @@ final class OpenSSHConnection {
             workingDirectory: FileManager.default.homeDirectoryForCurrentUser,
             installsLocalShellIntegration: false
         )
+    }
+
+    /// Forwards the Git credential broker to a private socket on the host, so a
+    /// remote console can reach this Mac's GitHub sign-in. Best effort: a host
+    /// that disallows socket forwarding simply keeps its own credentials.
+    func forwardGitBroker() async {
+        guard state == .connected, let socket = controlPath,
+              let local = GitCredentialBroker.shared.socketPath else { return }
+        let remote = "/tmp/typenbash-git-\(UUID().uuidString).sock"
+        let result = try? await OpenSSHProcess.run(
+            arguments: sharedArguments + [
+                "-S", socket.path, "-O", "forward", "-R", "\(remote):\(local)", "--", profile.destination
+            ]
+        )
+        if result?.terminationStatus == 0 { remoteGitBrokerPath = remote }
     }
 
     private var sharedArguments: [String] {
@@ -288,6 +314,9 @@ final class OpenSSHConnection {
 }
 
 private enum OpenSSHProcess {
+    /// The smallest pipe buffer macOS guarantees.
+    static let pipedInputLimit = 16 * 1024
+
     @MainActor
     static func run(
         arguments: [String],
@@ -310,7 +339,15 @@ private enum OpenSSHProcess {
         let outputHandle = try FileHandle(forWritingTo: outputURL)
         let errorHandle = try FileHandle(forWritingTo: errorURL)
         let inputHandle: FileHandle?
-        if let standardInput {
+        if let standardInput, standardInput.count <= Self.pipedInputLimit {
+            // Small input — a lent GitHub token among it — goes through a pipe
+            // so it never touches disk. It fits the pipe's buffer, so the write
+            // completes before ssh starts reading.
+            let pipe = Pipe()
+            try pipe.fileHandleForWriting.write(contentsOf: standardInput)
+            try pipe.fileHandleForWriting.close()
+            inputHandle = pipe.fileHandleForReading
+        } else if let standardInput {
             try standardInput.write(to: inputURL, options: .atomic)
             inputHandle = try FileHandle(forReadingFrom: inputURL)
         } else {

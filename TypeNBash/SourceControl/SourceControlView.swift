@@ -4,8 +4,8 @@ struct SourceControlView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var model: SourceControlModel
 
-    init(directory: URL) {
-        _model = State(initialValue: SourceControlModel(directory: directory))
+    init(directory: URL, remote: RemoteGit? = nil) {
+        _model = State(initialValue: SourceControlModel(directory: directory, remote: remote))
     }
 
     var body: some View {
@@ -22,6 +22,14 @@ struct SourceControlView: View {
             }
             GitHubAccountView(model: model.account)
                 .disabled(model.isBusy)
+            if model.remote != nil {
+                Toggle("Use my GitHub sign-in on this host", isOn: $model.lendsGitHubSignIn)
+                    .disabled(model.isBusy || model.account.isBusy || model.account.login == nil)
+                Text(model.lendsGitHubSignIn && model.account.login != nil
+                     ? "Fetch and push to https://github.com remotes use your TypeNBash sign-in. The token is sent over SSH for each command and never saved on the host."
+                     : "This repository is on the remote host. Fetch and push use that host’s own Git credentials.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
             Divider()
             if let snapshot = model.snapshot {
                 Text(snapshot.root.path(percentEncoded: false))

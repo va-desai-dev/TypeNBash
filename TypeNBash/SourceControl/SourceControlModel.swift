@@ -5,6 +5,8 @@ import Observation
 @Observable
 final class SourceControlModel {
     let directory: URL
+    /// Set for an SSH workspace, whose repository lives on the host.
+    let remote: RemoteGit?
     let account = GitHubAccountModel()
     private let service = SourceControlService()
     private(set) var snapshot: SourceControlSnapshot?
@@ -14,7 +16,27 @@ final class SourceControlModel {
     var commitMessage = ""
     var selectedRemote = ""
 
-    init(directory: URL) { self.directory = directory }
+    /// Whether this remote host may borrow this Mac's GitHub sign-in — here and
+    /// in its consoles. See `GitHubLending`.
+    var lendsGitHubSignIn: Bool {
+        didSet {
+            guard let id = remote?.profileID else { return }
+            GitHubLending.setEnabled(lendsGitHubSignIn, for: id)
+        }
+    }
+
+    init(directory: URL, remote: RemoteGit? = nil) {
+        self.directory = directory
+        self.remote = remote
+        lendsGitHubSignIn = remote?.profileID.map(GitHubLending.isEnabled(for:)) ?? false
+    }
+
+    private func perform(_ action: SourceControlAction) async throws -> SourceControlSnapshot {
+        if let remote {
+            return try await remote.perform(action, in: directory, lendsGitHubSignIn: lendsGitHubSignIn)
+        }
+        return try await service.perform(action, in: directory)
+    }
 
     var canCommit: Bool {
         !isBusy && !commitMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
@@ -29,7 +51,7 @@ final class SourceControlModel {
         resultMessage = nil
         defer { isBusy = false }
         do {
-            snapshot = try await service.perform(action, in: directory)
+            snapshot = try await perform(action)
             if let remotes = snapshot?.remotes, !remotes.contains(selectedRemote) {
                 selectedRemote = remotes.contains("origin") ? "origin" : (remotes.first ?? "")
             }
@@ -42,9 +64,10 @@ final class SourceControlModel {
             default: break
             }
         } catch {
+            if case GitHubDeviceFlowError.signInAgain = error { GitHubSignInStatus.shared.markExpired() }
             errorMessage = error.localizedDescription
             // A failed operation may have partially changed the index or refs.
-            snapshot = try? await service.perform(.refresh, in: directory)
+            snapshot = try? await perform(.refresh)
         }
     }
 }
