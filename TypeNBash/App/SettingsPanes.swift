@@ -13,8 +13,8 @@ import SwiftUI
 // MARK: - SSH Connections
 
 struct SSHConnectionsSettingsPane: View {
-    @Bindable var profiles: SSHProfileStore = .shared
-    let projects: ProjectStore = .shared
+    private let profiles = SSHProfileStore.shared
+    private let projects = ProjectStore.shared
 
     @State private var editing: SSHConnectionProfile?
     @State private var profileToDelete: SSHConnectionProfile?
@@ -167,8 +167,8 @@ private struct SSHProfileEditor: View {
 // MARK: - Projects
 
 struct ProjectsSettingsPane: View {
-    @Bindable var store: ProjectStore = .shared
-    @Bindable var profiles: SSHProfileStore = .shared
+    private let store = ProjectStore.shared
+    private let profiles = SSHProfileStore.shared
 
     @State private var projectToDelete: Project?
 
@@ -241,7 +241,7 @@ struct ProjectsSettingsPane: View {
 // MARK: - Source Control
 
 struct SourceControlSettingsPane: View {
-    @Bindable var profiles: SSHProfileStore = .shared
+    private let profiles = SSHProfileStore.shared
     @State private var account = GitHubAccountModel()
     /// Mirrors `GitHubLending`, which lives in per-host user defaults keys.
     @State private var lending: [UUID: Bool] = [:]

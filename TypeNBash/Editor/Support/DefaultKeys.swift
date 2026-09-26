@@ -160,4 +160,14 @@ extension DefaultKeys {
     static let maximumRecentSyntaxCount = DefaultKey<Int>("maximumRecentSyntaxCount")
     
     static let lastVersion = DefaultKey<String?>("lastVersion")
+    
+    // TypeNBash editor options, shared by every editor pane and the Settings window
+    static let editorShowsInvisibles = DefaultKey<Bool>("editor.showsInvisibles")
+    static let editorShowsIndentGuides = DefaultKey<Bool>("editor.showsIndentGuides")
+    static let editorShowsLineNumbers = DefaultKey<Bool>("editor.showsLineNumbers")
+    static let editorShowsChanges = DefaultKey<Bool>("editor.showsChanges")
+    static let editorWrapsLines = DefaultKey<Bool>("editor.wrapsLines")
+    static let editorAutomaticCompletion = DefaultKey<Bool>("editor.automaticCompletion")
+    static let editorUsesSpaces = DefaultKey<Bool>("editor.usesSpaces")
+    static let editorTabWidth = DefaultKey<Int>("editor.tabWidth")
 }

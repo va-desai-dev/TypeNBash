@@ -293,6 +293,7 @@ final class WindowSession {
         // needs to move it. Recording is not following: the navigator below
         // still ignores this in project mode.
         consoleDirectory = directory
+        fileBrowser.refreshEditorGitBaseline()
 
         // The project navigator and editor are independent of the console's PWD.
         // Following shell reports here would discard the selected file and draft.

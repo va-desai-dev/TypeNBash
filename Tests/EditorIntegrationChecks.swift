@@ -95,6 +95,7 @@ struct EditorIntegrationChecks {
         options.showsInvisibles = false
         options.showsIndentGuides = false
         options.showsLineNumbers = false
+        options.showsChanges = false
         options.wrapsLines = false
         options.automaticCompletion = false
         options.usesSpaces = false
@@ -145,7 +146,9 @@ struct EditorIntegrationChecks {
         // hosts the bare text view, without the header that carries the bar.
 
         // Render the production editor bridge using a self-contained source fixture.
-        let preview = CodeEditorTextView(text: .constant("struct Example {\n    let title = \"CENTCOM\"\n\n    func greet() {\n        print(title)\n    }\n}\n"), fileURL: URL(filePath: "/tmp/Example.swift"), options: EditorOptions(), session: EditorSession())
+        let previewSession = EditorSession()
+        let preview = CodeEditorTextView(text: .constant("struct Example {\n    let title = \"CENTCOM\"\n\n    func greet() {\n        print(title)\n    }\n}\n"), fileURL: URL(filePath: "/tmp/Example.swift"), options: EditorOptions(), session: previewSession,
+                                         savedText: "// Removed comment\nstruct Example {\n    let title = \"Old\"\n\n    func greet() {\n    }\n}\n", comparesWithGit: false)
             .preferredColorScheme(.dark)
         let previewHost = NSHostingView(rootView: preview)
         window.contentView = previewHost
@@ -156,6 +159,17 @@ struct EditorIntegrationChecks {
         }
         let previewEditor = findEditor(previewHost)!
         let ruler = previewEditor.enclosingScrollView!.verticalRulerView!
+        let changes = (ruler as! LineNumberView).lineChanges
+        check(changes.lines[2] == .modified && changes.lines[5] == .added && changes.deletions == [1],
+              "Live editor bridge publishes additions, modifications, and deletion anchors")
+        func coloredRows(_ bitmap: NSBitmapImageRep, matching predicate: (NSColor) -> Bool) -> Int {
+            (0..<bitmap.pixelsHigh).filter { y in
+                (0..<bitmap.pixelsWide).contains { x in
+                    guard let color = bitmap.colorAt(x: x, y: y)?.usingColorSpace(.deviceRGB) else { return false }
+                    return predicate(color)
+                }
+            }.count
+        }
         if let bitmap = ruler.bitmapImageRepForCachingDisplay(in: ruler.bounds) {
             ruler.cacheDisplay(in: ruler.bounds, to: bitmap)
             let hasVisibleNumbers = (0..<bitmap.pixelsHigh).contains { y in
@@ -165,12 +179,33 @@ struct EditorIntegrationChecks {
                 }
             }
             check(hasVisibleNumbers, "Line-number ruler draws visible glyphs in dark mode")
+            check(coloredRows(bitmap) { $0.greenComponent > $0.redComponent * 1.4 && $0.greenComponent > $0.blueComponent * 1.2 } > 0,
+                  "Added-line strip is visible")
+            check(coloredRows(bitmap) { $0.blueComponent > $0.redComponent * 1.4 && $0.blueComponent > $0.greenComponent * 1.2 } > 0,
+                  "Modified-line strip is visible")
+            check(coloredRows(bitmap) { $0.redComponent > $0.greenComponent * 1.4 && $0.redComponent > $0.blueComponent * 1.2 } > 0,
+                  "Deleted-line notch is visible")
             try! bitmap.representation(using: .png, properties: [:])!.write(to: URL(filePath: "/tmp/centcom-editor-ruler.png"))
         }
         if let bitmap = previewHost.bitmapImageRepForCachingDisplay(in: previewHost.bounds) {
             previewHost.cacheDisplay(in: previewHost.bounds, to: bitmap)
             try! bitmap.representation(using: .png, properties: [:])!.write(to: URL(filePath: "/tmp/centcom-editor-preview.png"))
         }
+        var gutterOptions = EditorOptions()
+        gutterOptions.showsLineNumbers = false
+        let wrappedText = String(repeating: "word ", count: 90)
+        previewHost.rootView = CodeEditorTextView(text: .constant(wrappedText), fileURL: nil,
+                                                 options: gutterOptions, session: previewSession,
+                                                 savedText: "", comparesWithGit: false).preferredColorScheme(.dark)
+        await settle()
+        let wrappedEditor = previewSession.textView!
+        let compactRuler = wrappedEditor.enclosingScrollView!.verticalRulerView!
+        check(wrappedEditor.enclosingScrollView!.rulersVisible && compactRuler.ruleThickness == 8,
+              "Changes remain visible in a compact gutter when line numbers are hidden")
+        let wrappedBitmap = compactRuler.bitmapImageRepForCachingDisplay(in: compactRuler.bounds)!
+        compactRuler.cacheDisplay(in: compactRuler.bounds, to: wrappedBitmap)
+        check(coloredRows(wrappedBitmap) { $0.greenComponent > $0.redComponent * 1.4 && $0.greenComponent > $0.blueComponent * 1.2 } > 80,
+              "Added-line marker spans wrapped fragments")
         print("All editor integration checks passed.")
         window.orderOut(nil)
     }

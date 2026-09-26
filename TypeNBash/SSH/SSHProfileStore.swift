@@ -8,6 +8,11 @@ import Security
 @MainActor
 @Observable
 final class SSHProfileStore {
+    /// The app-wide store. Every window and the Settings window share it, since
+    /// each store writes its whole list back and a second copy would overwrite
+    /// changes made through the first.
+    static let shared = SSHProfileStore()
+
     private(set) var profiles: [SSHConnectionProfile]
 
     private let defaults: UserDefaults
@@ -36,10 +41,34 @@ final class SSHProfileStore {
         setPassword(password, for: profile.id)
     }
 
+    /// Updates the connection details of an existing profile without touching
+    /// its saved password.
+    func update(_ profile: SSHConnectionProfile) {
+        guard let index = profiles.firstIndex(where: { $0.id == profile.id }) else { return }
+        profiles[index] = profile
+        persist()
+    }
+
+    /// Removes the saved password, leaving the profile to use key or agent auth.
+    func forgetPassword(for id: UUID) {
+        setPassword(nil, for: id)
+    }
+
     func delete(_ profile: SSHConnectionProfile) {
         profiles.removeAll { $0.id == profile.id }
         persist()
         setPassword(nil, for: profile.id)
+    }
+
+    /// Whether a password is saved, checked without reading the secret itself.
+    func hasPassword(for id: UUID) -> Bool {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: keychainService,
+            kSecAttrAccount as String: id.uuidString,
+            kSecMatchLimit as String: kSecMatchLimitOne
+        ]
+        return SecItemCopyMatching(query as CFDictionary, nil) == errSecSuccess
     }
 
     func password(for id: UUID) -> String? {

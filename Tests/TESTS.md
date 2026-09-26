@@ -26,6 +26,56 @@ The full-pane bitmap and separate ruler bitmap are useful for visual inspection:
 `/tmp/centcom-editor-preview.png` and `/tmp/centcom-editor-ruler.png`. AppKit's
 full-view bitmap capture can omit the ruler's separately rendered layer.
 
+The editor includes an optional change strip beside its line numbers (Editor
+Options → Show Changes). Green marks additions, blue marks modified lines, and
+red notches mark deletions. It compares the live buffer with Git HEAD on the
+file's local or SSH host, including staged and unsaved edits. When Git content
+is unavailable, it compares with the last loaded/saved text. Local Git refreshes
+on editing, saving, app activation, and commits made through Source Control.
+SSH caches the baseline for live editing and refreshes it on opening, saving,
+browser refresh, app activation, Source Control commits, and terminal prompts.
+Comparisons are
+debounced and limited to 2 MB. The strip stays visible when line numbers are hidden.
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-editor-build \
+  /tmp/centcom-editor-build/SourcePackages EditorChangeIntegrationChecks.swift
+```
+
+The change suite covers insertion/replacement/deletion boundaries, empty files,
+CRLF and Unicode, HEAD versus staged/unsaved content, commits, untracked files,
+saved-text fallback, and save snapshot isolation. Native editor checks also verify
+visible marker colors, wrapped-line coverage, and the compact numberless gutter.
+
+```sh
+python3 Tests/run-ssh-editor-baseline-checks.py
+python3 Tests/run-runtime-checks.py /tmp/centcom-editor-build \
+  /tmp/centcom-editor-build/SourcePackages SSHEditorChangeIntegrationChecks.swift
+```
+
+SSH checks execute the production remote script locally against temporary Git
+repositories and exercise the editor model with a controlled remote filesystem.
+They cover nested/special filenames, staged versus HEAD content, unborn and
+untracked files, commits, detached HEAD, linked worktrees, unavailable Git,
+binary/oversized content, cached comparisons, disconnected fallback, and late
+responses after switching hosts. They do not establish a live SSH connection.
+Live acceptance: open a modified file in an SSH project, edit and save, then
+commit from its console; the strip should include saved and unsaved changes and
+clear committed changes after the prompt returns without replacing the draft.
+
+Markdown saving uses the same loaded/saved snapshot and filesystem write path as
+code files. Run the mounted editor/header save checks with:
+
+```sh
+python3 Tests/run-editor-checks.py /tmp/centcom-editor-build \
+  /tmp/centcom-editor-build/SourcePackages RemoteFileSaveIntegrationChecks.swift
+```
+
+These exercise typing and Command-S in the production Markdown editor and Save
+header, local persistence, a remote filesystem fixture, code-file regression,
+failed-save retry, edits during a save, and truncated-file protection. The remote
+fixture verifies the write dispatch without establishing a live SSH connection.
+
 # Terminal and workspace runtime checks
 
 Build the current app target, then run:
@@ -177,10 +227,15 @@ open Home and verify a separate resizable workspace appears. Press Command-N to
 reopen Welcome; opening another workspace must keep the first session alive.
 Closing either workspace must leave the other usable.
 
-SSH welcome acceptance: select SSH and verify only saved SSH profiles appear.
-New Connection replaces the dashboard with a blank form in the same window.
-Cancel returns to the SSH list. Select a saved profile and choose Connect over
-SSH to verify prefilled fields. Successful authentication opens the workspace;
+Welcome filtering: the picker has only Local and SSH. Local lists local projects;
+SSH lists remote projects, including projects with a missing saved connection so
+opening them can report the existing error. Clicking a project opens it directly.
+The footer consistently offers New Project and Open Home.
+
+SSH welcome acceptance: New Connection beside the Projects heading opens a blank
+connection form. Open Home opens that form with a saved host preselected, when
+available; its Connection picker offers saved hosts or New Connection. Cancel
+returns to the SSH tab. Successful authentication opens a free workspace;
 failed authentication keeps the form and its error visible.
 
 Project welcome acceptance: New Project in the footer replaces the dashboard
@@ -188,6 +243,8 @@ with the project form at the same window size, without a project sheet or duplic
 saved-project list. Cancel restores the dashboard. Opening a valid folder opens
 the workspace; an invalid folder leaves its error in the form. Saved-project
 selection on the dashboard continues to open directly.
+The Local tab starts project setup on This Mac. SSH preselects a saved host;
+with no saved hosts, it first connects and then continues to project setup.
 
 # Project workspace isolation and console layout
 

@@ -19,9 +19,24 @@ struct AppRouterIntegrationChecks {
 
         let local = makeRouter()
         precondition(local.route == .entry)
-        local.launch(.free)
+        precondition(local.startupLocation == .local)
+        local.openHome()
         precondition(local.route == .workspace && local.session.location == .local)
         local.close()
+
+        let emptySSH = makeRouter()
+        emptySSH.startupLocation = .ssh
+        emptySSH.newProject()
+        precondition(emptySSH.route == .sshSetup && emptySSH.startupMode == .projectNew,
+                     "SSH project creation without saved hosts starts connection setup")
+        emptySSH.setupCompleted()
+        precondition(emptySSH.route == .projectSetup, "Connecting for a new project continues to project setup")
+        emptySSH.cancelSetup()
+        precondition(emptySSH.route == .entry && emptySSH.startupLocation == .ssh)
+        emptySSH.openHome()
+        precondition(emptySSH.route == .sshSetup && emptySSH.startupMode == .ssh)
+        emptySSH.cancelSetup()
+        emptySSH.close()
 
         for mode in [AppStartupModes.projectNew, .projectOpen] {
             let router = makeRouter()
@@ -46,6 +61,26 @@ struct AppRouterIntegrationChecks {
         precondition(ssh.route == .entry && ssh.startupMode == .ssh)
         let profile = SSHConnectionProfile(name: "Fixture", host: "fixture.invalid")
         ssh.profiles.save(profile, password: nil)
+        let localRecent = Project(name: "Local Recent", directoryPath: root.appendingPathComponent("recent").path)
+        let remoteRecent = Project(name: "Remote Recent", directoryPath: root.appendingPathComponent("recent").path, sshProfileID: profile.id)
+        ssh.projects.store.save(localRecent)
+        ssh.projects.store.save(remoteRecent)
+        ssh.startupLocation = .local
+        precondition(ssh.recentProjects.map(\.id) == [localRecent.id])
+        ssh.selectedProjectID = localRecent.id
+        ssh.startupLocation = .ssh
+        precondition(ssh.selectedProjectID == nil && ssh.recentProjects.map(\.id) == [remoteRecent.id],
+                     "Tabs filter projects by host type and clear stale selection")
+        ssh.openProject(localRecent)
+        precondition(ssh.route == .entry && !ssh.projects.isBusy, "A hidden project cannot launch from the other tab")
+        ssh.newProject()
+        precondition(ssh.route == .projectSetup && ssh.selectedSSHProfile?.id == profile.id,
+                     "SSH New Project preselects a saved host")
+        ssh.cancelSetup()
+        ssh.openHome()
+        precondition(ssh.route == .sshSetup && ssh.selectedSSHProfile?.id == profile.id,
+                     "SSH Open Home offers a saved host")
+        ssh.cancelSetup()
         ssh.selectedSSHProfileID = profile.id
         ssh.launch(.ssh)
         precondition(ssh.route == .sshSetup && ssh.selectedSSHProfile?.id == profile.id)
@@ -59,8 +94,7 @@ struct AppRouterIntegrationChecks {
         let router = makeRouter()
         let project = Project(name: "Fixture", directoryPath: root.path)
         router.projects.store.save(project)
-        router.selectedProjectID = project.id
-        router.launch(.projectOpen)
+        router.openProject(project)
         await finish(router)
         precondition(router.route == .workspace)
         precondition(router.session.activeProject?.id == project.id)

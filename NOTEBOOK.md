@@ -4,7 +4,6 @@ A project can hold a notebook: an ordered list of statistics steps run against
 the CSV tables in that project. It needs no Python or R installation — the
 calculations are native — and it is meant to be the pure-CSV path through the
 app, not a replacement for a scripted one.
-
 ## A step is a value, not code
 
 `AnalysisStep` *describes* a calculation instead of performing one:

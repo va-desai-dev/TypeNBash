@@ -52,30 +52,8 @@ import TextFind
         
         // CotEditor's typed AppStorage initializers require registered values.
         // TypeNBash does not run CotEditor's application-level defaults setup.
-        defaults.register(defaults: [
-            DefaultKeys.findUsesRegularExpression.rawValue: false,
-            DefaultKeys.findIgnoresCase.rawValue: false,
-            DefaultKeys.findInSelection.rawValue: false,
-            DefaultKeys.findIsWrap.rawValue: true,
-            DefaultKeys.findMatchesFullWord.rawValue: false,
-            DefaultKeys.findSearchesIncrementally.rawValue: true,
-            DefaultKeys.findTextIsLiteralSearch.rawValue: false,
-            DefaultKeys.findTextIgnoresDiacriticMarks.rawValue: false,
-            DefaultKeys.findTextIgnoresWidth.rawValue: false,
-            DefaultKeys.findRegexIsSingleline.rawValue: false,
-            DefaultKeys.findRegexIsMultiline.rawValue: true,
-            DefaultKeys.findRegexUsesUnicodeBoundaries.rawValue: false,
-            DefaultKeys.findRegexUnescapesReplacementString.rawValue: true,
-            DefaultKeys.findResultViewFontSize.rawValue: 13.0,
-            DefaultKeys.findHistory.rawValue: [String](),
-            DefaultKeys.replaceHistory.rawValue: [String](),
-            DefaultKeys.showInvisibles.rawValue: true,
-            DefaultKeys.showInvisibleNewLine.rawValue: true,
-            DefaultKeys.showInvisibleTab.rawValue: true,
-            DefaultKeys.showInvisibleSpace.rawValue: true,
-            DefaultKeys.showInvisibleWhitespaces.rawValue: true,
-            DefaultKeys.showInvisibleControl.rawValue: true,
-        ])
+        // Registering again is harmless and keeps this safe for a non-standard store.
+        AppDefaults.register(in: defaults)
 
         self.findString = NSPasteboard(name: .find).string(forType: .string) ?? ""
         self.replacementString = ""

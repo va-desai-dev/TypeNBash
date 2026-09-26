@@ -138,11 +138,17 @@ struct EditorOptions: Equatable {
     var automaticCompletion = true
     var usesSpaces = true
     var tabWidth = 4
+    var showsChanges = true
 
     func apply(to view: EditorTextView) {
         if view.showsInvisibles != showsInvisibles { view.showsInvisibles = showsInvisibles }
         if view.showsIndentGuides != showsIndentGuides { view.showsIndentGuides = showsIndentGuides }
-        view.enclosingScrollView?.rulersVisible = showsLineNumbers
+        if let ruler = view.enclosingScrollView?.verticalRulerView as? LineNumberView {
+            ruler.showsNumbers = showsLineNumbers
+            ruler.showsChanges = showsChanges
+            ruler.toolTip = showsChanges ? "Changes: green = added, blue = modified, red = deleted" : nil
+        }
+        view.enclosingScrollView?.rulersVisible = showsLineNumbers || showsChanges
         view.wrapsLines = wrapsLines
         view.isAutomaticCompletionEnabled = automaticCompletion
         view.isAutomaticTabExpansionEnabled = usesSpaces

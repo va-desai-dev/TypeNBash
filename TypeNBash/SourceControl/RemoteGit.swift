@@ -92,6 +92,7 @@ struct RemoteGit {
                 throw RemoteGitError.emptyMessage
             }
             _ = try await run(["commit", "-m", message], in: root)
+            NotificationCenter.default.post(name: .editorGitBaselineDidChange, object: nil)
         case .fetch(let name):
             try Self.validateRemoteName(name)
             let credential = lendsGitHubSignIn

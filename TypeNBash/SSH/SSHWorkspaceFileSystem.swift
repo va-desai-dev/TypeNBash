@@ -91,6 +91,13 @@ final class SSHWorkspaceFileSystem: WorkspaceFileSystem {
         )
     }
 
+    func editorGitBaseline(at url: URL) async throws -> String? {
+        let result = try await connection.execute(
+            program: "python3", arguments: ["-c", RemoteGit.editorBaselineScript, url.path]
+        )
+        return try JSONDecoder().decode(String?.self, from: result.standardOutput)
+    }
+
     func createFile(_ data: Data, at url: URL) async throws {
         let script = #"""
         import sys

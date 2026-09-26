@@ -26,6 +26,11 @@ final class FileBrowserModel {
     /// True while an in-editor buffer has no file on disk yet (New File). Save
     /// must prompt for a name/extension rather than writing to `selectedFile`.
     private(set) var isUntitled = false
+    private(set) var savedPreviewText = ""
+    private(set) var editorGitBaseline: String?
+    @ObservationIgnored private var editorBaselineTask: Task<Void, Never>?
+    private var editorBaselineGeneration = 0
+    var comparesEditorWithGit: Bool { fileSystem is LocalWorkspaceFileSystem && !isPreviewTruncated }
     var showsHiddenFiles = false {
         didSet { refresh() }
     }
@@ -33,10 +38,12 @@ final class FileBrowserModel {
 
 
     func updatePreviewText(_ newText: String) {
-        if case .text = preview {
-            preview = .text(newText)
-            hasUnsavedChanges = true
+        switch preview {
+        case .text: preview = .text(newText)
+        case .markdown: preview = .markdown(newText)
+        default: return
         }
+        hasUnsavedChanges = newText != savedPreviewText
     }
 
     /// Takes a snapshot back from the spreadsheet grid, which edits its own
@@ -52,7 +59,7 @@ final class FileBrowserModel {
     /// What ⌘S writes: the editor's text, or the grid re-serialized to CSV.
     private var editedContents: String? {
         switch preview {
-            case .text(let contents): contents
+            case .text(let contents), .markdown(let contents): contents
             case .table(let table): CSVEngine.generate(from: table)
             default: nil
         }
@@ -61,22 +68,27 @@ final class FileBrowserModel {
     /// Writes the edited preview back through the workspace filesystem (local or
     /// SSH). Refuses to save a truncated preview, which would discard the rest.
     func save() {
-        guard let url = selectedFile, let contents = editedContents else { return }
+        guard !isSaving, let url = selectedFile, let contents = editedContents else { return }
         guard !isPreviewTruncated else {
             saveError = "This file was truncated for preview; saving would discard the rest."
             return
         }
         let fs = fileSystem
         let data = Data(contents.utf8)
+        let generation = previewGeneration
         isSaving = true
         saveError = nil
         Task {
             do {
                 try await fs.writeFile(data, to: url)
                 isSaving = false
-                hasUnsavedChanges = false
+                guard generation == previewGeneration else { return }
+                savedPreviewText = contents
+                hasUnsavedChanges = editedContents != contents
+                refreshEditorGitBaseline()
             } catch {
                 isSaving = false
+                guard generation == previewGeneration else { return }
                 saveError = error.localizedDescription
             }
         }
@@ -207,7 +219,10 @@ final class FileBrowserModel {
     }
 
     private func resetPreviewState() {
+        editorBaselineTask?.cancel()
+        editorGitBaseline = nil
         preview = .none
+        savedPreviewText = ""
         isPreviewTruncated = false
         hasUnsavedChanges = false
         saveError = nil
@@ -218,9 +233,12 @@ final class FileBrowserModel {
     /// file is only written once the user saves (which prompts for a name and
     /// extension). Mirrors how a text editor's "New Document" works.
     func newFile() {
+        editorBaselineTask?.cancel()
+        editorGitBaseline = nil
         previewGeneration &+= 1   // cancel any in-flight preview load
         selectedFile = nil
         preview = .text("")
+        savedPreviewText = ""
         isPreviewTruncated = false
         isUntitled = true
         hasUnsavedChanges = true
@@ -259,6 +277,8 @@ final class FileBrowserModel {
             let target = directory.appendingPathComponent(unique, isDirectory: false)
             try await fileSystem.writeFile(Data(contents.utf8), to: target)
             selectedFile = target
+            savedPreviewText = contents
+            refreshEditorGitBaseline()
             isUntitled = false
             hasUnsavedChanges = false
             isSaving = false
@@ -330,6 +350,7 @@ final class FileBrowserModel {
     }
 
     func refresh() {
+        refreshEditorGitBaseline()
         refreshGeneration &+= 1
         let generation = refreshGeneration
         let requestedDirectory = directory
@@ -371,6 +392,8 @@ final class FileBrowserModel {
     }
 
     private func loadPreview(for entry: Entry) {
+        editorBaselineTask?.cancel()
+        editorGitBaseline = nil
         previewGeneration &+= 1
         isUntitled = false
         let generation = previewGeneration
@@ -396,15 +419,39 @@ final class FileBrowserModel {
                 }.value
                 guard generation == previewGeneration else { return }
                 preview = parsed
+                switch parsed {
+                case .text(let contents), .markdown(let contents): savedPreviewText = contents
+                default: savedPreviewText = ""
+                }
                 // Only text previews can be safely saved after truncation; binary
                 // previews never round-trip through the editor's save path.
                 isPreviewTruncated = !isBinaryPreview && (totalByteCount ?? 0) > limit
+                refreshEditorGitBaseline()
                 hasUnsavedChanges = false
                 saveError = nil
             } catch {
                 guard generation == previewGeneration else { return }
                 preview = .failed(error.localizedDescription)
             }
+        }
+    }
+
+    /// Cache remote HEAD independently of the draft. Switching hosts/files or a
+    /// newer refresh invalidates in-flight replies, even for identical paths.
+    func refreshEditorGitBaseline() {
+        editorBaselineTask?.cancel()
+        editorBaselineGeneration &+= 1
+        guard !(fileSystem is LocalWorkspaceFileSystem), !isPreviewTruncated,
+              case .text = preview, let url = selectedFile else { return }
+        let fs = fileSystem
+        let generation = previewGeneration
+        let request = editorBaselineGeneration
+        editorBaselineTask = Task { [weak self] in
+            do { try await Task.sleep(for: .milliseconds(200)) } catch { return }
+            let baseline = try? await fs.editorGitBaseline(at: url)
+            guard !Task.isCancelled, let self, self.previewGeneration == generation,
+                  self.editorBaselineGeneration == request else { return }
+            self.editorGitBaseline = baseline
         }
     }
 

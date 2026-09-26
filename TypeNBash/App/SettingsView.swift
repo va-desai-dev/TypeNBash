@@ -8,8 +8,8 @@
 import SwiftUI
 
 enum IDESettingsTab: String, CaseIterable, Identifiable {
-    case editor = "Text Editor"
-    case connections = "SSH Connections"
+    case editor = "Editor"
+    case connections = "Remotes"
     case projects = "Projects"
     case sourceControl = "Source Control"
 
@@ -33,40 +33,31 @@ struct IDESettingsView: View {
     @State private var selectedTab: IDESettingsTab = .editor
 
     var body: some View {
-        NavigationSplitView {
-            List(IDESettingsTab.allCases, selection: $selectedTab) { tab in
-                NavigationLink(value: tab) {
-                    Label(tab.rawValue, systemImage: tab.iconName)
-                        .font(.body)
-                }
+        HStack {
+            List(IDESettingsTab.allCases, id: \.self, selection: $selectedTab) { tab in
+                Label(tab.rawValue, systemImage: tab.iconName)
             }
             .listStyle(.sidebar)
-            .frame(minWidth: 160, idealWidth: 180)
-        } detail: {
+            .scrollContentBackground(.hidden)
+            .frame(width: 180)
             Group {
                 switch selectedTab {
                 case .editor:
-                    editorSettingsPane
+                        EditorOptionsControls()
                 case .connections:
                     SSHConnectionsSettingsPane()
+                            .scrollContentBackground(.hidden)
                 case .projects:
                     ProjectsSettingsPane()
+                            .scrollContentBackground(.hidden)
                 case .sourceControl:
                     SourceControlSettingsPane()
+                            .scrollContentBackground(.hidden)
                 }
             }
-            .frame(minWidth: 420, idealWidth: 460)
+            .frame(maxWidth: .infinity)
         }
-        .frame(width: 720, height: 520) // Enforces stable IDE preference proportions
-    }
-
-    // MARK: - Editor Settings Pane
-    private var editorSettingsPane: some View {
-        Form {
-            Section("Editor Options") {
-                EditorOptionsControls()
-            }
-        }
-        .formStyle(.grouped) // Provides native inset panel background contrast
+        .frame(width: 720, height: 520)
+        .toolbarBackground(.hidden, for: .windowToolbar)
     }
 }

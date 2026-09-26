@@ -1,4 +1,5 @@
 import AppKit
+import Defaults
 import SwiftUI
 import PDFKit
 import MarkdownEngine
@@ -115,25 +116,32 @@ struct FileViewer: View {
     /// footer, which drive and read this editor's text view.
     let session: EditorSession
 
-    @AppStorage("editor.showsInvisibles") private var showsInvisibles = true
-    @AppStorage("editor.showsIndentGuides") private var showsIndentGuides = true
-    @AppStorage("editor.showsLineNumbers") private var showsLineNumbers = true
-    @AppStorage("editor.wrapsLines") private var wrapsLines = true
-    @AppStorage("editor.automaticCompletion") private var automaticCompletion = true
-    @AppStorage("editor.usesSpaces") private var usesSpaces = true
-    @AppStorage("editor.tabWidth") private var tabWidth = 4
+    @AppStorage(.editorShowsInvisibles) private var showsInvisibles: Bool
+    @AppStorage(.editorShowsIndentGuides) private var showsIndentGuides: Bool
+    @AppStorage(.editorShowsLineNumbers) private var showsLineNumbers: Bool
+    @AppStorage(.editorShowsChanges) private var showsChanges: Bool
+    @AppStorage(.editorWrapsLines) private var wrapsLines: Bool
+    @AppStorage(.editorAutomaticCompletion) private var automaticCompletion: Bool
+    @AppStorage(.editorUsesSpaces) private var usesSpaces: Bool
+    @AppStorage(.editorTabWidth) private var tabWidth: Int
 
 
     var body: some View {
         previewContent
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+                model.refreshEditorGitBaseline()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .editorGitBaselineDidChange)) { _ in
+                model.refreshEditorGitBaseline()
+            }
     }
 
     private var options: EditorOptions {
         EditorOptions(showsInvisibles: showsInvisibles, showsIndentGuides: showsIndentGuides,
                       showsLineNumbers: showsLineNumbers, wrapsLines: wrapsLines,
                       automaticCompletion: automaticCompletion, usesSpaces: usesSpaces,
-                      tabWidth: [2, 4, 8].contains(tabWidth) ? tabWidth : 4)
+                      tabWidth: [2, 4, 8].contains(tabWidth) ? tabWidth : 4, showsChanges: showsChanges)
     }
 
     let typeNBashScrollPolicy = OverscrollPolicy(
@@ -165,7 +173,9 @@ struct FileViewer: View {
                         get: { contents },
                         set: { model.updatePreviewText($0) }
                     ),
-                    fileURL: model.selectedFile, options: options, session: session)
+                    fileURL: model.selectedFile, options: options, session: session,
+                    savedText: model.editorGitBaseline ?? model.savedPreviewText,
+                    comparesWithGit: model.comparesEditorWithGit)
                 // Each file gets a fresh editor, grammar, and undo stack.
                 .id(model.selectedFile)
 
@@ -213,6 +223,7 @@ struct FileViewer: View {
                         heightBehavior: .scrolls
                     )
                 )
+                .id(model.selectedFile)
         }
     }
 }
@@ -257,4 +268,3 @@ struct DocumentPreviewView: View {
         PDFKitPreviewView(data: data)
     }
 }
-

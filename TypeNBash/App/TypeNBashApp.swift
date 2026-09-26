@@ -11,16 +11,23 @@ import SwiftUI
 struct TypeNBashApp: App {
     @State private var windows = WorkspaceWindows()
 
+    init() {
+        AppDefaults.register()
+    }
+
     var body: some Scene {
-        Window("Welcome to TypeNBash", id: WorkspaceWindows.welcomeID) {
+        Window("TypeNBash", id: WorkspaceWindows.welcomeID) {
             EntryView(windows: windows)
                 .tint(Color.accentColor)
                 .preferredColorScheme(.dark)
         }
+        .commandsRemoved()
+        .windowLevel(.floating)
         .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
         .defaultPosition(.center)
         .restorationBehavior(.disabled)
+        .commandsRemoved()
         .commands {
             CommandGroup(replacing: .newItem) {
                 WelcomeWindowCommand()
@@ -45,6 +52,17 @@ struct TypeNBashApp: App {
         .defaultSize(width: 1100, height: 720)
         .defaultLaunchBehavior(.suppressed)
         .restorationBehavior(.disabled)
+        Settings {
+            IDESettingsView()
+                .background(Color.card)
+                .toolbar(removing: .title)
+                .tint(Color.accentColor)
+                .preferredColorScheme(.dark)
+        }
+        // Standard titlebar on purpose: `.hiddenTitleBar` makes the content view
+        // full-size, which slides the panes' NSScrollViews under the titlebar and
+        // AppKit then draws its hard scroll-edge pocket over them — something
+        // `.scrollEdgeEffectHidden`/`.soft` can't reach.
     }
 }
 

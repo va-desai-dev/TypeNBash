@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run native editor checks against an existing Debug Xcode build.
 
-Usage: python3 Tests/run-editor-checks.py <DerivedData> <SourcePackages>
+Usage: python3 Tests/run-editor-checks.py <DerivedData> <SourcePackages> [CheckFile.swift]
 Requires a logged-in macOS GUI session. Opens a temporary fixture window;
 never reads or writes workspace documents. Build TypeNBash with
 CODE_SIGNING_ALLOWED=NO first. Writes its test app and preview to /tmp.
@@ -34,7 +34,7 @@ command = ["xcrun", "swiftc", "-parse-as-library", "-swift-version", "5", "-targ
 for module_map in maps:
     command += ["-Xcc", "-fmodule-map-file=" + str(module_map)]
 dylib_directory = products / "TypeNBash.app/Contents/MacOS"
-command += [str(root / "EditorIntegrationChecks.swift"), str(dylib_directory / "TypeNBash.debug.dylib"),
+command += [str(root / (sys.argv[3] if len(sys.argv) > 3 else "EditorIntegrationChecks.swift")), str(dylib_directory / "TypeNBash.debug.dylib"),
             "-Xlinker", "-rpath", "-Xlinker", str(dylib_directory), "-o", str(macos / "EditorChecks")]
 subprocess.run(command, check=True)
 subprocess.run([str(macos / "EditorChecks")], check=True)

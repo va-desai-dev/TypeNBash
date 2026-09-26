@@ -27,9 +27,19 @@
 import AppKit
 import Combine
 import CoreText.CTFont
+import LineEnding
 import StringUtils
 
 final class LineNumberView: NSRulerView {
+    var lineChanges = EditorLineChanges() {
+        didSet { if lineChanges != oldValue { needsDisplay = true } }
+    }
+    var showsChanges = false {
+        didSet { if showsChanges != oldValue { updateRuleThickness(); needsDisplay = true } }
+    }
+    var showsNumbers = true {
+        didSet { if showsNumbers != oldValue { updateRuleThickness(); needsDisplay = true } }
+    }
     
     private struct DrawingInfo: Equatable {
         
@@ -140,13 +150,89 @@ final class LineNumberView: NSRulerView {
             rect.intersection(self.frame).fill()
         }
         
-        self.drawNumbers(in: rect)
+        if showsNumbers {
+            NSGraphicsContext.saveGraphicsState()
+            self.drawNumbers(in: rect)
+            NSGraphicsContext.restoreGraphicsState()
+        }
+        if showsChanges { self.drawChanges() }
         
         NSGraphicsContext.restoreGraphicsState()
     }
     
     
     // MARK: Private Methods
+
+    /// Use the text layout's actual fragments so markers follow wrapping and zoom.
+    private func drawChanges() {
+        guard let textView, textView.layoutOrientation == .horizontal,
+              let layout = textView.layoutManager as? LayoutManager,
+              let range = textView.range(for: textView.visibleRect) else { return }
+        let scale = textView.scale
+        let origin = convert(.zero, from: textView).y - scale * textView.textContainerOrigin.y
+        let barWidth: CGFloat = 4
+        let x = bounds.minX + 4
+        let length = (textView.string as NSString).length
+        let lastLine = textView.lineNumber(at: length)
+
+        func color(_ kind: EditorLineChanges.Kind) -> NSColor {
+            kind == .added ? .systemGreen : .systemBlue
+        }
+
+        // Contiguous fragments of the same kind merge into one capsule, like Xcode's gutter.
+        var run: (kind: EditorLineChanges.Kind, top: CGFloat, bottom: CGFloat)?
+        var deletionMarks: [CGFloat] = []
+        func flushRun() {
+            guard let current = run else { return }
+            let rect = NSRect(x: x, y: current.bottom, width: barWidth, height: current.top - current.bottom)
+                .insetBy(dx: 0, dy: 1)
+            color(current.kind).setFill()
+            NSBezierPath(roundedRect: rect, xRadius: barWidth / 2, yRadius: barWidth / 2).fill()
+            run = nil
+        }
+
+        func draw(_ rect: NSRect, line: Int, firstFragment: Bool, lastFragment: Bool) {
+            let top = origin - scale * rect.minY
+            let bottom = origin - scale * rect.maxY
+            if let kind = lineChanges.lines[line] {
+                if let current = run, current.kind == kind, abs(current.bottom - top) < 0.5 {
+                    run?.bottom = bottom
+                } else {
+                    flushRun()
+                    run = (kind, top, bottom)
+                }
+            } else {
+                flushRun()
+            }
+            if firstFragment && lineChanges.deletions.contains(line) { deletionMarks.append(top) }
+            if lastFragment && line == lastLine && lineChanges.deletions.contains(line + 1) { deletionMarks.append(bottom) }
+        }
+        let glyphs = layout.glyphRange(forCharacterRange: range, actualCharacterRange: nil)
+        layout.enumerateLineFragments(forGlyphRange: glyphs) { rect, _, _, glyphRange, _ in
+            let characters = layout.characterRange(forGlyphRange: glyphRange, actualGlyphRange: nil)
+            let line = layout.lineEndingScanner.lineNumber(at: characters.location)
+            let logical = layout.lineEndingScanner.lineRange(at: characters.location)
+            draw(rect, line: line, firstFragment: characters.location == logical.location,
+                 lastFragment: NSMaxRange(characters) >= NSMaxRange(logical))
+        }
+        if NSMaxRange(range) == length, !layout.extraLineFragmentRect.isEmpty {
+            draw(layout.extraLineFragmentRect, line: lastLine, firstFragment: true, lastFragment: true)
+        }
+        flushRun()
+
+        // Deletions: a short horizontal pill sitting on the boundary between lines.
+        NSColor.systemRed.setFill()
+        for y in deletionMarks {
+            let rect = NSRect(x: x - 2, y: y - 1.5, width: barWidth + 4, height: 3)
+            NSBezierPath(roundedRect: rect, xRadius: 1.5, yRadius: 1.5).fill()
+        }
+    }
+
+    /// Horizontal space reserved to the left of the numbers for the change capsule.
+    private var changeGutterWidth: CGFloat {
+
+        self.showsChanges ? 12 : 0
+    }
     
     /// The client text view.
     private var textView: NSTextView? {
@@ -295,7 +381,8 @@ final class LineNumberView: NSRulerView {
         switch self.orientation {
             case .verticalRuler:
                 let numberOfDigits = max(self.numberOfLines.digits.count, self.minimumNumberOfDigits)
-                ruleThickness = max(CGFloat(numberOfDigits + 2) * drawingInfo.charWidth, 32)
+                ruleThickness = showsNumbers ? max(CGFloat(numberOfDigits + 2) * drawingInfo.charWidth, 32) : 0
+                ruleThickness += self.changeGutterWidth
             case .horizontalRuler:
                 ruleThickness = max(2 * drawingInfo.fontSize + drawingInfo.tickLength, 20)
             @unknown default:

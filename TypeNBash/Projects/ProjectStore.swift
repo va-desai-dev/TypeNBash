@@ -82,6 +82,9 @@ enum ProjectError: LocalizedError {
 @MainActor
 @Observable
 final class ProjectStore {
+    /// The app-wide store, shared for the same reason as `SSHProfileStore.shared`.
+    static let shared = ProjectStore()
+
     /// Most recently opened first, so this array is directly usable as the
     /// "Open Recent" ordering.
     private(set) var projects: [Project]

@@ -23,6 +23,8 @@ struct CodeEditorTextView: NSViewRepresentable {
     var fileURL: URL?
     var options: EditorOptions
     var session: EditorSession
+    var savedText: String? = nil
+    var comparesWithGit = true
 
     @Environment(\.colorScheme) private var colorScheme
 
@@ -84,6 +86,7 @@ struct CodeEditorTextView: NSViewRepresentable {
         textStorage.delegate = context.coordinator
         context.coordinator.configureSyntax(for: fileURL, textStorage: textStorage, theme: textView.theme)
         context.coordinator.updateSelection()
+        context.coordinator.updateChanges(savedText: savedText ?? text, fileURL: comparesWithGit ? fileURL : nil)
 
         return scrollView
     }
@@ -117,10 +120,13 @@ struct CodeEditorTextView: NSViewRepresentable {
 
         // Follow the file's language if it changed.
         context.coordinator.configureSyntax(for: fileURL, textStorage: textView.textStorage, theme: theme)
+        context.coordinator.updateChanges(savedText: savedText ?? context.coordinator.savedText,
+                                          fileURL: comparesWithGit ? fileURL : nil)
     }
 
     static func dismantleNSView(_ scrollView: NSScrollView, coordinator: Coordinator) {
         coordinator.syntaxController?.cancel()
+        coordinator.stopChanges()
         coordinator.textView?.delegate = nil
         coordinator.textView?.textStorage?.delegate = nil
         coordinator.releaseSession()
@@ -145,10 +151,46 @@ struct CodeEditorTextView: NSViewRepresentable {
         private(set) var syntaxController: SyntaxController?
         private var syntaxName: String?
         private var theme: Theme?
+        private let changeService = EditorChangeService()
+        private var changeTask: Task<Void, Never>?
+        private var changeFileURL: URL?
+        private(set) var savedText = ""
+        private var comparedText: String?
 
         init(text: Binding<String>, session: EditorSession) {
             self.text = text
             self.session = session
+            super.init()
+            NotificationCenter.default.addObserver(self, selector: #selector(refreshChanges),
+                                                   name: NSApplication.didBecomeActiveNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(refreshChanges),
+                                                   name: .editorGitBaselineDidChange, object: nil)
+        }
+
+        func updateChanges(savedText: String, fileURL: URL?) {
+            guard self.savedText != savedText || changeFileURL != fileURL || comparedText != textView?.string else { return }
+            self.savedText = savedText
+            changeFileURL = fileURL
+            refreshChanges()
+        }
+
+        @objc private func refreshChanges() {
+            changeTask?.cancel()
+            guard let textView else { return }
+            let contents = textView.string
+            comparedText = contents
+            let baseline = savedText, url = changeFileURL
+            changeTask = Task { [weak self, changeService] in
+                do { try await Task.sleep(for: .milliseconds(180)) } catch { return }
+                let changes = await changeService.changes(text: contents, savedText: baseline, fileURL: url)
+                guard !Task.isCancelled, let self, self.ownsSession else { return }
+                (self.textView?.enclosingScrollView?.verticalRulerView as? LineNumberView)?.lineChanges = changes
+            }
+        }
+
+        func stopChanges() {
+            changeTask?.cancel()
+            NotificationCenter.default.removeObserver(self)
         }
 
         func textViewDidChangeSelection(_ notification: Notification) {
@@ -172,6 +214,7 @@ struct CodeEditorTextView: NSViewRepresentable {
             guard let textView = notification.object as? NSTextView else { return }
             self.text.wrappedValue = textView.string
             self.syntaxController?.parseIfNeeded()
+            refreshChanges()
             updateSelection()
         }
 

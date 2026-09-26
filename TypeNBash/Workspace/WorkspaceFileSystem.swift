@@ -44,12 +44,16 @@ protocol WorkspaceFileSystem: AnyObject {
     ) async throws -> [WorkspaceFileEntry]
 
     func readFile(at url: URL, maximumByteCount: Int) async throws -> Data
+    /// Remote HEAD content for the editor; nil falls back to the saved buffer.
+    func editorGitBaseline(at url: URL) async throws -> String?
     func writeFile(_ data: Data, to url: URL) async throws
     func createDirectory(at url: URL) async throws
     func createFile(_ data: Data, at url: URL) async throws
 }
 
 extension WorkspaceFileSystem {
+    func editorGitBaseline(at url: URL) async throws -> String? { nil }
+
     func createFile(_ data: Data, at url: URL) async throws {
         throw WorkspaceFileSystemError.unsupported("This filesystem cannot create project definitions.")
     }

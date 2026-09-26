@@ -33,7 +33,7 @@ final class ProjectPickerModel {
     private var generation = 0
 
     init(session: WindowSession, profiles: SSHProfileStore, store: ProjectStore? = nil) {
-        self.store = store ?? ProjectStore()
+        self.store = store ?? .shared
         self.session = session
         self.profiles = profiles
         if case .ssh(let profile) = session.location {

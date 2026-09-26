@@ -23,7 +23,8 @@ struct EntryView: View {
             } else if router.route == .projectSetup {
                 ProjectCreationSheet(windowSession: router.session, profileStore: router.profiles,
                                      store: router.projects.store, onOpen: router.setupCompleted,
-                                     isEmbedded: true, onCancel: router.cancelSetup)
+                                     isEmbedded: true, onCancel: router.cancelSetup,
+                                     initialProfileID: router.selectedSSHProfileID)
             } else {
                 StartupDashboardView(router: router)
             }
@@ -84,104 +85,80 @@ struct StartupDashboardView: View {
             }
             .padding(.top, 32)
 
-            if #available(macOS 27.0, *) {
-                Picker("Selection", selection: $router.startupMode) {
-                    ForEach(AppStartupModes.allCases.filter(with: .init(arrayLiteral: .free, .projectNew, .ssh))) { mode in
-                        Text(mode.rawValue).tag(mode)
-                    }
+            Picker("Location", selection: $router.startupLocation) {
+                ForEach(AppRouter.StartupLocation.allCases) { location in
+                    Text(location.rawValue).tag(location)
                 }
-                .controlSize(.extraLarge)
-                .labelsHidden()
-                .pickerStyle(.tabs)
-                .disabled(router.projects.isBusy)
-            } else {
-                Picker("Selection", selection: $router.startupMode) {
-                    ForEach(AppStartupModes.allCases.filter(with: .init(arrayLiteral: .free, .projectNew, .ssh))) { mode in
-                        Text(mode.rawValue).tag(mode)
-                    }
-                }
-                .controlSize(.extraLarge)
-                .labelsHidden()
-                .pickerStyle(.segmented)
-                .disabled(router.projects.isBusy)
             }
-            if router.startupMode == .ssh {
-                List(selection: $router.selectedSSHProfileID) {
-                    ForEach(router.profiles.profiles) { profile in
-                        RecentItemRow(title: profile.name, path: profile.destination,
-                                      isSelected: router.selectedSSHProfileID == profile.id,
-                                      symbol: "network")
-                        .tag(profile.id)
+            .controlSize(.extraLarge)
+            .labelsHidden()
+            .pickerStyle(.segmented)
+            .disabled(router.projects.isBusy)
+
+            VStack(spacing: 12) {
+                HStack {
+                    Text("Projects")
+                        .font(.headline)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    if router.startupLocation == .ssh {
+                        Button("New Connection", systemImage: "plus", action: router.newSSHConnection)
+                            .buttonStyle(.bordered)
+                            .controlSize(.small)
+                            .disabled(router.projects.isBusy)
                     }
                 }
-                .listStyle(.plain)
-                .background(Color(.controlBackgroundColor))
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .overlay {
-                    if router.profiles.profiles.isEmpty {
-                        ContentUnavailableView("No Saved Connections", systemImage: "network",
-                                               description: Text("Choose New Connection to add an SSH host."))
-                    }
-                }
-            } else {
-                List(selection: $router.selectedProjectID) {
-                    ForEach(router.projects.store.recents) { project in
+                .frame(height: 24)
+                List(router.recentProjects) { project in
+                    Button { router.openProject(project) } label: {
                         RecentItemRow(
                             title: project.name,
                             path: "\(router.projects.label(for: project)) · \(project.directoryPath)",
                             isSelected: router.selectedProjectID == project.id
                         )
-                        .tag(project.id)
+                        .contentShape(Rectangle())
                     }
+                    .buttonStyle(.plain)
+                    .help("Open \(project.name)")
+                    .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
                 .background(Color(.controlBackgroundColor))
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .overlay {
-                    if router.projects.store.projects.isEmpty {
-                        ContentUnavailableView("No Saved Projects", systemImage: "folder",
-                                               description: Text("Choose New Project to save a workspace folder."))
+                    if router.recentProjects.isEmpty {
+                        ContentUnavailableView(
+                            router.startupLocation == .local ? "No Local Projects" : "No SSH Projects",
+                            systemImage: "folder",
+                            description: Text("Create a project, or open Home to work without one.")
+                        )
                     }
                 }
                 .disabled(router.projects.isBusy)
-                .onChange(of: router.selectedProjectID) { router.startupMode = .projectOpen }
-
             }
 
-            if router.startupMode != .ssh, let error = router.projects.error {
+            if let error = router.projects.error {
                 Text(error).font(.caption).foregroundStyle(.red).textSelection(.enabled)
             }
             HStack {
-                if router.startupMode == .ssh {
-                    Button("New Connection", action: router.newSSHConnection)
-                } else {
-                    Button("New Project") { router.launch(.projectNew) }
-                        .disabled(router.projects.isBusy)
-                }
+                Button("New Project", action: router.newProject)
+                    .disabled(router.projects.isBusy)
                 if router.projects.isBusy {
                     ProgressView().controlSize(.small)
                     Button("Cancel", role: .cancel) { router.projects.cancel() }
                 }
                 Spacer()
-                Button(launchTitle) { router.launch(router.startupMode) }
+                Button("Open Home", action: router.openHome)
                     .keyboardShortcut(.defaultAction)
-                    .disabled(router.projects.isBusy || (router.startupMode == .ssh && router.selectedSSHProfile == nil))
+                    .disabled(router.projects.isBusy)
             }
         }
         .padding(.horizontal, 20)
         .padding(.bottom, 20)
         .frame(width: 420, height: 780)
-        .background(Color(nsColor: .windowBackgroundColor))
+        .background(Color.card)
     }
 
-    private var launchTitle: String {
-        switch router.startupMode {
-            case .free: "Work Locally"
-            case .ssh: "Connect over SSH"
-            case .projectNew: "New Project…"
-            case .projectOpen: router.selectedProjectID == nil ? "Choose Project…" : "Open Selected Project"
-        }
-    }
 }
 
 struct RecentItemRow: View {
@@ -202,6 +179,9 @@ struct RecentItemRow: View {
                     .foregroundStyle(isSelected ? .white.opacity(0.8) : .secondary)
             }
             Spacer()
+            Image(systemName: "chevron.right")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(.secondary)
         }
         .padding(.vertical, 6)
         .padding(.horizontal, 8)

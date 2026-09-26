@@ -23,6 +23,7 @@
 //
 
 import AppKit
+import Defaults
 import LineEnding
 import SwiftUI
 import SyntaxFormat
@@ -39,7 +40,7 @@ struct GitDiffTextPane: NSViewRepresentable {
     let contentKey: String
 
     @Environment(\.colorScheme) private var colorScheme
-    @AppStorage("editor.tabWidth") private var tabWidth = 4
+    @AppStorage(.editorTabWidth) private var tabWidth: Int
 
     func makeCoordinator() -> Coordinator {
         Coordinator()

@@ -79,8 +79,14 @@ struct ProjectSplitView<Editor: View, Footer: View, Console: View>: NSViewContro
             super.viewDidLayout()
             guard !placedDivider, splitView.bounds.height > 200 else { return }
             placedDivider = true
+            // Placing the divider un-collapses the console, so size it expanded and
+            // then put back whatever the binding asked for.
+            let consoleItem = splitViewItems[1]
+            let hidden = consoleItem.isCollapsed
+            consoleItem.isCollapsed = false
             splitView.setPosition(max(120, splitView.bounds.height - 260 - splitView.dividerThickness),
                                   ofDividerAt: 0)
+            consoleItem.isCollapsed = hidden
         }
     }
 }

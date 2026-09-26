@@ -12,9 +12,11 @@ struct ProjectCreationSheet: View {
 
     init(windowSession: WindowSession, profileStore: SSHProfileStore,
          store: ProjectStore? = nil, onOpen: @escaping () -> Void = {},
-         isEmbedded: Bool = false, onCancel: (() -> Void)? = nil) {
+         isEmbedded: Bool = false, onCancel: (() -> Void)? = nil,
+         initialProfileID: UUID? = nil) {
         let model = ProjectPickerModel(session: windowSession, profiles: profileStore, store: store)
         model.setupMode = isEmbedded ? .newFolder : .openFolder
+        if isEmbedded { model.selectedProfileID = initialProfileID }
         _model = State(initialValue: model)
         self.onOpen = onOpen
         self.isEmbedded = isEmbedded
@@ -126,7 +128,7 @@ struct ProjectCreationSheet: View {
             .padding(16)
         }
         .frame(width: isEmbedded ? 420 : 560, height: isEmbedded ? 780 : 580)
-        .background(isEmbedded ? Color(nsColor: .windowBackgroundColor) : Color.card)
+        .background(Color.card)
         .foregroundStyle(isEmbedded ? Color.primary : Color.foreground)
         .tint(Color.accentColor)
         .preferredColorScheme(isEmbedded ? nil : .dark)
@@ -177,12 +179,18 @@ struct ProjectCreationSheet: View {
                 Button {
                     model.browse(path: folder.url.path)
                 } label: {
-                    Label(folder.url.lastPathComponent, systemImage: "folder")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .contentShape(Rectangle())
+                    Label {
+                        Text(folder.url.lastPathComponent).foregroundStyle(Color.foreground)
+                    } icon: {
+                        Image(systemName: "folder.fill")
+                            .tint(Color.accentColor)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
                 }
-                .buttonStyle(.plain)
+                .listRowSeparator(.hidden)
             }
+            .scrollContentBackground(.hidden)
             .disabled(model.isBusy)
             .overlay {
                 if model.isBusy {
@@ -202,7 +210,7 @@ struct ProjectCreationSheet: View {
         }
         .padding(16)
         .frame(width: 560, height: 440)
-        .background(isEmbedded ? Color(nsColor: .windowBackgroundColor) : Color.card)
+        .background(Color.card)
         .interactiveDismissDisabled(model.isBusy)
         .onAppear { browsePath = model.browsedDirectory?.path(percentEncoded: false) ?? model.directoryPath }
         .onChange(of: model.browsedDirectory) {

@@ -85,7 +85,7 @@ struct SSHConnectionSheet: View {
             actions
         }
         .frame(width: isEmbedded ? 420 : 500, height: isEmbedded ? 780 : 540)
-        .background(isEmbedded ? Color(nsColor: .windowBackgroundColor) : Color.card)
+        .background(isEmbedded ? Color.card : Color.card)
         .foregroundStyle(isEmbedded ? Color.primary : Color.foreground)
         .tint(Color.accentColor)
         .preferredColorScheme(isEmbedded ? nil : .dark)
@@ -119,6 +119,25 @@ struct SSHConnectionSheet: View {
 
     private var connectionForm: some View {
         Form {
+            if isEmbedded && !profileStore.profiles.isEmpty {
+                Picker("Connection", selection: Binding(
+                    get: { editingProfileID },
+                    set: { id in
+                        if let profile = profileStore.profiles.first(where: { $0.id == id }) {
+                            apply(profile)
+                        } else {
+                            apply(SSHConnectionProfile(name: "", host: ""))
+                            editingProfileID = nil
+                        }
+                    }
+                )) {
+                    Text("New Connection").tag(nil as UUID?)
+                    ForEach(profileStore.profiles) { profile in
+                        Text(profile.name).tag(Optional(profile.id))
+                    }
+                }
+                .disabled(isConnecting)
+            }
             if !isEmbedded && !profileStore.profiles.isEmpty {
                 Section("Saved connections") {
                     ForEach(profileStore.profiles) { profile in
@@ -232,7 +251,6 @@ struct SSHConnectionSheet: View {
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
-        .background(isEmbedded ? Color.clear : Color.black)
     }
 
     private var actions: some View {
@@ -270,7 +288,7 @@ struct SSHConnectionSheet: View {
             .keyboardShortcut(.defaultAction)
         }
         .padding(16)
-        .background(isEmbedded ? Color(nsColor: .windowBackgroundColor) : Color.card)
+        .background(Color.card)
     }
 
     private var isValid: Bool {

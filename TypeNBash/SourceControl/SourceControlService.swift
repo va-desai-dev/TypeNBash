@@ -1,6 +1,10 @@
 import Foundation
 import SwiftGitX
 
+extension Notification.Name {
+    static let editorGitBaselineDidChange = Notification.Name("editorGitBaselineDidChange")
+}
+
 struct SourceControlChange: Identifiable, Sendable {
     let path: String
     let staged: Bool
@@ -54,6 +58,9 @@ actor SourceControlService {
                 throw SourceControlError.emptyMessage
             }
             try repository.commit(message: message)
+            await MainActor.run {
+                NotificationCenter.default.post(name: .editorGitBaselineDidChange, object: nil)
+            }
         case .push(let name):
             let remote = try repository.remote.get(named: name)
             let credential = remote.url.host?.lowercased() == "github.com"
@@ -104,4 +111,3 @@ private enum SourceControlError: LocalizedError {
         }
     }
 }
-
