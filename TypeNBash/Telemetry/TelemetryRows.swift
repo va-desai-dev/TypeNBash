@@ -19,45 +19,33 @@ enum TelemetryGeometry {
     }
 }
 
+struct ProcessInspector: View {
+    @ObservedObject var monitor: SystemMonitor
+    var body: some View {
+        LazyVStack(spacing: 12) {
+            TopProcessesView(monitor: monitor)
+        }
+    }
+}
+
+
 struct TelemetryInspector: View {
     @ObservedObject var monitor: SystemMonitor
     @State private var showProcesses: Bool = false
 
+    
     var body: some View {
         LazyVStack(spacing: 12) {
-            HStack {
-                Button(action: {
-                    showProcesses.toggle()
-                }, label: {
-                    if showProcesses {
-                        Text("SHOW PROCESSES")
-                            .font(.system(.caption, design: .monospaced))
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                    } else {
-                        Text("SHOW TELEMETRY")
-                            .font(.system(.caption, design: .monospaced))
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                    }
-                })
-            }
-            Divider()
-            // Visual Metrics using crisp geometry tracking
-            VStack(spacing: 12) {
-                if showProcesses {
-                    CPUMonitorView(monitor: monitor)
-                    GPUMonitorView(monitor: monitor)
-                    RAMBreakdownView(monitor: monitor)
-                    StorageMonitorView(monitor: monitor)
-                    NetworkMonitorView(monitor: monitor)
-                } else {
-                    TopProcessesView(monitor: monitor)
-                }
-            }
+            CPUMonitorView(monitor: monitor)
+            GPUMonitorView(monitor: monitor)
+            RAMBreakdownView(monitor: monitor)
+            StorageMonitorView(monitor: monitor)
+            NetworkMonitorView(monitor: monitor)
         }
+        .padding(16)
     }
 }
+
 struct TopProcessesView: View {
     @ObservedObject var monitor: SystemMonitor
 
@@ -83,6 +71,7 @@ struct TopProcessesView: View {
                 }
             }
         }
+        .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
@@ -255,8 +244,6 @@ struct CPUMonitorView: View {
         }
     }
 }
-
-
 
 struct RAMBreakdownView: View {
     @ObservedObject var monitor: SystemMonitor

@@ -51,8 +51,32 @@ final class WindowSession {
     private(set) var activeProject: Project? {
         didSet {
             fileBrowser.navigationRoot = activeProject == nil ? nil : rootDirectory
+            // Projects are always adopted before they become active, so the
+            // backend here already works in the project's root.
+            guard activeProject?.id != oldValue?.id || agent?.workingDirectory != rootDirectory else { return }
+            agent?.stop()
+            agent = activeProject.map { _ in
+                AgentSession(workingDirectory: rootDirectory) { [weak backend] request in
+                    guard let backend else { throw CancellationError() }
+                    return try await backend.makeAgentLaunch(request)
+                }
+            }
         }
     }
+
+    /// Prose formats the writing-stats inspector understands.
+    static func textFileTypes(for url: URL) -> Bool {
+        let fileExtension = url.pathExtension.lowercased()
+        switch fileExtension {
+            case "md", "txt": return true
+            default: return false
+        }
+    }
+
+    /// The coding agent attributed to the open project, working in its root.
+    /// Nil outside project mode; replaced whenever the project or root changes.
+    private(set) var agent: AgentSession?
+
 
     /// A project outranks where it lives, so a project opened over SSH is
     /// still `.project`; `.remote` means a host with no project scope.
@@ -274,6 +298,7 @@ final class WindowSession {
     }
 
     func close() {
+        agent?.stop()
         transitionGeneration &+= 1
         terminalGeneration &+= 1
         backend.disconnect()

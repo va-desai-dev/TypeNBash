@@ -20,6 +20,7 @@ private struct FreeWorkspaceView: View {
     let session: WindowSession
     @State private var terminalController = TerminalController()
     @State private var selectedViewMode = ViewMode.terminal
+    @State private var inspectorSelection: InspectorTabs = .telemtry
 
     var body: some View {
         CanvasView(windowSession: session, terminalController: terminalController,
@@ -42,6 +43,10 @@ private struct FreeWorkspaceView: View {
                 isLocal: session.location == .local,
                 onOpenInTerminal: { _ in selectedViewMode = .terminal }
             )
+        } inspector: { WorkspaceInspector(
+            session: session,
+            selection: $inspectorSelection
+        )
         }
         .toolbar {
             ToolbarItem {

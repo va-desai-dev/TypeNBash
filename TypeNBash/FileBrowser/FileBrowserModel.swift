@@ -8,6 +8,10 @@ import Foundation
 import Observation
 import SwiftUI
 
+enum MDViewStyle: Sendable {
+    case fancy, plain
+}
+
 @MainActor
 @Observable
 final class FileBrowserModel {
@@ -392,6 +396,8 @@ final class FileBrowserModel {
     }
 
     private func loadPreview(for entry: Entry) {
+        preview = .none
+        isPreviewTruncated = false
         editorBaselineTask?.cancel()
         editorGitBaseline = nil
         previewGeneration &+= 1

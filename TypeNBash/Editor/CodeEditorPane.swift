@@ -13,6 +13,8 @@ struct FileBrowserPaneHeader: View {
     /// header with its own session would render but do nothing.
     let session: EditorSession
 
+    @Binding var mdViewSelection: MDViewStyle
+
     /// Sends a snippet to the workspace console. Absent outside project mode,
     /// where there is no console mounted to send it to.
     var onRunInConsole: ((String) -> Void)?
@@ -84,6 +86,19 @@ struct FileBrowserPaneHeader: View {
                 Text(session.syntaxController?.syntaxName ?? "Plain Text")
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
+                if case .markdown = model.preview {
+                    Picker("Markdown View", selection: $mdViewSelection) {
+                        Image(systemName: "doc.richtext")
+                            .help("Formatted markdown")
+                            .tag(MDViewStyle.fancy)
+                        Image(systemName: "chevron.left.forwardslash.chevron.right")
+                            .help("Markdown source in the code editor")
+                            .tag(MDViewStyle.plain)
+                    }
+                    .pickerStyle(.segmented)
+                    .labelsHidden()
+                    .fixedSize()
+                }
                 if case .table = model.preview {
                     Menu("Data") {
                         Button("Copy All Rows as CSV") { copyCSV(scope: .allRows) }

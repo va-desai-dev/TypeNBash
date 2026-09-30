@@ -1,3 +1,18 @@
+# Writing statistics checks
+
+After a Debug build, run:
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-agents-build \
+  /tmp/centcom-agents-build/SourcePackages WritingStatisticsChecks.swift
+```
+
+Checks empty documents, soft breaks and blank paragraphs, Markdown formatting and
+link destinations, Unicode, 250-word page boundaries, supported extensions,
+clearing stale previews on file switches, unsaved edits, silent five-second refresh
+during continuous typing, and sampling cancellation. The Writing inspector
+supports `.md` and `.txt`; pages are estimates rounded up at 250 words per page.
+
 # Native editor integration checks
 
 These checks mount the production SwiftUI/AppKit bridge in a temporary macOS
@@ -318,3 +333,24 @@ is skipped when R is not installed. Each expected constant carries the R
 expression that produced it, so any of them can be regenerated with `Rscript`. The last block mounts
 `NotebookView` in a temporary window over a temporary project and runs a step
 against a file on disk. No project of yours is read or written.
+
+# Coding agent checks
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-agents-build \
+  /tmp/centcom-agents-build/SourcePackages AgentIntegrationChecks.swift
+```
+
+A stand-in `claude` script replays a stream-json turn trimmed from a real
+Claude Code run, so no account, network or installed CLI is needed. Checks cover
+decoding (deltas, finished blocks, empty signed thinking, subagent filtering,
+structured tool results, raw U+2028 inside a line), the agent existing only in
+project mode and running in the project root, survival across console restarts,
+the prompt arriving on stdin, session resumption with the current permission
+mode, stderr on failed launches, Stop, and a missing CLI.
+
+Live acceptance: with `claude` on your login shell's PATH, open a local project,
+choose the Agents inspector tab and ask for a small edit in Accept Edits. Tool
+calls should appear as they run and the edit should land inside the project. A
+follow-up prompt should remember the first. SSH projects report that agents are
+not available yet.

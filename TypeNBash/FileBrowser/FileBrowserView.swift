@@ -115,6 +115,8 @@ struct FileViewer: View {
     /// Owned by the enclosing SwiftUI view and shared with the header and
     /// footer, which drive and read this editor's text view.
     let session: EditorSession
+    /// Whether `.md` files render formatted or open in the code editor.
+    var mdViewSelection: MDViewStyle = .fancy
 
     @AppStorage(.editorShowsInvisibles) private var showsInvisibles: Bool
     @AppStorage(.editorShowsIndentGuides) private var showsIndentGuides: Bool
@@ -124,6 +126,7 @@ struct FileViewer: View {
     @AppStorage(.editorAutomaticCompletion) private var automaticCompletion: Bool
     @AppStorage(.editorUsesSpaces) private var usesSpaces: Bool
     @AppStorage(.editorTabWidth) private var tabWidth: Int
+
 
 
     var body: some View {
@@ -210,20 +213,31 @@ struct FileViewer: View {
             case .image(let data):
                 ImagePreviewView(data: data)
                     .id(model.selectedFile)
-            case .markdown(let text):
-                NativeTextViewWrapper(
+            case .markdown(let text) where mdViewSelection == .plain:
+                CodeEditorTextView(
                     text: Binding(
                         get: { text },
                         set: { model.updatePreviewText($0) }
                     ),
-                    configuration: .init(
-                        theme: typeNBashMDTheme,
-                        overscroll: typeNBashScrollPolicy,
-                        textInsets: typeNBashInsetMDInsets,
-                        heightBehavior: .scrolls
+                    fileURL: model.selectedFile, options: options, session: session,
+                    savedText: model.editorGitBaseline ?? model.savedPreviewText,
+                    comparesWithGit: model.comparesEditorWithGit)
+                // Keyed on the style too, so toggling swaps surfaces cleanly.
+                .id([model.selectedFile?.absoluteString, "plain"])
+            case .markdown(let text):
+                    NativeTextViewWrapper(
+                        text: Binding(
+                            get: { text },
+                            set: { model.updatePreviewText($0) }
+                        ),
+                        configuration: .init(
+                            theme: typeNBashMDTheme,
+                            overscroll: typeNBashScrollPolicy,
+                            textInsets: typeNBashInsetMDInsets,
+                            heightBehavior: .scrolls
+                        )
                     )
-                )
-                .id(model.selectedFile)
+                    .id(model.selectedFile)
         }
     }
 }

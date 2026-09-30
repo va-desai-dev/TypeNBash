@@ -1,12 +1,13 @@
 import SwiftUI
 
 /// Shared window chrome. Feature state belongs to the selected workspace view.
-struct CanvasView<Content: View, Sidebar: View>: View {
+struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
     let windowSession: WindowSession
     let terminalController: TerminalController
     let onOpenInTerminal: () -> Void
     @ViewBuilder let content: Content
     @ViewBuilder let sidebar: Sidebar
+    @ViewBuilder let inspector: Inspector
     @State private var showsSidebar = true
     @State private var showsInspector = false
 
@@ -21,9 +22,8 @@ struct CanvasView<Content: View, Sidebar: View>: View {
             content
                 .background(Color.card)
             if showsInspector {
-                WorkspaceInspector(session: windowSession)
-                    .frame(minWidth: 220, idealWidth: 240, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
-                    .padding(16)
+                inspector
+                    .frame(minWidth: 260, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
                     .background(Color.card)
             }
         }
@@ -65,11 +65,19 @@ struct WorkspaceEditorPane: View {
     var showsFooter = true
     /// Present only where a console is mounted, which is project mode.
     var onRunInConsole: ((String) -> Void)?
+    /// Lives here because both the header (which toggles it) and the viewer
+    /// (which renders it) hang off this pane.
+    @State private var mdViewSelection: MDViewStyle = .fancy
 
     var body: some View {
-        FileViewer(model: model, session: session)
+        FileViewer(model: model, session: session, mdViewSelection: mdViewSelection)
             .safeAreaBar(edge: .top) {
-                FileBrowserPaneHeader(model: model, session: session, onRunInConsole: onRunInConsole)
+                FileBrowserPaneHeader(
+                    model: model,
+                    session: session,
+                    mdViewSelection: $mdViewSelection,
+                    onRunInConsole: onRunInConsole
+                )
             }
             .safeAreaBar(edge: .bottom) {
                 if showsFooter {
@@ -171,20 +179,125 @@ struct WorkspaceSidebar: View {
 }
 
 /// Sampling is active only while the inspector is mounted.
-private struct WorkspaceInspector: View {
+struct WorkspaceInspector: View {
     let session: WindowSession
     @State private var monitor: SystemMonitor?
+    @Binding var selection: InspectorTabs
 
     var body: some View {
-        ScrollView {
-            if let monitor {
-                TelemetryInspector(monitor: monitor)
+        // A real container, not a Group: Group forwards its modifiers to its
+        // children, so while `monitor` is still nil the telemetry/process cases
+        // have no children, nothing mounts, and the `.task` that creates the
+        // monitor never runs.
+        ZStack {
+            switch selection {
+                case .telemtry:
+                    if let monitor {
+                        ScrollView {
+                            VStack {
+                                TelemetryInspector(monitor: monitor)
+                            }
+                        }
+                    }
+                case .process:
+                    if let monitor {
+                        ScrollView {
+                            VStack {
+                                TopProcessesView(monitor: monitor)
+                            }
+                        }
+                    }
+                case .agents:
+                    if let agent = session.agent {
+                        AgenticChatView(session: agent)
+                            .id(ObjectIdentifier(agent))
+                    } else {
+                        ContentUnavailableView(
+                            "No Project Open",
+                            systemImage: "folder",
+                            description: Text("Agents work inside a project's folder.")
+                        )
+                    }
+                case .writing:
+                    WritingInspector(model: session.fileBrowser)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .task(id: session.terminalGeneration) {
             let monitor = monitor ?? SystemMonitor()
             self.monitor = monitor
             await session.streamTelemetry(to: monitor)
         }
+        .safeAreaInset(edge: .top) {
+            VStack(spacing: 0) {
+                header
+                Divider()
+            }
+            .background(Color.card)
+        }
+    }
+    private var header: some View {
+            // On macOS a menu Picker is an NSPopUpButton: each row is flattened to an
+            // NSMenuItem (one image + one title), so Spacers/HStacks inside rows are
+            // ignored, and the button hugs its widest item unless told to be flexible.
+            Picker("Inspector", selection: $selection) {
+                ForEach(InspectorTabs.allCases) { tab in
+                    Label(tab.rawValue.capitalized, systemImage: tab.icon)
+                        .tag(tab)
+                }
+            }
+            .pickerStyle(.menu)
+            .labelsHidden()
+            .buttonSizing(.flexible)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 6)
     }
 }
+
+enum InspectorTabs: String, CaseIterable, Identifiable {
+    case telemtry, process, agents, writing
+    var id: String { rawValue }
+    var icon: String {
+        switch self {
+            case .telemtry: return "gauge.with.dots.needle.33percent"
+            case .process: return "list.bullet.circle"
+            case .agents: return "bubble.circle"
+            case .writing: return "pencil.line"
+        }
+    }
+}
+
+import SwiftUI
+
+struct GridPicker<Value: Hashable, Content: View>: View {
+    let selection: Binding<Value>
+    let items: [Value]
+    let columns: [GridItem]
+    let content: (Value) -> Content
+
+    init(
+        selection: Binding<Value>,
+        items: [Value],
+        columns: [GridItem] = [GridItem(.adaptive(minimum: 80, maximum: 120))],
+        @ViewBuilder content: @escaping (Value) -> Content
+    ) {
+        self.selection = selection
+        self.items = items
+        self.columns = columns
+        self.content = content
+    }
+
+    var body: some View {
+        LazyVGrid(columns: columns, spacing: 8) {
+            ForEach(items, id: \.self) { item in
+                Button(action: { selection.wrappedValue = item }) {
+                    content(item)
+                }
+                .buttonStyle(.accessoryBar)
+            }
+        }
+    }
+}
+
+

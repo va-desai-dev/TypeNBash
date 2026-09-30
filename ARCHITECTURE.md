@@ -16,6 +16,7 @@ so moving Swift files inside it does not require individual project references.
 | `Editor` | Text editor bridge, session, syntax, text system and find UI |
 | `SourceControl` | Git service, observable model and UI; `Diff` and `GitHub` own their features |
 | `Telemetry` | System monitoring, remote telemetry and inspector rows |
+| `Agents` | Headless coding-agent sessions rooted at the open project, and the chat pane |
 | `Resources`, `Assets.xcassets` | Bundled syntax definitions and visual assets |
 
 Keep operational work in the existing models and services. Views own presentation

@@ -12,6 +12,8 @@ struct ProjectWorkspaceView: View {
     @State private var showsNotebook = false
     @State private var showsSourceControl = false
     @State private var hideConsole = true
+    @State private var inspectorSelection: InspectorTabs = .agents
+
 
     var body: some View {
         CanvasView(windowSession: session, terminalController: terminalController, onOpenInTerminal: { hideConsole = false }) {
@@ -59,6 +61,10 @@ struct ProjectWorkspaceView: View {
                 onOpenInTerminal: { _ in hideConsole = false }
             )
             }
+        } inspector: { WorkspaceInspector(
+            session: session,
+            selection: $inspectorSelection
+        )
         }
         .toolbar {
             ToolbarItem {
