@@ -1,3 +1,16 @@
+# Bibliography inspector checks
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-agents-build \
+  /tmp/centcom-agents-build/SourcePackages BibliographyInspectorChecks.swift
+```
+
+Checks Markdown-only eligibility, author/title/journal search, ordered Pandoc
+citations with duplicate keys, and selection reset. Renders long filenames,
+titles, and keys at 260 and 300 points in the app's dark scheme; screenshots are
+saved to `/tmp/centcom-bibliography-260-dark.png` and
+`/tmp/centcom-bibliography-300-dark.png` for visual inspection.
+
 # Writing statistics checks
 
 After a Debug build, run:

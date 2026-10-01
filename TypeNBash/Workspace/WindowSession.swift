@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import BibTeXViewer
 
 /// What a window is currently hosting, as opposed to `AppStartupModes`, which
 /// is the launch *intent* chosen in the welcome window and collapses
@@ -61,6 +62,27 @@ final class WindowSession {
                     return try await backend.makeAgentLaunch(request)
                 }
             }
+            replaceBibliography()
+        }
+    }
+
+    /// The open project's .bib, read and written through this window's
+    /// backend. Nil outside project mode; replaced with the project or root.
+    private(set) var bibliography: BibLibrary?
+    private var citeTexTargetID: UUID?
+
+    private func replaceBibliography() {
+        if let citeTexTargetID { CiteTexTargets.shared.unregister(citeTexTargetID) }
+        citeTexTargetID = nil
+        bibliography = activeProject.map { project in
+            BibLibrary(
+                projectID: project.id,
+                root: rootDirectory,
+                access: WorkspaceBibAccess(fileSystem: fileSystem, isLocal: location == .local)
+            )
+        }
+        if let bibliography, let activeProject {
+            citeTexTargetID = CiteTexTargets.shared.register(bibliography, projectName: activeProject.name)
         }
     }
 
@@ -299,6 +321,9 @@ final class WindowSession {
 
     func close() {
         agent?.stop()
+        if let citeTexTargetID { CiteTexTargets.shared.unregister(citeTexTargetID) }
+        citeTexTargetID = nil
+        bibliography = nil
         transitionGeneration &+= 1
         terminalGeneration &+= 1
         backend.disconnect()

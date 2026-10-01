@@ -13,6 +13,7 @@ struct ProjectWorkspaceView: View {
     @State private var showsSourceControl = false
     @State private var hideConsole = true
     @State private var inspectorSelection: InspectorTabs = .agents
+    @State private var writingSubselection: WritingInspectorSubtabs = .citations
 
 
     var body: some View {
@@ -63,7 +64,8 @@ struct ProjectWorkspaceView: View {
             }
         } inspector: { WorkspaceInspector(
             session: session,
-            selection: $inspectorSelection
+            selection: $inspectorSelection,
+            subselection: $writingSubselection
         )
         }
         .toolbar {

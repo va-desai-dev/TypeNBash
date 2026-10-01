@@ -1,4 +1,6 @@
 import SwiftUI
+import BibTeXKit
+import BibTeXViewer
 
 struct WritingInspector: View {
     let model: FileBrowserModel
@@ -48,3 +50,4 @@ struct WritingInspector: View {
         }
     }
 }
+

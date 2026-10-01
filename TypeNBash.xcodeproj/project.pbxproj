@@ -11,6 +11,9 @@
 		7C5608403060543F00046F2A /* MarkdownEngineCodeBlocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */; };
 		7C5608423060543F00046F2A /* MarkdownEngineLatex in Frameworks */ = {isa = PBXBuildFile; productRef = 7C5608413060543F00046F2A /* MarkdownEngineLatex */; };
 		7C8A8B58305CA8EC00FD348E /* SwiftGitX in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8A8B57305CA8EC00FD348E /* SwiftGitX */; };
+		7C97B570306DE31500852A66 /* BibTeXKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C97B56F306DE31500852A66 /* BibTeXKit */; };
+		7C97B572306DE31500852A66 /* BibTeXViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 7C97B571306DE31500852A66 /* BibTeXViewer */; };
+		7C97B59D306DF1B500852A66 /* CiteTex.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7C97B585306DF1B500852A66 /* CiteTex.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7CA595BC305718F400C0FF4E /* ColorCode in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595BB305718F400C0FF4E /* ColorCode */; };
 		7CA595BF3057192500C0FF4E /* ComplexModule in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595BE3057192500C0FF4E /* ComplexModule */; };
 		7CA595C13057192500C0FF4E /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595C03057192500C0FF4E /* Numerics */; };
@@ -19,11 +22,37 @@
 		7CA595C9305719AD00C0FF4E /* MacUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595C8305719AD00C0FF4E /* MacUI */; };
 		7CA595CC305719BD00C0FF4E /* EditorCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595CB305719BD00C0FF4E /* EditorCore */; };
 		7CB100033058000300C0FF4E /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 7CB100023058000200C0FF4E /* SwiftTerm */; };
+		C17E00010000000000000001 /* BibTeXKit in Frameworks */ = {isa = PBXBuildFile; productRef = C17E00010000000000000002 /* BibTeXKit */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7C97B59B306DF1B500852A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C3CC8C63055BB7300D76564 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C97B584306DF1B500852A66;
+			remoteInfo = CiteTex;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7C97B5A2306DF1B500852A66 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7C97B59D306DF1B500852A66 /* CiteTex.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7C3CC8CE3055BB7300D76564 /* TypeNBash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeNBash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8A8B54305C903400FD348E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7C97B585306DF1B500852A66 /* CiteTex.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CiteTex.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -33,6 +62,13 @@
 				Info.plist,
 			);
 			target = 7C3CC8CD3055BB7300D76564 /* TypeNBash */;
+		};
+		C17E00010000000000000003 /* Exceptions for "CiteTex" folder in "CiteTex" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7C97B584306DF1B500852A66 /* CiteTex */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -45,6 +81,18 @@
 			path = TypeNBash;
 			sourceTree = "<group>";
 		};
+		7C97B586306DF1B500852A66 /* CiteTex */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C17E00010000000000000003 /* Exceptions for "CiteTex" folder in "CiteTex" target */,
+			);
+			explicitFolders = (
+				Resources/_locales,
+				Resources/images,
+			);
+			path = CiteTex;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +103,8 @@
 				7C56083E3060543F00046F2A /* MarkdownEngine in Frameworks */,
 				7CA595C9305719AD00C0FF4E /* MacUI in Frameworks */,
 				7CA595CC305719BD00C0FF4E /* EditorCore in Frameworks */,
+				7C97B570306DE31500852A66 /* BibTeXKit in Frameworks */,
+				7C97B572306DE31500852A66 /* BibTeXViewer in Frameworks */,
 				7CA595C63057198D00C0FF4E /* Syntax in Frameworks */,
 				7CA595C33057192500C0FF4E /* RealModule in Frameworks */,
 				7C5608423060543F00046F2A /* MarkdownEngineLatex in Frameworks */,
@@ -67,6 +117,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C97B582306DF1B500852A66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C17E00010000000000000001 /* BibTeXKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +133,7 @@
 			children = (
 				7C8A8B54305C903400FD348E /* .gitignore */,
 				7C3CC8D03055BB7300D76564 /* TypeNBash */,
+				7C97B586306DF1B500852A66 /* CiteTex */,
 				7C3CC8CF3055BB7300D76564 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				7C3CC8CE3055BB7300D76564 /* TypeNBash.app */,
+				7C97B585306DF1B500852A66 /* CiteTex.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,10 +157,12 @@
 				7C3CC8CA3055BB7300D76564 /* Sources */,
 				7C3CC8CB3055BB7300D76564 /* Frameworks */,
 				7C3CC8CC3055BB7300D76564 /* Resources */,
+				7C97B5A2306DF1B500852A66 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7C97B59C306DF1B500852A66 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				7C3CC8D03055BB7300D76564 /* TypeNBash */,
@@ -119,10 +181,35 @@
 				7C56083D3060543F00046F2A /* MarkdownEngine */,
 				7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */,
 				7C5608413060543F00046F2A /* MarkdownEngineLatex */,
+				7C97B56F306DE31500852A66 /* BibTeXKit */,
+				7C97B571306DE31500852A66 /* BibTeXViewer */,
 			);
 			productName = CENTCOM;
 			productReference = 7C3CC8CE3055BB7300D76564 /* TypeNBash.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7C97B584306DF1B500852A66 /* CiteTex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C97B59E306DF1B500852A66 /* Build configuration list for PBXNativeTarget "CiteTex" */;
+			buildPhases = (
+				7C97B581306DF1B500852A66 /* Sources */,
+				7C97B582306DF1B500852A66 /* Frameworks */,
+				7C97B583306DF1B500852A66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7C97B586306DF1B500852A66 /* CiteTex */,
+			);
+			name = CiteTex;
+			packageProductDependencies = (
+				C17E00010000000000000002 /* BibTeXKit */,
+			);
+			productName = CiteTex;
+			productReference = 7C97B585306DF1B500852A66 /* CiteTex.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -131,11 +218,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2660;
+				LastSwiftUpdateCheck = 2700;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					7C3CC8CD3055BB7300D76564 = {
 						CreatedOnToolsVersion = 26.6;
+					};
+					7C97B584306DF1B500852A66 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
@@ -157,6 +247,7 @@
 				7CA595CA305719BD00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/EditorCore" */,
 				7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */,
 				7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */,
+				7C97B56E306DE31500852A66 /* XCLocalSwiftPackageReference "../CiteTexKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7C3CC8CF3055BB7300D76564 /* Products */;
@@ -164,12 +255,20 @@
 			projectRoot = "";
 			targets = (
 				7C3CC8CD3055BB7300D76564 /* TypeNBash */,
+				7C97B584306DF1B500852A66 /* CiteTex */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7C3CC8CC3055BB7300D76564 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C97B583306DF1B500852A66 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -186,7 +285,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C97B581306DF1B500852A66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7C97B59C306DF1B500852A66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7C97B584306DF1B500852A66 /* CiteTex */;
+			targetProxy = 7C97B59B306DF1B500852A66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7C3CC8D93055BB7300D76564 /* Debug */ = {
@@ -319,10 +433,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = TypeNBash/TypeNBash.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = NO;
@@ -352,7 +467,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -378,10 +493,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = TypeNBash/TypeNBash.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = NO;
@@ -411,7 +527,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +541,80 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7C97B59F306DF1B500852A66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = CiteTex/CiteTex.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = URGQW7YQ67;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CiteTex/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CiteTex;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash.CiteTex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7C97B5A0306DF1B500852A66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = CiteTex/CiteTex.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = URGQW7YQ67;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CiteTex/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CiteTex;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash.CiteTex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -452,9 +642,22 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		7C97B59E306DF1B500852A66 /* Build configuration list for PBXNativeTarget "CiteTex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C97B59F306DF1B500852A66 /* Debug */,
+				7C97B5A0306DF1B500852A66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		7C97B56E306DE31500852A66 /* XCLocalSwiftPackageReference "../CiteTexKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../CiteTexKit;
+		};
 		7CA595C43057198D00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/Syntax" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../CotEditor/Packages/Syntax;
@@ -533,6 +736,14 @@
 			package = 7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */;
 			productName = SwiftGitX;
 		};
+		7C97B56F306DE31500852A66 /* BibTeXKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BibTeXKit;
+		};
+		7C97B571306DE31500852A66 /* BibTeXViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BibTeXViewer;
+		};
 		7CA595BB305718F400C0FF4E /* ColorCode */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7CA595BA305718F400C0FF4E /* XCRemoteSwiftPackageReference "WFColorCode" */;
@@ -569,6 +780,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CB100013058000100C0FF4E /* XCRemoteSwiftPackageReference "SwiftTerm" */;
 			productName = SwiftTerm;
+		};
+		C17E00010000000000000002 /* BibTeXKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C97B56E306DE31500852A66 /* XCLocalSwiftPackageReference "../CiteTexKit" */;
+			productName = BibTeXKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,4 +1,6 @@
 import SwiftUI
+import BibTeXKit
+import BibTeXViewer
 
 /// Shared window chrome. Feature state belongs to the selected workspace view.
 struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
@@ -178,11 +180,18 @@ struct WorkspaceSidebar: View {
     }
 }
 
+enum WritingInspectorSubtabs: String, CaseIterable, Identifiable {
+    case citations, stats
+    var id: String { rawValue }
+}
+
 /// Sampling is active only while the inspector is mounted.
 struct WorkspaceInspector: View {
     let session: WindowSession
     @State private var monitor: SystemMonitor?
     @Binding var selection: InspectorTabs
+    @Binding var subselection: WritingInspectorSubtabs
+    @State private var showsBibPicker = false
 
     var body: some View {
         // A real container, not a Group: Group forwards its modifiers to its
@@ -219,7 +228,28 @@ struct WorkspaceInspector: View {
                         )
                     }
                 case .writing:
-                    WritingInspector(model: session.fileBrowser)
+                    if subselection == .stats || !session.fileBrowser.supportsCitations {
+                        WritingInspector(model: session.fileBrowser)
+                    } else if let bibliography = session.bibliography {
+                        BibliographyInspector(
+                            library: bibliography,
+                            onOpenFile: { url in
+                                session.fileBrowser.select(
+                                    WorkspaceFileEntry(url: url, isDirectory: false, byteCount: nil))
+                            },
+                            onChooseFile: { showsBibPicker = true }
+                        )
+                        .id(ObjectIdentifier(bibliography))
+                        .sheet(isPresented: $showsBibPicker) {
+                            BibFilePickerSheet(library: bibliography, fileSystem: session.fileSystem)
+                        }
+                    } else {
+                        ContentUnavailableView(
+                            "No Project Open",
+                            systemImage: "books.vertical",
+                            description: Text("Each project keeps its own .bib bibliography.")
+                        )
+                    }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -235,7 +265,34 @@ struct WorkspaceInspector: View {
             }
             .background(Color.card)
         }
+        .safeAreaInset(edge: .bottom) {
+            if selection == .writing, session.fileBrowser.supportsCitations {
+                VStack(spacing: 0) {
+                    Divider()
+                    footer
+                }
+                .background(Color.card)
+            } else {
+                EmptyView()
+            }
+        }
     }
+
+    private var footer: some View {
+        Picker("Writing", selection: $subselection) {
+            ForEach(WritingInspectorSubtabs.allCases) { tab in
+                Text(tab.rawValue.capitalized)
+                    .tag(tab)
+            }
+        }
+        .pickerStyle(.segmented)
+        .labelsHidden()
+        .buttonSizing(.flexible)
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 6)
+    }
+
     private var header: some View {
             // On macOS a menu Picker is an NSPopUpButton: each row is flattened to an
             // NSMenuItem (one image + one title), so Spacers/HStacks inside rows are
@@ -299,5 +356,3 @@ struct GridPicker<Value: Hashable, Content: View>: View {
         }
     }
 }
-
-

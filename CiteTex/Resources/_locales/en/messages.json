@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CiteTex",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Send citations from scholarly pages to the active .bib in TypeNBash.",
+        "description": "Description of what the extension does."
+    }
+}
