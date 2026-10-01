@@ -15,6 +15,7 @@ import LineEnding
 import Invisible
 import SyntaxFormat
 import SwiftUI
+import BibTeXViewer
 
 /// The source editor behind the file preview pane.
 struct CodeEditorTextView: NSViewRepresentable {
@@ -25,6 +26,7 @@ struct CodeEditorTextView: NSViewRepresentable {
     var session: EditorSession
     var savedText: String? = nil
     var comparesWithGit = true
+    var bibliography: BibLibrary? = nil
 
     @Environment(\.colorScheme) private var colorScheme
 
@@ -86,6 +88,7 @@ struct CodeEditorTextView: NSViewRepresentable {
         textStorage.delegate = context.coordinator
         context.coordinator.configureSyntax(for: fileURL, textStorage: textStorage, theme: textView.theme)
         context.coordinator.updateSelection()
+        context.coordinator.citations.configure(textView: textView, library: bibliography, fileURL: fileURL)
         context.coordinator.updateChanges(savedText: savedText ?? text, fileURL: comparesWithGit ? fileURL : nil)
 
         return scrollView
@@ -120,6 +123,7 @@ struct CodeEditorTextView: NSViewRepresentable {
 
         // Follow the file's language if it changed.
         context.coordinator.configureSyntax(for: fileURL, textStorage: textView.textStorage, theme: theme)
+        context.coordinator.citations.configure(textView: textView, library: bibliography, fileURL: fileURL)
         context.coordinator.updateChanges(savedText: savedText ?? context.coordinator.savedText,
                                           fileURL: comparesWithGit ? fileURL : nil)
     }
@@ -127,6 +131,7 @@ struct CodeEditorTextView: NSViewRepresentable {
     static func dismantleNSView(_ scrollView: NSScrollView, coordinator: Coordinator) {
         coordinator.syntaxController?.cancel()
         coordinator.stopChanges()
+        coordinator.citations.stop()
         coordinator.textView?.delegate = nil
         coordinator.textView?.textStorage?.delegate = nil
         coordinator.releaseSession()
@@ -152,6 +157,7 @@ struct CodeEditorTextView: NSViewRepresentable {
         private var syntaxName: String?
         private var theme: Theme?
         private let changeService = EditorChangeService()
+        let citations = EditorCitationHighlighter()
         private var changeTask: Task<Void, Never>?
         private var changeFileURL: URL?
         private(set) var savedText = ""
@@ -214,6 +220,7 @@ struct CodeEditorTextView: NSViewRepresentable {
             guard let textView = notification.object as? NSTextView else { return }
             self.text.wrappedValue = textView.string
             self.syntaxController?.parseIfNeeded()
+            citations.refresh()
             refreshChanges()
             updateSelection()
         }

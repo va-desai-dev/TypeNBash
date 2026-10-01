@@ -63,6 +63,7 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
 
 struct WorkspaceEditorPane: View {
     let model: FileBrowserModel
+    var bibliography: BibLibrary? = nil
     @State var session = EditorSession()
     var showsFooter = true
     /// Present only where a console is mounted, which is project mode.
@@ -72,7 +73,7 @@ struct WorkspaceEditorPane: View {
     @State private var mdViewSelection: MDViewStyle = .fancy
 
     var body: some View {
-        FileViewer(model: model, session: session, mdViewSelection: mdViewSelection)
+        FileViewer(model: model, session: session, mdViewSelection: mdViewSelection, bibliography: bibliography)
             .safeAreaBar(edge: .top) {
                 FileBrowserPaneHeader(
                     model: model,

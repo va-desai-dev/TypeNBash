@@ -23,10 +23,23 @@ saveButton.addEventListener("click", async () => {
     saveButton.disabled = true;
     setStatus("Reading page…");
     try {
-        const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-        if (!tab) throw new Error("No active tab.");
+        // The popup's current-window context may not resolve to the page's
+        // browser window. Fall back to Safari's last focused window only;
+        // never pick an arbitrary tab from another window.
+        let [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+        if (tab?.id == null) {
+            [tab] = await browser.tabs.query({ active: true, lastFocusedWindow: true });
+        }
+        if (tab?.id == null) {
+            throw new Error("CiteTex couldn’t access the selected Safari tab. Allow CiteTex on this website, then reopen its toolbar popup from the article page.");
+        }
 
-        const scraped = await browser.tabs.sendMessage(tab.id, { action: "scrape" });
+        let scraped;
+        try {
+            scraped = await browser.tabs.sendMessage(tab.id, { action: "scrape" });
+        } catch {
+            throw new Error("CiteTex found the tab but couldn’t read the page. Allow CiteTex on this website and reload the article, then try again.");
+        }
         if (!scraped || (!scraped.title && !scraped.doi)) {
             throw new Error("No citation metadata found on this page.");
         }

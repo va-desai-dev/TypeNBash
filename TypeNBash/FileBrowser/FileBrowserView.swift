@@ -1,6 +1,7 @@
 import AppKit
 import Defaults
 import SwiftUI
+import BibTeXViewer
 import PDFKit
 import MarkdownEngine
 
@@ -117,6 +118,7 @@ struct FileViewer: View {
     let session: EditorSession
     /// Whether `.md` files render formatted or open in the code editor.
     var mdViewSelection: MDViewStyle = .fancy
+    var bibliography: BibLibrary? = nil
 
     @AppStorage(.editorShowsInvisibles) private var showsInvisibles: Bool
     @AppStorage(.editorShowsIndentGuides) private var showsIndentGuides: Bool
@@ -178,7 +180,8 @@ struct FileViewer: View {
                     ),
                     fileURL: model.selectedFile, options: options, session: session,
                     savedText: model.editorGitBaseline ?? model.savedPreviewText,
-                    comparesWithGit: model.comparesEditorWithGit)
+                    comparesWithGit: model.comparesEditorWithGit,
+                    bibliography: bibliography)
                 // Each file gets a fresh editor, grammar, and undo stack.
                 .id(model.selectedFile)
 
@@ -221,7 +224,8 @@ struct FileViewer: View {
                     ),
                     fileURL: model.selectedFile, options: options, session: session,
                     savedText: model.editorGitBaseline ?? model.savedPreviewText,
-                    comparesWithGit: model.comparesEditorWithGit)
+                    comparesWithGit: model.comparesEditorWithGit,
+                    bibliography: bibliography)
                 // Keyed on the style too, so toggling swaps surfaces cleanly.
                 .id([model.selectedFile?.absoluteString, "plain"])
             case .markdown(let text):

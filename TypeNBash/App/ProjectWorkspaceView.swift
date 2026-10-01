@@ -26,7 +26,7 @@ struct ProjectWorkspaceView: View {
                     } else if let diffModel {
                         GitDiffView(model: diffModel, showsFooter: false)
                     } else {
-                        WorkspaceEditorPane(model: session.fileBrowser, session: editorSession,
+                        WorkspaceEditorPane(model: session.fileBrowser, bibliography: session.bibliography, session: editorSession,
                                             showsFooter: false, onRunInConsole: runInConsole)
                     }
                 }

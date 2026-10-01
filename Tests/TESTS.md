@@ -1,3 +1,15 @@
+# Source citation highlighting checks
+
+```sh
+python3 Tests/run-editor-checks.py /tmp/centcom-agents-build \
+  /tmp/centcom-agents-build/SourcePackages EditorCitationChecks.swift
+```
+
+Checks bracketed citation groups, UTF-16 ranges, case-sensitive keys, code and
+link exclusions, switching/reloading the active bibliography, syntax recoloring,
+typing and undo, and clearing colors when no library is loaded. Produces
+`/tmp/centcom-citation-highlights.png` from the mounted source editor.
+
 # Bibliography inspector checks
 
 ```sh
