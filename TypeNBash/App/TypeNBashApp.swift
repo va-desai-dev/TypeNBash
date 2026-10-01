@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct TypeNBashApp: App {
     @State private var windows = WorkspaceWindows()
+    @State private var citeTex = CiteTexTargets.shared
 
     init() {
         AppDefaults.register()
@@ -52,6 +53,17 @@ struct TypeNBashApp: App {
         .defaultSize(width: 1100, height: 720)
         .defaultLaunchBehavior(.suppressed)
         .restorationBehavior(.disabled)
+        // In the system menu bar so the target can be switched from Safari,
+        // where no TypeNBash menu is showing. Available while a project has
+        // a Markdown document selected, matching the citations inspector.
+        MenuBarExtra("CiteTex", systemImage: "safari", isInserted: .constant(
+            windows.sessions.values.contains {
+                $0.session.activeProject != nil
+                    && $0.session.fileBrowser.supportsCitations
+            }
+        )) {
+            CiteTexMenu(targets: citeTex)
+        }
         Settings {
             IDESettingsView()
                 .background(Color.card)

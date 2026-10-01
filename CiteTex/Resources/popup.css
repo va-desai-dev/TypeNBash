@@ -1,0 +1,46 @@
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    width: 240px;
+    padding: 12px;
+    font-family: system-ui;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#status {
+    margin: 10px 0 0;
+    font-size: 12px;
+    min-height: 1.2em;
+    line-height: 1.35;
+    color: secondaryLabelColor;
+}
+
+#status.ok {
+    color: green;
+}
+
+#status.error {
+    color: #c0392b;
+}
+
+@media (prefers-color-scheme: dark) {
+    #status.error {
+        color: #ff6b5e;
+    }
+}

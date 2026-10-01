@@ -232,7 +232,6 @@ struct FileViewer: View {
                         ),
                         configuration: .init(
                             theme: typeNBashMDTheme,
-                            overscroll: typeNBashScrollPolicy,
                             textInsets: typeNBashInsetMDInsets,
                             heightBehavior: .scrolls
                         )

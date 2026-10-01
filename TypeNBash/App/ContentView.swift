@@ -21,6 +21,7 @@ private struct FreeWorkspaceView: View {
     @State private var terminalController = TerminalController()
     @State private var selectedViewMode = ViewMode.terminal
     @State private var inspectorSelection: InspectorTabs = .telemtry
+    @State private var writingSubselection: WritingInspectorSubtabs = .stats
 
     var body: some View {
         CanvasView(windowSession: session, terminalController: terminalController,
@@ -45,7 +46,8 @@ private struct FreeWorkspaceView: View {
             )
         } inspector: { WorkspaceInspector(
             session: session,
-            selection: $inspectorSelection
+            selection: $inspectorSelection,
+            subselection: $writingSubselection
         )
         }
         .toolbar {

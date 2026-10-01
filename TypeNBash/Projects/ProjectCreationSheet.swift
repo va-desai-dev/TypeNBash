@@ -3,7 +3,6 @@ import SwiftUI
 struct ProjectCreationSheet: View {
     @Environment(\.dismiss) private var dismiss
     @State private var model: ProjectPickerModel
-    @State private var browsePath = ""
     @State private var projectToDelete: Project?
 
     private let onOpen: () -> Void
@@ -147,75 +146,20 @@ struct ProjectCreationSheet: View {
     }
 
     private var directoryPicker: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(model.selectedProfileID == nil ? "Choose Local Folder" : "Choose Remote Folder")
-                .font(.headline)
-            HStack {
-                Button("Home", systemImage: "house") { model.browse() }
-                Button("Up", systemImage: "arrow.up") {
-                    if let directory = model.browsedDirectory {
-                        model.browse(path: directory.deletingLastPathComponent().path)
-                    }
-                }
-                .disabled(model.browsedDirectory == nil || model.browsedDirectory?.path == "/")
-                Spacer()
-                Toggle("Hidden folders", isOn: $model.showsHiddenFiles)
-                    .onChange(of: model.showsHiddenFiles) {
-                        model.browse(path: model.browsedDirectory?.path)
-                    }
-            }
-            .disabled(model.isBusy)
-            HStack {
-                TextField("Folder path, such as ~/projects", text: $browsePath)
-                    .onSubmit { model.browse(path: browsePath) }
-                Button("Go") { model.browse(path: browsePath) }
-            }
-            .disabled(model.isBusy)
-            if let error = model.error {
-                Label(error, systemImage: "exclamationmark.triangle.fill")
-                    .font(.caption).foregroundStyle(.red).textSelection(.enabled)
-            }
-            List(model.folders) { folder in
-                Button {
-                    model.browse(path: folder.url.path)
-                } label: {
-                    Label {
-                        Text(folder.url.lastPathComponent).foregroundStyle(Color.foreground)
-                    } icon: {
-                        Image(systemName: "folder.fill")
-                            .tint(Color.accentColor)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .contentShape(Rectangle())
-                }
-                .listRowSeparator(.hidden)
-            }
-            .scrollContentBackground(.hidden)
-            .disabled(model.isBusy)
-            .overlay {
-                if model.isBusy {
-                    ProgressView()
-                } else if model.folders.isEmpty, model.error == nil {
-                    Text("No subfolders").foregroundStyle(.secondary)
-                }
-            }
-            HStack {
-                Button("Cancel", role: .cancel) { model.cancel(); model.isBrowsing = false }
-                Spacer()
-                Button("Use This Folder") { model.useBrowsedFolder() }
-                    .buttonStyle(.borderedProminent)
-                    .keyboardShortcut(.defaultAction)
-                    .disabled(model.isBusy || model.browsedDirectory == nil || model.error != nil)
-            }
-        }
-        .padding(16)
-        .frame(width: 560, height: 440)
-        .background(Color.card)
-        .interactiveDismissDisabled(model.isBusy)
-        .onAppear { browsePath = model.browsedDirectory?.path(percentEncoded: false) ?? model.directoryPath }
-        .onChange(of: model.browsedDirectory) {
-            browsePath = model.browsedDirectory?.path(percentEncoded: false) ?? ""
-        }
+        WorkspaceBrowserSheet(
+            title: model.selectedProfileID == nil ? "Choose Local Folder" : "Choose Remote Folder",
+            directory: model.browsedDirectory,
+            entries: model.folders,
+            isBusy: model.isBusy,
+            error: model.error,
+            showsHiddenFiles: $model.showsHiddenFiles,
+            pendingPath: model.directoryPath,
+            onBrowse: { model.browse(path: $0) },
+            onCancel: { model.cancel(); model.isBrowsing = false },
+            confirmTitle: "Use This Folder",
+            canConfirm: !model.isBusy && model.browsedDirectory != nil && model.error == nil,
+            onConfirm: model.useBrowsedFolder
+        )
     }
 }
 
