@@ -48,8 +48,8 @@ nonisolated struct GitDiffFile: Identifiable, Sendable {
         return fileURL.lastPathComponent
     }
 
-    /// The same symbol the file browser shows for this file.
-    var icon: String { WorkspaceFileEntry.icon(for: URL(filePath: path)) }
+    /// The same icon the file browser shows for this file.
+    var icon: FileTypeIcon { WorkspaceFileEntry.icon(for: URL(filePath: path)) }
 }
 
 nonisolated struct GitDiffLine: Sendable {

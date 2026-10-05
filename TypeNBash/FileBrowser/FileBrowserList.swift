@@ -14,9 +14,10 @@ struct FileBrowserList: View {
         List(selection: $highlightedFile) {
             ForEach(entries) { entry in
                 HStack(spacing: 8) {
-                    Image(systemName: entry.icon)
-                        .foregroundStyle(entry.isDirectory ? Color.accentColor : .secondary)
-                        .frame(width: 16)
+                    FileTypeIconView(
+                        icon: entry.icon,
+                        symbolStyle: entry.isDirectory ? Color.accentColor : .secondary
+                    )
                     Text(entry.label)
                         .lineLimit(1)
                         .truncationMode(.tail)

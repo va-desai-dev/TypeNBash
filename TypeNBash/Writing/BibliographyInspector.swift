@@ -7,6 +7,7 @@ struct BibliographyInspector: View {
     let onOpenFile: (URL) -> Void
     let onChooseFile: () -> Void
     @State private var browser = BibliographyBrowserModel()
+    @State private var showsCrossrefSearch = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -52,6 +53,7 @@ struct BibliographyInspector: View {
         }
         .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.card)
+        .sheet(isPresented: $showsCrossrefSearch) { CrossrefSearchSheet() }
         .confirmationDialog("Remove \(browser.pendingRemoval.count) citations?", isPresented: Binding(
             get: { !browser.pendingRemoval.isEmpty },
             set: { if !$0 { browser.pendingRemoval.removeAll() } }
@@ -99,9 +101,14 @@ struct BibliographyInspector: View {
             .frame(maxWidth: .infinity)
             .help(library.fileURL.map(library.displayPath) ?? "Choose or create a bibliography")
 
+
             if library.fileURL != nil {
-                TextField("Search author, title, key", text: $browser.search)
-                    .textFieldStyle(.roundedBorder)
+                HStack {
+                    TextField("Search author, title, key", text: $browser.search)
+                        .textFieldStyle(.roundedBorder)
+                    Button("Search Crossref…", systemImage: "network") { showsCrossrefSearch = true }
+                        .labelStyle(.iconOnly)
+                }
                 HStack(spacing: 8) {
                     Text(browser.selection.isEmpty ? "\(library.entries.count) citations" : "\(browser.selection.count) selected")
                         .font(.caption)

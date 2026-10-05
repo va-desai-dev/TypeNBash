@@ -181,9 +181,7 @@ struct GitDiffFileList: View {
         List(selection: $highlightedFile) {
             ForEach(model.result?.files ?? []) { file in
                 HStack(spacing: 8) {
-                    Image(systemName: file.icon)
-                        .foregroundStyle(Color.accentColor)
-                        .frame(width: 16)
+                    FileTypeIconView(icon: file.icon, symbolStyle: Color.accentColor)
                     Text(file.label)
                         .lineLimit(1)
                         .truncationMode(.tail)

@@ -10,28 +10,20 @@ nonisolated struct WorkspaceFileEntry: Identifiable, Hashable, Sendable {
 
     var id: URL { url }
 
-    var icon: String {
+    var icon: FileTypeIcon {
         Self.icon(for: url, isDirectory: isDirectory)
     }
     var label: String {
         url.lastPathComponent
     }
 
-    /// The symbol for a path, with no entry needed to hang it on.
+    /// The icon for a path, with no entry needed to hang it on.
     ///
     /// Shared with `GitDiffFile`: its paths are repository-relative and never
     /// come from a directory listing, and a deleted one has no file on disk to
     /// build an entry from either.
-    static func icon(for url: URL, isDirectory: Bool = false) -> String {
-        if isDirectory { return "folder.fill" }
-        switch url.pathExtension.lowercased() {
-            case "swift": return "swift"
-            case "json", "yaml", "yml", "toml": return "curlybraces"
-            case "md", "txt", "log": return "doc.plaintext"
-            case "png", "jpg", "jpeg", "gif", "heic": return "photo"
-            case "sh", "zsh", "bash": return "terminal"
-            default: return "doc"
-        }
+    static func icon(for url: URL, isDirectory: Bool = false) -> FileTypeIcon {
+        FileTypeIcon.icon(for: url, isDirectory: isDirectory)
     }
 }
 
