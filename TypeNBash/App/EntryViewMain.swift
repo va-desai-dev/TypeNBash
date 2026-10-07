@@ -79,7 +79,7 @@ struct StartupDashboardView: View {
                 Text("TypeNBash")
                     .font(.title)
                     .fontWeight(.bold)
-                Text("Version 1.1.0")
+                Text("Version 1.1.1")
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Text("Copyright © 2026 Vedant A. Desai")

@@ -78,6 +78,9 @@
 			exceptions = (
 				7C4BBA22305BCD5F00B937A5 /* Exceptions for "TypeNBash" folder in "TypeNBash" target */,
 			);
+			explicitFolders = (
+				Resources/Home,
+			);
 			path = TypeNBash;
 			sourceTree = "<group>";
 		};
@@ -219,7 +222,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2700;
-				LastUpgradeCheck = 2660;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					7C3CC8CD3055BB7300D76564 = {
 						CreatedOnToolsVersion = 26.6;
@@ -437,7 +440,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = NO;
@@ -467,7 +470,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -497,7 +500,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = NO;
@@ -527,7 +530,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -553,7 +556,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = CiteTex/CiteTex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -568,13 +571,14 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash.CiteTex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -590,7 +594,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = CiteTex/CiteTex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -605,13 +609,14 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash.CiteTex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;

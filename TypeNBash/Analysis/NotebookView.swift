@@ -18,7 +18,7 @@ struct NotebookView: View {
                 } description: {
                     Text("Add a step to summarize, tabulate or correlate the captured table. Steps are saved with the project; results are recomputed.")
                 } actions: {
-                    self.addMenu
+                    NotebookAddStepMenu(model: model) { composing = $0 }
                 }
             } else {
                 ScrollView {
@@ -33,11 +33,12 @@ struct NotebookView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .safeAreaInset(edge: .top) {
-            VStack(spacing: 0) {
-                self.header
-                Divider()
+            PaneBar {
+                NotebookTitle(model: model)
+                Spacer()
+                NotebookAddStepMenu(model: model) { composing = $0 }
+                NotebookActions(model: model, onOpenScript: onOpenScript)
             }
-            .background(Color.card)
         }
         .background(Color.card)
         .task { if !model.isLoaded { await model.load() } }
@@ -53,66 +54,82 @@ struct NotebookView: View {
             Button("OK", role: .cancel) { }
         } message: { Text(model.errorMessage ?? "") }
     }
+}
 
-    private var header: some View {
-        HStack(spacing: 10) {
-            if model.hasUnsavedChanges {
-                Circle().fill(Color.orange).frame(width: 6, height: 6)
-                    .help("Unsaved notebook changes")
-            }
-            Text("Notebook").font(.headline)
-            if let label = model.captureLabel {
-                Text(label).foregroundStyle(.secondary).lineLimit(1).truncationMode(.middle)
-            } else {
-                Text("No table captured").foregroundStyle(Color.orange)
-                    .help("Open a CSV in the editor, then reopen the notebook to capture it.")
-            }
-            Spacer()
-            self.addMenu
-            // Each of these says why it is unavailable. A greyed button with no
-            // reason sends people looking for a cause that isn't there.
-            Button("Run All") { Task { await model.runAll() } }
-                .disabled(model.steps.isEmpty || !model.runningSteps.isEmpty)
-                .help(model.steps.isEmpty
-                      ? "Add a step to run"
-                      : "Recompute every step against the captured table")
-            Button("New R Notebook") {
-                Task {
-                    if let url = await model.createRScript() { onOpenScript?(url) }
-                }
-            }
-            .disabled(model.steps.isEmpty && model.capture == nil)
-            .help(model.steps.isEmpty
-                  ? "Write an R script that loads this table, and open it. Send a cell to the console with ⌃⏎."
-                  : "Write these steps out as an R script and open it. Send a cell to the console with ⌃⏎.")
-            Button("Export") { Task { await model.export() } }
-                .disabled(model.results.isEmpty)
-                .help(model.results.isEmpty
-                      ? "Run a step to have results to export"
-                      : "Write these results to the project's output folder")
-            Button("Save") { Task { await model.save() } }
-                .buttonStyle(.bordered)
-                .disabled(!model.hasUnsavedChanges)
-                .help(model.hasUnsavedChanges
-                      ? "Save the steps to \(AnalysisNotebookFile.filename)"
-                      : "No unsaved changes")
+/// Unsaved-changes dot, title, and which table the notebook captured.
+struct NotebookTitle: View {
+    let model: NotebookModel
+
+    var body: some View {
+        if model.hasUnsavedChanges {
+            Circle().fill(Color.orange).frame(width: 6, height: 6)
+                .help("Unsaved notebook changes")
         }
-        .padding(.vertical, 6)
-        .padding(.horizontal, 10)
+        Text("Notebook").font(.headline)
+        if let label = model.captureLabel {
+            Text(label).foregroundStyle(.secondary).lineLimit(1).truncationMode(.middle)
+        } else {
+            Text("No table captured").foregroundStyle(Color.orange)
+                .help("Open a CSV in the editor, then reopen the notebook to capture it.")
+        }
     }
+}
 
-    private var addMenu: some View {
+/// Every operation, grouped by family. Picking one hands its kind to whoever
+/// presents the composer.
+struct NotebookAddStepMenu: View {
+    let model: NotebookModel
+    let onPick: (AnalysisOperationKind) -> Void
+
+    var body: some View {
         Menu("Add Step") {
             ForEach(AnalysisOperationKind.Family.allCases) { family in
                 Section(family.rawValue) {
                     ForEach(AnalysisOperationKind.allCases.filter { $0.family == family }) { kind in
-                        Button(kind.title) { composing = kind }
+                        Button(kind.title) { onPick(kind) }
                     }
                 }
             }
         }
         .fixedSize()
         .disabled(model.capture == nil && model.availableDatasets.isEmpty)
+    }
+}
+
+/// Run, script, export and save for the whole notebook.
+struct NotebookActions: View {
+    let model: NotebookModel
+    /// Hands a freshly written script to whoever owns the editor.
+    var onOpenScript: ((URL) -> Void)?
+
+    var body: some View {
+        // Each of these says why it is unavailable. A greyed button with no
+        // reason sends people looking for a cause that isn't there.
+        Button("Run All") { Task { await model.runAll() } }
+            .disabled(model.steps.isEmpty || !model.runningSteps.isEmpty)
+            .help(model.steps.isEmpty
+                  ? "Add a step to run"
+                  : "Recompute every step against the captured table")
+        Button("New R Notebook") {
+            Task {
+                if let url = await model.createRScript() { onOpenScript?(url) }
+            }
+        }
+        .disabled(model.steps.isEmpty && model.capture == nil)
+        .help(model.steps.isEmpty
+              ? "Write an R script that loads this table, and open it. Send a cell to the console with ⌃⏎."
+              : "Write these steps out as an R script and open it. Send a cell to the console with ⌃⏎.")
+        Button("Export") { Task { await model.export() } }
+            .disabled(model.results.isEmpty)
+            .help(model.results.isEmpty
+                  ? "Run a step to have results to export"
+                  : "Write these results to the project's output folder")
+        Button("Save") { Task { await model.save() } }
+            .buttonStyle(.bordered)
+            .disabled(!model.hasUnsavedChanges)
+            .help(model.hasUnsavedChanges
+                  ? "Save the steps to \(AnalysisNotebookFile.filename)"
+                  : "No unsaved changes")
     }
 }
 
@@ -287,40 +304,26 @@ private struct AnalysisTableView: View {
     }
 }
 
-struct NoteBookFooter: View {
+/// Which cell text counts as missing. Commits on Return or when focus leaves.
+struct NotebookMissingCodesField: View {
     @Bindable var model: NotebookModel
-    var showsSeparator = true
     @State private var missingCodesField = ""
     @FocusState private var isEditingCodes: Bool
 
     var body: some View {
-        VStack(spacing: 0) {
-            if showsSeparator { Divider() }
-            HStack(spacing: 8) {
-                Text("Missing Data Codes")
-                    .foregroundStyle(.secondary)
-                TextField("NA", text: $missingCodesField)
-                    .textFieldStyle(.plain)
-                    .frame(maxWidth: 260)
-                    .focused($isEditingCodes)
-                    .onSubmit { self.commitCodes() }
-                    // Clicking away is how a field in a status bar is usually
-                    // left, so losing focus commits rather than discarding.
-                    .onChange(of: isEditingCodes) { _, editing in if !editing { self.commitCodes() } }
-                    .help("Cell text that counts as missing rather than unusable. Blanks always count. N/A is not included by default, because it usually marks a meaningful skip rather than absent data. Changing this re-runs the steps that have already run.")
-                if model.captureMayBeStale {
-                    Label("The table has been edited since this capture", systemImage: "exclamationmark.triangle")
-                        .foregroundStyle(Color.orange)
-                        .help("Close and reopen the notebook to capture the edited table.")
-                }
-                Spacer()
-            }
-            .padding(.vertical, 6)
-            .padding(.horizontal, 10)
+        Text("Missing Data Codes")
+            .foregroundStyle(.secondary)
+        TextField("NA", text: $missingCodesField)
+            .textFieldStyle(.plain)
             .foregroundStyle(Color.foreground)
-        }
-        .background(Color.card)
-        .onAppear { missingCodesField = model.missingCodes.joined(separator: ", ") }
+            .frame(maxWidth: 260)
+            .focused($isEditingCodes)
+            .onSubmit { self.commitCodes() }
+            // Clicking away is how a field in a status bar is usually
+            // left, so losing focus commits rather than discarding.
+            .onChange(of: isEditingCodes) { _, editing in if !editing { self.commitCodes() } }
+            .help("Cell text that counts as missing rather than unusable. Blanks always count. N/A is not included by default, because it usually marks a meaningful skip rather than absent data. Changing this re-runs the steps that have already run.")
+            .onAppear { missingCodesField = model.missingCodes.joined(separator: ", ") }
     }
 
     private func commitCodes() {
@@ -330,6 +333,20 @@ struct NoteBookFooter: View {
             .filter { !$0.isEmpty }
     }
 }
+
+/// Shown once the grid has been edited after the notebook captured it.
+struct NotebookStaleCaptureWarning: View {
+    let model: NotebookModel
+
+    var body: some View {
+        if model.captureMayBeStale {
+            Label("The table has been edited since this capture", systemImage: "exclamationmark.triangle")
+                .foregroundStyle(Color.orange)
+                .help("Close and reopen the notebook to capture the edited table.")
+        }
+    }
+}
+
 // MARK: - Composing a step
 
 private struct NotebookStepComposer: View {

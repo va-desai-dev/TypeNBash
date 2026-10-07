@@ -1,3 +1,45 @@
+# Find-bar keyboard focus checks
+
+```sh
+python3 Tests/run-editor-checks.py /tmp/centcom-agents-build \
+  /tmp/centcom-agents-build/SourcePackages FindFocusIntegrationChecks.swift
+```
+
+Types `Bar`, waits for incremental matching, then finishes `Barrett` in the real
+inline find field against a long document. Verifies the document is unchanged,
+Next/Previous preserve field focus, Replace-and-Find preserves an independently
+focused native replacement field, and dismissing Find returns focus to the editor.
+Restores the shared Find pasteboard after the check.
+
+# Browser focus and navigation checks
+
+```sh
+python3 Tests/run-editor-checks.py /tmp/centcom-agents-build \
+  /tmp/centcom-agents-build/SourcePackages BrowserIntegrationChecks.swift
+```
+
+Uses a synthetic WebKit page in a native window to check address parsing, repeated
+Command-L selection without selecting webpage text, address drafts, Escape,
+Return, new-window links, and closing/reopening tabs. Requires a logged-in macOS
+GUI session. Live authentication providers and popup `window.opener` callbacks
+are not covered; the browser provides an explicit default-browser handoff.
+
+# Native Word preview checks
+
+After a Debug build, run:
+
+```sh
+python3 Tests/run-editor-checks.py /tmp/centcom-agents-build \
+  /tmp/centcom-agents-build/SourcePackages WordPreviewChecks.swift
+```
+
+Checks `.docx` routing through the workspace filesystem, the 25 MB whole-file
+limit even when file size is unknown, read-only save behavior, private temporary
+snapshot permissions and cleanup, and mounting the native Quick Look view.
+Requires a logged-in macOS GUI session. Writes a view capture to
+`/tmp/centcom-docx-preview.png`; remote Quick Look layers may not appear in that
+capture. Complex Word layout fidelity remains dependent on macOS Quick Look.
+
 # Source citation highlighting checks
 
 ```sh

@@ -27,13 +27,18 @@ struct GitDiffView: View {
         comparison
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .safeAreaBar(edge: .top) {
-                header
-                    .background(Color.card)
+                PaneBar {
+                    Spacer()
+                    GitDiffRefreshButton(model: model)
+                }
             }
             .safeAreaBar(edge: .bottom) {
                 if showsFooter {
-                    GitDiffFooter(model: model)
-                        .background(Color.card)
+                    PaneBar(edge: .bottom) {
+                        GitDiffStatusLabel(model: model)
+                        Spacer()
+                        Text("Read-only · − Removed / + Added")
+                    }
                 }
             }
     }
@@ -70,44 +75,61 @@ struct GitDiffView: View {
         }
     }
 
-    private var header: some View {
-        VStack(spacing: 0) {
-            HStack(alignment: .center) {
-                Spacer()
-                Button("Refresh", systemImage: "arrow.clockwise") {
-                    Task { await model.refresh() }
-                }
-                .labelStyle(.titleOnly)
-                .disabled(model.isLoading)
-            }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
-            Divider()
-        }
-        .background(Color.card)
-    }
-
 }
 
-struct GitDiffFooter: View {
+struct GitDiffRefreshButton: View {
     let model: GitDiffModel
-    var showsSeparator = true
 
     var body: some View {
-        VStack(spacing: 0) {
-            if showsSeparator { Divider() }
-            HStack(alignment: .center) {
-                Text(model.selectedPath ?? "Saved files only — save editor changes before comparing.")
-                    .lineLimit(1).truncationMode(.middle)
-                if let message = model.result?.message, model.result?.rows.isEmpty == false {
-                    Text("\(message)").lineLimit(1)
-                }
-                Spacer()
-                Text("Read-only · − Removed / + Added")
-            }
-            .padding(.vertical, 6)
-            .padding(.horizontal, 10)
+        Button("Refresh", systemImage: "arrow.clockwise") {
+            Task { await model.refresh() }
         }
+        .labelStyle(.titleOnly)
+        .disabled(model.isLoading)
+    }
+}
+
+/// The file being compared, and the comparison's own note about it.
+struct GitDiffStatusLabel: View {
+    let model: GitDiffModel
+
+    var body: some View {
+        Text(model.selectedPath ?? "Saved files only — save editor changes before comparing.")
+            .lineLimit(1).truncationMode(.middle)
+        if let message = model.result?.message, model.result?.rows.isEmpty == false {
+            Text("\(message)").lineLimit(1)
+        }
+    }
+}
+
+/// Insertions and deletions across the whole comparison.
+struct GitDiffStatsLabel: View {
+    let model: GitDiffModel
+
+    var body: some View {
+        let stats = model.result?.stats ?? GitDiffStats()
+        Text("+ \(stats.insertions, format: .number)")
+            .foregroundStyle(Color.green)
+            .lineLimit(1)
+        Text("- \(stats.deletions, format: .number)")
+            .foregroundStyle(Color.red)
+            .lineLimit(1)
+    }
+}
+
+struct GitDiffScopePicker: View {
+    let model: GitDiffModel
+
+    var body: some View {
+        Picker("Compare", selection: Binding(get: { model.scope }, set: model.setScope)) {
+            ForEach(GitDiffScope.allCases) {
+                Text($0.rawValue)
+                    .font(.body)
+                    .tag($0)
+            }
+        }
+        .pickerStyle(.menu)
+        .labelsHidden()
     }
 }
 
@@ -120,50 +142,20 @@ struct GitDiffFileList: View {
     var body: some View {
         mainList
             .safeAreaInset(edge: .top) {
-                VStack(spacing: 0) {
-                    header
-                    Divider()
-                }
-                .background(Color.card)
-            }
-            .safeAreaInset(edge: .bottom, alignment: .leading) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Divider()
-                    HStack(alignment: .center) {
-                        Image(systemName: "arrow.up.arrow.down")
-                            .foregroundStyle(Color(NSColor.controlAccentColor))
-                        Spacer()
-                        let stats = model.result?.stats ?? GitDiffStats()
-                        Text("+ \(stats.insertions, format: .number)")
-                            .foregroundStyle(Color.green)
-                            .lineLimit(1)
-                        Text("- \(stats.deletions, format: .number)")
-                            .foregroundStyle(Color.red)
-                            .lineLimit(1)
-                    }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 6)
-                }
-                .background(Color.card)
-            }
-    }
-
-    var header: some View {
-        HStack(alignment: .center) {
-            Text("CHANGES:")
-            Spacer()
-            Picker("Compare", selection: Binding(get: { model.scope }, set: model.setScope)) {
-                ForEach(GitDiffScope.allCases) {
-                    Text($0.rawValue)
-                        .font(.body)
-                        .tag($0)
+                PaneBar {
+                    Text("CHANGES:")
+                    Spacer()
+                    GitDiffScopePicker(model: model)
                 }
             }
-            .pickerStyle(.menu)
-            .labelsHidden()
-        }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 6)
+            .safeAreaInset(edge: .bottom) {
+                PaneBar(edge: .bottom) {
+                    Image(systemName: "arrow.up.arrow.down")
+                        .foregroundStyle(Color(NSColor.controlAccentColor))
+                    Spacer()
+                    GitDiffStatsLabel(model: model)
+                }
+            }
     }
 
     @ViewBuilder func badgeView(for value: String, accent: Color) -> some View {

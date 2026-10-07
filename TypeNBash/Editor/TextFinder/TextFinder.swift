@@ -615,7 +615,10 @@ struct FindMatchesCache {
         
         // found feedback
         if let result {
-            client.select(range: result.range)
+            // Finding changes the document selection, not keyboard ownership.
+            // The find/replace field must keep receiving subsequent keystrokes.
+            client.selectedRange = result.range
+            client.scrollRangeToVisible(result.range)
             client.showFindIndicator(for: result.range)
             
             if result.wrapped {

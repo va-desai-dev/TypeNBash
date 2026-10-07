@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TypeNBash documentation: Getting started.">
+  <meta name="theme-color" content="#0b0a0a">
+  <title>Getting started | TypeNBash</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="stylesheet" href="styles.css?v=a4a82126bc48">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="TypeNBash home">
+<img src="assets/icon.png" width="36" height="36" alt="">
+<span>TypeNBash</span>
+</a>
+      <nav aria-label="TypeNBash">
+<a href="index.html">Overview</a>
+<a href="guide.html" aria-current="page">Guides</a>
+<a href="license.html">License</a>
+<a href="downloads.html">Downloads</a>
+</nav>
+      <a class="author-link" href="https://vadesai.com/work/">By Vedant A. Desai</a>
+    </div>
+  </header>
+
+  <main id="main" class="documentation" tabindex="-1">
+<div class="docs-layout wrap">
+  <aside class="sidebar">
+    <nav aria-label="Guide chapters"><a href="guide.html" aria-current="page">Getting started</a>
+<a href="projects.html">Project workspaces</a>
+<a href="notebook.html">Analysis notebook</a>
+<a href="csv.html">CSV reference</a></nav>
+    <nav class="toc" aria-label="On this page"><p class="eyebrow">On this page</p><a href="#install-typenbash">Install TypeNBash</a>
+<a href="#choose-a-workspace">Choose a workspace</a>
+<a href="#run-your-first-analysis">Run your first analysis</a>
+<a href="#continue-in-r">Continue in R</a>
+<a href="#work-over-ssh">Work over SSH</a>
+<a href="#files-and-results">Files and results</a>
+<a href="#get-help-or-report-a-problem">Get help or report a problem</a></nav>
+  </aside>
+  <article class="prose"><h1 id="getting-started">Getting started</h1>
+<p>Bring a folder, a script, or a CSV. TypeNBash keeps the surrounding tools within reach.</p>
+<h2 id="install-typenbash">Install TypeNBash</h2>
+<ol type="1">
+<li>Download the disk image from <a href="https://github.com/va-desai-dev/TypeNBash/releases/latest">GitHub Releases</a>.</li>
+<li>Open the disk image and drag <strong>TypeNBash.app</strong> into <strong>Applications</strong>.</li>
+<li>Launch TypeNBash from Applications.</li>
+</ol>
+<p>TypeNBash requires <strong>macOS 26 Tahoe or later</strong> and supports <strong>Apple silicon and Intel</strong> Macs. The project is currently distributed as a public beta.</p>
+<h2 id="choose-a-workspace">Choose a workspace</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Welcome-window action</th>
+<th style="text-align: left;">Where it takes you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Work Locally</td>
+<td style="text-align: left;">A workspace on your Mac</td>
+</tr>
+<tr>
+<td style="text-align: left;">Connect over SSH</td>
+<td style="text-align: left;">Files and a terminal on another host</td>
+</tr>
+<tr>
+<td style="text-align: left;">New Project</td>
+<td style="text-align: left;">A new project folder or an existing folder to initialize</td>
+</tr>
+<tr>
+<td style="text-align: left;">Open Selected Project</td>
+<td style="text-align: left;">A saved project</td>
+</tr>
+</tbody>
+</table>
+<p>An ordinary folder can be opened without adding project metadata. Managed projects keep their settings in a small file alongside the project. Read the <a href="projects.html">project workspace reference</a> for the storage format and remote-work behavior.</p>
+<h2 id="run-your-first-analysis">Run your first analysis</h2>
+<ol type="1">
+<li>Open a project containing a CSV file.</li>
+<li>Select the CSV to open its editable grid.</li>
+<li>Open <strong>Notebook</strong>.</li>
+<li>Add an analysis step, choose its variables and missing-value settings, and run it.</li>
+<li>Inspect the input summary, results, and notes.</li>
+<li>Export a Markdown report to keep a copy of the result.</li>
+</ol>
+<p>Notebook steps are saved; results are recalculated when you run them. Export a report when you need a lasting record. The <a href="notebook.html">notebook reference</a> covers the available tests, missing values, data captures, and export behavior.</p>
+<h2 id="continue-in-r">Continue in R</h2>
+<p>Choose <strong>New R Notebook</strong> to create an editable <code>.R</code> script with <code># %%</code> cell boundaries. Start R in the project console, then send a selection or the current cell from the editor.</p>
+<p>R must be installed on the machine running that console. Its output stays in the console and is not imported back into the native notebook. Terminal commands use the runtimes and packages available on the active machine.</p>
+<h2 id="work-over-ssh">Work over SSH</h2>
+<p>Connect to your host from the welcome window. The file browser and terminal then work with that remote machine. You can save connection profiles and authenticate using a key, an agent, or a password.</p>
+<p>The built-in Source Control and Changes views support local projects. Use Git in the SSH terminal for repositories on a remote machine.</p>
+<h2 id="files-and-results">Files and results</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>.typenbash.json</code></td>
+<td style="text-align: left;">Project name and output-directory setting</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>.typenbash-notebook.json</code></td>
+<td style="text-align: left;">Analysis steps and missing-value definitions</td>
+</tr>
+<tr>
+<td style="text-align: left;">Exported Markdown report</td>
+<td style="text-align: left;">A saved record of results, notes, and tables</td>
+</tr>
+</tbody>
+</table>
+<p>Project and notebook definitions use paths relative to the project. Keep them alongside the folder when copying or moving a project.</p>
+<h2 id="get-help-or-report-a-problem">Get help or report a problem</h2>
+<p>Open an <a href="https://github.com/va-desai-dev/TypeNBash/issues">issue</a>, join the <a href="https://github.com/va-desai-dev/TypeNBash/discussions">discussion</a>, or email <a href="mailto:vd@vadesai.com" class="email">vd@vadesai.com</a>.</p>
+<p>Include your TypeNBash version, macOS version, whether the workspace is local or remote, and the steps that reproduce the problem. For CSV or editor problems, a small sample helps; remove private information before sharing it.</p>
+</article>
+</div>
+  </main>
+  <footer id="footer" class="site-footer">
+    <div class="footer-identity">
+      <a class="brand" href="index.html">TypeNBash</a>
+      <small>&copy; 2026 Vedant A. Desai</small>
+    </div>
+    <nav aria-label="Project resources">
+      <a href="license.html">License &amp; credits</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="https://github.com/va-desai-dev/TypeNBash">Source on GitHub</a>
+      <a href="mailto:vd@vadesai.com">Contact</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

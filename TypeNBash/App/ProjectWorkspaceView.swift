@@ -16,6 +16,7 @@ struct ProjectWorkspaceView: View {
     @State private var writingSubselection: WritingInspectorSubtabs = .citations
 
 
+
     var body: some View {
         CanvasView(windowSession: session, terminalController: terminalController, onOpenInTerminal: { hideConsole = false }) {
             ProjectSplitView(hideConsole: $hideConsole) {
@@ -33,21 +34,22 @@ struct ProjectWorkspaceView: View {
                 .frame(maxWidth: .infinity, minHeight: 120, maxHeight: .infinity)
 
             } footer: {
-                Group {
+                // The split view draws the divider above this slot.
+                PaneBar(edge: .bottom, showsDivider: false) {
                     if showsNotebook, let notebook {
-                        NoteBookFooter(
-                            model: notebook,
-                            showsSeparator: false)
+                        NotebookMissingCodesField(model: notebook)
+                        NotebookStaleCaptureWarning(model: notebook)
+                        Spacer()
                     } else if let diffModel {
-                        GitDiffFooter(model: diffModel, showsSeparator: false)
+                        GitDiffStatusLabel(model: diffModel)
+                        Spacer()
+                        Text("Read-only · − Removed / + Added")
                     } else {
-                        FileViewerFooter(
-                            showsSeparator: false,
-                            session: editorSession
-                        )
+                        Text(editorSession.position)
+                        Spacer()
+                        EditorIndentationLabel()
                     }
                 }
-                .background(Color.card)
             } console: {
                 WorkspaceTerminalPane(session: session, controller: terminalController)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

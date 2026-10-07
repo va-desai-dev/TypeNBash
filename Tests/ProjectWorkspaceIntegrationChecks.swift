@@ -7,6 +7,7 @@ struct ProjectWorkspaceIntegrationChecks {
     @MainActor static func main() {
         setbuf(stdout, nil)
         _ = NSApplication.shared
+        AppDefaults.register()
         NSApp.setActivationPolicy(.accessory)
         Task { @MainActor in
             await run()

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TypeNBash documentation: Project workspaces.">
+  <meta name="theme-color" content="#0b0a0a">
+  <title>Project workspaces | TypeNBash</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="stylesheet" href="styles.css?v=a4a82126bc48">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="TypeNBash home">
+<img src="assets/icon.png" width="36" height="36" alt="">
+<span>TypeNBash</span>
+</a>
+      <nav aria-label="TypeNBash">
+<a href="index.html">Overview</a>
+<a href="guide.html" aria-current="page">Guides</a>
+<a href="license.html">License</a>
+<a href="downloads.html">Downloads</a>
+</nav>
+      <a class="author-link" href="https://vadesai.com/work/">By Vedant A. Desai</a>
+    </div>
+  </header>
+
+  <main id="main" class="documentation" tabindex="-1">
+<div class="docs-layout wrap">
+  <aside class="sidebar">
+    <nav aria-label="Guide chapters"><a href="guide.html">Getting started</a>
+<a href="projects.html" aria-current="page">Project workspaces</a>
+<a href="notebook.html">Analysis notebook</a>
+<a href="csv.html">CSV reference</a></nav>
+    <nav class="toc" aria-label="On this page"><p class="eyebrow">On this page</p><a href="#creation-and-opening">Creation and opening</a>
+<a href="#output-contract">Output contract</a></nav>
+  </aside>
+  <article class="prose"><h1 id="project-workspaces">Project workspaces</h1>
+<p>A folder can be opened as a workspace without modifying it. A managed project also contains a portable <code>.typenbash.json</code> definition:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;version&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Analysis&quot;</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;outputDirectory&quot;</span><span class="fu">:</span> <span class="st">&quot;output&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>The containing folder is the project root. All three fields are required in version 1. <code>outputDirectory</code> is a single child-folder name, not an absolute path or a path containing traversal components. The definition contains no host paths, SSH profile IDs, credentials, or executable commands. It can travel with a copied folder or be committed alongside the project's files.</p>
+<p>A project may also hold <code>.typenbash-notebook.json</code> beside this file, with the same project-relative, portable rules. See <code>NOTEBOOK.md</code>.</p>
+<h2 id="creation-and-opening">Creation and opening</h2>
+<p>The project setup form has three actions:</p>
+<ul>
+<li><strong>Create new folder:</strong> choose a parent directory and a project folder name. TypeNBash creates that child directory and its definition, then opens it.</li>
+<li><strong>Initialize existing folder:</strong> add a definition to an existing directory. Existing files remain in place; an existing definition is never overwritten.</li>
+<li><strong>Open existing folder:</strong> read its definition if present; otherwise open it as an ordinary folder workspace without writing metadata. The path field also accepts the path to <code>.typenbash.json</code> itself.</li>
+</ul>
+<p>New Project defaults to creating a new folder. The same actions use the selected local or SSH filesystem. A copied project opens using its new containing folder; its saved name and output setting follow it. UserDefaults stores the recent list and machine-specific connection association, not the sole project definition. Definitions are reloaded when opening, including from the recent list. Invalid, oversized, or unsupported definitions report an error before switching workspaces. Removing a recent entry does not delete the folder or definition.</p>
+<p>Creation refuses name collisions. If creation is interrupted after filesystem writes, the new files remain available; cancellation does not delete directories. The output folder is not eagerly created.</p>
+<h2 id="output-contract">Output contract</h2>
+<p>Export actions call <code>WindowSession.prepareProjectOutputDirectory()</code> and write through the active workspace filesystem. It creates and returns the configured output directory on the project's host. Ordinary folder projects use <code>output</code> by default. The resolver rejects file collisions, paths resolving outside the project, and a workspace change while the request is running. The analysis notebook's export is the first action to use it.</p>
+<p>This is the shared destination contract; it does not redirect arbitrary shell commands, which still use their own working directory. Local definitions can be opened through the project picker; Finder file association is not part of this format implementation.</p>
+<p>Project reference snapshot: 2026-10-06. <a href="reference/PROJECTS.md">Original document</a> · <a href="https://github.com/va-desai-dev/TypeNBash/blob/ea783d79b175eba45e2b37694a23546d35ed0a00/PROJECTS.md">Source revision</a></p>
+</article>
+</div>
+  </main>
+  <footer id="footer" class="site-footer">
+    <div class="footer-identity">
+      <a class="brand" href="index.html">TypeNBash</a>
+      <small>&copy; 2026 Vedant A. Desai</small>
+    </div>
+    <nav aria-label="Project resources">
+      <a href="license.html">License &amp; credits</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="https://github.com/va-desai-dev/TypeNBash">Source on GitHub</a>
+      <a href="mailto:vd@vadesai.com">Contact</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

@@ -6,6 +6,7 @@ import SwiftUI
 struct CSVIntegrationChecks {
     @MainActor static func main() async throws {
         NSApplication.shared.setActivationPolicy(.accessory)
+        AppDefaults.register()
         let original = CSVTable(columns: ["Name", "Notes"], rows: [
             ["quoted \"name\"", "comma, newline\nnext"], ["", "line\r\nbreak"], ["", ""]
         ])
@@ -27,10 +28,7 @@ struct CSVIntegrationChecks {
         }
         guard case .table = model.preview else { fatalError("CSV preview did not load") }
         let session = EditorSession()
-        let host = NSHostingView(rootView: VStack(spacing: 0) {
-            FileBrowserPaneHeader(model: model, session: session)
-            FileViewer(model: model, session: session)
-        }.frame(width: 800, height: 400))
+        let host = NSHostingView(rootView: WorkspaceEditorPane(model: model, session: session).frame(width: 800, height: 400))
         let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 800, height: 400),
                               styleMask: [.titled, .resizable], backing: .buffered, defer: false)
         window.isReleasedWhenClosed = false

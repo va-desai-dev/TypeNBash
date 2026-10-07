@@ -43,71 +43,72 @@ struct FileBrowserView: View {
     }
 }
 
-/// Header row above the file list with navigation and file-creation actions.
-struct FileBrowserToolbar: View {
+/// Back, enclosing folder, and forward through the browsed directories.
+struct FileBrowserNavigationControls: View {
+    let model: FileBrowserModel
+
+    var body: some View {
+        ControlGroup {
+            Button { model.goBack() } label: {
+                Image(systemName: "chevron.left")
+            }
+            .disabled(!model.canGoBack)
+            .help("Back")
+            Button { model.goUp() } label: {
+                Image(systemName: "smallcircle.filled.circle")
+            }
+            .disabled(!model.canGoUp)
+            .help("Enclosing folder")
+            Button { model.goForward() } label: {
+                Image(systemName: "chevron.right")
+            }
+            .disabled(!model.canGoForward)
+            .help("Forward")
+        }
+        .controlSize(.regular)
+    }
+}
+
+/// Hidden files, refresh, and creating folders and files.
+struct FileBrowserActionControls: View {
     @Bindable var model: FileBrowserModel
     @Binding var isNamingFolder: Bool
     @Binding var newFolderName: String
 
     var body: some View {
-        HStack {
-            ControlGroup {
-                Button { model.goBack() } label: {
-                    Image(systemName: "chevron.left")
-                }
-                .disabled(!model.canGoBack)
-                .help("Back")
-                Button { model.goUp() } label: {
-                    Image(systemName: "smallcircle.filled.circle")
-                }
-                .disabled(!model.canGoUp)
-                .help("Enclosing folder")
-                Button { model.goForward() } label: {
-                    Image(systemName: "chevron.right")
-                }
-                .disabled(!model.canGoForward)
-                .help("Forward")
-            }
-            .controlSize(.regular)
-
-            Spacer()
-
-            ControlGroup {
-                Toggle(isOn: $model.showsHiddenFiles) {
-                    if model.showsHiddenFiles {
-                        Label {
-                            SwiftUI.Text("Showing Hidden Files")
-                        } icon: {
-                            Image(systemName: "eye.slash")
-                        }
-                    } else {
-                        Label {
-                            SwiftUI.Text("Show Hidden Files")
-                        } icon: {
-                            Image(systemName: "eye")
-                        }
+        ControlGroup {
+            Toggle(isOn: $model.showsHiddenFiles) {
+                if model.showsHiddenFiles {
+                    Label {
+                        SwiftUI.Text("Showing Hidden Files")
+                    } icon: {
+                        Image(systemName: "eye.slash")
+                    }
+                } else {
+                    Label {
+                        SwiftUI.Text("Show Hidden Files")
+                    } icon: {
+                        Image(systemName: "eye")
                     }
                 }
-                .help("Show hidden files")
-                Button("Refresh", systemImage: "arrow.clockwise") {
-                    model.refresh()
-                }
-                .help("Refresh")
-
-                Button("New Folder", systemImage: "folder.badge.plus") {
-                    newFolderName = "untitled folder"
-                    isNamingFolder = true
-                }
-                .help("New Folder")
-                Button("New File", systemImage: "doc.badge.plus") {
-                    model.newFile()
-                }
-                .help("New File")
             }
-            .controlSize(.regular)
+            .help("Show hidden files")
+            Button("Refresh", systemImage: "arrow.clockwise") {
+                model.refresh()
+            }
+            .help("Refresh")
+
+            Button("New Folder", systemImage: "folder.badge.plus") {
+                newFolderName = "untitled folder"
+                isNamingFolder = true
+            }
+            .help("New Folder")
+            Button("New File", systemImage: "doc.badge.plus") {
+                model.newFile()
+            }
+            .help("New File")
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 6)
+        .controlSize(.regular)
     }
 }
 
@@ -213,6 +214,9 @@ struct FileViewer: View {
             case .document(let data):
                 DocumentPreviewView(data: data)
                     .id(model.selectedFile)
+            case .word(let document):
+                WordPreviewView(document: document)
+                    .id(document.url)
             case .image(let data):
                 ImagePreviewView(data: data)
                     .id(model.selectedFile)

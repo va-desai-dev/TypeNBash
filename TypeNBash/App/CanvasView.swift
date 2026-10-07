@@ -12,7 +12,7 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
     @ViewBuilder let inspector: Inspector
     @State private var showsSidebar = true
     @State private var showsInspector = false
-
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         HSplitView {
@@ -21,8 +21,8 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
                     .frame(minWidth: 250, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
                     .background(Color.card)
             }
-            content
-                .background(Color.card)
+                content
+                    .background(Color.card)
             if showsInspector {
                 inspector
                     .frame(minWidth: 260, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
@@ -32,7 +32,7 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button {
-                    showsSidebar.toggle()
+                        showsSidebar.toggle()
                 } label: {
                     Image(systemName: "sidebar.leading")
                 }
@@ -42,7 +42,7 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
                 .sharedBackgroundVisibility(.hidden)
             ToolbarItem {
                 Button {
-                    showsInspector.toggle()
+                        showsInspector.toggle()
                 } label: {
                     Image(systemName: "sidebar.trailing")
                 }
@@ -71,23 +71,81 @@ struct WorkspaceEditorPane: View {
     /// Lives here because both the header (which toggles it) and the viewer
     /// (which renders it) hang off this pane.
     @State private var mdViewSelection: MDViewStyle = .fancy
+    @State private var showsBrowser = false
+    /// Created on first show and kept, so tabs survive toggling back to the editor.
+    @State private var browserModel: BrowserModel?
 
     var body: some View {
-        FileViewer(model: model, session: session, mdViewSelection: mdViewSelection, bibliography: bibliography)
-            .safeAreaBar(edge: .top) {
-                FileBrowserPaneHeader(
-                    model: model,
-                    session: session,
-                    mdViewSelection: $mdViewSelection,
-                    onRunInConsole: onRunInConsole
-                )
+        if showsBrowser, let browserModel {
+            // The browser pane brings its own header; the toggle sits at the
+            // same trailing edge as in the editor header.
+            BrowserView(model: browserModel) {
+                BrowserToggleButton(showsBrowser: $showsBrowser)
             }
-            .safeAreaBar(edge: .bottom) {
-                if showsFooter {
-                    FileViewerFooter(session: session)
-                        .background(Color.card)
+        } else {
+            FileViewer(model: model, session: session, mdViewSelection: mdViewSelection, bibliography: bibliography)
+                .safeAreaBar(edge: .top) { editorHeader }
+                .safeAreaBar(edge: .bottom) {
+                    if showsFooter && !model.isReadOnly {
+                        PaneBar(edge: .bottom) {
+                            Text(session.position)
+                            Spacer()
+                            EditorIndentationLabel()
+                        }
+                    }
                 }
+                .onChange(of: showsBrowser) { _, shows in
+                    if shows && browserModel == nil { browserModel = BrowserModel() }
+                }
+        }
+    }
+
+    /// Languages whose consoles take pasted source.
+    private var isScript: Bool {
+        ["r", "py"].contains(model.selectedFile?.pathExtension.lowercased() ?? "")
+    }
+
+    private var isTable: Bool {
+        if case .table = model.preview { return true }
+        return false
+    }
+
+
+    private var editorHeader: some View {
+        PaneBar {
+            if model.isReadOnly {
+                ReadOnlyBadge()
+            } else {
+                EditorSaveButton(model: model, session: session)
             }
+            Spacer()
+            EditorDocumentTitle(model: model, session: session)
+            Spacer()
+            EditorDocumentKindLabel(model: model, session: session)
+            if case .markdown = model.preview {
+                MarkdownViewPicker(selection: $mdViewSelection)
+            }
+            if case .table = model.preview {
+                TableDataMenu(session: session)
+            }
+            if let onRunInConsole, isScript {
+                RunInConsoleButton(session: session, run: onRunInConsole)
+            }
+            if !model.isReadOnly, !isTable {
+                EditorOutlineMenu(session: session)
+                EditorFindButton(session: session)
+                EditorActionsMenu(session: session)
+                EditorOptionsMenu()
+            }
+            BrowserToggleButton(showsBrowser: $showsBrowser)
+                .buttonStyle(.borderedProminent)
+                .tint(.blue)
+        } accessory: {
+            // Stays mounted while hidden: it is what answers ⌘F.
+            if !model.isReadOnly {
+                EditorFindBar(session: session)
+            }
+        }
     }
 }
 
@@ -126,31 +184,25 @@ struct WorkspaceSidebar: View {
             onOpenInTerminal: onOpenInTerminal
         )
         .safeAreaInset(edge: .top) {
-            VStack(spacing: 0) {
-                FileBrowserToolbar(
+            PaneBar {
+                FileBrowserNavigationControls(model: model)
+                Spacer()
+                FileBrowserActionControls(
                     model: model,
                     isNamingFolder: $isNamingFolder,
                     newFolderName: $newFolderName
                 )
-                Divider()
             }
-            .background(Color.card)
         }
-        .safeAreaInset(edge: .bottom, alignment: .leading) {
-            VStack(alignment: .leading, spacing: 0) {
-                Divider()
-                HStack(alignment: .center) {
-                    Image(systemName: "folder.fill")
-                        .foregroundStyle(Color(NSColor.controlAccentColor))
-                    Text(model.directory.path(percentEncoded: false))
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                        .truncationMode(.middle)
-                }
-                .padding(.horizontal, 10)
-                .padding(.vertical, 6)
+        .safeAreaInset(edge: .bottom) {
+            PaneBar(edge: .bottom) {
+                Image(systemName: "folder.fill")
+                    .foregroundStyle(Color(NSColor.controlAccentColor))
+                Text(model.directory.path(percentEncoded: false))
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.middle)
             }
-            .background(Color.card)
         }
         .alert("New Folder", isPresented: $isNamingFolder) {
             TextField("Folder name", text: $newFolderName)
@@ -260,27 +312,47 @@ struct WorkspaceInspector: View {
             await session.streamTelemetry(to: monitor)
         }
         .safeAreaInset(edge: .top) {
-            VStack(spacing: 0) {
-                header
-                Divider()
+            PaneBar {
+                InspectorTabPicker(selection: $selection)
             }
-            .background(Color.card)
         }
         .safeAreaInset(edge: .bottom) {
             if selection == .writing, session.fileBrowser.supportsCitations {
-                VStack(spacing: 0) {
-                    Divider()
-                    footer
+                PaneBar(edge: .bottom) {
+                    WritingSubtabPicker(selection: $subselection)
                 }
-                .background(Color.card)
             } else {
                 EmptyView()
             }
         }
     }
+}
 
-    private var footer: some View {
-        Picker("Writing", selection: $subselection) {
+struct InspectorTabPicker: View {
+    @Binding var selection: InspectorTabs
+
+    var body: some View {
+        // On macOS a menu Picker is an NSPopUpButton: each row is flattened to an
+        // NSMenuItem (one image + one title), so Spacers/HStacks inside rows are
+        // ignored, and the button hugs its widest item unless told to be flexible.
+        Picker("Inspector", selection: $selection) {
+            ForEach(InspectorTabs.allCases) { tab in
+                Label(tab.rawValue.capitalized, systemImage: tab.icon)
+                    .tag(tab)
+            }
+        }
+        .pickerStyle(.menu)
+        .labelsHidden()
+        .buttonSizing(.flexible)
+        .frame(maxWidth: .infinity)
+    }
+}
+
+struct WritingSubtabPicker: View {
+    @Binding var selection: WritingInspectorSubtabs
+
+    var body: some View {
+        Picker("Writing", selection: $selection) {
             ForEach(WritingInspectorSubtabs.allCases) { tab in
                 Text(tab.rawValue.capitalized)
                     .tag(tab)
@@ -290,26 +362,6 @@ struct WorkspaceInspector: View {
         .labelsHidden()
         .buttonSizing(.flexible)
         .frame(maxWidth: .infinity)
-        .padding(.horizontal, 8)
-        .padding(.vertical, 6)
-    }
-
-    private var header: some View {
-            // On macOS a menu Picker is an NSPopUpButton: each row is flattened to an
-            // NSMenuItem (one image + one title), so Spacers/HStacks inside rows are
-            // ignored, and the button hugs its widest item unless told to be flexible.
-            Picker("Inspector", selection: $selection) {
-                ForEach(InspectorTabs.allCases) { tab in
-                    Label(tab.rawValue.capitalized, systemImage: tab.icon)
-                        .tag(tab)
-                }
-            }
-            .pickerStyle(.menu)
-            .labelsHidden()
-            .buttonSizing(.flexible)
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 6)
     }
 }
 

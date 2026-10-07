@@ -21,6 +21,18 @@ final class FileBrowserModel {
     private(set) var entries: [Entry] = []
     private(set) var selectedFile: URL?
     private(set) var preview = FilePreview.none
+    var isReadOnly: Bool {
+        if case .word = preview { return true }
+        if case .document = preview { return true }
+        if case .image = preview { return true }
+        return false
+    }
+    var readOnlyLabel: String {
+        if case .word = preview { return "Word Document" }
+        if case .document = preview { return "PDF Document" }
+        if case .image = preview { return "Image File" }
+        return ""
+    }
     private(set) var errorMessage: String?
     private(set) var isLoading = false
     private(set) var isPreviewTruncated = false
@@ -122,6 +134,7 @@ final class FileBrowserModel {
         case table(CSVTable)
         case image(Data)
         case document(Data)
+        case word(WordPreviewDocument)
         case unsupported(String)
         case failed(String)
         case markdown(String)
@@ -411,6 +424,7 @@ final class FileBrowserModel {
         // text previews stay tightly bounded (they're safe to truncate mid-file).
         let isBinaryPreview = Self.imageExtensions.contains(ext)
             || Self.documentExtensions.contains(ext)
+            || ext == "docx"
         let limit = isBinaryPreview ? Self.binaryPreviewByteLimit : Self.previewByteLimit
 
         Task {
@@ -418,7 +432,7 @@ final class FileBrowserModel {
                 // The workspace filesystem is the "connection": local memory-maps a
                 // prefix, SSH streams a prefix over the wire — either way we get up to
                 // `limit` bytes and render them identically. No local/remote branch.
-                let data = try await fs.readFile(at: fileURL, maximumByteCount: limit)
+                let data = try await fs.readFile(at: fileURL, maximumByteCount: limit + (ext == "docx" ? 1 : 0))
                 guard generation == previewGeneration else { return }
                 let parsed = await Task.detached(priority: .userInitiated) {
                     Self.makePreview(from: data, fileExtension: ext, totalByteCount: totalByteCount, limit: limit)
@@ -492,6 +506,17 @@ final class FileBrowserModel {
         totalByteCount: Int?,
         limit: Int
     ) -> FilePreview {
+        if fileExtension.lowercased() == "docx" {
+            guard !data.isEmpty else { return .failed("This Word document is empty.") }
+            guard data.count <= limit, (totalByteCount ?? data.count) <= limit else {
+                return .unsupported("This Word document exceeds the 25 MB preview limit.")
+            }
+            do {
+                return .word(try WordPreviewDocument(data: data))
+            } catch {
+                return .failed("Couldn’t prepare the Word preview: \(error.localizedDescription)")
+            }
+        }
         guard !data.isEmpty else { return .text("") }
 
         // Route recognized binary types to their dedicated viewers before the

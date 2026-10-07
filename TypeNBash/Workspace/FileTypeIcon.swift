@@ -49,6 +49,10 @@ nonisolated enum FileTypeIcon: Hashable, Sendable {
         "tsx": "react_ts",
         "clj": "clojure", "edn": "clojure",
         "log": "log",
+        "pyc": "python-misc",
+        "doc": "word",
+        "docx": "word",
+        "docm": "word"
     ]
 
     /// `SyntaxMap.json` syntax name → Material icon.
