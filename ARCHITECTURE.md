@@ -16,7 +16,7 @@ so moving Swift files inside it does not require individual project references.
 | `Editor` | Text editor bridge, session, syntax, text system and find UI |
 | `SourceControl` | Git service, observable model and UI; `Diff` and `GitHub` own their features |
 | `Telemetry` | System monitoring, remote telemetry and inspector rows |
-| `Agents` | Headless coding-agent sessions rooted at the open project, and the chat pane |
+| `Agents` | Native BYOK provider adapters, tool runner, workspace tools, approvals, conversations, and chat presentation |
 | `Resources`, `Assets.xcassets` | Bundled syntax definitions and visual assets |
 
 Keep operational work in the existing models and services. Views own presentation
@@ -108,3 +108,66 @@ remain in `ProjectStore`, while portable name/output settings live with project
 files and are reloaded on open. `WindowSession.prepareProjectOutputDirectory()`
 provides one lazy, project-relative output destination for future exporters.
 See `PROJECTS.md` for the format and behavior.
+
+## BYOK workspace agents
+
+`AgentSession` owns observable chat state and user decisions; `AgentRunner` owns
+the bounded provider/tool loop. `AgentHTTPProvider` maps Anthropic Messages,
+OpenAI Responses, and OpenAI Chat Completions to common events while retaining
+provider continuation items. `AgentChatCompletionStream` assembles interleaved
+tool names/arguments by index and preserves reasoning fields used by local models.
+Raw SSE framing handles fragmented UTF-8 and requires a complete response before
+any tool executes. Model IDs are explicit settings, not hard-coded aliases.
+
+`AgentConnection` separates API format, Base URL, and authentication. Settings
+retain independent ENGRAISERVER/custom, local Ollama, Ollama Cloud, and official
+API connections. ENGRAISERVER defaults to `https://llm.engrai.app/v1` with Chat
+Completions and a bearer credential; its model ID is user-selected. Local Ollama
+defaults to `http://localhost:11434/v1` with Responses and no credential. A signed-in
+local Ollama server can route cloud models; direct Ollama Cloud uses
+`https://ollama.com/v1` and an Ollama bearer key. The app does not start model servers
+or perform subscription OAuth. OpenAI/Anthropic API connections remain optional.
+
+An origin URL gets `/v1`; an explicit base path is retained. A pasted full endpoint
+is normalized without doubling the suffix. Credentials live in Keychain scoped to
+the normalized API base and authentication mode. Existing official-provider key
+accounts remain usable. URL credentials, query strings and fragments are rejected.
+Requests do not follow redirects or use shared credential/cookie storage. HTTPS
+is required for remote hosts; local HTTP is allowed with `NSAllowsLocalNetworking`
+and a local-network usage description, without an arbitrary-loads ATS exception.
+Ollama/custom Responses requests omit OpenAI-only encrypted-reasoning and strict
+schema options. Chat Completions uses `role: tool` results and requires a finish
+reason plus `[DONE]`; incomplete, truncated or duplicate calls cannot execute.
+
+`AgentWorkspaceTools` reads and searches on an actor. Its descriptor-relative local
+access rejects traversal, symlinks, hard links, known credential paths, nonregular
+files and oversized/binary content. This specialized access layer avoids reopening
+unchecked paths through the general browsing filesystem. Changes carry content
+revisions and exact-match edits. `AgentEditorCoordinator` checks every registered
+editor for unsaved changes immediately before a bounded atomic file commit, then
+refreshes the relevant windows. The chat exposes before/after review and conditional
+revert of existing-file edits. New files/directories are retained when stopping a run.
+
+`AgentConversationStore` uses a dedicated SwiftData configuration for transcripts,
+provider continuation state, pending tool calls and completed results. Recovery
+settles uncertain calls as interrupted rather than replaying side effects. Provider
+or model changes take effect in a new conversation. Each new conversation also
+freezes its endpoint, API format and authentication method, so changing settings
+does not send existing history to a different server. Legacy snapshots retain
+their original official endpoint. Context is bounded to 2 MB,
+turns to 20 model rounds, and provider output to 8 MB; automatic compaction is not
+implemented. Tools are advertised and checked at dispatch against build capabilities.
+
+Debug/Release are DMG configurations with `DIRECT_DISTRIBUTION`. The
+`TypeNBash-AppStore` scheme uses AppStoreDebug/AppStoreRelease, `APP_STORE`, its own
+bundle identifier, sandbox entitlements and user-selected folder bookmarks.
+`AgentLocalCommand` is compiled only with `DIRECT_DISTRIBUTION && !APP_STORE`.
+Commands require individual approval, capture bounded stdout/stderr, and use their
+own process group with a 120-second maximum. The working directory is not a security
+boundary for commands. The agent never writes commands into the interactive terminal.
+
+The App Store variant does not instantiate the terminal pane; its terminal launch
+call is also compiled out. Its project picker uses NSOpenPanel and holds a security
+scope for the workspace/session lifetime. SSH agents and App Store SSH workspaces
+are not implemented yet. This configuration is a sandbox development target; the
+rest of the app still needs signed sandbox acceptance and distribution review.

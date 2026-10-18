@@ -17,8 +17,6 @@ protocol WorkspaceBackend: AnyObject {
     func disconnect()
     /// Launch parameters for the SwiftTerm-backed terminal.
     func makeTerminalConfiguration() throws -> TerminalLaunchConfiguration
-    /// Launch parameters for a headless coding agent working in `rootDirectory`.
-    func makeAgentLaunch(_ request: AgentLaunchRequest) async throws -> AgentLaunchConfiguration
     func applyTelemetry(to monitor: SystemMonitor) async throws
 }
 
@@ -38,10 +36,6 @@ final class LocalWorkspaceBackend: WorkspaceBackend {
 
     func makeTerminalConfiguration() -> TerminalLaunchConfiguration {
         .localShell(workingDirectory: rootDirectory)
-    }
-
-    func makeAgentLaunch(_ request: AgentLaunchRequest) async throws -> AgentLaunchConfiguration {
-        try await .localClaudeCode(request, workingDirectory: rootDirectory)
     }
 
     func applyTelemetry(to monitor: SystemMonitor) async throws {
@@ -102,11 +96,6 @@ final class SSHWorkspaceBackend: WorkspaceBackend {
 
     func makeTerminalConfiguration() throws -> TerminalLaunchConfiguration {
         try connection.makeTerminalConfiguration(workingDirectory: rootDirectory)
-    }
-
-    /// Needs a streaming variant of `execute` so the agent runs beside the files on the host.
-    func makeAgentLaunch(_ request: AgentLaunchRequest) async throws -> AgentLaunchConfiguration {
-        throw AgentError.remoteUnsupported
     }
 
     /// Runs a program on the host over this workspace's control connection.

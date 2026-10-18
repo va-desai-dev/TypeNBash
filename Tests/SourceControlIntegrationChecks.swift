@@ -3,7 +3,7 @@ import Foundation
 
 @main
 struct SourceControlIntegrationChecks {
-    static func main() async throws {
+    @MainActor static func main() async throws {
         let root = FileManager.default.temporaryDirectory.appendingPathComponent("centcom-git-\(UUID())")
         try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
         defer { try? FileManager.default.removeItem(at: root) }
@@ -79,19 +79,91 @@ struct SourceControlIntegrationChecks {
         } catch { precondition(error is GitPushError) }
         let after = try String(contentsOf: remoteMain, encoding: .utf8)
         precondition(before == after, "Rejected push must leave the remote branch untouched")
+        try await checkExistingRepository(at: root.appendingPathComponent("existing-repository"))
         print("Push checks passed: publication, explicit branch only, detached HEAD refusal, non-fast-forward refusal without changing remote history.")
         print("Source control checks passed: discovery, no implicit initialization, initial commit, literal paths, partial staging, unstage preserves content, deletion, local remote fetch, linked worktree.")
     }
 
-    static func git(_ arguments: [String], at root: URL) throws {
+    @MainActor static func checkExistingRepository(at root: URL) async throws {
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        try git(["init", "-b", "main"], at: root)
+        try git(["config", "user.name", "Existing fixture"], at: root)
+        try git(["config", "user.email", "existing@example.invalid"], at: root)
+        try git(["config", "commit.gpgsign", "false"], at: root)
+        let file = root.appendingPathComponent("tracked.txt")
+        try "base\n".write(to: file, atomically: true, encoding: .utf8)
+        try git(["add", "tracked.txt"], at: root)
+        try git(["commit", "-m", "Created outside TypeNBash"], at: root)
+        let parent = try git(["rev-parse", "HEAD"], at: root)
+        try "staged\n".write(to: file, atomically: true, encoding: .utf8)
+        let model = SourceControlModel(directory: root)
+        await model.run(.refresh)
+        await model.run(.stage("tracked.txt"))
+        try "unstaged\n".write(to: file, atomically: true, encoding: .utf8)
+        model.commitMessage = "Keep my staged changes"
+        precondition(model.canCommit)
+
+        // A repo-local empty value overrides any developer machine identity.
+        try git(["config", "user.name", ""], at: root)
+        await model.run(.commit(model.commitMessage))
+        precondition(model.errorMessage?.contains("commit name and email") == true,
+                     "Missing identity must explain the repository-local remedy")
+        precondition(model.commitMessage == "Keep my staged changes" && model.snapshot?.changes.first?.staged == true)
+        precondition(model.needsIdentity && model.isEditingIdentity && !model.canCommit)
+        precondition(model.identityDraft.email == "existing@example.invalid", "Keep any identity field that is already available")
+        check(try git(["rev-parse", "HEAD"], at: root) == parent)
+
+        model.identityDraft = .init(name: "  Repository Author  ", email: "  author@example.invalid  ")
+        await model.saveIdentity()
+        precondition(model.errorMessage == nil && !model.needsIdentity && !model.isEditingIdentity && model.canCommit)
+        precondition(model.commitMessage == "Keep my staged changes", "Saving identity must preserve the pending commit message")
+        check(try git(["config", "--local", "user.name"], at: root) == "Repository Author\n")
+        check(try git(["config", "--local", "user.email"], at: root) == "author@example.invalid\n")
+        check(try git(["rev-parse", "HEAD"], at: root) == parent)
+        let reopened = try await SourceControlService().perform(.refresh, in: root)
+        precondition(reopened.identity == .init(name: "Repository Author", email: "author@example.invalid"))
+        for invalid in [SourceControlIdentity(name: "", email: "valid@example.invalid"),
+                        .init(name: "Bad\nName", email: "valid@example.invalid"),
+                        .init(name: "Valid", email: "bad email"), .init(name: "<Bad>", email: "valid@example.invalid")] {
+            do {
+                _ = try await SourceControlService().saveIdentity(invalid, in: root)
+                fatalError("Invalid identity accepted")
+            } catch {}
+        }
+        check(try git(["config", "--local", "user.name"], at: root) == "Repository Author\n")
+        let lock = root.appendingPathComponent(".git/refs/heads/main.lock")
+        try Data().write(to: lock)
+        await model.run(.commit(model.commitMessage))
+        precondition(model.errorMessage?.contains("lock") == true, "Ref-lock errors must explain the failure")
+        check(try git(["rev-parse", "HEAD"], at: root) == parent)
+        precondition(FileManager.default.fileExists(atPath: lock.path), "Never remove another writer's lock")
+        try FileManager.default.removeItem(at: lock)
+
+        await model.run(.commit(model.commitMessage))
+        precondition(model.errorMessage == nil && model.commitMessage.isEmpty && model.resultMessage != nil)
+        check(try git(["rev-parse", "HEAD^"], at: root) == parent)
+        check(try git(["show", "HEAD:tracked.txt"], at: root) == "staged\n")
+        check(try git(["log", "-1", "--format=%an|%ae|%cn|%ce"], at: root)
+              == "Repository Author|author@example.invalid|Repository Author|author@example.invalid\n")
+        check(try String(contentsOf: file, encoding: .utf8) == "unstaged\n")
+        precondition(model.snapshot?.changes.first?.staged == false && model.snapshot?.changes.first?.unstaged == true)
+        print("Existing-repository checks passed: missing identity setup, local config persistence, validation, authored commit, safe retry, staged-only content, preserved working tree.")
+    }
+
+    static func check(_ condition: Bool) { precondition(condition) }
+
+    @discardableResult static func git(_ arguments: [String], at root: URL) throws -> String {
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/usr/bin/git")
         process.arguments = arguments
         process.currentDirectoryURL = root
-        process.standardOutput = FileHandle.nullDevice
+        let output = Pipe()
+        process.standardOutput = output
         process.standardError = FileHandle.nullDevice
         try process.run()
+        let data = output.fileHandleForReading.readDataToEndOfFile()
         process.waitUntilExit()
         precondition(process.terminationStatus == 0, "Fixture git command failed: \(arguments.first ?? "")")
+        return String(decoding: data, as: UTF8.self)
     }
 }

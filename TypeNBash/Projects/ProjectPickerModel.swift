@@ -66,10 +66,21 @@ final class ProjectPickerModel {
     }
 
     func chooseFolder() {
+        #if APP_STORE
+        guard selectedProfileID == nil else { error = "SSH workspaces are not yet supported in this build."; return }
+        do {
+            if let grant = try WorkspaceFolderAuthorization.choose() {
+                directoryPath = grant.url.path
+                isBrowsing = false
+            }
+        } catch { self.error = error.localizedDescription }
+        return
+        #else
         isBrowsing = true
         let initialPath = selectedProfileID == nil && session.location == .local
             ? session.fileBrowser.directory.path(percentEncoded: false) : nil
         browse(path: directoryPath.isEmpty ? initialPath : directoryPath)
+        #endif
     }
 
     func browse(path: String? = nil) {
@@ -128,6 +139,10 @@ final class ProjectPickerModel {
 
     private func open(_ project: Project, mode: SetupMode, completion: @escaping () -> Void) {
         run { [self] in
+            #if APP_STORE
+            guard project.isLocal else { throw AgentFailure("SSH workspaces are not yet supported in this build.") }
+            #endif
+            var folderGrant: WorkspaceFolderGrant?
             var opened = project
             let backend = project.sshProfileID == nil ? nil : try await remoteBackend()
             let fileSystem: any WorkspaceFileSystem = backend?.fileSystem ?? LocalWorkspaceFileSystem()
@@ -141,6 +156,9 @@ final class ProjectPickerModel {
             } else {
                 URL(fileURLWithPath: (input as NSString).expandingTildeInPath).standardizedFileURL.resolvingSymlinksInPath()
             }
+            #if APP_STORE
+            folderGrant = try WorkspaceFolderAuthorization.acquire(root)
+            #endif
             try Task.checkCancellation()
             if mode == .newFolder {
                 let entries = try await fileSystem.contentsOfDirectory(at: root, includingHiddenFiles: true)
@@ -185,7 +203,7 @@ final class ProjectPickerModel {
                     profiles.save(profile, password: nil)
                 }
             } else {
-                await session.open(opened, at: .local(root))
+                await session.open(opened, at: .local(root), folderGrant: folderGrant)
             }
             if let saved = store.save(opened) { store.markOpened(saved) }
             password = ""

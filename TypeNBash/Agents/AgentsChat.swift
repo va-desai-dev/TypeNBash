@@ -10,7 +10,7 @@ import SwiftUI
 /// The agent pane: a transcript over a composer. `AgentSession` does the work;
 /// this view forwards prompts, stop requests and the permission choice.
 struct AgenticChatView: View {
-    let session: AgentSession
+    @Bindable var session: AgentSession
     @State private var composerHeight: CGFloat = 0
 
     var body: some View {
@@ -20,11 +20,52 @@ struct AgenticChatView: View {
         .overlay {
             if session.messages.isEmpty {
                 ContentUnavailableView(
-                    "Claude Code",
-                    systemImage: "terminal",
-                    description: Text("Works in \(session.workingDirectory.lastPathComponent)")
+                    "Workspace Agent",
+                    systemImage: "sparkles",
+                    description: Text("Works in \(session.workingDirectory.lastPathComponent). Choose your model server in Settings → Agents.")
                 )
             }
+        }
+        .safeAreaBar(edge: .top, spacing: 0) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Text(session.providerTitle).lineLimit(1)
+                    Spacer()
+                    Button("New Chat", action: session.newConversation).disabled(session.isRunning)
+                }
+                if let error = session.persistenceError { Text(error).font(.caption).foregroundStyle(.red) }
+                if let error = session.configurationError { Text(error).font(.caption).foregroundStyle(.red) }
+                if AgentBuildCapabilities.localCommands {
+                    Toggle("Offer local commands (approval required)", isOn: $session.allowsCommands)
+                        .font(.caption).disabled(session.isRunning)
+                }
+                if let approval = session.approval {
+                    Text(approval.title).font(.headline)
+                    ScrollView { Text(approval.detail).font(.system(.caption, design: .monospaced)).textSelection(.enabled).frame(maxWidth: .infinity, alignment: .leading) }
+                        .frame(maxHeight: 220)
+                    HStack {
+                        Button("Decline", role: .cancel) { session.resolveApproval(false) }
+                        Button("Approve") { session.resolveApproval(true) }
+                    }
+                }
+                if !session.changes.isEmpty {
+                    DisclosureGroup("Workspace changes (\(session.changes.count))") {
+                        ScrollView {
+                            ForEach(session.changes) { change in
+                                DisclosureGroup(change.path) {
+                                    Text(change.review).font(.system(.caption, design: .monospaced)).textSelection(.enabled)
+                                    if change.before != nil {
+                                        Button("Revert This Edit") { session.revert(change) }.disabled(session.isRunning)
+                                    }
+                                }
+                            }
+                        }.frame(maxHeight: 200)
+                    }.font(.caption)
+                }
+            }
+            .padding(.vertical, 6)
+            .padding(.horizontal, 10)
+            .background(Color.card)
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
             ChatComposerView(
@@ -57,5 +98,6 @@ struct AgenticChatView: View {
                 .contentShape(Rectangle())
         }
         .help("Permissions: \(session.permissionMode.title)")
+        .disabled(session.isRunning)
     }
 }

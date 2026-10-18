@@ -65,7 +65,7 @@ struct MessageRow: View {
 }
 
 // ── Tool activity ───────────────────────────────────────────────────────────
-// One tool call: what it acted on, then its output once the CLI reports it.
+// One tool call: what it acted on, then its output once the harness reports it.
 private struct ToolActivityRow: View {
     let tool: ToolActivity
 

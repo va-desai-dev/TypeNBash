@@ -154,6 +154,7 @@ struct TerminalHostView: NSViewRepresentable {
             // `arguments` carries argv in full, so element 0 is argv[0] — "-zsh"
             // for a login shell, "ssh" for a remote session — and SwiftTerm takes
             // that separately as `execName`.
+            #if DIRECT_DISTRIBUTION && !APP_STORE
             terminal.startProcess(
                 executable: configuration.executablePath,
                 args: Array(configuration.arguments.dropFirst()),
@@ -161,6 +162,7 @@ struct TerminalHostView: NSViewRepresentable {
                 execName: configuration.arguments.first,
                 currentDirectory: configuration.workingDirectory.path(percentEncoded: false)
             )
+            #endif
             // Anything queued while the view was still being laid out — an
             // "Open in Terminal" that triggered the switch to this pane, say —
             // is replayed now. The pty buffers it until the shell finishes

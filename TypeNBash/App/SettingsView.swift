@@ -12,6 +12,7 @@ enum IDESettingsTab: String, CaseIterable, Identifiable {
     case connections = "Remotes"
     case projects = "Projects"
     case sourceControl = "Source Control"
+    case agents = "Agents"
 
     var id: String { self.rawValue }
 
@@ -21,6 +22,7 @@ enum IDESettingsTab: String, CaseIterable, Identifiable {
         case .connections: return "network"
         case .projects: return "folder"
         case .sourceControl: return "arrow.triangle.branch"
+        case .agents: return "sparkles"
         }
     }
 }
@@ -50,6 +52,8 @@ struct IDESettingsView: View {
                 case .projects:
                     ProjectsSettingsPane()
                             .scrollContentBackground(.hidden)
+                case .agents:
+                    AgentSettingsPane()
                 case .sourceControl:
                     SourceControlSettingsPane()
                             .scrollContentBackground(.hidden)

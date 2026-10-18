@@ -35,6 +35,28 @@ struct SourceControlView: View {
                 Text(snapshot.root.path(percentEncoded: false))
                     .font(.caption).foregroundStyle(.secondary).textSelection(.enabled)
                 Label(snapshot.branch, systemImage: "arrow.triangle.branch")
+                if model.remote == nil {
+                    if model.isEditingIdentity {
+                        GroupBox("Commit Identity") {
+                            VStack(alignment: .leading, spacing: 8) {
+                                TextField("Name", text: $model.identityDraft.name)
+                                TextField("Email", text: $model.identityDraft.email)
+                                    .autocorrectionDisabled()
+                                Text("Saved in this repository’s Git settings. This name and email are recorded in future commits and visible when you share them.")
+                                    .font(.caption).foregroundStyle(.secondary)
+                                HStack {
+                                    Button("Save for This Repository") { Task { await model.saveIdentity() } }
+                                        .disabled(!model.canSaveIdentity)
+                                    if !model.needsIdentity { Button("Cancel", action: model.cancelIdentityEditing) }
+                                }
+                            }.textFieldStyle(.roundedBorder)
+                        }
+                        .disabled(model.isBusy || model.account.isBusy)
+                    } else {
+                        Button("Commit Identity…", action: model.editIdentity)
+                            .disabled(model.isBusy || model.account.isBusy)
+                    }
+                }
                 List(snapshot.changes) { change in
                     HStack {
                         VStack(alignment: .leading) {

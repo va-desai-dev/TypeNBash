@@ -207,6 +207,27 @@ contents, staged deletions, fetching a local bare remote, and linked worktrees.
 Push checks verify initial publication, explicit branch selection even with a
 broad forced refspec in Git config, detached HEAD refusal, and rejection of a
 diverged remote without overwriting its history.
+An existing repository created by command-line Git also exercises commit failure
+and retry. Missing identity opens Commit Identity and blocks committing until a
+name and email are saved in repository-local Git config. Tests check validation,
+reopening the repository, author/committer fields, and preserving the pending
+message and staging. A locked branch displays the underlying Git error and leaves
+HEAD unchanged; retry commits only staged contents with the correct parent,
+preserving additional unstaged edits. No global identity is written or inferred
+from the repository's previous authors or GitHub sign-in.
+
+Run the same suite against the compiled App Store configuration with:
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-byok-store-final \
+  /tmp/centcom-byok-packages SourceControlIntegrationChecks.swift AppStoreDebug
+```
+
+These tests load the built module outside the app sandbox. Signed sandbox
+acceptance: open an existing repo via the native folder panel, enter Commit
+Identity when global config is unavailable, save it, then commit staged changes.
+The author's name/email must match the entries; the home global config must stay
+unchanged. No additional home-directory grant or Git subprocess is needed.
 It does not access GitHub, use credentials, or modify the workspace repository.
 
 Manual UI check: open a local project and click Source Control in the toolbar.
@@ -401,23 +422,57 @@ expression that produced it, so any of them can be regenerated with `Rscript`. T
 `NotebookView` in a temporary window over a temporary project and runs a step
 against a file on disk. No project of yours is read or written.
 
-# Coding agent checks
+# BYOK agent checks
+
+Core checks compile the production runner, providers, native tools, and DMG
+command executor directly. They do not need package downloads or API keys:
 
 ```sh
-python3 Tests/run-runtime-checks.py /tmp/centcom-agents-build \
-  /tmp/centcom-agents-build/SourcePackages AgentIntegrationChecks.swift
+python3 Tests/run-agent-core-checks.py
+python3 Tests/run-agent-core-checks.py --app-store
 ```
 
-A stand-in `claude` script replays a stream-json turn trimmed from a real
-Claude Code run, so no account, network or installed CLI is needed. Checks cover
-decoding (deltas, finished blocks, empty signed thinking, subagent filtering,
-structured tool results, raw U+2028 inside a line), the agent existing only in
-project mode and running in the project root, survival across console restarts,
-the prompt arriving on stdin, session resumption with the current permission
-mode, stderr on failed launches, Stop, and a missing CLI.
+Checks cover revision conflicts, exclusive creation, symlink/traversal and hard-link
+rejection, binary-file exclusion, native search, SSE fragmentation/Unicode,
+provider-specific continuation blocks, interleaved Chat Completions tool deltas,
+endpoint normalization, credential scoping, keyless local requests, HTTP fixtures, unauthorized tools,
+interrupted-call recovery, and DMG command output, timeout and descendant cleanup.
+The App Store check also verifies the command implementation is absent from symbols.
 
-Live acceptance: with `claude` on your login shell's PATH, open a local project,
-choose the Agents inspector tab and ask for a small edit in Accept Edits. Tool
-calls should appear as they run and the edit should land inside the project. A
-follow-up prompt should remember the first. SSH projects report that agents are
-not available yet.
+After a Debug app build, run the integration checks against the built module:
+
+```sh
+python3 Tests/run-runtime-checks.py /tmp/centcom-byok-build \
+  /tmp/centcom-byok-packages AgentIntegrationChecks.swift
+```
+
+This additionally checks edit approvals/declines, cross-window unsaved-buffer
+protection, SwiftData endpoint snapshots, independent saved connection settings,
+and an isolated temporary Keychain service.
+No live provider requests are made. All file fixtures are in `/tmp`.
+
+Live acceptance: in Settings → Agents select ENGRAISERVER/custom (Chat Completions,
+`https://llm.engrai.app/v1`, bearer credential entered directly into the app), Ollama
+(Responses, local Base URL, no authentication), or Ollama Cloud (Responses,
+`https://ollama.com/v1`, Ollama bearer key). Set an available tool-capable model ID.
+Official OpenAI/Anthropic API routes remain optional; no paid API account is needed
+for local inference. Cloud models through local Ollama require that server to be
+signed in already. The app does not perform browser OAuth or start model servers.
+Then open a local project. Ask for an edit and
+review its before/after text. Decline must leave disk unchanged; approval must
+apply the edit and refresh open editors. Follow-up prompts and reopening the
+project must retain conversation context. Stop must cancel requests and pending
+approvals. In the DMG, enable local commands and approve a small test command.
+The App Store build must never offer or dispatch that tool.
+
+Changing a Base URL must clear the credential indicator unless a key was already
+saved for the new endpoint. A running/existing conversation keeps its original
+endpoint, model and API format; use New Chat to apply settings changes. Verify
+local-network permission on a signed build when connecting to a LAN server.
+HTTP fixture tests validate wire behavior, not live model tool quality, cloud
+account access, or the signed sandbox's network permission prompts.
+
+Build the `TypeNBash-AppStore` scheme for the sandboxed configuration. Signed
+sandbox acceptance additionally requires choosing a workspace in the native
+folder panel, reopening through its bookmark after relaunch, and revoking access.
+Signing/provisioning and store review remain separate from unsigned compile checks.

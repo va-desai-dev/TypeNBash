@@ -20,6 +20,28 @@ struct SourceControlSnapshot: Sendable {
     let unborn: Bool
     let changes: [SourceControlChange]
     let remotes: [String]
+    var identity: SourceControlIdentity? = nil
+}
+
+nonisolated struct SourceControlIdentity: Equatable, Sendable {
+    var name = ""
+    var email = ""
+    var isComplete: Bool {
+        !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && !email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    func validated() throws -> Self {
+        let value = Self(name: name.trimmingCharacters(in: .whitespacesAndNewlines),
+                         email: email.trimmingCharacters(in: .whitespacesAndNewlines))
+        guard value.isComplete else { throw SourceControlError.missingIdentity }
+        let forbidden = CharacterSet.controlCharacters.union(CharacterSet(charactersIn: "<>"))
+        guard value.name.rangeOfCharacter(from: forbidden) == nil,
+              value.email.rangeOfCharacter(from: forbidden.union(.whitespacesAndNewlines)) == nil else {
+            throw SourceControlError.invalidIdentity
+        }
+        return value
+    }
 }
 
 enum SourceControlAction: Sendable {
@@ -34,6 +56,25 @@ enum SourceControlAction: Sendable {
 /// Keeps libgit2 and filesystem work off the UI actor. Each operation opens its
 /// own repository handle; no libgit2-backed objects escape into the views.
 actor SourceControlService {
+    /// Only repository config is written. This also works when the sandbox
+    /// cannot read the user's global ~/.gitconfig.
+    func saveIdentity(_ identity: SourceControlIdentity, in directory: URL) async throws -> SourceControlSnapshot {
+        let identity = try identity.validated()
+        let root = try Self.repositoryRoot(in: directory)
+        let repository = try Repository(at: root, createIfNotExists: false)
+        try repository.config.set("user.name", to: identity.name)
+        try repository.config.set("user.email", to: identity.email)
+        return try await perform(.refresh, in: directory)
+    }
+
+    private func identity(in repository: Repository) throws -> SourceControlIdentity {
+        func value(_ key: String) throws -> String {
+            do { return try repository.config.string(forKey: key) ?? "" }
+            catch where error.code == .notFound { return "" }
+        }
+        return try SourceControlIdentity(name: value("user.name"), email: value("user.email"))
+    }
+
     nonisolated static func repositoryRoot(in directory: URL) throws -> URL {
         var root = directory.standardizedFileURL
         while !FileManager.default.fileExists(atPath: root.appendingPathComponent(".git").path) {
@@ -57,6 +98,7 @@ actor SourceControlService {
             guard !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                 throw SourceControlError.emptyMessage
             }
+            _ = try identity(in: repository).validated()
             try repository.commit(message: message)
             await MainActor.run {
                 NotificationCenter.default.post(name: .editorGitBaselineDidChange, object: nil)
@@ -97,17 +139,20 @@ actor SourceControlService {
             detached: repository.isHEADDetached,
             unborn: repository.isHEADUnborn,
             changes: changes,
-            remotes: try repository.remote.list().map(\.name).sorted()
+            remotes: try repository.remote.list().map(\.name).sorted(),
+            identity: try identity(in: repository)
         )
     }
 }
 
 private enum SourceControlError: LocalizedError {
-    case noRepository, emptyMessage
+    case noRepository, emptyMessage, missingIdentity, invalidIdentity
     var errorDescription: String? {
         switch self {
         case .noRepository: "This folder is not inside a Git repository. Open a local repository to use source control."
         case .emptyMessage: "Enter a commit message."
+        case .missingIdentity: "Set your commit name and email in Commit Identity, then save them for this repository. GitHub sign-in does not set the Git author identity."
+        case .invalidIdentity: "Commit identity cannot contain line breaks or angle brackets, and the email cannot contain spaces."
         }
     }
 }

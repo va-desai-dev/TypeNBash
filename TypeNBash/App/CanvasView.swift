@@ -154,6 +154,10 @@ struct WorkspaceTerminalPane: View {
     let controller: TerminalController
 
     var body: some View {
+        #if APP_STORE
+        ContentUnavailableView("Local console unavailable", systemImage: "terminal",
+            description: Text("Workspace agents can read and edit project files using native tools."))
+        #else
         TerminalHostView(
             configuration: session.terminalConfiguration,
             controller: controller,
@@ -165,6 +169,7 @@ struct WorkspaceTerminalPane: View {
             }
         )
         .id(session.terminalGeneration)
+        #endif
     }
 }
 

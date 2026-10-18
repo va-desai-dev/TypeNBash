@@ -56,11 +56,10 @@ final class WindowSession {
             // backend here already works in the project's root.
             guard activeProject?.id != oldValue?.id || agent?.workingDirectory != rootDirectory else { return }
             agent?.stop()
-            agent = activeProject.map { _ in
-                AgentSession(workingDirectory: rootDirectory) { [weak backend] request in
-                    guard let backend else { throw CancellationError() }
-                    return try await backend.makeAgentLaunch(request)
-                }
+            agent = activeProject.map { project in
+                AgentSession(workingDirectory: rootDirectory,
+                    workspaceID: project.id.uuidString + ":" + rootDirectory.path,
+                    isLocal: location == .local, folderGrant: folderGrant)
             }
             replaceBibliography()
         }
@@ -117,6 +116,7 @@ final class WindowSession {
         (backend as? SSHWorkspaceBackend).map { RemoteGit(backend: $0) }
     }
 
+    private var folderGrant: WorkspaceFolderGrant?
     private var localDirectory: URL
 
     private var backend: any WorkspaceBackend
@@ -132,6 +132,7 @@ final class WindowSession {
         rootDirectory = localRoot
         terminalConfiguration = localBackend.makeTerminalConfiguration()
         fileBrowser = FileBrowserModel(fileSystem: localBackend.fileSystem)
+        AgentEditorCoordinator.shared.register(fileBrowser)
         fileBrowser.navigate(to: localRoot)
     }
 
@@ -142,6 +143,10 @@ final class WindowSession {
         to profile: SSHConnectionProfile,
         authentication: SSHAuthentication = .keyOrAgent
     ) async -> Bool {
+        #if APP_STORE
+        state = .failed(profile, "SSH workspaces are not yet supported in this build.")
+        return false
+        #else
         transitionGeneration &+= 1
         let generation = transitionGeneration
         // Preserve the current project until a replacement connection succeeds.
@@ -180,6 +185,7 @@ final class WindowSession {
             }
             return false
         }
+        #endif
     }
 
     /// Opens a project as the window's workspace, retaining it so the root
@@ -187,10 +193,11 @@ final class WindowSession {
     ///
     /// The target is resolved by the caller, which keeps the SSH profile (and
     /// Keychain) lookup out of the session.
-    func open(_ project: Project, at target: ProjectTarget) async {
+    func open(_ project: Project, at target: ProjectTarget, folderGrant: WorkspaceFolderGrant? = nil) async {
         switch target {
         case .local(let url):
             disconnectToLocal(rootDirectory: url)
+            self.folderGrant = folderGrant
             activeProject = project
 
         case .remote(let profile, let authentication):
@@ -257,6 +264,7 @@ final class WindowSession {
     /// boundary without moving the workspace.
     func closeProject() {
         activeProject = nil
+        folderGrant = nil
     }
 
     private var activeProjectLocalRoot: URL? {
@@ -321,6 +329,7 @@ final class WindowSession {
 
     func close() {
         agent?.stop()
+        folderGrant = nil
         if let citeTexTargetID { CiteTexTargets.shared.unregister(citeTexTargetID) }
         citeTexTargetID = nil
         bibliography = nil

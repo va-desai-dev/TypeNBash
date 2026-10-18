@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """State checks plus real PTY startup/cd/SSH guard/exit checks. No SSH host needed.
-Usage: python3 Tests/run-runtime-checks.py <DerivedData> <SourcePackages>
+Usage: python3 Tests/run-runtime-checks.py <DerivedData> <SourcePackages> [Test.swift] [Configuration]
 """
 import errno
 import json
@@ -23,7 +23,8 @@ import urllib.parse
 root = pathlib.Path(__file__).resolve().parent
 build = pathlib.Path(sys.argv[1]).resolve() / "Build"
 packages = pathlib.Path(sys.argv[2]).resolve()
-products = build / "Products/Debug"
+configuration = sys.argv[4] if len(sys.argv) > 4 else "Debug"
+products = build / "Products" / configuration
 with (products / "TypeNBash.app/Contents/Info.plist").open("rb") as info:
     deployment_target = plistlib.load(info)["LSMinimumSystemVersion"]
 with tempfile.TemporaryDirectory(prefix="centcom-runtime-checks-", dir="/tmp") as temporary:
@@ -34,6 +35,10 @@ with tempfile.TemporaryDirectory(prefix="centcom-runtime-checks-", dir="/tmp") a
     command = ["xcrun", "swiftc", "-parse-as-library", "-swift-version", "5", "-target",
                f"{platform.machine()}-apple-macos{deployment_target}", "-module-cache-path", str(temporary / "ModuleCache"),
                "-I", str(products), "-Xcc", "-I" + str(packages / "checkouts/libgit2/include")]
+    if len(sys.argv) > 3 and sys.argv[3] == "AgentIntegrationChecks.swift":
+        # Match the app's Approachable Concurrency callback ABI when implementing
+        # the imported AgentProvider protocol in a test fixture.
+        command += ["-enable-upcoming-feature", "NonisolatedNonsendingByDefault"]
     for module_map in maps:
         command += ["-Xcc", "-fmodule-map-file=" + str(module_map)]
     dylibs = products / "TypeNBash.app/Contents/MacOS"

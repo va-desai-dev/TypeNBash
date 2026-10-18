@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import SwiftGitX
 
 @MainActor
 @Observable
@@ -15,6 +16,29 @@ final class SourceControlModel {
     private(set) var resultMessage: String?
     var commitMessage = ""
     var selectedRemote = ""
+    var identityDraft = SourceControlIdentity()
+    private(set) var isEditingIdentity = false
+    var needsIdentity: Bool { remote == nil && snapshot?.identity?.isComplete == false }
+    var canSaveIdentity: Bool { !isBusy && (try? identityDraft.validated()) != nil }
+
+    func editIdentity() {
+        identityDraft = snapshot?.identity ?? SourceControlIdentity()
+        isEditingIdentity = true
+    }
+
+    func cancelIdentityEditing() { isEditingIdentity = false }
+
+    func saveIdentity() async {
+        guard remote == nil, canSaveIdentity else { return }
+        isBusy = true; errorMessage = nil; resultMessage = nil
+        defer { isBusy = false }
+        do {
+            snapshot = try await service.saveIdentity(identityDraft, in: directory)
+            identityDraft = snapshot?.identity ?? identityDraft
+            isEditingIdentity = false
+            resultMessage = "Commit identity saved for this repository. You can now commit your staged changes."
+        } catch { report(error) }
+    }
 
     /// Whether this remote host may borrow this Mac's GitHub sign-in — here and
     /// in its consoles. See `GitHubLending`.
@@ -40,6 +64,7 @@ final class SourceControlModel {
 
     var canCommit: Bool {
         !isBusy && !commitMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && !needsIdentity && !isEditingIdentity
             && snapshot?.changes.contains(where: \.staged) == true
             && snapshot?.changes.contains(where: \.conflicted) == false
     }
@@ -52,6 +77,7 @@ final class SourceControlModel {
         defer { isBusy = false }
         do {
             snapshot = try await perform(action)
+            if needsIdentity && !isEditingIdentity { editIdentity() }
             if let remotes = snapshot?.remotes, !remotes.contains(selectedRemote) {
                 selectedRemote = remotes.contains("origin") ? "origin" : (remotes.first ?? "")
             }
@@ -65,9 +91,15 @@ final class SourceControlModel {
             }
         } catch {
             if case GitHubDeviceFlowError.signInAgain = error { GitHubSignInStatus.shared.markExpired() }
-            errorMessage = error.localizedDescription
+            report(error)
             // A failed operation may have partially changed the index or refs.
             snapshot = try? await perform(.refresh)
+            if needsIdentity && !isEditingIdentity { editIdentity() }
         }
+    }
+
+    private func report(_ error: Error) {
+        // SwiftGitXError doesn't conform to LocalizedError.
+        errorMessage = (error as? SwiftGitXError).map { "Git: " + $0.message } ?? error.localizedDescription
     }
 }
