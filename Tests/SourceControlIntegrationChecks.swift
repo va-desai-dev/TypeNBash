@@ -79,12 +79,17 @@ struct SourceControlIntegrationChecks {
         } catch { precondition(error is GitPushError) }
         let after = try String(contentsOf: remoteMain, encoding: .utf8)
         precondition(before == after, "Rejected push must leave the remote branch untouched")
-        try await checkExistingRepository(at: root.appendingPathComponent("existing-repository"))
+        let suite = "centcom-git-identity-\(UUID())"
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let settings = SourceControlIdentitySettings(defaults: defaults)
+        try await checkExistingRepository(at: root.appendingPathComponent("existing-repository"), settings: settings)
+        try await checkAppIdentity(at: root, defaults: defaults)
         print("Push checks passed: publication, explicit branch only, detached HEAD refusal, non-fast-forward refusal without changing remote history.")
         print("Source control checks passed: discovery, no implicit initialization, initial commit, literal paths, partial staging, unstage preserves content, deletion, local remote fetch, linked worktree.")
     }
 
-    @MainActor static func checkExistingRepository(at root: URL) async throws {
+    @MainActor static func checkExistingRepository(at root: URL, settings: SourceControlIdentitySettings) async throws {
         try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
         try git(["init", "-b", "main"], at: root)
         try git(["config", "user.name", "Existing fixture"], at: root)
@@ -96,7 +101,7 @@ struct SourceControlIntegrationChecks {
         try git(["commit", "-m", "Created outside TypeNBash"], at: root)
         let parent = try git(["rev-parse", "HEAD"], at: root)
         try "staged\n".write(to: file, atomically: true, encoding: .utf8)
-        let model = SourceControlModel(directory: root)
+        let model = SourceControlModel(directory: root, identitySettings: settings)
         await model.run(.refresh)
         await model.run(.stage("tracked.txt"))
         try "unstaged\n".write(to: file, atomically: true, encoding: .utf8)
@@ -114,7 +119,9 @@ struct SourceControlIntegrationChecks {
         check(try git(["rev-parse", "HEAD"], at: root) == parent)
 
         model.identityDraft = .init(name: "  Repository Author  ", email: "  author@example.invalid  ")
+        model.rememberIdentity = true
         await model.saveIdentity()
+        precondition(settings.identity == .init(name: "Repository Author", email: "author@example.invalid"))
         precondition(model.errorMessage == nil && !model.needsIdentity && !model.isEditingIdentity && model.canCommit)
         precondition(model.commitMessage == "Keep my staged changes", "Saving identity must preserve the pending commit message")
         check(try git(["config", "--local", "user.name"], at: root) == "Repository Author\n")
@@ -148,6 +155,59 @@ struct SourceControlIntegrationChecks {
         check(try String(contentsOf: file, encoding: .utf8) == "unstaged\n")
         precondition(model.snapshot?.changes.first?.staged == false && model.snapshot?.changes.first?.unstaged == true)
         print("Existing-repository checks passed: missing identity setup, local config persistence, validation, authored commit, safe retry, staged-only content, preserved working tree.")
+    }
+
+    @MainActor static func checkAppIdentity(at root: URL, defaults: UserDefaults) async throws {
+        let settings = SourceControlIdentitySettings(defaults: defaults)
+        precondition(settings.identity == .init(name: "Repository Author", email: "author@example.invalid"),
+                     "App default must survive reopening settings")
+        settings.draft = .init(name: "  App Author  ", email: "  app@example.invalid  ")
+        settings.save()
+        precondition(settings.errorMessage == nil)
+        let expectedDefault = SourceControlIdentity(name: "App Author", email: "app@example.invalid")
+        precondition(settings.identity == expectedDefault)
+        settings.draft = .init(name: "Bad\nName", email: "app@example.invalid")
+        settings.save()
+        precondition(settings.errorMessage != nil && settings.identity == expectedDefault)
+
+        // Empty local entries reliably mask any global identity on the test machine.
+        for (index, configured) in [SourceControlIdentity(), .init(name: "Repo Name", email: ""),
+                                    .init(name: "", email: "repo@example.invalid"),
+                                    .init(name: "Repo Name", email: "repo@example.invalid")].enumerated() {
+            let repo = root.appendingPathComponent("default-identity-\(index)")
+            try FileManager.default.createDirectory(at: repo, withIntermediateDirectories: true)
+            try git(["init", "-b", "main"], at: repo)
+            try git(["config", "user.name", configured.name], at: repo)
+            try git(["config", "user.email", configured.email], at: repo)
+            let before = try Data(contentsOf: repo.appendingPathComponent(".git/config"))
+            let model = SourceControlModel(directory: repo,
+                identitySettings: SourceControlIdentitySettings(defaults: defaults))
+            await model.run(.refresh)
+            precondition(model.errorMessage == nil && !model.needsIdentity && !model.isEditingIdentity)
+            check(try Data(contentsOf: repo.appendingPathComponent(".git/config")) == before)
+            let file = repo.appendingPathComponent("file.txt")
+            try "contents\n".write(to: file, atomically: true, encoding: .utf8)
+            await model.run(.stage("file.txt"))
+            model.commitMessage = "Use saved identity"
+            precondition(model.canCommit)
+            await model.run(.commit(model.commitMessage))
+            precondition(model.errorMessage == nil)
+            let expected = configured.fillingMissingValues(from: expectedDefault)
+            check(try git(["log", "-1", "--format=%an|%ae|%cn|%ce"], at: repo)
+                == "\(expected.name)|\(expected.email)|\(expected.name)|\(expected.email)\n")
+            check(try git(["config", "--local", "user.name"], at: repo) == expected.name + "\n")
+            check(try git(["config", "--local", "user.email"], at: repo) == expected.email + "\n")
+        }
+        settings.clear()
+        precondition(SourceControlIdentitySettings(defaults: defaults).identity == nil)
+        let savedRepo = root.appendingPathComponent("default-identity-0")
+        let saved = try await SourceControlService().perform(.refresh, in: savedRepo)
+        precondition(saved.identity == expectedDefault, "Clearing the app default must preserve repository config")
+        try git(["config", "user.name", ""], at: savedRepo)
+        let model = SourceControlModel(directory: savedRepo, identitySettings: settings)
+        await model.run(.refresh)
+        precondition(model.needsIdentity && model.isEditingIdentity)
+        print("App identity checks passed: isolated preference persistence, remember from repository, normalization, validation, reuse, config precedence, read-only refresh, clearing without altering repositories.")
     }
 
     static func check(_ condition: Bool) { precondition(condition) }

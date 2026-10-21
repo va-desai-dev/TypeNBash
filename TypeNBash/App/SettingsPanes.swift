@@ -242,12 +242,34 @@ struct ProjectsSettingsPane: View {
 
 struct SourceControlSettingsPane: View {
     private let profiles = SSHProfileStore.shared
+    @Bindable private var identitySettings = SourceControlIdentitySettings.shared
     @State private var account = GitHubAccountModel()
     /// Mirrors `GitHubLending`, which lives in per-host user defaults keys.
     @State private var lending: [UUID: Bool] = [:]
 
     var body: some View {
         Form {
+            Section {
+                TextField("Name", text: $identitySettings.draft.name)
+                TextField("Email", text: $identitySettings.draft.email)
+                    .autocorrectionDisabled()
+                HStack {
+                    Button("Save Default", action: identitySettings.save)
+                        .disabled(!identitySettings.canSave)
+                    Button("Clear Default", action: identitySettings.clear)
+                        .disabled(identitySettings.identity == nil)
+                    if identitySettings.identity != nil && identitySettings.draft == identitySettings.identity {
+                        Text("Default saved").foregroundStyle(.secondary)
+                    }
+                }
+                if let error = identitySettings.errorMessage {
+                    Text(error).foregroundStyle(.red)
+                }
+            } header: {
+                Text("Default Commit Identity")
+            } footer: {
+                Text("Saved in TypeNBash on this Mac. Existing Git identity values take precedence. Missing values are copied into a local repository’s Git settings when you commit; changing or clearing this default leaves those saved values in place. SSH repositories use the host’s identity. Your name and email are visible in shared commits.")
+            }
             Section("GitHub Account") {
                 GitHubAccountView(model: account)
             }

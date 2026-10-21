@@ -42,6 +42,7 @@ struct SourceControlView: View {
                                 TextField("Name", text: $model.identityDraft.name)
                                 TextField("Email", text: $model.identityDraft.email)
                                     .autocorrectionDisabled()
+                                Toggle("Remember as app default for other repositories", isOn: $model.rememberIdentity)
                                 Text("Saved in this repository’s Git settings. This name and email are recorded in future commits and visible when you share them.")
                                     .font(.caption).foregroundStyle(.secondary)
                                 HStack {
@@ -53,8 +54,14 @@ struct SourceControlView: View {
                         }
                         .disabled(model.isBusy || model.account.isBusy)
                     } else {
-                        Button("Commit Identity…", action: model.editIdentity)
-                            .disabled(model.isBusy || model.account.isBusy)
+                        HStack {
+                            Button("Commit Identity…", action: model.editIdentity)
+                                .disabled(model.isBusy || model.account.isBusy)
+                            if let identity = model.effectiveIdentity {
+                                Text("\(identity.name) <\(identity.email)>")
+                                    .font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                            }
+                        }
                     }
                 }
                 List(snapshot.changes) { change in

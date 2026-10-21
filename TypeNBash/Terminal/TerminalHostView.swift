@@ -127,7 +127,7 @@ final class TerminalController {
 /// hosts a local login shell and an SSH session without knowing the difference —
 /// `WorkspaceBackend` decides which.
 struct TerminalHostView: NSViewRepresentable {
-    var cornerRadius: CGFloat = 8
+    var cornerRadius: CGFloat = 0
     var configuration: TerminalLaunchConfiguration
     var controller: TerminalController
     var onDirectoryChange: (_ host: String?, _ directory: URL) -> Void = { _, _ in }
@@ -143,10 +143,20 @@ struct TerminalHostView: NSViewRepresentable {
         host.terminal.processDelegate = context.coordinator
 
         let configuration = configuration
-        let integrationDirectory = configuration.installsLocalShellIntegration
+        var integrationDirectory = configuration.installsLocalShellIntegration
             ? TerminalShellIntegration.makeZDOTDIR() : nil
+        var environment = Self.environment(for: configuration, integrationDirectory: integrationDirectory)
+        #if APP_STORE && DEBUG
+        do {
+            let launch = try SandboxTerminalLaunch.prepare(configuration)
+            integrationDirectory = launch.directory
+            environment = launch.environment
+        } catch {
+            host.terminal.feed(text: "Console could not start: \(error.localizedDescription)\r\n")
+            return host
+        }
+        #endif
         context.coordinator.integrationDirectory = integrationDirectory
-        let environment = Self.environment(for: configuration, integrationDirectory: integrationDirectory)
         let controller = controller
         controller.attach(host.terminal)
 
@@ -154,7 +164,7 @@ struct TerminalHostView: NSViewRepresentable {
             // `arguments` carries argv in full, so element 0 is argv[0] — "-zsh"
             // for a login shell, "ssh" for a remote session — and SwiftTerm takes
             // that separately as `execName`.
-            #if DIRECT_DISTRIBUTION && !APP_STORE
+            #if (DIRECT_DISTRIBUTION && !APP_STORE) || (APP_STORE && DEBUG)
             terminal.startProcess(
                 executable: configuration.executablePath,
                 args: Array(configuration.arguments.dropFirst()),
@@ -162,12 +172,19 @@ struct TerminalHostView: NSViewRepresentable {
                 execName: configuration.arguments.first,
                 currentDirectory: configuration.workingDirectory.path(percentEncoded: false)
             )
+            #if APP_STORE && DEBUG
+            // App Sandbox rejects the slave-side setup in forkpty. Setting the
+            // size on the parent's master works; otherwise startup is 0 × 0
+            // until the first window resize. This does not restore job control.
+            var size = terminal.getWindowSize()
+            _ = PseudoTerminalHelpers.setWinSize(masterPtyDescriptor: terminal.process.childfd, windowSize: &size)
             #endif
             // Anything queued while the view was still being laid out — an
             // "Open in Terminal" that triggered the switch to this pane, say —
             // is replayed now. The pty buffers it until the shell finishes
             // sourcing its rc files.
             controller.markReady(terminal)
+            #endif
         }
 
         return host

@@ -154,10 +154,26 @@ struct WorkspaceTerminalPane: View {
     let controller: TerminalController
 
     var body: some View {
-        #if APP_STORE
+        #if APP_STORE && DEBUG
+        if session.activeProject != nil, session.terminalConfiguration.workspaceGrant != nil {
+            VStack(spacing: 0) {
+                Text("Sandbox console prototype · Terminal controls and external development tools may be unavailable.")
+                    .font(.caption).foregroundStyle(.secondary).padding(8)
+                terminal
+            }
+        } else {
+            ContentUnavailableView("Open a project to use the sandbox console", systemImage: "terminal",
+                description: Text("Select a local workspace folder to authorize terminal access."))
+        }
+        #elseif APP_STORE
         ContentUnavailableView("Local console unavailable", systemImage: "terminal",
             description: Text("Workspace agents can read and edit project files using native tools."))
         #else
+        terminal
+        #endif
+    }
+
+    private var terminal: some View {
         TerminalHostView(
             configuration: session.terminalConfiguration,
             controller: controller,
@@ -169,7 +185,6 @@ struct WorkspaceTerminalPane: View {
             }
         )
         .id(session.terminalGeneration)
-        #endif
     }
 }
 

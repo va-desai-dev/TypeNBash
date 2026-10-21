@@ -31,6 +31,11 @@ nonisolated struct SourceControlIdentity: Equatable, Sendable {
             && !email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
+    func fillingMissingValues(from fallback: Self?) -> Self {
+        Self(name: name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? fallback?.name ?? name : name,
+             email: email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? fallback?.email ?? email : email)
+    }
+
     func validated() throws -> Self {
         let value = Self(name: name.trimmingCharacters(in: .whitespacesAndNewlines),
                          email: email.trimmingCharacters(in: .whitespacesAndNewlines))
@@ -87,7 +92,8 @@ actor SourceControlService {
         return root
     }
 
-    func perform(_ action: SourceControlAction, in directory: URL) async throws -> SourceControlSnapshot {
+    func perform(_ action: SourceControlAction, in directory: URL,
+                 defaultIdentity: SourceControlIdentity? = nil) async throws -> SourceControlSnapshot {
         let root = try Self.repositoryRoot(in: directory)
         let repository = try Repository(at: root, createIfNotExists: false)
         switch action {
@@ -98,7 +104,16 @@ actor SourceControlService {
             guard !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                 throw SourceControlError.emptyMessage
             }
-            _ = try identity(in: repository).validated()
+            let configured = try identity(in: repository)
+            let resolved = try configured.fillingMissingValues(from: defaultIdentity).validated()
+            // Only fill missing fields, and only at commit time. Existing Git
+            // config (including global config when accessible) takes precedence.
+            if configured.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                try repository.config.set("user.name", to: resolved.name)
+            }
+            if configured.email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                try repository.config.set("user.email", to: resolved.email)
+            }
             try repository.commit(message: message)
             await MainActor.run {
                 NotificationCenter.default.post(name: .editorGitBaselineDidChange, object: nil)
@@ -151,7 +166,7 @@ private enum SourceControlError: LocalizedError {
         switch self {
         case .noRepository: "This folder is not inside a Git repository. Open a local repository to use source control."
         case .emptyMessage: "Enter a commit message."
-        case .missingIdentity: "Set your commit name and email in Commit Identity, then save them for this repository. GitHub sign-in does not set the Git author identity."
+        case .missingIdentity: "Set your commit name and email in Commit Identity or save an app default in Settings → Source Control. GitHub sign-in does not set the Git author identity."
         case .invalidIdentity: "Commit identity cannot contain line breaks or angle brackets, and the email cannot contain spaces."
         }
     }

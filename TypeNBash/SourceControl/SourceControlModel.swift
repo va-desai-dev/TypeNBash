@@ -9,6 +9,7 @@ final class SourceControlModel {
     /// Set for an SSH workspace, whose repository lives on the host.
     let remote: RemoteGit?
     let account = GitHubAccountModel()
+    let identitySettings: SourceControlIdentitySettings
     private let service = SourceControlService()
     private(set) var snapshot: SourceControlSnapshot?
     private(set) var isBusy = false
@@ -17,12 +18,17 @@ final class SourceControlModel {
     var commitMessage = ""
     var selectedRemote = ""
     var identityDraft = SourceControlIdentity()
+    var rememberIdentity = false
     private(set) var isEditingIdentity = false
-    var needsIdentity: Bool { remote == nil && snapshot?.identity?.isComplete == false }
+    var effectiveIdentity: SourceControlIdentity? {
+        snapshot?.identity?.fillingMissingValues(from: identitySettings.identity)
+    }
+    var needsIdentity: Bool { remote == nil && effectiveIdentity?.isComplete == false }
     var canSaveIdentity: Bool { !isBusy && (try? identityDraft.validated()) != nil }
 
     func editIdentity() {
-        identityDraft = snapshot?.identity ?? SourceControlIdentity()
+        identityDraft = effectiveIdentity ?? SourceControlIdentity()
+        rememberIdentity = false
         isEditingIdentity = true
     }
 
@@ -35,8 +41,11 @@ final class SourceControlModel {
         do {
             snapshot = try await service.saveIdentity(identityDraft, in: directory)
             identityDraft = snapshot?.identity ?? identityDraft
+            if rememberIdentity { try identitySettings.setIdentity(identityDraft) }
             isEditingIdentity = false
-            resultMessage = "Commit identity saved for this repository. You can now commit your staged changes."
+            resultMessage = rememberIdentity
+                ? "Commit identity saved for this repository and as the app default."
+                : "Commit identity saved for this repository. You can now commit your staged changes."
         } catch { report(error) }
     }
 
@@ -49,9 +58,11 @@ final class SourceControlModel {
         }
     }
 
-    init(directory: URL, remote: RemoteGit? = nil) {
+    init(directory: URL, remote: RemoteGit? = nil,
+         identitySettings: SourceControlIdentitySettings? = nil) {
         self.directory = directory
         self.remote = remote
+        self.identitySettings = identitySettings ?? .shared
         lendsGitHubSignIn = remote?.profileID.map(GitHubLending.isEnabled(for:)) ?? false
     }
 
@@ -59,7 +70,7 @@ final class SourceControlModel {
         if let remote {
             return try await remote.perform(action, in: directory, lendsGitHubSignIn: lendsGitHubSignIn)
         }
-        return try await service.perform(action, in: directory)
+        return try await service.perform(action, in: directory, defaultIdentity: identitySettings.identity)
     }
 
     var canCommit: Bool {

@@ -1,30 +1,29 @@
 <div align="center">
   
-# TypeNBash
+<h1 align="center">TypeNBash</h1>
 
-### A native Mac workspace for code, commands, and data.
+<h3 align="center">A native Mac workspace for code, commands, and data.</h3>
 
-Edit a file. Run a command. Explore a dataset.<br>
-Keep your editor, terminal, and analysis together—locally or over SSH.
+<h4 align="center"><i>Research. Code. Build. Preview. Test. Analyze. Audit.</i></h4>
 
-<p>
-  <img src="https://img.shields.io/badge/macOS-26%20Tahoe%2B-151515?style=flat-square&amp;logo=apple&amp;logoColor=white" alt="Requires macOS 26 Tahoe or later">
-  <img src="https://img.shields.io/badge/Architecture-Apple%20silicon%20%2B%20Intel-B8975E?style=flat-square" alt="Apple silicon and Intel">
-  <img src="https://img.shields.io/badge/Distribution-DMG-151515?style=flat-square" alt="DMG distribution">
-</p>
-
-<p>
-  <a href="#download"><strong>Download &amp; Install</strong></a> &nbsp;·&nbsp;
+<p align="center">
+  <a href="#download"><strong>Download</strong></a> &nbsp;·&nbsp;
   <a href="#workspace">Projects</a> &nbsp;·&nbsp;
-  <a href="#analysis">Data Analysis</a> &nbsp;·&nbsp; 
-  <a href="#getting-started">Getting started</a>
+  <a href="#privacy">Privacy</a> &nbsp;·&nbsp;
+  <a href="#feedback">Feedback</a> &nbsp;·&nbsp;
+  <a href="#acknowledgements">Acknowledgements</a> &nbsp;·&nbsp;
 </p>
 
+<span align="center">
+<img src="https://img.shields.io/badge/macOS-26%20Tahoe%2B-151515?style=flat-square&amp;logo=apple&amp;logoColor=white" alt="Requires macOS 26 Tahoe or later">
+<img src="https://img.shields.io/badge/Architecture-Apple%20silicon%20%2B%20Intel-B8975E?style=flat-square" alt="Apple silicon and Intel">
+<img src="https://img.shields.io/badge/Distribution-DMG-151515?style=flat-square" alt="DMG distribution">
+</span>
 </div>
 
 ---
 
-TypeNBash brings a text editor, terminal, file browser, and statistical notebook into one native macOS application. Move from a script to its output, from a CSV to an analysis, or from your Mac to a remote host without leaving your workspace.
+TypeNBash brings a text editor, terminal, file browser, web browser for previews, citation management, and an analytics notebook into a single native macOS application. Move from a script to its output, from a CSV to an analysis, or from your Mac to a remote host without leaving your workspace. All the while, you can monitor telemetry and device performance from the gorgeous inspector.
 
 <a id="download"></a>
 
@@ -44,8 +43,7 @@ TypeNBash brings a text editor, terminal, file browser, and statistical notebook
 | Optional workflows | An SSH host for remote work; R to execute R scripts |
 
 <a id="workspace"></a>
-
-## Your workspace, connected
+## Many Options, One Workspace
 
 <table>
 <tr>
@@ -64,56 +62,39 @@ TypeNBash brings a text editor, terminal, file browser, and statistical notebook
 <p>Create a project, initialize an existing folder, or open a folder as it is. Managed project settings travel with the folder, keeping its name and output location together.</p>
 </td>
 <td width="50%" valign="top">
-<h3>⑂ Git tools</h3>
+<h3>⑂ Git Tools</h3>
 <p>Inspect saved changes, stage and unstage files, commit, fetch, and push in local projects. Connect a GitHub account for supported GitHub workflows.</p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<h3>📊 Quant Tools</h3>
+<p>Run statistical tests ranging from linear models, Chi-Squares, distribution analytics, descriptives, and mean comparisons through a simplified button-based interface or R & Python notebooks if you fancy it.</p>
+</td>
+<td width="50%" valign="top">
+<h3>📝 Research & Revise</h3>
+<p>Markdown? Embedded Markdown previews help you write long documents and manuscripts. Harness the power of the CiteTex extension to also retrieve citations from an open Safari tab straight to your BibTeX library. Simply run a pandoc or LaTeX script yourself to convert to a formatted manuscript.</p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<h3>📐 Telemetries</h3>
+<p>System views put processor, memory, storage, network, and process activity within reach while you work. Never leave your workspace to figure out why your system is running slowly.</p>
+</td>
+<td width="50%" valign="top">
+<h3>🤖 YOUR Agents</h3>
+<p>Secure, safe, and private. TypeNBash aims to embrace a future of agentic LLMs while giving users the agency to select their agents. Hook your BYOK LLM and let TypeNBash be the amazing harness.</p>
 </td>
 </tr>
 </table>
 
-System views put processor, memory, storage, network, and process activity within reach while you work.
+>[!CAUTION]
+>TypeNBash requires a project workspace for accessing the notebook, GitHub, citation management, and agentic features. Home directory access lets you work on broader things; however, it lacks project-scoped features.
 
-<a id="analysis"></a>
+<a id="privacy"></a>
 
-## From CSV to Results
-
-Open a CSV in an editable grid. Sort and filter columns, copy the full dataset or filtered rows, then open **Notebook** to build an analysis one step at a time.
-
-**The statistics run natively. No Python or R environment to configure.**
-
-| Explore | Available analyses |
-| :--- | :--- |
-| **Describe your data** | Descriptive statistics, frequencies, cross-tabulations |
-| **Compare means** | One-sample, independent-samples, and paired t-tests; one-way ANOVA |
-| **Find relationships** | Pearson and Spearman correlations; linear regression with numeric and categorical predictors |
-| **Test categorical associations** | Chi-square test of independence and Cramér’s V |
-
-Choose your missing-value policy, inspect each result’s notes, and see which dataset and capture produced it. Export results as **Markdown** to the project’s output directory when you’re ready to share them.
-
-### Take the next step in R
-
-**New R Notebook** turns your analysis steps into an editable `.R` script with `# %%` cells. Start R in the project console, then run selections or cells from the editor to continue exploring.
-
-### Execution requirements and current scope
-
-- R must be installed on the machine running the console. Script output remains in the console; it is not imported into the native notebook.
-- Terminal commands use the runtimes and packages available on the active machine.
-- The built-in **Source Control** and **Changes** views support local projects. Use Git in the SSH terminal for remote repositories.
-
-<a id="getting-started"></a>
-## Getting Started
-
-| From the welcome window | You can… |
-| :--- | :--- |
-| **Work Locally** | Open a workspace on your Mac |
-| **Connect over SSH** | Work with files and a terminal on another host |
-| **New Project…** | Create a project folder or initialize an existing one |
-| **Open Selected Project** | Return to a saved project |
-
-**Try a first analysis:** open a project containing a CSV → select the file → open **Notebook** → add and run an analysis step → export your results.
-
-### How project and notebook files are stored
-
-Managed projects use small, project-relative files:
+## Storage & Security
+*Managed* projects use small, project-relative files:
 | File | Contains |
 | :-- | :-- |
 | `.typenbash.json` | Project name and output-directory setting |
@@ -121,16 +102,25 @@ Managed projects use small, project-relative files:
 
 Opening an ordinary folder does not require adding project metadata. Notebook steps are saved, while results are recalculated on demand. Export a Markdown report to preserve a result.
 
+**TypeNBash ensures a scope-limited, sandboxed** workflow for any features that involve writing directories and repositories. Agentic workflows are fully restricted to working directories, with you having complete control over permissions.
+
+The developer or a back-end server (which doesn't exist!) can't access any of your in-app credentials, including GitHub access. Your LLM agents, keys, passwords in the app-browser, and files are fully scoped to your device and/or repository of choosing. 
+>[!CAUTION]
+>**TypeNBash** AppStore version coming soon will inherently lack `home/freemode` workflows due to sandboxing mandates. This will also limit your ability to perform Terminal commands outside your project repository. If full access and Terminal freedom are what you seek, please download the DMG version, or work on remote SSH hosts.
+
+<a id="feedback"></a>
+
 ## Feedback
 Found a problem? Include your **TypeNBash version**, **macOS version**, whether you’re working **locally or over SSH**, and the steps to reproduce it. For CSV or editor issues, a small sample file helps—remove private information before sharing. Report the aforementioned bugs and issues within either:
 - The repositories Discussions & Issues page.
-- Contact the developer directl via email at: vd@vadesai.com
----
+- Contact the developer directly via email at: vd@vadesai.com
+
+<a id="acknowledgements"></a>
 
 ## License
 The source code for TypeNBash is licensed under the terms of the Affero General Public License v3.0 (GNU, 2007). The notarized TypeNBash.app and its image bundle resources are licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. See [LICENSE](https://github.com/va-desai-dev/TypeNBash?tab=License-1-ov-file) for details.
 ### Acknowledgements
-TypeNBash includes third party source code and frameworks. A comprehensive list of the third-party sources and their associated authors are listed in [THIRDPARTYNOTICES.md](THIRDPARTYNOTICES.md)
+TypeNBash includes third-party source code and frameworks. A comprehensive list of the third-party sources and their associated authors are listed in [THIRDPARTYNOTICES.md](THIRDPARTYNOTICES.md)
 <div align="center">
   <sub>TypeNBash © 2026 by Vedant A. Desai · Built for macOS</sub>
-</div>
+</div>*italic text*

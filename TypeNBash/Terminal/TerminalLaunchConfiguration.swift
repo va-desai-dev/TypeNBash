@@ -7,10 +7,19 @@ struct TerminalLaunchConfiguration: Sendable {
     /// Local directory inherited by the launched process.
     let workingDirectory: URL
     let installsLocalShellIntegration: Bool
+    /// Retains the selected folder's grant until the terminal has been torn down.
+    var workspaceGrant: WorkspaceFolderGrant? = nil
 
     static func localShell(
         workingDirectory: URL = FileManager.default.homeDirectoryForCurrentUser
     ) -> TerminalLaunchConfiguration {
+        #if APP_STORE
+        TerminalLaunchConfiguration(
+            executablePath: "/bin/zsh", arguments: ["zsh", "-d", "-i"],
+            environmentOverrides: [:], workingDirectory: workingDirectory,
+            installsLocalShellIntegration: false
+        )
+        #else
         TerminalLaunchConfiguration(
             executablePath: "/bin/zsh",
             arguments: ["-zsh", "-i"],
@@ -19,5 +28,6 @@ struct TerminalLaunchConfiguration: Sendable {
             workingDirectory: workingDirectory,
             installsLocalShellIntegration: true
         )
+        #endif
     }
 }

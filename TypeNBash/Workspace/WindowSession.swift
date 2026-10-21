@@ -198,6 +198,9 @@ final class WindowSession {
         case .local(let url):
             disconnectToLocal(rootDirectory: url)
             self.folderGrant = folderGrant
+            #if APP_STORE && DEBUG
+            terminalConfiguration.workspaceGrant = folderGrant
+            #endif
             activeProject = project
 
         case .remote(let profile, let authentication):
@@ -265,6 +268,10 @@ final class WindowSession {
     func closeProject() {
         activeProject = nil
         folderGrant = nil
+        #if APP_STORE && DEBUG
+        terminalConfiguration.workspaceGrant = nil
+        terminalGeneration &+= 1
+        #endif
     }
 
     private var activeProjectLocalRoot: URL? {
@@ -330,6 +337,9 @@ final class WindowSession {
     func close() {
         agent?.stop()
         folderGrant = nil
+        #if APP_STORE && DEBUG
+        terminalConfiguration.workspaceGrant = nil
+        #endif
         if let citeTexTargetID { CiteTexTargets.shared.unregister(citeTexTargetID) }
         citeTexTargetID = nil
         bibliography = nil

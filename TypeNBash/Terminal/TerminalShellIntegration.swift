@@ -98,6 +98,23 @@ enum TerminalShellIntegration {
     fi
     """#
 
+    #if APP_STORE && DEBUG
+    static var sandboxZshHook: String {
+        #"""
+        # A failed chdir must never leave a usable prompt in the wrong directory.
+        builtin cd -P -- "$TypeNBash_START_DIRECTORY" || exit 126
+        HISTFILE="$HOME/.zsh_history"
+        HISTSIZE=1000
+        SAVEHIST=1000
+        setopt APPEND_HISTORY
+        PROMPT='[sandbox] %1~ %# '
+        """# + "\n" + commonHook + "\n" + #"""
+        precmd() { __TypeNBash_osc7; }
+        printf '%s\n' 'Sandbox console prototype. Project files are authorized; external tools may be unavailable.'
+        """#
+    }
+    #endif
+
     private static var zshHook: String {
         #"""
         # TypeNBash shell integration (auto-generated)

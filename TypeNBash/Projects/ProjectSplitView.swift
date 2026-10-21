@@ -39,7 +39,7 @@ struct ProjectSplitView<Editor: View, Footer: View, Console: View>: NSViewContro
             splitView.isVertical = false
             splitView.dividerStyle = .thin
             let editorItem = NSSplitViewItem(viewController: self.editor)
-            editorItem.minimumThickness = 480
+            editorItem.minimumThickness = 262
             let consoleItem = NSSplitViewItem(viewController: self.console)
             consoleItem.minimumThickness = 0
             consoleItem.holdingPriority = .init(rawValue: 251)

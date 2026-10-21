@@ -44,5 +44,6 @@ struct AgentSettingsPane: View {
         .formStyle(.grouped)
         .task { settings.refresh() }
         .onDisappear { settings.apiKey = "" }
+        .scrollContentBackground(.hidden)
     }
 }

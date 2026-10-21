@@ -216,6 +216,15 @@ HEAD unchanged; retry commits only staged contents with the correct parent,
 preserving additional unstaged edits. No global identity is written or inferred
 from the repository's previous authors or GitHub sign-in.
 
+App-default checks use an isolated UserDefaults suite: remembering an identity
+from the repository form, persistence across settings instances, normalization,
+invalid-input rejection, and clearing the default. Fresh repositories reuse the
+saved default without prompting. Existing Git config values take precedence per
+field; missing fields are copied to repository config only when committing.
+Refresh leaves config unchanged. Clearing the app default leaves identities
+already saved in repositories intact. Author and committer fields are verified
+for missing, partial, and complete repository identities.
+
 Run the same suite against the compiled App Store configuration with:
 
 ```sh
@@ -228,6 +237,10 @@ acceptance: open an existing repo via the native folder panel, enter Commit
 Identity when global config is unavailable, save it, then commit staged changes.
 The author's name/email must match the entries; the home global config must stay
 unchanged. No additional home-directory grant or Git subprocess is needed.
+In Settings → Source Control, save a Default Commit Identity, then open another
+repository without an identity. Commit without re-entering it and verify the
+author. Repeat after restarting the app. Verify the repository form's “Remember
+as app default” toggle and that SSH repositories still use host configuration.
 It does not access GitHub, use credentials, or modify the workspace repository.
 
 Manual UI check: open a local project and click Source Control in the toolbar.
@@ -476,3 +489,68 @@ Build the `TypeNBash-AppStore` scheme for the sandboxed configuration. Signed
 sandbox acceptance additionally requires choosing a workspace in the native
 folder panel, reopening through its bookmark after relaunch, and revoking access.
 Signing/provisioning and store review remain separate from unsigned compile checks.
+
+# Signed sandbox terminal prototype
+
+`AppStoreDebug` exposes a SwiftTerm console only while a local project with a
+retained `WorkspaceFolderGrant` is open. `AppStoreRelease` still has no local
+console, and agent shell execution remains DMG-only. The DMG launch arguments,
+login-shell integration, credential environment, and terminal backend are unchanged.
+
+The prototype launches `/bin/zsh -d -i` with an explicit system-tool PATH and
+app-owned HOME, startup file, history, and temporary directory. It starts at the
+project root and rejects configurations without a grant or outside that grant.
+It does not source the real user's shell configuration or pass the parent app's
+environment/credentials. Closing the project removes its console. This is a
+workspace-anchored shell inheriting App Sandbox, **not a per-repository jail**:
+normal system/container access and other applicable app grants still exist.
+
+Build the `TypeNBash-AppStore` scheme using `AppStoreDebug` with signing enabled.
+Then build the separate diagnostic app, supplying a local signing identity:
+
+```sh
+python3 Tests/build-sandbox-terminal-probe.py /tmp/centcom-byok-store-final \
+  /tmp/centcom-byok-packages /tmp/centcom-sandbox-probe-new 'Apple Development: …'
+```
+
+The output directory must not already exist. Open its `SandboxTerminalProbe.app`
+through Finder/Launch Services, then select the generated `workspace # café`
+folder in the native chooser. The probe uses the production launch configuration,
+folder grant, SwiftTerm host, and controller from the built app module. It has its
+own bundle identifier/container and the same file-access/network sandbox
+entitlements; it does not use the production app group. It runs commands only in
+the generated fixture. It creates no global Git identity and uses no credentials
+or network requests. No sandbox exceptions or unsandboxed helpers are installed.
+
+`terminal-probe.log` records command outcomes. `pty-output/log-*` records raw PTY
+output, including startup errors. `probe-resize.txt` records parent-side PTY sizes;
+`probe-lifecycle.txt` records whether Ctrl-C interrupted a 30-second sleep within
+two seconds. `probe-process.txt` records shell exit and the parent's denied read
+of an unselected sibling. SwiftTerm reports a raw wait status: 1792 is exit 7.
+
+Signed measurements on macOS 27.0 (26A428), 2026-10-19:
+
+| Operation | Observed result |
+| --- | --- |
+| Selected workspace read/write; child `/bin/sh`; pipes and sort | Works |
+| `/bin/sh ./hello.sh` | Works |
+| Unselected sibling read/write, including via symlink | Denied |
+| App-owned HOME read/write and `/etc/hosts` read | Works, as allowed by App Sandbox |
+| Direct workspace script or compiled binary execution | Denied |
+| `/usr/bin/git`, `/usr/bin/python3`, Swift and Clang launchers | `xcrun: error: cannot be used within an App Sandbox.` |
+| `/opt/homebrew/bin/python3` and Node | Execution denied |
+| PTY descriptors (`isatty`) | Present |
+| Parent-side `TIOCGWINSZ` and resize | Works; initial size is explicitly set on the master |
+| Zsh terminal process group, `/dev/tty`, `stty` | Fail (`operation not permitted`, `device not configured`, `TIOCGETD` denial) |
+| Ctrl-C during foreground `sleep 30` | Did not interrupt within two seconds; command finishes normally |
+| Explicit shell exit | Delivered after the foreground command finishes |
+
+The ordinary project commands are useful, but this launch path is not a reliable
+full interactive terminal under the current sandbox entitlements. Do not ship the
+prototype as one. The native SwiftGitX UI remains the working Git path. macOS 26,
+restored project bookmarks, multiple concurrent workspace grants, full-screen TUIs,
+and App Review acceptance require separate validation.
+
+DMG validation: `run-runtime-checks.py` passes its existing state and real-PTY
+checks, including local zsh, remote bash/zsh hooks, encoded directory reports,
+SSH workflow guards, and shell exit.

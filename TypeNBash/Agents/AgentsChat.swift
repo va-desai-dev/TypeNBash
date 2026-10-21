@@ -24,9 +24,11 @@ struct AgenticChatView: View {
                     systemImage: "sparkles",
                     description: Text("Works in \(session.workingDirectory.lastPathComponent). Choose your model server in Settings → Agents.")
                 )
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.card)
             }
         }
-        .safeAreaBar(edge: .top, spacing: 0) {
+        .safeAreaInset(edge: .top, spacing: 0) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     Text(session.providerTitle).lineLimit(1)
