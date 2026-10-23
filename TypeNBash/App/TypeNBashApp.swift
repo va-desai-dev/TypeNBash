@@ -53,6 +53,7 @@ struct TypeNBashApp: App {
         .defaultSize(width: 1100, height: 720)
         .defaultLaunchBehavior(.suppressed)
         .restorationBehavior(.disabled)
+        .commands { ProjectSearchCommands() }
         // In the system menu bar so the target can be switched from Safari,
         // where no TypeNBash menu is showing. Available while a project has
         // a Markdown document selected, matching the citations inspector.

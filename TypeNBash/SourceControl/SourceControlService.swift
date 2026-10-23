@@ -52,6 +52,7 @@ nonisolated struct SourceControlIdentity: Equatable, Sendable {
 enum SourceControlAction: Sendable {
     case refresh
     case stage(String)
+    case stageAll([String])
     case unstage(String)
     case commit(String)
     case fetch(String)
@@ -99,6 +100,7 @@ actor SourceControlService {
         switch action {
         case .refresh: break
         case .stage(let path): try repository.add(paths: [path])
+        case .stageAll(let paths): try repository.add(paths: paths)
         case .unstage(let path): try repository.restore(.staged, paths: [path])
         case .commit(let message):
             guard !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {

@@ -81,6 +81,29 @@ final class FileBrowserModel {
         }
     }
 
+    var searchText: String? {
+        if case .table = preview, !hasUnsavedChanges { return savedPreviewText }
+        return editedContents
+    }
+
+    /// Search has already read and validated the complete text. Keep the saved
+    /// baseline when revealing an existing draft, including a Markdown/CSV source.
+    func openSearchText(at url: URL, text: String) {
+        let sameFile = selectedFile == url && !isPreviewTruncated && searchText != nil
+        previewGeneration &+= 1
+        editorBaselineTask?.cancel()
+        if !sameFile {
+            resetPreviewState()
+            savedPreviewText = text
+        }
+        selectedFile = url
+        preview = .text(text)
+        isPreviewTruncated = false
+        isUntitled = false
+        hasUnsavedChanges = text != savedPreviewText
+        refreshEditorGitBaseline()
+    }
+
     /// Writes the edited preview back through the workspace filesystem (local or
     /// SSH). Refuses to save a truncated preview, which would discard the rest.
     func save() {
@@ -441,6 +464,7 @@ final class FileBrowserModel {
                 preview = parsed
                 switch parsed {
                 case .text(let contents), .markdown(let contents): savedPreviewText = contents
+                case .table: savedPreviewText = String(data: data, encoding: .utf8) ?? ""
                 default: savedPreviewText = ""
                 }
                 // Only text previews can be safely saved after truncation; binary

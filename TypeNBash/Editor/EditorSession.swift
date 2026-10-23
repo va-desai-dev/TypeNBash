@@ -18,6 +18,32 @@ import TextEditing
     /// Bumped every time the find field should take focus, so pressing ⌘F again
     /// while the bar is already open still moves the caret back into it.
     private(set) var findFocusRequest = 0
+    private(set) var sourceNavigation: SourceNavigation?
+    @ObservationIgnored private var appliedSourceNavigationID: UUID?
+
+    struct SourceNavigation: Equatable {
+        let id = UUID()
+        let url: URL
+        let text: String
+        let range: NSRange
+    }
+
+    func revealSource(at url: URL, text: String, range: NSRange) {
+        sourceNavigation = SourceNavigation(url: url, text: text, range: range)
+    }
+
+    /// Called when the matching source editor mounts or receives new content.
+    func applySourceNavigation(to view: EditorTextView, fileURL: URL?) {
+        guard let request = sourceNavigation, request.id != appliedSourceNavigationID,
+              request.url == fileURL, request.text.utf8.elementsEqual(view.string.utf8),
+              NSMaxRange(request.range) <= (view.string as NSString).length else { return }
+        view.setSelectedRange(request.range)
+        view.scrollRangeToVisible(request.range)
+        if let window = view.window {
+            window.makeFirstResponder(view)
+            appliedSourceNavigationID = request.id
+        }
+    }
 
     func csvAnalysisSnapshot(scope: CSVAnalysisSnapshot.Scope = .allRows) throws -> CSVAnalysisSnapshot {
         guard let csvGrid else { throw CSVAnalysisError.noTable }

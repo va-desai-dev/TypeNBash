@@ -3,7 +3,7 @@ import SwiftUI
 /// Lives for one project. Editor, comparison and console state end with it.
 struct ProjectWorkspaceView: View {
     let session: WindowSession
-    @State private var editorSession = EditorSession()
+    @State private var editorSession: EditorSession
     @State private var terminalController = TerminalController()
     @State private var diffModel: GitDiffModel?
     /// Retained across toggles so results survive a trip back to the editor;
@@ -14,11 +14,21 @@ struct ProjectWorkspaceView: View {
     @State private var hideConsole = true
     @State private var inspectorSelection: InspectorTabs = .agents
     @State private var writingSubselection: WritingInspectorSubtabs = .citations
+    @State private var search: ProjectSearchModel
+
+
+    init(session: WindowSession) {
+        self.session = session
+        let editor = EditorSession()
+        _editorSession = State(initialValue: editor)
+        _search = State(initialValue: ProjectSearchModel(session: session, editor: editor))
+    }
 
 
 
     var body: some View {
-        CanvasView(windowSession: session, terminalController: terminalController, onOpenInTerminal: { hideConsole = false }) {
+        CanvasView(windowSession: session, terminalController: terminalController, onOpenInTerminal: { hideConsole = false },
+                   sidebarRevealRequest: search.focusRequest) {
             ProjectSplitView(hideConsole: $hideConsole) {
                 Group {
                     if showsNotebook, let notebook {
@@ -55,14 +65,20 @@ struct ProjectWorkspaceView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         } sidebar: {
-            if let diffModel {
+            if search.showsSearch {
+                ProjectSearchView(
+                    model: search,
+                    onOpen: openSearchResult,
+                    files: session.fileBrowser
+                )
+            } else if let diffModel {
                 GitDiffFileList(model: diffModel)
             } else {
-            WorkspaceSidebar(
-                model: session.fileBrowser,
-                isLocal: session.location == .local,
-                onOpenInTerminal: { _ in hideConsole = false }
-            )
+                WorkspaceSidebar(
+                    model: session.fileBrowser,
+                    isLocal: session.location == .local,
+                    onOpenInTerminal: { _ in hideConsole = false }
+                )
             }
         } inspector: { WorkspaceInspector(
             session: session,
@@ -71,6 +87,10 @@ struct ProjectWorkspaceView: View {
         )
         }
         .toolbar {
+            ToolbarItem {
+                Button(action: search.reveal) { Label("Find in Project", systemImage: "magnifyingglass") }
+                    .help("Find in Project (⇧⌘F)")
+            }
             ToolbarItem {
                 Button(action: toggleNotebook) {
                     Label("Notebook", systemImage: "function")
@@ -99,10 +119,23 @@ struct ProjectWorkspaceView: View {
             await diffModel?.refresh()
         }
         .onChange(of: session.terminalGeneration) {
+            search.reset()
             diffModel = nil
             showsNotebook = false
             notebook = nil
             showsSourceControl = false
+        }
+        .onChange(of: session.fileBrowser.searchText) { search.bufferDidChange() }
+        .focusedSceneValue(\.projectSearch, search)
+        .onDisappear { search.cancel() }
+    }
+
+    private func openSearchResult(_ file: ProjectSearchResult, _ match: ProjectSearchMatch) {
+        Task {
+            if await search.open(file, match: match) {
+                showsNotebook = false
+                diffModel = nil
+            }
         }
     }
 

@@ -1,6 +1,43 @@
 import AppKit
 import SwiftUI
 
+struct FileListRow<TrailingItem: View>: View {
+
+    let filename: String
+    let icon: FileTypeIcon
+    let style: Color
+    let tag: URL
+    let trailingItem: TrailingItem
+
+    init(
+        filename: String,
+        icon: FileTypeIcon,
+        style: Color,
+        tag: URL,
+        @ViewBuilder trailingItem: () -> TrailingItem
+    ) {
+        self.filename = filename
+        self.icon = icon
+        self.style = style
+        self.tag = tag
+        self.trailingItem = trailingItem()
+    }
+
+    var body: some View {
+        HStack(spacing: 8) {
+            FileTypeIconView(icon: icon, symbolStyle: style)
+            Text(filename)
+                .lineLimit(1)
+                .truncationMode(.tail)
+            Spacer()
+            trailingItem
+        }
+        .frame(height: 24)
+        .contentShape(Rectangle())
+        .tag(tag)
+    }
+}
+
 struct FileBrowserList: View {
     let entries: [WorkspaceFileEntry]
     let selection: URL?
@@ -13,24 +50,19 @@ struct FileBrowserList: View {
     var body: some View {
         List(selection: $highlightedFile) {
             ForEach(entries) { entry in
-                HStack(spacing: 8) {
-                    FileTypeIconView(
-                        icon: entry.icon,
-                        symbolStyle: entry.isDirectory ? Color.accentColor : .secondary
-                    )
-                    Text(entry.label)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
-                    Spacer()
-                    if entry.isDirectory {
-                        Image(systemName: "chevron.right")
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
+                FileListRow(
+                    filename: entry.label,
+                    icon: entry.icon,
+                    style: entry.isDirectory ? Color.accentColor : Color.secondary,
+                    tag: entry.url,
+                    trailingItem: {
+                        if entry.isDirectory {
+                            Image(systemName: "chevron.right")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
                     }
-                }
-                .frame(height: 24)
-                .contentShape(Rectangle())
-                .tag(entry.url)
+                )
                 .onTapGesture(count: 1) {
                     highlightedFile = entry.url
                 }

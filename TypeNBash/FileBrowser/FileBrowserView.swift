@@ -25,6 +25,7 @@ struct FileBrowserView: View {
             onSelect: model.select,
             onOpenInTerminal: onOpenInTerminal
         )
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .overlay { listOverlay }
     }
 
@@ -182,7 +183,7 @@ struct FileViewer: View {
                     fileURL: model.selectedFile, options: options, session: session,
                     savedText: model.editorGitBaseline ?? model.savedPreviewText,
                     comparesWithGit: model.comparesEditorWithGit,
-                    bibliography: bibliography)
+                    bibliography: bibliography, sourceNavigationID: session.sourceNavigation?.id)
                 // Each file gets a fresh editor, grammar, and undo stack.
                 .id(model.selectedFile)
 
@@ -229,7 +230,7 @@ struct FileViewer: View {
                     fileURL: model.selectedFile, options: options, session: session,
                     savedText: model.editorGitBaseline ?? model.savedPreviewText,
                     comparesWithGit: model.comparesEditorWithGit,
-                    bibliography: bibliography)
+                    bibliography: bibliography, sourceNavigationID: session.sourceNavigation?.id)
                 // Keyed on the style too, so toggling swaps surfaces cleanly.
                 .id([model.selectedFile?.absoluteString, "plain"])
             case .markdown(let text):

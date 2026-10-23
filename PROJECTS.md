@@ -57,3 +57,31 @@ This is the shared destination contract; it does not redirect arbitrary shell
 commands, which still use their own working directory. Local definitions can be
 opened through the project picker; Finder file association is not part of this
 format implementation.
+
+## Find in Project
+
+Use **Find → Find in Project (⇧⌘F)** or the toolbar magnifying glass to open the
+Search navigator. The Files/Search switch retains the query and results. Search
+is available only in a local or SSH project and always starts at its root,
+independently of the browser's folder or the console's working directory.
+
+Matching uses the same text/regex engine and advanced options as in-file Find.
+Queries, options, progress, and results belong to the project window. Results
+group matches by relative path and open the source editor at the selected range,
+including Markdown and CSV source. The open document's complete buffer is searched
+with its unsaved edits. Save a dirty document before navigating to another file.
+
+The filter button exposes comma-separated include/exclude globs: `*.swift` matches
+at any depth; `Sources/**` restricts paths beneath Sources; `**/` also matches zero
+folder levels. `.git`, `.build`, `node_modules`, and `DerivedData` are excluded by
+default. This is an explicit filter list, not a Git ignore-file interpreter.
+Search reads UTF-8 text up to 2 MB per file and skips binary files and symbolic
+links. Skipped files are counted. Results stop at 10,000 matches, 32 MB of matching
+text, or 50,000 entries; narrow or refresh an incomplete search before replacing.
+
+Expand the replacement field for **Preview Replace All**. Result context menus
+offer replacement of one match or one file. The preview lists changes before
+applying them. Closed files are checked against the searched contents and saved
+atomically one at a time; changed/unavailable files are skipped and reported.
+The open document stays unsaved, and replacement in the mounted source editor
+participates in its native Undo history. There is no cross-file Undo transaction.

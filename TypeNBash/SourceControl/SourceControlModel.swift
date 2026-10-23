@@ -32,6 +32,17 @@ final class SourceControlModel {
         isEditingIdentity = true
     }
 
+    /// The same files that show a per-row Stage button.
+    var stageablePaths: [String] {
+        snapshot?.changes.filter { $0.unstaged && !$0.conflicted }.map(\.path) ?? []
+    }
+
+    func stageAll() async {
+        let paths = stageablePaths
+        guard !paths.isEmpty else { return }
+        await run(.stageAll(paths))
+    }
+
     func cancelIdentityEditing() { isEditingIdentity = false }
 
     func saveIdentity() async {

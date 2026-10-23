@@ -7,6 +7,7 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
     let windowSession: WindowSession
     let terminalController: TerminalController
     let onOpenInTerminal: () -> Void
+    var sidebarRevealRequest = 0
     @ViewBuilder let content: Content
     @ViewBuilder let sidebar: Sidebar
     @ViewBuilder let inspector: Inspector
@@ -15,24 +16,22 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
-        HSplitView {
-            if showsSidebar {
-                sidebar
-                    .frame(minWidth: 250, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
-                    .background(Color.card)
-            }
-                content
-                    .background(Color.card)
-            if showsInspector {
-                inspector
-                    .frame(minWidth: 260, maxWidth: 300, maxHeight: .infinity, alignment: .topLeading)
-                    .background(Color.card)
-            }
+        CanvasSplitView(showsSidebar: showsSidebar, showsInspector: showsInspector) {
+            sidebar
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .background(Color.card)
+        } content: {
+            content
+                .background(Color.card)
+        } inspector: {
+            inspector
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .background(Color.card)
         }
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button {
-                        showsSidebar.toggle()
+                    showsSidebar.toggle()
                 } label: {
                     Image(systemName: "sidebar.leading")
                 }
@@ -50,6 +49,7 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
             }
         }
         .toolbar(removing: .title)
+        .onChange(of: sidebarRevealRequest) { showsSidebar = true }
         .containerBackground(Color.card, for: .window)
         .toolbarBackground(Color.card, for: .windowToolbar)
     }
@@ -76,27 +76,32 @@ struct WorkspaceEditorPane: View {
     @State private var browserModel: BrowserModel?
 
     var body: some View {
-        if showsBrowser, let browserModel {
-            // The browser pane brings its own header; the toggle sits at the
-            // same trailing edge as in the editor header.
-            BrowserView(model: browserModel) {
-                BrowserToggleButton(showsBrowser: $showsBrowser)
-            }
-        } else {
-            FileViewer(model: model, session: session, mdViewSelection: mdViewSelection, bibliography: bibliography)
-                .safeAreaBar(edge: .top) { editorHeader }
-                .safeAreaBar(edge: .bottom) {
-                    if showsFooter && !model.isReadOnly {
-                        PaneBar(edge: .bottom) {
-                            Text(session.position)
-                            Spacer()
-                            EditorIndentationLabel()
+        Group {
+            if showsBrowser, let browserModel {
+                // The browser pane brings its own header; the toggle sits at the
+                // same trailing edge as in the editor header.
+                BrowserView(model: browserModel) {
+                    BrowserToggleButton(showsBrowser: $showsBrowser)
+                }
+            } else {
+                FileViewer(model: model, session: session, mdViewSelection: mdViewSelection, bibliography: bibliography)
+                    .safeAreaBar(edge: .top) { editorHeader }
+                    .safeAreaBar(edge: .bottom) {
+                        if showsFooter && !model.isReadOnly {
+                            PaneBar(edge: .bottom) {
+                                Text(session.position)
+                                Spacer()
+                                EditorIndentationLabel()
+                            }
                         }
                     }
-                }
-                .onChange(of: showsBrowser) { _, shows in
-                    if shows && browserModel == nil { browserModel = BrowserModel() }
-                }
+                    .onChange(of: showsBrowser) { _, shows in
+                        if shows && browserModel == nil { browserModel = BrowserModel() }
+                    }
+            }
+        }
+        .onChange(of: session.sourceNavigation?.id) {
+            if session.sourceNavigation != nil { showsBrowser = false; mdViewSelection = .plain }
         }
     }
 
@@ -187,6 +192,23 @@ struct WorkspaceTerminalPane: View {
         .id(session.terminalGeneration)
     }
 }
+
+
+struct FileBrowserFooter: View {
+    let model: FileBrowserModel
+
+    var body: some View {
+        PaneBar(edge: .bottom) {
+            Image(systemName: "folder.fill")
+                .foregroundStyle(Color(NSColor.controlAccentColor))
+            Text(model.directory.path(percentEncoded: false))
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+                .truncationMode(.middle)
+        }
+    }
+}
+
 
 
 struct WorkspaceSidebar: View {

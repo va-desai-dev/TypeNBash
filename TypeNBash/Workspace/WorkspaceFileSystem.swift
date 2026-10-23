@@ -16,6 +16,7 @@ nonisolated struct WorkspaceFileEntry: Identifiable, Hashable, Sendable {
     var label: String {
         url.lastPathComponent
     }
+    var children: [WorkspaceFileEntry]?
 
     /// The icon for a path, with no entry needed to hang it on.
     ///
@@ -41,9 +42,21 @@ protocol WorkspaceFileSystem: AnyObject {
     func writeFile(_ data: Data, to url: URL) async throws
     func createDirectory(at url: URL) async throws
     func createFile(_ data: Data, at url: URL) async throws
+    func searchEntries(at directory: URL, root: URL) async throws -> [WorkspaceFileEntry]
+    func readSearchFile(at url: URL, root: URL, limit: Int) async throws -> Data
+    func replaceSearchFile(at url: URL, root: URL, expected: Data, replacement: Data) async throws
 }
 
 extension WorkspaceFileSystem {
+    func searchEntries(at directory: URL, root: URL) async throws -> [WorkspaceFileEntry] {
+        throw WorkspaceFileSystemError.unsupported("Project search is unavailable on this filesystem.")
+    }
+    func readSearchFile(at url: URL, root: URL, limit: Int) async throws -> Data {
+        throw WorkspaceFileSystemError.unsupported("Project search is unavailable on this filesystem.")
+    }
+    func replaceSearchFile(at url: URL, root: URL, expected: Data, replacement: Data) async throws {
+        throw WorkspaceFileSystemError.unsupported("Project replacement is unavailable on this filesystem.")
+    }
     func editorGitBaseline(at url: URL) async throws -> String? { nil }
 
     func createFile(_ data: Data, at url: URL) async throws {

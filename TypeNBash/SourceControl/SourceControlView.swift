@@ -8,6 +8,7 @@ struct SourceControlView: View {
         _model = State(initialValue: SourceControlModel(directory: directory, remote: remote))
     }
 
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -34,7 +35,12 @@ struct SourceControlView: View {
             if let snapshot = model.snapshot {
                 Text(snapshot.root.path(percentEncoded: false))
                     .font(.caption).foregroundStyle(.secondary).textSelection(.enabled)
-                Label(snapshot.branch, systemImage: "arrow.triangle.branch")
+                HStack {
+                    Label(snapshot.branch, systemImage: "arrow.triangle.branch")
+                    Spacer()
+                    Button("Stage All") { Task { await model.stageAll() } }
+                        .disabled(model.isBusy || model.stageablePaths.isEmpty)
+                }
                 if model.remote == nil {
                     if model.isEditingIdentity {
                         GroupBox("Commit Identity") {

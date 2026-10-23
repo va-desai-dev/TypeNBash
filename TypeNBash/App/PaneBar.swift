@@ -13,7 +13,6 @@ import SwiftUI
 struct PaneBar<Content: View, Accessory: View>: View {
     /// Row height every bar shares, so headers line up across split panes.
     static var rowHeight: CGFloat { 34 }
-
     /// Which side of the content the bar sits on; the divider faces the content.
     let edge: VerticalEdge
     let showsDivider: Bool
@@ -29,7 +28,7 @@ struct PaneBar<Content: View, Accessory: View>: View {
         showsDivider: Bool = true,
         progress: Double? = nil,
         @ViewBuilder content: () -> Content,
-        @ViewBuilder accessory: () -> Accessory
+        @ViewBuilder accessory: () -> Accessory,
     ) {
         self.edge = edge
         self.showsDivider = showsDivider
@@ -78,6 +77,8 @@ extension PaneBar where Accessory == EmptyView {
         self.init(edge: edge, showsDivider: showsDivider, progress: progress, content: content) { EmptyView() }
     }
 }
+
+
 
 /// A borderless icon button sized for a `PaneBar` row.
 struct PaneBarButton: View {

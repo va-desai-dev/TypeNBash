@@ -66,6 +66,26 @@ final class SSHWorkspaceFileSystem: WorkspaceFileSystem {
         return result.standardOutput
     }
 
+    func searchEntries(at directory: URL, root: URL) async throws -> [WorkspaceFileEntry] {
+        let result = try await connection.execute(program: "python3",
+            arguments: ["-c", ProjectSearchFileAccess.remoteScript, "list", root.path, directory.path])
+        return try JSONDecoder().decode([RemoteEntry].self, from: result.standardOutput).map {
+            WorkspaceFileEntry(url: directory.appendingPathComponent($0.name), isDirectory: $0.directory, byteCount: $0.size)
+        }
+    }
+
+    func readSearchFile(at url: URL, root: URL, limit: Int) async throws -> Data {
+        try await connection.execute(program: "python3",
+            arguments: ["-c", ProjectSearchFileAccess.remoteScript, "read", root.path, url.path, String(limit)]).standardOutput
+    }
+
+    func replaceSearchFile(at url: URL, root: URL, expected: Data, replacement: Data) async throws {
+        let input = try JSONEncoder().encode(["expected": expected, "replacement": replacement])
+        _ = try await connection.execute(program: "python3",
+            arguments: ["-c", ProjectSearchFileAccess.remoteScript, "replace", root.path, url.path, String(expected.count)],
+            standardInput: input)
+    }
+
     func writeFile(_ data: Data, to url: URL) async throws {
         let script = #"""
         import os, sys, tempfile

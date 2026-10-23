@@ -74,26 +74,7 @@ import TextFind
     /// The options for the text search.
     var mode: TextFind.Mode {
         
-        let defaults = self.defaults
-        
-        if defaults[.findUsesRegularExpression] {
-            let options = NSRegularExpression.Options()
-                .union(defaults[.findIgnoresCase] ? .caseInsensitive : [])
-                .union(defaults[.findRegexIsSingleline] ? .dotMatchesLineSeparators : [])
-                .union(defaults[.findRegexIsMultiline] ? .anchorsMatchLines : [])
-                .union(defaults[.findRegexUsesUnicodeBoundaries] ? .useUnicodeWordBoundaries : [])
-            
-            return .regularExpression(options: options, unescapesReplacement: defaults[.findRegexUnescapesReplacementString])
-            
-        } else {
-            let options = String.CompareOptions()
-                .union(defaults[.findIgnoresCase] ? .caseInsensitive : [])
-                .union(defaults[.findTextIsLiteralSearch] ? .literal : [])
-                .union(defaults[.findTextIgnoresDiacriticMarks] ? .diacriticInsensitive : [])
-                .union(defaults[.findTextIgnoresWidth] ? .widthInsensitive : [])
-            
-            return .textual(options: options, fullWord: defaults[.findMatchesFullWord])
-        }
+        FindOptions(defaults: defaults).mode
     }
     
     

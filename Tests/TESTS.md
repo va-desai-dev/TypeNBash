@@ -1,3 +1,21 @@
+# Project search checks
+
+```sh
+python3 Tests/run-editor-checks.py /path/to/DerivedData \
+  /path/to/SourcePackages ProjectSearchIntegrationChecks.swift
+python3 Tests/run-project-search-file-checks.py
+```
+
+The native harness checks recursive project scope, include/exclude globs, binary
+and size limits, symlink loops, CRLF/UTF-16 result navigation, shared find-field
+focus and typing, unsaved buffers,
+single/file replacements, native Undo, stale-file rejection, regex capture and
+zero-width replacements, advanced text options, query cancellation, and project
+teardown. It writes `/tmp/centcom-project-search.png` for visual inspection.
+The Python check executes the actual SSH search script against local fixtures,
+covering unusual paths, root escape attempts, full reads, stale writes, permissions,
+and temporary-file cleanup. It does not require or establish an SSH connection.
+
 # Find-bar keyboard focus checks
 
 ```sh

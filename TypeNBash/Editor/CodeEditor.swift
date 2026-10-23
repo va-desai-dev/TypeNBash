@@ -27,6 +27,7 @@ struct CodeEditorTextView: NSViewRepresentable {
     var savedText: String? = nil
     var comparesWithGit = true
     var bibliography: BibLibrary? = nil
+    var sourceNavigationID: UUID? = nil
 
     @Environment(\.colorScheme) private var colorScheme
 
@@ -90,6 +91,7 @@ struct CodeEditorTextView: NSViewRepresentable {
         context.coordinator.updateSelection()
         context.coordinator.citations.configure(textView: textView, library: bibliography, fileURL: fileURL)
         context.coordinator.updateChanges(savedText: savedText ?? text, fileURL: comparesWithGit ? fileURL : nil)
+        session.applySourceNavigation(to: textView, fileURL: fileURL)
 
         return scrollView
     }
@@ -126,6 +128,7 @@ struct CodeEditorTextView: NSViewRepresentable {
         context.coordinator.citations.configure(textView: textView, library: bibliography, fileURL: fileURL)
         context.coordinator.updateChanges(savedText: savedText ?? context.coordinator.savedText,
                                           fileURL: comparesWithGit ? fileURL : nil)
+        session.applySourceNavigation(to: textView, fileURL: fileURL)
     }
 
     static func dismantleNSView(_ scrollView: NSScrollView, coordinator: Coordinator) {

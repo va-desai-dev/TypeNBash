@@ -86,6 +86,7 @@ struct RemoteGit {
         switch action {
         case .refresh: break
         case .stage(let path): _ = try await run(["add", "--", path], in: root)
+        case .stageAll(let paths): _ = try await run(["add", "--"] + paths, in: root)
         case .unstage(let path): _ = try await run(["restore", "--staged", "--", path], in: root)
         case .commit(let message):
             guard !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
