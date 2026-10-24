@@ -7,7 +7,9 @@ python3 Tests/run-project-search-file-checks.py
 ```
 
 The native harness checks recursive project scope, include/exclude globs, binary
-and size limits, symlink loops, CRLF/UTF-16 result navigation, shared find-field
+and size limits, symlink loops, the sidebar footer's path filter (narrowing the
+results, the count and Replace All without searching again), CRLF/UTF-16 result
+navigation, shared find-field
 focus and typing, unsaved buffers,
 single/file replacements, native Undo, stale-file rejection, regex capture and
 zero-width replacements, advanced text options, query cancellation, and project
@@ -267,7 +269,45 @@ that opening a non-repository displays an explanation and that the toolbar
 button is disabled for SSH workspaces. Unstage is available after the
 repository's first commit. Push sends only the current branch to the selected
 remote under the same branch name, without force, and reports remote rejection.
-It does not change upstream configuration. Pull/merge are not part of this integration.
+It does not change upstream configuration. Pull is not part of this integration;
+merging is, from the Repositories tab (below).
+
+# Repository refs checks
+
+The Repositories tab in the Source Control sidebar, against temporary
+repositories through the production service:
+
+```sh
+python3 Tests/run-runtime-checks.py /path/to/DerivedData \
+  /path/to/SourcePackages RepositoryRefsIntegrationChecks.swift
+```
+
+Listing covers local branches grouped into folders by `/`, the current branch,
+recents from HEAD's reflog (both ends of each checkout, so the branch `git init`
+started on appears), lightweight and annotated tags, stashes, and remote
+branches without `origin/HEAD`. Context-menu actions: switching, including a
+switch that would overwrite uncommitted work being refused with the file intact;
+switching to a remote branch, which creates a local branch tracking it; New
+Branch, which rejects option-like names. Merge covers fast-forward, up to date,
+a clean merge commit (two parents, Git's message, no state left behind), refusal
+with staged changes, and conflicts left in the work tree. Finishing a conflicted
+merge with the app's Commit records both parents and clears MERGE_HEAD, so the
+next commit has one parent; SwiftGitX's commit alone leaves MERGE_HEAD behind.
+The SSH path (`RemoteGit`) is not exercised here.
+
+Manual UI check: in Source Control → Repositories, right-click a branch. Switch
+moves "(current)"; New Branch prompts for a name and switches to it; Merge asks
+for confirmation, then reports the outcome. All three are disabled, with the
+reason shown in the menu, while the open file has unsaved edits. After any of
+them the file tree, the open file, the Changes list and the editor's change
+markers reload. Tags have no menu.
+
+The Source Control tab's footer menu (ellipsis) refreshes when the tab opens, so
+Stage All and Restore All enable as soon as there is something to stage or
+unstage. Commit… prompts for a message (or opens the sheet when no commit
+identity is set), Fetch and Push act on the only remote or offer a submenu, and
+results or failures appear as an alert. A fetch, push or commit from the footer
+or the sheet reloads the Changes list and the Repositories tab in place.
 
 # GitHub authentication checks
 
@@ -585,10 +625,37 @@ date and size with folders on top or mixed, expanding in place, arrow-key
 expand/collapse, New Folder landing in the highlighted folder, revealing a file
 opened from elsewhere, re-rooting with remembered expansion, and that browsing
 never closes the open file or its draft. A gated filesystem checks that a stale
-listing reply is discarded and a failed root listing reports its error. Writes
+listing reply is discarded and a failed root listing reports its error.
+Deletion runs through a filesystem that removes outright (so the user's Trash is
+never touched): the browsed folder and home folder are refused, deleting a folder
+closes the open file inside it, unsaved edits are flagged beforehand, the rows,
+children and selection go at once, and a failed delete keeps the rows. Moving to
+the Trash itself is local `FileManager.trashItem` and is checked by hand.
+Rename refuses the browsed folder, names with `/` or nothing in them, and an
+existing name; keeps the same name as a no-op; moves the open file, unsaved edits
+and all, when its folder is renamed; shows and selects the new name at once; and
+allows a case-only rename on a case-insensitive disk.
+Moving (what a drag in the tree does) leaves an item dropped where it already is,
+refuses to put a folder into itself or below itself and to replace an item of the
+same name, shows the moved file inside an open folder at once, and carries the
+open file, unsaved edits and all, along with its folder. Auto-scroll while
+dragging moves the List's AppKit scroll view directly, because SwiftUI reports no
+row positions as an AppKit list scrolls: the checks cover the edge bands (faster
+nearer the edge, still full speed just past it over a header, nothing in the
+middle), that the locator finds the List's own scroll view beside another one, and
+that moving its clip view scrolls the List and stops at the end. The drag gesture itself — dragging a row onto a
+folder, a file or empty space, holding it at the top or bottom edge to scroll, and
+the refusal of drags from other apps and other windows — is checked by hand. Writes
 `/tmp/centcom-file-tree.png`.
 The gated filesystem also pushes folder changes: the root and expanded folders
 are watched, a change re-reads only a watched folder, and collapsing stops it.
+The footer filter (the filter button in the sidebar footer) is checked against the
+same folder: it finds matches inside collapsed folders, ignoring case, shows them
+under their opened parent folders (or alone in list layout), empties the rows when
+nothing matches, and opening a matched folder ends the filter and reveals it.
+Local search walks the tree off the main actor; SSH runs the helper's `find`
+script. Both skip hidden names unless hidden files are shown and stop at 2,000
+matches.
 
 # SSH filesystem helper checks
 
@@ -600,7 +667,10 @@ SSH filesystem operations go through one long-lived `python3` helper per
 connection, which runs the same scripts the per-call fallback uses. The check
 starts the actual helper locally over pipes, without SSH. It covers the version
 handshake, every production script (listing with `mtime`, bounded reads, atomic
-writes, create/mkdir errors, search, Git baseline), out-of-order replies with
+writes, create/mkdir errors, permanent removal that unlinks links without
+following them and refuses the home folder — checked with `HOME` pointed at a
+throwaway folder — rename that refuses to replace an existing item but allows a
+case-only change, search, recursive name find, Git baseline), out-of-order replies with
 concurrent scripts keeping their own argv/stdin/stdout, a large read alongside a
 small listing, change events for watched folders and silence for unwatched ones,
 and exiting when stdin closes with a request still running.

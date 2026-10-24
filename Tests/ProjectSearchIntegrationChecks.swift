@@ -54,6 +54,20 @@ import TextFind
         precondition(!model.limited)
         check("recursive root search, excluded dependencies, binary/size limits, symlink loops")
 
+        model.pathFilter = "SOURCES"
+        precondition(!model.isSearching, "The path filter must not search again")
+        precondition(model.results.count == 3 && model.visibleResults.map(\.path) == ["Sources/example.swift"])
+        precondition(model.count == 2, "The count follows the path filter")
+        model.pathFilter = "other"
+        model.previewReplacement()
+        try await readyReview(model)
+        precondition(model.review!.replacements.map(\.file.path) == ["other.txt"],
+                     "Replace All must leave files the filter hides alone")
+        model.review = nil
+        model.pathFilter = ""
+        precondition(model.count == 5 && model.visibleResults.count == 3)
+        check("footer path filter narrows results, count and Replace All without searching again")
+
         session.fileBrowser.tree.navigate(to: root.appendingPathComponent("Sources"))
         model.schedule()
         try await finished(model)
@@ -67,7 +81,7 @@ import TextFind
         let result = model.results[0]
         let host = NSHostingView(rootView: HStack(spacing: 0) {
             ProjectSearchView(model: model, onOpen: { _, _ in }, files: session.fileBrowser).frame(width: 300)
-            WorkspaceEditorPane(model: session.fileBrowser, session: editor).frame(width: 700)
+            WorkspacePane(model: session.fileBrowser, session: editor).frame(width: 700)
         }.frame(height: 650))
         let window = NSWindow(contentRect: NSRect(x: 40, y: 40, width: 1000, height: 650),
             styleMask: [.titled, .resizable], backing: .buffered, defer: false)

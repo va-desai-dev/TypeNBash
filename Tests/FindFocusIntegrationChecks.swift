@@ -26,7 +26,7 @@ struct FindFocusIntegrationChecks {
         model.newFile()
         model.updatePreviewText(original)
         let session = EditorSession()
-        let host = NSHostingView(rootView: WorkspaceEditorPane(model: model, session: session)
+        let host = NSHostingView(rootView: WorkspacePane(model: model, session: session)
             .frame(width: 950, height: 550))
         // A separate native field also checks replace-and-find's responder
         // contract independently of SwiftUI's focus restoration.

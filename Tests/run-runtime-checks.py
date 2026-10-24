@@ -43,7 +43,9 @@ with tempfile.TemporaryDirectory(prefix="centcom-runtime-checks-", dir="/tmp") a
         command += ["-Xcc", "-fmodule-map-file=" + str(module_map)]
     dylibs = products / "TypeNBash.app/Contents/MacOS"
     command += [str(root / (sys.argv[3] if len(sys.argv) > 3 else "RuntimeIntegrationChecks.swift")), str(dylibs / "TypeNBash.debug.dylib"),
-                "-Xlinker", "-rpath", "-Xlinker", str(dylibs), "-o", str(executable)]
+                "-Xlinker", "-rpath", "-Xlinker", str(dylibs),
+                # Embedded frameworks the app links, such as Sparkle.
+                "-Xlinker", "-rpath", "-Xlinker", str(dylibs.parent / "Frameworks"), "-o", str(executable)]
     subprocess.run(command, check=True)
     subprocess.run([str(executable)], check=True)
     if len(sys.argv) > 3:
@@ -53,7 +55,7 @@ with tempfile.TemporaryDirectory(prefix="centcom-runtime-checks-", dir="/tmp") a
     target = home / "folder #?% ' café"
     target.mkdir()
     # Exercise the actual remote listing script with hidden and symlinked folders.
-    listing_source = (root.parent / "TypeNBash/SSH/SSHWorkspaceFileSystem.swift").read_text()
+    listing_source = (root.parent / "TypeNBash/AppClasses/RemoteSessionControl/SSHWorkspaceFileSystem.swift").read_text()
     listing_script = re.search(r'listScript = #"""(.*?)"""#', listing_source, re.S).group(1)
     listing_script = textwrap.dedent(listing_script)
     (home / ".hidden").mkdir()

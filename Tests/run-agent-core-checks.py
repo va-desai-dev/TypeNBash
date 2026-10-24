@@ -16,7 +16,7 @@ with tempfile.TemporaryDirectory(prefix='typenbash-byok-', dir='/tmp') as direct
                '-default-isolation', 'MainActor', '-enable-upcoming-feature', 'NonisolatedNonsendingByDefault', '-target', f'{platform.machine()}-apple-macos26.0',
                '-module-cache-path', str(temporary / 'ModuleCache'),
                '-D', 'HARNESS_CORE', '-D', 'APP_STORE' if store else 'DIRECT_DISTRIBUTION']
-    command += [str(root / 'TypeNBash/Agents' / (name + '.swift')) for name in sources]
+    command += [str(root / 'TypeNBash/AppClasses/AgentsControl' / (name + '.swift')) for name in sources]
     command += [str(root / 'Tests/AgentIntegrationChecks.swift'), '-o', str(executable)]
     subprocess.run(command, check=True)
     subprocess.run([str(executable)], check=True)

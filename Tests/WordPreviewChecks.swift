@@ -58,7 +58,7 @@ struct WordPreviewChecks {
         let app = NSApplication.shared
         app.setActivationPolicy(.regular)
         let session = EditorSession()
-        let host = NSHostingView(rootView: WorkspaceEditorPane(model: model, session: session).frame(width: 900, height: 650))
+        let host = NSHostingView(rootView: WorkspacePane(model: model, session: session).frame(width: 900, height: 650))
         let window = NSWindow(contentRect: NSRect(x: 100, y: 100, width: 900, height: 650),
                               styleMask: [.titled, .resizable, .closable], backing: .buffered, defer: false)
         window.title = "DOCX Viewer Verification"

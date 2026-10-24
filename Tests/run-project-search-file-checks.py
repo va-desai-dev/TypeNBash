@@ -9,7 +9,7 @@ import sys
 import tempfile
 import textwrap
 
-source = pathlib.Path(__file__).resolve().parents[1] / "TypeNBash/Projects/ProjectSearchFileAccess.swift"
+source = pathlib.Path(__file__).resolve().parents[1] / "TypeNBash/AppClasses/ProjectControl/ProjectSearchFileAccess.swift"
 script = textwrap.dedent(re.search(r'static let remoteScript = #"""(.*?)"""#', source.read_text(), re.S)[1])
 with tempfile.TemporaryDirectory(prefix="centcom-search-files-") as temporary:
     parent = pathlib.Path(temporary)

@@ -6,6 +6,19 @@
 //
 
 import SwiftUI
+import Sparkle
+
+// 1. This reads your Xcode Organizer version automatically
+public struct AppVersion {
+    public static var current: String {
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    }
+
+    public static var build: String {
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    }
+}
+
 
 @main
 struct TypeNBashApp: App {
@@ -28,7 +41,6 @@ struct TypeNBashApp: App {
         .windowResizability(.contentSize)
         .defaultPosition(.center)
         .restorationBehavior(.disabled)
-        .commandsRemoved()
         .commands {
             CommandGroup(replacing: .newItem) {
                 WelcomeWindowCommand()
@@ -40,20 +52,31 @@ struct TypeNBashApp: App {
                 ProjectNewCommand(windows: windows)
             })
         }
-
-        WindowGroup("TypeNBash", id: WorkspaceWindows.workspaceID, for: UUID.self) { $id in
+        WindowGroup(
+            id: WorkspaceWindows.workspaceID,
+            for: UUID.self
+        ) { $id in
             if let id, let router = windows.sessions[id] {
                 ContentView(router: router)
                     .tint(Color.accentColor)
                     .preferredColorScheme(.dark)
                     .foregroundStyle(Color.foreground)
                     .onDisappear { windows.close(id) }
+                    .navigationTitle(windows.workspaceName(router))
             }
         }
         .defaultSize(width: 1100, height: 720)
+        .windowResizability(.contentSize)
         .defaultLaunchBehavior(.suppressed)
         .restorationBehavior(.disabled)
-        .commands { ProjectSearchCommands() }
+        .commands { ProjectCommands() }
+        // The bundled website's guide; its own styles set the look.
+        Window(HelpView.menuTitle, id: HelpView.windowID) {
+            HelpView()
+        }
+        .defaultSize(width: 920, height: 640)
+        .restorationBehavior(.disabled)
+        .commands { HelpCommands() }
         // In the system menu bar so the target can be switched from Safari,
         // where no TypeNBash menu is showing. Available while a project has
         // a Markdown document selected, matching the citations inspector.
@@ -72,6 +95,7 @@ struct TypeNBashApp: App {
                 .tint(Color.accentColor)
                 .preferredColorScheme(.dark)
         }
+        .windowLevel(.floating)
         // Standard titlebar on purpose: `.hiddenTitleBar` makes the content view
         // full-size, which slides the panes' NSScrollViews under the titlebar and
         // AppKit then draws its hard scroll-edge pocket over them — something

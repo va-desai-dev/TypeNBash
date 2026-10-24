@@ -209,7 +209,7 @@ struct AnalysisIntegrationChecks {
         let editorModel = FileBrowserModel()
         editorModel.select(WorkspaceFileEntry(url: snippetURL, isDirectory: false, byteCount: nil))
         let editorSession = EditorSession()
-        let editorHost = NSHostingView(rootView: WorkspaceEditorPane(model: editorModel, session: editorSession, onRunInConsole: { _ in }).frame(width: 800, height: 400))
+        let editorHost = NSHostingView(rootView: WorkspacePane(model: editorModel, session: editorSession, onRunInConsole: { _ in }).frame(width: 800, height: 400))
         let editorWindow = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 800, height: 400),
                                     styleMask: [.titled, .resizable], backing: .buffered, defer: false)
         editorWindow.isReleasedWhenClosed = false

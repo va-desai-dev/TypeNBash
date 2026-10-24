@@ -43,7 +43,7 @@ struct RemoteFileSaveIntegrationChecks {
         let fs = RemoteSaveFixture(root: root)
         let model = FileBrowserModel(fileSystem: fs)
         let session = EditorSession()
-        let host = NSHostingView(rootView: WorkspaceEditorPane(model: model, session: session)
+        let host = NSHostingView(rootView: WorkspacePane(model: model, session: session)
             .frame(width: 900, height: 500))
         let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 900, height: 500),
                               styleMask: [.titled, .resizable], backing: .buffered, defer: false)
@@ -127,7 +127,7 @@ struct RemoteFileSaveIntegrationChecks {
         try Data("# Local file\n\nOriginal\n".utf8).write(to: localURL)
         localModel.select(WorkspaceFileEntry(url: localURL, isDirectory: false, byteCount: nil))
         try await waitFor { localModel.savedPreviewText.contains("Original") }
-        host.rootView = WorkspaceEditorPane(model: localModel, session: session).frame(width: 900, height: 500)
+        host.rootView = WorkspacePane(model: localModel, session: session).frame(width: 900, height: 500)
         try await Task.sleep(for: .milliseconds(500))
         let localEditor = editor(in: host)!
         window.makeFirstResponder(localEditor)

@@ -9,7 +9,7 @@ import sys
 import tempfile
 import textwrap
 
-source = (Path(__file__).resolve().parents[1] / "TypeNBash/SourceControl/RemoteGit+EditorBaseline.swift").read_text()
+source = (Path(__file__).resolve().parents[1] / "TypeNBash/AppClasses/GitControl/RemoteGit+EditorBaseline.swift").read_text()
 script = textwrap.dedent(re.search(r'editorBaselineScript = #"""(.*?)"""#', source, re.S).group(1))
 
 with tempfile.TemporaryDirectory(prefix="centcom-ssh-baseline-") as temporary:

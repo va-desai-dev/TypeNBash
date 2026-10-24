@@ -28,7 +28,7 @@ struct CSVIntegrationChecks {
         }
         guard case .table = model.preview else { fatalError("CSV preview did not load") }
         let session = EditorSession()
-        let host = NSHostingView(rootView: WorkspaceEditorPane(model: model, session: session).frame(width: 800, height: 400))
+        let host = NSHostingView(rootView: WorkspacePane(model: model, session: session).frame(width: 800, height: 400))
         let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 800, height: 400),
                               styleMask: [.titled, .resizable], backing: .buffered, defer: false)
         window.isReleasedWhenClosed = false

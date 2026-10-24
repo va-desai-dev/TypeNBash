@@ -7,7 +7,18 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>Connect to the model server you select for workspace assistance.</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>TypeNBash File Tree Item</string>
+			<key>UTTypeIdentifier</key>
+			<string>VD.TypeNBash.file-tree-item</string>
+		</dict>
+	</array>
 </dict>
 </plist>

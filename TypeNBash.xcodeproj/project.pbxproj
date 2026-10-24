@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3B2C09308DBE71003C1F29 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 7C3B2C08308DBE71003C1F29 /* Sparkle */; };
 		7C56083E3060543F00046F2A /* MarkdownEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56083D3060543F00046F2A /* MarkdownEngine */; };
 		7C5608403060543F00046F2A /* MarkdownEngineCodeBlocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */; };
 		7C5608423060543F00046F2A /* MarkdownEngineLatex in Frameworks */ = {isa = PBXBuildFile; productRef = 7C5608413060543F00046F2A /* MarkdownEngineLatex */; };
@@ -56,6 +57,37 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7C3B2BF5308D35DD003C1F29 /* Exceptions for "CiteTex" folder in "TypeNBash" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+				Resources/_locales,
+				Resources/background.js,
+				Resources/content.js,
+				Resources/images,
+				Resources/manifest.json,
+				Resources/popup.css,
+				Resources/popup.html,
+				Resources/popup.js,
+				SafariWebExtensionHandler.swift,
+			);
+			target = 7C3CC8CD3055BB7300D76564 /* TypeNBash */;
+		};
+		7C3B2BF6308D35DD003C1F29 /* Exceptions for "CiteTex" folder in "CiteTex" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/_locales,
+				Resources/background.js,
+				Resources/content.js,
+				Resources/images,
+				Resources/manifest.json,
+				Resources/popup.css,
+				Resources/popup.html,
+				Resources/popup.js,
+				SafariWebExtensionHandler.swift,
+			);
+			target = 7C97B584306DF1B500852A66 /* CiteTex */;
+		};
 		7C4BBA22305BCD5F00B937A5 /* Exceptions for "TypeNBash" folder in "TypeNBash" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -63,37 +95,31 @@
 			);
 			target = 7C3CC8CD3055BB7300D76564 /* TypeNBash */;
 		};
-		C17E00010000000000000003 /* Exceptions for "CiteTex" folder in "CiteTex" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 7C97B584306DF1B500852A66 /* CiteTex */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7C3CC8D03055BB7300D76564 /* TypeNBash */ = {
+		7C3B2BEB308D35DC003C1F29 /* CiteTex */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				7C4BBA22305BCD5F00B937A5 /* Exceptions for "TypeNBash" folder in "TypeNBash" target */,
-			);
-			explicitFolders = (
-				Resources/Home,
-			);
-			path = TypeNBash;
-			sourceTree = "<group>";
-		};
-		7C97B586306DF1B500852A66 /* CiteTex */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C17E00010000000000000003 /* Exceptions for "CiteTex" folder in "CiteTex" target */,
+				7C3B2BF5308D35DD003C1F29 /* Exceptions for "CiteTex" folder in "TypeNBash" target */,
+				7C3B2BF6308D35DD003C1F29 /* Exceptions for "CiteTex" folder in "CiteTex" target */,
 			);
 			explicitFolders = (
 				Resources/_locales,
 				Resources/images,
 			);
 			path = CiteTex;
+			sourceTree = "<group>";
+		};
+		7C3CC8D03055BB7300D76564 /* TypeNBash */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7C4BBA22305BCD5F00B937A5 /* Exceptions for "TypeNBash" folder in "TypeNBash" target */,
+			);
+			explicitFolders = (
+				AppResources/Home,
+			);
+			path = TypeNBash;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -103,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C3B2C09308DBE71003C1F29 /* Sparkle in Frameworks */,
 				7C56083E3060543F00046F2A /* MarkdownEngine in Frameworks */,
 				7CA595C9305719AD00C0FF4E /* MacUI in Frameworks */,
 				7CA595CC305719BD00C0FF4E /* EditorCore in Frameworks */,
@@ -136,8 +163,8 @@
 			children = (
 				7C8A8B54305C903400FD348E /* .gitignore */,
 				7C3CC8D03055BB7300D76564 /* TypeNBash */,
-				7C97B586306DF1B500852A66 /* CiteTex */,
 				7C3CC8CF3055BB7300D76564 /* Products */,
+				7C3B2BEB308D35DC003C1F29 /* CiteTex */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +195,7 @@
 				7C97B59C306DF1B500852A66 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				7C3B2BEB308D35DC003C1F29 /* CiteTex */,
 				7C3CC8D03055BB7300D76564 /* TypeNBash */,
 			);
 			name = TypeNBash;
@@ -186,6 +214,7 @@
 				7C5608413060543F00046F2A /* MarkdownEngineLatex */,
 				7C97B56F306DE31500852A66 /* BibTeXKit */,
 				7C97B571306DE31500852A66 /* BibTeXViewer */,
+				7C3B2C08308DBE71003C1F29 /* Sparkle */,
 			);
 			productName = CENTCOM;
 			productReference = 7C3CC8CE3055BB7300D76564 /* TypeNBash.app */;
@@ -202,9 +231,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				7C97B586306DF1B500852A66 /* CiteTex */,
 			);
 			name = CiteTex;
 			packageProductDependencies = (
@@ -251,6 +277,7 @@
 				7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */,
 				7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */,
 				7C97B56E306DE31500852A66 /* XCLocalSwiftPackageReference "../CiteTexKit" */,
+				7C3B2C07308DBE71003C1F29 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7C3CC8CF3055BB7300D76564 /* Products */;
@@ -365,6 +392,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_DOCC_FLAGS = "";
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -424,6 +452,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 26.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_DOCC_FLAGS = "";
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -464,6 +493,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = TypeNBash;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "TypeNBash © 2026 by Vedant A. Desai. All Rights and Authorship Reserved.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to the model server you select for workspace assistance.";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -525,6 +555,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = TypeNBash;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "TypeNBash © 2026 by Vedant A. Desai. All Rights and Authorship Reserved.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to the model server you select for workspace assistance.";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -687,6 +718,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_DOCC_FLAGS = "";
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -746,6 +778,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 26.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_DOCC_FLAGS = "";
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -782,6 +815,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = TypeNBash;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "TypeNBash © 2026 by Vedant A. Desai. All Rights and Authorship Reserved.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to the model server you select for workspace assistance.";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -839,6 +873,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = TypeNBash;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "TypeNBash © 2026 by Vedant A. Desai. All Rights and Authorship Reserved.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to the model server you select for workspace assistance.";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1000,6 +1035,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7C3B2C07308DBE71003C1F29 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle.git/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.0;
+			};
+		};
 		7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nodes-app/swift-markdown-engine.git";
@@ -1043,6 +1086,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7C3B2C08308DBE71003C1F29 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C3B2C07308DBE71003C1F29 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		7C56083D3060543F00046F2A /* MarkdownEngine */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */;

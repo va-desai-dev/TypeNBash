@@ -35,6 +35,8 @@ for module_map in maps:
     command += ["-Xcc", "-fmodule-map-file=" + str(module_map)]
 dylib_directory = products / "TypeNBash.app/Contents/MacOS"
 command += [str(root / (sys.argv[3] if len(sys.argv) > 3 else "EditorIntegrationChecks.swift")), str(dylib_directory / "TypeNBash.debug.dylib"),
-            "-Xlinker", "-rpath", "-Xlinker", str(dylib_directory), "-o", str(macos / "EditorChecks")]
+            "-Xlinker", "-rpath", "-Xlinker", str(dylib_directory),
+            # Embedded frameworks the app links, such as Sparkle.
+            "-Xlinker", "-rpath", "-Xlinker", str(dylib_directory.parent / "Frameworks"), "-o", str(macos / "EditorChecks")]
 subprocess.run(command, check=True)
 subprocess.run([str(macos / "EditorChecks")], check=True)

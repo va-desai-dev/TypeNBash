@@ -16,18 +16,18 @@ sources = pathlib.Path(__file__).resolve().parents[1] / "TypeNBash"
 def script(file, name):
     return textwrap.dedent(re.search(name + r' = #"""(.*?)"""#', (sources / file).read_text(), re.S)[1])
 
-helper = script("SSH/SSHRemoteHelper.swift", "static let script")
-scripts = {name: script("SSH/SSHWorkspaceFileSystem.swift", f"static let {name}Script")
-           for name in ["list", "read", "write", "createFile", "mkdir"]}
-scripts["search"] = script("Projects/ProjectSearchFileAccess.swift", "static let remoteScript")
-scripts["editorGitBaseline"] = script("SourceControl/RemoteGit+EditorBaseline.swift", "editorBaselineScript")
+helper = script("AppClasses/RemoteSessionControl/SSHRemoteHelper.swift", "static let script")
+scripts = {name: script("AppClasses/RemoteSessionControl/SSHWorkspaceFileSystem.swift", f"static let {name}Script")
+           for name in ["list", "read", "write", "createFile", "mkdir", "remove", "move", "find"]}
+scripts["search"] = script("AppClasses/ProjectControl/ProjectSearchFileAccess.swift", "static let remoteScript")
+scripts["editorGitBaseline"] = script("AppClasses/GitControl/RemoteGit+EditorBaseline.swift", "editorBaselineScript")
 # Test-only: echoes its arguments and stdin after a delay, to force reply order.
 scripts["slow"] = "import sys, time\ntime.sleep(float(sys.argv[1]))\nprint(sys.argv[2] + sys.stdin.read())\n"
 
 
 class Helper:
-    def __init__(self):
-        self.process = subprocess.Popen([sys.executable, "-c", helper], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    def __init__(self, env=None):
+        self.process = subprocess.Popen([sys.executable, "-c", helper], stdin=subprocess.PIPE, stdout=subprocess.PIPE, env=env)
         self.lines = queue.Queue()
         self.next_id = 0
         threading.Thread(target=lambda: [self.lines.put(json.loads(line)) for line in self.process.stdout], daemon=True).start()
@@ -79,7 +79,61 @@ with tempfile.TemporaryDirectory(prefix="centcom-ssh-helper-") as temporary:
     assert remote.output("search", "read", str(root), str(file), "100") == file.read_bytes()
     assert "ValueError" in remote.call("search", "read", str(root), str(root.parent), "100")["error"]
     assert json.loads(remote.output("editorGitBaseline", str(file))) is None
-    print("PASS: list with mtime, bounded read, atomic write, mkdir/create errors, search and baseline scripts")
+    (root / "folder" / "Nested Notes.MD").write_text("x")
+    (root / ".hidden" / "notes-secret").write_text("x")
+    found = {entry["name"]: entry for entry in json.loads(remote.output("find", str(root), "notes", "0", "10"))}
+    assert set(found) == {"notes.md", "folder/Nested Notes.MD"} and not found["notes.md"]["directory"], found
+    hidden = json.loads(remote.output("find", str(root), "NOTES", "1", "10"))
+    assert ".hidden/notes-secret" in {entry["name"] for entry in hidden}
+    assert len(json.loads(remote.output("find", str(root), "notes", "1", "2"))) == 2
+    assert json.loads(remote.output("find", str(root), "folder", "0", "10"))[0]["directory"]
+    print("PASS: list with mtime, bounded read, atomic write, mkdir/create errors, search, find, and baseline scripts")
+
+    doomed = root / "doomed.txt"
+    doomed.write_text("x")
+    remote.output("remove", str(doomed))
+    assert not doomed.exists()
+    tree = root / "doomed folder"
+    (tree / "inner").mkdir(parents=True)
+    (tree / "inner" / "file.txt").write_text("x")
+    remote.output("remove", str(tree))
+    assert not tree.exists()
+    # A link goes; what it points to stays.
+    kept = pathlib.Path(temporary) / "kept outside"
+    kept.mkdir()
+    (kept / "keep.txt").write_text("x")
+    (root / "link").symlink_to(kept, target_is_directory=True)
+    remote.output("remove", str(root / "link"))
+    assert not (root / "link").is_symlink() and (kept / "keep.txt").exists()
+    assert "FileNotFoundError" in remote.call("remove", str(root / "missing"))["error"]
+    # The home refusal runs with HOME pointed at a throwaway folder, so a
+    # broken guard could only ever delete that.
+    fake_home = pathlib.Path(temporary) / "fake home"
+    fake_home.mkdir()
+    (fake_home / "keep.txt").write_text("x")
+    guarded = Helper(env={**__import__("os").environ, "HOME": str(fake_home)})
+    assert guarded.call("hello", version=1, scripts=scripts)["version"] == 1
+    assert "PermissionError" in guarded.call("remove", "~")["error"]
+    assert "PermissionError" in guarded.call("remove", str(fake_home))["error"]
+    assert (fake_home / "keep.txt").exists()
+    guarded.process.stdin.close()
+    guarded.process.wait(timeout=10)
+    print("PASS: remove deletes files and folders, unlinks links without following them, and refuses the home folder")
+
+    before = root / "before.txt"
+    before.write_text("before")
+    remote.output("move", str(before), str(root / "after.txt"))
+    assert not before.exists() and (root / "after.txt").read_text() == "before"
+    (root / "taken.txt").write_text("taken")
+    assert "FileExistsError" in remote.call("move", str(root / "after.txt"), str(root / "taken.txt"))["error"]
+    assert (root / "taken.txt").read_text() == "taken" and (root / "after.txt").exists()
+    # A case-only rename is the same item, even where the disk ignores case.
+    remote.output("move", str(root / "after.txt"), str(root / "AFTER.txt"))
+    assert "AFTER.txt" in {path.name for path in root.iterdir()}
+    (root / "old folder" / "inner").mkdir(parents=True)
+    remote.output("move", str(root / "old folder"), str(root / "new folder"))
+    assert (root / "new folder" / "inner").is_dir() and not (root / "old folder").exists()
+    print("PASS: move renames files and folders, refuses to replace an existing item, and allows case-only renames")
 
     slow = remote.send("slow", "1.0", "slow:", data=b"payload")
     fast = remote.send("list", str(root), "0")
