@@ -201,7 +201,7 @@ struct FileBrowserFooter: View {
         PaneBar(edge: .bottom) {
             Image(systemName: "folder.fill")
                 .foregroundStyle(Color(NSColor.controlAccentColor))
-            Text(model.directory.path(percentEncoded: false))
+            Text(model.tree.directory.path(percentEncoded: false))
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
                 .truncationMode(.middle)
@@ -227,7 +227,7 @@ struct WorkspaceSidebar: View {
         )
         .safeAreaInset(edge: .top) {
             PaneBar {
-                FileBrowserNavigationControls(model: model)
+                FileBrowserNavigationControls(tree: model.tree)
                 Spacer()
                 FileBrowserActionControls(
                     model: model,
@@ -240,7 +240,7 @@ struct WorkspaceSidebar: View {
             PaneBar(edge: .bottom) {
                 Image(systemName: "folder.fill")
                     .foregroundStyle(Color(NSColor.controlAccentColor))
-                Text(model.directory.path(percentEncoded: false))
+                Text(model.tree.directory.path(percentEncoded: false))
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
                     .truncationMode(.middle)
@@ -251,7 +251,7 @@ struct WorkspaceSidebar: View {
             Button("Create", action: createFolder)
             Button("Cancel", role: .cancel) { }
         } message: {
-            Text("Create a folder in “\(model.directory.lastPathComponent)”.")
+            Text("Create a folder in “\(model.tree.targetDirectory.lastPathComponent)”.")
         }
         .alert(
             "Couldn’t Create Folder",

@@ -7,6 +7,8 @@ nonisolated struct WorkspaceFileEntry: Identifiable, Hashable, Sendable {
     let url: URL
     let isDirectory: Bool
     let byteCount: Int?
+    /// Nil when the filesystem couldn't report it; sorts as the oldest.
+    var modificationDate: Date? = nil
 
     var id: URL { url }
 
@@ -16,7 +18,6 @@ nonisolated struct WorkspaceFileEntry: Identifiable, Hashable, Sendable {
     var label: String {
         url.lastPathComponent
     }
-    var children: [WorkspaceFileEntry]?
 
     /// The icon for a path, with no entry needed to hang it on.
     ///
@@ -45,6 +46,10 @@ protocol WorkspaceFileSystem: AnyObject {
     func searchEntries(at directory: URL, root: URL) async throws -> [WorkspaceFileEntry]
     func readSearchFile(at url: URL, root: URL, limit: Int) async throws -> Data
     func replaceSearchFile(at url: URL, root: URL, expected: Data, replacement: Data) async throws
+    /// Folders among those last passed to `watch` whose listings changed on disk.
+    /// Never yields where the filesystem can't watch.
+    var folderChanges: AsyncStream<URL> { get }
+    func watch(_ folders: [URL])
 }
 
 extension WorkspaceFileSystem {
@@ -58,6 +63,8 @@ extension WorkspaceFileSystem {
         throw WorkspaceFileSystemError.unsupported("Project replacement is unavailable on this filesystem.")
     }
     func editorGitBaseline(at url: URL) async throws -> String? { nil }
+    var folderChanges: AsyncStream<URL> { AsyncStream { $0.finish() } }
+    func watch(_ folders: [URL]) {}
 
     func createFile(_ data: Data, at url: URL) async throws {
         throw WorkspaceFileSystemError.unsupported("This filesystem cannot create project definitions.")
@@ -75,7 +82,7 @@ final class LocalWorkspaceFileSystem: WorkspaceFileSystem {
         let options: FileManager.DirectoryEnumerationOptions = includingHiddenFiles
             ? []
             : [.skipsHiddenFiles]
-        let keys: Set<URLResourceKey> = [.isDirectoryKey, .isSymbolicLinkKey, .fileSizeKey]
+        let keys: Set<URLResourceKey> = [.isDirectoryKey, .isSymbolicLinkKey, .fileSizeKey, .contentModificationDateKey]
         return try FileManager.default.contentsOfDirectory(
             at: directory,
             includingPropertiesForKeys: Array(keys),
@@ -88,7 +95,8 @@ final class LocalWorkspaceFileSystem: WorkspaceFileSystem {
             return WorkspaceFileEntry(
                 url: url,
                 isDirectory: values.isDirectory == true,
-                byteCount: values.fileSize
+                byteCount: values.fileSize,
+                modificationDate: values.contentModificationDate
             )
         }
     }

@@ -78,7 +78,7 @@ final class ProjectPickerModel {
         #else
         isBrowsing = true
         let initialPath = selectedProfileID == nil && session.location == .local
-            ? session.fileBrowser.directory.path(percentEncoded: false) : nil
+            ? session.fileBrowser.tree.directory.path(percentEncoded: false) : nil
         browse(path: directoryPath.isEmpty ? initialPath : directoryPath)
         #endif
     }

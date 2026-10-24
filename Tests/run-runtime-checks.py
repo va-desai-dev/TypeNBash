@@ -54,7 +54,7 @@ with tempfile.TemporaryDirectory(prefix="centcom-runtime-checks-", dir="/tmp") a
     target.mkdir()
     # Exercise the actual remote listing script with hidden and symlinked folders.
     listing_source = (root.parent / "TypeNBash/SSH/SSHWorkspaceFileSystem.swift").read_text()
-    listing_script = re.search(r'let script = #"""(.*?)"""#', listing_source, re.S).group(1)
+    listing_script = re.search(r'listScript = #"""(.*?)"""#', listing_source, re.S).group(1)
     listing_script = textwrap.dedent(listing_script)
     (home / ".hidden").mkdir()
     (home / "linked folder").symlink_to(target, target_is_directory=True)

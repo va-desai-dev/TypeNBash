@@ -51,7 +51,7 @@ final class WindowSession {
     /// otherwise re-root at whatever directory the terminal was last in.
     private(set) var activeProject: Project? {
         didSet {
-            fileBrowser.navigationRoot = activeProject == nil ? nil : rootDirectory
+            fileBrowser.tree.navigationRoot = activeProject == nil ? nil : rootDirectory
             // Projects are always adopted before they become active, so the
             // backend here already works in the project's root.
             guard activeProject?.id != oldValue?.id || agent?.workingDirectory != rootDirectory else { return }
@@ -133,7 +133,7 @@ final class WindowSession {
         terminalConfiguration = localBackend.makeTerminalConfiguration()
         fileBrowser = FileBrowserModel(fileSystem: localBackend.fileSystem)
         AgentEditorCoordinator.shared.register(fileBrowser)
-        fileBrowser.navigate(to: localRoot)
+        fileBrowser.tree.navigate(to: localRoot)
     }
 
     /// Connects the entire window to one SSH workspace. The current backend is
@@ -371,8 +371,8 @@ final class WindowSession {
         if location == .local { localDirectory = directory }
         // Every prompt reports PWD. Reopening the same folder would erase an
         // editor selection or unsaved buffer after each terminal command.
-        guard fileBrowser.directory.standardizedFileURL != directory.standardizedFileURL else { return }
-        fileBrowser.navigate(to: directory)
+        guard fileBrowser.tree.directory.standardizedFileURL != directory.standardizedFileURL else { return }
+        fileBrowser.tree.navigate(to: directory)
     }
 
     /// A managed SSH shell owns the window's remote lifetime. `exit`, Ctrl-D,
@@ -410,7 +410,7 @@ final class WindowSession {
             initialDirectory: newBackend.rootDirectory
         )
 
-        fileBrowser.navigationRoot = activeProject == nil ? nil : rootDirectory
+        fileBrowser.tree.navigationRoot = activeProject == nil ? nil : rootDirectory
         terminalGeneration &+= 1
         terminalHost = nil
     }

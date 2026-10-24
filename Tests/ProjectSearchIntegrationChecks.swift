@@ -54,7 +54,7 @@ import TextFind
         precondition(!model.limited)
         check("recursive root search, excluded dependencies, binary/size limits, symlink loops")
 
-        session.fileBrowser.navigate(to: root.appendingPathComponent("Sources"))
+        session.fileBrowser.tree.navigate(to: root.appendingPathComponent("Sources"))
         model.schedule()
         try await finished(model)
         precondition(model.results.count == 3, "Browsing into a child must not narrow the search root")
@@ -66,7 +66,7 @@ import TextFind
 
         let result = model.results[0]
         let host = NSHostingView(rootView: HStack(spacing: 0) {
-            ProjectSearchView(model: model, onOpen: { _, _ in }).frame(width: 300)
+            ProjectSearchView(model: model, onOpen: { _, _ in }, files: session.fileBrowser).frame(width: 300)
             WorkspaceEditorPane(model: session.fileBrowser, session: editor).frame(width: 700)
         }.frame(height: 650))
         let window = NSWindow(contentRect: NSRect(x: 40, y: 40, width: 1000, height: 650),

@@ -25,6 +25,12 @@ enum AppDefaults {
             DefaultKeys.editorUsesSpaces.rawValue: true,
             DefaultKeys.editorTabWidth.rawValue: 4,
 
+            // File browser
+            DefaultKeys.fileBrowserLayout.rawValue: FileTreeLayout.list.rawValue,
+            DefaultKeys.fileBrowserSortKey.rawValue: FileTreeSortKey.name.rawValue,
+            DefaultKeys.fileBrowserSortsAscending.rawValue: true,
+            DefaultKeys.fileBrowserFoldersFirst.rawValue: true,
+
             // Find
             DefaultKeys.findUsesRegularExpression.rawValue: false,
             DefaultKeys.findIgnoresCase.rawValue: false,

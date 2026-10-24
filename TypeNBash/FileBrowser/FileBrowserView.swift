@@ -19,10 +19,9 @@ struct FileBrowserView: View {
 
     var body: some View {
         FileBrowserList(
-            entries: model.entries,
-            selection: model.selectedFile,
+            tree: model.tree,
             isLocal: isLocal,
-            onSelect: model.select,
+            onOpen: model.select,
             onOpenInTerminal: onOpenInTerminal
         )
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -30,14 +29,14 @@ struct FileBrowserView: View {
     }
 
     @ViewBuilder var listOverlay: some View {
-        if let error = model.errorMessage {
+        if let error = model.tree.errorMessage {
             ContentUnavailableView(
                 "Folder Unavailable",
                 systemImage: "folder.badge.questionmark",
                 description: Text(error)
             )
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        } else if model.entries.isEmpty && !model.isLoading {
+        } else if model.tree.rows.isEmpty && !model.tree.isLoading {
             ContentUnavailableView("Empty Folder", systemImage: "folder")
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
@@ -46,31 +45,31 @@ struct FileBrowserView: View {
 
 /// Back, enclosing folder, and forward through the browsed directories.
 struct FileBrowserNavigationControls: View {
-    let model: FileBrowserModel
+    let tree: FileTreeModel
 
     var body: some View {
         ControlGroup {
-            Button { model.goBack() } label: {
+            Button { tree.goBack() } label: {
                 Image(systemName: "chevron.left")
             }
-            .disabled(!model.canGoBack)
+            .disabled(!tree.canGoBack)
             .help("Back")
-            Button { model.goUp() } label: {
+            Button { tree.goUp() } label: {
                 Image(systemName: "smallcircle.filled.circle")
             }
-            .disabled(!model.canGoUp)
+            .disabled(!tree.canGoUp)
             .help("Enclosing folder")
-            Button { model.goForward() } label: {
+            Button { tree.goForward() } label: {
                 Image(systemName: "chevron.right")
             }
-            .disabled(!model.canGoForward)
+            .disabled(!tree.canGoForward)
             .help("Forward")
         }
         .controlSize(.regular)
     }
 }
 
-/// Hidden files, refresh, and creating folders and files.
+/// Layout and sorting, hidden files, refresh, and creating folders and files.
 struct FileBrowserActionControls: View {
     @Bindable var model: FileBrowserModel
     @Binding var isNamingFolder: Bool
@@ -78,8 +77,9 @@ struct FileBrowserActionControls: View {
 
     var body: some View {
         ControlGroup {
-            Toggle(isOn: $model.showsHiddenFiles) {
-                if model.showsHiddenFiles {
+            FileBrowserViewOptionsMenu(tree: model.tree)
+            Toggle(isOn: Bindable(model.tree).showsHiddenFiles) {
+                if model.tree.showsHiddenFiles {
                     Label {
                         SwiftUI.Text("Showing Hidden Files")
                     } icon: {
@@ -110,6 +110,36 @@ struct FileBrowserActionControls: View {
             .help("New File")
         }
         .controlSize(.regular)
+    }
+}
+
+/// List or tree, sort key and direction, and folders on top.
+struct FileBrowserViewOptionsMenu: View {
+    @Bindable var tree: FileTreeModel
+
+    var body: some View {
+        Menu {
+            Picker("Layout", selection: $tree.layout) {
+                ForEach(FileTreeLayout.allCases) { Text($0.title).tag($0) }
+            }
+            .pickerStyle(.inline)
+            Picker("Sort By", selection: $tree.sortKey) {
+                ForEach(FileTreeSortKey.allCases) { Text($0.title).tag($0) }
+            }
+            Picker("Order", selection: $tree.sortsAscending) {
+                Text("Ascending").tag(true)
+                Text("Descending").tag(false)
+            }
+            Toggle("Folders on Top", isOn: $tree.foldersFirst)
+            if tree.layout == .tree {
+                Divider()
+                Button("Collapse All") { tree.collapseAll() }
+            }
+        } label: {
+            Label("View Options", systemImage: tree.layout == .tree ? "list.bullet.indent" : "list.bullet")
+        }
+        .menuIndicator(.hidden)
+        .help("View Options")
     }
 }
 

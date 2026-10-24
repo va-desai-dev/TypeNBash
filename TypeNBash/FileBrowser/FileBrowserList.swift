@@ -1,30 +1,34 @@
 import AppKit
 import SwiftUI
 
-struct FileListRow<TrailingItem: View>: View {
+struct FileListRow<Tag: Hashable, LeadingItem: View, TrailingItem: View>: View {
 
     let filename: String
     let icon: FileTypeIcon
     let style: Color
-    let tag: URL
+    let tag: Tag
+    let leadingItem: LeadingItem
     let trailingItem: TrailingItem
 
     init(
         filename: String,
         icon: FileTypeIcon,
         style: Color,
-        tag: URL,
+        tag: Tag,
+        @ViewBuilder leadingItem: () -> LeadingItem = { EmptyView() },
         @ViewBuilder trailingItem: () -> TrailingItem
     ) {
         self.filename = filename
         self.icon = icon
         self.style = style
         self.tag = tag
+        self.leadingItem = leadingItem()
         self.trailingItem = trailingItem()
     }
 
     var body: some View {
         HStack(spacing: 8) {
+            leadingItem
             FileTypeIconView(icon: icon, symbolStyle: style)
             Text(filename)
                 .lineLimit(1)
@@ -38,36 +42,34 @@ struct FileListRow<TrailingItem: View>: View {
     }
 }
 
+/// The browser's rows, flat or as a tree. Every decision about what a click or
+/// key does lives in `FileTreeModel`; this only draws rows and forwards input.
 struct FileBrowserList: View {
-    let entries: [WorkspaceFileEntry]
-    let selection: URL?
+    @Bindable var tree: FileTreeModel
     let isLocal: Bool
-    let onSelect: (WorkspaceFileEntry) -> Void
+    let onOpen: (WorkspaceFileEntry) -> Void
     let onOpenInTerminal: (WorkspaceFileEntry) -> Void
 
-    @State private var highlightedFile: URL?
-
     var body: some View {
-        List(selection: $highlightedFile) {
-            ForEach(entries) { entry in
+        List(selection: $tree.selectedID) {
+            ForEach(tree.rows) { row in
+                let entry = row.entry
                 FileListRow(
                     filename: entry.label,
                     icon: entry.icon,
                     style: entry.isDirectory ? Color.accentColor : Color.secondary,
-                    tag: entry.url,
-                    trailingItem: {
-                        if entry.isDirectory {
-                            Image(systemName: "chevron.right")
-                                .font(.caption2)
-                                .foregroundStyle(.tertiary)
-                        }
-                    }
+                    tag: row.id,
+                    leadingItem: {
+                        if tree.layout == .tree { disclosure(for: row) }
+                    },
+                    trailingItem: { status(of: row) }
                 )
+                .padding(.leading, CGFloat(row.depth) * 14)
                 .onTapGesture(count: 1) {
-                    highlightedFile = entry.url
+                    tree.selectedID = row.id
                 }
                 .onTapGesture(count: 2) {
-                    onSelect(entry)
+                    onOpen(entry)
                 }
                 .contextMenu {
                     if isLocal && !entry.isDirectory {
@@ -76,6 +78,11 @@ struct FileBrowserList: View {
                         }
                     }
                     if entry.isDirectory {
+                        if tree.layout == .tree {
+                            Button("Open as Root", systemImage: "folder") {
+                                tree.navigate(to: entry.url)
+                            }
+                        }
                         Button(entry.isDirectory ? "Open in Terminal" : "Open Folder in Terminal",
                                systemImage: "terminal") {
                             onOpenInTerminal(entry)
@@ -96,20 +103,45 @@ struct FileBrowserList: View {
         }
         .scrollContentBackground(.hidden)
         .listStyle(.sidebar)
-        .onChange(of: selection, initial: true) { _, value in
-            highlightedFile = value
-        }
-        .onChange(of: entries) { _, values in
-            if let highlightedFile, !values.contains(where: { $0.url == highlightedFile }) {
-                self.highlightedFile = nil
-            }
-        }
         .onKeyPress(.return) {
-            guard let entry = entries.first(where: { $0.url == highlightedFile }) else {
-                return .ignored
-            }
-            onSelect(entry)
+            guard let entry = tree.selectedRow?.entry else { return .ignored }
+            onOpen(entry)
             return .handled
+        }
+        .onKeyPress(.rightArrow) { tree.expandSelection() ? .handled : .ignored }
+        .onKeyPress(.leftArrow) { tree.collapseSelection() ? .handled : .ignored }
+    }
+
+    /// Files get the same width empty, so names line up at every depth.
+    private func disclosure(for row: FileTreeRow) -> some View {
+        Button {
+            tree.setExpanded(row.entry.url, !row.isExpanded)
+        } label: {
+            Image(systemName: "chevron.right")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .rotationEffect(.degrees(row.isExpanded ? 90 : 0))
+                .frame(width: 12)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .opacity(row.entry.isDirectory ? 1 : 0)
+        .disabled(!row.entry.isDirectory)
+        .accessibilityLabel(row.isExpanded ? "Collapse" : "Expand")
+    }
+
+    @ViewBuilder private func status(of row: FileTreeRow) -> some View {
+        if row.isLoading {
+            ProgressView().controlSize(.mini)
+        } else if let failure = row.failure {
+            Image(systemName: "exclamationmark.triangle")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .help(failure)
+        } else if tree.layout == .list && row.entry.isDirectory {
+            Image(systemName: "chevron.right")
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
         }
     }
 }

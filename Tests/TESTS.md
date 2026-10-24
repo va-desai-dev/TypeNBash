@@ -572,3 +572,44 @@ and App Review acceptance require separate validation.
 DMG validation: `run-runtime-checks.py` passes its existing state and real-PTY
 checks, including local zsh, remote bash/zsh hooks, encoded directory reports,
 SSH workflow guards, and shell exit.
+
+# File tree checks
+
+```sh
+python3 Tests/run-editor-checks.py /tmp/centcom-agents-build \
+  /tmp/centcom-agents-build/SourcePackages FileTreeIntegrationChecks.swift
+```
+
+Checks list and tree layouts against a temporary folder: sorting by name, kind,
+date and size with folders on top or mixed, expanding in place, arrow-key
+expand/collapse, New Folder landing in the highlighted folder, revealing a file
+opened from elsewhere, re-rooting with remembered expansion, and that browsing
+never closes the open file or its draft. A gated filesystem checks that a stale
+listing reply is discarded and a failed root listing reports its error. Writes
+`/tmp/centcom-file-tree.png`.
+The gated filesystem also pushes folder changes: the root and expanded folders
+are watched, a change re-reads only a watched folder, and collapsing stops it.
+
+# SSH filesystem helper checks
+
+```sh
+python3 Tests/run-ssh-helper-checks.py
+```
+
+SSH filesystem operations go through one long-lived `python3` helper per
+connection, which runs the same scripts the per-call fallback uses. The check
+starts the actual helper locally over pipes, without SSH. It covers the version
+handshake, every production script (listing with `mtime`, bounded reads, atomic
+writes, create/mkdir errors, search, Git baseline), out-of-order replies with
+concurrent scripts keeping their own argv/stdin/stdout, a large read alongside a
+small listing, change events for watched folders and silence for unwatched ones,
+and exiting when stdin closes with a request still running.
+Live acceptance: connect to an SSH host, expand a folder, and create a file there
+from the console; it should appear in the browser within about two seconds.
+If the helper stops mid-session, the next operation relaunches it (at most once
+every 30 seconds; in between, operations run as separate scripts) and the watched
+folders are handed to the new helper. Live acceptance: at least 30 seconds after
+connecting, run `pkill -f threading.local` on the host and expand a folder. That
+expand waits briefly for the relaunch and later ones are instant again;
+`pgrep -af threading.local` shows a new helper, and a `touch` in an expanded
+folder appears on its own.

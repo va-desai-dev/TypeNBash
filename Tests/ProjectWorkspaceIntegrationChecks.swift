@@ -128,14 +128,14 @@ struct ProjectWorkspaceIntegrationChecks {
 
         // The console's directory is recorded for actions that need it, and still
         // never steers the project browser.
-        let browsedBefore = session.fileBrowser.directory
+        let browsedBefore = session.fileBrowser.tree.directory
         let selectedBefore = session.fileBrowser.selectedFile
         let elsewhere = URL(fileURLWithPath: "/tmp")
         session.terminalReported(host: nil, directory: elsewhere, generation: session.terminalGeneration)
         await settle()
         check(session.consoleDirectory?.standardizedFileURL == elsewhere.standardizedFileURL,
               "A console directory report is recorded in project mode")
-        check(session.fileBrowser.directory == browsedBefore
+        check(session.fileBrowser.tree.directory == browsedBefore
               && session.fileBrowser.selectedFile == selectedBefore,
               "Recording it does not move the project browser or drop its selection")
 

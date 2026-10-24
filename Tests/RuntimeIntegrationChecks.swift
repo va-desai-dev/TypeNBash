@@ -24,20 +24,20 @@ struct RuntimeIntegrationChecks {
         let session = WindowSession(localRoot: root)
         let generation = session.terminalGeneration
         session.terminalReported(host: "host.example", directory: child, generation: generation)
-        check(session.fileBrowser.directory.path == child.path, "Directory reports follow the active filesystem")
+        check(session.fileBrowser.tree.directory.path == child.path, "Directory reports follow the active filesystem")
         session.fileBrowser.newFile()
         session.fileBrowser.updatePreviewText("keep this draft")
         session.terminalReported(host: "HOST.EXAMPLE.", directory: child, generation: generation)
         check(session.fileBrowser.hasUnsavedChanges && session.fileBrowser.isUntitled,
               "Repeated prompts preserve unsaved preview state")
         session.terminalReported(host: "host.other", directory: root, generation: generation)
-        check(session.fileBrowser.directory.path == child.path, "Different hosts with the same first label cannot switch workspaces")
+        check(session.fileBrowser.tree.directory.path == child.path, "Different hosts with the same first label cannot switch workspaces")
         session.disconnectToLocal()
         check(session.rootDirectory.path == child.path, "Disconnect restores the last local terminal directory")
         let replacement = session.terminalGeneration
         session.terminalReported(host: "old", directory: root, generation: generation)
         session.handleTerminalExit(generation: generation)
-        check(session.terminalGeneration == replacement && session.fileBrowser.directory.path == child.path,
+        check(session.terminalGeneration == replacement && session.fileBrowser.tree.directory.path == child.path,
               "Stale directory and exit callbacks cannot mutate the replacement session")
         await session.connect(to: SSHConnectionProfile(name: "invalid", host: ""))
         check(session.location == .local && session.terminalGeneration == replacement,
@@ -69,29 +69,29 @@ struct RuntimeIntegrationChecks {
         } catch ProjectError.missingConnection { }
         let projectSession = WindowSession(localRoot: root)
         await projectSession.open(localProject, at: .local(child))
-        check(!projectSession.fileBrowser.canGoUp, "Up is disabled at the project root")
-        projectSession.fileBrowser.goUp()
-        projectSession.fileBrowser.navigate(to: root)
-        check(projectSession.fileBrowser.directory == child.standardizedFileURL,
+        check(!projectSession.fileBrowser.tree.canGoUp, "Up is disabled at the project root")
+        projectSession.fileBrowser.tree.goUp()
+        projectSession.fileBrowser.tree.navigate(to: root)
+        check(projectSession.fileBrowser.tree.directory == child.standardizedFileURL,
               "Browser actions cannot leave the project root")
         let nested = child.appendingPathComponent("nested")
-        projectSession.fileBrowser.navigate(to: nested)
-        check(projectSession.fileBrowser.canGoUp && projectSession.fileBrowser.canGoBack,
+        projectSession.fileBrowser.tree.navigate(to: nested)
+        check(projectSession.fileBrowser.tree.canGoUp && projectSession.fileBrowser.tree.canGoBack,
               "Navigation stays enabled within a project")
-        projectSession.fileBrowser.goBack()
-        check(!projectSession.fileBrowser.canGoUp && projectSession.fileBrowser.canGoForward,
+        projectSession.fileBrowser.tree.goBack()
+        check(!projectSession.fileBrowser.tree.canGoUp && projectSession.fileBrowser.tree.canGoForward,
               "Returning to the root preserves forward navigation")
-        projectSession.fileBrowser.goForward()
-        projectSession.fileBrowser.goUp()
-        projectSession.fileBrowser.navigate(to: URL(fileURLWithPath: child.path + "-sibling"))
-        check(projectSession.fileBrowser.directory == child.standardizedFileURL,
+        projectSession.fileBrowser.tree.goForward()
+        projectSession.fileBrowser.tree.goUp()
+        projectSession.fileBrowser.tree.navigate(to: URL(fileURLWithPath: child.path + "-sibling"))
+        check(projectSession.fileBrowser.tree.directory == child.standardizedFileURL,
               "A shared path prefix does not admit sibling directories")
         projectSession.terminalReported(host: nil, directory: root, generation: projectSession.terminalGeneration)
-        check(projectSession.fileBrowser.directory.path == child.path, "A terminal cannot drag a project outside its root")
+        check(projectSession.fileBrowser.tree.directory.path == child.path, "A terminal cannot drag a project outside its root")
         projectSession.fileBrowser.newFile()
         projectSession.fileBrowser.updatePreviewText("project draft stays put")
         projectSession.terminalReported(host: nil, directory: nested, generation: projectSession.terminalGeneration)
-        check(projectSession.fileBrowser.directory.standardizedFileURL == child.standardizedFileURL,
+        check(projectSession.fileBrowser.tree.directory.standardizedFileURL == child.standardizedFileURL,
               "Project console directory changes do not navigate the editor")
         check(projectSession.fileBrowser.isUntitled && projectSession.fileBrowser.hasUnsavedChanges,
               "Project console directory changes preserve unsaved drafts")
@@ -106,22 +106,22 @@ struct RuntimeIntegrationChecks {
         projectSession.handleTerminalExit(generation: projectSession.terminalGeneration)
         check(projectSession.activeProject?.id == localProject.id && projectSession.rootDirectory.path == child.path,
               "A shell restart retains the local project's root")
-        check(!projectSession.fileBrowser.canGoUp, "Shell restart retains browser navigation guards")
+        check(!projectSession.fileBrowser.tree.canGoUp, "Shell restart retains browser navigation guards")
         check(projectSession.fileBrowser.isUntitled && projectSession.fileBrowser.hasUnsavedChanges,
               "Restarting a project console preserves the editor draft")
         projectSession.closeProject()
-        check(projectSession.fileBrowser.canGoUp, "Closing a project releases the browser boundary")
-        projectSession.fileBrowser.goUp()
-        check(projectSession.fileBrowser.directory == root.standardizedFileURL,
+        check(projectSession.fileBrowser.tree.canGoUp, "Closing a project releases the browser boundary")
+        projectSession.fileBrowser.tree.goUp()
+        check(projectSession.fileBrowser.tree.directory == root.standardizedFileURL,
               "Unscoped browsing can navigate above the former root")
-        projectSession.fileBrowser.navigationRoot = root
-        projectSession.fileBrowser.navigate(to: child)
-        projectSession.fileBrowser.navigationRoot = child
-        check(!projectSession.fileBrowser.canGoBack, "Back cannot revisit history outside the current root")
-        projectSession.fileBrowser.goBack()
-        check(projectSession.fileBrowser.directory == child.standardizedFileURL,
+        projectSession.fileBrowser.tree.navigationRoot = root
+        projectSession.fileBrowser.tree.navigate(to: child)
+        projectSession.fileBrowser.tree.navigationRoot = child
+        check(!projectSession.fileBrowser.tree.canGoBack, "Back cannot revisit history outside the current root")
+        projectSession.fileBrowser.tree.goBack()
+        check(projectSession.fileBrowser.tree.directory == child.standardizedFileURL,
               "Disabled Back also refuses programmatic navigation")
-        projectSession.fileBrowser.navigationRoot = nil
+        projectSession.fileBrowser.tree.navigationRoot = nil
         projectSession.disconnectToLocal(rootDirectory: root)
         check(projectSession.activeProject == nil, "Explicit workspace replacement clears the old project")
         let picker = ProjectPickerModel(session: projectSession, profiles: profileStore, store: projects)

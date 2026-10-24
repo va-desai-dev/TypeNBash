@@ -170,4 +170,10 @@ extension DefaultKeys {
     static let editorAutomaticCompletion = DefaultKey<Bool>("editor.automaticCompletion")
     static let editorUsesSpaces = DefaultKey<Bool>("editor.usesSpaces")
     static let editorTabWidth = DefaultKey<Int>("editor.tabWidth")
+
+    // TypeNBash file browser, shared by every window
+    static let fileBrowserLayout = DefaultKey<FileTreeLayout>("fileBrowser.layout")
+    static let fileBrowserSortKey = DefaultKey<FileTreeSortKey>("fileBrowser.sortKey")
+    static let fileBrowserSortsAscending = DefaultKey<Bool>("fileBrowser.sortsAscending")
+    static let fileBrowserFoldersFirst = DefaultKey<Bool>("fileBrowser.foldersFirst")
 }

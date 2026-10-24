@@ -123,11 +123,8 @@ final class OpenSSHConnection {
         }
 
         try Task.checkCancellation()
-        let remoteCommand = ([program] + arguments)
-            .map(TerminalShellIntegration.posixQuote)
-            .joined(separator: " ")
         let result = try await OpenSSHProcess.run(
-            arguments: commandArguments(controlPath: socket, remoteCommand: remoteCommand),
+            arguments: commandArguments(controlPath: socket, program: program, arguments: arguments),
             standardInput: standardInput
         )
         try Task.checkCancellation()
@@ -140,6 +137,18 @@ final class OpenSSHConnection {
             )
         }
         return result
+    }
+
+    /// An unstarted ssh client that runs `program` on the host over the control
+    /// connection, for a caller that keeps talking to it after launch.
+    func remoteProcess(program: String, arguments: [String]) throws -> Process {
+        guard state == .connected, let socket = controlPath, masterProcess?.isRunning == true else {
+            throw SSHConnectionError.disconnected
+        }
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/ssh")
+        process.arguments = commandArguments(controlPath: socket, program: program, arguments: arguments)
+        return process
     }
 
     func makeTerminalConfiguration(workingDirectory: URL) throws -> TerminalLaunchConfiguration {
@@ -225,14 +234,14 @@ final class OpenSSHConnection {
         return arguments + sharedArguments + ["--", profile.destination]
     }
 
-    private func commandArguments(controlPath: URL, remoteCommand: String) -> [String] {
+    private func commandArguments(controlPath: URL, program: String, arguments: [String]) -> [String] {
         sharedArguments + [
             "-S", controlPath.path,
             "-o", "ControlMaster=no",
             "-o", "BatchMode=yes",
             "-o", "ProxyCommand=false",
             "--", profile.destination,
-            remoteCommand
+            ([program] + arguments).map(TerminalShellIntegration.posixQuote).joined(separator: " ")
         ]
     }
 

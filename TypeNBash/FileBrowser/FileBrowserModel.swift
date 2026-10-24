@@ -17,8 +17,8 @@ enum MDViewStyle: Sendable {
 final class FileBrowserModel {
     typealias Entry = WorkspaceFileEntry
 
-    private(set) var directory = FileManager.default.homeDirectoryForCurrentUser
-    private(set) var entries: [Entry] = []
+    /// The folders beside the editor. Browsing them never touches the open file.
+    let tree: FileTreeModel
     private(set) var selectedFile: URL?
     private(set) var preview = FilePreview.none
     var isReadOnly: Bool {
@@ -33,8 +33,6 @@ final class FileBrowserModel {
         if case .image = preview { return "Image File" }
         return ""
     }
-    private(set) var errorMessage: String?
-    private(set) var isLoading = false
     private(set) var isPreviewTruncated = false
     private(set) var hasUnsavedChanges = false
     private(set) var isSaving = false
@@ -47,9 +45,6 @@ final class FileBrowserModel {
     @ObservationIgnored private var editorBaselineTask: Task<Void, Never>?
     private var editorBaselineGeneration = 0
     var comparesEditorWithGit: Bool { fileSystem is LocalWorkspaceFileSystem && !isPreviewTruncated }
-    var showsHiddenFiles = false {
-        didSet { refresh() }
-    }
 
 
 
@@ -136,19 +131,7 @@ final class FileBrowserModel {
     
 
     private var fileSystem: any WorkspaceFileSystem
-    private var refreshGeneration = 0
     private var previewGeneration = 0
-
-    /// Shared local/SSH project boundary; nil permits unrestricted browsing.
-    var navigationRoot: URL?
-
-    /// Visited directories, oldest first, with `historyIndex` marking the one
-    /// on screen. Kept private so the trail can only be walked through
-    /// `navigate`, `goBack`, and `goForward`.
-    private var history: [URL] = []
-    private var historyIndex = 0
-
-    private static let historyLimit = 128
 
 
     enum FilePreview: Sendable {
@@ -163,99 +146,32 @@ final class FileBrowserModel {
         case markdown(String)
     }
 
-    init() {
-        let fileSystem = LocalWorkspaceFileSystem()
-        self.fileSystem = fileSystem
-        directory = fileSystem.homeDirectory.standardizedFileURL
-        history = [directory]
-        historyIndex = 0
+    convenience init() {
+        self.init(fileSystem: LocalWorkspaceFileSystem())
     }
 
     init(fileSystem: any WorkspaceFileSystem) {
         self.fileSystem = fileSystem
-        directory = fileSystem.homeDirectory.standardizedFileURL
-        history = [directory]
-        historyIndex = 0
+        tree = FileTreeModel(fileSystem: fileSystem)
     }
 
+    /// Switches workspaces. The open file belonged to the old filesystem, so
+    /// unlike browsing, this closes it.
     func use(
         fileSystem: any WorkspaceFileSystem,
         initialDirectory: URL? = nil
     ) {
-        refreshGeneration &+= 1
         self.fileSystem = fileSystem
-        // A new workspace starts a new trail: back must never walk into paths
-        // that belonged to a filesystem this model no longer talks to.
-        let target = (initialDirectory ?? fileSystem.homeDirectory).standardizedFileURL
-        history = [target]
-        historyIndex = 0
-        show(target)
-    }
-
-    /// Moves to `url` and records it, discarding any forward entries — a new
-    /// destination forks the trail the way a browser's address bar does.
-    func navigate(to url: URL) {
-        let target = url.standardizedFileURL
-        guard allowsNavigation(to: target) else { return }
-        guard history.isEmpty || history[historyIndex] != target else {
-            show(target)
-            return
-        }
-
-        if historyIndex < history.count - 1 {
-            history.removeSubrange((historyIndex + 1)...)
-        }
-        history.append(target)
-        // The terminal reports a directory on every prompt, so an unbounded
-        // trail would grow for as long as the window stays open.
-        if history.count > Self.historyLimit {
-            history.removeFirst(history.count - Self.historyLimit)
-        }
-        historyIndex = history.count - 1
-        show(target)
-    }
-
-    /// Returns to the previously visited directory. Distinct from `goUp`: the
-    /// trail is where the user (or the terminal) has actually been, which is
-    /// what makes a jump out of a project root recoverable in one click.
-    func goBack() {
-        guard canGoBack else { return }
-        historyIndex -= 1
-        show(history[historyIndex])
-    }
-
-    func goForward() {
-        guard canGoForward else { return }
-        historyIndex += 1
-        show(history[historyIndex])
-    }
-
-    var canGoBack: Bool {
-        historyIndex > 0 && allowsNavigation(to: history[historyIndex - 1])
-    }
-
-    var canGoForward: Bool {
-        historyIndex < history.count - 1 && allowsNavigation(to: history[historyIndex + 1])
-    }
-
-    var canGoUp: Bool {
-        let parent = directory.deletingLastPathComponent()
-        return parent.path != directory.path && allowsNavigation(to: parent)
-    }
-
-    private func allowsNavigation(to url: URL) -> Bool {
-        guard let navigationRoot else { return true }
-        return url.standardizedFileURL.pathComponents.starts(with: navigationRoot.standardizedFileURL.pathComponents)
-    }
-
-    /// Points the pane at `directory` without touching the trail, so the four
-    /// navigation entry points can't disagree about how to load a folder.
-    private func show(_ directory: URL) {
         previewGeneration &+= 1
-        self.directory = directory
         selectedFile = nil
         resetPreviewState()
-        refresh()
+        tree.use(fileSystem: fileSystem, initialDirectory: initialDirectory)
+    }
+
+    /// Re-reads the folders on screen and the editor's Git baseline.
+    func refresh() {
+        tree.refresh()
+        refreshEditorGitBaseline()
     }
 
     private func resetPreviewState() {
@@ -285,7 +201,7 @@ final class FileBrowserModel {
         saveError = nil
     }
 
-    /// Writes the untitled buffer to a new file in the current directory. `name`
+    /// Writes the untitled buffer to a new file in the tree's target folder. `name`
     /// and `ext` come from the Save prompt; a blank extension falls back to txt.
     /// The final name is uniqued so it never overwrites an existing file.
     func saveNewFile(named name: String, extension ext: String) async -> String? {
@@ -305,6 +221,7 @@ final class FileBrowserModel {
 
         isSaving = true
         saveError = nil
+        let directory = tree.targetDirectory
         do {
             let existing = try await fileSystem.contentsOfDirectory(
                 at: directory,
@@ -322,7 +239,7 @@ final class FileBrowserModel {
             isUntitled = false
             hasUnsavedChanges = false
             isSaving = false
-            refresh()
+            tree.didCreate(target)
         } catch {
             isSaving = false
             saveError = error.localizedDescription
@@ -331,7 +248,7 @@ final class FileBrowserModel {
         return nil
     }
 
-    /// Creates a folder in the current directory through the workspace filesystem
+    /// Creates a folder in the tree's target folder through the workspace filesystem
     /// (local or SSH — the model never knows which). Returns an error message on
     /// failure, or `nil` on success.
     func newFolder(named name: String) async -> String? {
@@ -340,6 +257,8 @@ final class FileBrowserModel {
         guard !trimmed.hasPrefix("/"), !trimmed.contains("/") else {
             return "The folder name can't contain “/”."
         }
+        let directory = tree.targetDirectory
+        let target: URL
         do {
             // Resolve a non-colliding name up front (Finder-style " 2", " 3", …) so
             // we never overwrite an existing folder the way `mkdir` in a terminal
@@ -351,12 +270,12 @@ final class FileBrowserModel {
             )
             let taken = Set(existing.map { $0.url.lastPathComponent })
             let uniqueName = Self.uniqueName(trimmed, avoiding: taken)
-            let target = directory.appendingPathComponent(uniqueName, isDirectory: true)
+            target = directory.appendingPathComponent(uniqueName, isDirectory: true)
             try await fileSystem.createDirectory(at: target)
         } catch {
             return error.localizedDescription
         }
-        refresh()
+        tree.didCreate(target)
         return nil
     }
 
@@ -383,50 +302,13 @@ final class FileBrowserModel {
         return candidate(index)
     }
 
-    func goUp() {
-        guard canGoUp else { return }
-        let parent = directory.deletingLastPathComponent()
-        if parent.path != directory.path { navigate(to: parent) }
-    }
-
-    func refresh() {
-        refreshEditorGitBaseline()
-        refreshGeneration &+= 1
-        let generation = refreshGeneration
-        let requestedDirectory = directory
-        let includesHiddenFiles = showsHiddenFiles
-        let requestedFileSystem = fileSystem
-        isLoading = true
-
-        Task {
-            do {
-                let contents = try await requestedFileSystem.contentsOfDirectory(
-                    at: requestedDirectory,
-                    includingHiddenFiles: includesHiddenFiles
-                )
-                guard generation == refreshGeneration else { return }
-                entries = contents.sorted {
-                    if $0.isDirectory != $1.isDirectory { return $0.isDirectory }
-                    return $0.url.lastPathComponent.localizedStandardCompare(
-                        $1.url.lastPathComponent
-                    ) == .orderedAscending
-                }
-                errorMessage = nil
-                isLoading = false
-            } catch {
-                guard generation == refreshGeneration else { return }
-                entries = []
-                errorMessage = error.localizedDescription
-                isLoading = false
-            }
-        }
-    }
-
+    /// Opens a file in the editor, or hands a folder to the tree.
     func select(_ entry: Entry) {
         if entry.isDirectory {
-            navigate(to: entry.url)
+            tree.activate(entry.url)
             return
         }
+        tree.reveal(entry.url)
         selectedFile = entry.url
         loadPreview(for: entry)
     }
