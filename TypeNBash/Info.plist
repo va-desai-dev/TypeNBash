@@ -7,6 +7,12 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>SUFeedURL</key>
+	<string>https://github.com/va-desai-dev/TypeNBash/releases/latest/download/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>KTvJs5zNSoGTJIlIGBIUtLXzKwotphVoa87JbgNborg=</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>

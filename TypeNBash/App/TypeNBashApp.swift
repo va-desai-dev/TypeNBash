@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Sparkle
 
 // 1. This reads your Xcode Organizer version automatically
 public struct AppVersion {
@@ -15,7 +14,7 @@ public struct AppVersion {
     }
 
     public static var build: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
     }
 }
 
@@ -27,6 +26,9 @@ struct TypeNBashApp: App {
 
     init() {
         AppDefaults.register()
+        #if DIRECT_DISTRIBUTION && !APP_STORE
+        _ = AppUpdater.controller  // starts Sparkle's scheduled checks at launch
+        #endif
     }
 
     var body: some Scene {
@@ -76,7 +78,12 @@ struct TypeNBashApp: App {
         }
         .defaultSize(width: 920, height: 640)
         .restorationBehavior(.disabled)
-        .commands { HelpCommands() }
+        .commands {
+            HelpCommands()
+            #if DIRECT_DISTRIBUTION && !APP_STORE
+            UpdateCommands()
+            #endif
+        }
         // In the system menu bar so the target can be switched from Safari,
         // where no TypeNBash menu is showing. Available while a project has
         // a Markdown document selected, matching the citations inspector.

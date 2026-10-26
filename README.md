@@ -123,4 +123,4 @@ The source code for TypeNBash is licensed under the terms of the Affero General 
 TypeNBash includes third-party source code and frameworks. A comprehensive list of the third-party sources and their associated authors are listed in [THIRDPARTYNOTICES.md](THIRDPARTYNOTICES.md)
 <div align="center">
   <sub>TypeNBash © 2026 by Vedant A. Desai · Built for macOS</sub>
-</div>*italic text*
+</div>

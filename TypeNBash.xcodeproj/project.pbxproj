@@ -51,6 +51,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C30C422308F046F000C795B /* AGENTS.override.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.override.md; sourceTree = "<group>"; };
+		7C30C423308F046F000C795B /* ARCHITECTURE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ARCHITECTURE.md; sourceTree = "<group>"; };
+		7C30C424308F046F000C795B /* CSV_ANALYSIS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CSV_ANALYSIS.md; sourceTree = "<group>"; };
+		7C30C425308F046F000C795B /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		7C30C426308F046F000C795B /* NOTEBOOK.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTEBOOK.md; sourceTree = "<group>"; };
+		7C30C427308F046F000C795B /* PROJECTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PROJECTS.md; sourceTree = "<group>"; };
+		7C30C428308F046F000C795B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7C30C429308F046F000C795B /* THIRDPARTYNOTICES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = THIRDPARTYNOTICES.md; sourceTree = "<group>"; };
+		7C30C42D308F04CB000C795B /* SECURITY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SECURITY.md; sourceTree = "<group>"; };
+		7C3A884B308EC7EB0087EEB4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7C3A884D308EC7EC0087EEB4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		7C3CC8CE3055BB7300D76564 /* TypeNBash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeNBash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8A8B54305C903400FD348E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7C97B585306DF1B500852A66 /* CiteTex.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CiteTex.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +109,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		7C30C42B308F04B5000C795B /* Scripts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		7C3B2BEB308D35DC003C1F29 /* CiteTex */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -158,13 +174,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C3A884A308EC7EB0087EEB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C3A884B308EC7EB0087EEB4 /* WidgetKit.framework */,
+				7C3A884D308EC7EC0087EEB4 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7C3CC8C53055BB7300D76564 = {
 			isa = PBXGroup;
 			children = (
 				7C8A8B54305C903400FD348E /* .gitignore */,
 				7C3CC8D03055BB7300D76564 /* TypeNBash */,
+				7C3A884A308EC7EB0087EEB4 /* Frameworks */,
 				7C3CC8CF3055BB7300D76564 /* Products */,
 				7C3B2BEB308D35DC003C1F29 /* CiteTex */,
+				7C30C422308F046F000C795B /* AGENTS.override.md */,
+				7C30C423308F046F000C795B /* ARCHITECTURE.md */,
+				7C30C424308F046F000C795B /* CSV_ANALYSIS.md */,
+				7C30C425308F046F000C795B /* LICENSE.md */,
+				7C30C426308F046F000C795B /* NOTEBOOK.md */,
+				7C30C427308F046F000C795B /* PROJECTS.md */,
+				7C30C428308F046F000C795B /* README.md */,
+				7C30C42B308F04B5000C795B /* Scripts */,
+				7C30C429308F046F000C795B /* THIRDPARTYNOTICES.md */,
+				7C30C42D308F04CB000C795B /* SECURITY.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,7 +283,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2700;
+				LastSwiftUpdateCheck = 2710;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					7C3CC8CD3055BB7300D76564 = {
@@ -469,7 +505,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = NO;
@@ -500,7 +536,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -531,7 +567,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = NO;
@@ -562,7 +598,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -589,7 +625,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = CiteTex/CiteTex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -604,7 +640,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -627,7 +663,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = CiteTex/CiteTex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -642,7 +678,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -795,7 +831,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = YES;
@@ -822,7 +858,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash.AppStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -853,7 +889,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = YES;
@@ -880,7 +916,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DACCELERATE_NEW_LAPACK=1";
 				PRODUCT_BUNDLE_IDENTIFIER = VD.TypeNBash.AppStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -907,7 +943,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = CiteTex/CiteTex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -922,7 +958,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -945,7 +981,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = CiteTex/CiteTex.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEVELOPMENT_TEAM = URGQW7YQ67;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -960,7 +996,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
