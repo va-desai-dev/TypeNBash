@@ -222,8 +222,21 @@ nonisolated enum AnalysisCell: Hashable, Sendable {
     /// A p-value, which is printed to APA convention rather than as a plain
     /// number: three decimals with no leading zero, and `< .001` below that,
     /// because the exact value of a very small p is not what is being reported.
-    case probability(Double)
+    /// It carries significance stars unless another column in the same row is
+    /// the p to judge by — a raw p printed beside its adjusted value.
+    case probability(Double, starred: Bool = true)
+    /// A statistic marked with the stars of the p that tests it, for a matrix
+    /// that has no room for a p column of its own.
+    case estimate(Double, p: Double)
     case missing
+
+    var isStarred: Bool {
+        switch self {
+        case .probability(let p, let starred): starred && NotebookReport.stars(p) != ""
+        case .estimate(_, let p): NotebookReport.stars(p) != ""
+        default: false
+        }
+    }
 }
 
 /// Identifies the table a result was computed from, so a stale result can be

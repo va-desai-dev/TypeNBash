@@ -331,11 +331,9 @@ final class EditorTextView: NSTextView, CurrentLineHighlighting, MultiCursorEdit
 
         if let window {
             // apply window opacity
-            self.windowOpacityObserver = window.observe(\.isOpaque, options: [.initial, .new]) { [unowned self] _, change in
-                guard let new = change.newValue else { return }
+            self.windowOpacityObserver = window.observe(\.isOpaque, options: [.initial, .new]) { [unowned self] _, _ in
                 MainActor.assumeIsolated { [unowned self] in
-                    self.drawsBackground = new
-                    self.enclosingScrollView?.drawsBackground = new
+                    self.updateBackgroundDrawing()
                 }
             }
             
@@ -1589,8 +1587,28 @@ final class EditorTextView: NSTextView, CurrentLineHighlighting, MultiCursorEdit
         
         self.enclosingScrollView?.backgroundColor = theme.background.color
         self.enclosingScrollView?.scrollerKnobStyle = theme.isDarkTheme ? .light : .dark
+        self.updateBackgroundDrawing()
         
         self.setNeedsDisplay(self.visibleRect, avoidAdditionalLayout: true)
+    }
+    
+    
+    /// Paints the theme background only when there is something opaque to paint.
+    ///
+    /// CotEditor keyed this on `window.isOpaque` alone, for its translucent
+    /// document windows. Here the window is always opaque, but the theme
+    /// background goes clear while the app gradient is on — and a text view and
+    /// clip view that still "draw" a clear background copy it into their own
+    /// tiled layers, so the pane composites apart from the window gradient
+    /// behind it. Not drawing at all lets that one gradient show through, as it
+    /// does under the Markdown editor and the CSV grid.
+    private func updateBackgroundDrawing() {
+        
+        let isOpaqueColor = (self.backgroundColor.usingColorSpace(.sRGB)?.alphaComponent ?? 1) >= 1
+        let draws = (self.window?.isOpaque ?? true) && isOpaqueColor
+        
+        if self.drawsBackground != draws { self.drawsBackground = draws }
+        if self.enclosingScrollView?.drawsBackground != draws { self.enclosingScrollView?.drawsBackground = draws }
     }
     
     

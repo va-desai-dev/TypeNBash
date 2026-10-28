@@ -62,16 +62,15 @@ final class AgentSession {
     private(set) var configurationError: String?
     var messages: [ChatMessage] { snapshot.messages }
     var providerTitle: String {
-        if snapshot.model.isEmpty {
-            (snapshot.connection?.name ?? snapshot.provider.title)
-        } else {
-            snapshot.model
-        }
+        let title = snapshot.model.isEmpty ? (snapshot.connection?.name ?? snapshot.provider.title) : snapshot.model
+        return snapshot.connection?.authentication == .chatGPT ? title + " · Using ChatGPT plan" : title
     }
     var changes: [AgentFileChange] { snapshot.changes }
 
     private let workspaceID: String
-    private let isLocal: Bool
+    let isLocal: Bool
+    /// The connection's filesystem for an SSH project; nil for a local one.
+    private let remoteFileSystem: SSHWorkspaceFileSystem?
     private let persists: Bool
     private let folderGrant: WorkspaceFolderGrant?
     private let providerOverride: (any AgentProvider)?
@@ -80,10 +79,11 @@ final class AgentSession {
     private var inputTokens = 0
     private var outputTokens = 0
 
-    init(workingDirectory: URL, workspaceID: String, isLocal: Bool = true, folderGrant: WorkspaceFolderGrant? = nil,
-         persists: Bool = true, provider: (any AgentProvider)? = nil) {
+    init(workingDirectory: URL, workspaceID: String, isLocal: Bool = true, remoteFileSystem: SSHWorkspaceFileSystem? = nil,
+         folderGrant: WorkspaceFolderGrant? = nil, persists: Bool = true, provider: (any AgentProvider)? = nil) {
         self.workingDirectory = workingDirectory; self.workspaceID = workspaceID
-        self.isLocal = isLocal; self.persists = persists; self.folderGrant = folderGrant
+        self.isLocal = isLocal; self.remoteFileSystem = remoteFileSystem
+        self.persists = persists; self.folderGrant = folderGrant
         providerOverride = provider
         let connection = AgentSettings.shared.connection
         snapshot = AgentSessionSnapshot(provider: connection.kind, model: connection.model, connection: connection)
@@ -135,18 +135,20 @@ final class AgentSession {
         task = Task { [weak self] in
             guard let self else { return }
             do {
-                guard isLocal else { throw AgentFailure("BYOK workspace tools currently support local projects. SSH tools are not yet available.") }
                 guard persistenceError == nil else { throw AgentFailure("Resolve conversation storage before starting an agent turn.") }
                 // Old snapshots used fixed official endpoints. Never redirect
                 // their history to the newly selected custom connection.
                 var connection = snapshot.connection ?? (snapshot.provider == .anthropic
                     ? AgentConnectionPreset.anthropic.connection : AgentConnectionPreset.openAI.connection)
                 connection.model = snapshot.model
-                let provider: any AgentProvider = try providerOverride ?? AgentSettings.shared.makeProvider(connection: connection)
-                let tools = try AgentWorkspaceTools(root: workingDirectory)
+                let token = providerOverride == nil && connection.authentication == .chatGPT
+                    ? try await ChatGPTAuth.shared.accessToken() : nil
+                let provider: any AgentProvider = try providerOverride ?? AgentSettings.shared.makeProvider(connection: connection, token: token)
+                let tools = try AgentWorkspaceTools(access: workspaceAccess())
                 var definitions = AgentWorkspaceTools.definitions
                 #if DIRECT_DISTRIBUTION && !APP_STORE
-                if allowsCommands { definitions.append(AgentLocalCommand.definition) }
+                // Commands run on this Mac, so they are never offered for an SSH project.
+                if allowsCommands && isLocal { definitions.append(AgentLocalCommand.definition) }
                 #endif
                 let runner = AgentRunner(provider: provider, tools: definitions, conversation: snapshot.conversation)
                 try await runner.run(prompt, execute: { [weak self] call in
@@ -193,6 +195,14 @@ final class AgentSession {
         return accepted
     }
 
+    /// Local projects use descriptor access on this Mac; SSH projects use the
+    /// window's connection, with the same rules applied on the host.
+    private func workspaceAccess() throws -> any AgentFileAccess {
+        if isLocal { return try AgentWorkspaceAccess(root: workingDirectory) }
+        guard let remoteFileSystem else { throw AgentFailure("This SSH project’s connection is not available. Reopen the project.") }
+        return AgentRemoteWorkspaceAccess(root: workingDirectory, fileSystem: remoteFileSystem)
+    }
+
     private func execute(_ call: AgentToolCall, tools: AgentWorkspaceTools) async throws -> AgentToolResult {
         try Task.checkCancellation()
         // A failed checkpoint must stop side effects, not merely show a warning.
@@ -205,14 +215,13 @@ final class AgentSession {
                 }
             }
             try Task.checkCancellation()
-            let access = tools.access
-            try AgentEditorCoordinator.shared.commit(change, access: access)
+            try await AgentEditorCoordinator.shared.commit(change, access: tools.access)
             snapshot.changes.append(change)
             return .init(id: call.id, output: "Applied \(change.path)." + (change.after.map { " Revision: " + AgentWorkspaceAccess.revision(Data($0.utf8)) } ?? ""))
         }
         #if DIRECT_DISTRIBUTION && !APP_STORE
         if call.name == "run_command" {
-            guard allowsCommands, let command = call.arguments["command"].string,
+            guard allowsCommands, isLocal, let command = call.arguments["command"].string,
                   let timeout = call.arguments["timeout_seconds"].integer else { throw AgentFailure("Local commands are disabled or invalid.") }
             guard try await approve(title: "Run local command?", detail: "Directory: \(workingDirectory.path)\nTimeout: \(timeout) seconds\n\n\(command)\n\nThis command runs with the app’s OS privileges and may access files outside the project.") else {
                 return .init(id: call.id, output: "User declined this command. Do not retry it.", isError: true)
@@ -226,15 +235,20 @@ final class AgentSession {
 
     func revert(_ change: AgentFileChange) {
         guard !isRunning, let before = change.before, let after = change.after else { return }
-        do {
-            let access = try AgentWorkspaceAccess(root: workingDirectory)
-            let inverse = AgentFileChange(path: change.path, before: after, after: before,
-                revision: AgentWorkspaceAccess.revision(Data(after.utf8)))
-            try AgentEditorCoordinator.shared.commit(inverse, access: access)
-            snapshot.changes.removeAll { $0.id == change.id }
-            save()
-        } catch {
-            snapshot.messages.append(ChatMessage(role: .assistant, error: error.localizedDescription))
+        // Held like a turn, so a prompt can't start while a remote revert is in flight.
+        isRunning = true
+        task = Task { [weak self] in
+            guard let self else { return }
+            do {
+                let inverse = AgentFileChange(path: change.path, before: after, after: before,
+                    revision: AgentWorkspaceAccess.revision(Data(after.utf8)))
+                try await AgentEditorCoordinator.shared.commit(inverse, access: workspaceAccess())
+                snapshot.changes.removeAll { $0.id == change.id }
+                save()
+            } catch {
+                snapshot.messages.append(ChatMessage(role: .assistant, error: error.localizedDescription))
+            }
+            isRunning = false; task = nil
         }
     }
 

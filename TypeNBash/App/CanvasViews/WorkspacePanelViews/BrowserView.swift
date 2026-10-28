@@ -17,6 +17,7 @@ struct BrowserView<Trailing: View>: View {
     /// Items the host adds to the end of the header, such as a way back to
     /// whatever the browser replaced. Stays enabled with no tabs open.
     private let trailing: Trailing
+    @State private var theme = AppTheme.shared
 
     private var activeTab: BrowserTab? { model.activeTab }
 
@@ -27,8 +28,8 @@ struct BrowserView<Trailing: View>: View {
 
     var body: some View {
         content
-        .safeAreaBar(edge: .top, spacing: 0) { header }
-        .background(Color.card)
+        .paneBar(.top) { header }
+        .background(theme.paneBackground)
         .onChange(of: model.activeTabID) {
             addressSelection = nil
             let target: BrowserFocusTarget = activeTab?.addressText.isEmpty == true ? .address : .page

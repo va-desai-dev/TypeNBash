@@ -57,7 +57,6 @@ struct Theme: Equatable, Sendable {
     // MARK: Public Properties
     
     var text: Style
-    var background: Style
     var invisibles: Style
     var selection: SystemDefaultStyle
     var insertionPoint: SystemDefaultStyle
@@ -76,7 +75,10 @@ struct Theme: Equatable, Sendable {
     var comments: Style
     
     var metadata: Metadata?
-    
+
+    var background: Style
+
+
     
     // MARK: Lifecycle
     
@@ -84,6 +86,7 @@ struct Theme: Equatable, Sendable {
         
         self.text = Style(color: .textColor)
         self.background = Style(color: .textBackgroundColor)
+
         self.invisibles = Style(color: .init(white: 0.7, alpha: 1))
         self.selection = SystemDefaultStyle(color: .selectedTextBackgroundColor, usesSystemSetting: true)
         self.insertionPoint = SystemDefaultStyle(color: .textColor, usesSystemSetting: true)
@@ -101,8 +104,7 @@ struct Theme: Equatable, Sendable {
         self.characters = Style(color: .gray)
         self.comments = Style(color: .gray)
     }
-    
-    
+
     // MARK: Public Methods
     
     /// Is background color dark?

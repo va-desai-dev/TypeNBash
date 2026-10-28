@@ -2,13 +2,14 @@ import Foundation
 import CryptoKit
 
 nonisolated enum AgentAuthentication: String, Codable, CaseIterable, Identifiable, Sendable {
-    case none, bearer, anthropicKey
+    case none, bearer, anthropicKey, chatGPT
     var id: Self { self }
     var title: String {
         switch self {
         case .none: "None"
         case .bearer: "Bearer credential"
         case .anthropicKey: "Anthropic API key"
+        case .chatGPT: "Sign in with ChatGPT"
         }
     }
 }
@@ -16,7 +17,7 @@ nonisolated enum AgentAuthentication: String, Codable, CaseIterable, Identifiabl
 /// Presets are independent saved connections. The API format describes the wire
 /// protocol, not the vendor running the model.
 nonisolated enum AgentConnectionPreset: String, Codable, CaseIterable, Identifiable, Sendable {
-    case engrai, ollama, ollamaCloud, openAI, anthropic
+    case engrai, ollama, ollamaCloud, openAI, chatGPT, anthropic
     var id: Self { self }
     var title: String {
         switch self {
@@ -24,6 +25,7 @@ nonisolated enum AgentConnectionPreset: String, Codable, CaseIterable, Identifia
         case .ollama: "Ollama"
         case .ollamaCloud: "Ollama Cloud"
         case .openAI: "OpenAI API"
+        case .chatGPT: "ChatGPT Plan"
         case .anthropic: "Anthropic API"
         }
     }
@@ -33,6 +35,7 @@ nonisolated enum AgentConnectionPreset: String, Codable, CaseIterable, Identifia
         case .ollama: .init(name: title, kind: .openAI, baseURL: "http://localhost:11434/v1", authentication: .none)
         case .ollamaCloud: .init(name: title, kind: .openAI, baseURL: "https://ollama.com/v1", authentication: .bearer)
         case .openAI: .init(name: title, kind: .openAI, baseURL: "https://api.openai.com/v1", authentication: .bearer)
+        case .chatGPT: .init(name: title, kind: .openAI, baseURL: "https://api.openai.com/v1", authentication: .chatGPT, model: "gpt-6.1-sol")
         case .anthropic: .init(name: title, kind: .anthropic, baseURL: "https://api.anthropic.com/v1", authentication: .anthropicKey)
         }
     }
@@ -81,6 +84,7 @@ nonisolated struct AgentConnection: Codable, Equatable, Sendable {
     /// the exact normalized API base and authentication mode.
     func credentialAccount() throws -> String {
         let base = try apiBaseURL().absoluteString
+        if authentication == .chatGPT { return "chatGPT" }
         if base == "https://api.openai.com/v1", authentication == .bearer { return "openAI" }
         if base == "https://api.anthropic.com/v1", authentication == .anthropicKey { return "anthropic" }
         let hash = SHA256.hash(data: Data((base + "|" + authentication.rawValue).utf8))

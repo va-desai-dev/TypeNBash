@@ -19,19 +19,17 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
     @State private var showsSidebar = true
     @State private var showsInspector = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var theme = AppTheme.shared
 
     var body: some View {
         CanvasSplitView(showsSidebar: $showsSidebar, showsInspector: $showsInspector) {
             sidebar
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                .background(Color.card)
         } content: {
             content
-                .background(Color.card)
         } inspector: {
             inspector
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                .background(Color.card)
         }
         .toolbar {
             ToolbarItem(placement: .navigation) {
@@ -55,8 +53,10 @@ struct CanvasView<Content: View, Sidebar: View, Inspector: View>: View {
         }
         .toolbar(removing: .title)
         .onChange(of: sidebarRevealRequest) { showsSidebar = true }
-        .containerBackground(Color.card, for: .window)
-        .toolbarBackground(Color.card, for: .windowToolbar)
+        .containerBackground(theme.windowBackground,
+                             for: .window
+        )
+        .toolbarBackground(theme.paneBackground, for: .windowToolbar)
     }
 
     private func openInTerminal(_ entry: WorkspaceFileEntry) {

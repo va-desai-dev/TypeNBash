@@ -306,31 +306,19 @@ nonisolated enum AnalysisKernel {
             let count: Int
         }
         var tests: [Test] = []
-        var coefficients: [[AnalysisCell]] = []
         var undefined: [String] = []
-        for (rowIndex, rowReference) in references.enumerated() {
-            var coefficientRow: [AnalysisCell] = [.text(rowReference.label)]
-            for columnIndex in references.indices {
+        for rowIndex in references.indices {
+            for columnIndex in references.indices where rowIndex < columnIndex {
                 let pair = Self.completePairs(columns[rowIndex].values, columns[columnIndex].values, limitedTo: shared)
-                if rowIndex == columnIndex {
-                    coefficientRow.append(pair.left.count >= 2 ? .number(1) : .missing)
-                    continue
-                }
                 let value = Statistics.correlation(pair.left, pair.right, method: method)
-                coefficientRow.append(value.map(AnalysisCell.number) ?? .missing)
                 if value == nil {
-                    undefined.append("\(rowReference.label) × \(references[columnIndex].label)")
+                    undefined.append("\(references[rowIndex].label) × \(references[columnIndex].label)")
                 }
-                if rowIndex < columnIndex {
-                    tests.append(Test(row: rowIndex, column: columnIndex,
-                                      coefficient: value, count: pair.left.count))
-                }
+                tests.append(Test(row: rowIndex, column: columnIndex, coefficient: value, count: pair.left.count))
             }
-            coefficients.append(coefficientRow)
         }
         if !undefined.isEmpty {
-            let pairs = Set(undefined).sorted().joined(separator: ", ")
-            notes.append("Undefined for \(pairs) — fewer than two complete pairs, or a variable with no spread.")
+            notes.append("Undefined for \(undefined.joined(separator: ", ")) — fewer than two complete pairs, or a variable with no spread.")
         }
 
         let statistics = tests.map { test -> Statistics.CorrelationTest? in
@@ -342,6 +330,21 @@ nonisolated enum AnalysisKernel {
         let adjusting = step.adjustment != .none && tests.count > 1
         if adjusting {
             notes.append("\(tests.count) simultaneous tests; p adjusted by \(step.adjustment.rawValue).")
+        }
+
+        // The matrix is symmetric with a diagonal of ones, so only the lower
+        // triangle says anything: the first variable has no row and the last
+        // has no column. Stars follow the p a reader is meant to judge by.
+        var positions: [[Int]: Int] = [:]
+        for (position, test) in tests.enumerated() { positions[[test.column, test.row]] = position }
+        let coefficients = references.indices.dropFirst().map { rowIndex -> [AnalysisCell] in
+            [.text(references[rowIndex].label)] + references.indices.dropLast().map { columnIndex in
+                guard columnIndex < rowIndex, let position = positions[[rowIndex, columnIndex]] else {
+                    return .text("")
+                }
+                guard let coefficient = tests[position].coefficient else { return .missing }
+                return .estimate(coefficient, p: adjusted[position])
+            }
         }
 
         var testColumns = ["Variable", "Variable", "N", "r", "df", "t", "p"]
@@ -356,7 +359,7 @@ nonisolated enum AnalysisKernel {
                 test.coefficient.map(AnalysisCell.number) ?? .missing,
                 statistic.map { AnalysisCell.count($0.degreesOfFreedom) } ?? .missing,
                 statistic.map { AnalysisCell.number($0.t) } ?? .missing,
-                statistic.map { AnalysisCell.probability($0.p) } ?? .missing,
+                statistic.map { AnalysisCell.probability($0.p, starred: !adjusting) } ?? .missing,
             ]
             if adjusting {
                 row.append(adjusted[position].isNaN ? .missing : .probability(adjusted[position]))
@@ -373,8 +376,9 @@ nonisolated enum AnalysisKernel {
 
         return [
             AnalysisResultTable(
-                caption: "\(method.rawValue) coefficients.",
-                columns: [""] + references.map(\.label),
+                caption: "\(method.rawValue) coefficients"
+                    + (adjusting ? ", starred by \(step.adjustment.rawValue)-adjusted p." : "."),
+                columns: [""] + references.dropLast().map(\.label),
                 rows: coefficients
             ),
             AnalysisResultTable(caption: caption, columns: testColumns, rows: testRows),

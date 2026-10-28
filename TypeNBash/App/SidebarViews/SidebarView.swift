@@ -23,7 +23,7 @@ struct WorkspaceSidebar: View {
             isLocal: isLocal,
             onOpenInTerminal: onOpenInTerminal
         )
-        .safeAreaInset(edge: .top) {
+        .paneBar(.top) {
             PaneBar {
                 FileBrowserNavigationControls(tree: model.tree)
                 Spacer()

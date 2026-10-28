@@ -62,6 +62,8 @@ final class AgentSettings {
     var apiKey = ""
     private(set) var status = ""
     private(set) var hasKey = false
+    private(set) var isSigningIn = false
+    private var signIn: Task<Void, Never>?
     var endpointDescription: String { (try? connection.endpoint().absoluteString) ?? "Enter a valid Base URL." }
 
     init(defaults: UserDefaults = .standard, credentials: AgentCredentialStore = .init()) {
@@ -80,6 +82,14 @@ final class AgentSettings {
     func refresh() {
         apiKey = ""; status = ""; hasKey = false
         guard connection.authentication != .none else { return }
+        if connection.authentication == .chatGPT {
+            do {
+                let account = try ChatGPTAccount.load(from: credentials)
+                hasKey = account?.isSignedIn ?? false
+                if let account, hasKey { status = Self.describe(account) }
+            } catch { status = error.localizedDescription }
+            return
+        }
         do { hasKey = try credentials.read(connection.credentialAccount()) != nil }
         catch { status = error.localizedDescription }
     }
@@ -89,12 +99,39 @@ final class AgentSettings {
             apiKey = ""; hasKey = true; status = "Credential saved in Keychain for this endpoint."
         } catch { status = error.localizedDescription }
     }
+    func signInWithChatGPT() {
+        guard !isSigningIn else { return }
+        isSigningIn = true; status = "Finish signing in with ChatGPT in your browser."
+        signIn = Task {
+            do {
+                let account = try await ChatGPTAuth.shared.signIn()
+                hasKey = account.isSignedIn; status = Self.describe(account)
+            } catch is CancellationError { status = "ChatGPT sign-in cancelled." }
+            catch { status = error.localizedDescription }
+            isSigningIn = false; signIn = nil
+        }
+    }
+    func cancelChatGPTSignIn() { signIn?.cancel() }
+    private static func describe(_ account: ChatGPTAccount) -> String {
+        account.canUsePlan
+            ? "Signed in as \(account.email). Eligible agent requests use your ChatGPT plan, separate from any TypeNBash charges. Manage usage in ChatGPT settings."
+            : "Signed in as \(account.email), but ChatGPT plan usage wasn’t granted. Sign in again to enable it, or use an API key."
+    }
     func forgetKey() {
+        if connection.authentication == .chatGPT {
+            Task {
+                do { status = try await ChatGPTAuth.shared.signOut(); hasKey = false }
+                catch { status = error.localizedDescription }
+            }
+            return
+        }
         do { try credentials.delete(connection.credentialAccount()); apiKey = ""; hasKey = false; status = "Credential removed." }
         catch { status = error.localizedDescription }
     }
-    func makeProvider(connection: AgentConnection) throws -> AgentHTTPProvider {
-        let key = connection.authentication == .none ? "" : try credentials.read(connection.credentialAccount()) ?? ""
+    /// ChatGPT access tokens expire hourly, so callers pass a fresh one in.
+    func makeProvider(connection: AgentConnection, token: String? = nil) throws -> AgentHTTPProvider {
+        let key = try token ?? (connection.authentication == .none || connection.authentication == .chatGPT ? ""
+            : credentials.read(connection.credentialAccount()) ?? "")
         let provider = AgentHTTPProvider(connection: connection, key: key)
         _ = try provider.request(history: [], tools: [])
         return provider

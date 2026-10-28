@@ -27,6 +27,7 @@ struct FileViewer: View {
     @AppStorage(.editorAutomaticCompletion) private var automaticCompletion: Bool
     @AppStorage(.editorUsesSpaces) private var usesSpaces: Bool
     @AppStorage(.editorTabWidth) private var tabWidth: Int
+    
 
 
 
@@ -95,20 +96,17 @@ struct FileViewer: View {
                     Text(message).foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .init(horizontal: .center, vertical: .center))
-                .background(Color.card)
             case .failed(let error):
                 ContentUnavailableView {
                     Text(error).foregroundColor(.red)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .init(horizontal: .center, vertical: .center))
-                .background(Color.card)
 
             case .none:
                 ContentUnavailableView {
                     SwiftUI.Text("Select a file to preview")
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .init(horizontal: .center, vertical: .center))
-                .background(Color.card)
             case .document(let data):
                 DocumentPreviewView(data: data)
                     .id(model.selectedFile)

@@ -71,7 +71,10 @@ struct WorkspaceBrowserSheet<Accessory: View>: View {
                     Label {
                         Text(entry.url.lastPathComponent).foregroundStyle(Color.foreground)
                     } icon: {
-                        FileTypeIconView(icon: entry.icon, symbolStyle: Color.accentColor)
+                        FileTypeIconView(
+                            icon: entry.icon,
+                            symbolStyle: Color.accentColor
+                        )
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
@@ -102,7 +105,6 @@ struct WorkspaceBrowserSheet<Accessory: View>: View {
         }
         .padding(16)
         .frame(width: 560, height: 440)
-        .background(Color.card)
         .interactiveDismissDisabled(isBusy)
         .onAppear { browsePath = directory?.path(percentEncoded: false) ?? pendingPath }
         .onChange(of: directory) {

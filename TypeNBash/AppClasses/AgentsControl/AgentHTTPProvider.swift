@@ -8,6 +8,7 @@ nonisolated struct AgentHTTPProvider: AgentProvider {
     var model: String { connection.model }
     let key: String
     let session: URLSession
+    static let workspaceNamespace = "workspace"
 
     init(connection: AgentConnection, key: String = "", session: URLSession? = nil) {
         self.connection = connection; self.key = key
@@ -32,6 +33,9 @@ nonisolated struct AgentHTTPProvider: AgentProvider {
         guard !model.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw AgentFailure("Choose a model in Settings → Agents.")
         }
+        if connection.authentication == .chatGPT, !connection.usesOpenAIExtensions {
+            throw AgentFailure("Sign in with ChatGPT works only with OpenAI Responses at https://api.openai.com/v1.")
+        }
         if connection.authentication != .none {
             guard !key.isEmpty, !key.contains(where: \.isWhitespace) else {
                 throw AgentFailure("Save this connection’s bearer credential or API key in Settings → Agents.")
@@ -51,7 +55,8 @@ nonisolated struct AgentHTTPProvider: AgentProvider {
             body["tools"] = .array(tools.map { .object(["type": .string("function"), "function": .object([
                 "name": .string($0.name), "description": .string($0.description), "parameters": $0.schema])]) })
         } else {
-            body["max_output_tokens"] = .number(8192)
+            // ChatGPT plan requests reject max_output_tokens.
+            if connection.authentication != .chatGPT { body["max_output_tokens"] = .number(8192) }
             if connection.usesOpenAIExtensions {
                 body["store"] = .bool(false)
                 body["include"] = .array([.string("reasoning.encrypted_content")])
@@ -63,6 +68,13 @@ nonisolated struct AgentHTTPProvider: AgentProvider {
             if connection.usesOpenAIExtensions {
                 body["tools"] = .array(body["tools"]!.array.map { $0.setting("strict", .bool(true)) })
             }
+            if connection.authentication == .chatGPT, !tools.isEmpty {
+                body["tools"] = .array([.object([
+                    "type": .string("namespace"), "name": .string(Self.workspaceNamespace),
+                    "description": .string("Tools for the current TypeNBash workspace."),
+                    "tools": body["tools"]!
+                ])])
+            }
         }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -70,7 +82,7 @@ nonisolated struct AgentHTTPProvider: AgentProvider {
         request.setValue("text/event-stream", forHTTPHeaderField: "Accept")
         switch connection.authentication {
         case .none: break
-        case .bearer: request.setValue("Bearer " + key, forHTTPHeaderField: "Authorization")
+        case .bearer, .chatGPT: request.setValue("Bearer " + key, forHTTPHeaderField: "Authorization")
         case .anthropicKey:
             request.setValue(key, forHTTPHeaderField: "x-api-key")
         }
@@ -79,6 +91,18 @@ nonisolated struct AgentHTTPProvider: AgentProvider {
         }
         request.httpBody = try JSONEncoder().encode(AgentJSON.object(body))
         return request
+    }
+
+    /// ChatGPT plan errors that need a specific next step rather than a retry.
+    static func planMessage(_ code: String?) -> String? {
+        switch code {
+        case "subscription_sharing_usage_limit_exceeded":
+            "ChatGPT usage limit reached. Review your plan or this app’s limit in ChatGPT settings → Usage."
+        case "subscription_sharing_user_not_eligible": "This ChatGPT account or workspace can’t use its plan in other apps."
+        case "subscription_sharing_usage_unavailable", "subscription_sharing_user_unavailable":
+            "ChatGPT plan usage is temporarily unavailable. Try again shortly."
+        default: nil
+        }
     }
 
     func respond(history: [AgentJSON], tools: [AgentToolDefinition],
@@ -90,14 +114,19 @@ nonisolated struct AgentHTTPProvider: AgentProvider {
         let (bytes, response) = try await session.bytes(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
             let status = (response as? HTTPURLResponse)?.statusCode ?? 0
+            var body = Data()
+            for try await byte in bytes where body.count < 16_384 { body.append(byte) }
+            let code = (try? JSONDecoder().decode(AgentJSON.self, from: body))?["error"]["code"].string
+            if let message = Self.planMessage(code) { throw AgentFailure(message) }
             switch status {
-            case 401, 403: throw AgentFailure("\(connection.name) rejected access. Check this endpoint’s credential and model permissions.")
+            case 401, 403: throw AgentFailure("\(connection.name) rejected access\(code.map { " (\($0))" } ?? ""). Check this endpoint’s credential and model permissions.")
             case 429: throw AgentFailure("\(kind.title) rate or quota limit reached. Try again later.")
             default: throw AgentFailure("\(kind.title) request failed (HTTP \(status)). No tools were executed for this response.")
             }
         }
         var framing = AgentSSEDecoder()
-        var stream = AgentProviderStream(kind: kind)
+        var stream = AgentProviderStream(kind: kind,
+            toolNamespace: connection.authentication == .chatGPT ? Self.workspaceNamespace : nil)
         var total = 0
         // Parse raw bytes: AsyncBytes.lines treats Unicode paragraph separators
         // as line breaks even when they occur inside JSON strings.
@@ -156,6 +185,7 @@ nonisolated struct AgentSSEDecoder {
 /// from rendered markdown or partial tool argument deltas.
 nonisolated struct AgentProviderStream {
     let kind: AgentProviderKind
+    let toolNamespace: String?
     private var blocks: [Int: AgentJSON] = [:]
     private var arguments: [Int: String] = [:]
     private var stoppedBlocks = Set<Int>()
@@ -166,7 +196,9 @@ nonisolated struct AgentProviderStream {
     private var chat = AgentChatCompletionStream()
     private(set) var isComplete = false
 
-    init(kind: AgentProviderKind) { self.kind = kind }
+    init(kind: AgentProviderKind, toolNamespace: String? = nil) {
+        self.kind = kind; self.toolNamespace = toolNamespace
+    }
 
     mutating func consume(_ data: Data) throws -> String {
         if kind == .chatCompletions {
@@ -178,13 +210,25 @@ nonisolated struct AgentProviderStream {
         let event = try JSONDecoder().decode(AgentJSON.self, from: data)
         let type = event["type"].string ?? ""
         if event["error"] != .null || type == "error" || type == "response.failed" || type == "response.incomplete" {
-            throw AgentFailure("\(kind.title) did not complete the response. No partial tool calls were executed.")
+            let code = event["response"]["error"]["code"].string ?? event["error"]["code"].string
+            if let message = AgentHTTPProvider.planMessage(code) { throw AgentFailure(message) }
+            throw AgentFailure("\(kind.title) did not complete the response\(code.map { " (\($0))" } ?? ""). No partial tool calls were executed.")
         }
         if kind == .openAI {
             if type == "response.output_text.delta" { return event["delta"].string ?? "" }
+            if type == "response.output_item.done" {
+                guard let index = event["output_index"].integer, index >= 0,
+                      case .object = event["item"] else { throw AgentFailure("Malformed completed OpenAI output item.") }
+                blocks[index] = event["item"]
+            }
             if type == "response.completed" {
                 response = event["response"]
                 guard response["status"].string == "completed" else { throw AgentFailure("Incomplete OpenAI response.") }
+                // Some streams omit output from the terminal event. Completed
+                // item events retain text, tool calls and opaque reasoning.
+                for (index, item) in response["output"].array.enumerated() where blocks[index] == nil {
+                    blocks[index] = item
+                }
                 isComplete = true
             }
             return ""
@@ -245,10 +289,14 @@ nonisolated struct AgentProviderStream {
             text = content.filter { $0["type"].string == "text" }.compactMap { $0["text"].string }.joined(separator: "\n")
             items = [.object(["role": .string("assistant"), "content": .array(content)])]
         } else {
-            items = response["output"].array
+            items = blocks.keys.sorted().compactMap { blocks[$0] }
+            guard items.allSatisfy({ $0["status"] == .null || $0["status"].string == "completed" }) else {
+                throw AgentFailure("Incomplete OpenAI output item. No partial tool calls were executed.")
+            }
             for item in items where item["type"].string == "function_call" {
                 guard let id = item["call_id"].string, let name = item["name"].string,
                       let raw = item["arguments"].string else { throw AgentFailure("Malformed tool call.") }
+                guard item["namespace"].string == toolNamespace else { throw AgentFailure("Unexpected tool namespace.") }
                 let value = try JSONDecoder().decode(AgentJSON.self, from: Data(raw.utf8))
                 guard case .object = value else { throw AgentFailure("Tool arguments must be an object.") }
                 calls.append(.init(id: id, name: name, arguments: value))
@@ -256,6 +304,9 @@ nonisolated struct AgentProviderStream {
             text = items.flatMap { $0["content"].array }.compactMap {
                 $0["type"].string == "refusal" ? $0["refusal"].string : $0["text"].string
             }.joined(separator: "\n")
+            guard !text.isEmpty || !calls.isEmpty else {
+                throw AgentFailure("OpenAI completed without an answer or tool call. Please try again.")
+            }
         }
         guard calls.count <= 32, Set(calls.map(\.id)).count == calls.count,
               calls.allSatisfy({ !$0.id.isEmpty && !$0.name.isEmpty }) else { throw AgentFailure("Invalid or excessive tool calls.") }

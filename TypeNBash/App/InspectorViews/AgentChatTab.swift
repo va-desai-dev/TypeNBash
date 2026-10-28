@@ -25,10 +25,9 @@ struct AgenticChatView: View {
                     description: Text("Works in \(session.workingDirectory.lastPathComponent). Choose your model server in Settings → Agents.")
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.card)
             }
         }
-        .safeAreaInset(edge: .top, spacing: 0) {
+        .paneBar(.top) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     Text(session.providerTitle).lineLimit(1)
@@ -37,7 +36,7 @@ struct AgenticChatView: View {
                 }
                 if let error = session.persistenceError { Text(error).font(.caption).foregroundStyle(.red) }
                 if let error = session.configurationError { Text(error).font(.caption).foregroundStyle(.red) }
-                if AgentBuildCapabilities.localCommands {
+                if AgentBuildCapabilities.localCommands && session.isLocal {
                     Toggle("Offer local commands (approval required)", isOn: $session.allowsCommands)
                         .font(.caption).disabled(session.isRunning)
                 }
@@ -67,7 +66,6 @@ struct AgenticChatView: View {
             }
             .padding(.vertical, 6)
             .padding(.horizontal, 10)
-            .background(Color.card)
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
             ChatComposerView(

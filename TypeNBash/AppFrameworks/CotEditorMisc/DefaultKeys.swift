@@ -26,6 +26,7 @@
 import Foundation
 import Defaults
 import StringUtils
+import AppKit
 
 extension DefaultKeys {
 
@@ -61,6 +62,33 @@ extension DefaultKeys {
     static let findRegexIsMultiline = DefaultKey<Bool>("findRegexIsMultiline")
     static let findRegexUsesUnicodeBoundaries = DefaultKey<Bool>("regexUsesUnicodeBoundaries")
     static let findRegexUnescapesReplacementString = DefaultKey<Bool>("regexUnescapesReplacementString")
+
+    // TypeNBash theme overrides, stored as sRGB `#RRGGBBAA` codes.
+    // Unset (nil) means the slot uses the built-in TypeNBash theme color.
+    static let textColor = DefaultKey<String?>("editor.textView.theme.text")
+    static let backgroundColor = DefaultKey<String?>("editor.textView.theme.background")
+    static let invisiblesColor = DefaultKey<String?>("editor.textView.theme.invisibles")
+    static let lineHighlight = DefaultKey<String?>("editor.textView.theme.lineHighlight")
+    static let insertionPoint = DefaultKey<String?>("editor.textView.theme.insertionPoint")
+    static let selectionColor = DefaultKey<String?>("editor.textView.theme.selection")
+
+    static let keywords = DefaultKey<String?>("editor.textView.theme.keywords")
+    static let commands = DefaultKey<String?>("editor.textView.theme.commands")
+    static let declaredtypes = DefaultKey<String?>("editor.textView.theme.types")
+    static let variables = DefaultKey<String?>("editor.textView.theme.variables")
+    static let values = DefaultKey<String?>("editor.textView.theme.values")
+    static let numbers = DefaultKey<String?>("editor.textView.theme.numbers")
+    static let strings = DefaultKey<String?>("editor.textView.theme.strings")
+    static let characters = DefaultKey<String?>("editor.textView.theme.characters")
+    static let comments = DefaultKey<String?>("editor.textView.theme.comments")
+    static let attributes = DefaultKey<String?>("editor.textView.theme.attributes")
+
+    // App chrome colors; `textColor` and `backgroundColor` double as the
+    // chrome's foreground and card colors.
+    static let accentColor = DefaultKey<String?>("app.theme.accent")
+    static let secondaryColor = DefaultKey<String?>("app.theme.secondary")
+    /// Paints the whole window with a card-to-foreground gradient instead of the flat card.
+    static let gradientBackground = DefaultKey<Bool>("app.theme.gradientBackground")
 
 
 

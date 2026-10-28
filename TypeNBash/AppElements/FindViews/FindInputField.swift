@@ -23,6 +23,8 @@ struct FindInput: NSViewRepresentable {
         input.delegate = context.coordinator
         input.writingToolsCoordinator = .none
         input.writingToolsBehavior = .none
+        input.placeholder = placeholder
+        input.setAccessibilityPlaceholderValue(placeholder)
         input.setAccessibilityLabel(placeholder)
         input.setAccessibilityIdentifier(identifier)
         scroll.drawsBackground = false
@@ -33,7 +35,11 @@ struct FindInput: NSViewRepresentable {
     func updateNSView(_ scroll: FindInputScrollView, context: Context) {
         context.coordinator.parent = self
         guard let input = scroll.documentView as? FindPanelTextView else { return }
-        if input.string != text { input.string = text }
+        if input.string != text {
+            input.string = text
+            input.needsDisplay = true
+        }
+        input.placeholder = placeholder
         input.action = onSubmit
         scroll.focusRequest = focusRequest
         scroll.applyFocusRequest()

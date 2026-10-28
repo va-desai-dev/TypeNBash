@@ -27,8 +27,8 @@ struct WorkspacePane: View {
                 }
             } else {
                 FileViewer(model: model, session: session, mdViewSelection: mdViewSelection, bibliography: bibliography)
-                    .safeAreaBar(edge: .top) { editorHeader }
-                    .safeAreaBar(edge: .bottom) {
+                    .paneBar(.top) { editorHeader }
+                    .paneBar(.bottom) {
                         if showsFooter && !model.isReadOnly {
                             PaneBar(edge: .bottom) {
                                 Text(session.position)

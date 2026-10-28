@@ -59,7 +59,8 @@ final class WindowSession {
             agent = activeProject.map { project in
                 AgentSession(workingDirectory: rootDirectory,
                     workspaceID: project.id.uuidString + ":" + rootDirectory.path,
-                    isLocal: location == .local, folderGrant: folderGrant)
+                    isLocal: location == .local, remoteFileSystem: fileSystem as? SSHWorkspaceFileSystem,
+                    folderGrant: folderGrant)
             }
             replaceBibliography()
         }

@@ -60,18 +60,19 @@ struct AnalysisIntegrationChecks {
                                  rows: [["1", "2"], ["2", "4"], ["3", "5"], ["4", "4"], ["5", "5"]])
         let pearson = try AnalysisKernel.run(
             AnalysisStep(operation: .correlation(columns: references, method: .pearson)), on: bivariate)
-        check(near(pearson.tables[0].rows[0][2], 0.7745966692), "Pearson r matches R's cor()")
-        check(pearson.tables[0].rows[0][1] == .number(1), "The diagonal is 1")
+        check(near(pearson.tables[0].rows[0][1], 0.7745966692), "Pearson r matches R's cor()")
+        check(pearson.tables[0].columns == ["", "a"] && pearson.tables[0].rows.count == 1,
+              "The matrix keeps only its lower triangle, with no diagonal of ones")
         check(pearson.tables[1].rows[0][2] == .count(5), "The tests table reports complete pairs")
         let spearman = try AnalysisKernel.run(
             AnalysisStep(operation: .correlation(columns: references, method: .spearman)), on: bivariate)
-        check(near(spearman.tables[0].rows[0][2], 0.7378647874),
+        check(near(spearman.tables[0].rows[0][1], 0.7378647874),
               "Spearman averages tied ranks, matching R's cor(method = \"spearman\")")
 
         let constant = snapshot(columns: ["x", "y"], rows: [["1", "3"], ["2", "3"], ["3", "3"]])
         let flat = try AnalysisKernel.run(
             AnalysisStep(operation: .correlation(columns: references, method: .pearson)), on: constant)
-        check(flat.tables[0].rows[0][2] == .missing, "A variable with no spread gives no coefficient")
+        check(flat.tables[0].rows[0][1] == .missing, "A variable with no spread gives no coefficient")
         check(flat.notes.contains { $0.contains("no spread") }, "And says why")
 
         // MARK: Frequencies and cross-tabulation
@@ -311,7 +312,7 @@ struct AnalysisIntegrationChecks {
         let row = tested.tables[1].rows[0]
         check(row[4] == .count(3), "Correlation reports n - 2 degrees of freedom")
         check(near(row[5], 2.1213203435596428), "And the t statistic R's cor.test gives")
-        guard case .probability(let correlationP) = row[6] else { fatalError("no p-value") }
+        guard case .probability(let correlationP, _) = row[6] else { fatalError("no p-value") }
         check(abs(correlationP - 0.12402706265755449) < 1e-12, "And its two-sided p-value")
         check(near(row[7], -0.34008203518750996) && near(row[8], 0.9842357551507267),
               "And the Fisher z interval cor.test reports")
@@ -325,6 +326,12 @@ struct AnalysisIntegrationChecks {
               "A family of tests gains an adjusted column")
         check(adjustedRun.notes.contains { $0.contains("simultaneous tests") },
               "And says how many tests it adjusted for")
+        check(adjustedRun.tables[1].rows.allSatisfy { row in
+                  guard case .probability(_, let starred) = row[6] else { return true }
+                  return !starred
+              }, "Once adjusted, the raw p no longer carries stars")
+        check(adjustedRun.tables[0].rows.count == 2 && adjustedRun.tables[0].rows[0][2] == .text(""),
+              "A three-variable matrix is two rows by two columns, blank above the diagonal")
 
         let squared = try AnalysisKernel.run(
             AnalysisStep(operation: .crossTabulation(rows: ColumnReference(index: 0, name: "g"),
@@ -346,7 +353,7 @@ struct AnalysisIntegrationChecks {
         check(near(independence[0], 0.13888888888888881) && independence[1] == .count(1)
               && independence[2] == .count(5),
               "Chi-square, df and N match chisq.test(correct = FALSE)")
-        guard case .probability(let independenceP) = independence[3] else { fatalError("no p-value") }
+        guard case .probability(let independenceP, _) = independence[3] else { fatalError("no p-value") }
         check(abs(independenceP - 0.70938811501422649) < 1e-12, "As does its p-value")
         check(near(independence[4], 0.16666666666666663), "And Cramér's V follows from it")
         check(try AnalysisKernel.run(chiSquareStep, on: skewed).notes.contains { $0.contains("fewer than 5") },
@@ -375,7 +382,7 @@ struct AnalysisIntegrationChecks {
         check(oneSample[0] == .count(8) && near(oneSample[4], 0.88191710368819687)
               && oneSample[5] == .count(7),
               "One-sample t matches t.test(x, mu = 7)")
-        guard case .probability(let oneSampleP) = oneSample[6] else { fatalError("no p") }
+        guard case .probability(let oneSampleP, _) = oneSample[6] else { fatalError("no p") }
         check(abs(oneSampleP - 0.40708382206558869) < 1e-10, "As does its p-value")
         check(near(oneSample[7], 6.159384061322843 - 7) && near(oneSample[8], 8.840615938677157 - 7),
               "And its interval, expressed around the tested value")
@@ -441,7 +448,7 @@ struct AnalysisIntegrationChecks {
         check(near(between[1], 61.999999999999936) && between[2] == .count(2)
               && near(between[4], 23.250000000000028),
               "One-way ANOVA matches summary(aov(y ~ f))")
-        guard case .probability(let anovaP) = between[5] else { fatalError("no p") }
+        guard case .probability(let anovaP, _) = between[5] else { fatalError("no p") }
         check(abs(anovaP - 0.00027846644366968628) < 1e-10, "As does its p-value")
         check(near(anova.tables[1].rows[1][1], 11.999999999999973) && anova.tables[1].rows[1][2] == .count(9),
               "And its within-groups sum of squares and df")
@@ -452,10 +459,16 @@ struct AnalysisIntegrationChecks {
               && abs(Distributions.inverseT(0.975, df: 3.7) - 2.8675207071911917) < 1e-9,
               "The inverse t matches qt(), fractional df included")
 
-        check(NotebookReport.text(.probability(0.0004)) == "< .001"
-              && NotebookReport.text(.probability(0.0426)) == ".043"
+        check(NotebookReport.text(.probability(0.0004, starred: false)) == "< .001"
+              && NotebookReport.text(.probability(0.0426, starred: false)) == ".043"
               && NotebookReport.text(.probability(1)) == "1.000",
               "p-values print to APA convention")
+        check(NotebookReport.text(.probability(0.0426)) == ".043*"
+              && NotebookReport.text(.probability(0.009)) == ".009**"
+              && NotebookReport.text(.probability(0.0004)) == "< .001***"
+              && NotebookReport.text(.probability(0.0426, starred: false)) == ".043"
+              && NotebookReport.text(.estimate(0.5, p: 0.2)) == "0.5000",
+              "p-values carry significance stars, unless another column is the p to judge by")
 
         // A notebook written before significance testing must still open.
         let legacy = Data(#"{"version":1,"missingCodes":["NA"],"steps":[{"id":"\#(UUID())","operation":{"frequency":{"column":{"index":0,"name":"g"}}}}]}"#.utf8)
@@ -491,7 +504,7 @@ struct AnalysisIntegrationChecks {
               && near(variance[1][1], 7.75239234449751) && variance[1][2] == .count(9),
               "The regression ANOVA matches anova(lm(...))")
         check(near(variance[0][4], 413.96759759296918), "As does the model F")
-        guard case .probability(let modelP) = variance[0][5] else { fatalError("no model p") }
+        guard case .probability(let modelP, _) = variance[0][5] else { fatalError("no model p") }
         check(abs(modelP - 1.3866857454165045e-09) < 1e-20, "And its p-value, far into the tail")
 
         let coefficients = fitted.tables[2].rows
@@ -504,7 +517,7 @@ struct AnalysisIntegrationChecks {
               && near(coefficients[2][2], 0.8069600183745006),
               "As do the standard errors, taken from a QR rather than from XᵀX")
         check(near(coefficients[1][4], 1.2994793923502623), "As does t")
-        guard case .probability(let slopeP) = coefficients[1][5] else { fatalError("no p") }
+        guard case .probability(let slopeP, _) = coefficients[1][5] else { fatalError("no p") }
         check(abs(slopeP - 0.22607732413998454) < 1e-12, "As does its p-value")
         check(near(coefficients[1][6], -1.07400892209501131) && near(coefficients[1][7], 3.9735304531954476),
               "And the interval confint() gives")
@@ -549,8 +562,8 @@ struct AnalysisIntegrationChecks {
         let correlated = try AnalysisKernel.run(AnalysisStep(adjustment: .none, operation: .correlation(
             columns: [ColumnReference(index: 0, name: "y"), ColumnReference(index: 1, name: "x1")],
             method: .pearson)), on: regressionData).tables[1].rows[0]
-        guard case .probability(let regressionP) = simpleRow[5],
-              case .probability(let correlationTestP) = correlated[6] else { fatalError("no p") }
+        guard case .probability(let regressionP, _) = simpleRow[5],
+              case .probability(let correlationTestP, _) = correlated[6] else { fatalError("no p") }
         check(abs(regressionP - correlationTestP) < 1e-9,
               "A simple regression's slope test and the correlation's test are the same test")
 
@@ -796,8 +809,10 @@ struct AnalysisIntegrationChecks {
     }
 
     nonisolated static func near(_ cell: AnalysisCell, _ expected: Double) -> Bool {
-        guard case .number(let value) = cell else { return false }
-        return abs(value - expected) < 1e-9
+        switch cell {
+        case .number(let value), .estimate(let value, _): return abs(value - expected) < 1e-9
+        default: return false
+        }
     }
 
     nonisolated(unsafe) static var failures = 0

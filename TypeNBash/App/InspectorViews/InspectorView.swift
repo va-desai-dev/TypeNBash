@@ -87,13 +87,13 @@ struct WorkspaceInspector: View {
             self.monitor = monitor
             await session.streamTelemetry(to: monitor)
         }
-        .safeAreaInset(edge: .top) {
+        .paneBar(.top) {
             PaneBar {
                 FillingTabStrip(accessibilityLabel: "Inspector Tabs", tabs: InspectorTabs.allCases,
                                 selection: $selection, title: \.rawValue) { .image($0.nsImage) }
             }
         }
-        .safeAreaInset(edge: .bottom) {
+        .paneBar(.bottom) {
             if selection == .writing, session.fileBrowser.supportsCitations {
                 PaneBar(edge: .bottom) {
                     WritingSubtabPicker(selection: $subselection)

@@ -51,7 +51,13 @@ final class AgentProtocolFixture: URLProtocol, @unchecked Sendable {
             #"{"type":"response.output_text.delta","delta":"Hello"}"#,
             #"{"type":"response.completed","response":{"status":"completed","output":[{"type":"message","role":"assistant","content":[{"type":"output_text","text":"Hello"}]}],"usage":{"input_tokens":4,"output_tokens":1}}}"#
         ]
-        let stream = events.map { "data: \($0)\r\n\r\n" }.joined()
+        let planEvents = [
+            #"{"type":"response.output_text.delta","delta":"Hello"}"#,
+            #"{"type":"response.output_item.done","output_index":0,"item":{"type":"message","role":"assistant","status":"completed","content":[{"type":"output_text","text":"Hello"}]}}"#,
+            #"{"type":"response.completed","response":{"status":"completed","output":[],"usage":{"input_tokens":570,"output_tokens":22}}}"#
+        ]
+        let stream = (request.value(forHTTPHeaderField: "Authorization") == "Bearer chatgpt-fixture" ? planEvents : events)
+            .map { "data: \($0)\r\n\r\n" }.joined()
         for chunk in stride(from: 0, to: stream.utf8.count, by: 7) {
             client?.urlProtocol(self, didLoad: Data(Array(stream.utf8).dropFirst(chunk).prefix(7)))
         }
@@ -129,6 +135,7 @@ struct AgentIntegrationChecks {
         let listing = try await tools.read(call("list_files", ["path": .string("."), "offset": .number(200)]))
         check(listing.contains("\"entries\":[]"), "Listing pagination terminates")
         try streamChecks()
+        try planStreamChecks()
         try connectionChecks()
         try chatStreamChecks()
         try await providerChecks()
@@ -183,6 +190,55 @@ struct AgentIntegrationChecks {
         check(messages[0]["content"].array[0]["is_error"] == .bool(true), "Tool errors use Anthropic's result envelope")
     }
 
+    static func planStreamChecks() throws {
+        let reasoning = AgentJSON.object(["type": .string("reasoning"), "id": .string("r1"), "encrypted_content": .string("opaque")])
+        let tool = AgentJSON.object(["type": .string("function_call"), "call_id": .string("c1"),
+            "namespace": .string("workspace"), "name": .string("read_file"), "status": .string("completed"),
+            "arguments": .string(#"{"path":"hello.txt","offset":0}"#)])
+        let message = AgentJSON.object(["type": .string("message"), "role": .string("assistant"),
+            "content": .array([.object(["type": .string("output_text"), "text": .string("Hello")])])])
+        let completed = AgentJSON.object(["type": .string("response.completed"), "response": .object([
+            "status": .string("completed"), "output": .array([]),
+            "usage": .object(["input_tokens": .number(570), "output_tokens": .number(22)])])])
+        func done(_ item: AgentJSON, _ index: Int) -> Data {
+            Data(AgentJSON.object(["type": .string("response.output_item.done"),
+                "output_index": .number(Double(index)), "item": item]).encoded.utf8)
+        }
+        var stream = AgentProviderStream(kind: .openAI, toolNamespace: "workspace")
+        _ = try stream.consume(Data(#"{"type":"response.output_text.delta","delta":"Hello"}"#.utf8))
+        // Deliberately interleave item completion; continuation must retain output order.
+        _ = try stream.consume(done(tool, 2))
+        _ = try stream.consume(done(reasoning, 0))
+        _ = try stream.consume(done(message, 1))
+        rejected("Completed tools cannot execute before response.completed") { _ = try stream.finish() }
+        _ = try stream.consume(Data(completed.encoded.utf8))
+        let result = try stream.finish()
+        check(result.items == [reasoning, message, tool] && result.text == "Hello",
+              "Empty terminal output retains completed text, ordered items and opaque reasoning")
+        check(result.calls.count == 1 && result.calls[0].name == "read_file" && result.outputTokens == 22,
+              "Namespaced completed tool calls dispatch by local name with usage intact")
+        var duplicated = stream
+        _ = try duplicated.consume(Data(completed.setting("response", completed["response"].setting("output", .array(result.items))).encoded.utf8))
+        check(try duplicated.finish().items == result.items, "Terminal output does not duplicate completed items")
+        var empty = AgentProviderStream(kind: .openAI)
+        _ = try empty.consume(Data(completed.encoded.utf8))
+        rejected("Empty successful responses surface an error instead of a blank assistant") { _ = try empty.finish() }
+        var partial = AgentProviderStream(kind: .openAI, toolNamespace: "workspace")
+        _ = try partial.consume(done(tool.setting("status", .string("incomplete")), 0))
+        _ = try partial.consume(Data(completed.encoded.utf8))
+        rejected("Incomplete tool items cannot execute even after response completion") { _ = try partial.finish() }
+        var wrongNamespace = AgentProviderStream(kind: .openAI, toolNamespace: "workspace")
+        _ = try wrongNamespace.consume(done(tool.setting("namespace", .string("other")), 0))
+        _ = try wrongNamespace.consume(Data(completed.encoded.utf8))
+        rejected("Unexpected tool namespaces cannot dispatch workspace tools") { _ = try wrongNamespace.finish() }
+        var failed = AgentProviderStream(kind: .openAI, toolNamespace: "workspace")
+        _ = try failed.consume(done(tool, 0))
+        rejected("A failed response cannot release completed tools") {
+            _ = try failed.consume(Data(#"{"type":"response.failed","response":{"error":{"code":"server_error"}}}"#.utf8))
+        }
+        rejected("Failed response remains incomplete") { _ = try failed.finish() }
+    }
+
     static func providerChecks() async throws {
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [AgentProtocolFixture.self]
@@ -197,6 +253,20 @@ struct AgentIntegrationChecks {
         check(!String(decoding: request.httpBody!, as: UTF8.self).contains("fixture"), "API key stays out of request content")
         let response = try await provider.respond(history: [], tools: []) { _ in }
         check(response.text == "Hello" && response.outputTokens == 1, "HTTP transport consumes fragmented fixture stream")
+        let plan = AgentHTTPProvider(connection: AgentConnectionPreset.chatGPT.connection, key: "chatgpt-fixture", session: session)
+        let planRequest = try plan.request(history: [], tools: AgentWorkspaceTools.definitions)
+        let planBody = try JSONDecoder().decode(AgentJSON.self, from: planRequest.httpBody!)
+        let namespace = planBody["tools"].array[0]
+        check(planBody["tools"].array.count == 1 && namespace["type"].string == "namespace"
+              && namespace["name"].string == "workspace" && namespace["tools"].array.count == AgentWorkspaceTools.definitions.count
+              && namespace["tools"].array.allSatisfy { $0["type"].string == "function" && $0["strict"] == .bool(true) },
+              "ChatGPT plan wraps strict workspace functions in a namespace")
+        check(planBody["max_output_tokens"] == .null && planBody["store"] == .bool(false) && planBody["stream"] == .bool(true),
+              "ChatGPT plan request retains required inference parameters")
+        let planResponse = try await plan.respond(history: [], tools: AgentWorkspaceTools.definitions) { _ in }
+        check(planResponse.text == "Hello" && planResponse.items.count == 1 && planResponse.outputTokens == 22,
+              "ChatGPT HTTP stream retains the answer with empty terminal output")
+        check(body["tools"].array[0]["type"].string == "function", "API-key Responses keeps its existing tool format")
         do {
             _ = try await AgentHTTPProvider(connection: openAI, key: "invalid", session: session).respond(history: [], tools: []) { _ in }
             fatalError("Unauthorized response accepted")
@@ -353,6 +423,25 @@ struct AgentIntegrationChecks {
 
     #if !HARNESS_CORE
     @MainActor static func sessionChecks(_ root: URL) async throws {
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [AgentProtocolFixture.self]
+        let transport = URLSession(configuration: configuration)
+        defer { transport.invalidateAndCancel() }
+        let plan = AgentHTTPProvider(connection: AgentConnectionPreset.chatGPT.connection, key: "chatgpt-fixture", session: transport)
+        let chat = AgentSession(workingDirectory: root, workspaceID: UUID().uuidString, persists: false, provider: plan)
+        chat.send("Say Hello")
+        for _ in 0..<500 {
+            if !chat.isRunning { break }
+            try await Task.sleep(for: .milliseconds(10))
+        }
+        check(!chat.isRunning && chat.messages.last?.error == nil
+              && chat.messages.last?.blocks.contains(where: { $0.kind == .text("Hello") }) == true,
+              "DEBUG session retains ChatGPT answer after streaming completes")
+        let planStore = try AgentConversationStore(inMemory: true)
+        try planStore.save(chat.snapshot, workspace: "plan-test")
+        check(try planStore.latest(workspace: "plan-test")?.messages == chat.messages
+              && chat.snapshot.conversation.history.count == 2,
+              "ChatGPT completed answer persists in both transcript and continuation history")
         let create = call("create_file", ["path": .string("approved.txt"), "content": .string("approved")])
         let session = AgentSession(workingDirectory: root, workspaceID: UUID().uuidString, persists: false, provider: ScriptedAgentProvider(call: create))
         session.send("create")
@@ -385,9 +474,10 @@ struct AgentIntegrationChecks {
         }
         model.updatePreviewText("unsaved")
         let change = AgentFileChange(path: "approved.txt", before: "approved", after: "overwrite", revision: AgentWorkspaceAccess.revision(Data("approved".utf8)))
-        rejected("Agent edits cannot overwrite an unsaved editor buffer") {
-            try AgentEditorCoordinator.shared.commit(change, access: AgentWorkspaceAccess(root: root))
-        }
+        do {
+            try await AgentEditorCoordinator.shared.commit(change, access: AgentWorkspaceAccess(root: root))
+            fatalError("Agent edits cannot overwrite an unsaved editor buffer")
+        } catch { print("PASS: Agent edits cannot overwrite an unsaved editor buffer") }
         let credentials = AgentCredentialStore(service: "com.TypeNBash.tests.byok." + UUID().uuidString)
         defer { try? credentials.delete("anthropic"); try? credentials.delete("openAI") }
         try credentials.save("fixture-one", for: "anthropic")

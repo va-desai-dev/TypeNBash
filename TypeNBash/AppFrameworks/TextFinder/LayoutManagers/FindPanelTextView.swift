@@ -35,7 +35,12 @@ final class FindPanelTextView: RegexTextView {
     // MARK: Public Properties
     
     var action: (() -> Void)?
-    
+
+    /// Drawn in place of the text while the view is empty (NSTextView has no public placeholder).
+    var placeholder: String? {
+        didSet { if placeholder != oldValue { self.needsDisplay = true } }
+    }
+
     
     // MARK: Private Properties
     
@@ -106,7 +111,34 @@ final class FindPanelTextView: RegexTextView {
     
     
     // MARK: TextView Methods
-    
+
+    override func draw(_ dirtyRect: NSRect) {
+
+        super.draw(dirtyRect)
+
+        guard self.string.isEmpty, let placeholder, !placeholder.isEmpty else { return }
+
+        let padding = self.textContainer?.lineFragmentPadding ?? 0
+        let origin = self.textContainerOrigin
+        let rect = NSRect(x: origin.x + padding, y: origin.y,
+                          width: self.bounds.width - origin.x - padding, height: self.bounds.height - origin.y)
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: self.font ?? .systemFont(ofSize: 0),
+            .foregroundColor: NSColor.placeholderTextColor,
+        ]
+        NSAttributedString(string: placeholder, attributes: attributes)
+            .draw(with: rect, options: [.usesLineFragmentOrigin, .truncatesLastVisibleLine])
+    }
+
+
+    override func didChangeText() {
+
+        super.didChangeText()
+
+        // the placeholder lies outside the glyph area NSTextView invalidates on edit
+        if self.string.count <= 1 { self.needsDisplay = true }
+    }
+
     /// The view is on focus.
     override func becomeFirstResponder() -> Bool {
         

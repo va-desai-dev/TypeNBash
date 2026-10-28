@@ -5,6 +5,7 @@
 //  Created by Vedant A. Desai on 9/12/26.
 //
 
+import Defaults
 import SwiftUI
 
 // 1. This reads your Xcode Organizer version automatically
@@ -97,7 +98,7 @@ struct TypeNBashApp: App {
         }
         Settings {
             IDESettingsView()
-                .background(Color.card)
+                .background(AppTheme.shared.paneBackground)
                 .toolbar(removing: .title)
                 .tint(Color.accentColor)
                 .preferredColorScheme(.dark)
@@ -147,8 +148,86 @@ private struct ProjectNewCommand: View {
 }
 
 
+/// The app chrome colors, with the user's overrides from Settings applied.
+///
+/// `@Observable`, so every view whose body reads one of the `Color` statics
+/// below re-renders when the user picks a new color — no `.id()` reset that
+/// would tear down terminals and editors.
+@Observable
+final class AppTheme {
+    static let shared = AppTheme()
+
+    static let defaultCard = Color(red: 11/255, green: 10/255, blue: 10/255)
+    static let defaultAccent = Color(red: 184/255, green: 151/255, blue: 94/255)
+    static let defaultForeground = Color(red: 240/255, green: 234/255, blue: 214/255)
+    static let defaultSecondary = Color(red: 126/255, green: 122/255, blue: 112/255)
+
+    // The stored `#RRGGBBAA` override codes; nil keeps the default color.
+    private var cardCode: String?
+    private var accentCode: String?
+    private var foregroundCode: String?
+    private var secondaryCode: String?
+
+    /// Whether the window is painted with `gradientCard` rather than the flat card.
+    private(set) var gradientBackground = false
+    var card: Color { Self.color(cardCode) ?? Self.defaultCard }
+    var accent: Color { Self.color(accentCode) ?? Self.defaultAccent }
+    var foreground: Color { Self.color(foregroundCode) ?? Self.defaultForeground }
+    var secondary: Color { Self.color(secondaryCode) ?? Self.defaultSecondary }
+
+    @ObservationIgnored private var observer: (any NSObjectProtocol)?
+
+    private init() {
+        reload()
+        // Settings writes the overrides through `@AppStorage`; follow along.
+        observer = NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification, object: nil, queue: .main
+        ) { [weak self] _ in
+            MainActor.assumeIsolated { self?.reload() }
+        }
+    }
+
+    /// Re-reads the overrides, assigning only what changed so an unrelated
+    /// defaults write doesn't invalidate every themed view.
+    private func reload() {
+        let defaults = UserDefaults.standard
+        let card = defaults.string(forKey: DefaultKeys.backgroundColor.rawValue)
+        let accent = defaults.string(forKey: DefaultKeys.accentColor.rawValue)
+        let foreground = defaults.string(forKey: DefaultKeys.textColor.rawValue)
+        let secondary = defaults.string(forKey: DefaultKeys.secondaryColor.rawValue)
+        if cardCode != card { cardCode = card }
+        if accentCode != accent { accentCode = accent }
+        if foregroundCode != foreground { foregroundCode = foreground }
+        if secondaryCode != secondary { secondaryCode = secondary }
+        let gradient = defaults.bool(forKey: DefaultKeys.gradientBackground.rawValue)
+        if gradientBackground != gradient { gradientBackground = gradient }
+    }
+
+    var gradientCard: LinearGradient {
+        .init(colors: [card, card.mix(with: foreground, by: 0.134)],
+              startPoint: .bottomLeading,
+              endPoint: .topTrailing)
+    }
+
+    /// The window's backdrop: one gradient spanning every column, or the flat card.
+    var windowBackground: AnyShapeStyle {
+        gradientBackground ? AnyShapeStyle(gradientCard) : AnyShapeStyle(card)
+    }
+
+    /// Fill for the panes and toolbar. Clear while the gradient is on, so the
+    /// single window-wide gradient shows through instead of one per pane.
+    var paneBackground: Color {
+        gradientBackground ? .clear : card
+    }
+
+    private static func color(_ code: String?) -> Color? {
+        code.flatMap { NSColor.sRGB(colorCode: $0) }.map { Color(nsColor: $0) }
+    }
+}
+
 extension Color {
-    static let card = Color(red: 11/255, green: 10/255, blue: 10/255)
-    static let accentColor = Color(red: 184/255, green: 151/255, blue: 94/255)
-    static let foreground = Color(red: 240/255, green: 234/255, blue: 214/255)
+    static var card: Color { AppTheme.shared.card }
+    static var accentColor: Color { AppTheme.shared.accent }
+    static var foreground: Color { AppTheme.shared.foreground }
+    static var secondary: Color { AppTheme.shared.secondary }
 }

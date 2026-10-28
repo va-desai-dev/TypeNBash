@@ -60,7 +60,7 @@ struct GitDiffFileList: View {
         .onReceive(NotificationCenter.default.publisher(for: .gitRepositoryDidChange)) { _ in
             Task { await model.refresh() }
         }
-        .safeAreaInset(edge: .top) {
+        .paneBar(.top) {
             VStack(spacing: 0) {
                 PaneBar {
                     GitDiffStatsLabel(model: model)
@@ -157,14 +157,6 @@ struct RepoDisclosureList: View {
         }
         .scrollContentBackground(.hidden)
         .listStyle(.sidebar)
-        .overlay {
-            if let error = model.errorMessage {
-                ContentUnavailableView("No Repository", systemImage: "exclamationmark.triangle",
-                                       description: Text(error))
-            } else if (model.snapshot == nil && model.isLoading) || model.isBusy {
-                ProgressView().controlSize(.small)
-            }
-        }
         .alert("New Branch", isPresented: isPresent($forkSource), presenting: forkSource) { source in
             TextField("Branch name", text: $newBranchName)
             Button("Create") {

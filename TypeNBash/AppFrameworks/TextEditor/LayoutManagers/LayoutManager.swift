@@ -75,6 +75,12 @@ class LayoutManager: NSLayoutManager, InvisibleDrawing, ValidationIgnorable {
     var tabWidth = 0
     var lineHeightMultiple: CGFloat = 1.0
     
+    /// Whether a storage `.backgroundColor` run is filled across the text view's
+    /// full width rather than behind its glyphs alone, so a banded row reads as
+    /// one solid bar. Used by the diff pane; selection and temporary highlights
+    /// are unaffected.
+    var extendsBackgroundsToRowEdges = false
+    
     
     // MARK: Private Properties
     
@@ -169,6 +175,22 @@ class LayoutManager: NSLayoutManager, InvisibleDrawing, ValidationIgnorable {
            newColor != color
         {
             newColor.setFill()
+        }
+        
+        // Widen only the storage's own background runs: the selection and the
+        // find highlights come through here too, and those stay glyph-sized.
+        if self.extendsBackgroundsToRowEdges,
+           let width = self.firstTextView?.bounds.width,
+           charRange.location < self.attributedString().length,
+           self.attributedString().attribute(.backgroundColor, at: charRange.location, effectiveRange: nil) as? NSColor == color
+        {
+            let rects = (0..<rectCount).map { index in
+                var rect = rectArray[index]
+                rect.origin.x = 0
+                rect.size.width = width
+                return rect
+            }
+            return super.fillBackgroundRectArray(rects, count: rects.count, forCharacterRange: charRange, color: color)
         }
         
         super.fillBackgroundRectArray(rectArray, count: rectCount, forCharacterRange: charRange, color: color)

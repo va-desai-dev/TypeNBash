@@ -5,6 +5,7 @@
 
 import Foundation
 import Defaults
+import AppKit
 
 /// The factory values for every user setting backed by a `DefaultKey`.
 ///
@@ -24,6 +25,10 @@ enum AppDefaults {
             DefaultKeys.editorAutomaticCompletion.rawValue: true,
             DefaultKeys.editorUsesSpaces.rawValue: true,
             DefaultKeys.editorTabWidth.rawValue: 4,
+
+            // Editor theme overrides are deliberately unregistered: an
+            // absent value is what makes a slot fall back to TypeNBash.
+            DefaultKeys.gradientBackground.rawValue: false,
 
             // File browser
             DefaultKeys.fileBrowserLayout.rawValue: FileTreeLayout.list.rawValue,

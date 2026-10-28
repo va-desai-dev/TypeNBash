@@ -191,7 +191,7 @@ final class FooterSplitView<Footer: View>: NSSplitView {
     }
 
     override func drawDivider(in rect: NSRect) {
-        NSColor(Color.card).setFill()
+        NSColor(AppTheme.shared.paneBackground).setFill()
         rect.fill()
         NSColor.separatorColor.setFill()
         NSRect(x: rect.minX, y: rect.minY, width: rect.width, height: 1).fill()
@@ -284,7 +284,6 @@ struct CanvasSplitView<Sidebar: View, Content: View, Inspector: View>: NSViewCon
 
             let sidebarItem = NSSplitViewItem(viewController: self.sidebar)
             sidebarItem.minimumThickness = CanvasColumns.sidebarMinimum
-            sidebarItem.maximumThickness = 300
             sidebarItem.canCollapse = true
             // Window resizes go to the content column, not the side columns.
             sidebarItem.holdingPriority = .init(rawValue: 260)
@@ -292,7 +291,6 @@ struct CanvasSplitView<Sidebar: View, Content: View, Inspector: View>: NSViewCon
             contentItem.minimumThickness = CanvasColumns.contentMinimum
             let inspectorItem = NSSplitViewItem(viewController: self.inspector)
             inspectorItem.minimumThickness = CanvasColumns.inspectorMinimum
-            inspectorItem.maximumThickness = 300
             inspectorItem.canCollapse = true
             inspectorItem.holdingPriority = .init(rawValue: 260)
             addSplitViewItem(sidebarItem)

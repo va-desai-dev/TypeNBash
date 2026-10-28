@@ -52,7 +52,6 @@ struct BibliographyInspector: View {
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.card)
         .sheet(isPresented: $showsCrossrefSearch) { CrossrefSearchSheet() }
         .confirmationDialog("Remove \(browser.pendingRemoval.count) citations?", isPresented: Binding(
             get: { !browser.pendingRemoval.isEmpty },

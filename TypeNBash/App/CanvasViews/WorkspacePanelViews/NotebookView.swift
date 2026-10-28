@@ -32,7 +32,7 @@ struct NotebookView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        .safeAreaInset(edge: .top) {
+        .paneBar(.top) {
             PaneBar {
                 NotebookTitle(model: model)
                 Spacer()
@@ -40,7 +40,6 @@ struct NotebookView: View {
                 NotebookActions(model: model, onOpenScript: onOpenScript)
             }
         }
-        .background(Color.card)
         .task { if !model.isLoaded { await model.load() } }
         .sheet(item: $composing) { kind in
             NotebookStepComposer(model: model, kind: kind) { step in
@@ -296,6 +295,9 @@ private struct AnalysisTableView: View {
                 .font(.callout)
                 .padding(.vertical, 4)
             }
+            if let legend = NotebookReport.legend(for: table) {
+                Text(legend).font(.caption).foregroundStyle(.secondary)
+            }
             if table.rows.count > Self.displayLimit {
                 Text("Showing \(Self.displayLimit) of \(table.rows.count) rows — export for the rest.")
                     .font(.caption).foregroundStyle(.secondary)
@@ -456,7 +458,6 @@ private struct NotebookStepComposer: View {
         }
         .padding(18)
         .frame(width: 460)
-        .background(Color.card)
         .task(id: dataset) {
             headers = await model.headers(for: dataset)
             selection = []

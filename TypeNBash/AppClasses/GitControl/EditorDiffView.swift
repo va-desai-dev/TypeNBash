@@ -95,6 +95,8 @@ struct GitDiffTextPane: NSViewRepresentable {
         // the very lines that changed.
         textView.wrapsLines = true
         textView.tabWidth = [2, 4, 8].contains(tabWidth) ? tabWidth : 4
+        // Bands run edge to edge, not just behind each line's glyphs.
+        (textView.layoutManager as? LayoutManager)?.extendsBackgroundsToRowEdges = true
 
         ruler.setRows(rows)
         context.coordinator.configureSyntax(for: fileURL, textView: textView)
@@ -303,6 +305,9 @@ final class GitDiffRulerView: NSRulerView {
         self.clientView = textView
         self.reservedThicknessForMarkers = 0
         self.reservedThicknessForAccessoryView = 0
+        // Same as `LineNumberView`: keep a half-scrolled row's band and numbers
+        // from painting over the pane header.
+        self.clipsToBounds = true
         self.invalidateLayout()
         self.observe(scrollView: scrollView, textView: textView)
     }
@@ -373,8 +378,11 @@ final class GitDiffRulerView: NSRulerView {
             let top = self.convert(NSPoint(x: 0, y: lineRect.minY + originOffset), from: textView).y
 
             if let tint = row.diffTint {
+                // `lineRect` is only the first fragment; a soft-wrapped row
+                // continues down to its last one, and the band must too.
+                let height = self.wrappedHeight(of: lineRect, in: textView)
                 tint.setFill()
-                NSRect(x: 0, y: top, width: self.ruleThickness, height: lineRect.height)
+                NSRect(x: 0, y: top, width: self.ruleThickness, height: height)
                     .intersection(self.bounds).fill()
             }
 
@@ -430,6 +438,25 @@ final class GitDiffRulerView: NSRulerView {
 
     private var markerOrigin: CGFloat {
         self.newNumberRight + Self.columnGap
+    }
+
+    /// The height from a logical line's first fragment to the bottom of its
+    /// last, read from the existing layout without laying out anything new.
+    private func wrappedHeight(of firstFragment: NSRect, in textView: NSTextView) -> CGFloat {
+        guard let layoutManager = textView.layoutManager,
+              let container = textView.textContainer else { return firstFragment.height }
+
+        let string = textView.string as NSString
+        let firstGlyph = layoutManager.glyphIndex(for: NSPoint(x: firstFragment.minX, y: firstFragment.midY),
+                                                  in: container)
+        let firstCharacter = layoutManager.characterIndexForGlyph(at: firstGlyph)
+        guard firstCharacter < string.length else { return firstFragment.height }
+
+        let line = string.lineRange(for: NSRange(location: firstCharacter, length: 0))
+        let lastGlyph = layoutManager.glyphIndexForCharacter(at: max(line.location, line.upperBound - 1))
+        let lastFragment = layoutManager.lineFragmentRect(forGlyphAt: lastGlyph, effectiveRange: nil,
+                                                          withoutAdditionalLayout: true)
+        return max(firstFragment.height, lastFragment.maxY - firstFragment.minY)
     }
 
     /// Draws a line number right-aligned to `right`.

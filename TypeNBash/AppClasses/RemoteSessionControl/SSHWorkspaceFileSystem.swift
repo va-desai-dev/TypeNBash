@@ -18,7 +18,7 @@ final class SSHWorkspaceFileSystem: WorkspaceFileSystem {
 
     /// The scripts the helper runs by name; each also runs alone as `python3 -c`.
     private enum Script: String, CaseIterable {
-        case list, read, write, createFile, mkdir, remove, move, search, editorGitBaseline, find
+        case list, read, write, createFile, mkdir, remove, move, search, editorGitBaseline, find, agent
 
         var source: String {
             switch self {
@@ -32,6 +32,7 @@ final class SSHWorkspaceFileSystem: WorkspaceFileSystem {
                 case .search: ProjectSearchFileAccess.remoteScript
                 case .editorGitBaseline: RemoteGit.editorBaselineScript
                 case .find: SSHWorkspaceFileSystem.findScript
+                case .agent: AgentRemoteWorkspaceAccess.remoteScript
             }
         }
     }
@@ -107,6 +108,11 @@ final class SSHWorkspaceFileSystem: WorkspaceFileSystem {
                 modificationDate: record.mtime.map(Date.init(timeIntervalSince1970:))
             )
         }
+    }
+
+    /// Agent workspace tools; `AgentRemoteWorkspaceAccess` owns the arguments.
+    func agentWorkspace(_ arguments: [String], input: Data? = nil) async throws -> Data {
+        try await run(.agent, arguments, input: input)
     }
 
     func createFile(_ data: Data, at url: URL) async throws {

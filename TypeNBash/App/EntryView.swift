@@ -159,7 +159,7 @@ struct StartupDashboardView: View {
         .padding(.horizontal, 20)
         .padding(.bottom, 20)
         .frame(width: 420, height: 780)
-        .background(Color.card)
+        .background(AppTheme.shared.paneBackground)
     }
 
 }

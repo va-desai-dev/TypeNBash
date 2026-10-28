@@ -22,7 +22,17 @@ struct AgentSettingsPane: View {
                 Picker("Method", selection: $settings.connection.authentication) {
                     ForEach(AgentAuthentication.allCases) { Text($0.title).tag($0) }
                 }
-                if settings.connection.authentication != .none {
+                if settings.connection.authentication == .chatGPT {
+                    HStack {
+                        if settings.isSigningIn {
+                            ProgressView().controlSize(.small)
+                            Button("Cancel Sign-In", action: settings.cancelChatGPTSignIn)
+                        } else {
+                            Button(settings.hasKey ? "Sign In Again" : "Continue with ChatGPT", action: settings.signInWithChatGPT)
+                            if settings.hasKey { Button("Sign Out", role: .destructive, action: settings.forgetKey) }
+                        }
+                    }
+                } else if settings.connection.authentication != .none {
                     SecureField(settings.hasKey ? "Replace saved credential" : "Credential", text: $settings.apiKey)
                     HStack {
                         Button("Save Credential", action: settings.saveKey).disabled(settings.apiKey.isEmpty)

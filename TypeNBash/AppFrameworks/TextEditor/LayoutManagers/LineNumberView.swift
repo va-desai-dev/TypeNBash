@@ -96,6 +96,11 @@ final class LineNumberView: NSRulerView {
         super.init(scrollView: scrollView, orientation: orientation)
         
         self.reservedThicknessForMarkers = 0
+        // Views stopped clipping by default in macOS 14, and the rect a ruler is
+        // asked to draw reaches past its frame — so the number and change capsule
+        // of a line scrolled half out of view painted over the pane header above.
+        // The CSV grid's index gutter opts in the same way.
+        self.clipsToBounds = true
         
         self.clientView = textView
         self.updateDrawingInfo()
@@ -147,7 +152,7 @@ final class LineNumberView: NSRulerView {
         // workaround opaque background (2026-08, macOS 27 SDK)
         if let textView, textView.isOpaque {
             textView.backgroundColor.setFill()
-            rect.intersection(self.frame).fill()
+            rect.intersection(self.bounds).fill()
         }
         
         if showsNumbers {

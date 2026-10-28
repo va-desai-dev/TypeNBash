@@ -128,7 +128,7 @@ final class FileBrowserModel {
         }
     }
     
-    private var fileSystem: any WorkspaceFileSystem
+    private(set) var fileSystem: any WorkspaceFileSystem
     private var previewGeneration = 0
 
 

@@ -288,7 +288,7 @@ struct SSHConnectionSheet: View {
             .keyboardShortcut(.defaultAction)
         }
         .padding(16)
-        .background(Color.card)
+        .background(AppTheme.shared.paneBackground)
     }
 
     private var isValid: Bool {

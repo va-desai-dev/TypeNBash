@@ -25,10 +25,9 @@ struct ProjectSearchView: View {
             }
         }
         .scrollContentBackground(.hidden)
-        .safeAreaInset(edge: .top) {
+        .paneBar(.top) {
             ProjectSearchControls(model: model)
         }
-        .background(Color.card)
         .sheet(item: $model.review) { review in
             ProjectReplacementReviewView(model: model, review: review)
         }

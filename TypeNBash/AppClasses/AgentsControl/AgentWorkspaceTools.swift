@@ -15,9 +15,49 @@ nonisolated struct AgentFileChange: Codable, Sendable, Identifiable {
     }
 }
 
+/// Where the workspace tools read and write: this Mac, or an SSH host. Every
+/// implementation applies the same path, link, size and revision rules.
+nonisolated protocol AgentFileAccess: AnyObject, Sendable {
+    /// Editors showing a file under this root take part in the conflict check.
+    var root: URL { get }
+    func list(_ path: String) async throws -> [(name: String, directory: Bool)]
+    func read(_ path: String) async throws -> Data
+    func commit(_ change: AgentFileChange) async throws
+    /// The `search_files` result for `offset`, as encoded JSON.
+    func search(_ path: String, query: String, offset: Int) async throws -> String
+}
+
+extension AgentFileAccess {
+    /// A bounded breadth-first scan over `list` and `read`. Remote access
+    /// replaces it with one round trip that applies the same limits.
+    func search(_ path: String, query: String, offset: Int) async throws -> String {
+        var queue = [path], visited = 0, files = 0, matches: [AgentJSON] = []
+        var skipped = 0
+        while visited < queue.count && visited < 200 && files < 2_000 && matches.count < offset + 100 {
+            try Task.checkCancellation()
+            let directory = queue[visited]; visited += 1
+            for entry in try await list(directory) {
+                try Task.checkCancellation()
+                let child = directory == "." || directory.isEmpty ? entry.name : directory + "/" + entry.name
+                if entry.directory { if queue.count < 201 { queue.append(child) }; continue }
+                if files >= 2_000 || matches.count >= offset + 100 { break }
+                files += 1
+                guard let data = try? await read(child) else { skipped += 1; continue }
+                for (line, text) in String(decoding: data, as: UTF8.self).components(separatedBy: "\n").enumerated() where text.contains(query) {
+                    matches.append(.object(["path": .string(child), "line": .number(Double(line + 1)), "text": .string(String(text.prefix(300)))]))
+                    if matches.count >= offset + 100 { break }
+                }
+            }
+        }
+        return AgentJSON.object(["matches": .array(Array(matches.dropFirst(offset).prefix(100))),
+            "scan_limited": .bool(visited < queue.count || files >= 2_000 || matches.count >= offset + 100),
+            "skipped_files": .number(Double(skipped))]).encoded
+    }
+}
+
 /// Descriptor-relative access rejects symlinks at every component, including
 /// creation parents. Native tools never follow project links outside the root.
-nonisolated final class AgentWorkspaceAccess: @unchecked Sendable {
+nonisolated final class AgentWorkspaceAccess: AgentFileAccess, @unchecked Sendable {
     let root: URL
     private let descriptor: Int32
     static let byteLimit = 1_048_576
@@ -34,6 +74,10 @@ nonisolated final class AgentWorkspaceAccess: @unchecked Sendable {
     static func revision(_ data: Data) -> String { SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined() }
 
     func components(_ path: String, allowRoot: Bool = false) throws -> [String] {
+        try Self.components(path, allowRoot: allowRoot)
+    }
+
+    static func components(_ path: String, allowRoot: Bool = false) throws -> [String] {
         if allowRoot && (path == "." || path.isEmpty) { return [] }
         let parts = path.split(separator: "/", omittingEmptySubsequences: false).map(String.init)
         guard !path.hasPrefix("/"), !path.contains("\0"), !parts.isEmpty,
@@ -156,8 +200,9 @@ nonisolated final class AgentWorkspaceAccess: @unchecked Sendable {
 }
 
 actor AgentWorkspaceTools {
-    let access: AgentWorkspaceAccess
+    let access: any AgentFileAccess
     init(root: URL) throws { access = try AgentWorkspaceAccess(root: root) }
+    init(access: any AgentFileAccess) { self.access = access }
 
     nonisolated static var definitions: [AgentToolDefinition] {
         func string(_ description: String) -> AgentJSON { .object(["type": .string("string"), "description": .string(description)]) }
@@ -173,9 +218,9 @@ actor AgentWorkspaceTools {
         ]
     }
 
-    func prepare(_ call: AgentToolCall) throws -> AgentFileChange {
+    func prepare(_ call: AgentToolCall) async throws -> AgentFileChange {
         let path = try required("path", call)
-        _ = try access.components(path)
+        _ = try AgentWorkspaceAccess.components(path)
         if call.name == "create_directory" {
             return AgentFileChange(path: path, before: nil, after: nil, revision: "", isDirectory: true)
         }
@@ -185,7 +230,7 @@ actor AgentWorkspaceTools {
             return AgentFileChange(path: path, before: nil, after: content, revision: "")
         }
         guard call.name == "apply_edits" else { throw AgentFailure("Unknown edit tool.") }
-        let data = try access.read(path)
+        let data = try await access.read(path)
         let revision = try required("revision", call)
         guard revision == AgentWorkspaceAccess.revision(data) else { throw AgentFailure("Stale revision. Read the file again.") }
         let before = String(decoding: data, as: UTF8.self)
@@ -199,18 +244,18 @@ actor AgentWorkspaceTools {
         return AgentFileChange(path: path, before: before, after: after, revision: revision)
     }
 
-    func read(_ call: AgentToolCall) throws -> String {
+    func read(_ call: AgentToolCall) async throws -> String {
         try Task.checkCancellation()
         let path = try required("path", call)
         guard let offset = call.arguments["offset"].integer, offset >= 0, offset <= 100_000 else { throw AgentFailure("Invalid offset.") }
         switch call.name {
         case "list_files":
-            let entries = try access.list(path)
+            let entries = try await access.list(path)
             return AgentJSON.object(["entries": .array(entries.dropFirst(offset).prefix(200).map {
                 .object(["name": .string($0.name), "directory": .bool($0.directory)])
             }), "next_offset": offset + 200 < entries.count ? .number(Double(offset + 200)) : .null]).encoded
         case "read_file":
-            let data = try access.read(path)
+            let data = try await access.read(path)
             let lines = String(decoding: data, as: UTF8.self).components(separatedBy: "\n")
             let text = lines.dropFirst(offset).prefix(200).joined(separator: "\n")
             return AgentJSON.object(["revision": .string(AgentWorkspaceAccess.revision(data)),
@@ -219,27 +264,7 @@ actor AgentWorkspaceTools {
         case "search_files":
             let query = try required("query", call)
             guard !query.isEmpty, query.count <= 1_000 else { throw AgentFailure("Use a nonempty query up to 1,000 characters.") }
-            var queue = [path], visited = 0, files = 0, matches: [AgentJSON] = []
-            var skipped = 0
-            while visited < queue.count && visited < 200 && files < 2_000 && matches.count < offset + 100 {
-                try Task.checkCancellation()
-                let directory = queue[visited]; visited += 1
-                for entry in try access.list(directory) {
-                    try Task.checkCancellation()
-                    let child = directory == "." || directory.isEmpty ? entry.name : directory + "/" + entry.name
-                    if entry.directory { if queue.count < 201 { queue.append(child) }; continue }
-                    if files >= 2_000 || matches.count >= offset + 100 { break }
-                    files += 1
-                    guard let data = try? access.read(child) else { skipped += 1; continue }
-                    for (line, text) in String(decoding: data, as: UTF8.self).components(separatedBy: "\n").enumerated() where text.contains(query) {
-                        matches.append(.object(["path": .string(child), "line": .number(Double(line + 1)), "text": .string(String(text.prefix(300)))]))
-                        if matches.count >= offset + 100 { break }
-                    }
-                }
-            }
-            return AgentJSON.object(["matches": .array(Array(matches.dropFirst(offset).prefix(100))),
-                "scan_limited": .bool(visited < queue.count || files >= 2_000 || matches.count >= offset + 100),
-                "skipped_files": .number(Double(skipped))]).encoded
+            return try await access.search(path, query: query, offset: offset)
         default: throw AgentFailure("Unknown workspace tool.")
         }
     }

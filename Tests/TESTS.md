@@ -508,7 +508,25 @@ rejection, binary-file exclusion, native search, SSE fragmentation/Unicode,
 provider-specific continuation blocks, interleaved Chat Completions tool deltas,
 endpoint normalization, credential scoping, keyless local requests, HTTP fixtures, unauthorized tools,
 interrupted-call recovery, and DMG command output, timeout and descendant cleanup.
+ChatGPT-plan checks cover namespaced strict functions, completed output-item
+assembly when terminal output is empty, opaque reasoning retention, duplicate
+terminal items, and rejection of empty responses, incomplete tools, and unexpected
+namespaces. The Debug module checks also verify that the completed answer remains
+in the transcript and SwiftData continuation history.
 The App Store check also verifies the command implementation is absent from symbols.
+
+SSH projects run the same workspace tools through the persistent remote helper.
+This check executes the actual remote agent script against local fixtures:
+
+```sh
+python3 Tests/run-agent-remote-file-checks.py
+```
+
+It covers link, hard-link, traversal, credential and binary refusals, bounded
+search with offsets, revision-checked replacement with preserved permissions,
+exclusive creation, directories, the 1 MiB limit, and temporary-file cleanup.
+It does not require or establish an SSH connection. Local commands are never
+offered for SSH projects.
 
 After a Debug app build, run the integration checks against the built module:
 
@@ -528,7 +546,10 @@ Live acceptance: in Settings → Agents select ENGRAISERVER/custom (Chat Complet
 `https://ollama.com/v1`, Ollama bearer key). Set an available tool-capable model ID.
 Official OpenAI/Anthropic API routes remain optional; no paid API account is needed
 for local inference. Cloud models through local Ollama require that server to be
-signed in already. The app does not perform browser OAuth or start model servers.
+signed in already. ChatGPT Plan uses browser sign-in and the public Responses API.
+For a live ChatGPT check, sign in, start a new chat, request a short text answer,
+then request a read-only workspace tool call and verify the follow-up answer.
+The app does not start model servers.
 Then open a local project. Ask for an edit and
 review its before/after text. Decline must leave disk unchanged; approval must
 apply the edit and refresh open editors. Follow-up prompts and reopening the

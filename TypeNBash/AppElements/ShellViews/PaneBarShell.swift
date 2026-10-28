@@ -52,7 +52,7 @@ struct PaneBar<Content: View, Accessory: View>: View {
             if edge == .top && showsDivider { Divider() }
             accessory
         }
-        .background(Color.card)
+        .background(AppTheme.shared.paneBackground)
     }
 
     @ViewBuilder
@@ -79,6 +79,22 @@ extension PaneBar where Accessory == EmptyView {
         @ViewBuilder content: () -> Content
     ) {
         self.init(edge: edge, spacing: spacing, showsDivider: showsDivider, progress: progress, content: content) { EmptyView() }
+    }
+}
+
+extension View {
+    /// Stacks a bar above or below the pane, the way the CSV grid frames its
+    /// header — not `safeAreaInset`, which floats the bar *over* the content.
+    /// SwiftUI stretches scroll views (`List`, an editor's `NSScrollView`)
+    /// under an inset so they can scroll beneath it, and with the gradient on
+    /// `paneBackground` is clear, so the rows showed straight through the bar.
+    /// Stacked, nothing is ever under the bar and a clear fill reads as solid.
+    func paneBar<Bar: View>(_ edge: VerticalEdge, @ViewBuilder bar: () -> Bar) -> some View {
+        VStack(spacing: 0) {
+            if edge == .top { bar() }
+            self.frame(maxHeight: .infinity)
+            if edge == .bottom { bar() }
+        }
     }
 }
 

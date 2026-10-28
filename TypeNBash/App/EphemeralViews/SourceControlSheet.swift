@@ -135,7 +135,7 @@ struct SourceControlView: View {
         }
         .padding(20)
         .frame(width: 620, height: 610)
-        .background(Color.card)
+        .background(AppTheme.shared.paneBackground)
         .interactiveDismissDisabled(model.isBusy || model.account.isBusy)
         .task { await model.run(.refresh) }
     }

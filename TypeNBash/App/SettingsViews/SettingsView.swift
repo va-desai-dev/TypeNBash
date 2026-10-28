@@ -13,6 +13,7 @@ enum IDESettingsTab: String, CaseIterable, Identifiable {
     case projects = "Projects"
     case sourceControl = "Source Control"
     case agents = "Agents"
+    case themes = "Theme"
 
     var id: String { self.rawValue }
 
@@ -23,6 +24,7 @@ enum IDESettingsTab: String, CaseIterable, Identifiable {
         case .projects: return "folder"
         case .sourceControl: return "arrow.triangle.branch"
         case .agents: return "sparkles"
+        case .themes: return "paintpalette.fill"
         }
     }
 }
@@ -57,10 +59,16 @@ struct IDESettingsView: View {
                 case .sourceControl:
                     SourceControlSettingsPane()
                             .scrollContentBackground(.hidden)
+                    case .themes:
+                        EditorThemeControls()
+                            .scrollContentBackground(.hidden)
                 }
             }
             .frame(maxWidth: .infinity)
         }
+        .foregroundStyle(Color.foreground)
+        .tint(Color.accentColor)
+        .foregroundStyle(Color.secondary)
         .frame(width: 720, height: 520)
         .toolbarBackground(.hidden, for: .windowToolbar)
     }

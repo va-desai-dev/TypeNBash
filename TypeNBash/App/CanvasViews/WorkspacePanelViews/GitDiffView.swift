@@ -26,13 +26,13 @@ struct GitDiffView: View {
     var body: some View {
         comparison
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .safeAreaBar(edge: .top) {
+            .paneBar(.top) {
                 PaneBar {
                     Spacer()
                     GitDiffRefreshButton(model: model)
                 }
             }
-            .safeAreaBar(edge: .bottom) {
+            .paneBar(.top) {
                 if showsFooter {
                     PaneBar(edge: .bottom) {
                         GitDiffStatusLabel(model: model)
@@ -63,7 +63,7 @@ struct GitDiffView: View {
                 fileURL: result.selectedPath.map { model.directory.appending(path: $0) },
                 contentKey: contentKey
             )
-            .backgroundStyle(Color.card)
+            .backgroundStyle(AppTheme.shared.paneBackground)
             // A new comparison gets a new text view, the way each file gets a
             // new editor. Refilling one in place is what loses the theme's text
             // color — see `GitDiffTextPane.makeNSView(context:)`.

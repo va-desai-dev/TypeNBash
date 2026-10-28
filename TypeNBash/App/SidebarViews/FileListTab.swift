@@ -251,7 +251,7 @@ struct FileListRow<Tag: Hashable, LeadingItem: View, TrailingItem: View>: View {
             Spacer()
             trailingItem
         }
-        .frame(height: 24)
+        .frame(height: 20)
         .contentShape(Rectangle())
         .tag(tag)
     }

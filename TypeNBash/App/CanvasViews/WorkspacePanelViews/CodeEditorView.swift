@@ -30,6 +30,13 @@ struct CodeEditorTextView: NSViewRepresentable {
     var sourceNavigationID: UUID? = nil
 
     @Environment(\.colorScheme) private var colorScheme
+    private var themeOverrides = EditorThemeOverrides()
+
+    /// The TypeNBash theme for the current appearance, with the user's
+    /// Settings overrides layered on top.
+    private var theme: Theme {
+        themeOverrides.applied(to: .TypeNBash(colorScheme))
+    }
 
     func makeCoordinator() -> Coordinator {
         Coordinator(text: $text, session: session)
@@ -81,7 +88,7 @@ struct CodeEditorTextView: NSViewRepresentable {
 
         // Set the theme only after the text view is inside the scroll view:
         // `applyTheme()` asserts on `enclosingScrollView`.
-        textView.theme = .TypeNBash(colorScheme)
+        textView.theme = theme
 
         options.apply(to: textView)
         context.coordinator.textView = textView
@@ -117,7 +124,7 @@ struct CodeEditorTextView: NSViewRepresentable {
             context.coordinator.updateSelection()
         }
 
-        let theme = Theme.TypeNBash(colorScheme)
+        let theme = self.theme
         if textView.theme != theme {
             textView.theme = theme
             context.coordinator.updateTheme(theme)
@@ -158,7 +165,7 @@ struct CodeEditorTextView: NSViewRepresentable {
 
         private(set) var syntaxController: SyntaxController?
         private var syntaxName: String?
-        private var theme: Theme?
+        var theme: Theme?
         private let changeService = EditorChangeService()
         let citations = EditorCitationHighlighter()
         private var changeTask: Task<Void, Never>?
@@ -315,12 +322,14 @@ extension Theme {
         colorScheme == .dark ? .TypeNBashDark : .TypeNBashLight
     }
 
+
     private static var TypeNBashDark: Theme {
         var theme = Theme()
-        theme.text = .init(color: .hex("#FFFFFF"))
-        // Chrome colors follow the asset catalog and the user's accent, so they
-        // stay as semantic colors rather than baked-in hex.
-        theme.background = .init(color: NSColor(Color.card))
+        let palette = AppTheme.shared
+        // Chrome colors follow the app theme (and the user's overrides of it),
+        // so they stay as semantic colors rather than baked-in hex.
+        theme.text = .init(color: NSColor(Color.foreground))
+        theme.background = .init(color: NSColor(palette.paneBackground))
         theme.invisibles = .init(color: NSColor(Color.secondary.opacity(0.34)))
         theme.lineHighlight = .init(color: NSColor(Color.accentColor.opacity(0.2)))
         theme.insertionPoint = .init(color: .hex("#D6DEE8"), usesSystemSetting: false)
@@ -396,9 +405,18 @@ extension NSColor {
     ///   - colorCode: The color code to parse.
     ///   - alpha: An opacity to apply on top of the parsed color.
     static func hex(_ colorCode: String, alpha: CGFloat = 1) -> NSColor {
+        guard let color = sRGB(colorCode: colorCode, alpha: alpha) else {
+            preconditionFailure("Invalid color code “\(colorCode)” in the TypeNBash theme.")
+        }
+        return color
+    }
+
+    /// The non-trapping form of `hex(_:alpha:)`, for codes read back from user
+    /// defaults, where a bad value should fall back rather than crash.
+    static func sRGB(colorCode: String, alpha: CGFloat = 1) -> NSColor? {
         // Try the code as written, then with the `#` that bare hex digits omit.
         guard let parsed = NSColor(colorCode: colorCode) ?? NSColor(colorCode: "#" + colorCode) else {
-            preconditionFailure("Invalid color code “\(colorCode)” in the TypeNBash theme.")
+            return nil
         }
 
         // Re-tag, don't convert: the parsed components are already the sRGB
@@ -407,5 +425,16 @@ extension NSColor {
                        green: parsed.greenComponent,
                        blue: parsed.blueComponent,
                        alpha: parsed.alphaComponent * alpha)
+    }
+
+    /// This color as an sRGB `#RRGGBBAA` code — the inverse of
+    /// `sRGB(colorCode:)`, used to store theme overrides.
+    var sRGBColorCode: String? {
+        guard let rgb = usingColorSpace(.sRGB) else { return nil }
+        let components = [rgb.redComponent, rgb.greenComponent, rgb.blueComponent, rgb.alphaComponent]
+        // Extended-range components can fall outside 0...1; clamp before encoding.
+        return "#" + components
+            .map { String(format: "%02X", Int((min(max($0, 0), 1) * 255).rounded())) }
+            .joined()
     }
 }

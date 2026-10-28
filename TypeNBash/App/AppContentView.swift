@@ -478,7 +478,7 @@ struct Sidebar<Content: View>: View {
                 )
             }
         }
-        .safeAreaInset(edge: .top, alignment: .center) {
+        .paneBar(.top) {
             PaneBar {
                 SidebarTabPicker(selection: $selectedTab)
             }

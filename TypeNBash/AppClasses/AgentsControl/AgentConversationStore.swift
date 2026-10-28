@@ -55,9 +55,18 @@ final class AgentEditorCoordinator {
     static let shared = AgentEditorCoordinator()
     private let models = NSHashTable<FileBrowserModel>.weakObjects()
     func register(_ model: FileBrowserModel) { models.add(model) }
-    func commit(_ change: AgentFileChange, access: AgentWorkspaceAccess) throws {
+    func commit(_ change: AgentFileChange, access: any AgentFileAccess) async throws {
         let url = access.root.appendingPathComponent(change.path).standardizedFileURL
-        let open = models.allObjects.filter { $0.selectedFile?.resolvingSymlinksInPath().standardizedFileURL == url }
+        // Remote paths are the host's, so they are compared only with editors
+        // on the same connection and never resolved against this Mac.
+        let remote = (access as? AgentRemoteWorkspaceAccess)?.fileSystem
+        let open = models.allObjects.filter { model in
+            guard let remote else {
+                return !(model.fileSystem is SSHWorkspaceFileSystem)
+                    && model.selectedFile?.resolvingSymlinksInPath().standardizedFileURL == url
+            }
+            return model.fileSystem === remote && model.selectedFile?.standardizedFileURL == url
+        }
         for model in open {
             guard !model.hasUnsavedChanges, !model.isSaving else { throw AgentFailure("This file has unsaved edits or is being saved in an editor window.") }
             switch model.preview {
@@ -65,9 +74,10 @@ final class AgentEditorCoordinator {
             default: throw AgentFailure("Close this file’s preview before allowing the agent to edit it.")
             }
         }
-        try access.commit(change)
+        try await access.commit(change)
         for model in models.allObjects { model.refresh() }
-        for model in open {
+        // A remote commit suspends; never reload over typing that began meanwhile.
+        for model in open where !model.hasUnsavedChanges && !model.isSaving {
             model.select(WorkspaceFileEntry(url: url, isDirectory: false, byteCount: nil))
         }
     }

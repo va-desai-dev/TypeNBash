@@ -101,7 +101,7 @@ final class CSVTableContainerView: NSView {
     /// Fills the corner between the header and the index gutter; the subviews
     /// cover everything else.
     override func draw(_ dirtyRect: NSRect) {
-        NSColor(Color.card).setFill()
+        NSColor(AppTheme.shared.paneBackground).setFill()
         dirtyRect.fill()
     }
 
@@ -117,7 +117,7 @@ final class CSVTableContainerView: NSView {
         scrollView.hasHorizontalScroller = true
         scrollView.autohidesScrollers = true
         scrollView.drawsBackground = false
-        scrollView.backgroundColor = NSColor(Color.card)
+        scrollView.backgroundColor = NSColor(AppTheme.shared.paneBackground)
         scrollView.documentView = bodyView
 
         // Treat Force Touch as an ordinary click so double-click-to-edit doesn't
@@ -233,7 +233,7 @@ final class CSVIndexView: NSView {
     override var isOpaque: Bool { true }
 
     override func draw(_ dirtyRect: NSRect) {
-        NSColor(Color.card).setFill()
+        NSColor(AppTheme.shared.paneBackground).setFill()
         dirtyRect.fill()
 
         guard let container, !container.storage.rows.isEmpty else { return }
@@ -461,12 +461,12 @@ final class CSVHeaderView: NSView {
 
     override func draw(_ dirtyRect: NSRect) {
         guard let storage = container?.storage, !storage.columns.isEmpty else {
-            NSColor(Color.card).setFill()
+            NSColor(AppTheme.shared.paneBackground).setFill()
             dirtyRect.fill()
             return
         }
 
-        NSColor(Color.card).setFill()
+        NSColor(AppTheme.shared.paneBackground).setFill()
         bounds.fill()
 
         let colW = CSVTableContainerView.columnWidth
@@ -583,7 +583,7 @@ final class CSVGridBodyView: NSView, NSTextFieldDelegate {
         let colW = CSVTableContainerView.columnWidth
 
         // Opaque background for the whole exposed strip (incl. any blank area).
-        NSColor(Color.card).setFill()
+        NSColor(AppTheme.shared.paneBackground).setFill()
         dirtyRect.fill()
 
         let storage = self.storage

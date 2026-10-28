@@ -56,7 +56,6 @@ struct CrossrefSearchSheet: View {
         }
         .padding(20)
         .frame(width: 620, height: 500)
-        .background(Color.card)
         .onDisappear { model.cancel() }
     }
 }
