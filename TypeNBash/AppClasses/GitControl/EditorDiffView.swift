@@ -41,6 +41,13 @@ struct GitDiffTextPane: NSViewRepresentable {
 
     @Environment(\.colorScheme) private var colorScheme
     @AppStorage(.editorTabWidth) private var tabWidth: Int
+    private var themeOverrides = EditorThemeOverrides()
+
+    /// The TypeNBash theme for the current appearance, with the user's
+    /// Settings overrides layered on top — the same one the source editor uses.
+    private var theme: Theme {
+        themeOverrides.applied(to: .TypeNBash(colorScheme))
+    }
 
     func makeCoordinator() -> Coordinator {
         Coordinator()
@@ -88,7 +95,7 @@ struct GitDiffTextPane: NSViewRepresentable {
 
         // Set the theme only after the text view is inside the scroll view:
         // `applyTheme()` asserts on `enclosingScrollView`.
-        textView.theme = .TypeNBash(colorScheme)
+        textView.theme = self.theme
 
         // Lines soft-wrap, exactly as they do in the editor — a comparison is
         // read top to bottom, and a horizontal scroller would hide the ends of
@@ -98,10 +105,12 @@ struct GitDiffTextPane: NSViewRepresentable {
         // Bands run edge to edge, not just behind each line's glyphs.
         (textView.layoutManager as? LayoutManager)?.extendsBackgroundsToRowEdges = true
 
+        let colors = themeOverrides.diffColors
+        ruler.colors = colors
         ruler.setRows(rows)
         context.coordinator.configureSyntax(for: fileURL, textView: textView)
         context.coordinator.band(rows: rows, starts: starts,
-                                 totalLength: (text as NSString).length, in: textView)
+                                 totalLength: (text as NSString).length, colors: colors, in: textView)
 
         textStorage.delegate = context.coordinator
         return scrollView
@@ -112,10 +121,18 @@ struct GitDiffTextPane: NSViewRepresentable {
 
         // Only the theme: the comparison itself arrives as a new view, keyed on
         // `contentKey` by the caller.
-        let theme = Theme.TypeNBash(colorScheme)
+        let theme = self.theme
         if textView.theme != theme {
             textView.theme = theme
             context.coordinator.updateTheme(theme)
+        }
+
+        // A new diff color re-washes the rows in place; the rows themselves
+        // haven't changed.
+        let colors = themeOverrides.diffColors
+        if context.coordinator.colors != colors {
+            context.coordinator.recolor(colors, in: textView)
+            (scrollView.verticalRulerView as? GitDiffRulerView)?.colors = colors
         }
     }
 
@@ -169,6 +186,9 @@ struct GitDiffTextPane: NSViewRepresentable {
         private(set) var syntaxController: SyntaxController?
         private var syntaxName: String?
         private var theme: Theme?
+        /// The colors the rows are washed in, and what `recolor` re-washes.
+        private(set) var colors: GitDiffColors?
+        private var banded: (rows: [GitDiffRow], starts: [Int], totalLength: Int)?
 
         /// Washes the changed rows in the margin color.
         ///
@@ -184,15 +204,17 @@ struct GitDiffTextPane: NSViewRepresentable {
         /// its glyphs. That is the same trap as overriding `drawBackground`
         /// by hand: the gutter still paints, and the text does not.
         func band(rows: [GitDiffRow], starts: [Int], totalLength: Int,
-                  in textView: EditorTextView) {
+                  colors: GitDiffColors, in textView: EditorTextView) {
             guard let storage = textView.textStorage else { return }
+            self.colors = colors
+            self.banded = (rows, starts, totalLength)
 
             let whole = NSRange(location: 0, length: totalLength)
             storage.beginEditing()
             storage.removeAttribute(.backgroundColor, range: whole)
 
             for (index, row) in rows.enumerated() {
-                guard let tint = row.diffTint else { continue }
+                guard let tint = row.diffTint(colors) else { continue }
 
                 let start = starts[index]
                 let end = (index + 1 < starts.count) ? starts[index + 1] - 1 : totalLength
@@ -206,6 +228,13 @@ struct GitDiffTextPane: NSViewRepresentable {
                                      range: NSRange(location: start, length: length))
             }
             storage.endEditing()
+        }
+
+        /// Re-washes the same rows in new diff colors.
+        func recolor(_ colors: GitDiffColors, in textView: EditorTextView) {
+            guard let banded else { return }
+            self.band(rows: banded.rows, starts: banded.starts, totalLength: banded.totalLength,
+                      colors: colors, in: textView)
         }
 
         /// Re-applies the theme colors to the existing highlights.
@@ -255,21 +284,30 @@ struct GitDiffTextPane: NSViewRepresentable {
 
 // MARK: - Row Styling
 
+/// The diff pane's two colors, from the Diff Theme settings. The gutter marker
+/// uses each as picked; the row behind it takes a light wash of the same hue.
+struct GitDiffColors: Equatable {
+    static let standard = GitDiffColors(added: .systemGreen, removed: .systemRed)
+
+    var added: NSColor
+    var removed: NSColor
+}
+
 extension GitDiffRow {
 
     /// The wash behind a row, or `nil` for unchanged context.
-    var diffTint: NSColor? {
+    func diffTint(_ colors: GitDiffColors) -> NSColor? {
         if self.isHeader { return .secondaryLabelColor.withAlphaComponent(0.12) }
-        if self.left?.changed == true { return .systemRed.withAlphaComponent(0.16) }
-        if self.right?.changed == true { return .systemGreen.withAlphaComponent(0.16) }
+        if self.left?.changed == true { return colors.removed.withAlphaComponent(0.16) }
+        if self.right?.changed == true { return colors.added.withAlphaComponent(0.16) }
         return nil
     }
 
     /// The gutter marker for a row, or `nil` for context and hunk headers.
-    var diffMarker: (text: String, color: NSColor)? {
+    func diffMarker(_ colors: GitDiffColors) -> (text: String, color: NSColor)? {
         guard !self.isHeader else { return nil }
-        if self.left?.changed == true { return ("−", .systemRed) }
-        if self.right?.changed == true { return ("+", .systemGreen) }
+        if self.left?.changed == true { return ("−", colors.removed) }
+        if self.right?.changed == true { return ("+", colors.added) }
         return nil
     }
 }
@@ -295,6 +333,10 @@ final class GitDiffRulerView: NSRulerView {
     /// The displayed comparison. Row *n* is the text view's logical line *n+1*,
     /// which is how a line fragment finds its numbers again.
     private var rows: [GitDiffRow] = []
+    /// The marker and band colors, matching the text view's row washes.
+    var colors: GitDiffColors = .standard {
+        didSet { if colors != oldValue { self.needsDisplay = true } }
+    }
 
     private var numberWidth: CGFloat = 0
     private var observers: [NSObjectProtocol] = []
@@ -377,7 +419,7 @@ final class GitDiffRulerView: NSRulerView {
             let row = self.rows[lineNumber - 1]
             let top = self.convert(NSPoint(x: 0, y: lineRect.minY + originOffset), from: textView).y
 
-            if let tint = row.diffTint {
+            if let tint = row.diffTint(self.colors) {
                 // `lineRect` is only the first fragment; a soft-wrapped row
                 // continues down to its last one, and the band must too.
                 let height = self.wrappedHeight(of: lineRect, in: textView)
@@ -392,7 +434,7 @@ final class GitDiffRulerView: NSRulerView {
             self.drawNumber(row.right?.number, right: self.newNumberRight,
                             y: baseline, attributes: numberAttributes)
 
-            if let marker = row.diffMarker {
+            if let marker = row.diffMarker(self.colors) {
                 let text = marker.text as NSString
                 let attributes: [NSAttributedString.Key: Any] = [
                     .font: Self.font, .foregroundColor: marker.color,

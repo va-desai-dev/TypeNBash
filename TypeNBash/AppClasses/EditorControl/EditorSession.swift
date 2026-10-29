@@ -172,7 +172,7 @@ struct EditorOptions: Equatable {
         if let ruler = view.enclosingScrollView?.verticalRulerView as? LineNumberView {
             ruler.showsNumbers = showsLineNumbers
             ruler.showsChanges = showsChanges
-            ruler.toolTip = showsChanges ? "Changes: green = added, blue = modified, red = deleted" : nil
+            ruler.toolTip = showsChanges ? "Changes: Diff Additions = added, blue = modified, Diff Deletions = deleted" : nil
         }
         view.enclosingScrollView?.rulersVisible = showsLineNumbers || showsChanges
         view.wrapsLines = wrapsLines

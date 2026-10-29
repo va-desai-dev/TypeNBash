@@ -63,7 +63,7 @@ struct GitDiffView: View {
                 fileURL: result.selectedPath.map { model.directory.appending(path: $0) },
                 contentKey: contentKey
             )
-            .backgroundStyle(AppTheme.shared.paneBackground)
+            .backgroundStyle(AppTheme.shared.windowBackground)
             // A new comparison gets a new text view, the way each file gets a
             // new editor. Refilling one in place is what loses the theme's text
             // color — see `GitDiffTextPane.makeNSView(context:)`.

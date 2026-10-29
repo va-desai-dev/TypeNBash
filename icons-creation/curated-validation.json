@@ -1,0 +1,34 @@
+{
+  "compiledSymbols": 518,
+  "nativeDefaultRenderingsVerified": 518,
+  "defaultMatchesMonochrome": true,
+  "materialIconReferencesCovered": 535,
+  "registryFileAssociationsCovered": 2492,
+  "authorTemplatesPreserved": [
+    "markdown",
+    "tsconfig",
+    "jsconfig",
+    "vue-config",
+    "markdoc-config"
+  ],
+  "galleryChecks": [
+    "search by name and filename",
+    "leading-dot extension lookup",
+    "category filtering",
+    "empty search results",
+    "rendering selector"
+  ],
+  "galleryBrowserCheck": "Local file navigation blocked by browser tool policy; generated images and filter logic verified directly.",
+  "appFilesChanged": true,
+  "latestChanges": {
+    "database": "sf:cylinder.split.1x2",
+    "word": "User-provided W path only; native document enclosure, without gradient or tile."
+  },
+  "integration": {
+    "debugBuild": "passed",
+    "productionRenderingChecks": "passed: HEX tints when unselected, row color when selected, neutral contrast, and preserved cutouts in light/dark",
+    "referencedCompiledSymbolsVerified": 494,
+    "authoredCompositionsPreserved": true
+  },
+  "brandColorDefinitions": 541
+}

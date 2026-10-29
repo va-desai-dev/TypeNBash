@@ -1,0 +1,6 @@
+{
+  "sources": "TypeNBash/Assets.xcassets/material",
+  "output": "TypeNBash/Assets.xcassets/pack",
+  "symbolsFrom": "icons-creation/curated.json",
+  "symbols": []
+}

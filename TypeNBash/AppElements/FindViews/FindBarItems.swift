@@ -20,7 +20,7 @@ struct FindBarContent: ViewModifier {
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(AppTheme.shared.paneBackground)
+            .background(AppTheme.shared.windowBackground)
     }
 }
 

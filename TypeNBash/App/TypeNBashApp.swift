@@ -98,7 +98,7 @@ struct TypeNBashApp: App {
         }
         Settings {
             IDESettingsView()
-                .background(AppTheme.shared.paneBackground)
+                .background(AppTheme.shared.windowBackground)
                 .toolbar(removing: .title)
                 .tint(Color.accentColor)
                 .preferredColorScheme(.dark)
@@ -217,7 +217,7 @@ final class AppTheme {
     /// Fill for the panes and toolbar. Clear while the gradient is on, so the
     /// single window-wide gradient shows through instead of one per pane.
     var paneBackground: Color {
-        gradientBackground ? .clear : card
+        gradientBackground ? .clear : .card
     }
 
     private static func color(_ code: String?) -> Color? {

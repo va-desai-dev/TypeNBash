@@ -221,6 +221,7 @@ struct FileListRow<Tag: Hashable, LeadingItem: View, TrailingItem: View>: View {
     let filename: String
     let icon: FileTypeIcon
     let style: Color
+    let selectionRender: Image.TemplateRenderingMode
     let tag: Tag
     let leadingItem: LeadingItem
     let trailingItem: TrailingItem
@@ -229,6 +230,7 @@ struct FileListRow<Tag: Hashable, LeadingItem: View, TrailingItem: View>: View {
         filename: String,
         icon: FileTypeIcon,
         style: Color,
+        selectionRender: Image.TemplateRenderingMode,
         tag: Tag,
         @ViewBuilder leadingItem: () -> LeadingItem = { EmptyView() },
         @ViewBuilder trailingItem: () -> TrailingItem
@@ -236,6 +238,7 @@ struct FileListRow<Tag: Hashable, LeadingItem: View, TrailingItem: View>: View {
         self.filename = filename
         self.icon = icon
         self.style = style
+        self.selectionRender = selectionRender
         self.tag = tag
         self.leadingItem = leadingItem()
         self.trailingItem = trailingItem()
@@ -244,7 +247,7 @@ struct FileListRow<Tag: Hashable, LeadingItem: View, TrailingItem: View>: View {
     var body: some View {
         HStack(spacing: 8) {
             leadingItem
-            FileTypeIconView(icon: icon, symbolStyle: style)
+            FileTypeIconView(icon: icon, symbolStyle: style, renderingMode: selectionRender)
             Text(filename)
                 .lineLimit(1)
                 .truncationMode(.tail)
@@ -286,7 +289,8 @@ struct FileBrowserList: View {
                 FileListRow(
                     filename: entry.label,
                     icon: entry.icon,
-                    style: entry.isDirectory ? Color.accentColor : Color.secondary,
+                    style: Color.foreground,
+                    selectionRender: tree.selectedID == row.id ? .template : .original,
                     tag: row.id,
                     leadingItem: {
                         if tree.layout == .tree { disclosure(for: row) }

@@ -658,7 +658,13 @@ final class CSVGridBodyView: NSView, NSTextFieldDelegate {
         if event.clickCount == 2 {
             beginEditing(row: row, col: col)
         } else {
-            window?.makeFirstResponder(self)
+            // Only hand focus over when it's actually elsewhere. Every
+            // makeFirstResponder round-trips through the text input system
+            // (TSM/IMK) on a Default-QoS thread, which the main thread blocks
+            // on — a priority inversion we shouldn't trigger on every click.
+            if let window, window.firstResponder !== self {
+                window.makeFirstResponder(self)
+            }
             select(row: row, col: col)
         }
     }
@@ -838,7 +844,9 @@ final class CSVGridBodyView: NSView, NSTextFieldDelegate {
                 select(row: min(max(0, targetRow), displayRowCount - 1),
                        col: min(max(0, targetCol), storage.columns.count - 1))
             }
-            window?.makeFirstResponder(self)
+            if let window, window.firstResponder !== self {
+                window.makeFirstResponder(self)
+            }
         }
     }
 

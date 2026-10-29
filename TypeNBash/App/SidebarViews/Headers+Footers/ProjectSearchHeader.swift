@@ -48,7 +48,7 @@ struct ProjectSearchControls: View {
                     .textSelection(.enabled).padding(.horizontal, 10).padding(.bottom, 8)
             }
         }
-        .background(AppTheme.shared.paneBackground)
+        .background(AppTheme.shared.windowBackground)
     }
 
     private var findRows: some View {

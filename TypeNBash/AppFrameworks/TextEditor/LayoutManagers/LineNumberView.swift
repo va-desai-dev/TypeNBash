@@ -34,6 +34,10 @@ final class LineNumberView: NSRulerView {
     var lineChanges = EditorLineChanges() {
         didSet { if lineChanges != oldValue { needsDisplay = true } }
     }
+    /// The added and deleted change colors, shared with the diff pane.
+    var diffColors = GitDiffColors.standard {
+        didSet { if diffColors != oldValue { needsDisplay = true } }
+    }
     var showsChanges = false {
         didSet { if showsChanges != oldValue { updateRuleThickness(); needsDisplay = true } }
     }
@@ -181,7 +185,7 @@ final class LineNumberView: NSRulerView {
         let lastLine = textView.lineNumber(at: length)
 
         func color(_ kind: EditorLineChanges.Kind) -> NSColor {
-            kind == .added ? .systemGreen : .systemBlue
+            kind == .added ? diffColors.added : .systemBlue
         }
 
         // Contiguous fragments of the same kind merge into one capsule, like Xcode's gutter.
@@ -226,7 +230,7 @@ final class LineNumberView: NSRulerView {
         flushRun()
 
         // Deletions: a short horizontal pill sitting on the boundary between lines.
-        NSColor.systemRed.setFill()
+        diffColors.removed.setFill()
         for y in deletionMarks {
             let rect = NSRect(x: x - 2, y: y - 1.5, width: barWidth + 4, height: 3)
             NSBezierPath(roundedRect: rect, xRadius: 1.5, yRadius: 1.5).fill()

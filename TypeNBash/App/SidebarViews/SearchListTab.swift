@@ -64,6 +64,7 @@ struct ProjectSearchFileRow: View {
                 filename: file.label,
                 icon: file.icon,
                 style: .secondary,
+                selectionRender: .original,
                 tag: file.url
             ) {
                 Text("\(file.matches.count)").foregroundStyle(.secondary).monospacedDigit()

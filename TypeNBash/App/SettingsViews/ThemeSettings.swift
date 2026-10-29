@@ -19,6 +19,7 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
     case text, background, invisibles, lineHighlight, insertionPoint, selection
     case keywords, commands, types, variables, values, numbers, strings, characters, comments, attributes
     case accentColor, secondaryForeground
+    case diffAdded, diffRemoved
 
     var id: Self { self }
 
@@ -28,6 +29,7 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
     static let editorSlots: [Self] = [.invisibles, .lineHighlight, .insertionPoint, .selection]
     static let syntaxSlots: [Self] = [.keywords, .commands, .types, .variables, .values,
                                       .numbers, .strings, .characters, .comments, .attributes]
+    static let diffSlots: [Self] = [.diffAdded, .diffRemoved]
 
     var label: String {
         switch self {
@@ -49,14 +51,28 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
         case .attributes: "Attributes"
         case .accentColor: "Accent"
         case .secondaryForeground: "Muted Labels"
+        case .diffAdded: "Diff Additions"
+        case .diffRemoved: "Diff Deletions"
         }
     }
 
-    /// The slot's color in `theme`.
+    /// Whether the picker offers opacity. The card sits on an opaque window,
+    /// and the diff colors are washed to a fixed strength, so a translucent
+    /// pick would only wash them out further.
+    var supportsOpacity: Bool {
+        switch self {
+        case .background, .diffAdded, .diffRemoved: false
+        default: true
+        }
+    }
+
+    /// The slot's color in `theme`. App slots read the app palette's defaults
+    /// instead: the palette is the source of truth the editor theme follows,
+    /// and the editor's own background goes clear while the gradient is on.
     func color(in theme: Theme) -> NSColor {
         switch self {
-        case .text: theme.text.color
-        case .background: theme.background.color
+        case .text: NSColor(AppTheme.defaultForeground)
+        case .background: NSColor(AppTheme.defaultCard)
         case .invisibles: theme.invisibles.color
         case .lineHighlight: theme.lineHighlight.color
         case .insertionPoint: theme.insertionPoint.color
@@ -71,16 +87,21 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
         case .characters: theme.characters.color
         case .comments: theme.comments.color
         case .attributes: theme.attributes.color
-        case .accentColor: NSColor(Color.accentColor)
-        case .secondaryForeground: NSColor(Color.secondary)
+        case .accentColor: NSColor(AppTheme.defaultAccent)
+        case .secondaryForeground: NSColor(AppTheme.defaultSecondary)
+        case .diffAdded: GitDiffColors.standard.added
+        case .diffRemoved: GitDiffColors.standard.removed
         }
     }
 
     /// Replaces the slot's color in `theme`.
     func set(_ color: NSColor, in theme: inout Theme) {
         switch self {
-        case .text: theme.text.color = color
-        case .background: theme.background.color = color
+        // App slots: the editor follows the app palette, which already applies
+        // the override — and whose pane fill goes clear while the gradient is
+        // on, so the window gradient shows through the editor too.
+        case .text: theme.text.color = NSColor(Color.foreground)
+        case .background: theme.background.color = NSColor(AppTheme.shared.paneBackground)
         case .invisibles: theme.invisibles.color = color
         case .lineHighlight: theme.lineHighlight.color = color
         // A user-picked caret or selection color must win over the system one.
@@ -99,6 +120,9 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
         // The theme already derives its accent and muted colors from
         // `Color.accentColor`/`Color.secondary`, which apply these overrides.
         case .accentColor, .secondaryForeground: break
+        // The editor theme has no diff colors; the diff pane reads these
+        // straight from the overrides — see `diffColors`.
+        case .diffAdded, .diffRemoved: break
         }
     }
 }
@@ -133,6 +157,9 @@ struct EditorThemeOverrides: DynamicProperty {
     @AppStorage(.accentColor) private var accent: String?
     @AppStorage(.secondaryColor) private var secondary: String?
 
+    @AppStorage(.diffAddedColor) private var diffAdded: String?
+    @AppStorage(.diffRemovedColor) private var diffRemoved: String?
+
     /// The stored `#RRGGBBAA` code for `slot`; nil means "not overridden".
     func colorCode(for slot: EditorThemeSlot) -> Binding<String?> {
         switch slot {
@@ -154,12 +181,20 @@ struct EditorThemeOverrides: DynamicProperty {
         case .attributes: $attributes
         case .accentColor: $accent
         case .secondaryForeground: $secondary
+        case .diffAdded: $diffAdded
+        case .diffRemoved: $diffRemoved
         }
     }
 
     /// The user's color for `slot`, or nil when it follows the base theme.
     func color(for slot: EditorThemeSlot) -> NSColor? {
         colorCode(for: slot).wrappedValue.flatMap { NSColor.sRGB(colorCode: $0) }
+    }
+
+    /// The diff pane's colors: the user's picks, else system green and red.
+    var diffColors: GitDiffColors {
+        GitDiffColors(added: color(for: .diffAdded) ?? GitDiffColors.standard.added,
+                      removed: color(for: .diffRemoved) ?? GitDiffColors.standard.removed)
     }
 
     var hasOverrides: Bool {
@@ -234,6 +269,8 @@ struct EditorThemePreset: Identifiable {
         case .comments: "comments"
         case .accentColor: "accentControls"
         case .secondaryForeground: "muted"
+        case .diffAdded: "diffAdded"
+        case .diffRemoved: "diffRemoved"
         case .attributes: nil
         }
     }
@@ -310,6 +347,9 @@ struct EditorThemeControls: View {
             Section("Syntax Theme") {
                 ForEach(EditorThemeSlot.syntaxSlots) { row(for: $0) }
             }
+            Section("Diff Theme") {
+                ForEach(EditorThemeSlot.diffSlots) { row(for: $0) }
+            }
             Section {
                 Button("Restore TypeNBash Colors") {
                     overrides.removeAll()
@@ -355,7 +395,7 @@ struct EditorThemeControls: View {
         )
 
         return HStack {
-            ColorPicker(slot.label, selection: selection, supportsOpacity: true)
+            ColorPicker(slot.label, selection: selection, supportsOpacity: slot.supportsOpacity)
             if code.wrappedValue != nil {
                 Button("Reset", systemImage: "arrow.uturn.backward") {
                     code.wrappedValue = nil

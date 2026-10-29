@@ -1,0 +1,6389 @@
+{
+  "registry": "TypeNBash/AppResources/FileIcons.json",
+  "materialReferences": 535,
+  "symbolCount": 518,
+  "mappings": [
+    {
+      "material": "3d",
+      "reviewSymbol": "3d",
+      "extensions": [
+        "123dx",
+        "3dm",
+        "3ds",
+        "3mf",
+        "ac",
+        "catpart",
+        "catproduct",
+        "dae",
+        "dwg",
+        "dxf",
+        "f3d",
+        "fbx",
+        "glb",
+        "gltf",
+        "iam",
+        "ige",
+        "iges",
+        "igs",
+        "ipt",
+        "jt",
+        "mesh",
+        "mqo",
+        "obj",
+        "ply",
+        "pmd",
+        "pmx",
+        "prt",
+        "sab",
+        "sat",
+        "skp",
+        "sldasm",
+        "slddrw",
+        "sldprt",
+        "smb",
+        "smt",
+        "ste",
+        "step",
+        "stl",
+        "stp",
+        "usd",
+        "usdz",
+        "vac",
+        "vdp",
+        "vox",
+        "wire",
+        "wrl",
+        "x_b",
+        "x_t"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "abap",
+      "reviewSymbol": "abap",
+      "extensions": [
+        "abap",
+        "acds",
+        "asddls"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "abc",
+      "reviewSymbol": "abc",
+      "extensions": [
+        "abc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "actionscript",
+      "reviewSymbol": "actionscript",
+      "extensions": [
+        "as"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "ada",
+      "reviewSymbol": "ada",
+      "extensions": [
+        "ada",
+        "adb",
+        "ads",
+        "ali"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "adobe-illustrator",
+      "reviewSymbol": "adobe-illustrator",
+      "extensions": [
+        "ai",
+        "ait"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "adobe-photoshop",
+      "reviewSymbol": "adobe-photoshop",
+      "extensions": [
+        "psb",
+        "psd",
+        "psdt"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "adobe-swc",
+      "reviewSymbol": "adobe-swc",
+      "extensions": [
+        "swc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "adonis",
+      "reviewSymbol": "adonis",
+      "extensions": [],
+      "filenames": [
+        ".adonisrc.json",
+        "ace"
+      ]
+    },
+    {
+      "material": "advpl",
+      "reviewSymbol": "advpl",
+      "extensions": [
+        "prw",
+        "prx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "agent",
+      "reviewSymbol": "agent",
+      "extensions": [],
+      "filenames": [
+        "agents.md"
+      ]
+    },
+    {
+      "material": "amplify",
+      "reviewSymbol": "amplify",
+      "extensions": [],
+      "filenames": [
+        "amplify.yml"
+      ]
+    },
+    {
+      "material": "android",
+      "reviewSymbol": "android",
+      "extensions": [
+        "apk",
+        "dex",
+        "smali"
+      ],
+      "filenames": [
+        "androidmanifest.xml"
+      ]
+    },
+    {
+      "material": "antlr",
+      "reviewSymbol": "antlr",
+      "extensions": [
+        "g4"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "apiblueprint",
+      "reviewSymbol": "apiblueprint",
+      "extensions": [
+        "apib",
+        "apiblueprint"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "apollo",
+      "reviewSymbol": "apollo",
+      "extensions": [],
+      "filenames": [
+        "apollo.config.js"
+      ]
+    },
+    {
+      "material": "applescript",
+      "reviewSymbol": "applescript",
+      "extensions": [
+        "applescript",
+        "ipa"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "apps-script",
+      "reviewSymbol": "apps-script",
+      "extensions": [
+        "gs"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "appveyor",
+      "reviewSymbol": "appveyor",
+      "extensions": [],
+      "filenames": [
+        ".appveyor.yml",
+        "appveyor.yml"
+      ]
+    },
+    {
+      "material": "appwrite",
+      "reviewSymbol": "appwrite",
+      "extensions": [],
+      "filenames": [
+        "appwrite.js",
+        "appwrite.json",
+        "appwrite.ts"
+      ]
+    },
+    {
+      "material": "architecture",
+      "reviewSymbol": "architecture",
+      "extensions": [],
+      "filenames": [
+        "architecture",
+        "architecture.md",
+        "architecture.rst",
+        "architecture.txt"
+      ]
+    },
+    {
+      "material": "arduino",
+      "reviewSymbol": "arduino",
+      "extensions": [
+        "ino"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "asciidoc",
+      "reviewSymbol": "asciidoc",
+      "extensions": [
+        "ad",
+        "adoc",
+        "asciidoc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "assembly",
+      "reviewSymbol": "assembly",
+      "extensions": [
+        "a51",
+        "aea",
+        "agc",
+        "ags",
+        "argus",
+        "asm",
+        "binsource",
+        "inc",
+        "mitigus",
+        "ms",
+        "nasm",
+        "s"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "astro",
+      "reviewSymbol": "astro",
+      "extensions": [
+        "astro"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "astro-config",
+      "reviewSymbol": "astro-config",
+      "extensions": [],
+      "filenames": [
+        "astro.config.cjs",
+        "astro.config.cts",
+        "astro.config.js",
+        "astro.config.mjs",
+        "astro.config.mts",
+        "astro.config.ts"
+      ]
+    },
+    {
+      "material": "astyle",
+      "reviewSymbol": "astyle",
+      "extensions": [],
+      "filenames": [
+        ".astylerc"
+      ]
+    },
+    {
+      "material": "audio",
+      "reviewSymbol": "audio",
+      "extensions": [
+        "8svx",
+        "aa",
+        "aac",
+        "aax",
+        "ac3",
+        "aif",
+        "aiff",
+        "alac",
+        "amr",
+        "ape",
+        "caf",
+        "cda",
+        "cdr",
+        "dss",
+        "ec3",
+        "efs",
+        "enc",
+        "flac",
+        "flp",
+        "gsm",
+        "it",
+        "m3u",
+        "m3u8",
+        "m4a",
+        "m4b",
+        "m4p",
+        "m4r",
+        "mid",
+        "mka",
+        "mmf",
+        "mod",
+        "mp3",
+        "mpc",
+        "mscz",
+        "mtm",
+        "mui",
+        "musx",
+        "mxl",
+        "nsa",
+        "opus",
+        "pkf",
+        "qcp",
+        "ra",
+        "rf64",
+        "rip",
+        "sdt",
+        "sesx",
+        "sf2",
+        "stap",
+        "tg",
+        "voc",
+        "vqf",
+        "wav",
+        "weba",
+        "wfp",
+        "wma",
+        "wpl",
+        "wproj",
+        "wv"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "aurelia",
+      "reviewSymbol": "aurelia",
+      "extensions": [],
+      "filenames": [
+        "aurelia.json"
+      ]
+    },
+    {
+      "material": "authors",
+      "reviewSymbol": "authors",
+      "extensions": [],
+      "filenames": [
+        "authors",
+        "authors.md",
+        "authors.rst",
+        "authors.txt",
+        "contributors",
+        "contributors.md",
+        "contributors.rst",
+        "contributors.txt"
+      ]
+    },
+    {
+      "material": "auto",
+      "reviewSymbol": "auto",
+      "extensions": [],
+      "filenames": [
+        ".autorc",
+        "auto-config.js",
+        "auto-config.json",
+        "auto-config.ts",
+        "auto-config.yaml",
+        "auto-config.yml",
+        "auto.config.js",
+        "auto.config.ts"
+      ]
+    },
+    {
+      "material": "autohotkey",
+      "reviewSymbol": "autohotkey",
+      "extensions": [
+        "ahk"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "autoit",
+      "reviewSymbol": "autoit",
+      "extensions": [
+        "au3"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "azure",
+      "reviewSymbol": "azure",
+      "extensions": [
+        "azcli"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "azure-pipelines",
+      "reviewSymbol": "azure-pipelines",
+      "extensions": [
+        "azure-pipelines-main.yaml",
+        "azure-pipelines-main.yml",
+        "azure-pipelines.yaml",
+        "azure-pipelines.yml"
+      ],
+      "filenames": [
+        "azure-pipelines-main.yaml",
+        "azure-pipelines-main.yml",
+        "azure-pipelines.yaml",
+        "azure-pipelines.yml"
+      ]
+    },
+    {
+      "material": "babel",
+      "reviewSymbol": "babel",
+      "extensions": [],
+      "filenames": [
+        "babel-transform.js"
+      ]
+    },
+    {
+      "material": "ballerina",
+      "reviewSymbol": "ballerina",
+      "extensions": [
+        "bal",
+        "balx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "bazel",
+      "reviewSymbol": "bazel",
+      "extensions": [
+        "bazel",
+        "bzl"
+      ],
+      "filenames": [
+        ".bazelignore",
+        ".bazelrc",
+        ".bazelversion"
+      ]
+    },
+    {
+      "material": "bbx",
+      "reviewSymbol": "bbx",
+      "extensions": [
+        "bbx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "beancount",
+      "reviewSymbol": "beancount",
+      "extensions": [
+        "bean",
+        "beancount"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "bench-js",
+      "reviewSymbol": "bench-js",
+      "extensions": [
+        "bench.cjs",
+        "bench.js",
+        "bench.mjs"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "bench-jsx",
+      "reviewSymbol": "bench-js",
+      "extensions": [
+        "bench.jsx",
+        "bench.tsx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "bench-ts",
+      "reviewSymbol": "bench-js",
+      "extensions": [
+        "bench.cts",
+        "bench.mts",
+        "bench.ts"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "bibliography",
+      "reviewSymbol": "bibliography",
+      "extensions": [
+        "bbl",
+        "bcf",
+        "blg"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "bibtex-style",
+      "reviewSymbol": "bibliography",
+      "extensions": [
+        "bst"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "bicep",
+      "reviewSymbol": "bicep",
+      "extensions": [
+        "bicep"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "biome",
+      "reviewSymbol": "biome",
+      "extensions": [],
+      "filenames": [
+        ".biome.json",
+        ".biome.jsonc",
+        "biome.json",
+        "biome.jsonc"
+      ]
+    },
+    {
+      "material": "bitbucket",
+      "reviewSymbol": "bitbucket",
+      "extensions": [],
+      "filenames": [
+        "bitbucket-pipelines.yaml",
+        "bitbucket-pipelines.yml"
+      ]
+    },
+    {
+      "material": "bithound",
+      "reviewSymbol": "bithound",
+      "extensions": [],
+      "filenames": [
+        ".bithoundrc"
+      ]
+    },
+    {
+      "material": "blender",
+      "reviewSymbol": "blender",
+      "extensions": [
+        "blend",
+        "blend1",
+        "blend2"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "blink",
+      "reviewSymbol": "blink",
+      "extensions": [
+        "blink"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "blitz",
+      "reviewSymbol": "blitz",
+      "extensions": [],
+      "filenames": [
+        ".blitz.config.compiled.js",
+        "blitz.config.js",
+        "blitz.config.ts"
+      ]
+    },
+    {
+      "material": "bower",
+      "reviewSymbol": "bower",
+      "extensions": [],
+      "filenames": [
+        ".bowerrc",
+        "bower.json"
+      ]
+    },
+    {
+      "material": "brainfuck",
+      "reviewSymbol": "brainfuck",
+      "extensions": [
+        "b",
+        "bf"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "browserlist",
+      "reviewSymbol": "browserlist",
+      "extensions": [],
+      "filenames": [
+        ".browserslistrc",
+        "browserslist"
+      ]
+    },
+    {
+      "material": "bruno",
+      "reviewSymbol": "bruno",
+      "extensions": [
+        "bru"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "buck",
+      "reviewSymbol": "buck",
+      "extensions": [],
+      "filenames": [
+        ".buckconfig"
+      ]
+    },
+    {
+      "material": "bucklescript",
+      "reviewSymbol": "bucklescript",
+      "extensions": [
+        "cmj"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "buildkite",
+      "reviewSymbol": "buildkite",
+      "extensions": [],
+      "filenames": [
+        "buildkite.yaml",
+        "buildkite.yml"
+      ]
+    },
+    {
+      "material": "bun",
+      "reviewSymbol": "bun",
+      "extensions": [],
+      "filenames": [
+        ".bun-version",
+        "bun.lock",
+        "bun.lockb",
+        "bunfig.toml"
+      ]
+    },
+    {
+      "material": "c",
+      "reviewSymbol": "c",
+      "extensions": [
+        "c",
+        "i",
+        "mi"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "c3",
+      "reviewSymbol": "c3",
+      "extensions": [
+        "c3"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cabal",
+      "reviewSymbol": "cabal",
+      "extensions": [
+        "cabal"
+      ],
+      "filenames": [
+        "cabal.project",
+        "cabal.project.freeze",
+        "cabal.project.local"
+      ]
+    },
+    {
+      "material": "caddy",
+      "reviewSymbol": "caddy",
+      "extensions": [],
+      "filenames": [
+        "caddyfile"
+      ]
+    },
+    {
+      "material": "cadence",
+      "reviewSymbol": "cadence",
+      "extensions": [
+        "cdc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cairo",
+      "reviewSymbol": "cairo",
+      "extensions": [
+        "cairo"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cake",
+      "reviewSymbol": "cake",
+      "extensions": [
+        "cake"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "capacitor",
+      "reviewSymbol": "capacitor",
+      "extensions": [],
+      "filenames": [
+        "capacitor.config.json",
+        "capacitor.config.ts"
+      ]
+    },
+    {
+      "material": "capnp",
+      "reviewSymbol": "capnp",
+      "extensions": [
+        "capnp"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cbx",
+      "reviewSymbol": "bibliography",
+      "extensions": [
+        "cbx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cds",
+      "reviewSymbol": "cds",
+      "extensions": [
+        "cds"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "certificate",
+      "reviewSymbol": "certificate",
+      "extensions": [
+        "cer",
+        "cert",
+        "crt",
+        "entitlements"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "changelog",
+      "reviewSymbol": "changelog",
+      "extensions": [],
+      "filenames": [
+        "changelog",
+        "changelog.md",
+        "changelog.rst",
+        "changelog.txt",
+        "changes",
+        "changes.md",
+        "changes.rst",
+        "changes.txt"
+      ]
+    },
+    {
+      "material": "chess",
+      "reviewSymbol": "chess",
+      "extensions": [
+        "fen",
+        "pgn"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "chromatic",
+      "reviewSymbol": "chromatic",
+      "extensions": [],
+      "filenames": [
+        "chromatic.config.json"
+      ]
+    },
+    {
+      "material": "chrome",
+      "reviewSymbol": "chrome",
+      "extensions": [
+        "crx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "circleci",
+      "reviewSymbol": "circleci",
+      "extensions": [],
+      "filenames": [
+        "circle.yml"
+      ]
+    },
+    {
+      "material": "citation",
+      "reviewSymbol": "bibliography",
+      "extensions": [],
+      "filenames": [
+        "citation.cff"
+      ]
+    },
+    {
+      "material": "clangd",
+      "reviewSymbol": "clangd",
+      "extensions": [],
+      "filenames": [
+        ".clangd"
+      ]
+    },
+    {
+      "material": "claude",
+      "reviewSymbol": "claude",
+      "extensions": [],
+      "filenames": [
+        "claude.local.md",
+        "claude.md"
+      ]
+    },
+    {
+      "material": "cline",
+      "reviewSymbol": "cline",
+      "extensions": [],
+      "filenames": [
+        ".clinerules"
+      ]
+    },
+    {
+      "material": "clojure",
+      "reviewSymbol": "clojure",
+      "extensions": [
+        "clj",
+        "cljc",
+        "cljs",
+        "cljx",
+        "clojure",
+        "edn"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cloudfoundry",
+      "reviewSymbol": "cloudfoundry",
+      "extensions": [],
+      "filenames": [
+        ".cfignore"
+      ]
+    },
+    {
+      "material": "cmake",
+      "reviewSymbol": "cmake",
+      "extensions": [
+        "cmake"
+      ],
+      "filenames": [
+        "cmakecache.txt",
+        "cmakelists.txt",
+        "cmakepresets.json"
+      ]
+    },
+    {
+      "material": "coala",
+      "reviewSymbol": "coala",
+      "extensions": [
+        "coafile",
+        "coarc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cobol",
+      "reviewSymbol": "cobol",
+      "extensions": [
+        "cbl",
+        "cob"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "coconut",
+      "reviewSymbol": "coconut",
+      "extensions": [
+        "coco"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "code-climate",
+      "reviewSymbol": "code-climate",
+      "extensions": [],
+      "filenames": [
+        ".codeclimate.yml"
+      ]
+    },
+    {
+      "material": "codecov",
+      "reviewSymbol": "codecov",
+      "extensions": [],
+      "filenames": [
+        ".codecov.yaml",
+        ".codecov.yml",
+        "codecov.yaml",
+        "codecov.yml"
+      ]
+    },
+    {
+      "material": "codeowners",
+      "reviewSymbol": "codeowners",
+      "extensions": [],
+      "filenames": [
+        "codeowners",
+        "owners"
+      ]
+    },
+    {
+      "material": "coderabbit-ai",
+      "reviewSymbol": "coderabbit-ai",
+      "extensions": [],
+      "filenames": [
+        ".coderabbit.yaml",
+        ".coderabbit.yml"
+      ]
+    },
+    {
+      "material": "coffee",
+      "reviewSymbol": "coffee",
+      "extensions": [
+        "coffee",
+        "cson",
+        "iced"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "coldfusion",
+      "reviewSymbol": "coldfusion",
+      "extensions": [
+        "cfc",
+        "cfm",
+        "cfml",
+        "lucee"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "coloredpetrinets",
+      "reviewSymbol": "coloredpetrinets",
+      "extensions": [
+        "cpn",
+        "pnml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "commitizen",
+      "reviewSymbol": "commitizen",
+      "extensions": [],
+      "filenames": [
+        ".cz.json",
+        ".cz.toml",
+        ".cz.yaml",
+        ".cz.yml",
+        ".czrc",
+        "cz.json",
+        "cz.toml",
+        "cz.yaml",
+        "cz.yml"
+      ]
+    },
+    {
+      "material": "commitlint",
+      "reviewSymbol": "commitlint",
+      "extensions": [],
+      "filenames": [
+        ".commitlint.yaml",
+        ".commitlint.yml"
+      ]
+    },
+    {
+      "material": "concourse",
+      "reviewSymbol": "concourse",
+      "extensions": [],
+      "filenames": [
+        "concourse.yml"
+      ]
+    },
+    {
+      "material": "conduct",
+      "reviewSymbol": "conduct",
+      "extensions": [],
+      "filenames": [
+        "code_of_conduct",
+        "code_of_conduct.md",
+        "code_of_conduct.txt"
+      ]
+    },
+    {
+      "material": "console",
+      "reviewSymbol": "console",
+      "extensions": [
+        "awk",
+        "bash",
+        "bash_aliases",
+        "bash_login",
+        "bash_logout",
+        "bash_profile",
+        "bashrc",
+        "bat",
+        "cmd",
+        "command",
+        "csh",
+        "cshrc",
+        "ebuild",
+        "eclass",
+        "exp",
+        "fish",
+        "ksh",
+        "nu",
+        "profile",
+        "sh",
+        "tcsh",
+        "tcshrc",
+        "xprofile",
+        "xsession",
+        "xsessionrc",
+        "xsh",
+        "yash_profile",
+        "yashrc",
+        "zlogin",
+        "zlogout",
+        "zprofile",
+        "zsh",
+        "zsh-theme",
+        "zshenv",
+        "zshrc"
+      ],
+      "filenames": [
+        ".bash_login",
+        ".bash_logout",
+        ".bash_profile",
+        ".bashrc",
+        ".envrc",
+        ".hushlogin",
+        ".profile",
+        ".zlogin",
+        ".zprofile",
+        ".zshenv",
+        ".zshrc",
+        "apkbuild",
+        "bashrc_apple_terminal",
+        "commit-msg",
+        "pkgbuild",
+        "post-merge",
+        "pre-commit",
+        "pre-push",
+        "zlogin",
+        "zlogout",
+        "zprofile",
+        "zshenv",
+        "zshrc",
+        "zshrc_apple_terminal"
+      ]
+    },
+    {
+      "material": "context",
+      "reviewSymbol": "context",
+      "extensions": [
+        "ctx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "contributing",
+      "reviewSymbol": "contributing",
+      "extensions": [],
+      "filenames": [
+        "contributing",
+        "contributing.md",
+        "contributing.rst",
+        "contributing.txt"
+      ]
+    },
+    {
+      "material": "copilot",
+      "reviewSymbol": "copilot",
+      "extensions": [],
+      "filenames": [
+        ".copilotignore",
+        "copilot-instructions.md"
+      ]
+    },
+    {
+      "material": "cpp",
+      "reviewSymbol": "cplusplus",
+      "extensions": [
+        "c++",
+        "c++m",
+        "cc",
+        "ccm",
+        "cp",
+        "cpp",
+        "cppm",
+        "cxx",
+        "cxxm",
+        "h.in",
+        "hpp.in",
+        "ii",
+        "ipp",
+        "ixx",
+        "mii",
+        "tpp",
+        "txx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "credits",
+      "reviewSymbol": "credits",
+      "extensions": [],
+      "filenames": [
+        "credits",
+        "credits.md",
+        "credits.rst",
+        "credits.txt"
+      ]
+    },
+    {
+      "material": "crystal",
+      "reviewSymbol": "crystal",
+      "extensions": [
+        "cr",
+        "ecr"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "csharp",
+      "reviewSymbol": "csharp",
+      "extensions": [
+        "cs",
+        "csharp",
+        "csx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "csl",
+      "reviewSymbol": "bibliography",
+      "extensions": [
+        "csl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "css",
+      "reviewSymbol": "css",
+      "extensions": [
+        "css"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "css-map",
+      "reviewSymbol": "css-map",
+      "extensions": [
+        "css.map"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cucumber",
+      "reviewSymbol": "cucumber",
+      "extensions": [
+        "feature",
+        "features"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cuda",
+      "reviewSymbol": "cuda",
+      "extensions": [
+        "cu",
+        "cubin",
+        "cuh",
+        "engine",
+        "fatbin",
+        "plan",
+        "ptx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cue",
+      "reviewSymbol": "cue",
+      "extensions": [
+        "cue"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "cursor",
+      "reviewSymbol": "cursor",
+      "extensions": [],
+      "filenames": [
+        ".cursor",
+        ".cursor.json",
+        ".cursorignore",
+        ".cursorindexingignore",
+        ".cursorrc",
+        ".cursorrules"
+      ]
+    },
+    {
+      "material": "cypress",
+      "reviewSymbol": "cypress",
+      "extensions": [],
+      "filenames": [
+        "cypress.env.json",
+        "cypress.json"
+      ]
+    },
+    {
+      "material": "d",
+      "reviewSymbol": "d",
+      "extensions": [
+        "d"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "dart",
+      "reviewSymbol": "dart",
+      "extensions": [
+        "dart"
+      ],
+      "filenames": [
+        ".pubignore"
+      ]
+    },
+    {
+      "material": "dart_generated",
+      "reviewSymbol": "dart",
+      "extensions": [
+        "freezed.dart",
+        "g.dart"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "database",
+      "reviewSymbol": "database",
+      "extensions": [
+        "accdb",
+        "accde",
+        "adp",
+        "bak",
+        "bdb",
+        "db",
+        "db3",
+        "dbf",
+        "dblite",
+        "dblite3",
+        "debugsymbols",
+        "dsql",
+        "fdb",
+        "feather",
+        "frm",
+        "gdb",
+        "ibd",
+        "kdbx",
+        "ldf",
+        "mdb",
+        "mde",
+        "mdf",
+        "myd",
+        "myi",
+        "mysql",
+        "ndf",
+        "odb",
+        "orc",
+        "parquet",
+        "pdb",
+        "pgsql",
+        "pkb",
+        "pks",
+        "plpgsql",
+        "postgres",
+        "psql",
+        "sdf",
+        "sql",
+        "sqlite",
+        "sqlite3"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "deepsource",
+      "reviewSymbol": "deepsource",
+      "extensions": [],
+      "filenames": [
+        ".deepsource.toml"
+      ]
+    },
+    {
+      "material": "denizenscript",
+      "reviewSymbol": "denizenscript",
+      "extensions": [
+        "dsc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "deno",
+      "reviewSymbol": "deno",
+      "extensions": [],
+      "filenames": [
+        "deno.json",
+        "deno.jsonc",
+        "deno.lock"
+      ]
+    },
+    {
+      "material": "dependabot",
+      "reviewSymbol": "dependabot",
+      "extensions": [],
+      "filenames": [
+        "dependabot.yaml",
+        "dependabot.yml"
+      ]
+    },
+    {
+      "material": "dependencies-update",
+      "reviewSymbol": "dependencies-update",
+      "extensions": [],
+      "filenames": [
+        ".ncurc.js",
+        ".ncurc.json",
+        ".ncurc.yml"
+      ]
+    },
+    {
+      "material": "dhall",
+      "reviewSymbol": "dhall",
+      "extensions": [
+        "dhall",
+        "dhallb"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "diff",
+      "reviewSymbol": "diff",
+      "extensions": [
+        "dif",
+        "diff",
+        "patch",
+        "rej"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "dinophp",
+      "reviewSymbol": "dinophp",
+      "extensions": [
+        "bubble",
+        "html.bubble",
+        "php.bubble"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "disc",
+      "reviewSymbol": "disc",
+      "extensions": [
+        "dmg",
+        "hdd",
+        "iso",
+        "qcow",
+        "qcow2",
+        "qed",
+        "vmdk"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "django",
+      "reviewSymbol": "django",
+      "extensions": [
+        "djt"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "dll",
+      "reviewSymbol": "dll",
+      "extensions": [
+        "dll",
+        "ilk",
+        "ko",
+        "so"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "docker",
+      "reviewSymbol": "docker",
+      "extensions": [
+        "compose.yaml",
+        "compose.yml",
+        "containerfile",
+        "containerignore",
+        "docker-compose.yaml",
+        "docker-compose.yml",
+        "dockerfile",
+        "dockerignore"
+      ],
+      "filenames": [
+        "compose.alpha.yaml",
+        "compose.alpha.yml",
+        "compose.beta.yaml",
+        "compose.beta.yml",
+        "compose.ci.yaml",
+        "compose.ci.yml",
+        "compose.dev.yaml",
+        "compose.dev.yml",
+        "compose.development.yaml",
+        "compose.development.yml",
+        "compose.local.yaml",
+        "compose.local.yml",
+        "compose.override.yaml",
+        "compose.override.yml",
+        "compose.prod.yaml",
+        "compose.prod.yml",
+        "compose.production.yaml",
+        "compose.production.yml",
+        "compose.stage.yaml",
+        "compose.stage.yml",
+        "compose.staging.yaml",
+        "compose.staging.yml",
+        "compose.test.yaml",
+        "compose.test.yml",
+        "compose.testing.yaml",
+        "compose.testing.yml",
+        "compose.web.yaml",
+        "compose.web.yml",
+        "compose.worker.yaml",
+        "compose.worker.yml",
+        "compose.yaml",
+        "compose.yml",
+        "containerfile",
+        "containerfile.alpha",
+        "containerfile.beta",
+        "containerfile.ci",
+        "containerfile.dev",
+        "containerfile.development",
+        "containerfile.local",
+        "containerfile.prod",
+        "containerfile.production",
+        "containerfile.stage",
+        "containerfile.staging",
+        "containerfile.test",
+        "containerfile.testing",
+        "containerfile.web",
+        "containerfile.worker",
+        "docker-compose.alpha.yaml",
+        "docker-compose.alpha.yml",
+        "docker-compose.beta.yaml",
+        "docker-compose.beta.yml",
+        "docker-compose.ci.yaml",
+        "docker-compose.ci.yml",
+        "docker-compose.dev.yaml",
+        "docker-compose.dev.yml",
+        "docker-compose.development.yaml",
+        "docker-compose.development.yml",
+        "docker-compose.local.yaml",
+        "docker-compose.local.yml",
+        "docker-compose.override.yaml",
+        "docker-compose.override.yml",
+        "docker-compose.prod.yaml",
+        "docker-compose.prod.yml",
+        "docker-compose.production.yaml",
+        "docker-compose.production.yml",
+        "docker-compose.stage.yaml",
+        "docker-compose.stage.yml",
+        "docker-compose.staging.yaml",
+        "docker-compose.staging.yml",
+        "docker-compose.test.yaml",
+        "docker-compose.test.yml",
+        "docker-compose.testing.yaml",
+        "docker-compose.testing.yml",
+        "docker-compose.web.yaml",
+        "docker-compose.web.yml",
+        "docker-compose.worker.yaml",
+        "docker-compose.worker.yml",
+        "docker-compose.yaml",
+        "docker-compose.yml",
+        "dockerfile",
+        "dockerfile.alpha",
+        "dockerfile.beta",
+        "dockerfile.ci",
+        "dockerfile.dev",
+        "dockerfile.development",
+        "dockerfile.local",
+        "dockerfile.prod",
+        "dockerfile.production",
+        "dockerfile.stage",
+        "dockerfile.staging",
+        "dockerfile.test",
+        "dockerfile.testing",
+        "dockerfile.web",
+        "dockerfile.windows",
+        "dockerfile.worker"
+      ]
+    },
+    {
+      "material": "doctex-installer",
+      "reviewSymbol": "installation",
+      "extensions": [
+        "ins"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "document",
+      "reviewSymbol": "document",
+      "extensions": [
+        "rest",
+        "rst",
+        "textile",
+        "txt"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "dotjs",
+      "reviewSymbol": "dotjs",
+      "extensions": [
+        "def",
+        "dot",
+        "jst"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "drawio",
+      "reviewSymbol": "drawio",
+      "extensions": [
+        "dio",
+        "drawio"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "drizzle",
+      "reviewSymbol": "drizzle",
+      "extensions": [],
+      "filenames": [
+        "drizzle.config.dev.js",
+        "drizzle.config.dev.json",
+        "drizzle.config.dev.ts",
+        "drizzle.config.js",
+        "drizzle.config.json",
+        "drizzle.config.prod.js",
+        "drizzle.config.prod.json",
+        "drizzle.config.prod.ts",
+        "drizzle.config.ts"
+      ]
+    },
+    {
+      "material": "drone",
+      "reviewSymbol": "drone",
+      "extensions": [
+        "drone.yml"
+      ],
+      "filenames": [
+        ".drone.yml"
+      ]
+    },
+    {
+      "material": "duc",
+      "reviewSymbol": "duc",
+      "extensions": [
+        "duc"
+      ],
+      "filenames": [
+        "duc.fbs"
+      ]
+    },
+    {
+      "material": "dune",
+      "reviewSymbol": "dune",
+      "extensions": [],
+      "filenames": [
+        "dune",
+        "dune-project",
+        "dune-workspace",
+        "dune-workspace.dev"
+      ]
+    },
+    {
+      "material": "edge",
+      "reviewSymbol": "edge",
+      "extensions": [
+        "edge"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "editorconfig",
+      "reviewSymbol": "editorconfig",
+      "extensions": [],
+      "filenames": [
+        ".ecrc",
+        ".editorconfig",
+        ".editorconfig-checker.json"
+      ]
+    },
+    {
+      "material": "ejs",
+      "reviewSymbol": "ejs",
+      "extensions": [
+        "ejs"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "elixir",
+      "reviewSymbol": "elixir",
+      "extensions": [
+        "eex",
+        "ex",
+        "exs",
+        "heex",
+        "leex"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "elm",
+      "reviewSymbol": "elm",
+      "extensions": [
+        "elm"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "email",
+      "reviewSymbol": "email",
+      "extensions": [
+        "edb",
+        "eml",
+        "emlx",
+        "ics",
+        "mbox",
+        "msg",
+        "oft",
+        "olm",
+        "ost",
+        "p7s",
+        "pst",
+        "rpmsg",
+        "tnef"
+      ],
+      "filenames": [
+        ".mailmap"
+      ]
+    },
+    {
+      "material": "ember",
+      "reviewSymbol": "ember",
+      "extensions": [],
+      "filenames": [
+        ".ember-cli",
+        ".ember-cli.js",
+        "ember-cli-builds.js"
+      ]
+    },
+    {
+      "material": "epub",
+      "reviewSymbol": "bbx",
+      "extensions": [
+        "epub"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "erlang",
+      "reviewSymbol": "erlang",
+      "extensions": [
+        "erl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "eslint",
+      "reviewSymbol": "eslint",
+      "extensions": [],
+      "filenames": [
+        ".eslintcache",
+        ".eslintignore",
+        ".eslintrc-jsdoc.js",
+        ".eslintrc-md.js",
+        ".eslintrc.base.json",
+        "eslint-options.js"
+      ]
+    },
+    {
+      "material": "excalidraw",
+      "reviewSymbol": "excalidraw",
+      "extensions": [
+        "excalidraw",
+        "excalidraw.json",
+        "excalidraw.png",
+        "excalidraw.svg"
+      ],
+      "filenames": [
+        "excalidraw",
+        "excalidraw.json",
+        "excalidraw.png",
+        "excalidraw.svg"
+      ]
+    },
+    {
+      "material": "exe",
+      "reviewSymbol": "exe",
+      "extensions": [
+        "exe",
+        "msi"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "expo",
+      "reviewSymbol": "expo",
+      "extensions": [],
+      "filenames": [
+        ".easignore",
+        "eas.json"
+      ]
+    },
+    {
+      "material": "fastlane",
+      "reviewSymbol": "fastlane",
+      "extensions": [],
+      "filenames": [
+        "appfile",
+        "fastfile"
+      ]
+    },
+    {
+      "material": "favicon",
+      "reviewSymbol": "favicon",
+      "extensions": [],
+      "filenames": [
+        "favicon.ico"
+      ]
+    },
+    {
+      "material": "figma",
+      "reviewSymbol": "figma",
+      "extensions": [
+        "fig"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "firebase",
+      "reviewSymbol": "firebase",
+      "extensions": [],
+      "filenames": [
+        ".firebaserc",
+        "firebase.config.js",
+        "firebase.json",
+        "firestore.indexes.json",
+        "firestore.rules"
+      ]
+    },
+    {
+      "material": "flash",
+      "reviewSymbol": "flash",
+      "extensions": [
+        "swf"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "flow",
+      "reviewSymbol": "flow",
+      "extensions": [],
+      "filenames": [
+        ".flowconfig"
+      ]
+    },
+    {
+      "material": "font",
+      "reviewSymbol": "font",
+      "extensions": [
+        "bmap",
+        "eot",
+        "fnt",
+        "font",
+        "fonts",
+        "mf",
+        "mrf",
+        "ntf",
+        "odttf",
+        "otf",
+        "sui",
+        "suit",
+        "ttc",
+        "ttf",
+        "woff",
+        "woff2"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "forth",
+      "reviewSymbol": "forth",
+      "extensions": [
+        "4th",
+        "frt",
+        "fth"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "fortran",
+      "reviewSymbol": "fortran",
+      "extensions": [
+        "cuf",
+        "f",
+        "f03",
+        "f08",
+        "f77",
+        "f90",
+        "f95",
+        "for"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "foxpro",
+      "reviewSymbol": "foxpro",
+      "extensions": [
+        "fxp",
+        "prg"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "freemarker",
+      "reviewSymbol": "freemarker",
+      "extensions": [
+        "ftl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "fsharp",
+      "reviewSymbol": "fsharp",
+      "extensions": [
+        "fs",
+        "fsi",
+        "fsproj",
+        "fsscript",
+        "fsx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "fusebox",
+      "reviewSymbol": "fusebox",
+      "extensions": [],
+      "filenames": [
+        "fuse.js"
+      ]
+    },
+    {
+      "material": "gamemaker",
+      "reviewSymbol": "gamemaker",
+      "extensions": [
+        "gml",
+        "yy",
+        "yyp",
+        "yyz"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "garden",
+      "reviewSymbol": "garden",
+      "extensions": [
+        "garden.yaml",
+        "garden.yml"
+      ],
+      "filenames": [
+        ".gardenignore",
+        "garden.yaml",
+        "garden.yml",
+        "project.garden.yaml",
+        "project.garden.yml"
+      ]
+    },
+    {
+      "material": "gatsby",
+      "reviewSymbol": "gatsby",
+      "extensions": [],
+      "filenames": [
+        "gatsby-browser.js",
+        "gatsby-browser.tsx",
+        "gatsby-config.js",
+        "gatsby-config.mjs",
+        "gatsby-config.ts",
+        "gatsby-node.js",
+        "gatsby-node.mjs",
+        "gatsby-node.ts",
+        "gatsby-ssr.js",
+        "gatsby-ssr.tsx"
+      ]
+    },
+    {
+      "material": "gcp",
+      "reviewSymbol": "gcp",
+      "extensions": [],
+      "filenames": [
+        ".gcloudignore"
+      ]
+    },
+    {
+      "material": "gemfile",
+      "reviewSymbol": "ruby",
+      "extensions": [],
+      "filenames": [
+        "gemfile"
+      ]
+    },
+    {
+      "material": "gemini",
+      "reviewSymbol": "hosts",
+      "extensions": [
+        "gemini",
+        "gmi"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "gemini-ai",
+      "reviewSymbol": "gemini-ai",
+      "extensions": [],
+      "filenames": [
+        ".aiexclude",
+        "gemini.md"
+      ]
+    },
+    {
+      "material": "git",
+      "reviewSymbol": "git",
+      "extensions": [],
+      "filenames": [
+        ".git",
+        ".git-blame-ignore",
+        ".git-blame-ignore-revs",
+        ".git-for-windows-updater",
+        ".gitattributes",
+        ".gitattributes-global",
+        ".gitattributes_global",
+        ".gitconfig",
+        ".gitignore",
+        ".gitignore-global",
+        ".gitignore_global",
+        ".gitinclude",
+        ".gitkeep",
+        ".gitmessage",
+        ".gitmodules",
+        ".gitpreserve",
+        ".keep",
+        "commit_editmsg",
+        "git-history",
+        "git-rebase-todo",
+        "gitconfig",
+        "merge_msg"
+      ]
+    },
+    {
+      "material": "github-sponsors",
+      "reviewSymbol": "github-sponsors",
+      "extensions": [],
+      "filenames": [
+        ".github/funding.yml"
+      ]
+    },
+    {
+      "material": "gitlab",
+      "reviewSymbol": "gitlab",
+      "extensions": [
+        "gitlab-ci.yml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "gitpod",
+      "reviewSymbol": "gitpod",
+      "extensions": [],
+      "filenames": [
+        ".gitpod.yml"
+      ]
+    },
+    {
+      "material": "gleam",
+      "reviewSymbol": "gleam",
+      "extensions": [
+        "gleam"
+      ],
+      "filenames": [
+        "gleam.toml"
+      ]
+    },
+    {
+      "material": "gnuplot",
+      "reviewSymbol": "gnuplot",
+      "extensions": [
+        "gnu",
+        "gnuplot",
+        "gp",
+        "gpi",
+        "plot",
+        "plt"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "go",
+      "reviewSymbol": "go",
+      "extensions": [
+        "go"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "go-mod",
+      "reviewSymbol": "go",
+      "extensions": [],
+      "filenames": [
+        "go.mod",
+        "go.sum",
+        "go.work",
+        "go.work.sum"
+      ]
+    },
+    {
+      "material": "godot",
+      "reviewSymbol": "godot",
+      "extensions": [
+        "gd"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "godot-assets",
+      "reviewSymbol": "godot",
+      "extensions": [
+        "gdextension",
+        "gdnlib",
+        "gdns",
+        "gdshader",
+        "gdshaderinc",
+        "godot",
+        "tres",
+        "tscn"
+      ],
+      "filenames": [
+        "._sc_",
+        ".gdignore",
+        "_sc_"
+      ]
+    },
+    {
+      "material": "google",
+      "reviewSymbol": "google",
+      "extensions": [],
+      "filenames": [
+        "google-services.json",
+        "googleservice-info.plist"
+      ]
+    },
+    {
+      "material": "gradle",
+      "reviewSymbol": "gradle",
+      "extensions": [
+        "gradle"
+      ],
+      "filenames": [
+        "gradle-wrapper.properties",
+        "gradle.properties",
+        "gradlew",
+        "gradlew.bat"
+      ]
+    },
+    {
+      "material": "grafana-alloy",
+      "reviewSymbol": "grafana-alloy",
+      "extensions": [
+        "alloy"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "grain",
+      "reviewSymbol": "grain",
+      "extensions": [
+        "gr"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "graphcool",
+      "reviewSymbol": "graphcool",
+      "extensions": [
+        "graphcool"
+      ],
+      "filenames": [
+        "project.graphcool"
+      ]
+    },
+    {
+      "material": "graphql",
+      "reviewSymbol": "graphql",
+      "extensions": [
+        "gql",
+        "graphql"
+      ],
+      "filenames": [
+        ".graphqlconfig"
+      ]
+    },
+    {
+      "material": "gridsome",
+      "reviewSymbol": "gridsome",
+      "extensions": [],
+      "filenames": [
+        "gridsome.config.js",
+        "gridsome.server.js"
+      ]
+    },
+    {
+      "material": "groovy",
+      "reviewSymbol": "groovy",
+      "extensions": [
+        "groovy",
+        "gvy"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "grunt",
+      "reviewSymbol": "grunt",
+      "extensions": [],
+      "filenames": [
+        "gruntfile.babel.coffee",
+        "gruntfile.babel.js",
+        "gruntfile.babel.ts",
+        "gruntfile.cjs",
+        "gruntfile.coffee",
+        "gruntfile.cts",
+        "gruntfile.js",
+        "gruntfile.ts"
+      ]
+    },
+    {
+      "material": "gulp",
+      "reviewSymbol": "gulp",
+      "extensions": [],
+      "filenames": [
+        "gulpfile.babel.js",
+        "gulpfile.cjs",
+        "gulpfile.cts",
+        "gulpfile.js",
+        "gulpfile.mjs",
+        "gulpfile.mts",
+        "gulpfile.ts"
+      ]
+    },
+    {
+      "material": "h",
+      "reviewSymbol": "h",
+      "extensions": [
+        "h"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "hack",
+      "reviewSymbol": "hack",
+      "extensions": [],
+      "filenames": [
+        ".hhconfig"
+      ]
+    },
+    {
+      "material": "haml",
+      "reviewSymbol": "haml",
+      "extensions": [
+        "haml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "handlebars",
+      "reviewSymbol": "handlebars",
+      "extensions": [
+        "handlebars",
+        "hbs",
+        "hjs",
+        "mustache"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "happo",
+      "reviewSymbol": "happo",
+      "extensions": [],
+      "filenames": [
+        ".happo.cjs",
+        ".happo.js",
+        ".happo.mjs"
+      ]
+    },
+    {
+      "material": "hardhat",
+      "reviewSymbol": "hardhat",
+      "extensions": [],
+      "filenames": [
+        "hardhat.config.js",
+        "hardhat.config.ts"
+      ]
+    },
+    {
+      "material": "harmonix",
+      "reviewSymbol": "harmonix",
+      "extensions": [],
+      "filenames": [
+        "harmonix.config.js",
+        "harmonix.config.ts"
+      ]
+    },
+    {
+      "material": "haskell",
+      "reviewSymbol": "haskell",
+      "extensions": [
+        "hs",
+        "lhs"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "haxe",
+      "reviewSymbol": "haxe",
+      "extensions": [
+        "hx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "hcl",
+      "reviewSymbol": "hcl",
+      "extensions": [
+        "hcl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "helm",
+      "reviewSymbol": "helm",
+      "extensions": [],
+      "filenames": [
+        ".helmignore"
+      ]
+    },
+    {
+      "material": "heroku",
+      "reviewSymbol": "heroku",
+      "extensions": [],
+      "filenames": [
+        "procfile",
+        "procfile.windows"
+      ]
+    },
+    {
+      "material": "hex",
+      "reviewSymbol": "hex",
+      "extensions": [
+        "bin",
+        "dat",
+        "elf",
+        "hex",
+        "o"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "hip",
+      "reviewSymbol": "hip",
+      "extensions": [
+        "hip"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "hjson",
+      "reviewSymbol": "hjson",
+      "extensions": [
+        "hjson"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "horusec",
+      "reviewSymbol": "horusec",
+      "extensions": [
+        "horusec-config.json"
+      ],
+      "filenames": [
+        "horusec-config.json"
+      ]
+    },
+    {
+      "material": "hosts",
+      "reviewSymbol": "hosts",
+      "extensions": [],
+      "filenames": [
+        "hosts"
+      ]
+    },
+    {
+      "material": "hpp",
+      "reviewSymbol": "hpp",
+      "extensions": [
+        "h++",
+        "hh",
+        "hp",
+        "hpp",
+        "hxx",
+        "inl",
+        "tcc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "html",
+      "reviewSymbol": "html5",
+      "extensions": [
+        "asp",
+        "aspx",
+        "htm",
+        "html",
+        "html_vm",
+        "jshtm",
+        "rhtml",
+        "shtml",
+        "volt",
+        "xht",
+        "xhtml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "http",
+      "reviewSymbol": "hosts",
+      "extensions": [
+        "http"
+      ],
+      "filenames": [
+        "cname"
+      ]
+    },
+    {
+      "material": "huff",
+      "reviewSymbol": "huff",
+      "extensions": [
+        "huff"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "hurl",
+      "reviewSymbol": "hurl",
+      "extensions": [
+        "hurl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "i18n",
+      "reviewSymbol": "i18n",
+      "extensions": [
+        "lang",
+        "mo",
+        "po",
+        "pot",
+        "xlf"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "idris",
+      "reviewSymbol": "idris",
+      "extensions": [
+        "ibc",
+        "idr"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "ifanr-cloud",
+      "reviewSymbol": "ifanr-cloud",
+      "extensions": [],
+      "filenames": [
+        ".mincloudrc",
+        ".qa-mincloudrc"
+      ]
+    },
+    {
+      "material": "image",
+      "reviewSymbol": "image",
+      "extensions": [
+        "3fr",
+        "afphoto",
+        "ami",
+        "apx",
+        "ari",
+        "arw",
+        "ase",
+        "aseprite",
+        "avif",
+        "bay",
+        "bpg",
+        "braw",
+        "brk",
+        "cap",
+        "clip",
+        "cpt",
+        "cr2",
+        "cr3",
+        "crw",
+        "cur",
+        "data",
+        "dcr",
+        "dcs",
+        "dds",
+        "dng",
+        "drf",
+        "eip",
+        "eps",
+        "erf",
+        "exr",
+        "fff",
+        "fpx",
+        "gbr",
+        "gpr",
+        "iiq",
+        "img",
+        "jb2",
+        "jbig2",
+        "jfif",
+        "jng",
+        "jxl",
+        "jxr",
+        "k25",
+        "kdc",
+        "kra",
+        "ktx",
+        "ktx2",
+        "mdc",
+        "mdp",
+        "mef",
+        "mos",
+        "mrw",
+        "nef",
+        "nrw",
+        "obm",
+        "ora",
+        "orf",
+        "pbm",
+        "pdn",
+        "pef",
+        "pgf",
+        "pgm",
+        "pic",
+        "pnm",
+        "ppm",
+        "pxn",
+        "r3d",
+        "raf",
+        "raw",
+        "reb",
+        "rw2",
+        "rwl",
+        "rwz",
+        "sai",
+        "sr2",
+        "srf",
+        "srw",
+        "tga",
+        "x3f",
+        "xcf"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "imba",
+      "reviewSymbol": "imba",
+      "extensions": [
+        "imba"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "installation",
+      "reviewSymbol": "installation",
+      "extensions": [],
+      "filenames": [
+        "install",
+        "installation"
+      ]
+    },
+    {
+      "material": "ionic",
+      "reviewSymbol": "ionic",
+      "extensions": [],
+      "filenames": [
+        ".io-config.json",
+        "ionic.config.json"
+      ]
+    },
+    {
+      "material": "istanbul",
+      "reviewSymbol": "istanbul",
+      "extensions": [],
+      "filenames": [
+        ".istanbul.yml",
+        ".nycrc",
+        ".nycrc.json",
+        ".nycrc.yaml",
+        ".nycrc.yml",
+        "nyc.config.cjs",
+        "nyc.config.js"
+      ]
+    },
+    {
+      "material": "jar",
+      "reviewSymbol": "java",
+      "extensions": [
+        "jar"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "java",
+      "reviewSymbol": "java",
+      "extensions": [
+        "jav",
+        "java",
+        "jsp"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "javaclass",
+      "reviewSymbol": "java",
+      "extensions": [
+        "class"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "javascript",
+      "reviewSymbol": "javascript",
+      "extensions": [
+        "cjs",
+        "es6",
+        "esx",
+        "js",
+        "mjs",
+        "pac"
+      ],
+      "filenames": [
+        "jakefile"
+      ]
+    },
+    {
+      "material": "javascript-map",
+      "reviewSymbol": "javascript-map",
+      "extensions": [
+        "cjs.map",
+        "js.map",
+        "mjs.map"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "jenkins",
+      "reviewSymbol": "jenkins",
+      "extensions": [
+        "jenkins",
+        "jenkinsfile"
+      ],
+      "filenames": [
+        "jenkinsfile"
+      ]
+    },
+    {
+      "material": "jest",
+      "reviewSymbol": "jest",
+      "extensions": [],
+      "filenames": [
+        ".jestrc",
+        ".jestrc.js",
+        ".jestrc.json",
+        "jest-e2e.config.cjs",
+        "jest-e2e.config.cts",
+        "jest-e2e.config.js",
+        "jest-e2e.config.json",
+        "jest-e2e.config.mjs",
+        "jest-e2e.config.mts",
+        "jest-e2e.config.ts",
+        "jest-e2e.json",
+        "jest-github-actions-reporter.js",
+        "jest-preset.cjs",
+        "jest-preset.js",
+        "jest-preset.json",
+        "jest-preset.mjs",
+        "jest-unit.config.js",
+        "jest.config.cjs",
+        "jest.config.cts",
+        "jest.config.js",
+        "jest.config.json",
+        "jest.config.mjs",
+        "jest.config.mts",
+        "jest.config.ts",
+        "jest.e2e.config.cjs",
+        "jest.e2e.config.cts",
+        "jest.e2e.config.js",
+        "jest.e2e.config.json",
+        "jest.e2e.config.mjs",
+        "jest.e2e.config.mts",
+        "jest.e2e.config.ts",
+        "jest.e2e.json",
+        "jest.json",
+        "jest.preset.cjs",
+        "jest.preset.js",
+        "jest.preset.json",
+        "jest.preset.mjs",
+        "jest.setup.js",
+        "jest.setup.ts",
+        "jest.teardown.js"
+      ]
+    },
+    {
+      "material": "jinja",
+      "reviewSymbol": "jinja",
+      "extensions": [
+        "j2",
+        "jinja",
+        "jinja-html",
+        "jinja2"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "jsconfig",
+      "reviewSymbol": "jsconfig",
+      "extensions": [
+        "jsconfig.json"
+      ],
+      "filenames": [
+        "jsconfig.json"
+      ]
+    },
+    {
+      "material": "json",
+      "reviewSymbol": "json",
+      "extensions": [
+        "geojson",
+        "har",
+        "jq",
+        "json",
+        "json5",
+        "jsonc",
+        "jsonl",
+        "jsonld",
+        "ndjson",
+        "ts.map",
+        "tsbuildinfo",
+        "webmanifest"
+      ],
+      "filenames": [
+        ".esformatter",
+        ".jsbeautifyrc",
+        ".jscsrc",
+        ".jshintrc",
+        ".whitesource",
+        "cdp.pid",
+        "composer.lock",
+        "package.resolved"
+      ]
+    },
+    {
+      "material": "json_schema",
+      "reviewSymbol": "json",
+      "extensions": [
+        "schema.json"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "jsr",
+      "reviewSymbol": "jsr",
+      "extensions": [],
+      "filenames": [
+        "jsr.json",
+        "jsr.jsonc"
+      ]
+    },
+    {
+      "material": "julia",
+      "reviewSymbol": "julia",
+      "extensions": [
+        "jl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "jupyter",
+      "reviewSymbol": "jupyter",
+      "extensions": [
+        "ipynb"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "just",
+      "reviewSymbol": "just",
+      "extensions": [],
+      "filenames": [
+        ".justfile",
+        "justfile"
+      ]
+    },
+    {
+      "material": "karma",
+      "reviewSymbol": "karma",
+      "extensions": [],
+      "filenames": [
+        "karma-main.js",
+        "karma-main.ts",
+        "karma.conf.coffee",
+        "karma.conf.js",
+        "karma.conf.ts",
+        "karma.config.js",
+        "karma.config.ts"
+      ]
+    },
+    {
+      "material": "kcl",
+      "reviewSymbol": "kcl",
+      "extensions": [
+        "k"
+      ],
+      "filenames": [
+        "kcl.mod",
+        "kcl.yaml",
+        "kcl.yml"
+      ]
+    },
+    {
+      "material": "key",
+      "reviewSymbol": "key",
+      "extensions": [
+        "asc",
+        "gpg",
+        "key",
+        "passwd",
+        "pem",
+        "pub",
+        "secret",
+        "sha256",
+        "sha256sum",
+        "sha256sums",
+        "shasum"
+      ],
+      "filenames": [
+        ".htpasswd",
+        ".secrets",
+        "sha256sums"
+      ]
+    },
+    {
+      "material": "keystatic",
+      "reviewSymbol": "keystatic",
+      "extensions": [],
+      "filenames": [
+        "keystatic.config.js",
+        "keystatic.config.jsx",
+        "keystatic.config.ts",
+        "keystatic.config.tsx"
+      ]
+    },
+    {
+      "material": "kivy",
+      "reviewSymbol": "kivy",
+      "extensions": [
+        "kv"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "kl",
+      "reviewSymbol": "kl",
+      "extensions": [
+        "kl"
+      ],
+      "filenames": [
+        ".kl"
+      ]
+    },
+    {
+      "material": "knip",
+      "reviewSymbol": "knip",
+      "extensions": [],
+      "filenames": [
+        ".knip.json",
+        ".knip.jsonc",
+        "knip.config.js",
+        "knip.config.ts",
+        "knip.js",
+        "knip.json",
+        "knip.jsonc",
+        "knip.ts"
+      ]
+    },
+    {
+      "material": "kotlin",
+      "reviewSymbol": "kotlin",
+      "extensions": [
+        "kt",
+        "kts"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "kubernetes",
+      "reviewSymbol": "kubernetes",
+      "extensions": [],
+      "filenames": [
+        ".k8s.yaml",
+        ".k8s.yml",
+        "k8s.yaml",
+        "k8s.yml",
+        "kubernetes.yaml",
+        "kubernetes.yml"
+      ]
+    },
+    {
+      "material": "kusto",
+      "reviewSymbol": "kusto",
+      "extensions": [
+        "kql"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "label",
+      "reviewSymbol": "label",
+      "extensions": [],
+      "filenames": [
+        ".github/labeler.yaml",
+        ".github/labeler.yml",
+        "tags"
+      ]
+    },
+    {
+      "material": "laravel",
+      "reviewSymbol": "laravel",
+      "extensions": [
+        "blade.php",
+        "inky.php"
+      ],
+      "filenames": [
+        "artisan"
+      ]
+    },
+    {
+      "material": "lbx",
+      "reviewSymbol": "lbx",
+      "extensions": [
+        "lbx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "lean",
+      "reviewSymbol": "lean",
+      "extensions": [
+        "lean"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "lefthook",
+      "reviewSymbol": "lefthook",
+      "extensions": [],
+      "filenames": [
+        ".lefthook-local.json",
+        ".lefthook-local.toml",
+        ".lefthook-local.yaml",
+        ".lefthook-local.yml",
+        ".lefthook.json",
+        ".lefthook.toml",
+        ".lefthook.yaml",
+        ".lefthook.yml",
+        ".lefthookrc",
+        "lefthook-local.json",
+        "lefthook-local.toml",
+        "lefthook-local.yaml",
+        "lefthook-local.yml",
+        "lefthook.json",
+        "lefthook.toml",
+        "lefthook.yaml",
+        "lefthook.yml",
+        "lefthookrc"
+      ]
+    },
+    {
+      "material": "lerna",
+      "reviewSymbol": "lerna",
+      "extensions": [],
+      "filenames": [
+        "lerna.json"
+      ]
+    },
+    {
+      "material": "less",
+      "reviewSymbol": "less",
+      "extensions": [
+        "less"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "liara",
+      "reviewSymbol": "liara",
+      "extensions": [],
+      "filenames": [
+        ".liaraignore",
+        "liara.json"
+      ]
+    },
+    {
+      "material": "lib",
+      "reviewSymbol": "bibliography",
+      "extensions": [
+        "a",
+        "lib"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "license",
+      "reviewSymbol": "license",
+      "extensions": [],
+      "filenames": [
+        "copying",
+        "copying.md",
+        "copying.rst",
+        "copying.txt",
+        "copyright",
+        "copyright.md",
+        "copyright.rst",
+        "copyright.txt",
+        "licence",
+        "licence-agpl",
+        "licence-apache",
+        "licence-bsd",
+        "licence-gpl",
+        "licence-lgpl",
+        "licence-mit",
+        "licence.md",
+        "licence.rst",
+        "licence.txt",
+        "license",
+        "license-agpl",
+        "license-apache",
+        "license-bsd",
+        "license-gpl",
+        "license-lgpl",
+        "license-mit",
+        "license.md",
+        "license.rst",
+        "license.txt"
+      ]
+    },
+    {
+      "material": "lighthouse",
+      "reviewSymbol": "lighthouse",
+      "extensions": [],
+      "filenames": [
+        ".lighthouserc.cjs",
+        ".lighthouserc.js",
+        ".lighthouserc.json",
+        ".lighthouserc.yaml",
+        ".lighthouserc.yml",
+        "lighthouserc.cjs",
+        "lighthouserc.js",
+        "lighthouserc.json",
+        "lighthouserc.yaml",
+        "lighthouserc.yml"
+      ]
+    },
+    {
+      "material": "lilypond",
+      "reviewSymbol": "abc",
+      "extensions": [
+        "ly"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "lintstaged",
+      "reviewSymbol": "lintstaged",
+      "extensions": [],
+      "filenames": [
+        ".lintstagedrc",
+        ".lintstagedrc.cjs",
+        ".lintstagedrc.js",
+        ".lintstagedrc.json",
+        ".lintstagedrc.mjs",
+        ".lintstagedrc.yaml",
+        ".lintstagedrc.yml",
+        "lint-staged.config.cjs",
+        "lint-staged.config.js",
+        "lint-staged.config.mjs",
+        "lint-staged.config.ts"
+      ]
+    },
+    {
+      "material": "liquid",
+      "reviewSymbol": "liquid",
+      "extensions": [
+        "liquid"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "lisp",
+      "reviewSymbol": "lisp",
+      "extensions": [
+        "cl",
+        "el",
+        "fast",
+        "lisp",
+        "lsp"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "livescript",
+      "reviewSymbol": "livescript",
+      "extensions": [
+        "ls"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "lock",
+      "reviewSymbol": "lock",
+      "extensions": [
+        "lock"
+      ],
+      "filenames": [
+        "security",
+        "security.md",
+        "security.txt"
+      ]
+    },
+    {
+      "material": "log",
+      "reviewSymbol": "contributing",
+      "extensions": [
+        "log"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "lolcode",
+      "reviewSymbol": "lolcode",
+      "extensions": [
+        "lol"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "lottie",
+      "reviewSymbol": "lottie",
+      "extensions": [
+        "lottie"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "lua",
+      "reviewSymbol": "lua",
+      "extensions": [
+        "lua"
+      ],
+      "filenames": [
+        ".luacheckrc"
+      ]
+    },
+    {
+      "material": "luau",
+      "reviewSymbol": "luau",
+      "extensions": [
+        "luau"
+      ],
+      "filenames": [
+        ".luaurc"
+      ]
+    },
+    {
+      "material": "lyric",
+      "reviewSymbol": "abc",
+      "extensions": [
+        "lrc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "macaulay2",
+      "reviewSymbol": "macaulay2",
+      "extensions": [
+        "m2"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "makefile",
+      "reviewSymbol": "makefile",
+      "extensions": [
+        "mk"
+      ],
+      "filenames": [
+        "gnumakefile",
+        "kbuild",
+        "makefile"
+      ]
+    },
+    {
+      "material": "markdoc",
+      "reviewSymbol": "markdown",
+      "extensions": [
+        "markdoc",
+        "markdoc.md",
+        "mdoc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "markdoc-config",
+      "reviewSymbol": "markdoc-config",
+      "extensions": [],
+      "filenames": [
+        "markdoc.config.cjs",
+        "markdoc.config.js",
+        "markdoc.config.json",
+        "markdoc.config.mjs",
+        "markdoc.config.ts"
+      ]
+    },
+    {
+      "material": "markdown",
+      "reviewSymbol": "markdown",
+      "extensions": [
+        "copilotmd",
+        "litcoffee",
+        "markdn",
+        "markdown",
+        "md",
+        "mdown",
+        "mdtext",
+        "mdtxt",
+        "mdwn",
+        "mkd",
+        "mkdn",
+        "ronn",
+        "workbook"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "markdownlint",
+      "reviewSymbol": "markdown",
+      "extensions": [],
+      "filenames": [
+        ".markdownlint-cli2.cjs",
+        ".markdownlint-cli2.jsonc",
+        ".markdownlint-cli2.mjs",
+        ".markdownlint-cli2.yaml",
+        ".markdownlint.json",
+        ".markdownlint.jsonc",
+        ".markdownlint.yaml",
+        ".markdownlint.yml",
+        ".markdownlintignore"
+      ]
+    },
+    {
+      "material": "markojs",
+      "reviewSymbol": "markojs",
+      "extensions": [
+        "marko"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "mathematica",
+      "reviewSymbol": "mathematica",
+      "extensions": [
+        "nb"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "matlab",
+      "reviewSymbol": "matlab",
+      "extensions": [
+        "m"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "maven",
+      "reviewSymbol": "maven",
+      "extensions": [],
+      "filenames": [
+        "jvm.config",
+        "maven.config",
+        "pom.xml"
+      ]
+    },
+    {
+      "material": "mdsvex",
+      "reviewSymbol": "svelte",
+      "extensions": [
+        "svx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "mdx",
+      "reviewSymbol": "markdown",
+      "extensions": [
+        "mdx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "mercurial",
+      "reviewSymbol": "mercurial",
+      "extensions": [],
+      "filenames": [
+        ".hg",
+        ".hgflow",
+        ".hgignore",
+        ".hgrc",
+        ".hgtags",
+        "hgrc",
+        "mercurial.ini"
+      ]
+    },
+    {
+      "material": "merlin",
+      "reviewSymbol": "merlin",
+      "extensions": [
+        "merlin"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "mermaid",
+      "reviewSymbol": "mermaid",
+      "extensions": [
+        "mermaid",
+        "mmd"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "meson",
+      "reviewSymbol": "meson",
+      "extensions": [
+        "wrap"
+      ],
+      "filenames": [
+        "meson.build",
+        "meson.options",
+        "meson_options.txt"
+      ]
+    },
+    {
+      "material": "metro",
+      "reviewSymbol": "metro",
+      "extensions": [],
+      "filenames": [
+        "metro.config.cjs",
+        "metro.config.cts",
+        "metro.config.js",
+        "metro.config.json",
+        "metro.config.mjs",
+        "metro.config.mts",
+        "metro.config.ts"
+      ]
+    },
+    {
+      "material": "minecraft",
+      "reviewSymbol": "minecraft",
+      "extensions": [
+        "mca",
+        "mcaddon",
+        "mcfunction",
+        "mcgame",
+        "mclevel",
+        "mcmeta",
+        "mcpack",
+        "mcproject",
+        "mcr",
+        "mcstructure",
+        "mctemplate",
+        "mcworld",
+        "mine",
+        "mus"
+      ],
+      "filenames": [
+        ".mcattributes",
+        ".mcdefinitions",
+        ".mcignore"
+      ]
+    },
+    {
+      "material": "minecraft-fabric",
+      "reviewSymbol": "minecraft-fabric",
+      "extensions": [],
+      "filenames": [
+        "fabric.mod.json"
+      ]
+    },
+    {
+      "material": "mint",
+      "reviewSymbol": "mint",
+      "extensions": [
+        "mint"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "mjml",
+      "reviewSymbol": "mjml",
+      "extensions": [
+        "mjml"
+      ],
+      "filenames": [
+        ".mjmlconfig"
+      ]
+    },
+    {
+      "material": "mocha",
+      "reviewSymbol": "mocha",
+      "extensions": [],
+      "filenames": [
+        ".mocharc.cjs",
+        ".mocharc.js",
+        ".mocharc.json",
+        ".mocharc.jsonc",
+        ".mocharc.yaml",
+        ".mocharc.yml",
+        "mocha.opts"
+      ]
+    },
+    {
+      "material": "modernizr",
+      "reviewSymbol": "modernizr",
+      "extensions": [],
+      "filenames": [
+        ".modernizrrc",
+        ".modernizrrc.js",
+        ".modernizrrc.json"
+      ]
+    },
+    {
+      "material": "mojo",
+      "reviewSymbol": "mojo",
+      "extensions": [
+        "mojo",
+        "\ud83d\udd25"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "moon",
+      "reviewSymbol": "moon",
+      "extensions": [],
+      "filenames": [
+        "moon.yml"
+      ]
+    },
+    {
+      "material": "moonscript",
+      "reviewSymbol": "moonscript",
+      "extensions": [
+        "moon"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "mrpack",
+      "reviewSymbol": "mrpack",
+      "extensions": [
+        "mrpack"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "mxml",
+      "reviewSymbol": "mxml",
+      "extensions": [
+        "mxml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "nano-staged",
+      "reviewSymbol": "nano-staged",
+      "extensions": [],
+      "filenames": [
+        ".nano-staged.cjs",
+        ".nano-staged.js",
+        ".nano-staged.json",
+        ".nano-staged.mjs",
+        ".nanostagedrc",
+        "nano-staged.cjs",
+        "nano-staged.js",
+        "nano-staged.json",
+        "nano-staged.mjs"
+      ]
+    },
+    {
+      "material": "ndst",
+      "reviewSymbol": "ndst",
+      "extensions": [
+        "ndst.json",
+        "ndst.yaml",
+        "ndst.yml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "nest",
+      "reviewSymbol": "nest",
+      "extensions": [],
+      "filenames": [
+        ".nest-cli.json",
+        ".nestconfig.json",
+        "nest-cli.json",
+        "nestconfig.json"
+      ]
+    },
+    {
+      "material": "netlify",
+      "reviewSymbol": "netlify",
+      "extensions": [],
+      "filenames": [
+        "netlify.json",
+        "netlify.toml",
+        "netlify.yaml",
+        "netlify.yml"
+      ]
+    },
+    {
+      "material": "next",
+      "reviewSymbol": "next",
+      "extensions": [],
+      "filenames": [
+        "next.config.js",
+        "next.config.mjs",
+        "next.config.mts",
+        "next.config.ts"
+      ]
+    },
+    {
+      "material": "nginx",
+      "reviewSymbol": "nginx",
+      "extensions": [
+        "nginx",
+        "nginxconf",
+        "nginxconfig"
+      ],
+      "filenames": [
+        "nginx.conf"
+      ]
+    },
+    {
+      "material": "nim",
+      "reviewSymbol": "nim",
+      "extensions": [
+        "nim",
+        "nimble"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "nix",
+      "reviewSymbol": "nixos",
+      "extensions": [
+        "nix"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "nodejs",
+      "reviewSymbol": "nodedotjs",
+      "extensions": [],
+      "filenames": [
+        ".esmrc",
+        ".node-version",
+        ".nvmrc",
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "material": "nodemon",
+      "reviewSymbol": "nodemon",
+      "extensions": [],
+      "filenames": [
+        "nodemon-debug.json",
+        "nodemon.json"
+      ]
+    },
+    {
+      "material": "npm",
+      "reviewSymbol": "npm",
+      "extensions": [],
+      "filenames": [
+        ".npmignore",
+        ".npmrc"
+      ]
+    },
+    {
+      "material": "nuget",
+      "reviewSymbol": "nuget",
+      "extensions": [
+        "nupkg",
+        "nuspec"
+      ],
+      "filenames": [
+        ".nuspec",
+        "nuget.config",
+        "nuget.exe"
+      ]
+    },
+    {
+      "material": "nunjucks",
+      "reviewSymbol": "nunjucks",
+      "extensions": [
+        "njk",
+        "nunjucks"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "nuxt",
+      "reviewSymbol": "nuxt",
+      "extensions": [],
+      "filenames": [
+        ".nuxtignore",
+        ".nuxtrc",
+        "nuxt.config.js",
+        "nuxt.config.ts"
+      ]
+    },
+    {
+      "material": "nx",
+      "reviewSymbol": "nx",
+      "extensions": [],
+      "filenames": [
+        ".nxignore",
+        "nx.json"
+      ]
+    },
+    {
+      "material": "objective-cpp",
+      "reviewSymbol": "objective-cpp",
+      "extensions": [
+        "mm"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "ocaml",
+      "reviewSymbol": "ocaml",
+      "extensions": [
+        "cmx",
+        "ml",
+        "mli"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "odin",
+      "reviewSymbol": "odin",
+      "extensions": [
+        "odin"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "onnx",
+      "reviewSymbol": "onnx",
+      "extensions": [
+        "onnx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "opa",
+      "reviewSymbol": "opa",
+      "extensions": [
+        "rego"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "opam",
+      "reviewSymbol": "opam",
+      "extensions": [
+        "opam"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "openapi",
+      "reviewSymbol": "openapi",
+      "extensions": [
+        "openapi.json",
+        "openapi.yaml",
+        "openapi.yml"
+      ],
+      "filenames": [
+        "openapi.json",
+        "openapi.yaml",
+        "openapi.yml"
+      ]
+    },
+    {
+      "material": "opencode",
+      "reviewSymbol": "opencode",
+      "extensions": [],
+      "filenames": [
+        "opencode.json",
+        "opencode.jsonc"
+      ]
+    },
+    {
+      "material": "opentofu",
+      "reviewSymbol": "opentofu",
+      "extensions": [
+        "tofu"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "otne",
+      "reviewSymbol": "otne",
+      "extensions": [
+        "otne"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "oxc",
+      "reviewSymbol": "oxc",
+      "extensions": [],
+      "filenames": [
+        ".oxfmtrc.json",
+        ".oxfmtrc.jsonc",
+        ".oxlintrc.json",
+        ".oxlintrc.jsonc",
+        "oxfmt.config.ts",
+        "oxlint.config.ts"
+      ]
+    },
+    {
+      "material": "packship",
+      "reviewSymbol": "packship",
+      "extensions": [],
+      "filenames": [
+        ".packshiprc",
+        ".packshiprc.js",
+        ".packshiprc.json",
+        ".packshiprc.ts",
+        "packship.config.js",
+        "packship.config.json",
+        "packship.config.mjs",
+        "packship.config.mts",
+        "packship.config.ts"
+      ]
+    },
+    {
+      "material": "palette",
+      "reviewSymbol": "palette",
+      "extensions": [
+        "act",
+        "gpl",
+        "pal"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "parcel",
+      "reviewSymbol": "parcel",
+      "extensions": [],
+      "filenames": [
+        ".parcelrc"
+      ]
+    },
+    {
+      "material": "pascal",
+      "reviewSymbol": "pascal",
+      "extensions": [
+        "pas",
+        "pp"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "pawn",
+      "reviewSymbol": "pawn",
+      "extensions": [
+        "amx",
+        "pwn"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "payload",
+      "reviewSymbol": "payload",
+      "extensions": [],
+      "filenames": [
+        "payload.config.js",
+        "payload.config.mjs",
+        "payload.config.mts",
+        "payload.config.ts"
+      ]
+    },
+    {
+      "material": "pdf",
+      "reviewSymbol": "pdf",
+      "extensions": [
+        "pdf"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "pdm",
+      "reviewSymbol": "pdm",
+      "extensions": [
+        "pdm.lock",
+        "pdm.toml"
+      ],
+      "filenames": [
+        ".pdm-python",
+        "pdm.lock",
+        "pdm.toml"
+      ]
+    },
+    {
+      "material": "percy",
+      "reviewSymbol": "percy",
+      "extensions": [],
+      "filenames": [
+        ".percy.yml"
+      ]
+    },
+    {
+      "material": "perl",
+      "reviewSymbol": "perl",
+      "extensions": [
+        "cgi",
+        "pl",
+        "pm",
+        "pod",
+        "psgi",
+        "raku",
+        "t"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "php",
+      "reviewSymbol": "php",
+      "extensions": [
+        "ctp",
+        "php",
+        "php3",
+        "php4",
+        "php5",
+        "phps",
+        "phtml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "php-cs-fixer",
+      "reviewSymbol": "php-cs-fixer",
+      "extensions": [],
+      "filenames": [
+        ".php-cs-fixer.dist.php",
+        ".php-cs-fixer.php",
+        ".php_cs",
+        ".php_cs.dist",
+        ".php_cs.dist.php",
+        ".php_cs.php"
+      ]
+    },
+    {
+      "material": "phpstan",
+      "reviewSymbol": "phpstan",
+      "extensions": [],
+      "filenames": [
+        "phpstan.dist.neon",
+        "phpstan.neon",
+        "phpstan.neon.dist"
+      ]
+    },
+    {
+      "material": "phpunit",
+      "reviewSymbol": "phpunit",
+      "extensions": [],
+      "filenames": [
+        ".phpunit-watcher.yml",
+        ".phpunit.result.cache",
+        "phpunit-watcher.yml",
+        "phpunit-watcher.yml.dist",
+        "phpunit.xml",
+        "phpunit.xml.dist"
+      ]
+    },
+    {
+      "material": "pinejs",
+      "reviewSymbol": "pinejs",
+      "extensions": [
+        "pine"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "pipeline",
+      "reviewSymbol": "pipeline",
+      "extensions": [
+        "pipeline"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "pkl",
+      "reviewSymbol": "pkl",
+      "extensions": [
+        "pkl"
+      ],
+      "filenames": [
+        "pklproject",
+        "pklproject.deps.json"
+      ]
+    },
+    {
+      "material": "plastic",
+      "reviewSymbol": "plastic",
+      "extensions": [],
+      "filenames": [
+        "plastic.branchexplorer",
+        "plastic.selector",
+        "plastic.wktree",
+        "plastic.workspace",
+        "plastic.workspaces"
+      ]
+    },
+    {
+      "material": "playwright",
+      "reviewSymbol": "playwright",
+      "extensions": [],
+      "filenames": [
+        "playwright-ct.config.cjs",
+        "playwright-ct.config.cts",
+        "playwright-ct.config.js",
+        "playwright-ct.config.mjs",
+        "playwright-ct.config.mts",
+        "playwright-ct.config.ts",
+        "playwright.config.base.cjs",
+        "playwright.config.base.cts",
+        "playwright.config.base.js",
+        "playwright.config.base.mjs",
+        "playwright.config.base.mts",
+        "playwright.config.base.ts",
+        "playwright.config.cjs",
+        "playwright.config.cts",
+        "playwright.config.js",
+        "playwright.config.mjs",
+        "playwright.config.mts",
+        "playwright.config.ts"
+      ]
+    },
+    {
+      "material": "plop",
+      "reviewSymbol": "plop",
+      "extensions": [],
+      "filenames": [
+        "plopfile.cjs",
+        "plopfile.js",
+        "plopfile.mjs",
+        "plopfile.ts"
+      ]
+    },
+    {
+      "material": "pnpm",
+      "reviewSymbol": "pnpm",
+      "extensions": [],
+      "filenames": [
+        ".pnpmfile.cjs",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml"
+      ]
+    },
+    {
+      "material": "poetry",
+      "reviewSymbol": "poetry",
+      "extensions": [],
+      "filenames": [
+        "poetry.lock"
+      ]
+    },
+    {
+      "material": "postcss",
+      "reviewSymbol": "postcss",
+      "extensions": [
+        "pcss",
+        "sss"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "powerpoint",
+      "reviewSymbol": "powerpoint",
+      "extensions": [
+        "odp",
+        "potm",
+        "potx",
+        "ppa",
+        "ppam",
+        "pps",
+        "ppsm",
+        "ppsx",
+        "ppt",
+        "pptm",
+        "pptx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "powershell",
+      "reviewSymbol": "powershell",
+      "extensions": [
+        "ps1",
+        "ps1xml",
+        "psc1",
+        "psd1",
+        "psm1",
+        "psrc",
+        "pssc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "pre-commit",
+      "reviewSymbol": "pre-commit",
+      "extensions": [],
+      "filenames": [
+        ".pre-commit-config.yaml",
+        ".pre-commit-hooks.yaml"
+      ]
+    },
+    {
+      "material": "prettier",
+      "reviewSymbol": "prettier",
+      "extensions": [],
+      "filenames": [
+        ".prettierignore"
+      ]
+    },
+    {
+      "material": "prisma",
+      "reviewSymbol": "prisma",
+      "extensions": [
+        "prisma"
+      ],
+      "filenames": [
+        "prisma.yml"
+      ]
+    },
+    {
+      "material": "processing",
+      "reviewSymbol": "processing",
+      "extensions": [
+        "pde"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "prolog",
+      "reviewSymbol": "prolog",
+      "extensions": [
+        "p",
+        "pro"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "prompt",
+      "reviewSymbol": "prompt",
+      "extensions": [
+        "prompt.md",
+        "prompts.md"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "proto",
+      "reviewSymbol": "proto",
+      "extensions": [
+        "proto"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "protractor",
+      "reviewSymbol": "protractor",
+      "extensions": [],
+      "filenames": [
+        "protractor.conf.coffee",
+        "protractor.conf.js",
+        "protractor.conf.ts",
+        "protractor.config.js",
+        "protractor.config.ts"
+      ]
+    },
+    {
+      "material": "pug",
+      "reviewSymbol": "pug",
+      "extensions": [
+        "jade",
+        "pug"
+      ],
+      "filenames": [
+        ".pug-lintrc",
+        ".pug-lintrc.js",
+        ".pug-lintrc.json"
+      ]
+    },
+    {
+      "material": "purescript",
+      "reviewSymbol": "purescript",
+      "extensions": [
+        "pure",
+        "purs"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "python",
+      "reviewSymbol": "python",
+      "extensions": [
+        "cpy",
+        "gyp",
+        "gypi",
+        "ipy",
+        "py",
+        "pyi",
+        "pyt",
+        "pyw",
+        "rpy"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "python-misc",
+      "reviewSymbol": "python-misc",
+      "extensions": [
+        "egg",
+        "pyc",
+        "whl"
+      ],
+      "filenames": [
+        ".coverage",
+        ".coveragerc",
+        ".pylintrc",
+        ".python-version",
+        ".scrapy",
+        "celerybeat-schedule",
+        "celerybeat.pid",
+        "manifest.in",
+        "pipfile",
+        "py.typed",
+        "pylintrc",
+        "pyproject.toml",
+        "requirements.txt"
+      ]
+    },
+    {
+      "material": "pytorch",
+      "reviewSymbol": "pytorch",
+      "extensions": [
+        "gguf",
+        "pt",
+        "pth",
+        "pwf",
+        "safetensors"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "qsharp",
+      "reviewSymbol": "qsharp",
+      "extensions": [
+        "qs"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "quarto",
+      "reviewSymbol": "quarto",
+      "extensions": [
+        "qmd"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "quasar",
+      "reviewSymbol": "quasar",
+      "extensions": [],
+      "filenames": [
+        "quasar.conf.js",
+        "quasar.conf.ts",
+        "quasar.config.cjs",
+        "quasar.config.js",
+        "quasar.config.ts"
+      ]
+    },
+    {
+      "material": "quokka",
+      "reviewSymbol": "quokka",
+      "extensions": [
+        "quokka.js",
+        "quokka.jsx",
+        "quokka.ts",
+        "quokka.tsx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "r",
+      "reviewSymbol": "r",
+      "extensions": [
+        "r",
+        "rhistory",
+        "rmd",
+        "rprofile",
+        "rt"
+      ],
+      "filenames": [
+        ".rhistory",
+        ".rprofile"
+      ]
+    },
+    {
+      "material": "racket",
+      "reviewSymbol": "racket",
+      "extensions": [
+        "rkt"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "raml",
+      "reviewSymbol": "raml",
+      "extensions": [
+        "raml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "razor",
+      "reviewSymbol": "razor",
+      "extensions": [
+        "cshtml",
+        "razor",
+        "vbhtml"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "rbxmk",
+      "reviewSymbol": "rbxmk",
+      "extensions": [
+        "rbxmk.lua",
+        "rbxmk.luau"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "react",
+      "reviewSymbol": "react",
+      "extensions": [
+        "jsx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "react_ts",
+      "reviewSymbol": "react",
+      "extensions": [
+        "tsx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "readme",
+      "reviewSymbol": "markdown",
+      "extensions": [],
+      "filenames": [
+        "readme",
+        "readme.md",
+        "readme.rst",
+        "readme.txt"
+      ]
+    },
+    {
+      "material": "reason",
+      "reviewSymbol": "reason",
+      "extensions": [
+        "re",
+        "rei"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "red",
+      "reviewSymbol": "red",
+      "extensions": [
+        "red"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "regedit",
+      "reviewSymbol": "regedit",
+      "extensions": [
+        "reg"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "remark",
+      "reviewSymbol": "remark",
+      "extensions": [],
+      "filenames": [
+        ".remarkignore",
+        ".remarkrc",
+        ".remarkrc.cjs",
+        ".remarkrc.js",
+        ".remarkrc.json",
+        ".remarkrc.mjs",
+        ".remarkrc.yaml",
+        ".remarkrc.yml"
+      ]
+    },
+    {
+      "material": "remix",
+      "reviewSymbol": "remix",
+      "extensions": [],
+      "filenames": [
+        "remix.config.js",
+        "remix.config.ts"
+      ]
+    },
+    {
+      "material": "renovate",
+      "reviewSymbol": "renovate",
+      "extensions": [],
+      "filenames": [
+        ".renovaterc",
+        ".renovaterc.json",
+        "renovate-config.json",
+        "renovate.json",
+        "renovate.json5"
+      ]
+    },
+    {
+      "material": "replit",
+      "reviewSymbol": "replit",
+      "extensions": [],
+      "filenames": [
+        ".replit"
+      ]
+    },
+    {
+      "material": "rescript",
+      "reviewSymbol": "rescript",
+      "extensions": [
+        "res"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "rescript-interface",
+      "reviewSymbol": "rescript",
+      "extensions": [
+        "resi"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "restql",
+      "reviewSymbol": "restql",
+      "extensions": [
+        "restql",
+        "rql"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "riot",
+      "reviewSymbol": "riot",
+      "extensions": [
+        "riot",
+        "tag"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "roadmap",
+      "reviewSymbol": "roadmap",
+      "extensions": [],
+      "filenames": [
+        "milestones.md",
+        "milestones.txt",
+        "roadmap.md",
+        "roadmap.txt",
+        "timeline.md",
+        "timeline.txt"
+      ]
+    },
+    {
+      "material": "roblox",
+      "reviewSymbol": "roblox",
+      "extensions": [
+        "rbxl",
+        "rbxlx",
+        "rbxm",
+        "rbxmx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "robot",
+      "reviewSymbol": "robotframework",
+      "extensions": [
+        "robot"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "robots",
+      "reviewSymbol": "hosts",
+      "extensions": [],
+      "filenames": [
+        "robots.txt"
+      ]
+    },
+    {
+      "material": "rocket",
+      "reviewSymbol": "rocket",
+      "extensions": [],
+      "filenames": [
+        ".release-it.cjs",
+        ".release-it.js",
+        ".release-it.json",
+        ".release-it.toml",
+        ".release-it.ts",
+        ".release-it.yaml",
+        ".release-it.yml",
+        ".release-plz.toml",
+        "release-plz.toml",
+        "release.toml"
+      ]
+    },
+    {
+      "material": "rollup",
+      "reviewSymbol": "rollup",
+      "extensions": [],
+      "filenames": [
+        "rollup-config.js",
+        "rollup-config.mjs",
+        "rollup-config.ts",
+        "rollup.config.base.js",
+        "rollup.config.base.mjs",
+        "rollup.config.base.ts",
+        "rollup.config.common.js",
+        "rollup.config.common.mjs",
+        "rollup.config.common.ts",
+        "rollup.config.dev.js",
+        "rollup.config.dev.mjs",
+        "rollup.config.dev.ts",
+        "rollup.config.js",
+        "rollup.config.mjs",
+        "rollup.config.prod.js",
+        "rollup.config.prod.mjs",
+        "rollup.config.prod.ts",
+        "rollup.config.prod.vendor.js",
+        "rollup.config.prod.vendor.mjs",
+        "rollup.config.prod.vendor.ts",
+        "rollup.config.ts"
+      ]
+    },
+    {
+      "material": "rome",
+      "reviewSymbol": "rome",
+      "extensions": [],
+      "filenames": [
+        "rome.json"
+      ]
+    },
+    {
+      "material": "rspec",
+      "reviewSymbol": "rspec",
+      "extensions": [],
+      "filenames": [
+        ".rspec"
+      ]
+    },
+    {
+      "material": "rstack",
+      "reviewSymbol": "rstack",
+      "extensions": [],
+      "filenames": [
+        "rslint.json",
+        "rslint.jsonc"
+      ]
+    },
+    {
+      "material": "rubocop",
+      "reviewSymbol": "rubocop",
+      "extensions": [],
+      "filenames": [
+        ".rubocop-todo.yml",
+        ".rubocop.yml",
+        ".rubocop_todo.yml"
+      ]
+    },
+    {
+      "material": "ruby",
+      "reviewSymbol": "ruby",
+      "extensions": [
+        "erb",
+        "gemspec",
+        "podspec",
+        "rake",
+        "rb",
+        "rbi",
+        "rbs",
+        "rbx",
+        "rjs",
+        "ru"
+      ],
+      "filenames": [
+        ".ruby-version",
+        "appraisals",
+        "berksfile",
+        "berksfile.lock",
+        "brewfile",
+        "capfile",
+        "cheffile",
+        "dangerfile",
+        "deliverfile",
+        "guardfile",
+        "gymfile",
+        "hobofile",
+        "matchfile",
+        "podfile",
+        "puppetfile",
+        "rakefile",
+        "rantfile",
+        "scanfile",
+        "snapfile",
+        "thorfile"
+      ]
+    },
+    {
+      "material": "ruff",
+      "reviewSymbol": "ruff",
+      "extensions": [],
+      "filenames": [
+        ".ruff.toml",
+        "ruff.toml"
+      ]
+    },
+    {
+      "material": "rust",
+      "reviewSymbol": "rust",
+      "extensions": [
+        "rc",
+        "ron",
+        "rs"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "salt",
+      "reviewSymbol": "salt",
+      "extensions": [
+        "sls"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "san",
+      "reviewSymbol": "san",
+      "extensions": [
+        "san"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "sas",
+      "reviewSymbol": "sas",
+      "extensions": [
+        "ast",
+        "astore",
+        "sas",
+        "sas7bdat",
+        "sashdat",
+        "sast"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "sass",
+      "reviewSymbol": "sass",
+      "extensions": [
+        "sass",
+        "scss"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "sbt",
+      "reviewSymbol": "sbt",
+      "extensions": [
+        "sbt"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "scala",
+      "reviewSymbol": "scala",
+      "extensions": [
+        "sc",
+        "scala"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "scheme",
+      "reviewSymbol": "scheme",
+      "extensions": [
+        "scm",
+        "ss"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "scons",
+      "reviewSymbol": "makefile",
+      "extensions": [],
+      "filenames": [
+        "sconscript",
+        "sconstruct",
+        "scsub"
+      ]
+    },
+    {
+      "material": "screwdriver",
+      "reviewSymbol": "screwdriver",
+      "extensions": [],
+      "filenames": [
+        "screwdriver.yaml",
+        "screwdriver.yml"
+      ]
+    },
+    {
+      "material": "search",
+      "reviewSymbol": "search",
+      "extensions": [
+        "code-search"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "semgrep",
+      "reviewSymbol": "semgrep",
+      "extensions": [],
+      "filenames": [
+        ".semgrepignore",
+        "semgrep.yml"
+      ]
+    },
+    {
+      "material": "sentry",
+      "reviewSymbol": "sentry",
+      "extensions": [],
+      "filenames": [
+        ".env.sentry-build-plugin",
+        ".sentryclirc"
+      ]
+    },
+    {
+      "material": "sequelize",
+      "reviewSymbol": "sequelize",
+      "extensions": [],
+      "filenames": [
+        ".sequelizerc"
+      ]
+    },
+    {
+      "material": "serverless",
+      "reviewSymbol": "serverless",
+      "extensions": [],
+      "filenames": [
+        "serverless.js",
+        "serverless.json",
+        "serverless.ts",
+        "serverless.yaml",
+        "serverless.yml"
+      ]
+    },
+    {
+      "material": "settings",
+      "reviewSymbol": "settings",
+      "extensions": [
+        "cfg",
+        "cnf",
+        "conf",
+        "config",
+        "directory",
+        "dlc",
+        "ini",
+        "mak",
+        "npmrc",
+        "option",
+        "pbxproj",
+        "prefs",
+        "prop",
+        "properties",
+        "props",
+        "repo",
+        "settings",
+        "sln.dotsettings",
+        "sln.dotsettings.user",
+        "tool-versions",
+        "url"
+      ],
+      "filenames": [
+        ".buildignore",
+        ".clang-format",
+        ".clang-format-ignore",
+        ".clang-tidy",
+        ".conf",
+        ".htaccess",
+        ".jshintignore",
+        ".mrconfig",
+        ".yardopts",
+        "compile_flags.txt",
+        "manifest.mf"
+      ]
+    },
+    {
+      "material": "shader",
+      "reviewSymbol": "shader",
+      "extensions": [
+        "cginc",
+        "comp",
+        "comp.glsl",
+        "comp.hlsl",
+        "compute",
+        "compute.glsl",
+        "compute.hlsl",
+        "computeshader",
+        "frag",
+        "frag.glsl",
+        "fragment.glsl",
+        "fragmentshader",
+        "fs.glsl",
+        "fx",
+        "fxh",
+        "geom",
+        "geom.glsl",
+        "geom.hlsl",
+        "geometry.glsl",
+        "geometry.hlsl",
+        "geometryshader",
+        "glsl",
+        "gs.glsl",
+        "hlsl",
+        "hlsli",
+        "metal",
+        "msl",
+        "pixel.hlsl",
+        "psh",
+        "px.hlsl",
+        "rahit",
+        "rahit.glsl",
+        "rcall",
+        "rcall.glsl",
+        "rchit",
+        "rchit.glsl",
+        "rgen",
+        "rgen.glsl",
+        "rint",
+        "rint.glsl",
+        "rmiss",
+        "rmiss.glsl",
+        "shader",
+        "slang",
+        "spv",
+        "tesc",
+        "tesc.glsl",
+        "tese",
+        "tese.glsl",
+        "tess.hlsl",
+        "tessellation.hlsl",
+        "ts.glsl",
+        "vert",
+        "vert.glsl",
+        "vertex.glsl",
+        "vertexshader",
+        "vs.glsl",
+        "vsh",
+        "wgsl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "simulink",
+      "reviewSymbol": "simulink",
+      "extensions": [
+        "slx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "siyuan",
+      "reviewSymbol": "siyuan",
+      "extensions": [
+        "sy"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "sketch",
+      "reviewSymbol": "sketch",
+      "extensions": [
+        "sketch"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "skill",
+      "reviewSymbol": "skill",
+      "extensions": [
+        "skill.md",
+        "skills.md"
+      ],
+      "filenames": [
+        "skill.md"
+      ]
+    },
+    {
+      "material": "slim",
+      "reviewSymbol": "slim",
+      "extensions": [
+        "slim"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "slint",
+      "reviewSymbol": "slint",
+      "extensions": [
+        "60",
+        "slint"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "slug",
+      "reviewSymbol": "slug",
+      "extensions": [],
+      "filenames": [
+        ".slugignore"
+      ]
+    },
+    {
+      "material": "smarty",
+      "reviewSymbol": "smarty",
+      "extensions": [
+        "tpl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "sml",
+      "reviewSymbol": "sml",
+      "extensions": [
+        "cm",
+        "fun",
+        "grm",
+        "lex",
+        "mlb",
+        "mlton",
+        "sig",
+        "sml",
+        "use"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "snakemake",
+      "reviewSymbol": "snakemake",
+      "extensions": [
+        "smk",
+        "snakemake"
+      ],
+      "filenames": [
+        "snakefile"
+      ]
+    },
+    {
+      "material": "snapcraft",
+      "reviewSymbol": "snapcraft",
+      "extensions": [],
+      "filenames": [
+        "snapcraft.yaml",
+        "snapcraft.yml"
+      ]
+    },
+    {
+      "material": "snowpack",
+      "reviewSymbol": "snowpack",
+      "extensions": [],
+      "filenames": [
+        "snowpack.config.cjs",
+        "snowpack.config.cts",
+        "snowpack.config.js",
+        "snowpack.config.json",
+        "snowpack.config.mjs",
+        "snowpack.config.mts",
+        "snowpack.config.ts",
+        "snowpack.deps.json"
+      ]
+    },
+    {
+      "material": "snyk",
+      "reviewSymbol": "snyk",
+      "extensions": [],
+      "filenames": [
+        ".snyk"
+      ]
+    },
+    {
+      "material": "solidity",
+      "reviewSymbol": "solidity",
+      "extensions": [
+        "sol"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "sonarcloud",
+      "reviewSymbol": "sonarcloud",
+      "extensions": [],
+      "filenames": [
+        ".sonarcloud.properties",
+        "sonar-project.properties",
+        "sonarcloud.yaml",
+        "sonarqube.analysis.xml"
+      ]
+    },
+    {
+      "material": "spwn",
+      "reviewSymbol": "spwn",
+      "extensions": [
+        "spwn"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "stackblitz",
+      "reviewSymbol": "stackblitz",
+      "extensions": [],
+      "filenames": [
+        ".stackblitzrc"
+      ]
+    },
+    {
+      "material": "stan",
+      "reviewSymbol": "stan",
+      "extensions": [
+        "stan"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "steadybit",
+      "reviewSymbol": "steadybit",
+      "extensions": [
+        "steadybit.yaml",
+        "steadybit.yml"
+      ],
+      "filenames": [
+        ".steadybit.yaml",
+        ".steadybit.yml",
+        "steadybit.yaml",
+        "steadybit.yml"
+      ]
+    },
+    {
+      "material": "stencil",
+      "reviewSymbol": "stencil",
+      "extensions": [],
+      "filenames": [
+        "stencil.config.js",
+        "stencil.config.ts"
+      ]
+    },
+    {
+      "material": "stitches",
+      "reviewSymbol": "stitches",
+      "extensions": [],
+      "filenames": [
+        "stitches.config.js",
+        "stitches.config.ts"
+      ]
+    },
+    {
+      "material": "storybook",
+      "reviewSymbol": "storybook",
+      "extensions": [
+        "stories.js",
+        "stories.jsx",
+        "stories.mdx",
+        "stories.svelte",
+        "stories.ts",
+        "stories.tsx",
+        "stories.vue",
+        "story.js",
+        "story.jsx",
+        "story.mdx",
+        "story.ts",
+        "story.tsx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "stryker",
+      "reviewSymbol": "stryker",
+      "extensions": [],
+      "filenames": [
+        ".stryker.conf.cjs",
+        ".stryker.conf.js",
+        ".stryker.conf.json",
+        ".stryker.conf.mjs",
+        ".stryker.config.cjs",
+        ".stryker.config.js",
+        ".stryker.config.json",
+        ".stryker.config.mjs",
+        "stryker.conf.cjs",
+        "stryker.conf.js",
+        "stryker.conf.json",
+        "stryker.conf.mjs",
+        "stryker.config.cjs",
+        "stryker.config.js",
+        "stryker.config.json",
+        "stryker.config.mjs"
+      ]
+    },
+    {
+      "material": "stylable",
+      "reviewSymbol": "stylable",
+      "extensions": [
+        "st.css"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "stylelint",
+      "reviewSymbol": "stylelint",
+      "extensions": [],
+      "filenames": [
+        ".stylelintcache",
+        ".stylelintignore"
+      ]
+    },
+    {
+      "material": "stylus",
+      "reviewSymbol": "stylus",
+      "extensions": [
+        "styl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "sublime",
+      "reviewSymbol": "sublime",
+      "extensions": [
+        "sublime-project",
+        "sublime-workspace"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "subtitles",
+      "reviewSymbol": "subtitles",
+      "extensions": [
+        "ass",
+        "dfxp",
+        "sbv",
+        "srt",
+        "ssa",
+        "sub",
+        "ttml",
+        "vtt"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "supabase",
+      "reviewSymbol": "supabase",
+      "extensions": [],
+      "filenames": [
+        "supabase.js",
+        "supabase.py",
+        "supabase.ts"
+      ]
+    },
+    {
+      "material": "svelte",
+      "reviewSymbol": "svelte",
+      "extensions": [
+        "svelte"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "svg",
+      "reviewSymbol": "svg",
+      "extensions": [
+        "svg"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "svgo",
+      "reviewSymbol": "svgo",
+      "extensions": [],
+      "filenames": [
+        "svgo.config.cjs",
+        "svgo.config.js",
+        "svgo.config.mjs"
+      ]
+    },
+    {
+      "material": "swagger",
+      "reviewSymbol": "swagger",
+      "extensions": [
+        "swagger.json",
+        "swagger.yaml",
+        "swagger.yml"
+      ],
+      "filenames": [
+        "swagger.json",
+        "swagger.yaml",
+        "swagger.yml"
+      ]
+    },
+    {
+      "material": "sway",
+      "reviewSymbol": "sway",
+      "extensions": [
+        "sw"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "swc",
+      "reviewSymbol": "swc",
+      "extensions": [
+        "swcrc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "swift",
+      "reviewSymbol": "swift",
+      "extensions": [
+        "swift",
+        "swiftdeps",
+        "swiftdoc",
+        "swiftinterface",
+        "swiftmodule",
+        "swiftsourceinfo",
+        "xcplayground"
+      ],
+      "filenames": [
+        ".swift-format",
+        ".swift-version",
+        ".swiftformat",
+        ".xcode-version",
+        "package.swift"
+      ]
+    },
+    {
+      "material": "table",
+      "reviewSymbol": "table",
+      "extensions": [
+        "ods",
+        "psv",
+        "xls",
+        "xlsm",
+        "xlsx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "tailwindcss",
+      "reviewSymbol": "tailwindcss",
+      "extensions": [],
+      "filenames": [
+        "tailwind.config.cjs",
+        "tailwind.config.cts",
+        "tailwind.config.js",
+        "tailwind.config.mjs",
+        "tailwind.config.mts",
+        "tailwind.config.ts",
+        "tailwind.js",
+        "tailwind.ts"
+      ]
+    },
+    {
+      "material": "taskfile",
+      "reviewSymbol": "taskfile",
+      "extensions": [
+        "taskfile.yaml",
+        "taskfile.yml"
+      ],
+      "filenames": [
+        ".taskrc.yaml",
+        ".taskrc.yml",
+        "taskfile.dist.yaml",
+        "taskfile.dist.yml",
+        "taskfile.yaml",
+        "taskfile.yml"
+      ]
+    },
+    {
+      "material": "tauri",
+      "reviewSymbol": "tauri",
+      "extensions": [
+        "tauri"
+      ],
+      "filenames": [
+        ".taurignore",
+        "tauri.conf.json",
+        "tauri.config.json",
+        "tauri.linux.conf.json",
+        "tauri.macos.conf.json",
+        "tauri.windows.conf.json"
+      ]
+    },
+    {
+      "material": "taze",
+      "reviewSymbol": "taze",
+      "extensions": [],
+      "filenames": [
+        ".tazerc",
+        ".tazerc.json"
+      ]
+    },
+    {
+      "material": "tcl",
+      "reviewSymbol": "tcl",
+      "extensions": [
+        "do",
+        "tcl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "teal",
+      "reviewSymbol": "teal",
+      "extensions": [
+        "tl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "templ",
+      "reviewSymbol": "templ",
+      "extensions": [
+        "templ"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "template",
+      "reviewSymbol": "document",
+      "extensions": [
+        "template"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "terraform",
+      "reviewSymbol": "terraform",
+      "extensions": [
+        "terraformignore",
+        "tf",
+        "tf.json",
+        "tfbackend",
+        "tfstate",
+        "tfvars"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "test-js",
+      "reviewSymbol": "test-js",
+      "extensions": [
+        "cjs.snap",
+        "cy.js",
+        "e2e-spec.cjs",
+        "e2e-spec.js",
+        "e2e-spec.mjs",
+        "js.snap",
+        "mjs.snap",
+        "spec.cjs",
+        "spec.js",
+        "spec.mjs",
+        "test.cjs",
+        "test.js",
+        "test.mjs"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "test-jsx",
+      "reviewSymbol": "test-js",
+      "extensions": [
+        "cy.jsx",
+        "cy.tsx",
+        "jsx.snap",
+        "spec-d.tsx",
+        "spec.jsx",
+        "spec.tsx",
+        "test-d.tsx",
+        "test.jsx",
+        "test.tsx",
+        "tsx.snap"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "test-ts",
+      "reviewSymbol": "test-js",
+      "extensions": [
+        "cts.snap",
+        "cy.ts",
+        "e2e-spec.cts",
+        "e2e-spec.mts",
+        "e2e-spec.ts",
+        "mts.snap",
+        "spec-d.ts",
+        "spec.cts",
+        "spec.mts",
+        "spec.ts",
+        "test-d.ts",
+        "test.cts",
+        "test.mts",
+        "test.ts",
+        "ts.snap"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "tex",
+      "reviewSymbol": "tex",
+      "extensions": [
+        "aux",
+        "clo",
+        "cls",
+        "latex",
+        "ltx",
+        "sty",
+        "synctex",
+        "synctex.gz",
+        "tex",
+        "tikz"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "textlint",
+      "reviewSymbol": "textlint",
+      "extensions": [],
+      "filenames": [
+        ".textlintignore",
+        ".textlintrc",
+        ".textlintrc.cjs",
+        ".textlintrc.js",
+        ".textlintrc.json",
+        ".textlintrc.yaml",
+        ".textlintrc.yml"
+      ]
+    },
+    {
+      "material": "tilt",
+      "reviewSymbol": "tilt",
+      "extensions": [],
+      "filenames": [
+        "tiltfile"
+      ]
+    },
+    {
+      "material": "tldraw",
+      "reviewSymbol": "tldraw",
+      "extensions": [
+        "tldr"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "tobi",
+      "reviewSymbol": "tobi",
+      "extensions": [
+        "tobi"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "tobimake",
+      "reviewSymbol": "tobimake",
+      "extensions": [],
+      "filenames": [
+        ".tobimake"
+      ]
+    },
+    {
+      "material": "toc",
+      "reviewSymbol": "credits",
+      "extensions": [
+        "toc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "todo",
+      "reviewSymbol": "todo",
+      "extensions": [
+        "todo"
+      ],
+      "filenames": [
+        "todo.md",
+        "todos.md"
+      ]
+    },
+    {
+      "material": "toml",
+      "reviewSymbol": "toml",
+      "extensions": [
+        "toml",
+        "tosd"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "toon",
+      "reviewSymbol": "toon",
+      "extensions": [
+        "toon"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "travis",
+      "reviewSymbol": "travis",
+      "extensions": [],
+      "filenames": [
+        ".travis.yml"
+      ]
+    },
+    {
+      "material": "tree",
+      "reviewSymbol": "pipeline",
+      "extensions": [
+        "tree"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "tsconfig",
+      "reviewSymbol": "tsconfig",
+      "extensions": [
+        "tsconfig.json"
+      ],
+      "filenames": [
+        "tsconfig.app.json",
+        "tsconfig.base.json",
+        "tsconfig.build.json",
+        "tsconfig.cjs.json",
+        "tsconfig.client.json",
+        "tsconfig.config.json",
+        "tsconfig.declaration.json",
+        "tsconfig.dev.json",
+        "tsconfig.doc.json",
+        "tsconfig.e2e.json",
+        "tsconfig.editor.json",
+        "tsconfig.eslint.json",
+        "tsconfig.esm.json",
+        "tsconfig.json",
+        "tsconfig.lib.json",
+        "tsconfig.lib.prod.json",
+        "tsconfig.main.json",
+        "tsconfig.mjs.json",
+        "tsconfig.node.json",
+        "tsconfig.paths.json",
+        "tsconfig.prod.json",
+        "tsconfig.renderer.json",
+        "tsconfig.server.json",
+        "tsconfig.spec.json",
+        "tsconfig.test.json",
+        "tsconfig.vitest.json",
+        "tsconfig.web.json",
+        "tsconfig.webworker.json",
+        "tsconfig.worker.json"
+      ]
+    },
+    {
+      "material": "tsdoc",
+      "reviewSymbol": "markdown",
+      "extensions": [],
+      "filenames": [
+        "tsdoc.json"
+      ]
+    },
+    {
+      "material": "tsdown",
+      "reviewSymbol": "tsdown",
+      "extensions": [],
+      "filenames": [
+        "tsdown.config",
+        "tsdown.config.cjs",
+        "tsdown.config.cts",
+        "tsdown.config.js",
+        "tsdown.config.json",
+        "tsdown.config.mjs",
+        "tsdown.config.mts",
+        "tsdown.config.ts"
+      ]
+    },
+    {
+      "material": "tsil",
+      "reviewSymbol": "regedit",
+      "extensions": [
+        "\u0446"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "tune",
+      "reviewSymbol": "tune",
+      "extensions": [
+        "env"
+      ],
+      "filenames": [
+        ".dev.vars",
+        ".env.alpha",
+        ".env.defaults",
+        ".env.dev",
+        ".env.dev.local",
+        ".env.development",
+        ".env.development.local",
+        ".env.dist",
+        ".env.e2e",
+        ".env.example",
+        ".env.local",
+        ".env.preprod",
+        ".env.preview",
+        ".env.prod",
+        ".env.prod.example",
+        ".env.prod.local",
+        ".env.production",
+        ".env.production.example",
+        ".env.production.local",
+        ".env.qa",
+        ".env.qa.local",
+        ".env.sample",
+        ".env.schema",
+        ".env.stage",
+        ".env.staging",
+        ".env.staging.local",
+        ".env.stg",
+        ".env.stg.local",
+        ".env.template",
+        ".env.test",
+        ".env.test.local",
+        ".env.testing",
+        ".env.uat",
+        ".vars"
+      ]
+    },
+    {
+      "material": "turborepo",
+      "reviewSymbol": "turborepo",
+      "extensions": [],
+      "filenames": [
+        "turbo.json",
+        "turbo.jsonc"
+      ]
+    },
+    {
+      "material": "twig",
+      "reviewSymbol": "twig",
+      "extensions": [
+        "twig"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "twine",
+      "reviewSymbol": "twine",
+      "extensions": [
+        "tw",
+        "twee"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "typedoc",
+      "reviewSymbol": "typedoc",
+      "extensions": [],
+      "filenames": [
+        "typedoc.js",
+        "typedoc.json"
+      ]
+    },
+    {
+      "material": "typescript",
+      "reviewSymbol": "typescript",
+      "extensions": [
+        "cts",
+        "mts",
+        "ts"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "typescript-def",
+      "reviewSymbol": "typescript-def",
+      "extensions": [
+        "d.cts",
+        "d.ets",
+        "d.mts",
+        "d.ts"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "typst",
+      "reviewSymbol": "typst",
+      "extensions": [
+        "typ"
+      ],
+      "filenames": [
+        "typst.toml"
+      ]
+    },
+    {
+      "material": "uiua",
+      "reviewSymbol": "uiua",
+      "extensions": [
+        "ua"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "uml",
+      "reviewSymbol": "uml",
+      "extensions": [
+        "iuml",
+        "plantuml",
+        "pu",
+        "puml",
+        "wsd"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "unity",
+      "reviewSymbol": "unity",
+      "extensions": [
+        "unity",
+        "unitypackage"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "unlicense",
+      "reviewSymbol": "license",
+      "extensions": [],
+      "filenames": [
+        "unlicense",
+        "unlicense.txt"
+      ]
+    },
+    {
+      "material": "unocss",
+      "reviewSymbol": "unocss",
+      "extensions": [],
+      "filenames": [
+        "uno.config.js",
+        "uno.config.mjs",
+        "uno.config.mts",
+        "uno.config.ts",
+        "unocss.config.js",
+        "unocss.config.mjs",
+        "unocss.config.mts",
+        "unocss.config.ts"
+      ]
+    },
+    {
+      "material": "uv",
+      "reviewSymbol": "uv",
+      "extensions": [],
+      "filenames": [
+        ".uv.toml",
+        "uv.lock",
+        "uv.toml"
+      ]
+    },
+    {
+      "material": "vagrant",
+      "reviewSymbol": "vagrant",
+      "extensions": [
+        "vagrantfile"
+      ],
+      "filenames": [
+        "vagrantfile"
+      ]
+    },
+    {
+      "material": "vala",
+      "reviewSymbol": "vala",
+      "extensions": [
+        "vala"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "vanilla-extract",
+      "reviewSymbol": "vanilla-extract",
+      "extensions": [
+        "css.cjs",
+        "css.js",
+        "css.jsx",
+        "css.mjs",
+        "css.ts",
+        "css.tsx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "varnish",
+      "reviewSymbol": "varnish",
+      "extensions": [
+        "vcl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "vedic",
+      "reviewSymbol": "vedic",
+      "extensions": [
+        "ved",
+        "veda",
+        "vedic"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "velocity",
+      "reviewSymbol": "velocity",
+      "extensions": [
+        "fhtml",
+        "vm",
+        "vtl"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "vercel",
+      "reviewSymbol": "vercel",
+      "extensions": [],
+      "filenames": [
+        ".nowignore",
+        ".vercelignore",
+        "now.json",
+        "vercel.json",
+        "vercel.ts"
+      ]
+    },
+    {
+      "material": "verdaccio",
+      "reviewSymbol": "verdaccio",
+      "extensions": [],
+      "filenames": [
+        "verdaccio.yml"
+      ]
+    },
+    {
+      "material": "verified",
+      "reviewSymbol": "certificate",
+      "extensions": [
+        "sigstore.json"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "verilog",
+      "reviewSymbol": "assembly",
+      "extensions": [
+        "sv",
+        "svh",
+        "v",
+        "vhd",
+        "vhdl",
+        "vhdx"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "verse",
+      "reviewSymbol": "verse",
+      "extensions": [
+        "verse"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "vfl",
+      "reviewSymbol": "vfl",
+      "extensions": [
+        "vfl"
+      ],
+      "filenames": [
+        ".vfl"
+      ]
+    },
+    {
+      "material": "video",
+      "reviewSymbol": "video",
+      "extensions": [
+        "avi",
+        "flv",
+        "gifv",
+        "m2v",
+        "m4v",
+        "mkv",
+        "mov",
+        "mp2",
+        "mp4",
+        "mpe",
+        "mpeg",
+        "mpg",
+        "mpv",
+        "ogg",
+        "ogv",
+        "qt",
+        "rm",
+        "rmvb",
+        "vob",
+        "webm",
+        "wmv",
+        "yuv"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "vim",
+      "reviewSymbol": "vim",
+      "extensions": [
+        "exrc",
+        "gvimrc",
+        "vim",
+        "viminfo",
+        "vimrc"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "virtual",
+      "reviewSymbol": "virtual",
+      "extensions": [
+        "vbox",
+        "vbox-prev",
+        "vdi"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "visualstudio",
+      "reviewSymbol": "visualstudio",
+      "extensions": [
+        "bas",
+        "csproj",
+        "ruleset",
+        "sln",
+        "slnf",
+        "slnx",
+        "suo",
+        "vb",
+        "vba",
+        "vbs",
+        "vcxitems",
+        "vcxitems.filters",
+        "vcxproj",
+        "vcxproj.filters",
+        "wixproj"
+      ],
+      "filenames": [
+        ".vsconfig"
+      ]
+    },
+    {
+      "material": "vlang",
+      "reviewSymbol": "vlang",
+      "extensions": [],
+      "filenames": [
+        "v.mod",
+        "vpkg.json"
+      ]
+    },
+    {
+      "material": "vscode",
+      "reviewSymbol": "vscode",
+      "extensions": [
+        "code-profile",
+        "code-snippets",
+        "code-workplace",
+        "code-workspace",
+        "vscodeignore",
+        "vsix",
+        "vsixmanifest"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "vue",
+      "reviewSymbol": "vuedotjs",
+      "extensions": [
+        "vue"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "vue-config",
+      "reviewSymbol": "vue-config",
+      "extensions": [],
+      "filenames": [
+        ".vuerc",
+        "vetur.config.js",
+        "vetur.config.ts",
+        "volar.config.js",
+        "vue.config.cjs",
+        "vue.config.js",
+        "vue.config.mjs",
+        "vue.config.ts"
+      ]
+    },
+    {
+      "material": "wakatime",
+      "reviewSymbol": "wakatime",
+      "extensions": [],
+      "filenames": [
+        ".wakatime-project"
+      ]
+    },
+    {
+      "material": "wallaby",
+      "reviewSymbol": "wallaby",
+      "extensions": [],
+      "filenames": [
+        "wallaby.conf.js",
+        "wallaby.js"
+      ]
+    },
+    {
+      "material": "wally",
+      "reviewSymbol": "wally",
+      "extensions": [],
+      "filenames": [
+        "wally.toml"
+      ]
+    },
+    {
+      "material": "warp",
+      "reviewSymbol": "warp",
+      "extensions": [],
+      "filenames": [
+        "warp.md"
+      ]
+    },
+    {
+      "material": "watchman",
+      "reviewSymbol": "watchman",
+      "extensions": [],
+      "filenames": [
+        ".watchmanconfig"
+      ]
+    },
+    {
+      "material": "webassembly",
+      "reviewSymbol": "webassembly",
+      "extensions": [
+        "wasm",
+        "wat"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "webhint",
+      "reviewSymbol": "webhint",
+      "extensions": [],
+      "filenames": [
+        ".hintrc"
+      ]
+    },
+    {
+      "material": "webpack",
+      "reviewSymbol": "webpack",
+      "extensions": [],
+      "filenames": [
+        "webpack.config.coffee"
+      ]
+    },
+    {
+      "material": "wepy",
+      "reviewSymbol": "wepy",
+      "extensions": [
+        "wpy"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "werf",
+      "reviewSymbol": "werf",
+      "extensions": [],
+      "filenames": [
+        "werf-giterminism.yaml",
+        "werf-giterminism.yml",
+        "werf-includes.lock",
+        "werf-includes.yaml",
+        "werf-includes.yml",
+        "werf.yaml",
+        "werf.yml"
+      ]
+    },
+    {
+      "material": "windicss",
+      "reviewSymbol": "windicss",
+      "extensions": [
+        "windi"
+      ],
+      "filenames": [
+        "windi.config.cjs",
+        "windi.config.cts",
+        "windi.config.js",
+        "windi.config.json",
+        "windi.config.ts"
+      ]
+    },
+    {
+      "material": "wolframlanguage",
+      "reviewSymbol": "wolframlanguage",
+      "extensions": [
+        "wl",
+        "wls"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "word",
+      "reviewSymbol": "word",
+      "extensions": [
+        "doc",
+        "docm",
+        "docx",
+        "odt",
+        "rtf"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "wrangler",
+      "reviewSymbol": "wrangler",
+      "extensions": [],
+      "filenames": [
+        "wrangler.json",
+        "wrangler.jsonc",
+        "wrangler.toml"
+      ]
+    },
+    {
+      "material": "xaml",
+      "reviewSymbol": "xml",
+      "extensions": [
+        "xaml"
+      ],
+      "filenames": [
+        "xamlstyler.json"
+      ]
+    },
+    {
+      "material": "xmake",
+      "reviewSymbol": "makefile",
+      "extensions": [],
+      "filenames": [
+        "xmake",
+        "xmake.lua"
+      ]
+    },
+    {
+      "material": "xml",
+      "reviewSymbol": "xml",
+      "extensions": [
+        "ascx",
+        "atom",
+        "axaml",
+        "axml",
+        "bpmn",
+        "csproj.user",
+        "dita",
+        "ditamap",
+        "dmn",
+        "dtd",
+        "dtml",
+        "ent",
+        "fxml",
+        "iml",
+        "isml",
+        "jmx",
+        "jrxml",
+        "launch",
+        "manifest",
+        "menu",
+        "opml",
+        "owl",
+        "proj",
+        "project",
+        "publishsettings",
+        "pubxml",
+        "pubxml.user",
+        "rdf",
+        "resx",
+        "rlx",
+        "rng",
+        "rss",
+        "shproj",
+        "storyboard",
+        "targets",
+        "tld",
+        "tmlanguage",
+        "tmx",
+        "vbproj",
+        "vbproj.user",
+        "wsdl",
+        "wxi",
+        "wxl",
+        "wxs",
+        "xbl",
+        "xib",
+        "xliff",
+        "xml",
+        "xml.dist",
+        "xml.dist.sample",
+        "xmp",
+        "xoml",
+        "xpdl",
+        "xquery",
+        "xsd",
+        "xsl",
+        "xslt",
+        "xul"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "yaml",
+      "reviewSymbol": "contributing",
+      "extensions": [
+        "cff",
+        "eyaml",
+        "eyml",
+        "winget",
+        "yaml",
+        "yaml-tmlanguage",
+        "yaml-tmpreferences",
+        "yaml-tmtheme",
+        "yaml.dist",
+        "yml",
+        "yml.dist"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "yang",
+      "reviewSymbol": "yang",
+      "extensions": [
+        "yang"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "yarn",
+      "reviewSymbol": "yarn",
+      "extensions": [],
+      "filenames": [
+        ".yarn-integrity",
+        ".yarnclean",
+        ".yarnrc",
+        ".yarnrc.yaml",
+        ".yarnrc.yml",
+        "yarn-error.log",
+        "yarn.lock"
+      ]
+    },
+    {
+      "material": "zeabur",
+      "reviewSymbol": "zeabur",
+      "extensions": [
+        "zeabur"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "zig",
+      "reviewSymbol": "zig",
+      "extensions": [
+        "zig",
+        "zon"
+      ],
+      "filenames": []
+    },
+    {
+      "material": "zip",
+      "reviewSymbol": "zip",
+      "extensions": [
+        "001",
+        "7z",
+        "apfs",
+        "arj",
+        "br",
+        "brotli",
+        "bz2",
+        "bzip2",
+        "cab",
+        "cpio",
+        "deb",
+        "esd",
+        "far",
+        "fat",
+        "gz",
+        "gzip",
+        "hfs",
+        "lha",
+        "liz",
+        "lz",
+        "lz4",
+        "lz5",
+        "lzh",
+        "lzma",
+        "lzma2",
+        "ntfs",
+        "rar",
+        "rpm",
+        "squashfs",
+        "swm",
+        "tar",
+        "taz",
+        "tbz",
+        "tbz2",
+        "tgz",
+        "tlz",
+        "tpz",
+        "txz",
+        "tz",
+        "tzst",
+        "tzstd",
+        "wim",
+        "xar",
+        "xz",
+        "z",
+        "zip",
+        "zst",
+        "zstd"
+      ],
+      "filenames": []
+    }
+  ],
+  "nativeMappings": [
+    {
+      "ext": "bib",
+      "symbol": "books.vertical.fill",
+      "custom": "pack/books.vertical.fill",
+      "reviewSymbol": "bibliography"
+    },
+    {
+      "ext": "bmp",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "csv",
+      "symbol": "tablecells",
+      "custom": "pack/tablecells",
+      "reviewSymbol": "table"
+    },
+    {
+      "ext": "gif",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "heic",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "heif",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "icns",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "ico",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "jpeg",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "jpg",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "plist",
+      "symbol": "tablecells",
+      "custom": "pack/tablecells",
+      "reviewSymbol": "table"
+    },
+    {
+      "ext": "png",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "tif",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "tiff",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    },
+    {
+      "ext": "tsv",
+      "symbol": "tablecells",
+      "custom": "pack/tablecells",
+      "reviewSymbol": "table"
+    },
+    {
+      "ext": "webp",
+      "symbol": "photo.circle",
+      "reviewSymbol": "photo.circle"
+    }
+  ],
+  "newAssignments": [
+    {
+      "ext": "bibtex",
+      "reviewSymbol": "bibliography"
+    },
+    {
+      "ext": "gv",
+      "reviewSymbol": "pipeline"
+    },
+    {
+      "ext": "ifb",
+      "reviewSymbol": "calendar"
+    }
+  ],
+  "registryRows": 2492,
+  "coveredRows": 2492
+}

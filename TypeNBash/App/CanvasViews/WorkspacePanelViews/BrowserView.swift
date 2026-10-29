@@ -29,7 +29,7 @@ struct BrowserView<Trailing: View>: View {
     var body: some View {
         content
         .paneBar(.top) { header }
-        .background(theme.paneBackground)
+        .background(theme.windowBackground)
         .onChange(of: model.activeTabID) {
             addressSelection = nil
             let target: BrowserFocusTarget = activeTab?.addressText.isEmpty == true ? .address : .page

@@ -526,6 +526,8 @@ final class FileBrowserModel {
     /// would arrive as one column per row.
     nonisolated static let tableExtensions: Set<String> = ["csv"]
 
+    nonisolated static let dataExtension: Set<String> = ["csv", "tsv", "plist"]
+
     /// File extensions rendered by the PDF viewer.
     nonisolated static let documentExtensions: Set<String> = ["pdf"]
 

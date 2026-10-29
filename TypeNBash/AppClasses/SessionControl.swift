@@ -32,6 +32,9 @@ final class WindowSession {
     private(set) var location: WorkspaceLocation
     private(set) var rootDirectory: URL
     private(set) var fileBrowser: FileBrowserModel
+
+    private(set) var storedSnippets: SnippetsStore
+
     /// How the terminal for the current workspace should be launched. Replaced
     /// wholesale on every backend transition, so the view can key off it.
     private(set) var terminalConfiguration: TerminalLaunchConfiguration
@@ -131,6 +134,7 @@ final class WindowSession {
         state = .local
         location = .local
         rootDirectory = localRoot
+        storedSnippets = .shared
         terminalConfiguration = localBackend.makeTerminalConfiguration()
         fileBrowser = FileBrowserModel(fileSystem: localBackend.fileSystem)
         AgentEditorCoordinator.shared.register(fileBrowser)

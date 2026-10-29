@@ -1,3 +1,24 @@
+# File icon checks
+
+After a Debug build, run:
+
+```sh
+python3 Tests/run-editor-checks.py /tmp/centcom-icons-build \
+  /tmp/centcom-projects-build/SourcePackages FileIconIntegrationChecks.swift
+```
+
+Checks brand HEX tints in unselected rows, selection color overrides, neutral
+brand contrast, and the preserved Markdown/config cutouts in light/dark.
+Also checks filename precedence, compound extensions,
+unknown-file/directory fallbacks, and every referenced symbol in the built catalog.
+Writes `/tmp/centcom-file-icons-after.png` without launching the main application.
+
+Regenerate the app catalog with `xcrun swift Scripts/IconPack/IconPack.swift`.
+Its manifest reuses the reviewed selection in `icons-creation/curated.json`.
+Edit `brandColors` in `TypeNBash/AppResources/FileIcons.json` to change a tint.
+Keys use each row's `material`, `symbol`, or `custom` identifier, in that order;
+values are six-digit RGB HEX strings. Missing or invalid values use the row style.
+
 # Project search checks
 
 ```sh

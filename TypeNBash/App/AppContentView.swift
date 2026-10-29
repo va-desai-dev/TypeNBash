@@ -55,7 +55,11 @@ private struct FreeWorkspaceView: View {
         } inspector: { WorkspaceInspector(
             session: session,
             selection: $inspectorSelection,
-            subselection: $writingSubselection
+            subselection: $writingSubselection,
+            onRunSnippet: { command in
+                selectedViewMode = .terminal
+                terminalController.send(command)
+            }
         )
         }
         .toolbar {
@@ -179,7 +183,8 @@ struct ProjectWorkspaceView: View {
         } inspector: { WorkspaceInspector(
             session: session,
             selection: $inspectorSelection,
-            subselection: $writingSubselection
+            subselection: $writingSubselection,
+            onRunSnippet: runInConsole
         )
         }
         .toolbar {

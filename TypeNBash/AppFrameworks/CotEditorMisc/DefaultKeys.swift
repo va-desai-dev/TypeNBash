@@ -87,6 +87,9 @@ extension DefaultKeys {
     // chrome's foreground and card colors.
     static let accentColor = DefaultKey<String?>("app.theme.accent")
     static let secondaryColor = DefaultKey<String?>("app.theme.secondary")
+    // Diff pane colors: the gutter marker, and the wash behind changed rows.
+    static let diffAddedColor = DefaultKey<String?>("app.theme.diffAdded")
+    static let diffRemovedColor = DefaultKey<String?>("app.theme.diffRemoved")
     /// Paints the whole window with a card-to-foreground gradient instead of the flat card.
     static let gradientBackground = DefaultKey<Bool>("app.theme.gradientBackground")
 

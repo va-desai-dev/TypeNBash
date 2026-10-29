@@ -79,11 +79,13 @@ struct CodeEditorTextView: NSViewRepresentable {
         scrollView.borderType = .noBorder
         scrollView.contentView.automaticallyAdjustsContentInsets = true
         scrollView.documentView = textView
-        scrollView.verticalRulerView = LineNumberView(
+        let ruler = LineNumberView(
             textView: textView,
             scrollView: scrollView,
             orientation: .verticalRuler
         )
+        ruler.diffColors = themeOverrides.diffColors
+        scrollView.verticalRulerView = ruler
         scrollView.autoresizingMask = [.width, .height]
 
         // Set the theme only after the text view is inside the scroll view:
@@ -129,6 +131,8 @@ struct CodeEditorTextView: NSViewRepresentable {
             textView.theme = theme
             context.coordinator.updateTheme(theme)
         }
+        // The change bars share the diff pane's colors.
+        (scrollView.verticalRulerView as? LineNumberView)?.diffColors = themeOverrides.diffColors
 
         // Follow the file's language if it changed.
         context.coordinator.configureSyntax(for: fileURL, textStorage: textView.textStorage, theme: theme)

@@ -1,0 +1,7759 @@
+{
+  "sources": "TypeNBash/Assets.xcassets/material",
+  "output": "icons-creation/curated.xcassets/curated",
+  "symbols": [
+    {
+      "name": "markdown",
+      "from": "icons-creation/markdown.svg",
+      "reason": "Author-supplied SF Symbol composition, preserved as drawn.",
+      "rendering": "monochrome",
+      "category": "Custom compositions",
+      "matches": [
+        ".markdownlint-cli2.cjs",
+        ".markdownlint-cli2.jsonc",
+        ".markdownlint-cli2.mjs",
+        ".markdownlint-cli2.yaml",
+        ".markdownlint.json",
+        ".markdownlint.jsonc",
+        ".markdownlint.yaml",
+        ".markdownlint.yml",
+        ".markdownlintignore",
+        "copilotmd",
+        "litcoffee",
+        "markdn",
+        "markdoc",
+        "markdoc.md",
+        "markdown",
+        "markdownlint",
+        "md",
+        "mdoc",
+        "mdown",
+        "mdtext",
+        "mdtxt",
+        "mdwn",
+        "mdx",
+        "mkd",
+        "mkdn",
+        "readme",
+        "readme.md",
+        "readme.rst",
+        "readme.txt",
+        "ronn",
+        "tsdoc",
+        "tsdoc.json",
+        "workbook"
+      ]
+    },
+    {
+      "name": "jsconfig",
+      "from": "icons-creation/jsconfig.svg",
+      "reason": "Author-supplied SF Symbol composition, preserved as drawn.",
+      "rendering": "monochrome",
+      "category": "Custom compositions",
+      "matches": [
+        "jsconfig",
+        "jsconfig.json"
+      ]
+    },
+    {
+      "name": "markdoc-config",
+      "from": "icons-creation/markdoc-config.svg",
+      "reason": "Author-supplied SF Symbol composition, preserved as drawn.",
+      "rendering": "monochrome",
+      "category": "Custom compositions",
+      "matches": [
+        "markdoc.config.cjs",
+        "markdoc.config.js",
+        "markdoc.config.json",
+        "markdoc.config.mjs",
+        "markdoc.config.ts"
+      ]
+    },
+    {
+      "name": "tsconfig",
+      "from": "icons-creation/tsconfig.svg",
+      "reason": "Author-supplied SF Symbol composition, preserved as drawn.",
+      "rendering": "monochrome",
+      "category": "Custom compositions",
+      "matches": [
+        "tsconfig",
+        "tsconfig.app.json",
+        "tsconfig.base.json",
+        "tsconfig.build.json",
+        "tsconfig.cjs.json",
+        "tsconfig.client.json",
+        "tsconfig.config.json",
+        "tsconfig.declaration.json",
+        "tsconfig.dev.json",
+        "tsconfig.doc.json",
+        "tsconfig.e2e.json",
+        "tsconfig.editor.json",
+        "tsconfig.eslint.json",
+        "tsconfig.esm.json",
+        "tsconfig.json",
+        "tsconfig.lib.json",
+        "tsconfig.lib.prod.json",
+        "tsconfig.main.json",
+        "tsconfig.mjs.json",
+        "tsconfig.node.json",
+        "tsconfig.paths.json",
+        "tsconfig.prod.json",
+        "tsconfig.renderer.json",
+        "tsconfig.server.json",
+        "tsconfig.spec.json",
+        "tsconfig.test.json",
+        "tsconfig.vitest.json",
+        "tsconfig.web.json",
+        "tsconfig.webworker.json",
+        "tsconfig.worker.json"
+      ]
+    },
+    {
+      "name": "vue-config",
+      "from": "icons-creation/vue-config.svg",
+      "reason": "Author-supplied SF Symbol composition, preserved as drawn.",
+      "rendering": "monochrome",
+      "category": "Custom compositions",
+      "matches": [
+        ".vuerc",
+        "vetur.config.js",
+        "vetur.config.ts",
+        "volar.config.js",
+        "vue-config",
+        "vue.config.cjs",
+        "vue.config.js",
+        "vue.config.mjs",
+        "vue.config.ts"
+      ]
+    },
+    {
+      "name": "3d",
+      "from": "sf:cube.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "123dx",
+        "3d",
+        "3dm",
+        "3ds",
+        "3mf",
+        "ac",
+        "catpart",
+        "catproduct",
+        "dae",
+        "dwg",
+        "dxf",
+        "f3d",
+        "fbx",
+        "glb",
+        "gltf",
+        "iam",
+        "ige",
+        "iges",
+        "igs",
+        "ipt",
+        "jt",
+        "mesh",
+        "mqo",
+        "obj",
+        "ply",
+        "pmd",
+        "pmx",
+        "prt",
+        "sab",
+        "sat",
+        "skp",
+        "sldasm",
+        "slddrw",
+        "sldprt",
+        "smb",
+        "smt",
+        "ste",
+        "step",
+        "stl",
+        "stp",
+        "usd",
+        "usdz",
+        "vac",
+        "vdp",
+        "vox",
+        "wire",
+        "wrl",
+        "x_b",
+        "x_t"
+      ]
+    },
+    {
+      "name": "abc",
+      "from": "sf:music.note",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "abc",
+        "lilypond",
+        "lrc",
+        "ly",
+        "lyric"
+      ]
+    },
+    {
+      "name": "agent",
+      "from": "sf:sparkles",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "agent",
+        "agents.md"
+      ]
+    },
+    {
+      "name": "architecture",
+      "from": "sf:building.2.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "architecture",
+        "architecture.md",
+        "architecture.rst",
+        "architecture.txt"
+      ]
+    },
+    {
+      "name": "assembly",
+      "from": "sf:cpu.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "a51",
+        "aea",
+        "agc",
+        "ags",
+        "argus",
+        "asm",
+        "assembly",
+        "binsource",
+        "inc",
+        "mitigus",
+        "ms",
+        "nasm",
+        "s",
+        "sv",
+        "svh",
+        "v",
+        "verilog",
+        "vhd",
+        "vhdl",
+        "vhdx"
+      ]
+    },
+    {
+      "name": "audio",
+      "from": "sf:waveform",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "8svx",
+        "aa",
+        "aac",
+        "aax",
+        "ac3",
+        "aif",
+        "aiff",
+        "alac",
+        "amr",
+        "ape",
+        "audio",
+        "caf",
+        "cda",
+        "cdr",
+        "dss",
+        "ec3",
+        "efs",
+        "enc",
+        "flac",
+        "flp",
+        "gsm",
+        "it",
+        "m3u",
+        "m3u8",
+        "m4a",
+        "m4b",
+        "m4p",
+        "m4r",
+        "mid",
+        "mka",
+        "mmf",
+        "mod",
+        "mp3",
+        "mpc",
+        "mscz",
+        "mtm",
+        "mui",
+        "musx",
+        "mxl",
+        "nsa",
+        "opus",
+        "pkf",
+        "qcp",
+        "ra",
+        "rf64",
+        "rip",
+        "sdt",
+        "sesx",
+        "sf2",
+        "stap",
+        "tg",
+        "voc",
+        "vqf",
+        "wav",
+        "weba",
+        "wfp",
+        "wma",
+        "wpl",
+        "wproj",
+        "wv"
+      ]
+    },
+    {
+      "name": "authors",
+      "from": "sf:person.2.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "authors",
+        "authors.md",
+        "authors.rst",
+        "authors.txt",
+        "contributors",
+        "contributors.md",
+        "contributors.rst",
+        "contributors.txt"
+      ]
+    },
+    {
+      "name": "bbx",
+      "from": "sf:book.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "bbx",
+        "epub"
+      ]
+    },
+    {
+      "name": "bench-js",
+      "from": "sf:gauge.with.dots.needle.67percent",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "bench-js",
+        "bench-jsx",
+        "bench-ts",
+        "bench.cjs",
+        "bench.cts",
+        "bench.js",
+        "bench.jsx",
+        "bench.mjs",
+        "bench.mts",
+        "bench.ts",
+        "bench.tsx"
+      ]
+    },
+    {
+      "name": "bibliography",
+      "from": "sf:books.vertical.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "a",
+        "bbl",
+        "bcf",
+        "bib",
+        "bibliography",
+        "bibtex",
+        "bibtex-style",
+        "blg",
+        "bst",
+        "cbx",
+        "citation",
+        "citation.cff",
+        "csl",
+        "lib"
+      ]
+    },
+    {
+      "name": "calendar",
+      "from": "sf:clock.fill",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "ifb"
+      ],
+      "reason": "Native time/availability symbol for the iCalendar free-busy format."
+    },
+    {
+      "name": "certificate",
+      "from": "sf:checkmark.seal.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "cer",
+        "cert",
+        "certificate",
+        "crt",
+        "entitlements",
+        "sigstore.json",
+        "verified"
+      ]
+    },
+    {
+      "name": "changelog",
+      "from": "sf:clock.arrow.circlepath",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "changelog",
+        "changelog.md",
+        "changelog.rst",
+        "changelog.txt",
+        "changes",
+        "changes.md",
+        "changes.rst",
+        "changes.txt"
+      ]
+    },
+    {
+      "name": "chess",
+      "from": "sf:flag.pattern.checkered",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "chess",
+        "fen",
+        "pgn"
+      ]
+    },
+    {
+      "name": "codeowners",
+      "from": "sf:person.crop.circle.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "codeowners",
+        "owners"
+      ]
+    },
+    {
+      "name": "conduct",
+      "from": "sf:checkmark.shield.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "code_of_conduct",
+        "code_of_conduct.md",
+        "code_of_conduct.txt",
+        "conduct"
+      ]
+    },
+    {
+      "name": "console",
+      "from": "sf:terminal.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        ".bash_login",
+        ".bash_logout",
+        ".bash_profile",
+        ".bashrc",
+        ".envrc",
+        ".hushlogin",
+        ".profile",
+        ".zlogin",
+        ".zprofile",
+        ".zshenv",
+        ".zshrc",
+        "apkbuild",
+        "awk",
+        "bash",
+        "bash_aliases",
+        "bash_login",
+        "bash_logout",
+        "bash_profile",
+        "bashrc",
+        "bashrc_apple_terminal",
+        "bat",
+        "cmd",
+        "command",
+        "commit-msg",
+        "console",
+        "csh",
+        "cshrc",
+        "ebuild",
+        "eclass",
+        "exp",
+        "fish",
+        "ksh",
+        "nu",
+        "pkgbuild",
+        "post-merge",
+        "pre-commit",
+        "pre-push",
+        "profile",
+        "sh",
+        "tcsh",
+        "tcshrc",
+        "xprofile",
+        "xsession",
+        "xsessionrc",
+        "xsh",
+        "yash_profile",
+        "yashrc",
+        "zlogin",
+        "zlogout",
+        "zprofile",
+        "zsh",
+        "zsh-theme",
+        "zshenv",
+        "zshrc",
+        "zshrc_apple_terminal"
+      ]
+    },
+    {
+      "name": "contributing",
+      "from": "sf:doc.text.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "cff",
+        "contributing",
+        "contributing.md",
+        "contributing.rst",
+        "contributing.txt",
+        "eyaml",
+        "eyml",
+        "log",
+        "winget",
+        "yaml",
+        "yaml-tmlanguage",
+        "yaml-tmpreferences",
+        "yaml-tmtheme",
+        "yaml.dist",
+        "yml",
+        "yml.dist"
+      ]
+    },
+    {
+      "name": "credits",
+      "from": "sf:text.alignleft",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "credits",
+        "credits.md",
+        "credits.rst",
+        "credits.txt",
+        "toc"
+      ]
+    },
+    {
+      "name": "database",
+      "from": "sf:cylinder.split.1x2",
+      "reason": "User-selected native split cylinder for database containers.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "accdb",
+        "accde",
+        "adp",
+        "bak",
+        "bdb",
+        "database",
+        "db",
+        "db3",
+        "dbf",
+        "dblite",
+        "dblite3",
+        "debugsymbols",
+        "dsql",
+        "fdb",
+        "feather",
+        "frm",
+        "gdb",
+        "ibd",
+        "kdbx",
+        "ldf",
+        "mdb",
+        "mde",
+        "mdf",
+        "myd",
+        "myi",
+        "mysql",
+        "ndf",
+        "odb",
+        "orc",
+        "parquet",
+        "pdb",
+        "pgsql",
+        "pkb",
+        "pks",
+        "plpgsql",
+        "postgres",
+        "psql",
+        "sdf",
+        "sql",
+        "sqlite",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "dependencies-update",
+      "from": "sf:arrow.triangle.2.circlepath",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        ".ncurc.js",
+        ".ncurc.json",
+        ".ncurc.yml",
+        "dependencies-update"
+      ]
+    },
+    {
+      "name": "diff",
+      "from": "sf:plus.forwardslash.minus",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "dif",
+        "diff",
+        "patch",
+        "rej"
+      ]
+    },
+    {
+      "name": "disc",
+      "from": "sf:opticaldisc.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "disc",
+        "dmg",
+        "hdd",
+        "iso",
+        "qcow",
+        "qcow2",
+        "qed",
+        "vmdk"
+      ]
+    },
+    {
+      "name": "document",
+      "from": "sf:doc.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "document",
+        "rest",
+        "rst",
+        "template",
+        "textile",
+        "txt"
+      ]
+    },
+    {
+      "name": "email",
+      "from": "sf:envelope.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        ".mailmap",
+        "edb",
+        "email",
+        "eml",
+        "emlx",
+        "ics",
+        "mbox",
+        "msg",
+        "oft",
+        "olm",
+        "ost",
+        "p7s",
+        "pst",
+        "rpmsg",
+        "tnef"
+      ]
+    },
+    {
+      "name": "exe",
+      "from": "sf:app.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "exe",
+        "msi"
+      ]
+    },
+    {
+      "name": "favicon",
+      "from": "sf:star.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "favicon",
+        "favicon.ico"
+      ]
+    },
+    {
+      "name": "font",
+      "from": "sf:textformat",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "bmap",
+        "eot",
+        "fnt",
+        "font",
+        "fonts",
+        "mf",
+        "mrf",
+        "ntf",
+        "odttf",
+        "otf",
+        "sui",
+        "suit",
+        "ttc",
+        "ttf",
+        "woff",
+        "woff2"
+      ]
+    },
+    {
+      "name": "gnuplot",
+      "from": "sf:chart.pie.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "gnu",
+        "gnuplot",
+        "gp",
+        "gpi",
+        "plot",
+        "plt"
+      ]
+    },
+    {
+      "name": "hosts",
+      "from": "sf:network",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "cname",
+        "gemini",
+        "gmi",
+        "hosts",
+        "http",
+        "robots",
+        "robots.txt"
+      ]
+    },
+    {
+      "name": "hurl",
+      "from": "sf:arrow.left.arrow.right",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "hurl"
+      ]
+    },
+    {
+      "name": "i18n",
+      "from": "sf:character.bubble.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "i18n",
+        "lang",
+        "mo",
+        "po",
+        "pot",
+        "xlf"
+      ]
+    },
+    {
+      "name": "image",
+      "from": "sf:photo.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "3fr",
+        "afphoto",
+        "ami",
+        "apx",
+        "ari",
+        "arw",
+        "ase",
+        "aseprite",
+        "avif",
+        "bay",
+        "bpg",
+        "braw",
+        "brk",
+        "cap",
+        "clip",
+        "cpt",
+        "cr2",
+        "cr3",
+        "crw",
+        "cur",
+        "data",
+        "dcr",
+        "dcs",
+        "dds",
+        "dng",
+        "drf",
+        "eip",
+        "eps",
+        "erf",
+        "exr",
+        "fff",
+        "fpx",
+        "gbr",
+        "gpr",
+        "iiq",
+        "image",
+        "img",
+        "jb2",
+        "jbig2",
+        "jfif",
+        "jng",
+        "jxl",
+        "jxr",
+        "k25",
+        "kdc",
+        "kra",
+        "ktx",
+        "ktx2",
+        "mdc",
+        "mdp",
+        "mef",
+        "mos",
+        "mrw",
+        "nef",
+        "nrw",
+        "obm",
+        "ora",
+        "orf",
+        "pbm",
+        "pdn",
+        "pef",
+        "pgf",
+        "pgm",
+        "pic",
+        "pnm",
+        "ppm",
+        "pxn",
+        "r3d",
+        "raf",
+        "raw",
+        "reb",
+        "rw2",
+        "rwl",
+        "rwz",
+        "sai",
+        "sr2",
+        "srf",
+        "srw",
+        "tga",
+        "x3f",
+        "xcf"
+      ]
+    },
+    {
+      "name": "installation",
+      "from": "sf:square.and.arrow.down.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "doctex-installer",
+        "ins",
+        "install",
+        "installation"
+      ]
+    },
+    {
+      "name": "json",
+      "from": "sf:curlybraces",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        ".esformatter",
+        ".jsbeautifyrc",
+        ".jscsrc",
+        ".jshintrc",
+        ".whitesource",
+        "cdp.pid",
+        "composer.lock",
+        "geojson",
+        "har",
+        "jq",
+        "json",
+        "json5",
+        "json_schema",
+        "jsonc",
+        "jsonl",
+        "jsonld",
+        "ndjson",
+        "package.resolved",
+        "schema.json",
+        "ts.map",
+        "tsbuildinfo",
+        "webmanifest"
+      ]
+    },
+    {
+      "name": "key",
+      "from": "sf:key.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        ".htpasswd",
+        ".secrets",
+        "asc",
+        "gpg",
+        "key",
+        "passwd",
+        "pem",
+        "pub",
+        "secret",
+        "sha256",
+        "sha256sum",
+        "sha256sums",
+        "shasum"
+      ]
+    },
+    {
+      "name": "label",
+      "from": "sf:tag.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        ".github/labeler.yaml",
+        ".github/labeler.yml",
+        "label",
+        "tags"
+      ]
+    },
+    {
+      "name": "lbx",
+      "from": "sf:character.book.closed.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "lbx"
+      ]
+    },
+    {
+      "name": "license",
+      "from": "sf:seal.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "copying",
+        "copying.md",
+        "copying.rst",
+        "copying.txt",
+        "copyright",
+        "copyright.md",
+        "copyright.rst",
+        "copyright.txt",
+        "licence",
+        "licence-agpl",
+        "licence-apache",
+        "licence-bsd",
+        "licence-gpl",
+        "licence-lgpl",
+        "licence-mit",
+        "licence.md",
+        "licence.rst",
+        "licence.txt",
+        "license",
+        "license-agpl",
+        "license-apache",
+        "license-bsd",
+        "license-gpl",
+        "license-lgpl",
+        "license-mit",
+        "license.md",
+        "license.rst",
+        "license.txt",
+        "unlicense",
+        "unlicense.txt"
+      ]
+    },
+    {
+      "name": "lock",
+      "from": "sf:lock.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "lock",
+        "security",
+        "security.md",
+        "security.txt"
+      ]
+    },
+    {
+      "name": "makefile",
+      "from": "sf:hammer.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "gnumakefile",
+        "kbuild",
+        "makefile",
+        "mk",
+        "scons",
+        "sconscript",
+        "sconstruct",
+        "scsub",
+        "xmake",
+        "xmake.lua"
+      ]
+    },
+    {
+      "name": "palette",
+      "from": "sf:paintpalette.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "act",
+        "gpl",
+        "pal",
+        "palette"
+      ]
+    },
+    {
+      "name": "photo.circle",
+      "from": "sf:photo.circle",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "bmp",
+        "gif",
+        "heic",
+        "heif",
+        "icns",
+        "ico",
+        "jpeg",
+        "jpg",
+        "png",
+        "tif",
+        "tiff",
+        "webp"
+      ]
+    },
+    {
+      "name": "pipeline",
+      "from": "sf:point.3.connected.trianglepath.dotted",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "gv",
+        "pipeline",
+        "tree"
+      ]
+    },
+    {
+      "name": "prompt",
+      "from": "sf:bubble.left.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "prompt",
+        "prompt.md",
+        "prompts.md"
+      ]
+    },
+    {
+      "name": "regedit",
+      "from": "sf:square.grid.2x2.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "reg",
+        "regedit",
+        "tsil",
+        "\u0446"
+      ]
+    },
+    {
+      "name": "roadmap",
+      "from": "sf:map.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "milestones.md",
+        "milestones.txt",
+        "roadmap",
+        "roadmap.md",
+        "roadmap.txt",
+        "timeline.md",
+        "timeline.txt"
+      ]
+    },
+    {
+      "name": "screwdriver",
+      "from": "sf:screwdriver.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "screwdriver",
+        "screwdriver.yaml",
+        "screwdriver.yml"
+      ]
+    },
+    {
+      "name": "search",
+      "from": "sf:magnifyingglass",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "code-search",
+        "search"
+      ]
+    },
+    {
+      "name": "settings",
+      "from": "sf:gearshape.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        ".buildignore",
+        ".clang-format",
+        ".clang-format-ignore",
+        ".clang-tidy",
+        ".conf",
+        ".htaccess",
+        ".jshintignore",
+        ".mrconfig",
+        ".yardopts",
+        "cfg",
+        "cnf",
+        "compile_flags.txt",
+        "conf",
+        "config",
+        "directory",
+        "dlc",
+        "ini",
+        "mak",
+        "manifest.mf",
+        "npmrc",
+        "option",
+        "pbxproj",
+        "prefs",
+        "prop",
+        "properties",
+        "props",
+        "repo",
+        "settings",
+        "sln.dotsettings",
+        "sln.dotsettings.user",
+        "tool-versions",
+        "url"
+      ]
+    },
+    {
+      "name": "shader",
+      "from": "sf:cube.transparent.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "cginc",
+        "comp",
+        "comp.glsl",
+        "comp.hlsl",
+        "compute",
+        "compute.glsl",
+        "compute.hlsl",
+        "computeshader",
+        "frag",
+        "frag.glsl",
+        "fragment.glsl",
+        "fragmentshader",
+        "fs.glsl",
+        "fx",
+        "fxh",
+        "geom",
+        "geom.glsl",
+        "geom.hlsl",
+        "geometry.glsl",
+        "geometry.hlsl",
+        "geometryshader",
+        "glsl",
+        "gs.glsl",
+        "hlsl",
+        "hlsli",
+        "metal",
+        "msl",
+        "pixel.hlsl",
+        "psh",
+        "px.hlsl",
+        "rahit",
+        "rahit.glsl",
+        "rcall",
+        "rcall.glsl",
+        "rchit",
+        "rchit.glsl",
+        "rgen",
+        "rgen.glsl",
+        "rint",
+        "rint.glsl",
+        "rmiss",
+        "rmiss.glsl",
+        "shader",
+        "slang",
+        "spv",
+        "tesc",
+        "tesc.glsl",
+        "tese",
+        "tese.glsl",
+        "tess.hlsl",
+        "tessellation.hlsl",
+        "ts.glsl",
+        "vert",
+        "vert.glsl",
+        "vertex.glsl",
+        "vertexshader",
+        "vs.glsl",
+        "vsh",
+        "wgsl"
+      ]
+    },
+    {
+      "name": "skill",
+      "from": "sf:lightbulb.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "skill",
+        "skill.md",
+        "skills.md"
+      ]
+    },
+    {
+      "name": "subtitles",
+      "from": "sf:rectangle.bottomthird.inset.filled",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "ass",
+        "dfxp",
+        "sbv",
+        "srt",
+        "ssa",
+        "sub",
+        "subtitles",
+        "ttml",
+        "vtt"
+      ]
+    },
+    {
+      "name": "table",
+      "from": "sf:tablecells",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "csv",
+        "ods",
+        "plist",
+        "psv",
+        "table",
+        "tsv",
+        "xls",
+        "xlsm",
+        "xlsx"
+      ]
+    },
+    {
+      "name": "test-js",
+      "from": "sf:testtube.2",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "cjs.snap",
+        "cts.snap",
+        "cy.js",
+        "cy.jsx",
+        "cy.ts",
+        "cy.tsx",
+        "e2e-spec.cjs",
+        "e2e-spec.cts",
+        "e2e-spec.js",
+        "e2e-spec.mjs",
+        "e2e-spec.mts",
+        "e2e-spec.ts",
+        "js.snap",
+        "jsx.snap",
+        "mjs.snap",
+        "mts.snap",
+        "spec-d.ts",
+        "spec-d.tsx",
+        "spec.cjs",
+        "spec.cts",
+        "spec.js",
+        "spec.jsx",
+        "spec.mjs",
+        "spec.mts",
+        "spec.ts",
+        "spec.tsx",
+        "test-d.ts",
+        "test-d.tsx",
+        "test-js",
+        "test-jsx",
+        "test-ts",
+        "test.cjs",
+        "test.cts",
+        "test.js",
+        "test.jsx",
+        "test.mjs",
+        "test.mts",
+        "test.ts",
+        "test.tsx",
+        "ts.snap",
+        "tsx.snap"
+      ]
+    },
+    {
+      "name": "todo",
+      "from": "sf:checkmark.circle.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "todo",
+        "todo.md",
+        "todos.md"
+      ]
+    },
+    {
+      "name": "tune",
+      "from": "sf:slider.horizontal.3",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        ".dev.vars",
+        ".env.alpha",
+        ".env.defaults",
+        ".env.dev",
+        ".env.dev.local",
+        ".env.development",
+        ".env.development.local",
+        ".env.dist",
+        ".env.e2e",
+        ".env.example",
+        ".env.local",
+        ".env.preprod",
+        ".env.preview",
+        ".env.prod",
+        ".env.prod.example",
+        ".env.prod.local",
+        ".env.production",
+        ".env.production.example",
+        ".env.production.local",
+        ".env.qa",
+        ".env.qa.local",
+        ".env.sample",
+        ".env.schema",
+        ".env.stage",
+        ".env.staging",
+        ".env.staging.local",
+        ".env.stg",
+        ".env.stg.local",
+        ".env.template",
+        ".env.test",
+        ".env.test.local",
+        ".env.testing",
+        ".env.uat",
+        ".vars",
+        "env",
+        "tune"
+      ]
+    },
+    {
+      "name": "video",
+      "from": "sf:film.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "avi",
+        "flv",
+        "gifv",
+        "m2v",
+        "m4v",
+        "mkv",
+        "mov",
+        "mp2",
+        "mp4",
+        "mpe",
+        "mpeg",
+        "mpg",
+        "mpv",
+        "ogg",
+        "ogv",
+        "qt",
+        "rm",
+        "rmvb",
+        "video",
+        "vob",
+        "webm",
+        "wmv",
+        "yuv"
+      ]
+    },
+    {
+      "name": "virtual",
+      "from": "sf:desktopcomputer",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "vbox",
+        "vbox-prev",
+        "vdi",
+        "virtual"
+      ]
+    },
+    {
+      "name": "xml",
+      "from": "sf:chevron.left.forwardslash.chevron.right",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "ascx",
+        "atom",
+        "axaml",
+        "axml",
+        "bpmn",
+        "csproj.user",
+        "dita",
+        "ditamap",
+        "dmn",
+        "dtd",
+        "dtml",
+        "ent",
+        "fxml",
+        "iml",
+        "isml",
+        "jmx",
+        "jrxml",
+        "launch",
+        "manifest",
+        "menu",
+        "opml",
+        "owl",
+        "proj",
+        "project",
+        "publishsettings",
+        "pubxml",
+        "pubxml.user",
+        "rdf",
+        "resx",
+        "rlx",
+        "rng",
+        "rss",
+        "shproj",
+        "storyboard",
+        "targets",
+        "tld",
+        "tmlanguage",
+        "tmx",
+        "vbproj",
+        "vbproj.user",
+        "wsdl",
+        "wxi",
+        "wxl",
+        "wxs",
+        "xaml",
+        "xamlstyler.json",
+        "xbl",
+        "xib",
+        "xliff",
+        "xml",
+        "xml.dist",
+        "xml.dist.sample",
+        "xmp",
+        "xoml",
+        "xpdl",
+        "xquery",
+        "xsd",
+        "xsl",
+        "xslt",
+        "xul"
+      ]
+    },
+    {
+      "name": "zip",
+      "from": "sf:archivebox.fill",
+      "reason": "Native SF Symbol replaces generic third-party file artwork.",
+      "rendering": "monochrome",
+      "category": "Native file types",
+      "matches": [
+        "001",
+        "7z",
+        "apfs",
+        "arj",
+        "br",
+        "brotli",
+        "bz2",
+        "bzip2",
+        "cab",
+        "cpio",
+        "deb",
+        "esd",
+        "far",
+        "fat",
+        "gz",
+        "gzip",
+        "hfs",
+        "lha",
+        "liz",
+        "lz",
+        "lz4",
+        "lz5",
+        "lzh",
+        "lzma",
+        "lzma2",
+        "ntfs",
+        "rar",
+        "rpm",
+        "squashfs",
+        "swm",
+        "tar",
+        "taz",
+        "tbz",
+        "tbz2",
+        "tgz",
+        "tlz",
+        "tpz",
+        "txz",
+        "tz",
+        "tzst",
+        "tzstd",
+        "wim",
+        "xar",
+        "xz",
+        "z",
+        "zip",
+        "zst",
+        "zstd"
+      ]
+    },
+    {
+      "name": "abap",
+      "from": "icons-creation/icons/abap.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "abap",
+        "acds",
+        "asddls"
+      ]
+    },
+    {
+      "name": "actionscript",
+      "from": "icons-creation/icons/actionscript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "actionscript",
+        "as"
+      ]
+    },
+    {
+      "name": "ada",
+      "from": "simple-icons/icons/ada.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ada",
+        "adb",
+        "ads",
+        "ali"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "adobe-illustrator",
+      "from": "icons-creation/icons/adobe-illustrator.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "adobe-illustrator",
+        "ai",
+        "ait"
+      ]
+    },
+    {
+      "name": "adobe-photoshop",
+      "from": "icons-creation/icons/adobe-photoshop.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "adobe-photoshop",
+        "psb",
+        "psd",
+        "psdt"
+      ]
+    },
+    {
+      "name": "adobe-swc",
+      "from": "icons-creation/icons/adobe-swc.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "adobe-swc",
+        "swc"
+      ]
+    },
+    {
+      "name": "adonis",
+      "from": "simple-icons/icons/adonisjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".adonisrc.json",
+        "ace",
+        "adonis"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "advpl",
+      "from": "icons-creation/icons/advpl.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "advpl",
+        "prw",
+        "prx"
+      ]
+    },
+    {
+      "name": "amplify",
+      "from": "icons-creation/icons/amplify.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "amplify",
+        "amplify.yml"
+      ]
+    },
+    {
+      "name": "android",
+      "from": "simple-icons/icons/android.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "android",
+        "androidmanifest.xml",
+        "apk",
+        "dex",
+        "smali"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "antlr",
+      "from": "icons-creation/icons/antlr.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "antlr",
+        "g4"
+      ]
+    },
+    {
+      "name": "apiblueprint",
+      "from": "icons-creation/icons/apiblueprint.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "apib",
+        "apiblueprint"
+      ]
+    },
+    {
+      "name": "apollo",
+      "from": "simple-icons/icons/apollographql.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "apollo",
+        "apollo.config.js"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "applescript",
+      "from": "icons-creation/icons/applescript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "applescript",
+        "ipa"
+      ]
+    },
+    {
+      "name": "apps-script",
+      "from": "simple-icons/icons/googleappsscript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "apps-script",
+        "gs"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "appveyor",
+      "from": "simple-icons/icons/appveyor.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".appveyor.yml",
+        "appveyor",
+        "appveyor.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "appwrite",
+      "from": "simple-icons/icons/appwrite.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "appwrite",
+        "appwrite.js",
+        "appwrite.json",
+        "appwrite.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "arduino",
+      "from": "simple-icons/icons/arduino.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "arduino",
+        "ino"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "asciidoc",
+      "from": "icons-creation/icons/asciidoc.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ad",
+        "adoc",
+        "asciidoc"
+      ],
+      "reason": "Keep the exact language/tool identity; avoid a similarly named or parent brand."
+    },
+    {
+      "name": "astro",
+      "from": "simple-icons/icons/astro.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "astro"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "astyle",
+      "from": "icons-creation/icons/astyle.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".astylerc",
+        "astyle"
+      ]
+    },
+    {
+      "name": "aurelia",
+      "from": "simple-icons/icons/aurelia.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "aurelia",
+        "aurelia.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "auto",
+      "from": "icons-creation/icons/auto.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".autorc",
+        "auto",
+        "auto-config.js",
+        "auto-config.json",
+        "auto-config.ts",
+        "auto-config.yaml",
+        "auto-config.yml",
+        "auto.config.js",
+        "auto.config.ts"
+      ]
+    },
+    {
+      "name": "autohotkey",
+      "from": "simple-icons/icons/autohotkey.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ahk",
+        "autohotkey"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "autoit",
+      "from": "simple-icons/icons/autoit.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "au3",
+        "autoit"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "azure",
+      "from": "icons-creation/icons/azure.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "azcli",
+        "azure"
+      ]
+    },
+    {
+      "name": "azure-pipelines",
+      "from": "icons-creation/icons/azure-pipelines.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "azure-pipelines",
+        "azure-pipelines-main.yaml",
+        "azure-pipelines-main.yml",
+        "azure-pipelines.yaml",
+        "azure-pipelines.yml"
+      ]
+    },
+    {
+      "name": "babel",
+      "from": "simple-icons/icons/babel.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "babel",
+        "babel-transform.js"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "ballerina",
+      "from": "icons-creation/icons/ballerina.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "bal",
+        "ballerina",
+        "balx"
+      ]
+    },
+    {
+      "name": "bazel",
+      "from": "simple-icons/icons/bazel.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".bazelignore",
+        ".bazelrc",
+        ".bazelversion",
+        "bazel",
+        "bzl"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "beancount",
+      "from": "icons-creation/icons/beancount.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "bean",
+        "beancount"
+      ]
+    },
+    {
+      "name": "bicep",
+      "from": "icons-creation/icons/bicep.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "bicep"
+      ]
+    },
+    {
+      "name": "biome",
+      "from": "simple-icons/icons/biome.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".biome.json",
+        ".biome.jsonc",
+        "biome",
+        "biome.json",
+        "biome.jsonc"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "bitbucket",
+      "from": "simple-icons/icons/bitbucket.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "bitbucket",
+        "bitbucket-pipelines.yaml",
+        "bitbucket-pipelines.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "bithound",
+      "from": "icons-creation/icons/bithound.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".bithoundrc",
+        "bithound"
+      ]
+    },
+    {
+      "name": "blender",
+      "from": "simple-icons/icons/blender.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "blend",
+        "blend1",
+        "blend2",
+        "blender"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "blink",
+      "from": "icons-creation/icons/blink.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "blink"
+      ]
+    },
+    {
+      "name": "blitz",
+      "from": "icons-creation/icons/blitz.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".blitz.config.compiled.js",
+        "blitz",
+        "blitz.config.js",
+        "blitz.config.ts"
+      ]
+    },
+    {
+      "name": "bower",
+      "from": "simple-icons/icons/bower.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".bowerrc",
+        "bower",
+        "bower.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "brainfuck",
+      "from": "icons-creation/icons/brainfuck.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "b",
+        "bf",
+        "brainfuck"
+      ]
+    },
+    {
+      "name": "browserlist",
+      "from": "icons-creation/icons/browserlist.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".browserslistrc",
+        "browserlist",
+        "browserslist"
+      ]
+    },
+    {
+      "name": "bruno",
+      "from": "icons-creation/icons/bruno.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "bru",
+        "bruno"
+      ],
+      "reason": "Simpler filled base mark stays legible at sidebar size."
+    },
+    {
+      "name": "buck",
+      "from": "icons-creation/icons/buck.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".buckconfig",
+        "buck"
+      ]
+    },
+    {
+      "name": "bucklescript",
+      "from": "icons-creation/icons/bucklescript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "bucklescript",
+        "cmj"
+      ]
+    },
+    {
+      "name": "buildkite",
+      "from": "simple-icons/icons/buildkite.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "buildkite",
+        "buildkite.yaml",
+        "buildkite.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "bun",
+      "from": "simple-icons/icons/bun.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".bun-version",
+        "bun",
+        "bun.lock",
+        "bun.lockb",
+        "bunfig.toml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "c",
+      "from": "simple-icons/icons/c.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "c",
+        "i",
+        "mi"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "c3",
+      "from": "icons-creation/icons/c3.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "c3"
+      ]
+    },
+    {
+      "name": "cabal",
+      "from": "icons-creation/icons/cabal.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cabal",
+        "cabal.project",
+        "cabal.project.freeze",
+        "cabal.project.local"
+      ]
+    },
+    {
+      "name": "caddy",
+      "from": "simple-icons/icons/caddy.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "caddy",
+        "caddyfile"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cadence",
+      "from": "icons-creation/icons/cadence.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cadence",
+        "cdc"
+      ]
+    },
+    {
+      "name": "cairo",
+      "from": "icons-creation/icons/cairo.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cairo"
+      ]
+    },
+    {
+      "name": "cake",
+      "from": "icons-creation/icons/cake.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cake"
+      ]
+    },
+    {
+      "name": "capacitor",
+      "from": "simple-icons/icons/capacitor.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "capacitor",
+        "capacitor.config.json",
+        "capacitor.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "capnp",
+      "from": "icons-creation/icons/capnp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "capnp"
+      ]
+    },
+    {
+      "name": "cds",
+      "from": "icons-creation/icons/cds.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cds"
+      ]
+    },
+    {
+      "name": "chromatic",
+      "from": "simple-icons/icons/chromatic.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "chromatic",
+        "chromatic.config.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "chrome",
+      "from": "simple-icons/icons/googlechrome.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "chrome",
+        "crx"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "circleci",
+      "from": "simple-icons/icons/circleci.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "circle.yml",
+        "circleci"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "clangd",
+      "from": "icons-creation/icons/clangd.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".clangd",
+        "clangd"
+      ]
+    },
+    {
+      "name": "claude",
+      "from": "simple-icons/icons/claude.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "claude",
+        "claude.local.md",
+        "claude.md"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cline",
+      "from": "simple-icons/icons/cline.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".clinerules",
+        "cline"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "clojure",
+      "from": "simple-icons/icons/clojure.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "clj",
+        "cljc",
+        "cljs",
+        "cljx",
+        "clojure",
+        "edn"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cloudfoundry",
+      "from": "simple-icons/icons/cloudfoundry.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".cfignore",
+        "cloudfoundry"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cmake",
+      "from": "simple-icons/icons/cmake.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cmake",
+        "cmakecache.txt",
+        "cmakelists.txt",
+        "cmakepresets.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "coala",
+      "from": "icons-creation/icons/coala.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "coafile",
+        "coala",
+        "coarc"
+      ]
+    },
+    {
+      "name": "cobol",
+      "from": "icons-creation/icons/cobol.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cbl",
+        "cob",
+        "cobol"
+      ]
+    },
+    {
+      "name": "coconut",
+      "from": "icons-creation/icons/coconut.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "coco",
+        "coconut"
+      ]
+    },
+    {
+      "name": "code-climate",
+      "from": "simple-icons/icons/codeclimate.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".codeclimate.yml",
+        "code-climate"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "codecov",
+      "from": "simple-icons/icons/codecov.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".codecov.yaml",
+        ".codecov.yml",
+        "codecov",
+        "codecov.yaml",
+        "codecov.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "coderabbit-ai",
+      "from": "icons-creation/icons/coderabbit-ai.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".coderabbit.yaml",
+        ".coderabbit.yml",
+        "coderabbit-ai"
+      ]
+    },
+    {
+      "name": "coffee",
+      "from": "simple-icons/icons/coffeescript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "coffee",
+        "cson",
+        "iced"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "coldfusion",
+      "from": "icons-creation/curated-glyphs/coldfusion.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cfc",
+        "cfm",
+        "cfml",
+        "coldfusion",
+        "lucee"
+      ],
+      "palette": [
+        "tintColor"
+      ],
+      "reason": "Use the Cf letterforms without the tile, so the border cannot obscure the letters."
+    },
+    {
+      "name": "coloredpetrinets",
+      "from": "icons-creation/icons/coloredpetrinets.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "coloredpetrinets",
+        "cpn",
+        "pnml"
+      ]
+    },
+    {
+      "name": "commitizen",
+      "from": "icons-creation/icons/commitizen.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".cz.json",
+        ".cz.toml",
+        ".cz.yaml",
+        ".cz.yml",
+        ".czrc",
+        "commitizen",
+        "cz.json",
+        "cz.toml",
+        "cz.yaml",
+        "cz.yml"
+      ]
+    },
+    {
+      "name": "commitlint",
+      "from": "simple-icons/icons/commitlint.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".commitlint.yaml",
+        ".commitlint.yml",
+        "commitlint"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "concourse",
+      "from": "simple-icons/icons/concourse.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "concourse",
+        "concourse.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "context",
+      "from": "icons-creation/icons/context.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "context",
+        "ctx"
+      ]
+    },
+    {
+      "name": "copilot",
+      "from": "simple-icons/icons/githubcopilot.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".copilotignore",
+        "copilot",
+        "copilot-instructions.md"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cplusplus",
+      "from": "simple-icons/icons/cplusplus.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "c++",
+        "c++m",
+        "cc",
+        "ccm",
+        "cp",
+        "cpp",
+        "cppm",
+        "cxx",
+        "cxxm",
+        "h.in",
+        "hpp.in",
+        "ii",
+        "ipp",
+        "ixx",
+        "mii",
+        "tpp",
+        "txx"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "crystal",
+      "from": "simple-icons/icons/crystal.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cr",
+        "crystal",
+        "ecr"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "csharp",
+      "from": "icons-creation/icons/csharp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cs",
+        "csharp",
+        "csx"
+      ]
+    },
+    {
+      "name": "css",
+      "from": "simple-icons/icons/css.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "css"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cucumber",
+      "from": "simple-icons/icons/cucumber.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cucumber",
+        "feature",
+        "features"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cuda",
+      "from": "simple-icons/icons/nvidia.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cu",
+        "cubin",
+        "cuda",
+        "cuh",
+        "engine",
+        "fatbin",
+        "plan",
+        "ptx"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cue",
+      "from": "icons-creation/icons/cue.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cue"
+      ]
+    },
+    {
+      "name": "cursor",
+      "from": "simple-icons/icons/cursor.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".cursor",
+        ".cursor.json",
+        ".cursorignore",
+        ".cursorindexingignore",
+        ".cursorrc",
+        ".cursorrules",
+        "cursor"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "cypress",
+      "from": "simple-icons/icons/cypress.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cypress",
+        "cypress.env.json",
+        "cypress.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "d",
+      "from": "simple-icons/icons/d.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "d"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "dart",
+      "from": "simple-icons/icons/dart.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".pubignore",
+        "dart",
+        "dart_generated",
+        "freezed.dart",
+        "g.dart"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "deepsource",
+      "from": "icons-creation/icons/deepsource.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".deepsource.toml",
+        "deepsource"
+      ]
+    },
+    {
+      "name": "denizenscript",
+      "from": "icons-creation/icons/denizenscript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "denizenscript",
+        "dsc"
+      ]
+    },
+    {
+      "name": "deno",
+      "from": "simple-icons/icons/deno.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "deno",
+        "deno.json",
+        "deno.jsonc",
+        "deno.lock"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "dependabot",
+      "from": "simple-icons/icons/dependabot.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "dependabot",
+        "dependabot.yaml",
+        "dependabot.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "dhall",
+      "from": "icons-creation/icons/dhall.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "dhall",
+        "dhallb"
+      ]
+    },
+    {
+      "name": "dinophp",
+      "from": "icons-creation/icons/dinophp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "bubble",
+        "dinophp",
+        "html.bubble",
+        "php.bubble"
+      ]
+    },
+    {
+      "name": "django",
+      "from": "simple-icons/icons/django.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "django",
+        "djt"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "docker",
+      "from": "simple-icons/icons/docker.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "compose.alpha.yaml",
+        "compose.alpha.yml",
+        "compose.beta.yaml",
+        "compose.beta.yml",
+        "compose.ci.yaml",
+        "compose.ci.yml",
+        "compose.dev.yaml",
+        "compose.dev.yml",
+        "compose.development.yaml",
+        "compose.development.yml",
+        "compose.local.yaml",
+        "compose.local.yml",
+        "compose.override.yaml",
+        "compose.override.yml",
+        "compose.prod.yaml",
+        "compose.prod.yml",
+        "compose.production.yaml",
+        "compose.production.yml",
+        "compose.stage.yaml",
+        "compose.stage.yml",
+        "compose.staging.yaml",
+        "compose.staging.yml",
+        "compose.test.yaml",
+        "compose.test.yml",
+        "compose.testing.yaml",
+        "compose.testing.yml",
+        "compose.web.yaml",
+        "compose.web.yml",
+        "compose.worker.yaml",
+        "compose.worker.yml",
+        "compose.yaml",
+        "compose.yml",
+        "containerfile",
+        "containerfile.alpha",
+        "containerfile.beta",
+        "containerfile.ci",
+        "containerfile.dev",
+        "containerfile.development",
+        "containerfile.local",
+        "containerfile.prod",
+        "containerfile.production",
+        "containerfile.stage",
+        "containerfile.staging",
+        "containerfile.test",
+        "containerfile.testing",
+        "containerfile.web",
+        "containerfile.worker",
+        "containerignore",
+        "docker",
+        "docker-compose.alpha.yaml",
+        "docker-compose.alpha.yml",
+        "docker-compose.beta.yaml",
+        "docker-compose.beta.yml",
+        "docker-compose.ci.yaml",
+        "docker-compose.ci.yml",
+        "docker-compose.dev.yaml",
+        "docker-compose.dev.yml",
+        "docker-compose.development.yaml",
+        "docker-compose.development.yml",
+        "docker-compose.local.yaml",
+        "docker-compose.local.yml",
+        "docker-compose.override.yaml",
+        "docker-compose.override.yml",
+        "docker-compose.prod.yaml",
+        "docker-compose.prod.yml",
+        "docker-compose.production.yaml",
+        "docker-compose.production.yml",
+        "docker-compose.stage.yaml",
+        "docker-compose.stage.yml",
+        "docker-compose.staging.yaml",
+        "docker-compose.staging.yml",
+        "docker-compose.test.yaml",
+        "docker-compose.test.yml",
+        "docker-compose.testing.yaml",
+        "docker-compose.testing.yml",
+        "docker-compose.web.yaml",
+        "docker-compose.web.yml",
+        "docker-compose.worker.yaml",
+        "docker-compose.worker.yml",
+        "docker-compose.yaml",
+        "docker-compose.yml",
+        "dockerfile",
+        "dockerfile.alpha",
+        "dockerfile.beta",
+        "dockerfile.ci",
+        "dockerfile.dev",
+        "dockerfile.development",
+        "dockerfile.local",
+        "dockerfile.prod",
+        "dockerfile.production",
+        "dockerfile.stage",
+        "dockerfile.staging",
+        "dockerfile.test",
+        "dockerfile.testing",
+        "dockerfile.web",
+        "dockerfile.windows",
+        "dockerfile.worker",
+        "dockerignore"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "dotjs",
+      "from": "icons-creation/icons/dotjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "def",
+        "dot",
+        "dotjs",
+        "jst"
+      ]
+    },
+    {
+      "name": "drawio",
+      "from": "icons-creation/icons/drawio.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "dio",
+        "drawio"
+      ]
+    },
+    {
+      "name": "drizzle",
+      "from": "simple-icons/icons/drizzle.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "drizzle",
+        "drizzle.config.dev.js",
+        "drizzle.config.dev.json",
+        "drizzle.config.dev.ts",
+        "drizzle.config.js",
+        "drizzle.config.json",
+        "drizzle.config.prod.js",
+        "drizzle.config.prod.json",
+        "drizzle.config.prod.ts",
+        "drizzle.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "drone",
+      "from": "simple-icons/icons/drone.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".drone.yml",
+        "drone",
+        "drone.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "duc",
+      "from": "icons-creation/icons/duc.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "duc",
+        "duc.fbs"
+      ]
+    },
+    {
+      "name": "dune",
+      "from": "icons-creation/icons/dune.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "dune",
+        "dune-project",
+        "dune-workspace",
+        "dune-workspace.dev"
+      ]
+    },
+    {
+      "name": "edge",
+      "from": "icons-creation/icons/edge.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "edge"
+      ]
+    },
+    {
+      "name": "editorconfig",
+      "from": "simple-icons/icons/editorconfig.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".ecrc",
+        ".editorconfig",
+        ".editorconfig-checker.json",
+        "editorconfig"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "ejs",
+      "from": "simple-icons/icons/ejs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ejs"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "elixir",
+      "from": "simple-icons/icons/elixir.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "eex",
+        "elixir",
+        "ex",
+        "exs",
+        "heex",
+        "leex"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "elm",
+      "from": "simple-icons/icons/elm.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "elm"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "ember",
+      "from": "simple-icons/icons/emberdotjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".ember-cli",
+        ".ember-cli.js",
+        "ember",
+        "ember-cli-builds.js"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "erlang",
+      "from": "simple-icons/icons/erlang.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "erl",
+        "erlang"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "eslint",
+      "from": "simple-icons/icons/eslint.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".eslintcache",
+        ".eslintignore",
+        ".eslintrc-jsdoc.js",
+        ".eslintrc-md.js",
+        ".eslintrc.base.json",
+        "eslint",
+        "eslint-options.js"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "excalidraw",
+      "from": "simple-icons/icons/excalidraw.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "excalidraw",
+        "excalidraw.json",
+        "excalidraw.png",
+        "excalidraw.svg"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "expo",
+      "from": "simple-icons/icons/expo.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".easignore",
+        "eas.json",
+        "expo"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "fastlane",
+      "from": "simple-icons/icons/fastlane.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "appfile",
+        "fastfile",
+        "fastlane"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "figma",
+      "from": "simple-icons/icons/figma.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "fig",
+        "figma"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "firebase",
+      "from": "simple-icons/icons/firebase.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".firebaserc",
+        "firebase",
+        "firebase.config.js",
+        "firebase.json",
+        "firestore.indexes.json",
+        "firestore.rules"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "flash",
+      "from": "icons-creation/icons/flash.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "flash",
+        "swf"
+      ]
+    },
+    {
+      "name": "flow",
+      "from": "icons-creation/icons/flow.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".flowconfig",
+        "flow"
+      ]
+    },
+    {
+      "name": "forth",
+      "from": "icons-creation/icons/forth.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "4th",
+        "forth",
+        "frt",
+        "fth"
+      ]
+    },
+    {
+      "name": "fortran",
+      "from": "simple-icons/icons/fortran.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cuf",
+        "f",
+        "f03",
+        "f08",
+        "f77",
+        "f90",
+        "f95",
+        "for",
+        "fortran"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "foxpro",
+      "from": "icons-creation/icons/foxpro.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "foxpro",
+        "fxp",
+        "prg"
+      ]
+    },
+    {
+      "name": "freemarker",
+      "from": "icons-creation/icons/freemarker.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "freemarker",
+        "ftl"
+      ],
+      "reason": "Simpler filled base mark stays legible at sidebar size."
+    },
+    {
+      "name": "fsharp",
+      "from": "simple-icons/icons/fsharp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "fs",
+        "fsharp",
+        "fsi",
+        "fsproj",
+        "fsscript",
+        "fsx"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "fusebox",
+      "from": "icons-creation/icons/fusebox.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "fuse.js",
+        "fusebox"
+      ]
+    },
+    {
+      "name": "gamemaker",
+      "from": "simple-icons/icons/gamemaker.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gamemaker",
+        "gml",
+        "yy",
+        "yyp",
+        "yyz"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "garden",
+      "from": "icons-creation/icons/garden.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".gardenignore",
+        "garden",
+        "garden.yaml",
+        "garden.yml",
+        "project.garden.yaml",
+        "project.garden.yml"
+      ]
+    },
+    {
+      "name": "gatsby",
+      "from": "simple-icons/icons/gatsby.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gatsby",
+        "gatsby-browser.js",
+        "gatsby-browser.tsx",
+        "gatsby-config.js",
+        "gatsby-config.mjs",
+        "gatsby-config.ts",
+        "gatsby-node.js",
+        "gatsby-node.mjs",
+        "gatsby-node.ts",
+        "gatsby-ssr.js",
+        "gatsby-ssr.tsx"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gcp",
+      "from": "simple-icons/icons/googlecloud.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".gcloudignore",
+        "gcp"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gemini-ai",
+      "from": "simple-icons/icons/googlegemini.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".aiexclude",
+        "gemini-ai",
+        "gemini.md"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "git",
+      "from": "simple-icons/icons/git.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".git",
+        ".git-blame-ignore",
+        ".git-blame-ignore-revs",
+        ".git-for-windows-updater",
+        ".gitattributes",
+        ".gitattributes-global",
+        ".gitattributes_global",
+        ".gitconfig",
+        ".gitignore",
+        ".gitignore-global",
+        ".gitignore_global",
+        ".gitinclude",
+        ".gitkeep",
+        ".gitmessage",
+        ".gitmodules",
+        ".gitpreserve",
+        ".keep",
+        "commit_editmsg",
+        "git",
+        "git-history",
+        "git-rebase-todo",
+        "gitconfig",
+        "merge_msg"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "github-sponsors",
+      "from": "simple-icons/icons/githubsponsors.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".github/funding.yml",
+        "github-sponsors"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gitlab",
+      "from": "simple-icons/icons/gitlab.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gitlab",
+        "gitlab-ci.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gitpod",
+      "from": "simple-icons/icons/gitpod.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".gitpod.yml",
+        "gitpod"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gleam",
+      "from": "simple-icons/icons/gleam.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gleam",
+        "gleam.toml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gnubash",
+      "from": "simple-icons/icons/gnubash.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "go",
+      "from": "simple-icons/icons/go.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "go",
+        "go-mod",
+        "go.mod",
+        "go.sum",
+        "go.work",
+        "go.work.sum"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "godot",
+      "from": "simple-icons/icons/godotengine.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "._sc_",
+        ".gdignore",
+        "_sc_",
+        "gd",
+        "gdextension",
+        "gdnlib",
+        "gdns",
+        "gdshader",
+        "gdshaderinc",
+        "godot",
+        "godot-assets",
+        "tres",
+        "tscn"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "google",
+      "from": "simple-icons/icons/google.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "google",
+        "google-services.json",
+        "googleservice-info.plist"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gradle",
+      "from": "simple-icons/icons/gradle.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gradle",
+        "gradle-wrapper.properties",
+        "gradle.properties",
+        "gradlew",
+        "gradlew.bat"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "grafana-alloy",
+      "from": "icons-creation/icons/grafana-alloy.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "alloy",
+        "grafana-alloy"
+      ]
+    },
+    {
+      "name": "grain",
+      "from": "icons-creation/icons/grain.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gr",
+        "grain"
+      ]
+    },
+    {
+      "name": "graphcool",
+      "from": "icons-creation/icons/graphcool.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "graphcool",
+        "project.graphcool"
+      ]
+    },
+    {
+      "name": "graphql",
+      "from": "simple-icons/icons/graphql.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".graphqlconfig",
+        "gql",
+        "graphql"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gridsome",
+      "from": "simple-icons/icons/gridsome.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gridsome",
+        "gridsome.config.js",
+        "gridsome.server.js"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "groovy",
+      "from": "icons-creation/icons/groovy.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "groovy",
+        "gvy"
+      ],
+      "reason": "Simpler filled base mark stays legible at sidebar size."
+    },
+    {
+      "name": "grunt",
+      "from": "simple-icons/icons/grunt.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "grunt",
+        "gruntfile.babel.coffee",
+        "gruntfile.babel.js",
+        "gruntfile.babel.ts",
+        "gruntfile.cjs",
+        "gruntfile.coffee",
+        "gruntfile.cts",
+        "gruntfile.js",
+        "gruntfile.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "gulp",
+      "from": "icons-creation/icons/gulp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gulp",
+        "gulpfile.babel.js",
+        "gulpfile.cjs",
+        "gulpfile.cts",
+        "gulpfile.js",
+        "gulpfile.mjs",
+        "gulpfile.mts",
+        "gulpfile.ts"
+      ],
+      "reason": "Simpler filled base mark stays legible at sidebar size."
+    },
+    {
+      "name": "h",
+      "from": "icons-creation/icons/h.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "h"
+      ]
+    },
+    {
+      "name": "hack",
+      "from": "icons-creation/icons/hack.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".hhconfig",
+        "hack"
+      ]
+    },
+    {
+      "name": "haml",
+      "from": "icons-creation/icons/haml.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "haml"
+      ]
+    },
+    {
+      "name": "handlebars",
+      "from": "simple-icons/icons/handlebarsdotjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "handlebars",
+        "hbs",
+        "hjs",
+        "mustache"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "happo",
+      "from": "icons-creation/icons/happo.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".happo.cjs",
+        ".happo.js",
+        ".happo.mjs",
+        "happo"
+      ]
+    },
+    {
+      "name": "hardhat",
+      "from": "icons-creation/icons/hardhat.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "hardhat",
+        "hardhat.config.js",
+        "hardhat.config.ts"
+      ]
+    },
+    {
+      "name": "harmonix",
+      "from": "icons-creation/icons/harmonix.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "harmonix",
+        "harmonix.config.js",
+        "harmonix.config.ts"
+      ]
+    },
+    {
+      "name": "haskell",
+      "from": "simple-icons/icons/haskell.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "haskell",
+        "hs",
+        "lhs"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "haxe",
+      "from": "icons-creation/icons/haxe.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "haxe",
+        "hx"
+      ],
+      "reason": "Simpler filled base mark stays legible at sidebar size."
+    },
+    {
+      "name": "hcl",
+      "from": "icons-creation/icons/hcl.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "hcl"
+      ],
+      "reason": "Simpler filled base mark stays legible at sidebar size."
+    },
+    {
+      "name": "helm",
+      "from": "simple-icons/icons/helm.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".helmignore",
+        "helm"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "heroku",
+      "from": "icons-creation/icons/heroku.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "heroku",
+        "procfile",
+        "procfile.windows"
+      ]
+    },
+    {
+      "name": "hex",
+      "from": "icons-creation/icons/hex.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "bin",
+        "dat",
+        "elf",
+        "hex",
+        "o"
+      ]
+    },
+    {
+      "name": "hip",
+      "from": "icons-creation/icons/hip.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "hip"
+      ]
+    },
+    {
+      "name": "hjson",
+      "from": "icons-creation/icons/hjson.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "hjson"
+      ]
+    },
+    {
+      "name": "horusec",
+      "from": "icons-creation/icons/horusec.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "horusec",
+        "horusec-config.json"
+      ]
+    },
+    {
+      "name": "hpp",
+      "from": "icons-creation/icons/hpp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "h++",
+        "hh",
+        "hp",
+        "hpp",
+        "hxx",
+        "inl",
+        "tcc"
+      ]
+    },
+    {
+      "name": "html5",
+      "from": "simple-icons/icons/html5.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "asp",
+        "aspx",
+        "htm",
+        "html",
+        "html_vm",
+        "jshtm",
+        "rhtml",
+        "shtml",
+        "volt",
+        "xht",
+        "xhtml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "huff",
+      "from": "icons-creation/icons/huff.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "huff"
+      ]
+    },
+    {
+      "name": "idris",
+      "from": "icons-creation/icons/idris.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ibc",
+        "idr",
+        "idris"
+      ]
+    },
+    {
+      "name": "ifanr-cloud",
+      "from": "icons-creation/icons/ifanr-cloud.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".mincloudrc",
+        ".qa-mincloudrc",
+        "ifanr-cloud"
+      ]
+    },
+    {
+      "name": "imba",
+      "from": "icons-creation/icons/imba.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "imba"
+      ]
+    },
+    {
+      "name": "ionic",
+      "from": "simple-icons/icons/ionic.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".io-config.json",
+        "ionic",
+        "ionic.config.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "istanbul",
+      "from": "icons-creation/icons/istanbul.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".istanbul.yml",
+        ".nycrc",
+        ".nycrc.json",
+        ".nycrc.yaml",
+        ".nycrc.yml",
+        "istanbul",
+        "nyc.config.cjs",
+        "nyc.config.js"
+      ]
+    },
+    {
+      "name": "java",
+      "from": "icons-creation/icons/java.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "class",
+        "jar",
+        "jav",
+        "java",
+        "javaclass",
+        "jsp"
+      ]
+    },
+    {
+      "name": "javascript",
+      "from": "simple-icons/icons/javascript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cjs",
+        "es6",
+        "esx",
+        "jakefile",
+        "javascript",
+        "js",
+        "mjs",
+        "pac"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "jenkins",
+      "from": "icons-creation/icons/jenkins.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "jenkins",
+        "jenkinsfile"
+      ],
+      "reason": "Simpler filled base mark stays legible at sidebar size."
+    },
+    {
+      "name": "jest",
+      "from": "simple-icons/icons/jest.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".jestrc",
+        ".jestrc.js",
+        ".jestrc.json",
+        "jest",
+        "jest-e2e.config.cjs",
+        "jest-e2e.config.cts",
+        "jest-e2e.config.js",
+        "jest-e2e.config.json",
+        "jest-e2e.config.mjs",
+        "jest-e2e.config.mts",
+        "jest-e2e.config.ts",
+        "jest-e2e.json",
+        "jest-github-actions-reporter.js",
+        "jest-preset.cjs",
+        "jest-preset.js",
+        "jest-preset.json",
+        "jest-preset.mjs",
+        "jest-unit.config.js",
+        "jest.config.cjs",
+        "jest.config.cts",
+        "jest.config.js",
+        "jest.config.json",
+        "jest.config.mjs",
+        "jest.config.mts",
+        "jest.config.ts",
+        "jest.e2e.config.cjs",
+        "jest.e2e.config.cts",
+        "jest.e2e.config.js",
+        "jest.e2e.config.json",
+        "jest.e2e.config.mjs",
+        "jest.e2e.config.mts",
+        "jest.e2e.config.ts",
+        "jest.e2e.json",
+        "jest.json",
+        "jest.preset.cjs",
+        "jest.preset.js",
+        "jest.preset.json",
+        "jest.preset.mjs",
+        "jest.setup.js",
+        "jest.setup.ts",
+        "jest.teardown.js"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "jinja",
+      "from": "simple-icons/icons/jinja.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "j2",
+        "jinja",
+        "jinja-html",
+        "jinja2"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "jsr",
+      "from": "simple-icons/icons/jsr.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "jsr",
+        "jsr.json",
+        "jsr.jsonc"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "julia",
+      "from": "simple-icons/icons/julia.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "jl",
+        "julia"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "jupyter",
+      "from": "simple-icons/icons/jupyter.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ipynb",
+        "jupyter"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "just",
+      "from": "simple-icons/icons/just.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".justfile",
+        "just",
+        "justfile"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "karma",
+      "from": "icons-creation/icons/karma.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "karma",
+        "karma-main.js",
+        "karma-main.ts",
+        "karma.conf.coffee",
+        "karma.conf.js",
+        "karma.conf.ts",
+        "karma.config.js",
+        "karma.config.ts"
+      ]
+    },
+    {
+      "name": "kcl",
+      "from": "icons-creation/icons/kcl.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "k",
+        "kcl",
+        "kcl.mod",
+        "kcl.yaml",
+        "kcl.yml"
+      ]
+    },
+    {
+      "name": "keystatic",
+      "from": "icons-creation/icons/keystatic.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "keystatic",
+        "keystatic.config.js",
+        "keystatic.config.jsx",
+        "keystatic.config.ts",
+        "keystatic.config.tsx"
+      ],
+      "reason": "Use the monochrome logo outline; source gradient colors are not part of this treatment."
+    },
+    {
+      "name": "kivy",
+      "from": "icons-creation/icons/kivy.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "kivy",
+        "kv"
+      ]
+    },
+    {
+      "name": "kl",
+      "from": "icons-creation/icons/kl.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".kl",
+        "kl"
+      ]
+    },
+    {
+      "name": "knip",
+      "from": "simple-icons/icons/knip.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".knip.json",
+        ".knip.jsonc",
+        "knip",
+        "knip.config.js",
+        "knip.config.ts",
+        "knip.js",
+        "knip.json",
+        "knip.jsonc",
+        "knip.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "kotlin",
+      "from": "simple-icons/icons/kotlin.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "kotlin",
+        "kt",
+        "kts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "kubernetes",
+      "from": "simple-icons/icons/kubernetes.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".k8s.yaml",
+        ".k8s.yml",
+        "k8s.yaml",
+        "k8s.yml",
+        "kubernetes",
+        "kubernetes.yaml",
+        "kubernetes.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "kusto",
+      "from": "icons-creation/icons/kusto.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "kql",
+        "kusto"
+      ]
+    },
+    {
+      "name": "laravel",
+      "from": "simple-icons/icons/laravel.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "artisan",
+        "blade.php",
+        "inky.php",
+        "laravel"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "lean",
+      "from": "icons-creation/icons/lean.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "lean"
+      ]
+    },
+    {
+      "name": "lefthook",
+      "from": "simple-icons/icons/lefthook.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".lefthook-local.json",
+        ".lefthook-local.toml",
+        ".lefthook-local.yaml",
+        ".lefthook-local.yml",
+        ".lefthook.json",
+        ".lefthook.toml",
+        ".lefthook.yaml",
+        ".lefthook.yml",
+        ".lefthookrc",
+        "lefthook",
+        "lefthook-local.json",
+        "lefthook-local.toml",
+        "lefthook-local.yaml",
+        "lefthook-local.yml",
+        "lefthook.json",
+        "lefthook.toml",
+        "lefthook.yaml",
+        "lefthook.yml",
+        "lefthookrc"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "lerna",
+      "from": "simple-icons/icons/lerna.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "lerna",
+        "lerna.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "less",
+      "from": "simple-icons/icons/less.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "less"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "liara",
+      "from": "icons-creation/icons/liara.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".liaraignore",
+        "liara",
+        "liara.json"
+      ],
+      "reason": "Use the monochrome logo outline; source gradient colors are not part of this treatment."
+    },
+    {
+      "name": "lighthouse",
+      "from": "simple-icons/icons/lighthouse.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".lighthouserc.cjs",
+        ".lighthouserc.js",
+        ".lighthouserc.json",
+        ".lighthouserc.yaml",
+        ".lighthouserc.yml",
+        "lighthouse",
+        "lighthouserc.cjs",
+        "lighthouserc.js",
+        "lighthouserc.json",
+        "lighthouserc.yaml",
+        "lighthouserc.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "lintstaged",
+      "from": "icons-creation/icons/lintstaged.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".lintstagedrc",
+        ".lintstagedrc.cjs",
+        ".lintstagedrc.js",
+        ".lintstagedrc.json",
+        ".lintstagedrc.mjs",
+        ".lintstagedrc.yaml",
+        ".lintstagedrc.yml",
+        "lint-staged.config.cjs",
+        "lint-staged.config.js",
+        "lint-staged.config.mjs",
+        "lint-staged.config.ts",
+        "lintstaged"
+      ]
+    },
+    {
+      "name": "liquid",
+      "from": "icons-creation/icons/liquid.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "liquid"
+      ],
+      "reason": "Keep the exact language/tool identity; avoid a similarly named or parent brand."
+    },
+    {
+      "name": "lisp",
+      "from": "icons-creation/icons/lisp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cl",
+        "el",
+        "fast",
+        "lisp",
+        "lsp"
+      ]
+    },
+    {
+      "name": "livescript",
+      "from": "icons-creation/icons/livescript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "livescript",
+        "ls"
+      ]
+    },
+    {
+      "name": "lolcode",
+      "from": "icons-creation/icons/lolcode.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "lol",
+        "lolcode"
+      ]
+    },
+    {
+      "name": "lottie",
+      "from": "icons-creation/icons/lottie.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "lottie"
+      ]
+    },
+    {
+      "name": "lua",
+      "from": "icons-creation/icons/lua.svg",
+      "rendering": "monochrome",
+      "reason": "Removes the tiny wordmark and dotted orbit.",
+      "category": "Languages and tools",
+      "matches": [
+        ".luacheckrc",
+        "lua"
+      ]
+    },
+    {
+      "name": "luau",
+      "from": "simple-icons/icons/luau.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".luaurc",
+        "luau"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "macaulay2",
+      "from": "icons-creation/icons/macaulay2.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "m2",
+        "macaulay2"
+      ]
+    },
+    {
+      "name": "markojs",
+      "from": "icons-creation/icons/markojs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "marko",
+        "markojs"
+      ]
+    },
+    {
+      "name": "mathematica",
+      "from": "icons-creation/icons/mathematica.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "mathematica",
+        "nb"
+      ]
+    },
+    {
+      "name": "matlab",
+      "from": "icons-creation/icons/matlab.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "m",
+        "matlab"
+      ]
+    },
+    {
+      "name": "maven",
+      "from": "simple-icons/icons/apachemaven.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "jvm.config",
+        "maven",
+        "maven.config",
+        "pom.xml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "mercurial",
+      "from": "simple-icons/icons/mercurial.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".hg",
+        ".hgflow",
+        ".hgignore",
+        ".hgrc",
+        ".hgtags",
+        "hgrc",
+        "mercurial",
+        "mercurial.ini"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "merlin",
+      "from": "icons-creation/icons/merlin.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "merlin"
+      ]
+    },
+    {
+      "name": "mermaid",
+      "from": "simple-icons/icons/mermaid.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "mermaid",
+        "mmd"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "meson",
+      "from": "icons-creation/icons/meson.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "meson",
+        "meson.build",
+        "meson.options",
+        "meson_options.txt",
+        "wrap"
+      ]
+    },
+    {
+      "name": "metro",
+      "from": "simple-icons/icons/metro.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "metro",
+        "metro.config.cjs",
+        "metro.config.cts",
+        "metro.config.js",
+        "metro.config.json",
+        "metro.config.mjs",
+        "metro.config.mts",
+        "metro.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "minecraft",
+      "from": "icons-creation/icons/minecraft.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".mcattributes",
+        ".mcdefinitions",
+        ".mcignore",
+        "mca",
+        "mcaddon",
+        "mcfunction",
+        "mcgame",
+        "mclevel",
+        "mcmeta",
+        "mcpack",
+        "mcproject",
+        "mcr",
+        "mcstructure",
+        "mctemplate",
+        "mcworld",
+        "mine",
+        "minecraft",
+        "mus"
+      ]
+    },
+    {
+      "name": "minecraft-fabric",
+      "from": "icons-creation/icons/minecraft-fabric.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "fabric.mod.json",
+        "minecraft-fabric"
+      ]
+    },
+    {
+      "name": "mint",
+      "from": "icons-creation/icons/mint.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "mint"
+      ]
+    },
+    {
+      "name": "mjml",
+      "from": "icons-creation/icons/mjml.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".mjmlconfig",
+        "mjml"
+      ]
+    },
+    {
+      "name": "mocha",
+      "from": "simple-icons/icons/mocha.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".mocharc.cjs",
+        ".mocharc.js",
+        ".mocharc.json",
+        ".mocharc.jsonc",
+        ".mocharc.yaml",
+        ".mocharc.yml",
+        "mocha",
+        "mocha.opts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "modernizr",
+      "from": "icons-creation/icons/modernizr.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".modernizrrc",
+        ".modernizrrc.js",
+        ".modernizrrc.json",
+        "modernizr"
+      ]
+    },
+    {
+      "name": "mojo",
+      "from": "icons-creation/icons/mojo.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "mojo",
+        "\ud83d\udd25"
+      ]
+    },
+    {
+      "name": "moon",
+      "from": "icons-creation/icons/moon.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "moon",
+        "moon.yml"
+      ]
+    },
+    {
+      "name": "moonscript",
+      "from": "icons-creation/icons/moonscript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "moon",
+        "moonscript"
+      ]
+    },
+    {
+      "name": "mrpack",
+      "from": "simple-icons/icons/modrinth.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "mrpack"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nano-staged",
+      "from": "icons-creation/icons/nano-staged.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".nano-staged.cjs",
+        ".nano-staged.js",
+        ".nano-staged.json",
+        ".nano-staged.mjs",
+        ".nanostagedrc",
+        "nano-staged",
+        "nano-staged.cjs",
+        "nano-staged.js",
+        "nano-staged.json",
+        "nano-staged.mjs"
+      ]
+    },
+    {
+      "name": "ndst",
+      "from": "icons-creation/icons/ndst.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ndst",
+        "ndst.json",
+        "ndst.yaml",
+        "ndst.yml"
+      ]
+    },
+    {
+      "name": "nest",
+      "from": "simple-icons/icons/nestjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".nest-cli.json",
+        ".nestconfig.json",
+        "nest",
+        "nest-cli.json",
+        "nestconfig.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "netlify",
+      "from": "simple-icons/icons/netlify.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "netlify",
+        "netlify.json",
+        "netlify.toml",
+        "netlify.yaml",
+        "netlify.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "next",
+      "from": "simple-icons/icons/nextdotjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "next",
+        "next.config.js",
+        "next.config.mjs",
+        "next.config.mts",
+        "next.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nginx",
+      "from": "simple-icons/icons/nginx.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "nginx",
+        "nginx.conf",
+        "nginxconf",
+        "nginxconfig"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nim",
+      "from": "simple-icons/icons/nim.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "nim",
+        "nimble"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nixos",
+      "from": "simple-icons/icons/nixos.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "nix"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nodedotjs",
+      "from": "simple-icons/icons/nodedotjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".esmrc",
+        ".node-version",
+        ".nvmrc",
+        "nodejs",
+        "package-lock.json",
+        "package.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nodemon",
+      "from": "simple-icons/icons/nodemon.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "nodemon",
+        "nodemon-debug.json",
+        "nodemon.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "npm",
+      "from": "simple-icons/icons/npm.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".npmignore",
+        ".npmrc",
+        "npm"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nuget",
+      "from": "simple-icons/icons/nuget.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".nuspec",
+        "nuget",
+        "nuget.config",
+        "nuget.exe",
+        "nupkg",
+        "nuspec"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nunjucks",
+      "from": "simple-icons/icons/nunjucks.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "njk",
+        "nunjucks"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nuxt",
+      "from": "simple-icons/icons/nuxt.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".nuxtignore",
+        ".nuxtrc",
+        "nuxt",
+        "nuxt.config.js",
+        "nuxt.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "nx",
+      "from": "simple-icons/icons/nx.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".nxignore",
+        "nx",
+        "nx.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "objective-cpp",
+      "from": "icons-creation/icons/objective-cpp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "mm",
+        "objective-cpp"
+      ]
+    },
+    {
+      "name": "ocaml",
+      "from": "simple-icons/icons/ocaml.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cmx",
+        "ml",
+        "mli",
+        "ocaml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "odin",
+      "from": "simple-icons/icons/odin.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "odin"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "onnx",
+      "from": "simple-icons/icons/onnx.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "onnx"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "opa",
+      "from": "icons-creation/icons/opa.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "opa",
+        "rego"
+      ]
+    },
+    {
+      "name": "opam",
+      "from": "icons-creation/icons/opam.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "opam"
+      ]
+    },
+    {
+      "name": "openapi",
+      "from": "simple-icons/icons/openapiinitiative.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "openapi",
+        "openapi.json",
+        "openapi.yaml",
+        "openapi.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "opencode",
+      "from": "simple-icons/icons/opencode.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "opencode",
+        "opencode.json",
+        "opencode.jsonc"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "opentofu",
+      "from": "simple-icons/icons/opentofu.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "opentofu",
+        "tofu"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "otne",
+      "from": "icons-creation/icons/otne.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "otne"
+      ]
+    },
+    {
+      "name": "oxc",
+      "from": "simple-icons/icons/oxc.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".oxfmtrc.json",
+        ".oxfmtrc.jsonc",
+        ".oxlintrc.json",
+        ".oxlintrc.jsonc",
+        "oxc",
+        "oxfmt.config.ts",
+        "oxlint.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "packship",
+      "from": "icons-creation/icons/packship.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".packshiprc",
+        ".packshiprc.js",
+        ".packshiprc.json",
+        ".packshiprc.ts",
+        "packship",
+        "packship.config.js",
+        "packship.config.json",
+        "packship.config.mjs",
+        "packship.config.mts",
+        "packship.config.ts"
+      ]
+    },
+    {
+      "name": "parcel",
+      "from": "icons-creation/icons/parcel.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".parcelrc",
+        "parcel"
+      ]
+    },
+    {
+      "name": "pascal",
+      "from": "icons-creation/icons/pascal.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "pas",
+        "pascal",
+        "pp"
+      ]
+    },
+    {
+      "name": "pawn",
+      "from": "icons-creation/icons/pawn.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "amx",
+        "pawn",
+        "pwn"
+      ]
+    },
+    {
+      "name": "payload",
+      "from": "simple-icons/icons/payloadcms.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "payload",
+        "payload.config.js",
+        "payload.config.mjs",
+        "payload.config.mts",
+        "payload.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "pdm",
+      "from": "simple-icons/icons/pdm.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".pdm-python",
+        "pdm",
+        "pdm.lock",
+        "pdm.toml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "percy",
+      "from": "simple-icons/icons/percy.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".percy.yml",
+        "percy"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "perl",
+      "from": "simple-icons/icons/perl.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cgi",
+        "perl",
+        "pl",
+        "pm",
+        "pod",
+        "psgi",
+        "raku",
+        "t"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "php",
+      "from": "simple-icons/icons/php.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ctp",
+        "php",
+        "php3",
+        "php4",
+        "php5",
+        "phps",
+        "phtml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "php-cs-fixer",
+      "from": "icons-creation/icons/php-cs-fixer.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".php-cs-fixer.dist.php",
+        ".php-cs-fixer.php",
+        ".php_cs",
+        ".php_cs.dist",
+        ".php_cs.dist.php",
+        ".php_cs.php",
+        "php-cs-fixer"
+      ]
+    },
+    {
+      "name": "phpstan",
+      "from": "icons-creation/icons/phpstan.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "phpstan",
+        "phpstan.dist.neon",
+        "phpstan.neon",
+        "phpstan.neon.dist"
+      ]
+    },
+    {
+      "name": "phpunit",
+      "from": "icons-creation/icons/phpunit.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".phpunit-watcher.yml",
+        ".phpunit.result.cache",
+        "phpunit",
+        "phpunit-watcher.yml",
+        "phpunit-watcher.yml.dist",
+        "phpunit.xml",
+        "phpunit.xml.dist"
+      ]
+    },
+    {
+      "name": "pinejs",
+      "from": "icons-creation/icons/pinejs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "pine",
+        "pinejs"
+      ]
+    },
+    {
+      "name": "pkl",
+      "from": "icons-creation/icons/pkl.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "pkl",
+        "pklproject",
+        "pklproject.deps.json"
+      ]
+    },
+    {
+      "name": "plastic",
+      "from": "icons-creation/icons/plastic.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "plastic",
+        "plastic.branchexplorer",
+        "plastic.selector",
+        "plastic.wktree",
+        "plastic.workspace",
+        "plastic.workspaces"
+      ]
+    },
+    {
+      "name": "playwright",
+      "from": "icons-creation/icons/playwright.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "playwright",
+        "playwright-ct.config.cjs",
+        "playwright-ct.config.cts",
+        "playwright-ct.config.js",
+        "playwright-ct.config.mjs",
+        "playwright-ct.config.mts",
+        "playwright-ct.config.ts",
+        "playwright.config.base.cjs",
+        "playwright.config.base.cts",
+        "playwright.config.base.js",
+        "playwright.config.base.mjs",
+        "playwright.config.base.mts",
+        "playwright.config.base.ts",
+        "playwright.config.cjs",
+        "playwright.config.cts",
+        "playwright.config.js",
+        "playwright.config.mjs",
+        "playwright.config.mts",
+        "playwright.config.ts"
+      ]
+    },
+    {
+      "name": "plop",
+      "from": "icons-creation/icons/plop.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "plop",
+        "plopfile.cjs",
+        "plopfile.js",
+        "plopfile.mjs",
+        "plopfile.ts"
+      ]
+    },
+    {
+      "name": "pnpm",
+      "from": "simple-icons/icons/pnpm.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".pnpmfile.cjs",
+        "pnpm",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "poetry",
+      "from": "simple-icons/icons/poetry.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "poetry",
+        "poetry.lock"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "postcss",
+      "from": "simple-icons/icons/postcss.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "pcss",
+        "postcss",
+        "sss"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "powershell",
+      "from": "icons-creation/icons/powershell.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "powershell",
+        "ps1",
+        "ps1xml",
+        "psc1",
+        "psd1",
+        "psm1",
+        "psrc",
+        "pssc"
+      ]
+    },
+    {
+      "name": "pre-commit",
+      "from": "simple-icons/icons/precommit.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".pre-commit-config.yaml",
+        ".pre-commit-hooks.yaml",
+        "pre-commit"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "prettier",
+      "from": "icons-creation/icons/prettier.svg",
+      "rendering": "monochrome",
+      "reason": "Fewer line segments survive at sidebar size.",
+      "category": "Languages and tools",
+      "matches": [
+        ".prettierignore",
+        "prettier"
+      ]
+    },
+    {
+      "name": "prisma",
+      "from": "simple-icons/icons/prisma.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "prisma",
+        "prisma.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "processing",
+      "from": "icons-creation/icons/processing.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "pde",
+        "processing"
+      ]
+    },
+    {
+      "name": "prolog",
+      "from": "icons-creation/icons/prolog.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "p",
+        "pro",
+        "prolog"
+      ]
+    },
+    {
+      "name": "proto",
+      "from": "icons-creation/icons/proto.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "proto"
+      ]
+    },
+    {
+      "name": "protractor",
+      "from": "simple-icons/icons/protractor.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "protractor",
+        "protractor.conf.coffee",
+        "protractor.conf.js",
+        "protractor.conf.ts",
+        "protractor.config.js",
+        "protractor.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "pug",
+      "from": "simple-icons/icons/pug.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".pug-lintrc",
+        ".pug-lintrc.js",
+        ".pug-lintrc.json",
+        "jade",
+        "pug"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "purescript",
+      "from": "simple-icons/icons/purescript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "pure",
+        "purescript",
+        "purs"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "python",
+      "from": "simple-icons/icons/python.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cpy",
+        "gyp",
+        "gypi",
+        "ipy",
+        "py",
+        "pyi",
+        "pyt",
+        "python",
+        "pyw",
+        "rpy"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "pytorch",
+      "from": "simple-icons/icons/pytorch.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "gguf",
+        "pt",
+        "pth",
+        "pwf",
+        "pytorch",
+        "safetensors"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "qsharp",
+      "from": "icons-creation/icons/qsharp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "qs",
+        "qsharp"
+      ]
+    },
+    {
+      "name": "quarto",
+      "from": "simple-icons/icons/quarto.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "qmd",
+        "quarto"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "quasar",
+      "from": "simple-icons/icons/quasar.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "quasar",
+        "quasar.conf.js",
+        "quasar.conf.ts",
+        "quasar.config.cjs",
+        "quasar.config.js",
+        "quasar.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "quokka",
+      "from": "icons-creation/icons/quokka.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "quokka",
+        "quokka.js",
+        "quokka.jsx",
+        "quokka.ts",
+        "quokka.tsx"
+      ]
+    },
+    {
+      "name": "r",
+      "from": "simple-icons/icons/r.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".rhistory",
+        ".rprofile",
+        "r",
+        "rhistory",
+        "rmd",
+        "rprofile",
+        "rt"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "racket",
+      "from": "simple-icons/icons/racket.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "racket",
+        "rkt"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "raml",
+      "from": "icons-creation/icons/raml.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "raml"
+      ]
+    },
+    {
+      "name": "razor",
+      "from": "icons-creation/icons/razor.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cshtml",
+        "razor",
+        "vbhtml"
+      ]
+    },
+    {
+      "name": "rbxmk",
+      "from": "icons-creation/icons/rbxmk.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "rbxmk",
+        "rbxmk.lua",
+        "rbxmk.luau"
+      ]
+    },
+    {
+      "name": "react",
+      "from": "simple-icons/icons/react.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "jsx",
+        "react",
+        "react_ts",
+        "tsx"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "reason",
+      "from": "simple-icons/icons/reason.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "re",
+        "reason",
+        "rei"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "red",
+      "from": "simple-icons/icons/red.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "red"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "remark",
+      "from": "simple-icons/icons/remark.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".remarkignore",
+        ".remarkrc",
+        ".remarkrc.cjs",
+        ".remarkrc.js",
+        ".remarkrc.json",
+        ".remarkrc.mjs",
+        ".remarkrc.yaml",
+        ".remarkrc.yml",
+        "remark"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "remix",
+      "from": "simple-icons/icons/remix.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "remix",
+        "remix.config.js",
+        "remix.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "renovate",
+      "from": "simple-icons/icons/renovate.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".renovaterc",
+        ".renovaterc.json",
+        "renovate",
+        "renovate-config.json",
+        "renovate.json",
+        "renovate.json5"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "replit",
+      "from": "simple-icons/icons/replit.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".replit",
+        "replit"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "rescript",
+      "from": "simple-icons/icons/rescript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "res",
+        "rescript",
+        "rescript-interface",
+        "resi"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "restql",
+      "from": "icons-creation/icons/restql.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "restql",
+        "rql"
+      ]
+    },
+    {
+      "name": "riot",
+      "from": "icons-creation/icons/riot.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "riot",
+        "tag"
+      ]
+    },
+    {
+      "name": "roblox",
+      "from": "simple-icons/icons/roblox.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "rbxl",
+        "rbxlx",
+        "rbxm",
+        "rbxmx",
+        "roblox"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "robotframework",
+      "from": "simple-icons/icons/robotframework.svg",
+      "rendering": "monochrome",
+      "palette": [
+        "tintColor"
+      ],
+      "category": "Languages and tools",
+      "matches": [
+        "robot"
+      ]
+    },
+    {
+      "name": "rocket",
+      "from": "simple-icons/icons/rocket.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".release-it.cjs",
+        ".release-it.js",
+        ".release-it.json",
+        ".release-it.toml",
+        ".release-it.ts",
+        ".release-it.yaml",
+        ".release-it.yml",
+        ".release-plz.toml",
+        "release-plz.toml",
+        "release.toml",
+        "rocket"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "rollup",
+      "from": "simple-icons/icons/rollupdotjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "rollup",
+        "rollup-config.js",
+        "rollup-config.mjs",
+        "rollup-config.ts",
+        "rollup.config.base.js",
+        "rollup.config.base.mjs",
+        "rollup.config.base.ts",
+        "rollup.config.common.js",
+        "rollup.config.common.mjs",
+        "rollup.config.common.ts",
+        "rollup.config.dev.js",
+        "rollup.config.dev.mjs",
+        "rollup.config.dev.ts",
+        "rollup.config.js",
+        "rollup.config.mjs",
+        "rollup.config.prod.js",
+        "rollup.config.prod.mjs",
+        "rollup.config.prod.ts",
+        "rollup.config.prod.vendor.js",
+        "rollup.config.prod.vendor.mjs",
+        "rollup.config.prod.vendor.ts",
+        "rollup.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "rome",
+      "from": "icons-creation/icons/rome.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "rome",
+        "rome.json"
+      ]
+    },
+    {
+      "name": "rspec",
+      "from": "icons-creation/icons/rspec.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".rspec",
+        "rspec"
+      ]
+    },
+    {
+      "name": "rstack",
+      "from": "icons-creation/icons/rstack.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "rslint.json",
+        "rslint.jsonc",
+        "rstack"
+      ]
+    },
+    {
+      "name": "rubocop",
+      "from": "simple-icons/icons/rubocop.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".rubocop-todo.yml",
+        ".rubocop.yml",
+        ".rubocop_todo.yml",
+        "rubocop"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "ruby",
+      "from": "simple-icons/icons/ruby.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".ruby-version",
+        "appraisals",
+        "berksfile",
+        "berksfile.lock",
+        "brewfile",
+        "capfile",
+        "cheffile",
+        "dangerfile",
+        "deliverfile",
+        "erb",
+        "gemfile",
+        "gemspec",
+        "guardfile",
+        "gymfile",
+        "hobofile",
+        "matchfile",
+        "podfile",
+        "podspec",
+        "puppetfile",
+        "rake",
+        "rakefile",
+        "rantfile",
+        "rb",
+        "rbi",
+        "rbs",
+        "rbx",
+        "rjs",
+        "ru",
+        "ruby",
+        "scanfile",
+        "snapfile",
+        "thorfile"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "ruff",
+      "from": "simple-icons/icons/ruff.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".ruff.toml",
+        "ruff",
+        "ruff.toml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "rust",
+      "from": "icons-creation/icons/rust.svg",
+      "rendering": "monochrome",
+      "reason": "Simpler gear has fewer fine teeth at sidebar size.",
+      "category": "Languages and tools",
+      "matches": [
+        "rc",
+        "ron",
+        "rs",
+        "rust"
+      ]
+    },
+    {
+      "name": "salt",
+      "from": "simple-icons/icons/saltproject.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "salt",
+        "sls"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "san",
+      "from": "icons-creation/icons/san.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "san"
+      ]
+    },
+    {
+      "name": "sas",
+      "from": "icons-creation/icons/sas.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ast",
+        "astore",
+        "sas",
+        "sas7bdat",
+        "sashdat",
+        "sast"
+      ]
+    },
+    {
+      "name": "sass",
+      "from": "simple-icons/icons/sass.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "sass",
+        "scss"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "sbt",
+      "from": "icons-creation/icons/sbt.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "sbt"
+      ]
+    },
+    {
+      "name": "scala",
+      "from": "simple-icons/icons/scala.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "sc",
+        "scala"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "scheme",
+      "from": "icons-creation/icons/scheme.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "scheme",
+        "scm",
+        "ss"
+      ]
+    },
+    {
+      "name": "semgrep",
+      "from": "icons-creation/icons/semgrep.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".semgrepignore",
+        "semgrep",
+        "semgrep.yml"
+      ]
+    },
+    {
+      "name": "sentry",
+      "from": "simple-icons/icons/sentry.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".env.sentry-build-plugin",
+        ".sentryclirc",
+        "sentry"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "sequelize",
+      "from": "simple-icons/icons/sequelize.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".sequelizerc",
+        "sequelize"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "serverless",
+      "from": "simple-icons/icons/serverless.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "serverless",
+        "serverless.js",
+        "serverless.json",
+        "serverless.ts",
+        "serverless.yaml",
+        "serverless.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "simulink",
+      "from": "icons-creation/icons/simulink.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "simulink",
+        "slx"
+      ]
+    },
+    {
+      "name": "siyuan",
+      "from": "simple-icons/icons/siyuan.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "siyuan",
+        "sy"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "sketch",
+      "from": "simple-icons/icons/sketch.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "sketch"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "slim",
+      "from": "icons-creation/icons/slim.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "slim"
+      ]
+    },
+    {
+      "name": "slint",
+      "from": "simple-icons/icons/slint.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "60",
+        "slint"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "slug",
+      "from": "icons-creation/icons/slug.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".slugignore",
+        "slug"
+      ]
+    },
+    {
+      "name": "smarty",
+      "from": "icons-creation/icons/smarty.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "smarty",
+        "tpl"
+      ]
+    },
+    {
+      "name": "sml",
+      "from": "icons-creation/icons/sml.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cm",
+        "fun",
+        "grm",
+        "lex",
+        "mlb",
+        "mlton",
+        "sig",
+        "sml",
+        "use"
+      ]
+    },
+    {
+      "name": "snakemake",
+      "from": "icons-creation/icons/snakemake.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "smk",
+        "snakefile",
+        "snakemake"
+      ]
+    },
+    {
+      "name": "snapcraft",
+      "from": "simple-icons/icons/snapcraft.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "snapcraft",
+        "snapcraft.yaml",
+        "snapcraft.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "snowpack",
+      "from": "simple-icons/icons/snowpack.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "snowpack",
+        "snowpack.config.cjs",
+        "snowpack.config.cts",
+        "snowpack.config.js",
+        "snowpack.config.json",
+        "snowpack.config.mjs",
+        "snowpack.config.mts",
+        "snowpack.config.ts",
+        "snowpack.deps.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "snyk",
+      "from": "simple-icons/icons/snyk.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".snyk",
+        "snyk"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "solidity",
+      "from": "simple-icons/icons/solidity.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "sol",
+        "solidity"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "sonarcloud",
+      "from": "simple-icons/icons/sonarqubecloud.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".sonarcloud.properties",
+        "sonar-project.properties",
+        "sonarcloud",
+        "sonarcloud.yaml",
+        "sonarqube.analysis.xml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "spwn",
+      "from": "icons-creation/icons/spwn.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "spwn"
+      ]
+    },
+    {
+      "name": "stackblitz",
+      "from": "simple-icons/icons/stackblitz.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".stackblitzrc",
+        "stackblitz"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "stan",
+      "from": "icons-creation/icons/stan.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "stan"
+      ]
+    },
+    {
+      "name": "steadybit",
+      "from": "icons-creation/icons/steadybit.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".steadybit.yaml",
+        ".steadybit.yml",
+        "steadybit",
+        "steadybit.yaml",
+        "steadybit.yml"
+      ]
+    },
+    {
+      "name": "stencil",
+      "from": "simple-icons/icons/stencil.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "stencil",
+        "stencil.config.js",
+        "stencil.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "stitches",
+      "from": "icons-creation/icons/stitches.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "stitches",
+        "stitches.config.js",
+        "stitches.config.ts"
+      ]
+    },
+    {
+      "name": "storybook",
+      "from": "simple-icons/icons/storybook.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "stories.js",
+        "stories.jsx",
+        "stories.mdx",
+        "stories.svelte",
+        "stories.ts",
+        "stories.tsx",
+        "stories.vue",
+        "story.js",
+        "story.jsx",
+        "story.mdx",
+        "story.ts",
+        "story.tsx",
+        "storybook"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "stryker",
+      "from": "simple-icons/icons/stryker.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".stryker.conf.cjs",
+        ".stryker.conf.js",
+        ".stryker.conf.json",
+        ".stryker.conf.mjs",
+        ".stryker.config.cjs",
+        ".stryker.config.js",
+        ".stryker.config.json",
+        ".stryker.config.mjs",
+        "stryker",
+        "stryker.conf.cjs",
+        "stryker.conf.js",
+        "stryker.conf.json",
+        "stryker.conf.mjs",
+        "stryker.config.cjs",
+        "stryker.config.js",
+        "stryker.config.json",
+        "stryker.config.mjs"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "stylable",
+      "from": "icons-creation/icons/stylable.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "st.css",
+        "stylable"
+      ]
+    },
+    {
+      "name": "stylelint",
+      "from": "simple-icons/icons/stylelint.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".stylelintcache",
+        ".stylelintignore",
+        "stylelint"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "stylus",
+      "from": "simple-icons/icons/stylus.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "styl",
+        "stylus"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "sublime",
+      "from": "simple-icons/icons/sublimetext.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "sublime",
+        "sublime-project",
+        "sublime-workspace"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "supabase",
+      "from": "simple-icons/icons/supabase.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "supabase",
+        "supabase.js",
+        "supabase.py",
+        "supabase.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "svelte",
+      "from": "simple-icons/icons/svelte.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "mdsvex",
+        "svelte",
+        "svx"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "svg",
+      "from": "simple-icons/icons/svg.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "svg"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "svgo",
+      "from": "simple-icons/icons/svgo.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "svgo",
+        "svgo.config.cjs",
+        "svgo.config.js",
+        "svgo.config.mjs"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "swagger",
+      "from": "simple-icons/icons/swagger.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "swagger",
+        "swagger.json",
+        "swagger.yaml",
+        "swagger.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "sway",
+      "from": "icons-creation/icons/sway.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "sw",
+        "sway"
+      ],
+      "reason": "Keep the exact language/tool identity; avoid a similarly named or parent brand."
+    },
+    {
+      "name": "swc",
+      "from": "simple-icons/icons/swc.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "swc",
+        "swcrc"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "swift",
+      "from": "icons-creation/icons/swift.svg",
+      "rendering": "monochrome",
+      "reason": "Bare bird; avoids an app-icon tile nested inside native enclosures.",
+      "category": "Languages and tools",
+      "matches": [
+        ".swift-format",
+        ".swift-version",
+        ".swiftformat",
+        ".xcode-version",
+        "package.swift",
+        "swift",
+        "swiftdeps",
+        "swiftdoc",
+        "swiftinterface",
+        "swiftmodule",
+        "swiftsourceinfo",
+        "xcplayground"
+      ]
+    },
+    {
+      "name": "tailwindcss",
+      "from": "simple-icons/icons/tailwindcss.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "tailwind.config.cjs",
+        "tailwind.config.cts",
+        "tailwind.config.js",
+        "tailwind.config.mjs",
+        "tailwind.config.mts",
+        "tailwind.config.ts",
+        "tailwind.js",
+        "tailwind.ts",
+        "tailwindcss"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "taskfile",
+      "from": "icons-creation/icons/taskfile.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".taskrc.yaml",
+        ".taskrc.yml",
+        "taskfile",
+        "taskfile.dist.yaml",
+        "taskfile.dist.yml",
+        "taskfile.yaml",
+        "taskfile.yml"
+      ]
+    },
+    {
+      "name": "tauri",
+      "from": "simple-icons/icons/tauri.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".taurignore",
+        "tauri",
+        "tauri.conf.json",
+        "tauri.config.json",
+        "tauri.linux.conf.json",
+        "tauri.macos.conf.json",
+        "tauri.windows.conf.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "taze",
+      "from": "icons-creation/icons/taze.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".tazerc",
+        ".tazerc.json",
+        "taze"
+      ]
+    },
+    {
+      "name": "tcl",
+      "from": "icons-creation/icons/tcl.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "do",
+        "tcl"
+      ]
+    },
+    {
+      "name": "teal",
+      "from": "simple-icons/icons/teal.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "teal",
+        "tl"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "templ",
+      "from": "icons-creation/icons/templ.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "templ"
+      ]
+    },
+    {
+      "name": "terraform",
+      "from": "simple-icons/icons/terraform.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "terraform",
+        "terraformignore",
+        "tf",
+        "tf.json",
+        "tfbackend",
+        "tfstate",
+        "tfvars"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "tex",
+      "from": "icons-creation/icons/tex.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "aux",
+        "clo",
+        "cls",
+        "latex",
+        "ltx",
+        "sty",
+        "synctex",
+        "synctex.gz",
+        "tex",
+        "tikz"
+      ]
+    },
+    {
+      "name": "textlint",
+      "from": "icons-creation/icons/textlint.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".textlintignore",
+        ".textlintrc",
+        ".textlintrc.cjs",
+        ".textlintrc.js",
+        ".textlintrc.json",
+        ".textlintrc.yaml",
+        ".textlintrc.yml",
+        "textlint"
+      ]
+    },
+    {
+      "name": "tilt",
+      "from": "icons-creation/icons/tilt.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "tilt",
+        "tiltfile"
+      ]
+    },
+    {
+      "name": "tldraw",
+      "from": "simple-icons/icons/tldraw.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "tldr",
+        "tldraw"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "tobi",
+      "from": "icons-creation/icons/tobi.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "tobi"
+      ]
+    },
+    {
+      "name": "toml",
+      "from": "simple-icons/icons/toml.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "toml",
+        "tosd"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "toon",
+      "from": "icons-creation/icons/toon.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "toon"
+      ]
+    },
+    {
+      "name": "travis",
+      "from": "simple-icons/icons/travisci.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".travis.yml",
+        "travis"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "tsdown",
+      "from": "icons-creation/icons/tsdown.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "tsdown",
+        "tsdown.config",
+        "tsdown.config.cjs",
+        "tsdown.config.cts",
+        "tsdown.config.js",
+        "tsdown.config.json",
+        "tsdown.config.mjs",
+        "tsdown.config.mts",
+        "tsdown.config.ts"
+      ]
+    },
+    {
+      "name": "turborepo",
+      "from": "simple-icons/icons/turborepo.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "turbo.json",
+        "turbo.jsonc",
+        "turborepo"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "twig",
+      "from": "icons-creation/icons/twig.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "twig"
+      ]
+    },
+    {
+      "name": "twine",
+      "from": "icons-creation/icons/twine.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "tw",
+        "twee",
+        "twine"
+      ]
+    },
+    {
+      "name": "typedoc",
+      "from": "icons-creation/icons/typedoc.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "typedoc",
+        "typedoc.js",
+        "typedoc.json"
+      ]
+    },
+    {
+      "name": "typescript",
+      "from": "simple-icons/icons/typescript.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "cts",
+        "mts",
+        "ts",
+        "typescript"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "typst",
+      "from": "simple-icons/icons/typst.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "typ",
+        "typst",
+        "typst.toml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "uiua",
+      "from": "icons-creation/icons/uiua.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ua",
+        "uiua"
+      ]
+    },
+    {
+      "name": "uml",
+      "from": "simple-icons/icons/uml.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "iuml",
+        "plantuml",
+        "pu",
+        "puml",
+        "uml",
+        "wsd"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "unity",
+      "from": "simple-icons/icons/unity.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "unity",
+        "unitypackage"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "unocss",
+      "from": "simple-icons/icons/unocss.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "uno.config.js",
+        "uno.config.mjs",
+        "uno.config.mts",
+        "uno.config.ts",
+        "unocss",
+        "unocss.config.js",
+        "unocss.config.mjs",
+        "unocss.config.mts",
+        "unocss.config.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "uv",
+      "from": "simple-icons/icons/uv.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".uv.toml",
+        "uv",
+        "uv.lock",
+        "uv.toml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "vagrant",
+      "from": "simple-icons/icons/vagrant.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "vagrant",
+        "vagrantfile"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "vala",
+      "from": "simple-icons/icons/vala.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "vala"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "vanilla-extract",
+      "from": "simple-icons/icons/vanillaextract.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "css.cjs",
+        "css.js",
+        "css.jsx",
+        "css.mjs",
+        "css.ts",
+        "css.tsx",
+        "vanilla-extract"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "varnish",
+      "from": "icons-creation/icons/varnish.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "varnish",
+        "vcl"
+      ]
+    },
+    {
+      "name": "vedic",
+      "from": "icons-creation/icons/vedic.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "ved",
+        "veda",
+        "vedic"
+      ]
+    },
+    {
+      "name": "velocity",
+      "from": "icons-creation/icons/velocity.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "fhtml",
+        "velocity",
+        "vm",
+        "vtl"
+      ],
+      "reason": "Keep the exact language/tool identity; avoid a similarly named or parent brand."
+    },
+    {
+      "name": "vercel",
+      "from": "simple-icons/icons/vercel.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".nowignore",
+        ".vercelignore",
+        "now.json",
+        "vercel",
+        "vercel.json",
+        "vercel.ts"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "verdaccio",
+      "from": "simple-icons/icons/verdaccio.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "verdaccio",
+        "verdaccio.yml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "verse",
+      "from": "icons-creation/icons/verse.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "verse"
+      ]
+    },
+    {
+      "name": "vfl",
+      "from": "icons-creation/icons/vfl.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".vfl",
+        "vfl"
+      ],
+      "reason": "Use the monochrome logo outline; source gradient colors are not part of this treatment."
+    },
+    {
+      "name": "vim",
+      "from": "simple-icons/icons/vim.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "exrc",
+        "gvimrc",
+        "vim",
+        "viminfo",
+        "vimrc"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "visualstudio",
+      "from": "icons-creation/icons/visualstudio.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".vsconfig",
+        "bas",
+        "csproj",
+        "ruleset",
+        "sln",
+        "slnf",
+        "slnx",
+        "suo",
+        "vb",
+        "vba",
+        "vbs",
+        "vcxitems",
+        "vcxitems.filters",
+        "vcxproj",
+        "vcxproj.filters",
+        "visualstudio",
+        "wixproj"
+      ]
+    },
+    {
+      "name": "vite",
+      "from": "simple-icons/icons/vite.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "vlang",
+      "from": "simple-icons/icons/v.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "v.mod",
+        "vlang",
+        "vpkg.json"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "vscode",
+      "from": "icons-creation/icons/vscode.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "code-profile",
+        "code-snippets",
+        "code-workplace",
+        "code-workspace",
+        "vscode",
+        "vscodeignore",
+        "vsix",
+        "vsixmanifest"
+      ]
+    },
+    {
+      "name": "vuedotjs",
+      "from": "simple-icons/icons/vuedotjs.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "vue"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "wakatime",
+      "from": "simple-icons/icons/wakatime.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".wakatime-project",
+        "wakatime"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "wallaby",
+      "from": "icons-creation/icons/wallaby.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "wallaby",
+        "wallaby.conf.js",
+        "wallaby.js"
+      ]
+    },
+    {
+      "name": "wally",
+      "from": "icons-creation/icons/wally.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "wally",
+        "wally.toml"
+      ]
+    },
+    {
+      "name": "warp",
+      "from": "simple-icons/icons/warp.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "warp",
+        "warp.md"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "watchman",
+      "from": "icons-creation/icons/watchman.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".watchmanconfig",
+        "watchman"
+      ]
+    },
+    {
+      "name": "webassembly",
+      "from": "simple-icons/icons/webassembly.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "wasm",
+        "wat",
+        "webassembly"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "webhint",
+      "from": "icons-creation/icons/webhint.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".hintrc",
+        "webhint"
+      ]
+    },
+    {
+      "name": "webpack",
+      "from": "simple-icons/icons/webpack.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "webpack",
+        "webpack.config.coffee"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "wepy",
+      "from": "icons-creation/icons/wepy.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "wepy",
+        "wpy"
+      ]
+    },
+    {
+      "name": "werf",
+      "from": "icons-creation/icons/werf.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "werf",
+        "werf-giterminism.yaml",
+        "werf-giterminism.yml",
+        "werf-includes.lock",
+        "werf-includes.yaml",
+        "werf-includes.yml",
+        "werf.yaml",
+        "werf.yml"
+      ]
+    },
+    {
+      "name": "windicss",
+      "from": "icons-creation/icons/windicss.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "windi",
+        "windi.config.cjs",
+        "windi.config.cts",
+        "windi.config.js",
+        "windi.config.json",
+        "windi.config.ts",
+        "windicss"
+      ]
+    },
+    {
+      "name": "wolframlanguage",
+      "from": "simple-icons/icons/wolframlanguage.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "wl",
+        "wls",
+        "wolframlanguage"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "wrangler",
+      "from": "simple-icons/icons/cloudflareworkers.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "wrangler",
+        "wrangler.json",
+        "wrangler.jsonc",
+        "wrangler.toml"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "yang",
+      "from": "icons-creation/icons/yang.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "yang"
+      ]
+    },
+    {
+      "name": "yarn",
+      "from": "simple-icons/icons/yarn.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        ".yarn-integrity",
+        ".yarnclean",
+        ".yarnrc",
+        ".yarnrc.yaml",
+        ".yarnrc.yml",
+        "yarn",
+        "yarn-error.log",
+        "yarn.lock"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "zeabur",
+      "from": "icons-creation/icons/zeabur.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "zeabur"
+      ]
+    },
+    {
+      "name": "zig",
+      "from": "simple-icons/icons/zig.svg",
+      "rendering": "monochrome",
+      "category": "Languages and tools",
+      "matches": [
+        "zig",
+        "zon"
+      ],
+      "palette": [
+        "tintColor"
+      ]
+    },
+    {
+      "name": "astro-config",
+      "from": "sf:shield.fill",
+      "glyph": "simple-icons/icons/astro.svg",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "astro-config",
+        "astro.config.cjs",
+        "astro.config.cts",
+        "astro.config.js",
+        "astro.config.mjs",
+        "astro.config.mts",
+        "astro.config.ts"
+      ]
+    },
+    {
+      "name": "css-map",
+      "from": "sf:doc.fill",
+      "glyph": "simple-icons/icons/css.svg",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "css-map",
+        "css.map"
+      ]
+    },
+    {
+      "name": "dll",
+      "from": "sf:doc.fill",
+      "glyph": "sf:gearshape.fill",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "dll",
+        "ilk",
+        "ko",
+        "so"
+      ]
+    },
+    {
+      "name": "doc.docker",
+      "from": "sf:doc.fill",
+      "glyph": "simple-icons/icons/docker.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "doc.swift",
+      "from": "sf:doc.fill",
+      "glyph": "icons-creation/icons/swift.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.c",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/c.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.cpp",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/cplusplus.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.css",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/css.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.docker",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/docker.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.git",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/git.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.github",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/github.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.go",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/go.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.html",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/html5.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.java",
+      "from": "sf:folder.fill",
+      "glyph": "icons-creation/icons/java.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.kubernetes",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/kubernetes.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.nodejs",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/nodedotjs.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.npm",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/npm.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.python",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/python.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.react",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/react.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.ruby",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/ruby.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.rust",
+      "from": "sf:folder.fill",
+      "glyph": "icons-creation/icons/rust.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.swift",
+      "from": "sf:folder.fill",
+      "glyph": "icons-creation/icons/swift.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.terraform",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/terraform.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.typescript",
+      "from": "sf:folder.fill",
+      "glyph": "icons-creation/curated-glyphs/typescript.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "folder.vue",
+      "from": "sf:folder.fill",
+      "glyph": "simple-icons/icons/vuedotjs.svg",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": []
+    },
+    {
+      "name": "javascript-map",
+      "from": "sf:doc.fill",
+      "glyph": "icons-creation/curated-glyphs/javascript.svg",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "cjs.map",
+        "javascript-map",
+        "js.map",
+        "mjs.map"
+      ]
+    },
+    {
+      "name": "mxml",
+      "from": "sf:doc.fill",
+      "glyph": "sf:chevron.left.forwardslash.chevron.right",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "mxml"
+      ]
+    },
+    {
+      "name": "pdf",
+      "from": "sf:doc.fill",
+      "glyph": "icons-creation/curated-glyphs/pdf.svg",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "pdf"
+      ]
+    },
+    {
+      "name": "powerpoint",
+      "from": "sf:doc.fill",
+      "glyph": "icons-creation/curated-glyphs/powerpoint.svg",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "odp",
+        "potm",
+        "potx",
+        "powerpoint",
+        "ppa",
+        "ppam",
+        "pps",
+        "ppsm",
+        "ppsx",
+        "ppt",
+        "pptm",
+        "pptx"
+      ]
+    },
+    {
+      "name": "python-misc",
+      "from": "sf:doc.fill",
+      "glyph": "simple-icons/icons/python.svg",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        ".coverage",
+        ".coveragerc",
+        ".pylintrc",
+        ".python-version",
+        ".scrapy",
+        "celerybeat-schedule",
+        "celerybeat.pid",
+        "egg",
+        "manifest.in",
+        "pipfile",
+        "py.typed",
+        "pyc",
+        "pylintrc",
+        "pyproject.toml",
+        "python-misc",
+        "requirements.txt",
+        "whl"
+      ]
+    },
+    {
+      "name": "tobimake",
+      "from": "sf:shield.fill",
+      "glyph": "icons-creation/icons/tobi.svg",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        ".tobimake",
+        "tobimake"
+      ]
+    },
+    {
+      "name": "typescript-def",
+      "from": "sf:doc.fill",
+      "glyph": "icons-creation/curated-glyphs/typescript.svg",
+      "reason": "Keep only the identifying glyph; use an Apple enclosure.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "d.cts",
+        "d.ets",
+        "d.mts",
+        "d.ts",
+        "typescript-def"
+      ]
+    },
+    {
+      "name": "word",
+      "from": "sf:doc.fill",
+      "glyph": "icons-creation/curated-glyphs/word.svg",
+      "reason": "User-provided modern W path centered in the native document enclosure; no gradient or logo tile.",
+      "rendering": "monochrome",
+      "category": "Native enclosures",
+      "matches": [
+        "doc",
+        "docm",
+        "docx",
+        "odt",
+        "rtf",
+        "word"
+      ]
+    }
+  ],
+  "review": {
+    "status": "Reviewed selection integrated into the app through Scripts/IconPack/pack.json.",
+    "policy": [
+      "Reuse recognizable base marks from Simple Icons or Material Icon Theme, choosing the clearer silhouette at 16 pt.",
+      "Use Apple SF Symbols for generic file concepts and document/folder enclosures.",
+      "Preserve the author-supplied Markdown and four config shield compositions as drawn.",
+      "Monochrome is the proposed default; the rendering sheet also checks hierarchical, palette and multicolor."
+    ],
+    "source_audit": {
+      "material_sources": 904,
+      "strict_converter_passed": 447,
+      "unsupported_path_attributes": 282,
+      "unsupported_root_attributes": 80,
+      "non_path_artwork": 95
+    },
+    "limitations": [
+      "Brand artwork has one outline reused across weights; conversion does not create optically adjusted SF Symbol weights.",
+      "All 535 Material references in the integrated registry have a reviewed symbol; generic types intentionally share native symbols.",
+      "Enclosed logos lose detail at sidebar size; use standalone base marks for ordinary source files."
+    ],
+    "rebuild": "xcrun swift -module-cache-path /tmp/typenbash-icon-module-cache Scripts/IconPack/IconPack.swift --manifest icons-creation/curated.json --preview \"$PWD/icons-creation/curated-rendering.png\" --review \"$PWD/icons-creation/curated-review.png\" --gallery \"$PWD/icons-creation/review.html\""
+  }
+}

@@ -21,6 +21,9 @@ struct WorkspaceInspector: View {
     @Binding var selection: InspectorTabs
     @Binding var subselection: WritingInspectorSubtabs
     @State private var showsBibPicker = false
+    @State private var editingSnippet: Snippet?
+    /// Sends a snippet to the console of the workspace hosting this inspector.
+    let onRunSnippet: (String) -> Void
 
     var body: some View {
         // A real container, not a Group: Group forwards its modifiers to its
@@ -45,6 +48,8 @@ struct WorkspaceInspector: View {
                             }
                         }
                     }
+                case .snippets:
+                    SnippetsTab(store: session.storedSnippets, onRun: onRunSnippet, editing: $editingSnippet)
                 case .agents:
                     if let agent = session.agent {
                         AgenticChatView(session: agent)
@@ -98,6 +103,10 @@ struct WorkspaceInspector: View {
                 PaneBar(edge: .bottom) {
                     WritingSubtabPicker(selection: $subselection)
                 }
+            } else if selection == .snippets {
+                PaneBar(edge: .bottom) {
+                    SnippetsBarItems(store: session.storedSnippets, onRun: onRunSnippet, editing: $editingSnippet)
+                }
             } else {
                 EmptyView()
             }
@@ -131,12 +140,13 @@ struct WritingSubtabPicker: View {
 }
 
 enum InspectorTabs: String, CaseIterable, Identifiable {
-    case telemtry, process, agents, writing
+    case telemtry, process, snippets, agents, writing
     var id: String { rawValue }
     var title: String {
         switch self {
             case .telemtry: return "Telemetry"
             case .process: return "Processes"
+            case .snippets: return "Snippets"
             case .agents: return "Agents"
             case .writing: return "Writing"
         }
@@ -145,16 +155,18 @@ enum InspectorTabs: String, CaseIterable, Identifiable {
         switch self {
             case .telemtry: return "gauge.with.dots.needle.33percent"
             case .process: return "list.bullet.circle"
+            case .snippets: return "apple.terminal.circle"
             case .agents: return "bubble.circle"
-            case .writing: return "pencil.line"
+            case .writing: return "pencil.circle"
         }
     }
     var nsImage: NSImage? {
         switch self {
             case .telemtry: NSImage(systemSymbolName: "gauge.with.dots.needle.33percent", accessibilityDescription: nil)
             case .process: NSImage(systemSymbolName: "list.bullet.circle", accessibilityDescription: nil)
+            case .snippets: NSImage(systemSymbolName: "apple.terminal.circle", accessibilityDescription: nil)
             case .agents: NSImage(systemSymbolName: "bubble.circle", accessibilityDescription: nil)
-            case .writing: NSImage(systemSymbolName: "pencil.line", accessibilityDescription: nil)
+            case .writing: NSImage(systemSymbolName: "pencil.circle", accessibilityDescription: nil)
         }
     }
 }

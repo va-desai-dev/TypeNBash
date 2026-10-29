@@ -127,7 +127,7 @@ struct ProjectCreationSheet: View {
             .padding(16)
         }
         .frame(width: isEmbedded ? 420 : 560, height: isEmbedded ? 780 : 580)
-        .background(AppTheme.shared.paneBackground)
+        .background(AppTheme.shared.windowBackground)
         .foregroundStyle(isEmbedded ? Color.primary : Color.foreground)
         .tint(Color.accentColor)
         .preferredColorScheme(isEmbedded ? nil : .dark)

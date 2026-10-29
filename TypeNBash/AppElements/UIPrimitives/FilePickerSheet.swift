@@ -73,7 +73,8 @@ struct WorkspaceBrowserSheet<Accessory: View>: View {
                     } icon: {
                         FileTypeIconView(
                             icon: entry.icon,
-                            symbolStyle: Color.accentColor
+                            symbolStyle: Color.accentColor,
+                            renderingMode: entry.url == selectedFile ? .template : .original
                         )
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
