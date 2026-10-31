@@ -26,6 +26,14 @@ nonisolated enum SyntaxDefinition {
     /// Lowercased whole filename → syntax name (e.g. ".htaccess" → "Apache").
     private static let filenameMap: [String: String] = build(\.filenames)
 
+    /// Lowercased interpreter → syntax name (e.g. "bash" → "Shell Script").
+    private static let interpreterMap: [String: String] = build(\.interpreters)
+
+    /// Lowercased syntax name → syntax name (e.g. "python" → "Python").
+    private static let nameMap: [String: String] = rawMap.keys.reduce(into: [:]) { result, name in
+        result[name.lowercased()] = name
+    }
+
     private static let rawMap: [String: MapEntry] = {
         guard
             let url = Bundle.main.url(forResource: "SyntaxMap", withExtension: "json"),
@@ -55,6 +63,14 @@ nonisolated enum SyntaxDefinition {
         if !ext.isEmpty, let name = extensionMap[ext] { return name }
 
         return nil
+    }
+
+    /// The syntax a fenced code block's info string names, or `nil` if none
+    /// applies. Only the first word counts (```python title="x.py"), and it
+    /// may be an extension (`py`), a syntax name (`python`) or an interpreter (`bash`).
+    static func syntaxName(forFenceLanguage language: String?) -> String? {
+        guard let word = language?.split(whereSeparator: \.isWhitespace).first?.lowercased() else { return nil }
+        return extensionMap[word] ?? nameMap[word] ?? interpreterMap[word]
     }
 
     /// Loads the `Syntax` for the given file, or `nil` if no definition matches.

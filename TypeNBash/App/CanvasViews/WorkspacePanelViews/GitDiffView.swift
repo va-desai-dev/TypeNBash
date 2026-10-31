@@ -84,7 +84,7 @@ struct GitDiffRefreshButton: View {
         Button("Refresh", systemImage: "arrow.clockwise") {
             Task { await model.refresh() }
         }
-        .labelStyle(.titleOnly)
+        .buttonStyle(.glassButton)
         .disabled(model.isLoading)
     }
 }
@@ -108,10 +108,10 @@ struct GitDiffStatsLabel: View {
     var body: some View {
         let stats = model.result?.stats ?? GitDiffStats()
         Text("+ \(stats.insertions, format: .number)")
-            .foregroundStyle(Color.green)
+            .foregroundStyle(Color.diffAdded)
             .lineLimit(1)
         Text("- \(stats.deletions, format: .number)")
-            .foregroundStyle(Color.red)
+            .foregroundStyle(Color.diffRemoved)
             .lineLimit(1)
     }
 }

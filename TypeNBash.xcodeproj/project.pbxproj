@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7C3B2C09308DBE71003C1F29 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 7C3B2C08308DBE71003C1F29 /* Sparkle */; };
-		7C56083E3060543F00046F2A /* MarkdownEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56083D3060543F00046F2A /* MarkdownEngine */; };
-		7C5608403060543F00046F2A /* MarkdownEngineCodeBlocks in Frameworks */ = {isa = PBXBuildFile; productRef = 7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */; };
-		7C5608423060543F00046F2A /* MarkdownEngineLatex in Frameworks */ = {isa = PBXBuildFile; productRef = 7C5608413060543F00046F2A /* MarkdownEngineLatex */; };
 		7C8A8B58305CA8EC00FD348E /* SwiftGitX in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8A8B57305CA8EC00FD348E /* SwiftGitX */; };
 		7C97B570306DE31500852A66 /* BibTeXKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C97B56F306DE31500852A66 /* BibTeXKit */; };
 		7C97B572306DE31500852A66 /* BibTeXViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 7C97B571306DE31500852A66 /* BibTeXViewer */; };
@@ -23,6 +20,10 @@
 		7CA595C9305719AD00C0FF4E /* MacUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595C8305719AD00C0FF4E /* MacUI */; };
 		7CA595CC305719BD00C0FF4E /* EditorCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA595CB305719BD00C0FF4E /* EditorCore */; };
 		7CB100033058000300C0FF4E /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 7CB100023058000200C0FF4E /* SwiftTerm */; };
+		7CB9725B30941A570074A41E /* Textual in Frameworks */ = {isa = PBXBuildFile; productRef = 7CB9725C30941A570074A41E /* Textual */; };
+		7CB9725D30941A570074A41E /* SwiftMath in Frameworks */ = {isa = PBXBuildFile; productRef = 7CB9725E30941A570074A41E /* SwiftMath */; };
+		7CB977873094FA9F0074A41E /* MarkdownEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 7CB977863094FA9F0074A41E /* MarkdownEngine */; };
+		7CB9778B3094FA9F0074A41E /* MarkdownEngineLatex in Frameworks */ = {isa = PBXBuildFile; productRef = 7CB9778A3094FA9F0074A41E /* MarkdownEngineLatex */; };
 		C17E00010000000000000001 /* BibTeXKit in Frameworks */ = {isa = PBXBuildFile; productRef = C17E00010000000000000002 /* BibTeXKit */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,10 @@
 		7C4BBA22305BCD5F00B937A5 /* Exceptions for "TypeNBash" folder in "TypeNBash" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"AppResources/MarkdownLineEditor/MarkdownLineEditor-highlight.js",
+				AppResources/MarkdownLineEditor/MarkdownLineEditor.css,
+				AppResources/MarkdownLineEditor/MarkdownLineEditor.html,
+				AppResources/MarkdownLineEditor/MarkdownLineEditor.js,
 				Info.plist,
 			);
 			target = 7C3CC8CD3055BB7300D76564 /* TypeNBash */;
@@ -146,20 +151,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C3B2C09308DBE71003C1F29 /* Sparkle in Frameworks */,
-				7C56083E3060543F00046F2A /* MarkdownEngine in Frameworks */,
 				7CA595C9305719AD00C0FF4E /* MacUI in Frameworks */,
 				7CA595CC305719BD00C0FF4E /* EditorCore in Frameworks */,
 				7C97B570306DE31500852A66 /* BibTeXKit in Frameworks */,
 				7C97B572306DE31500852A66 /* BibTeXViewer in Frameworks */,
 				7CA595C63057198D00C0FF4E /* Syntax in Frameworks */,
+				7CB977873094FA9F0074A41E /* MarkdownEngine in Frameworks */,
 				7CA595C33057192500C0FF4E /* RealModule in Frameworks */,
-				7C5608423060543F00046F2A /* MarkdownEngineLatex in Frameworks */,
 				7CA595BC305718F400C0FF4E /* ColorCode in Frameworks */,
 				7CA595C13057192500C0FF4E /* Numerics in Frameworks */,
 				7CA595BF3057192500C0FF4E /* ComplexModule in Frameworks */,
 				7CB100033058000300C0FF4E /* SwiftTerm in Frameworks */,
-				7C5608403060543F00046F2A /* MarkdownEngineCodeBlocks in Frameworks */,
 				7C8A8B58305CA8EC00FD348E /* SwiftGitX in Frameworks */,
+				7CB9725B30941A570074A41E /* Textual in Frameworks */,
+				7CB9725D30941A570074A41E /* SwiftMath in Frameworks */,
+				7CB9778B3094FA9F0074A41E /* MarkdownEngineLatex in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,12 +251,13 @@
 				7CA595CB305719BD00C0FF4E /* EditorCore */,
 				7CB100023058000200C0FF4E /* SwiftTerm */,
 				7C8A8B57305CA8EC00FD348E /* SwiftGitX */,
-				7C56083D3060543F00046F2A /* MarkdownEngine */,
-				7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */,
-				7C5608413060543F00046F2A /* MarkdownEngineLatex */,
 				7C97B56F306DE31500852A66 /* BibTeXKit */,
 				7C97B571306DE31500852A66 /* BibTeXViewer */,
 				7C3B2C08308DBE71003C1F29 /* Sparkle */,
+				7CB9725C30941A570074A41E /* Textual */,
+				7CB9725E30941A570074A41E /* SwiftMath */,
+				7CB977863094FA9F0074A41E /* MarkdownEngine */,
+				7CB9778A3094FA9F0074A41E /* MarkdownEngineLatex */,
 			);
 			productName = CENTCOM;
 			productReference = 7C3CC8CE3055BB7300D76564 /* TypeNBash.app */;
@@ -311,9 +318,11 @@
 				7CA595C7305719AD00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/MacUI" */,
 				7CA595CA305719BD00C0FF4E /* XCLocalSwiftPackageReference "../CotEditor/Packages/EditorCore" */,
 				7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */,
-				7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */,
 				7C97B56E306DE31500852A66 /* XCLocalSwiftPackageReference "../CiteTexKit" */,
 				7C3B2C07308DBE71003C1F29 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				7CB9725830941A570074A41E /* XCRemoteSwiftPackageReference "textual" */,
+				7CB9725F30941A570074A41E /* XCRemoteSwiftPackageReference "SwiftMath" */,
+				7CB977853094FA9F0074A41E /* XCLocalSwiftPackageReference "../swift-markdown-engine" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7C3CC8CF3055BB7300D76564 /* Products */;
@@ -1068,6 +1077,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../CotEditor/Packages/EditorCore;
 		};
+		7CB977853094FA9F0074A41E /* XCLocalSwiftPackageReference "../swift-markdown-engine" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../swift-markdown-engine";
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1077,14 +1090,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.10.0;
-			};
-		};
-		7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nodes-app/swift-markdown-engine.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.13.0;
 			};
 		};
 		7C8A8B56305CA8EC00FD348E /* XCRemoteSwiftPackageReference "SwiftGitX" */ = {
@@ -1119,6 +1124,22 @@
 				minimumVersion = 1.20.0;
 			};
 		};
+		7CB9725830941A570074A41E /* XCRemoteSwiftPackageReference "textual" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/textual.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+		7CB9725F30941A570074A41E /* XCRemoteSwiftPackageReference "SwiftMath" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mgriebling/SwiftMath";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1126,21 +1147,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7C3B2C07308DBE71003C1F29 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
-		};
-		7C56083D3060543F00046F2A /* MarkdownEngine */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */;
-			productName = MarkdownEngine;
-		};
-		7C56083F3060543F00046F2A /* MarkdownEngineCodeBlocks */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */;
-			productName = MarkdownEngineCodeBlocks;
-		};
-		7C5608413060543F00046F2A /* MarkdownEngineLatex */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C56083C3060543F00046F2A /* XCRemoteSwiftPackageReference "swift-markdown-engine" */;
-			productName = MarkdownEngineLatex;
 		};
 		7C8A8B57305CA8EC00FD348E /* SwiftGitX */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1191,6 +1197,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CB100013058000100C0FF4E /* XCRemoteSwiftPackageReference "SwiftTerm" */;
 			productName = SwiftTerm;
+		};
+		7CB9725C30941A570074A41E /* Textual */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CB9725830941A570074A41E /* XCRemoteSwiftPackageReference "textual" */;
+			productName = Textual;
+		};
+		7CB9725E30941A570074A41E /* SwiftMath */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CB9725F30941A570074A41E /* XCRemoteSwiftPackageReference "SwiftMath" */;
+			productName = SwiftMath;
+		};
+		7CB977863094FA9F0074A41E /* MarkdownEngine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CB977853094FA9F0074A41E /* XCLocalSwiftPackageReference "../swift-markdown-engine" */;
+			productName = MarkdownEngine;
+		};
+		7CB9778A3094FA9F0074A41E /* MarkdownEngineLatex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CB977853094FA9F0074A41E /* XCLocalSwiftPackageReference "../swift-markdown-engine" */;
+			productName = MarkdownEngineLatex;
 		};
 		C17E00010000000000000002 /* BibTeXKit */ = {
 			isa = XCSwiftPackageProductDependency;

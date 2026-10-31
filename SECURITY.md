@@ -1,14 +1,15 @@
 # Privacy Policy
->**Effective Date: October 21, 2026**
 
-Previous versions of this Privacy Policy are available upon request by writing to [vd@vadesai.com](mailto: vd@vadesai.com).
+> **Effective Date: October 21, 2026**
+
+Previous versions of this Privacy Policy are available upon request by writing to [vd@vadesai.com](mailto:vd@vadesai.com).
 
 ## Summary of Key Points
 This summary offers a brief overview. The full Policy follows, and the sections below control in the event of any inconsistency.
 
-1. **What we collect:** The Application does not collect personal information from you. TypeNBash is a macOS application distributed as a DMG and designed to operate entirely locally, so your project content (code, documents, notebooks, and similar material) is kept on your device. The Application does not send us your personal information, usage data, or telemetry. We only receive what you choose to send us, for example, when you email us for support.
+1. **What we collect:** The Application does not collect personal information from you. TypeNBash is a macOS application distributed as a DMG and designed to run entirely locally, so your project content (code, documents, notebooks, and similar material) stays on your device. The Application does not send us your personal information, usage data, or telemetry. We only receive what you choose to send us, for example, when you email us for support.
 
-2. **Sensitive personal information:** We do not collect sensitive personal information. Where you connect a GitHub authorization key, the Application is designed to store it on your device, and we do not receive it or use it for any purpose beyond the function you request.
+2. **Sensitive personal information:** We do not collect sensitive personal information. When you connect a GitHub authorization key, the Application stores it on your device, and we do not receive it or use it for any purpose beyond the function you request.
 
 3. **Third-party sources:** We do not receive personal information about you from third parties. Any integration you choose to enable, such as GitHub or any of your agentic LLM providers if applicable, operates at your direction and under that service's own policies.
 
@@ -17,14 +18,15 @@ This summary offers a brief overview. The full Policy follows, and the sections 
 5. **Who receives it:** We do not disclose personal information to service providers or others, except as described in Section 4. We never sell your personal data, and we do not share it for cross-context behavioral advertising.
 6. **Your rights:** You may access, correct, delete, and obtain a portable copy of any personal data we hold about you, and you may exercise the other rights described in Section 5.
 
-**Contact: [vd@vadesai.com](mailto: vd@vadesai.com), or [https://typenbash.xyz]().**
+**Contact:** [vd@vadesai.com](mailto:vd@vadesai.com)**, or** [https://typenbash.xyz](https://typenbash.xyz)**.**
 
 ## 1. Introduction
-TypeNBash ("TypeNBash," "we," "us," or "our") publishes a multipurpose Integrated Development Environment for macOS (the "Application"). The Application is written in SwiftUI and AppKit for native performance and runs only on macOS. It is distributed directly as a DMG disk image. It supports polyglot projects, including Markdown, LaTeX, software code, and R and Python notebooks for data analysis and research. It includes an integrated console, a WebKit-based preview of localhost applications, optional GitHub integration for source control, or your own optional API provided LLM agents. The Application is designed to be local-first. Your working data resides on your device, in AppStorage and Swift data models, and the Application does not collect personal information on our behalf.
+
+TypeNBash ("TypeNBash," "we," "us," or "our") publishes a multipurpose Integrated Development Environment for macOS (the "Application"). The Application is written in SwiftUI and AppKit for native performance and runs only on macOS. It is distributed directly as a DMG disk image. It supports polyglot projects, including Markdown, LaTeX, software code, and R and Python notebooks for data analysis and research. It includes an integrated console, a WebKit-based preview of localhost applications, optional GitHub integration for source control, and optional API-provided LLM agents. The Application is designed to be local-first. Your working data resides on your device, in AppStorage and Swift data models, and the Application does not collect personal information on our behalf.
 
 We regard privacy as a core attribute of the product. This Privacy Policy (the "Policy") sets out what personal information we receive (which is limited to what you choose to send us), how we use and disclose it, and what rights and choices are available to you. We have drafted it to be read and understood, not merely to be filed.
 
-Scope. This Policy applies to personal information that we receive through the Application (and its packaged CiteTex extension), our website at[](the "Website") [https://typenbash.xyz](), and our related support communications (collectively, the "Services"). It does not govern the practices of third parties, including GitHub, or any application you preview through the Application's WebKit component. Those parties are subject to their own policies.
+Scope. This Policy applies to personal information that we receive through the Application (and its packaged CiteTex extension), our website at (the "Website") [https://typenbash.xyz](), and our related support communications (collectively, the "Services"). It does not govern the practices of third parties, including GitHub, or any application you preview through the Application's WebKit component. Those parties are subject to their own policies.
 
 Questions. Privacy inquiries may be directed to [vd@vadesai.com](mailto: vd@vadesai.com).
 
@@ -87,7 +89,7 @@ Submit a request to [vd@vadesai.com](mailto: vd@vadesai.com), identifying the ri
 If we decline to act on your request, you may appeal by replying to our decision, or by writing to [vd@vadesai.com](mailto: vd@vadesai.com) with the subject line "Appeal." We shall inform you in writing of the outcome within the period required by applicable law.
 
 ### 5.3 Complaints
-You may lodge a complaint with the relevant regulator. Depending on your residence, this may be the California Privacy Protection Agency or the California Attorney General, the Indiana Attorney General, or the attorney general of your state. We encourage you to contact us first so that we may attempt to resolve your concern directly.
+You may lodge a complaint with the relevant regulator. Depending on your residence, this may be the California Privacy Protection Agency or the California Attorney General, the Indiana Attorney General, or your state's attorney general. We encourage you to contact us first so we can try to resolve your concern directly.
 
 ## 6. Data Security
 We implement reasonable administrative, technical, and organizational safeguards appropriate to the nature of the personal information we hold and the risks presented, consistent with an enhanced data risk profile. These include limiting access to personal information to persons with a legitimate need for it, and relying upon the infrastructure and security controls of our hosting and payment providers.
@@ -138,11 +140,12 @@ The Application does not collect personal information. The following table descr
 
 We have not collected any other category of personal information, including commercial information, internet or network activity, or device information.
 
-1. **Sensitive personal information:** We do not collect sensitive personal information as defined under the CCPA. If you connect a GitHub authorization key, the Application stores it on your device and uses it only at your direction; it is not sent to us. We do not use or disclose sensitive personal information for purposes other than those permitted by Section 1798.121(a) of the CCPA and its regulations. Accordingly, no right to limit its use is presently triggered. Should our practices change, we shall update this Policy and provide that right.
+1. **Sensitive personal information:** We do not collect sensitive personal information as defined under the CCPA. If you connect a GitHub authorization key, the Application stores it on your device and uses it only at your direction; it does not send it to us. We do not use or disclose sensitive personal information for purposes other than those permitted by Section 1798.121(a) of the CCPA and its regulations. Accordingly, we do not currently trigger the right to limit its use. Should our practices change, we shall update this Policy and provide that right.
 
 2. **Sale and sharing:** We have not sold or shared personal information in the preceding twelve months.
 
 ## 14. Automated Decision-Making
+
 We do not engage in automated decision-making or profiling that produces legal or similarly significant effects concerning you, within the meaning of Article 22 of the GDPR or comparable provisions of U.S. state privacy laws. No decision regarding your account, eligibility, or access to the Services is made solely by automated means in a manner that would significantly affect you.
 
 ## 15. Privacy Signals
@@ -159,35 +162,48 @@ TypeNBash does not operate servers that process your App content, and accordingl
 TypeNBash is established in the State of Indiana, in the United States, and may make the App available to individuals in the European Union, the European Economic Area, and the United Kingdom. As of the date of this Policy, we have not appointed a representative under Article 27 of the GDPR or the UK GDPR. Individuals in the EU or UK may contact us directly at vd@vadesai.com regarding any matter concerning the processing of their personal information. We will update this Policy if we appoint a representative.
 
 ## 18. Supervisory Authority
+
 You may lodge a complaint with the supervisory authority competent for your place of residence, place of work, or the place of the alleged infringement. We encourage you to contact us first so that we may attempt to resolve your concern directly, but you are under no obligation to do so. Competent authorities include:
+
 ### Europe
-1. **European Union / EEA:** the data protection authority of your member state, as listed in the directory of the European Data Protection Board (https://www.edpb.europa.eu).
-2. **United Kingdom:** the Information Commissioner's Office (ICO) (https://ico.org.uk).
-3. **Switzerland:** the Federal Data Protection and Information Commissioner (FDPIC) (https://www.edoeb.admin.ch).
+
+1. **European Union / EEA:** the data protection authority of your member state, as listed in the directory of the European Data Protection Board ([https://www.edpb.europa.eu](https://www.edpb.europa.eu)).
+2. **United Kingdom:** the Information Commissioner's Office (ICO) ([https://ico.org.uk](https://ico.org.uk)).
+3. **Switzerland:** the Federal Data Protection and Information Commissioner (FDPIC) ([https://www.edoeb.admin.ch](https://www.edoeb.admin.ch)).
+
 ### North America
-3. **Canada:** the Office of the Privacy Commissioner of Canada (https://www.priv.gc.ca).
-4. **Indiana:** the Office of the Indiana Attorney General (https://www.in.gov/attorneygeneral).
-5. **United States (federal):** the Federal Trade Commission (FTC) (https://www.ftc.gov).
+
+3. **Canada:** the Office of the Privacy Commissioner of Canada ([https://www.priv.gc.ca](https://www.priv.gc.ca)).
+4. **Indiana:** the Office of the Indiana Attorney General ([https://www.in.gov/attorneygeneral](https://www.in.gov/attorneygeneral)).
+5. **United States (federal):** the Federal Trade Commission (FTC) ([https://www.ftc.gov](https://www.ftc.gov)).
 6. **Other U.S. states:** the attorney general or designated privacy regulator of your state of residence.
+
 ### South America
-7. **Brazil:** the Autoridade Nacional de Proteção de Dados (ANPD) (https://www.gov.br/anpd).
-8. **Argentina:** the Agencia de Acceso a la Información Pública (AAIP) (https://www.argentina.gob.ar/aaip).
+
+7. **Brazil:** the Autoridade Nacional de Proteção de Dados (ANPD) ([https://www.gov.br/anpd](https://www.gov.br/anpd)).
+8. **Argentina:** the Agencia de Acceso a la Información Pública (AAIP) ([https://www.argentina.gob.ar/aaip](https://www.argentina.gob.ar/aaip)).
+
 ### Asia & Pacific
-9. **Australia:** the Office of the Australian Information Commissioner (OAIC) (https://www.oaic.gov.au).
-10. **New Zealand:** the Office of the Privacy Commissioner (https://www.privacy.org.nz).
-11. **Japan:** the Personal Information Protection Commission (PPC) (https://www.ppc.go.jp/en/).
-12. **South Korea:** the Personal Information Protection Commission (PIPC) (https://www.pipc.go.kr/eng/).
-13. **Singapore:** the Personal Data Protection Commission (PDPC) (https://www.pdpc.gov.sg).
-14. **Hong Kong:** the Office of the Privacy Commissioner for Personal Data (PCPD) (https://www.pcpd.org.hk).
-15. **India:** Ministry of Electronics and Information Technology (MeitY): Data Protection Board of India (DPBI) (https://www.meity.gov.in/content/data-protection-board-india)
+
+9. **Australia:** the Office of the Australian Information Commissioner (OAIC) ([https://www.oaic.gov.au](https://www.oaic.gov.au)).
+10. **New Zealand:** the Office of the Privacy Commissioner ([https://www.privacy.org.nz](https://www.privacy.org.nz)).
+11. **Japan:** the Personal Information Protection Commission (PPC) ([https://www.ppc.go.jp/en/](https://www.ppc.go.jp/en/)).
+12. **South Korea:** the Personal Information Protection Commission (PIPC) ([https://www.pipc.go.kr/eng/](https://www.pipc.go.kr/eng/)).
+13. **Singapore:** the Personal Data Protection Commission (PDPC) ([https://www.pdpc.gov.sg](https://www.pdpc.gov.sg)).
+14. **Hong Kong:** the Office of the Privacy Commissioner for Personal Data (PCPD) ([https://www.pcpd.org.hk](https://www.pcpd.org.hk)).
+15. **India:** Ministry of Electronics and Information Technology (MeitY): Data Protection Board of India (DPBI) ([https://www.meity.gov.in/content/data-protection-board-india](https://www.meity.gov.in/content/data-protection-board-india))
+
 ### Middle East & Africa
-16. **South Africa:** the Information Regulator (https://inforegulator.org.za).
-17. **Nigeria:** Nigeria Data Protection Commission (NDPC) (https://ndpc.gov.ng)
-18. **Kenya:** Office of the Data Protection Commissioner (ODPC) (https://www.odpc.go.ke/file-a-complaint/)
-19. **Israel:** The Privacy Protection Authority (https://www.gov.il/en/pages/public_inquiries_ilita)
-20. **Saudi Arabia:** National Data Governance Platform (https://dgp.sdaia.gov.sa/wps/portal/pdp/services/ReportsComplaints)
-21. **UAE:** Data Office of the United Arab Emirates (https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws)
+
+16. **South Africa:** the Information Regulator ([https://inforegulator.org.za](https://inforegulator.org.za)).
+17. **Nigeria:** Nigeria Data Protection Commission (NDPC) ([https://ndpc.gov.ng](https://ndpc.gov.ng))
+18. **Kenya:** Office of the Data Protection Commissioner (ODPC) ([https://www.odpc.go.ke/file-a-complaint/](https://www.odpc.go.ke/file-a-complaint/))
+19. **Israel:** The Privacy Protection Authority ([https://www.gov.il/en/pages/public_inquiries_ilita](https://www.gov.il/en/pages/public_inquiries_ilita))
+20. **Saudi Arabia:** National Data Governance Platform ([https://dgp.sdaia.gov.sa/wps/portal/pdp/services/ReportsComplaints](https://dgp.sdaia.gov.sa/wps/portal/pdp/services/ReportsComplaints))
+21. **UAE:** Data Office of the United Arab Emirates ([https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws](https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws))
+
 ### Global resources
-22. **Global Privacy Assembly (GPA):** an international forum of data protection and privacy authorities. Its website (https://globalprivacyassembly.org) provides information on member authorities worldwide, which you may use to locate the authority in a jurisdiction not listed above.
+
+22. **Global Privacy Assembly (GPA):** an international forum of data protection and privacy authorities. Its website ([https://globalprivacyassembly.org](https://globalprivacyassembly.org)) provides information on member authorities worldwide, which you may use to locate the authority in a jurisdiction not listed above.
 
 If your country or region is not listed, you may contact the data protection or privacy authority in your jurisdiction, or write to us at [vd@vadesai.com](mailto: vd@vadesai.com), and we will do our best to help you identify the appropriate authority.

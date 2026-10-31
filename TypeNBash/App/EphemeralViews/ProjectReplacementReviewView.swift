@@ -16,12 +16,12 @@ struct ProjectReplacementReviewView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Line \(change.match.line)").foregroundStyle(.secondary)
                             let original = (replacement.file.text as NSString).substring(with: change.match.range)
-                            Text("− " + String(original.prefix(300))).foregroundStyle(.red)
-                            Text("+ " + String(change.replacement.prefix(300))).foregroundStyle(.green)
+                            Text("− " + String(original.prefix(300))).foregroundStyle(Color.diffRemoved)
+                            Text("+ " + String(change.replacement.prefix(300))).foregroundStyle(Color.diffAdded)
                             if original.count > 300 || change.replacement.count > 300 {
                                 DisclosureGroup("Show full replacement") {
-                                    Text("− " + original).foregroundStyle(.red)
-                                    Text("+ " + change.replacement).foregroundStyle(.green)
+                                    Text("− " + original).foregroundStyle(Color.diffRemoved)
+                                    Text("+ " + change.replacement).foregroundStyle(Color.diffAdded)
                                 }
                             }
                         }.font(.system(.caption, design: .monospaced)).textSelection(.enabled)

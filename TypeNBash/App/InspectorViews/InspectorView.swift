@@ -62,7 +62,7 @@ struct WorkspaceInspector: View {
                         )
                     }
                 case .writing:
-                    if subselection == .stats || !session.fileBrowser.supportsCitations {
+                    if subselection == .stats  {
                         WritingInspector(model: session.fileBrowser)
                     } else if let bibliography = session.bibliography {
                         BibliographyInspector(

@@ -16,7 +16,10 @@
         "numbers": "#786DFF",
         "strings": "#FF2C38",
         "characters": "#786DFF",
-        "comments": "#41CC45"
+        "comments": "#41CC45",
+        "attributes": "#E47C48",
+        "diffRemoved": "#FF4245",
+        "diffAdded": "#2ECC46"
     },
     "vscodeDarkPlusInspired": {
         "background": "#1E1E1E",
@@ -35,7 +38,10 @@
         "numbers": "#B5CEA8",
         "strings": "#CE9178",
         "characters": "#D7BA7D",
-        "comments": "#6A9955"
+        "comments": "#6A9955",
+        "attributes": "#E47C48",
+        "diffRemoved": "",
+        "diffAdded": ""
     },
     "oneDarkInspired": {
         "background": "#282C34",
@@ -54,7 +60,10 @@
         "numbers": "#D19A66",
         "strings": "#98C379",
         "characters": "#56B6C2",
-        "comments": "#5C6370"
+        "comments": "#5C6370",
+        "attributes": "#E47C48",
+        "diffRemoved": "",
+        "diffAdded": ""
     },
     "draculaInspired": {
         "background": "#282A36",
@@ -73,7 +82,9 @@
         "numbers": "#BD93F9",
         "strings": "#F1FA8C",
         "characters": "#FFB86C",
-        "comments": "#6272A4"
+        "attributes": "#E47C48",
+        "diffRemoved": "",
+        "diffAdded": ""
     },
     "nordInspired": {
         "background": "#2E3440",
@@ -92,7 +103,10 @@
         "numbers": "#B48EAD",
         "strings": "#A3BE8C",
         "characters": "#EBCB8B",
-        "comments": "#616E88"
+        "comments": "#616E88",
+        "attributes": "#E47C48",
+        "diffRemoved": "",
+        "diffAdded": ""
     },
     "tokyoNightInspired": {
         "background": "#1A1B26",
@@ -111,7 +125,10 @@
         "numbers": "#FF9E64",
         "strings": "#9ECE6A",
         "characters": "#73DACA",
-        "comments": "#565F89"
+        "comments": "#565F89",
+        "attributes": "#E47C48",
+        "diffRemoved": "",
+        "diffAdded": ""
     },
     "githubLightInspired": {
         "background": "#FFFFFF",
@@ -130,6 +147,9 @@
         "numbers": "#0550AE",
         "strings": "#0A3069",
         "characters": "#0550AE",
-        "comments": "#6E7781"
+        "comments": "#6E7781",
+        "attributes": "#E47C48",
+        "diffRemoved": "",
+        "diffAdded": ""
     }
 }

@@ -1,15 +1,6 @@
 {
-  "originHash" : "752e20dce778db58b1ee3728fe1649e2b10105f91ced275907a1c189a4b0163d",
+  "originHash" : "f767c1a9d7f260d464360b80d5e82c367471accca66fa560afd7ab0cf8f34487",
   "pins" : [
-    {
-      "identity" : "highlighterswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/smittytone/HighlighterSwift",
-      "state" : {
-        "revision" : "fe7aae9c9b31d3b296fd3d2dd575e1a207bb29e0",
-        "version" : "3.1.0"
-      }
-    },
     {
       "identity" : "libgit2",
       "kind" : "remoteSourceControl",
@@ -38,12 +29,12 @@
       }
     },
     {
-      "identity" : "swift-markdown-engine",
+      "identity" : "swift-concurrency-extras",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nodes-app/swift-markdown-engine.git",
+      "location" : "https://github.com/pointfreeco/swift-concurrency-extras",
       "state" : {
-        "revision" : "d1421012aeece640e2c2e47e0e573a93cbe2a420",
-        "version" : "0.13.0"
+        "revision" : "8a4260f7373493435bd21194585c95b72bfdd401",
+        "version" : "1.4.3"
       }
     },
     {
@@ -98,6 +89,24 @@
       "state" : {
         "revision" : "5d14406844143538cd8f8851d2d8a67c1fe443e5",
         "version" : "1.20.0"
+      }
+    },
+    {
+      "identity" : "swiftui-math",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/swiftui-math",
+      "state" : {
+        "revision" : "0b5c2cfaaec8d6193db206f675048eeb5ce95f71",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "textual",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/textual.git",
+      "state" : {
+        "revision" : "01b51875a5406eefc95f52a058cb059e7bc94dc4",
+        "version" : "0.5.0"
       }
     },
     {

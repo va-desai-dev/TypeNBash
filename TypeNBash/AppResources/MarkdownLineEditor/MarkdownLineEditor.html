@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>/*{{CSS}}*/</style>
+</head>
+<body>
+<div id="find" role="search" hidden>
+    <div class="find-row">
+        <input id="find-query" type="text" placeholder="Find" aria-label="Find" spellcheck="false" autocomplete="off">
+        <span id="find-count" aria-live="polite"></span>
+        <button id="find-prev" type="button" title="Previous (⇧⌘G)" aria-label="Previous match">‹</button>
+        <button id="find-next" type="button" title="Next (⌘G)" aria-label="Next match">›</button>
+        <button id="find-done" type="button" title="Done (Esc)">Done</button>
+    </div>
+    <div class="find-row">
+        <input id="find-replace" type="text" placeholder="Replace" aria-label="Replace with" spellcheck="false" autocomplete="off">
+        <button id="find-replace-one" type="button">Replace</button>
+        <button id="find-replace-all" type="button">All</button>
+    </div>
+</div>
+<div id="doc" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Markdown"></div>
+<script>/*{{HIGHLIGHT}}*/</script>
+<script>/*{{JS}}*/</script>
+</body>
+</html>

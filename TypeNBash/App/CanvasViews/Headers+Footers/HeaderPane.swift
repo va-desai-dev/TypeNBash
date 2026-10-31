@@ -41,10 +41,9 @@ struct EditorSaveButton: View {
                 model.save()
             }
         } label: {
-            Label("Save", systemImage: "square.and.arrow.down")
+            Label("Save", systemImage: "checkmark")
         }
-        .buttonStyle(.bordered)
-        .labelStyle(.titleOnly)
+        .buttonStyle(.glassButton)
         .keyboardShortcut("s", modifiers: .command)
         .disabled((!model.hasUnsavedChanges && !session.hasPendingCSVEdit) || model.isPreviewTruncated || model.isSaving)
         .help(model.isPreviewTruncated ? "File truncated — cannot save" : "Save (⌘S)")
@@ -104,8 +103,8 @@ struct EditorDocumentKindLabel: View {
         Text(
             model.isReadOnly ? model.readOnlyLabel : session.syntaxController?.syntaxName ?? "Plain Text"
         )
-            .foregroundStyle(.secondary)
-            .lineLimit(1)
+        .foregroundStyle(.secondary)
+        .lineLimit(1)
     }
 }
 
@@ -114,31 +113,40 @@ struct MarkdownViewPicker: View {
     @Binding var selection: MDViewStyle
 
     var body: some View {
-        Picker("Markdown View", selection: $selection) {
-            Image(systemName: "doc.richtext")
-                .help("Formatted markdown")
-                .tag(MDViewStyle.fancy)
-            Image(systemName: "chevron.left.forwardslash.chevron.right")
-                .help("Markdown source in the code editor")
-                .tag(MDViewStyle.plain)
+        Toggle(isOn: Binding(get: {
+            selection == .fancy
+        }, set: {
+            selection = $0 ? .fancy : .plain
+        })) {
+            Label(
+                selection == .fancy ? "Formatted" : "Source",
+                systemImage: selection == .fancy ? "eye" : "chevron.left.forwardslash.chevron.right"
+            )
+            .labelStyle(.iconOnly)
         }
-        .pickerStyle(.segmented)
-        .labelsHidden()
-        .fixedSize()
+        .toggleStyle(.button)
+        .buttonStyle(.glassSegment)
     }
 }
 
 /// Copies the table grid, with its edits and column headers, as CSV.
-struct TableDataMenu: View {
+struct TableDataMenu<S: ButtonStyle>: View {
     let session: EditorSession
+    let style: S
 
     @State private var error: String?
 
     var body: some View {
-        Menu("Data") {
+        Menu {
             Button("Copy All Rows as CSV") { copyCSV(scope: .allRows) }
             Button("Copy Filtered Rows as CSV") { copyCSV(scope: .visibleRows) }
+        } label: {
+            Label("Copy Data", systemImage: "document.on.document.fill")
+                .labelStyle(.iconOnly)
         }
+        .menuStyle(.button)
+        .buttonStyle(style)
+        .menuIndicator(.hidden)
         .help("Copy the current edited table, including column headers")
         .alert("Couldn’t Prepare CSV", isPresented: Binding(
             get: { error != nil }, set: { if !$0 { error = nil } }
@@ -170,6 +178,7 @@ struct RunInConsoleButton: View {
         } label: {
             Image(systemName: "play")
         }
+        .buttonStyle(.glassSegment)
         .help("Run the selection, or the cell the caret is in, in the console (⌃⏎)")
         .accessibilityLabel("Run in Console")
         .keyboardShortcut(.return, modifiers: .control)
@@ -198,9 +207,8 @@ struct EditorOutlineMenu: View {
         } label: {
             Image(systemName: "list.bullet.indent")
         }
-        .menuStyle(.borderedButton)
-        .menuIndicator(.hidden)
-        .fixedSize()
+        .menuStyle(.button)
+        .buttonStyle(.glassSegment)
         .help("Jump to Symbol")
         .accessibilityLabel("Jump to Symbol")
     }
@@ -219,6 +227,7 @@ struct EditorFindButton: View {
         } label: {
             Image(systemName: "magnifyingglass")
         }
+        .buttonStyle(.glassSegment)
         .help("Find and Replace (⌘F)")
         .accessibilityLabel("Find and Replace")
     }
@@ -250,9 +259,8 @@ struct EditorActionsMenu: View {
         } label: {
             Image(systemName: "curlybraces")
         }
-        .menuStyle(.borderedButton)
-        .menuIndicator(.hidden)
-        .fixedSize()
+        .menuStyle(.button)
+        .buttonStyle(.glassSegment)
         .help("Editor Actions")
         .accessibilityLabel("Editor Actions")
     }
@@ -267,5 +275,86 @@ struct EditorIndentationLabel: View {
 
     var body: some View {
         Text(usesSpaces ? "Spaces: \(tabWidth)" : "Tabs: \(tabWidth)")
+    }
+}
+
+struct GlassButtonLabelStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 14, weight: .semibold))
+            .frame(width: 26, height: 26)
+            .glassEffect(.regular, in: .circle)
+    }
+}
+
+struct GlassButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var enabled
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .modifier(GlassButtonLabelStyle())
+            .foregroundStyle(enabled ? Color.foreground : Color.secondary)
+            .opacity(configuration.isPressed ? 0.7 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.96 : 1.0)
+            .labelStyle(.iconOnly)
+            .menuStyle(.button)
+            .buttonStyle(.plain)
+            .menuIndicator(.hidden)
+    }
+}
+
+extension ButtonStyle where Self == GlassButtonStyle {
+    static var glassButton: GlassButtonStyle { GlassButtonStyle() }
+}
+
+
+
+struct GlassControlGroupButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var enabled
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundStyle(enabled ? Color.foreground : Color.secondary)
+            .labelStyle(.iconOnly)
+            .menuStyle(.button)
+            .buttonStyle(.plain)
+            .menuIndicator(.hidden)
+            .font(.system(size: 14, weight: .semibold))
+            .frame(width: 26, height: 26)
+            .opacity(configuration.isPressed ? 0.7 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.96 : 1.0)
+    }
+}
+
+extension ButtonStyle where Self == GlassControlGroupButtonStyle {
+    static var glassSegment: GlassControlGroupButtonStyle { GlassControlGroupButtonStyle() }
+}
+
+/// Icon controls fused into one Liquid Glass capsule with hairlines between
+/// them, the way Pages and Notes group their editing controls. One glass
+/// shape for the whole strip: per-item unions re-materialize every time a
+/// control comes or goes, which is what made the bar assemble a piece at a time.
+struct DynamicLiquidGlassStrip<Content: View>: View {
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        Group(subviews: content) { subviews in
+            HStack(spacing: 0) {
+                ForEach(subviews) { subview in
+                    subview
+                    if subview.id != subviews.last?.id {
+                        Rectangle()
+                            .fill(Color(nsColor: .separatorColor).opacity(0.4))
+                            .frame(width: 0.5, height: 14)
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, 4)
+        .frame(height: 26)
+        .glassEffect(.regular, in: .capsule)
+        // The set of controls follows the open document; when it changes the
+        // capsule should snap to its new width, not tween through each step.
+        .transaction { $0.animation = nil }
     }
 }

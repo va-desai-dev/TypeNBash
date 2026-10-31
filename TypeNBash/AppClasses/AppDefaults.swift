@@ -29,6 +29,7 @@ enum AppDefaults {
             // Editor theme overrides are deliberately unregistered: an
             // absent value is what makes a slot fall back to TypeNBash.
             DefaultKeys.gradientBackground.rawValue: false,
+            DefaultKeys.displayMode.rawValue: DisplayMode.dark.rawValue,
 
             // File browser
             DefaultKeys.fileBrowserLayout.rawValue: FileTreeLayout.list.rawValue,

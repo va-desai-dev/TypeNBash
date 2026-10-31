@@ -17,8 +17,6 @@ struct NotebookView: View {
                     Label("No Analysis Steps", systemImage: "function")
                 } description: {
                     Text("Add a step to summarize, tabulate or correlate the captured table. Steps are saved with the project; results are recomputed.")
-                } actions: {
-                    NotebookAddStepMenu(model: model) { composing = $0 }
                 }
             } else {
                 ScrollView {
@@ -36,8 +34,8 @@ struct NotebookView: View {
             PaneBar {
                 NotebookTitle(model: model)
                 Spacer()
-                NotebookAddStepMenu(model: model) { composing = $0 }
-                NotebookActions(model: model, onOpenScript: onOpenScript)
+                NotebookAddStepMenu(model: model, onOpenScript: onOpenScript) { composing = $0 }
+                NotebookActions(model: model)
             }
         }
         .task { if !model.isLoaded { await model.load() } }
@@ -61,14 +59,19 @@ struct NotebookTitle: View {
 
     var body: some View {
         if model.hasUnsavedChanges {
-            Circle().fill(Color.orange).frame(width: 6, height: 6)
-                .help("Unsaved notebook changes")
+            Circle().fill(Color.orange)
+                .frame(width: 6, height: 6)
+                .help("Unsaved changes")
         }
         Text("Notebook").font(.headline)
         if let label = model.captureLabel {
-            Text(label).foregroundStyle(.secondary).lineLimit(1).truncationMode(.middle)
+            Text(label)
+                .foregroundStyle(Color.foreground)
+                .lineLimit(1)
+                .truncationMode(.middle)
         } else {
-            Text("No table captured").foregroundStyle(Color.orange)
+            Text("No Data Loaded")
+                .foregroundStyle(Color.diffRemoved)
                 .help("Open a CSV in the editor, then reopen the notebook to capture it.")
         }
     }
@@ -78,20 +81,47 @@ struct NotebookTitle: View {
 /// presents the composer.
 struct NotebookAddStepMenu: View {
     let model: NotebookModel
+    var onOpenScript: ((URL) -> Void)?
     let onPick: (AnalysisOperationKind) -> Void
 
     var body: some View {
-        Menu("Add Step") {
-            ForEach(AnalysisOperationKind.Family.allCases) { family in
-                Section(family.rawValue) {
-                    ForEach(AnalysisOperationKind.allCases.filter { $0.family == family }) { kind in
-                        Button(kind.title) { onPick(kind) }
+        DynamicLiquidGlassStrip {
+            Button { Task { await model.runAll() } } label: {
+                Label("Run All", systemImage: "play.fill")
+            }
+            .buttonStyle(.glassSegment)
+            .disabled(model.steps.isEmpty || !model.runningSteps.isEmpty)
+            .help(model.steps.isEmpty
+                  ? "Add a step to run"
+                  : "Recompute every step against the captured table")
+            Menu {
+                ForEach(AnalysisOperationKind.Family.allCases) { family in
+                    Section(family.rawValue) {
+                        ForEach(AnalysisOperationKind.allCases.filter { $0.family == family }) { kind in
+                            Button(kind.title) { onPick(kind) }
+                        }
+                    }
+                    Section("Syntax…") {
+                        Button("New R Notebook") {
+                            Task {
+                                if let url = await model.createRScript() { onOpenScript?(url) }
+                            }
+                        }
+                        .disabled(model.steps.isEmpty && model.capture == nil)
+                        .help(model.steps.isEmpty
+                              ? "Write an R script that loads this table, and open it. Send a cell to the console with ⌃⏎."
+                              : "Write these steps out as an R script and open it. Send a cell to the console with ⌃⏎.")
                     }
                 }
+
+            } label: {
+                Label("Add New", systemImage: "plus")
             }
+            .menuIndicator(.hidden)
+            .menuStyle(.button)
+            .buttonStyle(.glassSegment)
+            .disabled(model.capture == nil && model.availableDatasets.isEmpty)
         }
-        .fixedSize()
-        .disabled(model.capture == nil && model.availableDatasets.isEmpty)
     }
 }
 
@@ -99,36 +129,26 @@ struct NotebookAddStepMenu: View {
 struct NotebookActions: View {
     let model: NotebookModel
     /// Hands a freshly written script to whoever owns the editor.
-    var onOpenScript: ((URL) -> Void)?
 
     var body: some View {
-        // Each of these says why it is unavailable. A greyed button with no
-        // reason sends people looking for a cause that isn't there.
-        Button("Run All") { Task { await model.runAll() } }
-            .disabled(model.steps.isEmpty || !model.runningSteps.isEmpty)
-            .help(model.steps.isEmpty
-                  ? "Add a step to run"
-                  : "Recompute every step against the captured table")
-        Button("New R Notebook") {
-            Task {
-                if let url = await model.createRScript() { onOpenScript?(url) }
+        DynamicLiquidGlassStrip {
+            Button { Task { await model.export() } } label: {
+                Label("Export results", systemImage: "square.and.arrow.up")
             }
-        }
-        .disabled(model.steps.isEmpty && model.capture == nil)
-        .help(model.steps.isEmpty
-              ? "Write an R script that loads this table, and open it. Send a cell to the console with ⌃⏎."
-              : "Write these steps out as an R script and open it. Send a cell to the console with ⌃⏎.")
-        Button("Export") { Task { await model.export() } }
+            .buttonStyle(.glassSegment)
             .disabled(model.results.isEmpty)
             .help(model.results.isEmpty
                   ? "Run a step to have results to export"
                   : "Write these results to the project's output folder")
-        Button("Save") { Task { await model.save() } }
-            .buttonStyle(.bordered)
+            Button { Task { await model.save() } } label: {
+                Label("Save", systemImage: "checkmark")
+            }
+            .buttonStyle(.glassSegment)
             .disabled(!model.hasUnsavedChanges)
             .help(model.hasUnsavedChanges
                   ? "Save the steps to \(AnalysisNotebookFile.filename)"
                   : "No unsaved changes")
+        }
     }
 }
 
@@ -321,8 +341,8 @@ struct NotebookMissingCodesField: View {
             .frame(maxWidth: 260)
             .focused($isEditingCodes)
             .onSubmit { self.commitCodes() }
-            // Clicking away is how a field in a status bar is usually
-            // left, so losing focus commits rather than discarding.
+        // Clicking away is how a field in a status bar is usually
+        // left, so losing focus commits rather than discarding.
             .onChange(of: isEditingCodes) { _, editing in if !editing { self.commitCodes() } }
             .help("Cell text that counts as missing rather than unusable. Blanks always count. N/A is not included by default, because it usually marks a meaningful skip rather than absent data. Changing this re-runs the steps that have already run.")
             .onAppear { missingCodesField = model.missingCodes.joined(separator: ", ") }
@@ -591,8 +611,8 @@ private struct NotebookStepComposer: View {
             case .oneSampleT: return Double(testValue.trimmingCharacters(in: .whitespaces)) != nil
             case .linearRegression:
                 return !selection.isEmpty && !selection.contains(primary)
-                    && selection.filter { categorical.contains($0) }
-                        .allSatisfy { !(levels[$0] ?? []).isEmpty }
+                && selection.filter { categorical.contains($0) }
+                    .allSatisfy { !(levels[$0] ?? []).isEmpty }
             case .crossTabulation, .chiSquareIndependence, .independentT, .pairedT, .oneWayANOVA:
                 return primary != secondary
         }
@@ -605,26 +625,26 @@ private struct NotebookStepComposer: View {
             case .correlation: .correlation(columns: picked, method: method)
             case .frequency: .frequency(column: self.reference(primary))
             case .crossTabulation:
-                .crossTabulation(rows: self.reference(primary), columns: self.reference(secondary))
+                    .crossTabulation(rows: self.reference(primary), columns: self.reference(secondary))
             case .chiSquareIndependence:
-                .chiSquareIndependence(rows: self.reference(primary), columns: self.reference(secondary))
+                    .chiSquareIndependence(rows: self.reference(primary), columns: self.reference(secondary))
             case .oneSampleT:
-                .oneSampleT(column: self.reference(primary),
-                            testValue: Double(testValue.trimmingCharacters(in: .whitespaces)) ?? 0)
+                    .oneSampleT(column: self.reference(primary),
+                                testValue: Double(testValue.trimmingCharacters(in: .whitespaces)) ?? 0)
             case .independentT:
-                .independentT(outcome: self.reference(primary), group: self.reference(secondary),
-                              variance: variance)
+                    .independentT(outcome: self.reference(primary), group: self.reference(secondary),
+                                  variance: variance)
             case .pairedT: .pairedT(first: self.reference(primary), second: self.reference(secondary))
             case .oneWayANOVA:
-                .oneWayANOVA(outcome: self.reference(primary), factor: self.reference(secondary))
+                    .oneWayANOVA(outcome: self.reference(primary), factor: self.reference(secondary))
             case .linearRegression:
-                .linearRegression(outcome: self.reference(primary),
-                                  predictors: selection.sorted().map { index in
-                                      RegressionPredictor(
-                                          column: self.reference(index),
-                                          isCategorical: categorical.contains(index),
-                                          referenceLevel: categorical.contains(index) ? baselines[index] : nil)
-                                  })
+                    .linearRegression(outcome: self.reference(primary),
+                                      predictors: selection.sorted().map { index in
+                        RegressionPredictor(
+                            column: self.reference(index),
+                            isCategorical: categorical.contains(index),
+                            referenceLevel: categorical.contains(index) ? baselines[index] : nil)
+                    })
         }
         return AnalysisStep(dataset: dataset, scope: dataset.isEmpty ? scope : .allRows,
                             missing: missing, adjustment: adjustment, operation: operation)

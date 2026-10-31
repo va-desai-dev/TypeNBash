@@ -16,6 +16,11 @@ struct WorkspacePane: View {
     @State private var showsBrowser = false
     /// Created on first show and kept, so tabs survive toggling back to the editor.
     @State private var browserModel: BrowserModel?
+    /// What the header's controls are laid out for. Opening a file blanks
+    /// `preview` until the read lands, so this holds the previous document's
+    /// layout through that gap and the bar changes once per file, not once
+    /// per loading step.
+    @State private var headerKind: HeaderKind = .text
 
     var body: some View {
         Group {
@@ -27,16 +32,15 @@ struct WorkspacePane: View {
                 }
             } else {
                 FileViewer(model: model, session: session, mdViewSelection: mdViewSelection, bibliography: bibliography)
-                    .paneBar(.top) { editorHeader }
-                    .paneBar(.bottom) {
-                        if showsFooter && !model.isReadOnly {
-                            PaneBar(edge: .bottom) {
-                                Text(session.position)
-                                Spacer()
-                                EditorIndentationLabel()
-                            }
+                    .paneBar(.top) {
+                        switch headerKind {
+                            case .markdown: editorHeader
+                            case .text: editorHeader
+                            case .table: csvHeaderItems
+                            case .readOnly: previewHeader
                         }
                     }
+
                     .onChange(of: showsBrowser) { _, shows in
                         if shows && browserModel == nil { browserModel = BrowserModel() }
                     }
@@ -45,6 +49,23 @@ struct WorkspacePane: View {
         .onChange(of: session.sourceNavigation?.id) {
             if session.sourceNavigation != nil { showsBrowser = false; mdViewSelection = .plain }
         }
+        .onChange(of: HeaderKind(model), initial: true) { _, kind in
+            if let kind { headerKind = kind }
+        }
+    }
+
+    enum HeaderKind: Equatable {
+        case text, markdown, table, readOnly
+
+        /// Nil while the file is still loading.
+        init?(_ model: FileBrowserModel) {
+            switch model.preview {
+                case .none: return nil
+                case .markdown: self = .markdown
+                case .table: self = .table
+                default: self = model.isReadOnly ? .readOnly : .text
+            }
+        }
     }
 
     /// Languages whose consoles take pasted source.
@@ -52,45 +73,49 @@ struct WorkspacePane: View {
         ["r", "py"].contains(model.selectedFile?.pathExtension.lowercased() ?? "")
     }
 
-    private var isTable: Bool {
-        if case .table = model.preview { return true }
-        return false
-    }
-
-
-    private var editorHeader: some View {
+    private var csvHeaderItems: some View {
         PaneBar {
-            if model.isReadOnly {
-                ReadOnlyBadge()
-            } else {
-                EditorSaveButton(model: model, session: session)
-            }
+            EditorSaveButton(model: model, session: session)
             Spacer()
             EditorDocumentTitle(model: model, session: session)
             Spacer()
-            EditorDocumentKindLabel(model: model, session: session)
-            if case .markdown = model.preview {
-                MarkdownViewPicker(selection: $mdViewSelection)
-            }
-            if case .table = model.preview {
-                TableDataMenu(session: session)
-            }
-            if let onRunInConsole, isScript {
-                RunInConsoleButton(session: session, run: onRunInConsole)
-            }
-            if !model.isReadOnly, !isTable {
+            TableDataMenu(session: session, style: .glassButton)
+            BrowserToggleButton(showsBrowser: $showsBrowser)
+                .buttonStyle(.glassButton)
+        }
+    }
+
+    private var previewHeader: some View {
+        PaneBar {
+            ReadOnlyBadge()
+            Spacer()
+            EditorDocumentTitle(model: model, session: session)
+            Spacer()
+            BrowserToggleButton(showsBrowser: $showsBrowser)
+                .buttonStyle(.glassButton)
+        }
+    }
+
+    private var editorHeader: some View {
+        PaneBar {
+            EditorSaveButton(model: model, session: session)
+            Spacer()
+            EditorDocumentTitle(model: model, session: session)
+            Spacer()
+            DynamicLiquidGlassStrip {
+                if headerKind == .markdown {
+                    MarkdownViewPicker(selection: $mdViewSelection)
+                }
+                if let onRunInConsole, isScript {
+                    RunInConsoleButton(session: session, run: onRunInConsole)
+                }
                 EditorOutlineMenu(session: session)
-                EditorFindButton(session: session)
                 EditorActionsMenu(session: session)
             }
             BrowserToggleButton(showsBrowser: $showsBrowser)
-                .buttonStyle(.borderedProminent)
-                .tint(.blue)
+                .buttonStyle(.glassButton)
         } accessory: {
-            // Stays mounted while hidden: it is what answers ⌘F.
-            if !model.isReadOnly {
-                EditorFindBar(session: session)
-            }
+            EditorFindBar(session: session)
         }
     }
 }

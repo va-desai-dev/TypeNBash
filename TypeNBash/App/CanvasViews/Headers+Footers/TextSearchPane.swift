@@ -26,7 +26,9 @@ struct EditorFindBar: View {
                 // Fields in one column, actions in another. The action column is pinned to
                 // its widest row's natural width and every row's buttons stretch to fill it,
                 // so both fields end at the same x and the buttons sit flush with them.
-                HStack(spacing: 6) {
+                // A `PaneBar` like every other bar, so its height, fill and divider match
+                // the sidebar's search header across the split.
+                PaneBar(spacing: 6) {
                     VStack(spacing: 4) {
                         FindField(text: $settings.findString, placeholder: "Find", systemImage: "magnifyingglass",
                                   identifier: "editor.search.query",
@@ -54,16 +56,10 @@ struct EditorFindBar: View {
                             .disabled(settings.findString.isEmpty)
                         }
                     }
-                    VStack(spacing: 4) {
-                        HStack(spacing: 6) {
-                            navigationButtons
-                            if !resultModel.matches.isEmpty { resultsButton }
-                            Button(action: session.dismissFind) { Text("Done").fillsFindRow() }
-                                .buttonStyle(.accessoryBar)
-                                .help("Close find bar (⎋)")
-                                .accessibilityLabel("Close Find Bar")
-                        }
-                        .frame(height: FindBarContent.rowHeight)
+                    .padding(.vertical, 5)
+                    VStack(alignment: .trailing , spacing: 4) {
+                        navigationButtons
+                            .frame(height: FindBarContent.rowHeight)
                         if showsReplace {
                             ControlGroup {
                                 Button { session.performFind(.replaceAndFind) } label: { Text("Replace").fillsFindRow() }
@@ -72,6 +68,7 @@ struct EditorFindBar: View {
                                     .help("Replace every match.")
                             }
                             .buttonStyle(.bordered)
+                            .controlSize(.small)
                             .frame(height: FindBarContent.rowHeight)
                             .disabled(settings.findString.isEmpty)
                         }
@@ -80,14 +77,13 @@ struct EditorFindBar: View {
                 }
                 .modifier(FindBarContent())
                 .onExitCommand(perform: session.dismissFind)
-                .onAppear { findFocus += 1 }
-                Divider()
+                .onAppear { findFocus += 1; session.incrementalSearch() }
             }
         }
         .onChange(of: settings.findString) {
             result = nil
             guard session.isFindBarPresented, settings.shouldSearchIncrementally,
-                  session.textView?.window?.isKeyWindow == true else { return }
+                  session.findTextView?.window?.isKeyWindow == true else { return }
             session.incrementalSearch()
         }
         .onChange(of: settings.replacementString) {
@@ -104,16 +100,16 @@ struct EditorFindBar: View {
         .onAppear {
             guard showObserver == nil else { return }
             showObserver = NotificationCenter.default.addObserver(for: TextFinder.ShowFindInterfaceMessage.self) { message in
-                guard let client = message.client, client === session.textView else { return }
+                guard let client = message.client, client === session.findTextView else { return }
                 session.find()
             }
             resultObserver = NotificationCenter.default.addObserver(for: TextFinder.DidFindMessage.self) { message in
-                guard session.isFindBarPresented, let textView = session.textView,
+                guard session.isFindBarPresented, let textView = session.findTextView,
                       message.clientIdentifier == ObjectIdentifier(textView) else { return }
                 result = message.result
             }
             allResultsObserver = NotificationCenter.default.addObserver(for: TextFinder.DidFindAllMessage.self) { message in
-                guard session.isFindBarPresented, let client = message.client, client === session.textView else { return }
+                guard session.isFindBarPresented, let client = message.client, client === session.findTextView else { return }
                 resultModel.matches = message.matches
                 resultModel.findString = message.findString
                 resultModel.target = client
@@ -149,29 +145,22 @@ struct EditorFindBar: View {
         }
     }
 
-    private var resultsButton: some View {
-        Button { showsResults.toggle() } label: {
-            Image(systemName: "list.bullet.rectangle")
-        }
-        .help("Show the Find All results.")
-        .accessibilityLabel("Find All Results")
-        .popover(isPresented: $showsResults, arrowEdge: .bottom) {
-            FindPanelResultView(model: resultModel) { showsResults = false }
-                .frame(width: 560, height: 280).padding(.bottom, 8)
-        }
-    }
-
     private var navigationButtons: some View {
         ControlGroup {
             Button { session.performFind(.previousMatch) } label: { Image(systemName: "chevron.left").fillsFindRow() }
                 .keyboardShortcut("g", modifiers: [.command, .shift])
                 .help("Find the previous match (⇧⌘G)").accessibilityLabel("Find Previous")
+                .disabled(settings.findString.isEmpty)
             Button { session.performFind(.nextMatch) } label: { Image(systemName: "chevron.right").fillsFindRow() }
                 .keyboardShortcut("g", modifiers: .command)
                 .help("Find the next match (⌘G)").accessibilityLabel("Find Next")
+                .disabled(settings.findString.isEmpty)
+            Button(action: session.dismissFind) { Text("Done").fillsFindRow() }
+                .buttonStyle(.accessoryBar)
+                .help("Close find bar (⎋)")
+                .accessibilityLabel("Close Find Bar")
         }
         .buttonStyle(.bordered)
         .controlSize(.small)
-        .disabled(settings.findString.isEmpty)
     }
 }

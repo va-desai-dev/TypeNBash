@@ -56,6 +56,32 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
         }
     }
 
+    /// Where Settings stores the slot's override; `AppTheme` reads it back.
+    var defaultsKey: DefaultKey<String?> {
+        switch self {
+        case .text: DefaultKeys.textColor
+        case .background: DefaultKeys.backgroundColor
+        case .invisibles: DefaultKeys.invisiblesColor
+        case .lineHighlight: DefaultKeys.lineHighlight
+        case .insertionPoint: DefaultKeys.insertionPoint
+        case .selection: DefaultKeys.selectionColor
+        case .keywords: DefaultKeys.keywords
+        case .commands: DefaultKeys.commands
+        case .types: DefaultKeys.declaredtypes
+        case .variables: DefaultKeys.variables
+        case .values: DefaultKeys.values
+        case .numbers: DefaultKeys.numbers
+        case .strings: DefaultKeys.strings
+        case .characters: DefaultKeys.characters
+        case .comments: DefaultKeys.comments
+        case .attributes: DefaultKeys.attributes
+        case .accentColor: DefaultKeys.accentColor
+        case .secondaryForeground: DefaultKeys.secondaryColor
+        case .diffAdded: DefaultKeys.diffAddedColor
+        case .diffRemoved: DefaultKeys.diffRemovedColor
+        }
+    }
+
     /// Whether the picker offers opacity. The card sits on an opaque window,
     /// and the diff colors are washed to a fixed strength, so a translucent
     /// pick would only wash them out further.
@@ -89,8 +115,8 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
         case .attributes: theme.attributes.color
         case .accentColor: NSColor(AppTheme.defaultAccent)
         case .secondaryForeground: NSColor(AppTheme.defaultSecondary)
-        case .diffAdded: GitDiffColors.standard.added
-        case .diffRemoved: GitDiffColors.standard.removed
+        case .diffAdded: AppTheme.defaultDiffAdded
+        case .diffRemoved: AppTheme.defaultDiffRemoved
         }
     }
 
@@ -120,8 +146,8 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
         // The theme already derives its accent and muted colors from
         // `Color.accentColor`/`Color.secondary`, which apply these overrides.
         case .accentColor, .secondaryForeground: break
-        // The editor theme has no diff colors; the diff pane reads these
-        // straight from the overrides — see `diffColors`.
+        // The editor theme has no diff colors; every diff painter reads them
+        // from `AppTheme`, which applies these overrides.
         case .diffAdded, .diffRemoved: break
         }
     }
@@ -130,11 +156,10 @@ enum EditorThemeSlot: CaseIterable, Identifiable {
 
 // MARK: - Overrides
 
-/// The user's theme color overrides, read straight from user defaults.
-///
-/// A `DynamicProperty`, so any view holding one — every editor and the
-/// Settings window — re-renders when an override changes. A slot with no
-/// stored code (or an unparsable one) keeps the TypeNBash theme color.
+/// The Settings window's bindings to the stored theme overrides. Nothing
+/// paints from these: `AppTheme` reads the same defaults and is what the
+/// chrome, editors and diff views draw with. A slot with no stored code (or an
+/// unparsable one) keeps the TypeNBash color.
 struct EditorThemeOverrides: DynamicProperty {
     @AppStorage(.textColor) private var text: String?
     @AppStorage(.backgroundColor) private var background: String?
@@ -142,6 +167,8 @@ struct EditorThemeOverrides: DynamicProperty {
     @AppStorage(.lineHighlight) private var lineHighlight: String?
     @AppStorage(.insertionPoint) private var insertionPoint: String?
     @AppStorage(.selectionColor) private var selection: String?
+
+    @Environment(\.colorScheme) private var scheme
 
     @AppStorage(.keywords) private var keywords: String?
     @AppStorage(.commands) private var commands: String?
@@ -191,25 +218,8 @@ struct EditorThemeOverrides: DynamicProperty {
         colorCode(for: slot).wrappedValue.flatMap { NSColor.sRGB(colorCode: $0) }
     }
 
-    /// The diff pane's colors: the user's picks, else system green and red.
-    var diffColors: GitDiffColors {
-        GitDiffColors(added: color(for: .diffAdded) ?? GitDiffColors.standard.added,
-                      removed: color(for: .diffRemoved) ?? GitDiffColors.standard.removed)
-    }
-
     var hasOverrides: Bool {
         EditorThemeSlot.allCases.contains { colorCode(for: $0).wrappedValue != nil }
-    }
-
-    /// `theme` with every overridden slot replaced.
-    func applied(to theme: Theme) -> Theme {
-        var theme = theme
-        for slot in EditorThemeSlot.allCases {
-            if let color = color(for: slot) {
-                slot.set(color, in: &theme)
-            }
-        }
-        return theme
     }
 
     func removeAll() {
@@ -234,6 +244,14 @@ struct EditorThemePreset: Identifiable {
     let colorCodes: [EditorThemeSlot: String]
 
     var isDefault: Bool { id == Self.defaultID }
+
+    /// The mode the palette was drawn for, judged by its background. Nil for
+    /// TypeNBash, which has both.
+    var displayMode: DisplayMode? {
+        guard !isDefault, let background = colorCodes[.background].flatMap({ NSColor.sRGB(colorCode: $0) })
+        else { return nil }
+        return background.brightnessComponent < 0.5 ? .dark : .light
+    }
 
     /// "tokyoNightInspired" → "Tokyo Night".
     var label: String {
@@ -305,9 +323,14 @@ struct EditorThemePreset: Identifiable {
 extension EditorThemeOverrides {
     /// Replaces every override with `preset`'s colors. The TypeNBash preset
     /// clears the overrides instead, so the built-in light/dark theme applies.
+    /// Any other preset also switches to its own mode: the overrides hold one
+    /// color per slot, and a dark palette under light controls is unreadable.
     func apply(_ preset: EditorThemePreset) {
         for slot in EditorThemeSlot.allCases {
             colorCode(for: slot).wrappedValue = preset.isDefault ? nil : preset.colorCodes[slot]
+        }
+        if let mode = preset.displayMode {
+            UserDefaults.standard[.displayMode] = mode
         }
     }
 
@@ -323,7 +346,6 @@ extension EditorThemeOverrides {
     }
 }
 
-
 // MARK: - Controls
 
 /// The editor options shared by every editor. The same controls sit in each
@@ -336,6 +358,9 @@ struct EditorThemeControls: View {
 
     var body: some View {
         Form {
+            Section("Preferred Mode") {
+                VisualAppearancePicker()
+            }
             Section("App Theme") {
                 presetPicker
                 ForEach(EditorThemeSlot.appSlots) { row(for: $0) }

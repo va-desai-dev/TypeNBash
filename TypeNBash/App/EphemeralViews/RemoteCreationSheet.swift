@@ -87,7 +87,6 @@ struct SSHConnectionSheet: View {
         .background(isEmbedded ? Color.card : Color.card)
         .foregroundStyle(isEmbedded ? Color.primary : Color.foreground)
         .tint(Color.accentColor)
-        .preferredColorScheme(isEmbedded ? nil : .dark)
         .onAppear {
             if let initialProfile { apply(initialProfile) }
             focusedField = .host

@@ -1,8 +1,6 @@
 # Source organization
 
-`TypeNBash` contains app sources and bundled resources. Development notes and
-test harnesses live outside that directory. Xcode synchronizes the source folder,
-so moving Swift files inside it does not require individual project references.
+`TypeNBash` contains app sources and bundled resources. Development notes and test harnesses live outside that directory. Xcode **synchronizes** the source folder, so moving Swift files inside it does not require individual project references.
 
 | Folder | Responsibility |
 | --- | --- |
@@ -18,65 +16,21 @@ so moving Swift files inside it does not require individual project references.
 | `Telemetry` | System monitoring, remote telemetry and inspector rows |
 | `Agents` | Native BYOK provider adapters, tool runner, workspace tools, approvals, conversations, and chat presentation |
 | `Resources`, `Assets.xcassets` | Bundled syntax definitions and visual assets |
-
-Keep operational work in the existing models and services. Views own presentation
-state and forward actions to those objects. Editor text-system extensions remain
-together under `Editor`, separate from workspace and Git operations.
+| Keep operational work in the existing models and services. Views own presentation state and forward actions to those objects. Editor text-system extensions remain together under `Editor`, separate from workspace and Git operations. |  |
 
 ## Startup routing
 
-The app has two native scenes: a fixed-size Welcome `Window` with a system
-background and hidden title bar, and a resizable workspace `WindowGroup` with
-its own default size and canvas styling. File → Welcome to TypeNBash (Command-N)
-reopens the startup window without changing existing workspaces.
+The app has two native scenes: a fixed-size Welcome `Window` with a system background and hidden title bar, and a resizable workspace `WindowGroup` with its own default size and canvas styling. File → Welcome to TypeNBash (Command-N) reopens the startup window without changing existing workspaces. `EntryView` owns a fresh `AppRouter` each time Welcome opens. Home prepares a local workspace; New Project replaces the dashboard with an inline project form at the same welcome-window size. Its saved-project section is omitted because the dashboard already provides that list. Cancel returns to the dashboard. Selecting SSH replaces the project list with saved connection profiles. New Connection opens the shared SSH form inline in Welcome; selecting a saved connection prefills that form. Cancel returns to the SSH list, and successful connection transfers the session to a workspace window. The workspace toolbar retains the modal SSH form. Open Project uses the selected saved project, or presents the picker when nothing is selected. Cancellation and failed opens retain Welcome. On success, `WorkspaceWindows` retains the prepared router by UUID, the app opens a separate workspace window, and Welcome closes without disconnecting the transferred session. Closing a workspace releases only its session. These transient window IDs are not restored across app launches; launch starts at Welcome. `ContentView` routes project sessions to `ProjectWorkspaceView`, keyed by project identity, and unscoped Home/SSH sessions to `FreeWorkspaceView`. Each owns its terminal controller and feature presentation state. Project mode always mounts a native vertical split with editor/comparison above and console below. Changing files or opening Git changes does not replace the console. `CanvasView` shares
 
-`EntryView` owns a fresh `AppRouter` each time Welcome opens. Home prepares a local
-workspace; New Project replaces the dashboard with an inline project form at
-the same welcome-window size. Its saved-project section is omitted because the
-dashboard already provides that list. Cancel returns to the dashboard. Selecting SSH replaces the
-project list with saved connection profiles. New Connection opens the shared SSH
-form inline in Welcome; selecting a saved connection prefills that form. Cancel
-returns to the SSH list, and successful connection transfers the session to a
-workspace window. The workspace toolbar retains the modal SSH form. Open Project
-uses the selected saved project, or presents the picker when nothing is selected.
-Cancellation and failed opens retain Welcome. On success, `WorkspaceWindows`
-retains the prepared router by UUID, the app opens a separate workspace window,
-and Welcome closes without disconnecting the transferred session. Closing a
-workspace releases only its session. These transient window IDs are not restored
-across app launches; launch starts at Welcome.
+```
+only window chrome, sidebar, and telemetry; editor UI state lives in
+```
 
-`ContentView` routes project sessions to `ProjectWorkspaceView`, keyed by project
-identity, and unscoped Home/SSH sessions to `FreeWorkspaceView`. Each owns its
-terminal controller and feature presentation state. Project mode always mounts a
-native vertical split with editor/comparison above and console below. Changing
-files or opening Git changes does not replace the console. `CanvasView` shares
-only window chrome, sidebar and telemetry; editor UI state lives in
-`WorkspaceEditorPane`. Leaving a project releases its UI state.
-
-The project's `WindowSession` owns its backend, root and file browser. Console PWD
-reports are recorded as `consoleDirectory` but never navigate the project browser,
-and a local console restart replaces
-only the terminal generation, preserving the editor's draft. Home/SSH browsing
-continues to follow shell directories. This is workspace state isolation, not an
-OS security sandbox for executed commands.
-
-Terminal/editor selection is independent of startup routing. Project validation, credentials and persistence
-remain in `ProjectPickerModel` and the existing SSH flow.
-
-See `Tests/TESTS.md` for the build and integration harnesses.
+`WorkspaceEditorPane`. Leaving a project releases its UI state. The project's `WindowSession` owns its backend, root, and file browser. Console PWD reports are recorded as `consoleDirectory` but never navigate the project browser, and a local console restart replaces only the terminal generation, preserving the editor's draft. Home/SSH browsing continues to follow shell directories. This is workspace state isolation, not an OS security sandbox for executed commands. Terminal/editor selection is independent of startup routing. Project validation, credentials, and persistence remain in `ProjectPickerModel` and the existing SSH flow. See `Tests/TESTS.md` for the build and integration harnesses.
 
 ## Analysis notebook
 
-`AnalysisStep` describes a calculation as a `Codable` value; `AnalysisKernel` is
-the only thing that runs one, pure and off the main actor. `NotebookModel` owns
-a project's steps, the tables they read and the results so far, and `NotebookView`
-builds and renders those values without computing anything. Steps persist in a
-project sidecar; results do not. The toolbar action captures the editor's table
-before swapping the pane in, because showing the notebook unmounts the grid.
-`NotebookScript` emits the same steps as an R script, and `EditorSession`
-resolves the `# %%` cell around the caret so the editor can send it to the
-project console. That hand-off is one way: nothing reads R's output back.
-See `NOTEBOOK.md`.
+`AnalysisStep` describes a calculation as a `Codable` value; `AnalysisKernel` is the only thing that runs one, pure and off the main actor. `NotebookModel` owns a project's steps, the tables they read and the results so far, and `NotebookView` builds and renders those values without computing anything. Steps persist in a project sidecar; results do not. The toolbar action captures the editor's table before swapping the pane in, because showing the notebook unmounts the grid. `NotebookScript` emits the same steps as an R script, and `EditorSession` resolves the `# %%` cell around the caret so the editor can send it to the project console. That hand-off is one way: nothing reads R's output back. See `NOTEBOOK.md`.
 
 ## Project footer divider
 

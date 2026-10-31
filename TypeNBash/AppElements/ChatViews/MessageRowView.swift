@@ -104,12 +104,6 @@ private struct ToolActivityRow: View {
     }
 }
 
-enum MarkdownText {
-    static func render(_ text: String) -> AttributedString {
-        (try? AttributedString(markdown: text)) ?? AttributedString(text)
-    }
-}
-
 // ── Reasoning panel ─────────────────────────────────────────────────────────
 // Collapsible display of captured model reasoning. Collapsed by default; the
 // reader taps the header to expand or collapse it.

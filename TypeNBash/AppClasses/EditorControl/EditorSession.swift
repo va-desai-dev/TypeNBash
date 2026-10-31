@@ -8,6 +8,8 @@ import TextEditing
 @Observable final class EditorSession {
     @ObservationIgnored weak var textView: EditorTextView?
     @ObservationIgnored weak var csvGrid: CSVGridBodyView?
+    var markdownFinder: MarkdownFindController?
+    var findTextView: NSTextView? { markdownFinder?.textView ?? textView }
     var hasPendingCSVEdit = false
     var syntaxController: SyntaxController?
     var position = "Ln 1, Col 1"
@@ -103,7 +105,7 @@ import TextEditing
 
     /// Reveals the find bar and puts focus in its search field.
     func find() {
-        guard let textView else { return }
+        guard let textView = findTextView else { return }
 
         // Seed the field from the selection, the way ⌘F does elsewhere on the
         // platform — but only on the way in, so re-invoking it does not discard
@@ -125,7 +127,7 @@ import TextEditing
     /// to the text view.
     func dismissFind() {
         self.isFindBarPresented = false
-        guard let textView else { return }
+        guard let textView = findTextView else { return }
         textView.unhighlight(nil)
         textView.window?.makeFirstResponder(textView)
     }
@@ -137,6 +139,7 @@ import TextEditing
     /// land on whichever text view happens to be first responder. Addressing
     /// the session's own text view keeps a window's search inside that window.
     func performFind(_ action: TextFinder.Action) {
+        if let markdownFinder { markdownFinder.perform(action); return }
         guard let textView else { return }
         let item = NSMenuItem()
         item.tag = action.rawValue
@@ -145,6 +148,7 @@ import TextEditing
 
     /// Runs the debounced search-as-you-type pass for this editor.
     func incrementalSearch() {
+        if let markdownFinder { markdownFinder.incrementalSearch(); return }
         self.textView?.incrementalSearch(nil)
     }
 

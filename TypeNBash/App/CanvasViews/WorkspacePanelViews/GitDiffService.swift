@@ -31,11 +31,11 @@ nonisolated enum GitDiffStatus: String, Sendable {
         }
     }
 
-    var color: Color {
+    @MainActor var color: Color {
         switch self {
-        case .added: .green
+        case .added: .diffAdded
         case .modified, .renamed: .blue
-        case .deleted: .red
+        case .deleted: .diffRemoved
         case .conflicted: .yellow
         }
     }

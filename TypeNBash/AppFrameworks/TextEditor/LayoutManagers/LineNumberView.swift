@@ -35,7 +35,7 @@ final class LineNumberView: NSRulerView {
         didSet { if lineChanges != oldValue { needsDisplay = true } }
     }
     /// The added and deleted change colors, shared with the diff pane.
-    var diffColors = GitDiffColors.standard {
+    var diffColors = AppTheme.shared.diffColors {
         didSet { if diffColors != oldValue { needsDisplay = true } }
     }
     var showsChanges = false {

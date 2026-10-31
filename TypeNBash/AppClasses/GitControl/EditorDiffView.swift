@@ -41,12 +41,11 @@ struct GitDiffTextPane: NSViewRepresentable {
 
     @Environment(\.colorScheme) private var colorScheme
     @AppStorage(.editorTabWidth) private var tabWidth: Int
-    private var themeOverrides = EditorThemeOverrides()
 
-    /// The TypeNBash theme for the current appearance, with the user's
-    /// Settings overrides layered on top — the same one the source editor uses.
+    /// The app palette's editor colors for the current appearance — the same
+    /// ones the source editor uses.
     private var theme: Theme {
-        themeOverrides.applied(to: .TypeNBash(colorScheme))
+        AppTheme.shared.editorTheme(colorScheme)
     }
 
     func makeCoordinator() -> Coordinator {
@@ -105,7 +104,7 @@ struct GitDiffTextPane: NSViewRepresentable {
         // Bands run edge to edge, not just behind each line's glyphs.
         (textView.layoutManager as? LayoutManager)?.extendsBackgroundsToRowEdges = true
 
-        let colors = themeOverrides.diffColors
+        let colors = AppTheme.shared.diffColors
         ruler.colors = colors
         ruler.setRows(rows)
         context.coordinator.configureSyntax(for: fileURL, textView: textView)
@@ -129,7 +128,7 @@ struct GitDiffTextPane: NSViewRepresentable {
 
         // A new diff color re-washes the rows in place; the rows themselves
         // haven't changed.
-        let colors = themeOverrides.diffColors
+        let colors = AppTheme.shared.diffColors
         if context.coordinator.colors != colors {
             context.coordinator.recolor(colors, in: textView)
             (scrollView.verticalRulerView as? GitDiffRulerView)?.colors = colors
@@ -284,15 +283,6 @@ struct GitDiffTextPane: NSViewRepresentable {
 
 // MARK: - Row Styling
 
-/// The diff pane's two colors, from the Diff Theme settings. The gutter marker
-/// uses each as picked; the row behind it takes a light wash of the same hue.
-struct GitDiffColors: Equatable {
-    static let standard = GitDiffColors(added: .systemGreen, removed: .systemRed)
-
-    var added: NSColor
-    var removed: NSColor
-}
-
 extension GitDiffRow {
 
     /// The wash behind a row, or `nil` for unchanged context.
@@ -334,7 +324,7 @@ final class GitDiffRulerView: NSRulerView {
     /// which is how a line fragment finds its numbers again.
     private var rows: [GitDiffRow] = []
     /// The marker and band colors, matching the text view's row washes.
-    var colors: GitDiffColors = .standard {
+    var colors = AppTheme.shared.diffColors {
         didSet { if colors != oldValue { self.needsDisplay = true } }
     }
 
