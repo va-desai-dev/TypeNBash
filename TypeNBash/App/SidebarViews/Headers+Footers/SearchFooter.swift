@@ -34,7 +34,7 @@ struct BrowserSearchInput: View {
                     Image(systemName: "xmark.circle.fill")
                 }
                 .buttonStyle(.plain)
-                .foregroundStyle(.tertiary)
+                .foregroundStyle(Color.secondary)
                 .accessibilityLabel("Clear Text")
             }
         }

@@ -92,6 +92,8 @@ extension DefaultKeys {
     static let diffRemovedColor = DefaultKey<String?>("app.theme.diffRemoved")
     /// Paints the whole window with a card-to-foreground gradient instead of the flat card.
     static let gradientBackground = DefaultKey<Bool>("app.theme.gradientBackground")
+    /// Light, dark, or following the system; applied to every window.
+    static let displayMode = DefaultKey<DisplayMode>("app.theme.displayMode")
 
 
 

@@ -33,26 +33,29 @@ struct ProjectSearchControls: View {
             }
             .disabled(model.isReplacing)
             if showsFilters {
-                VStack(alignment: .leading, spacing: 6) {
-                    TextField("Include: *.swift, Sources/**", text: $model.includes)
-                    TextField("Exclude: .git, build/**", text: $model.excludes)
+                PaneBar {
+                    VStack(alignment: .leading, spacing: 6) {
+                        TextField("Include: *.swift, Sources/**", text: $model.includes)
+                        TextField("Exclude: .git, build/**", text: $model.excludes)
+                    }
+                    .padding(.vertical, 6)
                 }
                 .textFieldStyle(.roundedBorder)
                 .modifier(FindBarContent())
                 .disabled(model.isReplacing)
                 .help("Comma-separated paths; * matches a name, ** spans folders.")
-                Divider()
             }
             if let message = model.message {
-                Text(message).font(.caption).foregroundStyle(.secondary)
-                    .textSelection(.enabled).padding(.horizontal, 10).padding(.bottom, 8)
+                PaneBar {
+                    Text(message).font(.caption).foregroundStyle(.secondary)
+                        .textSelection(.enabled).padding(.vertical, 6)
+                }
             }
         }
-        .background(AppTheme.shared.windowBackground)
     }
 
     private var findRows: some View {
-        VStack(spacing: 0) {
+        PaneBar {
             VStack(spacing: 4) {
                 FindField(
                     text: $model.query,
@@ -70,10 +73,11 @@ struct ProjectSearchControls: View {
                     .disabled(model.query.isEmpty)
                 }
             }
-            .modifier(FindBarContent())
-            .onExitCommand(perform: dismiss)
-            Divider()
+            // One 24pt find row plus this padding is exactly `PaneBar.rowHeight`.
+            .padding(.vertical, 5)
         }
+        .modifier(FindBarContent())
+        .onExitCommand(perform: dismiss)
     }
 
     private var advancedOptions: some View {

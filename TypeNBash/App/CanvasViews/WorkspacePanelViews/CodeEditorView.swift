@@ -30,12 +30,10 @@ struct CodeEditorTextView: NSViewRepresentable {
     var sourceNavigationID: UUID? = nil
 
     @Environment(\.colorScheme) private var colorScheme
-    private var themeOverrides = EditorThemeOverrides()
 
-    /// The TypeNBash theme for the current appearance, with the user's
-    /// Settings overrides layered on top.
+    /// The app palette's editor colors for the current appearance.
     private var theme: Theme {
-        themeOverrides.applied(to: .TypeNBash(colorScheme))
+        AppTheme.shared.editorTheme(colorScheme)
     }
 
     func makeCoordinator() -> Coordinator {
@@ -84,7 +82,7 @@ struct CodeEditorTextView: NSViewRepresentable {
             scrollView: scrollView,
             orientation: .verticalRuler
         )
-        ruler.diffColors = themeOverrides.diffColors
+        ruler.diffColors = AppTheme.shared.diffColors
         scrollView.verticalRulerView = ruler
         scrollView.autoresizingMask = [.width, .height]
 
@@ -94,6 +92,7 @@ struct CodeEditorTextView: NSViewRepresentable {
 
         options.apply(to: textView)
         context.coordinator.textView = textView
+        session.markdownFinder?.detach()
         session.textView = textView
         textStorage.delegate = context.coordinator
         context.coordinator.configureSyntax(for: fileURL, textStorage: textStorage, theme: textView.theme)
@@ -132,7 +131,7 @@ struct CodeEditorTextView: NSViewRepresentable {
             context.coordinator.updateTheme(theme)
         }
         // The change bars share the diff pane's colors.
-        (scrollView.verticalRulerView as? LineNumberView)?.diffColors = themeOverrides.diffColors
+        (scrollView.verticalRulerView as? LineNumberView)?.diffColors = AppTheme.shared.diffColors
 
         // Follow the file's language if it changed.
         context.coordinator.configureSyntax(for: fileURL, textStorage: textView.textStorage, theme: theme)
@@ -317,72 +316,6 @@ struct CodeEditorTextView: NSViewRepresentable {
     }
 }
 
-
-// MARK: - TypeNBash Theme
-
-extension Theme {
-
-    static func TypeNBash(_ colorScheme: ColorScheme) -> Theme {
-        colorScheme == .dark ? .TypeNBashDark : .TypeNBashLight
-    }
-
-
-    private static var TypeNBashDark: Theme {
-        var theme = Theme()
-        let palette = AppTheme.shared
-        // Chrome colors follow the app theme (and the user's overrides of it),
-        // so they stay as semantic colors rather than baked-in hex.
-        theme.text = .init(color: NSColor(Color.foreground))
-        theme.background = .init(color: NSColor(palette.paneBackground))
-        theme.invisibles = .init(color: NSColor(Color.secondary.opacity(0.34)))
-        theme.lineHighlight = .init(color: NSColor(Color.accentColor.opacity(0.2)))
-        theme.insertionPoint = .init(color: .hex("#D6DEE8"), usesSystemSetting: false)
-        theme.selection = .init(
-            color: NSColor(Color.accentColor.opacity(0.5)),
-            usesSystemSetting: false
-        )
-        // Syntax colors track Xcode's "Midnight" theme. `SyntaxType` has ten
-        // slots against Midnight's thirty keys, so each slot takes the color of
-        // the Xcode role that best matches what the tree-sitter queries in
-        // SyntaxParsers/Queries actually capture into it — noted per line.
-        theme.keywords = .init(color: .hex("#D31895"))    // xcode.syntax.keyword
-        theme.commands = .init(color: .hex("#23FF83"))    // xcode.syntax.identifier.function
-        theme.types = .init(color: .hex("#5DD8FF"))       // xcode.syntax.declaration.type
-        theme.variables = .init(color: .hex("#41A1C0"))   // xcode.syntax.declaration.other
-        theme.values = .init(color: .hex("#D31895"))      // true/false/nil — keywords in Xcode
-        theme.numbers = .init(color: .hex("#786DFF"))     // xcode.syntax.number
-        theme.strings = .init(color: .hex("#FF2C38"))     // xcode.syntax.string
-        theme.characters = .init(color: .hex("#786DFF"))  // xcode.syntax.character
-        theme.comments = .init(color: .hex("#41CC45"))    // xcode.syntax.comment
-
-        // The `attributes` slot holds `@Observable`, `#available`, `#selector`
-        // — which Xcode paints as macros, not as `xcode.syntax.attribute`.
-        // Midnight's attribute navy (#2D449B) is also unreadable on black.
-        theme.attributes = .init(color: .hex("#E47C48"))  // xcode.syntax.identifier.macro
-        return theme
-    }
-
-    private static var TypeNBashLight: Theme {
-        var theme = Theme()
-        theme.text = .init(color: .hex("#242424"))
-        theme.background = .init(color: .hex("#FCFCFC"))
-        theme.invisibles = .init(color: .hex("#BDBDBD"))
-        theme.lineHighlight = .init(color: .hex("#EDF2FC"))
-        theme.insertionPoint = .init(color: .hex("#242424"), usesSystemSetting: false)
-        theme.selection = .init(color: .hex("#B8D4F7"), usesSystemSetting: false)
-        theme.keywords = .init(color: .hex("#9433B8"))
-        theme.commands = .init(color: .hex("#1F5CB8"))
-        theme.types = .init(color: .hex("#057D7A"))
-        theme.attributes = .init(color: .hex("#A35C0A"))
-        theme.variables = .init(color: .hex("#294F99"))
-        theme.values = .init(color: .hex("#1466B3"))
-        theme.numbers = .init(color: .hex("#1466B3"))
-        theme.strings = .init(color: .hex("#B83329"))
-        theme.characters = .init(color: .hex("#B83329"))
-        theme.comments = .init(color: .hex("#337A38"))
-        return theme
-    }
-}
 
 extension NSColor {
 

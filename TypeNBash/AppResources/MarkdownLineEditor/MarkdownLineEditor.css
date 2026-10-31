@@ -1,0 +1,299 @@
+/*
+ * MarkdownLineEditor.css
+ * TypeNBash
+ *
+ * Every node has fixed metrics: a line's height never changes when the caret
+ * enters it, and revealing its markers never moves its text. Line markers
+ * (`#`, `>`, `-`, `1.`) hang in the left gutter; inline markers (`**`, `` ` ``,
+ * `](url)`) appear in place on the caret's line only.
+ */
+
+/* The host passes the app theme's colors per appearance as --theme-*; the
+   system colors are the fallback. */
+:root {
+    --fg: var(--theme-fg-light, CanvasText);
+    --accent: var(--theme-accent-light, LinkText);
+    --soft: color-mix(in srgb, var(--fg) 62%, transparent);
+    --muted: color-mix(in srgb, var(--fg) 38%, transparent);
+    --sep: color-mix(in srgb, var(--fg) 16%, transparent);
+    --code-bg: color-mix(in srgb, var(--fg) 7%, transparent);
+    --step: 1.6em;          /* one list nesting level */
+    --list-base: 2em;       /* lists sit one tab in from the text column */
+    --line-gap: 0.4em;      /* extra space after each source line */
+    --mch: 7.8px;           /* marker font's character width, measured on load */
+    --gutter: 84px;
+    color-scheme: light dark;
+}
+
+@supports (color: -apple-system-label) {
+    :root {
+        --fg: var(--theme-fg-light, -apple-system-label);
+        --accent: var(--theme-accent-light, -apple-system-control-accent);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fg: var(--theme-fg-dark, CanvasText);
+        --accent: var(--theme-accent-dark, LinkText);
+    }
+    @supports (color: -apple-system-label) {
+        :root {
+            --fg: var(--theme-fg-dark, -apple-system-label);
+            --accent: var(--theme-accent-dark, -apple-system-control-accent);
+        }
+    }
+}
+
+html, body {
+    margin: 0;
+    background: transparent;
+    color: var(--fg);
+}
+
+body {
+    font: 15px/1.65 -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+#doc {
+    max-width: 880px;
+    padding: 28px 40px 50vh var(--gutter);
+    outline: none;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    caret-color: var(--accent);
+}
+
+/* ── Lines ─────────────────────────────────────────────────────────────── */
+
+.ln {
+    position: relative;
+    min-height: max(1lh, var(--math-h, 0px));
+    padding-left: calc(var(--depth, 0) * var(--step));
+}
+
+/* A line break in the source reads as a new paragraph: each line gets a little
+   space after it, while lines that wrap inside it keep the normal leading.
+   The gap is the same with or without the caret, so nothing moves. */
+.k-p, .k-lc, .k-quote { margin-bottom: var(--line-gap); }
+.k-li { margin-bottom: calc(var(--line-gap) / 2); }
+
+.k-li, .k-lc { padding-left: calc(var(--list-base) + var(--depth, 0) * var(--step)); }
+
+/* Markers are hidden until needed. Line-level ones (fences, rules, table
+   delimiters) show on the caret's line; inline ones (`**`, `` ` ``, `](url)`)
+   only for the construct the caret is in, so showing them can't make the
+   line wrap into a new row. */
+.mk { color: var(--muted); display: none; }
+.ln.active > .mk,
+.iw.reveal > .mk { display: inline; }
+
+/* List indentation is shown by depth, never by the spaces themselves. */
+.ind { display: none; }
+
+/* A line marker hangs left of the text, so showing it never shifts the text. */
+.hang { text-indent: calc(-1 * var(--hang)); }
+.hm {
+    display: inline-block;
+    width: var(--hang);
+    padding-right: 8px;
+    box-sizing: border-box;
+    text-indent: 0;
+    text-align: right;
+    white-space: pre;
+    color: var(--muted);
+    font: 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.ln:not(.active) .hm { font-size: 0; }
+.ln:not(.active) .hm::before {
+    content: attr(data-b);
+    font: 15px/1 -apple-system, system-ui, sans-serif;
+    color: var(--soft);
+}
+.task-done:not(.active) { color: var(--soft); }
+.task-done:not(.active) .hm::before { color: var(--accent); }
+.k-li .hm { cursor: default; }
+
+/* ── Headings ──────────────────────────────────────────────────────────── */
+
+.k-h1, .k-h2, .k-h3, .k-h4, .k-h5, .k-h6 { font-weight: 700; line-height: 1.3; }
+.k-h1 { font-size: 1.85em; margin: 0.7em 0 0.25em; }
+.k-h2 { font-size: 1.45em; margin: 0.65em 0 0.2em; }
+.k-h3 { font-size: 1.2em; margin: 0.6em 0 0.15em; }
+.k-h4 { font-size: 1.05em; margin: 0.5em 0 0.1em; }
+.k-h5 { font-size: 0.95em; margin: 0.5em 0 0.1em; }
+.k-h6 { font-size: 0.9em; margin: 0.5em 0 0.1em; color: var(--soft); }
+.ln:first-child { margin-top: 0; }
+
+/* ── Quotes and rules ──────────────────────────────────────────────────── */
+
+.k-quote { padding-left: 18px; color: var(--soft); }
+.k-quote::before {
+    content: "";
+    position: absolute;
+    /* reaches through the line gap so consecutive quote lines share one bar */
+    left: 2px; top: 0; bottom: calc(-1 * var(--line-gap));
+    width: 3px;
+    background: var(--sep);
+}
+
+.k-hr:not(.active)::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 50%;
+    border-top: 1px solid var(--sep);
+}
+
+/* ── Code blocks ───────────────────────────────────────────────────────── */
+
+.k-fence-open, .k-code, .k-fence-close {
+    font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: var(--code-bg);
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.k-fence-open { border-radius: 8px 8px 0 0; margin-top: 4px; }
+.k-fence-close { border-radius: 0 0 8px 8px; margin-bottom: 4px; }
+.lang { font-size: 11px; color: var(--muted); }
+
+/* ── Tables ────────────────────────────────────────────────────────────── */
+
+.k-th, .k-tr { display: flex; align-items: stretch; }
+.cell {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 3px 10px;
+    border-bottom: 1px solid var(--sep);
+}
+.k-th .cell { font-weight: 600; background: var(--code-bg); }
+/* On the caret's row, pipes overlay the cell edges instead of taking width. */
+.ln.active.k-th > .mk,
+.ln.active.k-tr > .mk {
+    flex: 0 0 0;
+    width: 0;
+    min-width: 0;
+    padding: 3px 0;
+    overflow: visible;
+    white-space: pre;
+}
+.k-tdelim {
+    font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--muted);
+}
+.k-tdelim:not(.active) { min-height: 0; height: 0; overflow: hidden; }
+
+/* ── Inline ────────────────────────────────────────────────────────────── */
+
+.strong { font-weight: 700; }
+.em { font-style: italic; }
+.strike { text-decoration: line-through; color: var(--soft); }
+.code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.86em;
+    background: var(--code-bg);
+    border-radius: 4px;
+    padding: 0.1em 0.3em;
+}
+.link { color: var(--accent); }
+.img { color: var(--soft); }
+.math { font-family: "STIX Two Math", "Times New Roman", serif; font-style: italic; }
+
+/* Typeset math: the host's image is a mask filled with the text color. */
+.iw:not(.reveal) > .math.ready {
+    display: inline-block;
+    width: var(--mw);
+    height: var(--mh);
+    /* overflow makes the box's baseline its bottom edge, which --md is measured from */
+    overflow: hidden;
+    vertical-align: calc(-1 * var(--md));
+    font-size: 0;
+    color: transparent;
+    background-color: var(--fg);
+    -webkit-mask: var(--math) center / 100% 100% no-repeat;
+    mask: var(--math) center / 100% 100% no-repeat;
+}
+
+/* ── Code tokens ───────────────────────────────────────────────────────── */
+
+:root {
+    --tok-keyword: #AD3DA4;
+    --tok-string: #D12F1B;
+    --tok-comment: #707F8C;
+    --tok-number: #272AD8;
+    --tok-function: #326D74;
+    --tok-type: #6C36A9;
+    --tok-attr: #3E8087;
+    --tok-meta: #78492A;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --tok-keyword: #FF7AB2;
+        --tok-string: #FF8170;
+        --tok-comment: #7F8C98;
+        --tok-number: #D9C97C;
+        --tok-function: #67B7A4;
+        --tok-type: #DABAFF;
+        --tok-attr: #78C2B3;
+        --tok-meta: #FD8F3F;
+    }
+}
+
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-doctag, .hljs-tag, .hljs-name { color: var(--tok-keyword); }
+.hljs-keyword { font-weight: 600; }
+.hljs-string, .hljs-regexp, .hljs-char, .hljs-template-tag { color: var(--tok-string); }
+.hljs-comment, .hljs-quote { color: var(--tok-comment); font-style: italic; }
+.hljs-number, .hljs-symbol, .hljs-bullet { color: var(--tok-number); }
+.hljs-title, .hljs-section { color: var(--tok-function); }
+.hljs-title.class_, .hljs-type, .hljs-built_in { color: var(--tok-type); }
+.hljs-attr, .hljs-attribute, .hljs-property, .hljs-variable, .hljs-template-variable, .hljs-selector-class, .hljs-selector-id { color: var(--tok-attr); }
+.hljs-meta, .hljs-meta .hljs-keyword { color: var(--tok-meta); }
+.hljs-addition { color: #2E9F47; }
+.hljs-deletion { color: #D12F1B; }
+
+/* ── Find ──────────────────────────────────────────────────────────────── */
+
+::highlight(find) { background-color: rgba(255, 214, 10, 0.32); }
+::highlight(find-current) { background-color: rgba(255, 214, 10, 0.9); color: #000; }
+
+#find {
+    position: fixed;
+    top: 10px;
+    right: 14px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    border: 1px solid var(--sep);
+    border-radius: 10px;
+    background: color-mix(in srgb, Canvas 86%, transparent);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    backdrop-filter: blur(20px) saturate(1.6);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    font: 12px/1.3 -apple-system, system-ui, sans-serif;
+}
+#find[hidden] { display: none; }
+.find-row { display: flex; align-items: center; gap: 4px; }
+#find input {
+    width: 190px;
+    padding: 4px 8px;
+    border: 1px solid var(--sep);
+    border-radius: 6px;
+    background: color-mix(in srgb, Canvas 70%, transparent);
+    color: var(--fg);
+    font: inherit;
+    outline: none;
+}
+#find input:focus { border-color: var(--accent); }
+#find button {
+    min-width: 26px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--fg) 8%, transparent);
+    color: var(--fg);
+    font: inherit;
+}
+#find button:active { background: color-mix(in srgb, var(--fg) 16%, transparent); }
+#find-count { min-width: 64px; text-align: center; color: var(--soft); }

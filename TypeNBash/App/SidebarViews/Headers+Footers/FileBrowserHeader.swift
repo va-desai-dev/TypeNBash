@@ -18,7 +18,7 @@ struct FileBrowserActionControls: View {
 
 
     var body: some View {
-        ControlGroup {
+        DynamicLiquidGlassStrip {
             FileBrowserViewOptionsMenu(tree: model.tree)
             Toggle(isOn: Bindable(model.tree).showsHiddenFiles) {
                 if model.tree.showsHiddenFiles {
@@ -35,12 +35,14 @@ struct FileBrowserActionControls: View {
                     }
                 }
             }
+            .toggleStyle(.button)
+            .buttonStyle(.glassSegment)
             .help("Show hidden files")
             Button("Refresh", systemImage: "arrow.clockwise") {
                 model.refresh()
             }
+            .buttonStyle(.glassSegment)
         }
-        .controlSize(.regular)
     }
 }
 
@@ -69,6 +71,8 @@ struct FileBrowserViewOptionsMenu: View {
         } label: {
             Label("View Options", systemImage: tree.layout == .tree ? "list.bullet.indent" : "list.bullet")
         }
+        .menuStyle(.button)
+        .buttonStyle(.glassSegment)
         .menuIndicator(.hidden)
         .help("View Options")
     }

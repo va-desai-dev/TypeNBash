@@ -8,9 +8,65 @@ import TextEditing
 @Observable final class EditorSession {
     @ObservationIgnored weak var textView: EditorTextView?
     @ObservationIgnored weak var csvGrid: CSVGridBodyView?
+    var markdownFinder: MarkdownFindController?
+    var findTextView: NSTextView? { markdownFinder?.textView ?? textView }
     var hasPendingCSVEdit = false
     var syntaxController: SyntaxController?
     var position = "Ln 1, Col 1"
+    var selectedFontTraits: NSFontTraitMask = []
+    var selectedTextDecorations: MarkdownTextDecoration = []
+    var selectedHeadingLevel: Int? = 0
+    var canSetHeadingLevel = false
+    var selectedListKind: MarkdownListKind?
+    var selectionContainsList = false
+    var canSetListKind = false
+
+    func updateFormattingState(from view: MarkdownRichTextView) {
+        selectedFontTraits = view.selectedFontTraits
+        selectedTextDecorations = view.selectedTextDecorations
+        let heading = view.headingSelection
+        selectedHeadingLevel = heading.level
+        canSetHeadingLevel = heading.canApply
+        let list = view.listSelection
+        selectedListKind = list.kind
+        selectionContainsList = list.containsList
+        canSetListKind = list.canApply
+    }
+
+    func setListKind(_ kind: MarkdownListKind) {
+        guard let view = markdownFinder?.textView as? MarkdownRichTextView, let window = view.window else { return }
+        window.makeFirstResponder(view)
+        view.setListKind(kind)
+        updateFormattingState(from: view)
+    }
+
+    func setBodyStyle() {
+        guard let view = markdownFinder?.textView as? MarkdownRichTextView, let window = view.window else { return }
+        window.makeFirstResponder(view)
+        view.setBodyStyle()
+        updateFormattingState(from: view)
+    }
+
+    func setFontTrait(_ trait: NSFontTraitMask, enabled: Bool) {
+        guard let view = markdownFinder?.textView as? MarkdownRichTextView, let window = view.window else { return }
+        window.makeFirstResponder(view)
+        view.setFontTrait(trait, enabled: enabled)
+        updateFormattingState(from: view)
+    }
+
+    func setTextDecoration(_ decoration: MarkdownTextDecoration, enabled: Bool) {
+        guard let view = markdownFinder?.textView as? MarkdownRichTextView, let window = view.window else { return }
+        window.makeFirstResponder(view)
+        view.setTextDecoration(decoration, enabled: enabled)
+        updateFormattingState(from: view)
+    }
+
+    func setHeadingLevel(_ level: Int) {
+        guard let view = markdownFinder?.textView as? MarkdownRichTextView, let window = view.window else { return }
+        window.makeFirstResponder(view)
+        view.setHeadingLevel(level)
+        updateFormattingState(from: view)
+    }
 
     /// Whether this editor's inline Find & Replace bar is showing.
     var isFindBarPresented = false
@@ -103,7 +159,7 @@ import TextEditing
 
     /// Reveals the find bar and puts focus in its search field.
     func find() {
-        guard let textView else { return }
+        guard let textView = findTextView else { return }
 
         // Seed the field from the selection, the way ⌘F does elsewhere on the
         // platform — but only on the way in, so re-invoking it does not discard
@@ -125,7 +181,7 @@ import TextEditing
     /// to the text view.
     func dismissFind() {
         self.isFindBarPresented = false
-        guard let textView else { return }
+        guard let textView = findTextView else { return }
         textView.unhighlight(nil)
         textView.window?.makeFirstResponder(textView)
     }
@@ -137,6 +193,7 @@ import TextEditing
     /// land on whichever text view happens to be first responder. Addressing
     /// the session's own text view keeps a window's search inside that window.
     func performFind(_ action: TextFinder.Action) {
+        if let markdownFinder { markdownFinder.perform(action); return }
         guard let textView else { return }
         let item = NSMenuItem()
         item.tag = action.rawValue
@@ -145,6 +202,7 @@ import TextEditing
 
     /// Runs the debounced search-as-you-type pass for this editor.
     func incrementalSearch() {
+        if let markdownFinder { markdownFinder.incrementalSearch(); return }
         self.textView?.incrementalSearch(nil)
     }
 

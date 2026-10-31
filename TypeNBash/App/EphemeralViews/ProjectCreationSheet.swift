@@ -130,7 +130,6 @@ struct ProjectCreationSheet: View {
         .background(AppTheme.shared.windowBackground)
         .foregroundStyle(isEmbedded ? Color.primary : Color.foreground)
         .tint(Color.accentColor)
-        .preferredColorScheme(isEmbedded ? nil : .dark)
         .onDisappear { model.cancel() }
         .sheet(isPresented: $model.isBrowsing) { directoryPicker }
         .confirmationDialog("Remove saved project?", isPresented: Binding(

@@ -59,7 +59,6 @@ extension NSLayoutManager {
     final func groupTemporaryAttributesUpdate(in range: NSRange, work: () throws -> Void) rethrows {
         
         guard let self = self as? any ValidationIgnorable else {
-            assertionFailure("Conforming to ValidationIgnorable protocol is expected when using groupTemporaryAttributesUpdate(in:work:).")
             return try work()
         }
         

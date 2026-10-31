@@ -6,18 +6,14 @@
 
 ---
 <a href="https://github.com/va-desai-dev/TypeNBash">TypeNBash Source Code</a> © 2026 by <a href="https://vadesai.com">Vedant A. Desai</a> is licensed under the **GNU AFFERO GENERAL PUBLIC LICENSE**
-
 ## GNU AFFERO GENERAL PUBLIC LICENSE
 Version 3, 19 November 2007
 
 Copyright (C) 2007 Free Software Foundation, Inc.
 <https://fsf.org/>
-
 Everyone is permitted to copy and distribute verbatim copies of this
 license document, but changing it is not allowed.
-
 ## Preamble
-
 The GNU Affero General Public License is a free, copyleft license for
 software and other kinds of works, specifically designed to ensure
 cooperation with the community in the case of network server software.

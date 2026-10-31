@@ -158,6 +158,11 @@ struct ProjectWorkspaceView: View {
                     } else {
                         Text(editorSession.position)
                         Spacer()
+                        EditorDocumentKindLabel(
+                            model: session.fileBrowser,
+                            session: editorSession
+                        )
+                        Spacer()
                         EditorIndentationLabel()
                     }
                 }

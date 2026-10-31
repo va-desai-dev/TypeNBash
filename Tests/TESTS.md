@@ -52,6 +52,25 @@ Next/Previous preserve field focus, Replace-and-Find preserves an independently
 focused native replacement field, and dismissing Find returns focus to the editor.
 Restores the shared Find pasteboard after the check.
 
+# Formatted Markdown checks
+
+```sh
+python3 Tests/run-editor-checks.py /path/to/DerivedData \
+  /path/to/SourcePackages MarkdownFindIntegrationChecks.swift
+```
+
+Mounts two Formatted (rich-text) Markdown editors with the production find bar,
+driven by the code editor's TextFinder. Checks that no Markdown syntax is on screen,
+that Markdown typed there (headings, quotes, lists, emphasis, code, links, fences)
+becomes formatting and saves without stray escapes,
+that loading never rewrites the file, that editing a table cell regenerates only that
+table and undo restores the source byte for byte, Tab between cells, quotes laid out
+at full width, editing a paragraph that ends in an emoji, Command-F,
+query-field focus while typing and navigating, match counts and selected ranges,
+replacement binding updates and undo/redo, pane isolation, and switching
+modes/files while Find is open. Restores the shared Find pasteboard and find
+options afterward.
+
 # Browser focus and navigation checks
 
 ```sh

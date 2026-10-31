@@ -76,23 +76,25 @@ struct FileBrowserNavigationControls: View {
     let tree: FileTreeModel
 
     var body: some View {
-        ControlGroup {
+        DynamicLiquidGlassStrip {
             Button { tree.goBack() } label: {
                 Image(systemName: "chevron.left")
             }
+            .buttonStyle(.glassSegment)
             .disabled(!tree.canGoBack)
             .help("Back")
             Button { tree.goUp() } label: {
                 Image(systemName: "smallcircle.filled.circle")
             }
+            .buttonStyle(.glassSegment)
             .disabled(!tree.canGoUp)
             .help("Enclosing folder")
             Button { tree.goForward() } label: {
                 Image(systemName: "chevron.right")
             }
+            .buttonStyle(.glassSegment)
             .disabled(!tree.canGoForward)
             .help("Forward")
         }
-        .controlSize(.regular)
     }
 }

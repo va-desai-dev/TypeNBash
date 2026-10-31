@@ -2,8 +2,8 @@ import AppKit
 import Defaults
 import SwiftUI
 
-/// The shell around every pane's find rows: font, control size, padding, background.
-/// Pane headers and footers keep their own `PaneBar` contract.
+/// Font and control sizing for every pane's find rows. The rows sit in a
+/// `PaneBar`, which supplies the padding, background and divider.
 struct FindBarContent: ViewModifier {
     static var font: NSFont { .preferredFont(forTextStyle: .body) }
     /// Every find row is this tall whatever sits beside the field, so rows in
@@ -17,10 +17,6 @@ struct FindBarContent: ViewModifier {
             .font(Font(Self.font))
             .controlSize(.small)
             .buttonStyle(.borderless)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(AppTheme.shared.windowBackground)
     }
 }
 

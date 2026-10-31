@@ -8,7 +8,7 @@ import AppKit
 import Defaults
 import SwiftUI
 import BibTeXViewer
-import MarkdownEngine
+
 
 struct FileViewer: View {
     @Bindable var model: FileBrowserModel
@@ -18,6 +18,7 @@ struct FileViewer: View {
     /// Whether `.md` files render formatted or open in the code editor.
     var mdViewSelection: MDViewStyle = .fancy
     var bibliography: BibLibrary? = nil
+    @State private var editorIsFocused = true
 
     @AppStorage(.editorShowsInvisibles) private var showsInvisibles: Bool
     @AppStorage(.editorShowsIndentGuides) private var showsIndentGuides: Bool
@@ -48,26 +49,6 @@ struct FileViewer: View {
                       automaticCompletion: automaticCompletion, usesSpaces: usesSpaces,
                       tabWidth: [2, 4, 8].contains(tabWidth) ? tabWidth : 4, showsChanges: showsChanges)
     }
-
-    let typeNBashScrollPolicy = OverscrollPolicy(
-        percent: 0.5,
-        maxPoints: 40,
-        minPoints: 20,
-        activationStartFraction: 0.15,
-        activationRangeFraction: 0.85
-        )
-
-    let typeNBashMDTheme = MarkdownEditorTheme(
-        bodyText: NSColor(Color.foreground),
-        mutedText: NSColor(Color.secondary),
-        link: NSColor(Color.accentColor),
-        incompleteLink: NSColor(Color.red.opacity(0.5)),
-        findMatchHighlight: NSColor(Color.accentColor.opacity(0.32)),
-        findCurrentMatchHighlight: NSColor(Color.accentColor),
-        highlightColor: NSColor.systemYellow.withAlphaComponent(0.32)
-        )
-
-    let typeNBashInsetMDInsets = TextInsets(horizontal: 18, vertical: 12)
 
 
     @ViewBuilder private var previewContent: some View {
@@ -126,21 +107,101 @@ struct FileViewer: View {
                     savedText: model.editorGitBaseline ?? model.savedPreviewText,
                     comparesWithGit: model.comparesEditorWithGit,
                     bibliography: bibliography, sourceNavigationID: session.sourceNavigation?.id)
-                // Keyed on the style too, so toggling swaps surfaces cleanly.
                 .id([model.selectedFile?.absoluteString, "plain"])
             case .markdown(let text):
-                    NativeTextViewWrapper(
-                        text: Binding(
-                            get: { text },
-                            set: { model.updatePreviewText($0) }
-                        ),
-                        configuration: .init(
-                            theme: typeNBashMDTheme,
-                            textInsets: typeNBashInsetMDInsets,
-                            heightBehavior: .scrolls
-                        )
-                    )
-                    .id(model.selectedFile)
+                RichMarkdownEditor(
+                    mdText: Binding(
+                        get: { text },
+                        set: { model.updatePreviewText($0) }
+                    ),
+                    editorIsFocused: $editorIsFocused,
+                    session: session,
+                    fileURL: model.selectedFile
+                )
+                .id(model.selectedFile)
         }
+    }
+}
+import MarkdownEngine
+import MarkdownEngineLatex
+
+
+// MARK: MARKDOWN ENGINE RENDERER TEST
+
+/// swift-markdown-engine's editor. Formatted now shows `RichMarkdownEditor`; this
+/// stays for comparison.
+struct MarkdownEditor: View {
+    @Binding var mdText: String
+
+    @Binding var editorIsFocused: Bool
+    let session: EditorSession
+    @State private var finder = MarkdownFindController()
+    /// The project's .bib, for green/red citation keys; nil turns the colors off.
+    var bibliography: BibLibrary? = nil
+    @Environment(\.colorScheme) private var colorScheme
+
+    /// Built once: the engine only reads its services when the view is made,
+    /// and a bridge built per body pass would be thrown away on every keystroke.
+    private static let latex = SwiftMathBridge()
+
+    private var configuration: MarkdownEditorConfiguration {
+        var config = MarkdownEditorConfiguration.default
+
+        config.services.syntaxHighlighter = MarkdownEngineCodeHighlighter.shared
+        config.services.latex = Self.latex
+
+        config.extensions = [HighlightExtension(), StrikethroughExtension()]
+        config.directives = [FontDirective(), ColorDirective()]
+        config.scrollers.hasHorizontalScroller = false
+        config.spellChecking = SpellCheckingPolicy(
+            continuousSpellChecking: false,
+            grammarChecking: false,
+            automaticSpellingCorrection: false,
+            automaticQuoteSubstitution: false
+        )
+        config.paragraph = ParagraphStyle(spacingFactor: 1.15)
+        config.theme = AppTheme.shared.markdownTheme
+        config.overscroll.maxPoints = 100
+        config.textInsets = TextInsets(horizontal: 60, vertical: 12)
+        // Typed syntax settles into rich text, as in Notes or Ulysses.
+        config.revealsFormattingAtCaret = false
+        return config
+    }
+    var body: some View {
+        NativeTextViewWrapper(
+            text: $mdText,
+            configuration: configuration,
+            fontSize: 14,
+            isFocused: $editorIsFocused
+        )
+        .background(MarkdownFindBridge(finder: finder, session: session))
+        // The engine doesn't follow the caret at full width; see the follower.
+        .background(MarkdownEngineCaretFollower())
+        // Matched and unmatched citation keys, as in the code editor.
+        .background(MarkdownEngineCitationHighlighter(library: bibliography))
+        // Code blocks take the code editor's colors, which the engine's own
+        // theme doesn't carry; restyle when they change.
+        .onChange(of: AppTheme.shared.editorTheme(colorScheme)) {
+            MarkdownEngineCodeHighlighter.shared.paletteDidChange()
+        }
+    }
+}
+
+extension AppTheme {
+    /// The engine's text colors. The Markdown editor sits straight on the
+    /// pane, so it takes the chrome's foreground rather than the code
+    /// editor's, which assumes its own background in light mode.
+    var markdownTheme: MarkdownEditorTheme {
+        MarkdownEditorTheme(
+            bodyText: NSColor(foreground),
+            mutedText: NSColor(secondary),
+            link: NSColor(accent),
+            incompleteLink: NSColor(Color.red.opacity(0.5)),
+            findMatchHighlight: NSColor.unemphasizedSelectedTextBackgroundColor,
+            findCurrentMatchHighlight: NSColor.textHighlighterColor,
+            latexLightModeText: NSColor(foreground),
+            latexDarkModeText: NSColor(foreground),
+            highlightColor: NSColor.systemYellow.withAlphaComponent(0.32)
+        )
     }
 }
